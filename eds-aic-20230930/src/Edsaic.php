@@ -3683,6 +3683,10 @@ class Edsaic extends OpenApiClient
             @$query['BizRegionId'] = $request->bizRegionId;
         }
 
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
+        }
+
         if (null !== $request->matrixSpec) {
             @$query['MatrixSpec'] = $request->matrixSpec;
         }

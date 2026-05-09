@@ -16,6 +16,11 @@ class DescribeSpecRequest extends Model
     /**
      * @var string
      */
+    public $chargeType;
+
+    /**
+     * @var string
+     */
     public $matrixSpec;
 
     /**
@@ -49,6 +54,7 @@ class DescribeSpecRequest extends Model
     public $specType;
     protected $_name = [
         'bizRegionId' => 'BizRegionId',
+        'chargeType' => 'ChargeType',
         'matrixSpec' => 'MatrixSpec',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -71,6 +77,10 @@ class DescribeSpecRequest extends Model
         $res = [];
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
+        }
+
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
 
         if (null !== $this->matrixSpec) {
@@ -121,6 +131,10 @@ class DescribeSpecRequest extends Model
         $model = new self();
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
+        }
+
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
 
         if (isset($map['MatrixSpec'])) {
