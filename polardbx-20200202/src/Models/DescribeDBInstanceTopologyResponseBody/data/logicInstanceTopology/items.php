@@ -86,6 +86,11 @@ class items extends Model
     public $engineVersion;
 
     /**
+     * @var string
+     */
+    public $instanceClusterName;
+
+    /**
      * @var int
      */
     public $lockMode;
@@ -128,6 +133,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $readType;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
@@ -165,6 +175,7 @@ class items extends Model
         'diskSize' => 'DiskSize',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
+        'instanceClusterName' => 'InstanceClusterName',
         'lockMode' => 'LockMode',
         'lockReason' => 'LockReason',
         'maintainEndTime' => 'MaintainEndTime',
@@ -173,6 +184,7 @@ class items extends Model
         'maxIops' => 'MaxIops',
         'nodeClass' => 'NodeClass',
         'phyInstanceName' => 'PhyInstanceName',
+        'readType' => 'ReadType',
         'region' => 'Region',
         'role' => 'Role',
         'status' => 'Status',
@@ -268,6 +280,10 @@ class items extends Model
             $res['EngineVersion'] = $this->engineVersion;
         }
 
+        if (null !== $this->instanceClusterName) {
+            $res['InstanceClusterName'] = $this->instanceClusterName;
+        }
+
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
         }
@@ -298,6 +314,10 @@ class items extends Model
 
         if (null !== $this->phyInstanceName) {
             $res['PhyInstanceName'] = $this->phyInstanceName;
+        }
+
+        if (null !== $this->readType) {
+            $res['ReadType'] = $this->readType;
         }
 
         if (null !== $this->region) {
@@ -405,6 +425,10 @@ class items extends Model
             $model->engineVersion = $map['EngineVersion'];
         }
 
+        if (isset($map['InstanceClusterName'])) {
+            $model->instanceClusterName = $map['InstanceClusterName'];
+        }
+
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
         }
@@ -435,6 +459,10 @@ class items extends Model
 
         if (isset($map['PhyInstanceName'])) {
             $model->phyInstanceName = $map['PhyInstanceName'];
+        }
+
+        if (isset($map['ReadType'])) {
+            $model->readType = $map['ReadType'];
         }
 
         if (isset($map['Region'])) {

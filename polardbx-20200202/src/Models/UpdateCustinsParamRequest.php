@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyDBInstanceVipRequest extends Model
+class UpdateCustinsParamRequest extends Model
 {
     /**
      * @var string
@@ -16,7 +16,7 @@ class ModifyDBInstanceVipRequest extends Model
     /**
      * @var string
      */
-    public $instanceClusterName;
+    public $name;
 
     /**
      * @var string
@@ -26,18 +26,12 @@ class ModifyDBInstanceVipRequest extends Model
     /**
      * @var string
      */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
+    public $value;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'instanceClusterName' => 'InstanceClusterName',
+        'name' => 'Name',
         'regionId' => 'RegionId',
-        'vSwitchId' => 'VSwitchId',
-        'vpcId' => 'VpcId',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -52,20 +46,16 @@ class ModifyDBInstanceVipRequest extends Model
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
-        if (null !== $this->instanceClusterName) {
-            $res['InstanceClusterName'] = $this->instanceClusterName;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
 
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -83,20 +73,16 @@ class ModifyDBInstanceVipRequest extends Model
             $model->DBInstanceName = $map['DBInstanceName'];
         }
 
-        if (isset($map['InstanceClusterName'])) {
-            $model->instanceClusterName = $map['InstanceClusterName'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
 
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

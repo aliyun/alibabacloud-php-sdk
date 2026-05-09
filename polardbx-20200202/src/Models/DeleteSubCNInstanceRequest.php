@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyDBInstanceVipRequest extends Model
+class DeleteSubCNInstanceRequest extends Model
 {
     /**
      * @var string
@@ -16,28 +16,10 @@ class ModifyDBInstanceVipRequest extends Model
     /**
      * @var string
      */
-    public $instanceClusterName;
-
-    /**
-     * @var string
-     */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'instanceClusterName' => 'InstanceClusterName',
         'regionId' => 'RegionId',
-        'vSwitchId' => 'VSwitchId',
-        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -52,20 +34,8 @@ class ModifyDBInstanceVipRequest extends Model
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
-        if (null !== $this->instanceClusterName) {
-            $res['InstanceClusterName'] = $this->instanceClusterName;
-        }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -83,20 +53,8 @@ class ModifyDBInstanceVipRequest extends Model
             $model->DBInstanceName = $map['DBInstanceName'];
         }
 
-        if (isset($map['InstanceClusterName'])) {
-            $model->instanceClusterName = $map['InstanceClusterName'];
-        }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

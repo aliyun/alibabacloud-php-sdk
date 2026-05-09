@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnStandbyMemberRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnStandbyMemberResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0Request;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0Response;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskRequest;
@@ -50,6 +52,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStoragePoolRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStoragePoolResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStructureImportTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStructureImportTaskResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSubCNInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSubCNInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSuperAccountRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSuperAccountResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateTransformOperationRequest;
@@ -68,6 +72,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Request;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Response;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteSubCNInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteSubCNInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationMaintainConfRequest;
@@ -114,6 +120,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeReques
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceConfigRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceConfigResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceEndpointRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceEndpointResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceHARequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceHAResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstancesRequest;
@@ -269,6 +277,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateBackupPolicyRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateBackupPolicyResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateCustinsParamRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateCustinsParamResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateDBInstanceSSLResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdateDBInstanceTDERequest;
@@ -498,6 +508,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 开通公网域名.
+     *
      * @param request - AllocateInstancePublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -518,6 +530,10 @@ class Polardbx extends OpenApiClient
 
         if (null !== $request->DBInstanceName) {
             @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->instanceClusterName) {
+            @$query['InstanceClusterName'] = $request->instanceClusterName;
         }
 
         if (null !== $request->ownerAccount) {
@@ -563,6 +579,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 开通公网域名.
+     *
      * @param request - AllocateInstancePublicConnectionRequest
      *
      * @returns AllocateInstancePublicConnectionResponse
@@ -1687,6 +1705,155 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 创建GDN从实例.
+     *
+     * @param request - CreateGdnStandbyMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGdnStandbyMemberResponse
+     *
+     * @param CreateGdnStandbyMemberRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateGdnStandbyMemberResponse
+     */
+    public function createGdnStandbyMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->CNNodeCount) {
+            @$query['CNNodeCount'] = $request->CNNodeCount;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cloneInstanceName) {
+            @$query['CloneInstanceName'] = $request->cloneInstanceName;
+        }
+
+        if (null !== $request->cnClass) {
+            @$query['CnClass'] = $request->cnClass;
+        }
+
+        if (null !== $request->DNNodeCount) {
+            @$query['DNNodeCount'] = $request->DNNodeCount;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dnClass) {
+            @$query['DnClass'] = $request->dnClass;
+        }
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
+        }
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->primaryZone) {
+            @$query['PrimaryZone'] = $request->primaryZone;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->secondaryZone) {
+            @$query['SecondaryZone'] = $request->secondaryZone;
+        }
+
+        if (null !== $request->series) {
+            @$query['Series'] = $request->series;
+        }
+
+        if (null !== $request->sourceInstanceRegion) {
+            @$query['SourceInstanceRegion'] = $request->sourceInstanceRegion;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->tertiaryZone) {
+            @$query['TertiaryZone'] = $request->tertiaryZone;
+        }
+
+        if (null !== $request->topologyType) {
+            @$query['TopologyType'] = $request->topologyType;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGdnStandbyMember',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGdnStandbyMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建GDN从实例.
+     *
+     * @param request - CreateGdnStandbyMemberRequest
+     *
+     * @returns CreateGdnStandbyMemberResponse
+     *
+     * @param CreateGdnStandbyMemberRequest $request
+     *
+     * @return CreateGdnStandbyMemberResponse
+     */
+    public function createGdnStandbyMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGdnStandbyMemberWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建mem0.
      *
      * @param request - CreateMem0Request
@@ -2079,6 +2246,79 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createStructureImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 开通CN子实例.
+     *
+     * @remarks
+     *
+     * @param request - CreateSubCNInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSubCNInstanceResponse
+     *
+     * @param CreateSubCNInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSubCNInstanceResponse
+     */
+    public function createSubCNInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->isAutoCreate) {
+            @$query['IsAutoCreate'] = $request->isAutoCreate;
+        }
+
+        if (null !== $request->readType) {
+            @$query['ReadType'] = $request->readType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSubCNInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSubCNInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开通CN子实例.
+     *
+     * @remarks
+     *
+     * @param request - CreateSubCNInstanceRequest
+     *
+     * @returns CreateSubCNInstanceResponse
+     *
+     * @param CreateSubCNInstanceRequest $request
+     *
+     * @return CreateSubCNInstanceResponse
+     */
+    public function createSubCNInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSubCNInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -2652,6 +2892,71 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMem0WithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除CN子实例.
+     *
+     * @remarks
+     *
+     * @param request - DeleteSubCNInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSubCNInstanceResponse
+     *
+     * @param DeleteSubCNInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteSubCNInstanceResponse
+     */
+    public function deleteSubCNInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSubCNInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSubCNInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除CN子实例.
+     *
+     * @remarks
+     *
+     * @param request - DeleteSubCNInstanceRequest
+     *
+     * @returns DeleteSubCNInstanceResponse
+     *
+     * @param DeleteSubCNInstanceRequest $request
+     *
+     * @return DeleteSubCNInstanceResponse
+     */
+    public function deleteSubCNInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSubCNInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -4030,6 +4335,75 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询endpoint列表.
+     *
+     * @param request - DescribeDBInstanceEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBInstanceEndpointResponse
+     *
+     * @param DescribeDBInstanceEndpointRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDBInstanceEndpointResponse
+     */
+    public function describeDBInstanceEndpointWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBInstanceEndpoint',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBInstanceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询endpoint列表.
+     *
+     * @param request - DescribeDBInstanceEndpointRequest
+     *
+     * @returns DescribeDBInstanceEndpointResponse
+     *
+     * @param DescribeDBInstanceEndpointRequest $request
+     *
+     * @return DescribeDBInstanceEndpointResponse
+     */
+    public function describeDBInstanceEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBInstanceEndpointWithOptions($request, $runtime);
     }
 
     /**
@@ -7851,6 +8225,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 切换交换机.
+     *
      * @remarks
      *
      * @param request - ModifyDBInstanceVipRequest
@@ -7869,6 +8245,10 @@ class Polardbx extends OpenApiClient
         $query = [];
         if (null !== $request->DBInstanceName) {
             @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->instanceClusterName) {
+            @$query['InstanceClusterName'] = $request->instanceClusterName;
         }
 
         if (null !== $request->regionId) {
@@ -7902,6 +8282,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 切换交换机.
+     *
      * @remarks
      *
      * @param request - ModifyDBInstanceVipRequest
@@ -9679,6 +10061,75 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实例的管控参数.
+     *
+     * @param request - UpdateCustinsParamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustinsParamResponse
+     *
+     * @param UpdateCustinsParamRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateCustinsParamResponse
+     */
+    public function updateCustinsParamWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCustinsParam',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCustinsParamResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实例的管控参数.
+     *
+     * @param request - UpdateCustinsParamRequest
+     *
+     * @returns UpdateCustinsParamResponse
+     *
+     * @param UpdateCustinsParamRequest $request
+     *
+     * @return UpdateCustinsParamResponse
+     */
+    public function updateCustinsParam($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustinsParamWithOptions($request, $runtime);
     }
 
     /**

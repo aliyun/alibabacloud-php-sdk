@@ -21,6 +21,11 @@ class AllocateInstancePublicConnectionRequest extends Model
     /**
      * @var string
      */
+    public $instanceClusterName;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -50,6 +55,7 @@ class AllocateInstancePublicConnectionRequest extends Model
     protected $_name = [
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'DBInstanceName' => 'DBInstanceName',
+        'instanceClusterName' => 'InstanceClusterName',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'port' => 'Port',
@@ -72,6 +78,10 @@ class AllocateInstancePublicConnectionRequest extends Model
 
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+
+        if (null !== $this->instanceClusterName) {
+            $res['InstanceClusterName'] = $this->instanceClusterName;
         }
 
         if (null !== $this->ownerAccount) {
@@ -115,6 +125,10 @@ class AllocateInstancePublicConnectionRequest extends Model
 
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
+        }
+
+        if (isset($map['InstanceClusterName'])) {
+            $model->instanceClusterName = $map['InstanceClusterName'];
         }
 
         if (isset($map['OwnerAccount'])) {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyDBInstanceVipRequest extends Model
+class DescribeDBInstanceEndpointRequest extends Model
 {
     /**
      * @var string
@@ -14,30 +14,24 @@ class ModifyDBInstanceVipRequest extends Model
     public $DBInstanceName;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
-    public $instanceClusterName;
+    public $nextToken;
 
     /**
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'instanceClusterName' => 'InstanceClusterName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'regionId' => 'RegionId',
-        'vSwitchId' => 'VSwitchId',
-        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -52,20 +46,16 @@ class ModifyDBInstanceVipRequest extends Model
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
 
-        if (null !== $this->instanceClusterName) {
-            $res['InstanceClusterName'] = $this->instanceClusterName;
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -83,20 +73,16 @@ class ModifyDBInstanceVipRequest extends Model
             $model->DBInstanceName = $map['DBInstanceName'];
         }
 
-        if (isset($map['InstanceClusterName'])) {
-            $model->instanceClusterName = $map['InstanceClusterName'];
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
         }
 
         return $model;
