@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\ThirdswAicall\V20251127;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\QueryTaskConcurrencyRequest;
+use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\QueryTaskConcurrencyResponse;
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListRequest;
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListResponse;
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListShrinkRequest;
@@ -45,6 +47,63 @@ class ThirdswAicall extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 查询当前任务的并发数.
+     *
+     * @param request - QueryTaskConcurrencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTaskConcurrencyResponse
+     *
+     * @param QueryTaskConcurrencyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryTaskConcurrencyResponse
+     */
+    public function queryTaskConcurrencyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryTaskConcurrency',
+            'version' => '2025-11-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryTaskConcurrencyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询当前任务的并发数.
+     *
+     * @param request - QueryTaskConcurrencyRequest
+     *
+     * @returns QueryTaskConcurrencyResponse
+     *
+     * @param QueryTaskConcurrencyRequest $request
+     *
+     * @return QueryTaskConcurrencyResponse
+     */
+    public function queryTaskConcurrency($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTaskConcurrencyWithOptions($request, $runtime);
     }
 
     /**
