@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\STAROps\V20260428;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Dara\Util\StreamUtil;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateChatRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateChatResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeRequest;
@@ -14,12 +15,16 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateThreadRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateThreadResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateTicketRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateTicketResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeSkillResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteThreadRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteThreadResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeSkillRequest;
@@ -28,6 +33,8 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\GetThreadDataRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetThreadDataResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetThreadRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetThreadResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\ListArtifactsRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\ListArtifactsResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\ListDigitalEmployeeSkillsRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\ListDigitalEmployeeSkillsResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\ListDigitalEmployeeSkillVersionsRequest;
@@ -475,6 +482,71 @@ class STAROps extends OpenApiClient
     }
 
     /**
+     * 创建票据.
+     *
+     * @param request - CreateTicketRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTicketResponse
+     *
+     * @param CreateTicketRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateTicketResponse
+     */
+    public function createTicketWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessTokenExpirationTime) {
+            @$query['accessTokenExpirationTime'] = $request->accessTokenExpirationTime;
+        }
+
+        if (null !== $request->expirationTime) {
+            @$query['expirationTime'] = $request->expirationTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTicket',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tickets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建票据.
+     *
+     * @param request - CreateTicketRequest
+     *
+     * @returns CreateTicketResponse
+     *
+     * @param CreateTicketRequest $request
+     *
+     * @return CreateTicketResponse
+     */
+    public function createTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTicketWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 删除DigitalEmployee.
      *
      * @param request - DeleteDigitalEmployeeRequest
@@ -647,6 +719,85 @@ class STAROps extends OpenApiClient
         $headers = [];
 
         return $this->deleteThreadWithOptions($name, $threadId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 下载产物文件.
+     *
+     * @param request - GetArtifactRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetArtifactResponse
+     *
+     * @param string             $name
+     * @param GetArtifactRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetArtifactResponse
+     */
+    public function getArtifactWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->artifactPath) {
+            @$query['artifactPath'] = $request->artifactPath;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetArtifact',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/artifact',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'binary',
+        ]);
+        $res = new GetArtifactResponse([]);
+        $tmp = $this->callApi($params, $req, $runtime);
+        if (null !== @$tmp['body']) {
+            $respBody = StreamUtil::streamFor(@$tmp['body']);
+            $res->body = $respBody;
+        }
+
+        if (null !== @$tmp['headers']) {
+            $respHeaders = @$tmp['headers'];
+            $res->headers = Utils::stringifyMapValue($respHeaders);
+        }
+
+        if (null !== @$tmp['statusCode']) {
+            $statusCode = (int) (@$tmp['statusCode']);
+            $res->statusCode = $statusCode;
+        }
+
+        return $res;
+    }
+
+    /**
+     * 下载产物文件.
+     *
+     * @param request - GetArtifactRequest
+     *
+     * @returns GetArtifactResponse
+     *
+     * @param string             $name
+     * @param GetArtifactRequest $request
+     *
+     * @return GetArtifactResponse
+     */
+    public function getArtifact($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getArtifactWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
@@ -897,6 +1048,77 @@ class STAROps extends OpenApiClient
         $headers = [];
 
         return $this->getThreadDataWithOptions($name, $threadId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出产物文件.
+     *
+     * @param request - ListArtifactsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListArtifactsResponse
+     *
+     * @param string               $name
+     * @param ListArtifactsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListArtifactsResponse
+     */
+    public function listArtifactsWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->artifactPath) {
+            @$query['artifactPath'] = $request->artifactPath;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListArtifacts',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/artifacts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出产物文件.
+     *
+     * @param request - ListArtifactsRequest
+     *
+     * @returns ListArtifactsResponse
+     *
+     * @param string               $name
+     * @param ListArtifactsRequest $request
+     *
+     * @return ListArtifactsResponse
+     */
+    public function listArtifacts($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listArtifactsWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
