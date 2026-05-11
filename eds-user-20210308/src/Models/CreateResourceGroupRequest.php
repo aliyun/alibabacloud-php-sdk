@@ -31,12 +31,18 @@ class CreateResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $resourceClassification;
+
+    /**
+     * @var string
+     */
     public $resourceGroupName;
     protected $_name = [
         'businessChannel' => 'BusinessChannel',
         'enableAliyunResourceGroup' => 'EnableAliyunResourceGroup',
         'isResourceGroupWithOfficeSite' => 'IsResourceGroupWithOfficeSite',
         'platform' => 'Platform',
+        'resourceClassification' => 'ResourceClassification',
         'resourceGroupName' => 'ResourceGroupName',
     ];
 
@@ -62,6 +68,10 @@ class CreateResourceGroupRequest extends Model
 
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+
+        if (null !== $this->resourceClassification) {
+            $res['ResourceClassification'] = $this->resourceClassification;
         }
 
         if (null !== $this->resourceGroupName) {
@@ -93,6 +103,10 @@ class CreateResourceGroupRequest extends Model
 
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+
+        if (isset($map['ResourceClassification'])) {
+            $model->resourceClassification = $map['ResourceClassification'];
         }
 
         if (isset($map['ResourceGroupName'])) {

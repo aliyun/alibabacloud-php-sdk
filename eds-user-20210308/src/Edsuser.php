@@ -644,6 +644,10 @@ class Edsuser extends OpenApiClient
             @$query['Platform'] = $request->platform;
         }
 
+        if (null !== $request->resourceClassification) {
+            @$query['ResourceClassification'] = $request->resourceClassification;
+        }
+
         if (null !== $request->resourceGroupName) {
             @$query['ResourceGroupName'] = $request->resourceGroupName;
         }
@@ -1365,6 +1369,10 @@ class Edsuser extends OpenApiClient
 
         if (null !== $request->platform) {
             @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->resourceClassification) {
+            @$query['ResourceClassification'] = $request->resourceClassification;
         }
 
         if (null !== $request->resourceGroupIds) {

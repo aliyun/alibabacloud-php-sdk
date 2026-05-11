@@ -39,6 +39,11 @@ class DescribeResourceGroupsRequest extends Model
     public $platform;
 
     /**
+     * @var string
+     */
+    public $resourceClassification;
+
+    /**
      * @var string[]
      */
     public $resourceGroupIds;
@@ -54,6 +59,7 @@ class DescribeResourceGroupsRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'platform' => 'Platform',
+        'resourceClassification' => 'ResourceClassification',
         'resourceGroupIds' => 'ResourceGroupIds',
         'resourceGroupName' => 'ResourceGroupName',
     ];
@@ -101,6 +107,10 @@ class DescribeResourceGroupsRequest extends Model
 
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
+        }
+
+        if (null !== $this->resourceClassification) {
+            $res['ResourceClassification'] = $this->resourceClassification;
         }
 
         if (null !== $this->resourceGroupIds) {
@@ -158,6 +168,10 @@ class DescribeResourceGroupsRequest extends Model
 
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
+        }
+
+        if (isset($map['ResourceClassification'])) {
+            $model->resourceClassification = $map['ResourceClassification'];
         }
 
         if (isset($map['ResourceGroupIds'])) {
