@@ -23,6 +23,11 @@ class ruleHitInfo extends Model
     /**
      * @var string
      */
+    public $llmResponse;
+
+    /**
+     * @var string
+     */
     public $rid;
 
     /**
@@ -32,6 +37,7 @@ class ruleHitInfo extends Model
     protected $_name = [
         'conditionInfo' => 'ConditionInfo',
         'hit' => 'Hit',
+        'llmResponse' => 'LlmResponse',
         'rid' => 'Rid',
         'tid' => 'Tid',
     ];
@@ -56,6 +62,10 @@ class ruleHitInfo extends Model
 
         if (null !== $this->hit) {
             $res['Hit'] = null !== $this->hit ? $this->hit->toArray($noStream) : $this->hit;
+        }
+
+        if (null !== $this->llmResponse) {
+            $res['LlmResponse'] = $this->llmResponse;
         }
 
         if (null !== $this->rid) {
@@ -83,6 +93,10 @@ class ruleHitInfo extends Model
 
         if (isset($map['Hit'])) {
             $model->hit = hit::fromMap($map['Hit']);
+        }
+
+        if (isset($map['LlmResponse'])) {
+            $model->llmResponse = $map['LlmResponse'];
         }
 
         if (isset($map['Rid'])) {

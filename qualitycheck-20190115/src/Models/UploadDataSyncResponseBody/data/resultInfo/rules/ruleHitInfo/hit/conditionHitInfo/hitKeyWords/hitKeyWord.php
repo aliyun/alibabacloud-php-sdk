@@ -9,9 +9,19 @@ use AlibabaCloud\Dara\Model;
 class hitKeyWord extends Model
 {
     /**
+     * @var string
+     */
+    public $customizeCode;
+
+    /**
      * @var int
      */
     public $from;
+
+    /**
+     * @var string
+     */
+    public $isMatch;
 
     /**
      * @var int
@@ -33,7 +43,9 @@ class hitKeyWord extends Model
      */
     public $val;
     protected $_name = [
+        'customizeCode' => 'CustomizeCode',
         'from' => 'From',
+        'isMatch' => 'IsMatch',
         'pid' => 'Pid',
         'tid' => 'Tid',
         'to' => 'To',
@@ -48,8 +60,16 @@ class hitKeyWord extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customizeCode) {
+            $res['CustomizeCode'] = $this->customizeCode;
+        }
+
         if (null !== $this->from) {
             $res['From'] = $this->from;
+        }
+
+        if (null !== $this->isMatch) {
+            $res['IsMatch'] = $this->isMatch;
         }
 
         if (null !== $this->pid) {
@@ -79,8 +99,16 @@ class hitKeyWord extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomizeCode'])) {
+            $model->customizeCode = $map['CustomizeCode'];
+        }
+
         if (isset($map['From'])) {
             $model->from = $map['From'];
+        }
+
+        if (isset($map['IsMatch'])) {
+            $model->isMatch = $map['IsMatch'];
         }
 
         if (isset($map['Pid'])) {
