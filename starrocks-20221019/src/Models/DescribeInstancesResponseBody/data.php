@@ -18,6 +18,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $aiFunctionInstanceId;
+
+    /**
+     * @var string
+     */
     public $architecture;
 
     /**
@@ -166,6 +171,7 @@ class data extends Model
     public $vpcId;
     protected $_name = [
         'aclId' => 'AclId',
+        'aiFunctionInstanceId' => 'AiFunctionInstanceId',
         'architecture' => 'Architecture',
         'beginTime' => 'BeginTime',
         'enableAiFunction' => 'EnableAiFunction',
@@ -214,6 +220,10 @@ class data extends Model
         $res = [];
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
+        }
+
+        if (null !== $this->aiFunctionInstanceId) {
+            $res['AiFunctionInstanceId'] = $this->aiFunctionInstanceId;
         }
 
         if (null !== $this->architecture) {
@@ -363,6 +373,10 @@ class data extends Model
         $model = new self();
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
+        }
+
+        if (isset($map['AiFunctionInstanceId'])) {
+            $model->aiFunctionInstanceId = $map['AiFunctionInstanceId'];
         }
 
         if (isset($map['Architecture'])) {

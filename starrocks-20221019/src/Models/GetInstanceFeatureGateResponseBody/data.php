@@ -107,6 +107,11 @@ class data extends Model
      * @var bool
      */
     public $supportCompactionService;
+
+    /**
+     * @var bool
+     */
+    public $supportCompactionServiceWhiteList;
     protected $_name = [
         'consoleControlRestart' => 'ConsoleControlRestart',
         'enableManageMv' => 'EnableManageMv',
@@ -128,6 +133,7 @@ class data extends Model
         'supportMultiAZ' => 'SupportMultiAZ',
         'useComputeNode' => 'UseComputeNode',
         'supportCompactionService' => 'supportCompactionService',
+        'supportCompactionServiceWhiteList' => 'supportCompactionServiceWhiteList',
     ];
 
     public function validate()
@@ -228,6 +234,10 @@ class data extends Model
             $res['supportCompactionService'] = $this->supportCompactionService;
         }
 
+        if (null !== $this->supportCompactionServiceWhiteList) {
+            $res['supportCompactionServiceWhiteList'] = $this->supportCompactionServiceWhiteList;
+        }
+
         return $res;
     }
 
@@ -324,6 +334,10 @@ class data extends Model
 
         if (isset($map['supportCompactionService'])) {
             $model->supportCompactionService = $map['supportCompactionService'];
+        }
+
+        if (isset($map['supportCompactionServiceWhiteList'])) {
+            $model->supportCompactionServiceWhiteList = $map['supportCompactionServiceWhiteList'];
         }
 
         return $model;
