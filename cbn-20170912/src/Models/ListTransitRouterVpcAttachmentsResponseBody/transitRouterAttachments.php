@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterVpcAttachmentsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterVpcAttachmentsResponseBody\transitRouterAttachments\options;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterVpcAttachmentsResponseBody\transitRouterAttachments\tags;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterVpcAttachmentsResponseBody\transitRouterAttachments\zoneMappings;
 
@@ -34,6 +35,11 @@ class transitRouterAttachments extends Model
      * @var string
      */
     public $managedService;
+
+    /**
+     * @var options
+     */
+    public $options;
 
     /**
      * @var string
@@ -105,6 +111,7 @@ class transitRouterAttachments extends Model
         'chargeType' => 'ChargeType',
         'creationTime' => 'CreationTime',
         'managedService' => 'ManagedService',
+        'options' => 'Options',
         'orderType' => 'OrderType',
         'resourceType' => 'ResourceType',
         'status' => 'Status',
@@ -122,6 +129,9 @@ class transitRouterAttachments extends Model
 
     public function validate()
     {
+        if (null !== $this->options) {
+            $this->options->validate();
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -155,6 +165,10 @@ class transitRouterAttachments extends Model
 
         if (null !== $this->managedService) {
             $res['ManagedService'] = $this->managedService;
+        }
+
+        if (null !== $this->options) {
+            $res['Options'] = null !== $this->options ? $this->options->toArray($noStream) : $this->options;
         }
 
         if (null !== $this->orderType) {
@@ -257,6 +271,10 @@ class transitRouterAttachments extends Model
 
         if (isset($map['ManagedService'])) {
             $model->managedService = $map['ManagedService'];
+        }
+
+        if (isset($map['Options'])) {
+            $model->options = options::fromMap($map['Options']);
         }
 
         if (isset($map['OrderType'])) {

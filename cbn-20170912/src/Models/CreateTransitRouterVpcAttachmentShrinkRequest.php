@@ -38,6 +38,11 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $optionsShrink;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -105,6 +110,7 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
         'chargeType' => 'ChargeType',
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
+        'optionsShrink' => 'Options',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -152,6 +158,10 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->optionsShrink) {
+            $res['Options'] = $this->optionsShrink;
         }
 
         if (null !== $this->ownerAccount) {
@@ -249,6 +259,10 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['Options'])) {
+            $model->optionsShrink = $map['Options'];
         }
 
         if (isset($map['OwnerAccount'])) {

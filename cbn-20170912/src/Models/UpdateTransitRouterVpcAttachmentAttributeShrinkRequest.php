@@ -26,6 +26,11 @@ class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $optionsShrink;
+
+    /**
+     * @var string
+     */
     public $orderType;
 
     /**
@@ -71,6 +76,7 @@ class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends Model
         'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
+        'optionsShrink' => 'Options',
         'orderType' => 'OrderType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -100,6 +106,10 @@ class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->optionsShrink) {
+            $res['Options'] = $this->optionsShrink;
         }
 
         if (null !== $this->orderType) {
@@ -159,6 +169,10 @@ class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['Options'])) {
+            $model->optionsShrink = $map['Options'];
         }
 
         if (isset($map['OrderType'])) {

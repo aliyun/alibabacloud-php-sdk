@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVpcAttachmentAttributeRequest\options;
 
 class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
 {
@@ -22,6 +23,11 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var options
+     */
+    public $options;
 
     /**
      * @var string
@@ -71,6 +77,7 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
         'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
+        'options' => 'Options',
         'orderType' => 'OrderType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -84,6 +91,9 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->options) {
+            $this->options->validate();
+        }
         if (\is_array($this->transitRouterVPCAttachmentOptions)) {
             Model::validateArray($this->transitRouterVPCAttachmentOptions);
         }
@@ -103,6 +113,10 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->options) {
+            $res['Options'] = null !== $this->options ? $this->options->toArray($noStream) : $this->options;
         }
 
         if (null !== $this->orderType) {
@@ -167,6 +181,10 @@ class UpdateTransitRouterVpcAttachmentAttributeRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['Options'])) {
+            $model->options = options::fromMap($map['Options']);
         }
 
         if (isset($map['OrderType'])) {

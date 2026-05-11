@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentRequest\options;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentRequest\tag;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpcAttachmentRequest\zoneMappings;
 
@@ -34,6 +35,11 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var options
+     */
+    public $options;
 
     /**
      * @var string
@@ -105,6 +111,7 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
         'chargeType' => 'ChargeType',
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
+        'options' => 'Options',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -122,6 +129,9 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->options) {
+            $this->options->validate();
+        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -155,6 +165,10 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->options) {
+            $res['Options'] = null !== $this->options ? $this->options->toArray($noStream) : $this->options;
         }
 
         if (null !== $this->ownerAccount) {
@@ -257,6 +271,10 @@ class CreateTransitRouterVpcAttachmentRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['Options'])) {
+            $model->options = options::fromMap($map['Options']);
         }
 
         if (isset($map['OwnerAccount'])) {

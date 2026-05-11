@@ -3539,6 +3539,10 @@ class Cbn extends OpenApiClient
         $tmpReq->validate();
         $request = new CreateTransitRouterVpcAttachmentShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->options) {
+            $request->optionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->options, 'Options', 'json');
+        }
+
         if (null !== $tmpReq->transitRouterVPCAttachmentOptions) {
             $request->transitRouterVPCAttachmentOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transitRouterVPCAttachmentOptions, 'TransitRouterVPCAttachmentOptions', 'json');
         }
@@ -3562,6 +3566,10 @@ class Cbn extends OpenApiClient
 
         if (null !== $request->dryRun) {
             @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->optionsShrink) {
+            @$query['Options'] = $request->optionsShrink;
         }
 
         if (null !== $request->ownerAccount) {
@@ -15632,6 +15640,10 @@ class Cbn extends OpenApiClient
         $tmpReq->validate();
         $request = new UpdateTransitRouterVpcAttachmentAttributeShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->options) {
+            $request->optionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->options, 'Options', 'json');
+        }
+
         if (null !== $tmpReq->transitRouterVPCAttachmentOptions) {
             $request->transitRouterVPCAttachmentOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transitRouterVPCAttachmentOptions, 'TransitRouterVPCAttachmentOptions', 'json');
         }
@@ -15647,6 +15659,10 @@ class Cbn extends OpenApiClient
 
         if (null !== $request->dryRun) {
             @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->optionsShrink) {
+            @$query['Options'] = $request->optionsShrink;
         }
 
         if (null !== $request->orderType) {
