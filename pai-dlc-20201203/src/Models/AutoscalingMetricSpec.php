@@ -16,9 +16,15 @@ class AutoscalingMetricSpec extends Model
     /**
      * @var int
      */
+    public $stabilizationWindowSeconds;
+
+    /**
+     * @var int
+     */
     public $targetValue;
     protected $_name = [
         'metricName' => 'MetricName',
+        'stabilizationWindowSeconds' => 'StabilizationWindowSeconds',
         'targetValue' => 'TargetValue',
     ];
 
@@ -32,6 +38,10 @@ class AutoscalingMetricSpec extends Model
         $res = [];
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
+        }
+
+        if (null !== $this->stabilizationWindowSeconds) {
+            $res['StabilizationWindowSeconds'] = $this->stabilizationWindowSeconds;
         }
 
         if (null !== $this->targetValue) {
@@ -51,6 +61,10 @@ class AutoscalingMetricSpec extends Model
         $model = new self();
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
+        }
+
+        if (isset($map['StabilizationWindowSeconds'])) {
+            $model->stabilizationWindowSeconds = $map['StabilizationWindowSeconds'];
         }
 
         if (isset($map['TargetValue'])) {

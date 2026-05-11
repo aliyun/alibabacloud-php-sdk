@@ -93,6 +93,11 @@ class CreateJobRequest extends Model
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $schedulingStrategy;
+
+    /**
      * @var JobSettings
      */
     public $settings;
@@ -153,6 +158,7 @@ class CreateJobRequest extends Model
         'options' => 'Options',
         'priority' => 'Priority',
         'resourceId' => 'ResourceId',
+        'schedulingStrategy' => 'SchedulingStrategy',
         'settings' => 'Settings',
         'successPolicy' => 'SuccessPolicy',
         'templateId' => 'TemplateId',
@@ -290,6 +296,10 @@ class CreateJobRequest extends Model
 
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->schedulingStrategy) {
+            $res['SchedulingStrategy'] = $this->schedulingStrategy;
         }
 
         if (null !== $this->settings) {
@@ -434,6 +444,10 @@ class CreateJobRequest extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['SchedulingStrategy'])) {
+            $model->schedulingStrategy = $map['SchedulingStrategy'];
         }
 
         if (isset($map['Settings'])) {

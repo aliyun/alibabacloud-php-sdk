@@ -185,6 +185,11 @@ class GetJobResponseBody extends Model
     public $roleSystemEnvs;
 
     /**
+     * @var string
+     */
+    public $schedulingStrategy;
+
+    /**
      * @var JobSettings
      */
     public $settings;
@@ -278,6 +283,7 @@ class GetJobResponseBody extends Model
         'restartRecord' => 'RestartRecord',
         'restartTimes' => 'RestartTimes',
         'roleSystemEnvs' => 'RoleSystemEnvs',
+        'schedulingStrategy' => 'SchedulingStrategy',
         'settings' => 'Settings',
         'status' => 'Status',
         'statusHistory' => 'StatusHistory',
@@ -531,6 +537,10 @@ class GetJobResponseBody extends Model
                     $res['RoleSystemEnvs'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->schedulingStrategy) {
+            $res['SchedulingStrategy'] = $this->schedulingStrategy;
         }
 
         if (null !== $this->settings) {
@@ -792,6 +802,10 @@ class GetJobResponseBody extends Model
                     $model->roleSystemEnvs[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['SchedulingStrategy'])) {
+            $model->schedulingStrategy = $map['SchedulingStrategy'];
         }
 
         if (isset($map['Settings'])) {

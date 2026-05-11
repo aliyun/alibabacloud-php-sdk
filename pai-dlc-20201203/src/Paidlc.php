@@ -239,6 +239,10 @@ class Paidlc extends OpenApiClient
             @$body['ResourceId'] = $request->resourceId;
         }
 
+        if (null !== $request->schedulingStrategy) {
+            @$body['SchedulingStrategy'] = $request->schedulingStrategy;
+        }
+
         if (null !== $request->settings) {
             @$body['Settings'] = $request->settings;
         }
@@ -317,7 +321,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 创建任务模板
+     * Create a Job Template.
      *
      * @param request - CreateJobTemplateRequest
      * @param headers - map
@@ -379,7 +383,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 创建任务模板
+     * Create a Job Template.
      *
      * @param request - CreateJobTemplateRequest
      *
@@ -592,7 +596,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 删除任务模板
+     * Delete an unused job template. If the template is already used by a job, you cannot delete it.
      *
      * @param request - DeleteJobTemplateRequest
      * @param headers - map
@@ -629,7 +633,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 删除任务模板
+     * Delete an unused job template. If the template is already used by a job, you cannot delete it.
      *
      * @param request - DeleteJobTemplateRequest
      *
@@ -1069,7 +1073,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 获取任务模板详情.
+     * Obtains the details of a job template.
      *
      * @param request - GetJobTemplateRequest
      * @param headers - map
@@ -1112,7 +1116,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 获取任务模板详情.
+     * Obtains the details of a job template.
      *
      * @param request - GetJobTemplateRequest
      *
@@ -1783,7 +1787,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 列出任务模板
+     * List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
      *
      * @param request - ListJobTemplatesRequest
      * @param headers - map
@@ -1853,7 +1857,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 列出任务模板
+     * List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
      *
      * @param request - ListJobTemplatesRequest
      *
@@ -2216,7 +2220,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 设置任务模板默认版本.
+     * Sets the default version of the template.
      *
      * @param request - SetJobTemplateDefaultVersionRequest
      * @param headers - map
@@ -2259,7 +2263,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 设置任务模板默认版本.
+     * Sets the default version of the template.
      *
      * @param request - SetJobTemplateDefaultVersionRequest
      *
@@ -2537,7 +2541,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 更新任务模板
+     * Update a Job template.
      *
      * @param request - UpdateJobTemplateRequest
      * @param headers - map
@@ -2604,7 +2608,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 更新任务模板
+     * Update a Job template.
      *
      * @param request - UpdateJobTemplateRequest
      *

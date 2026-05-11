@@ -212,6 +212,11 @@ class JobItem extends Model
     public $restartTimes;
 
     /**
+     * @var string
+     */
+    public $schedulingStrategy;
+
+    /**
      * @var JobSettings
      */
     public $settings;
@@ -346,6 +351,7 @@ class JobItem extends Model
         'resourceQuotaName' => 'ResourceQuotaName',
         'resourceType' => 'ResourceType',
         'restartTimes' => 'RestartTimes',
+        'schedulingStrategy' => 'SchedulingStrategy',
         'settings' => 'Settings',
         'status' => 'Status',
         'statusHistory' => 'StatusHistory',
@@ -615,6 +621,10 @@ class JobItem extends Model
 
         if (null !== $this->restartTimes) {
             $res['RestartTimes'] = $this->restartTimes;
+        }
+
+        if (null !== $this->schedulingStrategy) {
+            $res['SchedulingStrategy'] = $this->schedulingStrategy;
         }
 
         if (null !== $this->settings) {
@@ -921,6 +931,10 @@ class JobItem extends Model
 
         if (isset($map['RestartTimes'])) {
             $model->restartTimes = $map['RestartTimes'];
+        }
+
+        if (isset($map['SchedulingStrategy'])) {
+            $model->schedulingStrategy = $map['SchedulingStrategy'];
         }
 
         if (isset($map['Settings'])) {
