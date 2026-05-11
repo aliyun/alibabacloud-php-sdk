@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetAppVersionsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRecordDurationRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRecordDurationResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetPoolRequest;
@@ -81,6 +83,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateActionPlanRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateActionPlanResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateJobRecordDurationRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdateJobRecordDurationResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolShrinkRequest;
@@ -455,6 +459,10 @@ class EhpcInstant extends OpenApiClient
 
         if (null !== $request->resourceLimitsShrink) {
             @$query['ResourceLimits'] = $request->resourceLimitsShrink;
+        }
+
+        if (null !== $request->schedulingPolicyId) {
+            @$query['SchedulingPolicyId'] = $request->schedulingPolicyId;
         }
 
         $req = new OpenApiRequest([
@@ -1236,6 +1244,56 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询作业保留时长
+     *
+     * @param request - GetJobRecordDurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobRecordDurationResponse
+     *
+     * @param GetJobRecordDurationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetJobRecordDurationResponse
+     */
+    public function getJobRecordDurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetJobRecordDuration',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetJobRecordDurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询作业保留时长
+     *
+     * @param request - GetJobRecordDurationRequest
+     *
+     * @returns GetJobRecordDurationResponse
+     *
+     * @param GetJobRecordDurationRequest $request
+     *
+     * @return GetJobRecordDurationResponse
+     */
+    public function getJobRecordDuration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobRecordDurationWithOptions($request, $runtime);
     }
 
     /**
@@ -2300,6 +2358,63 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
+     * 更新作业保留时长
+     *
+     * @param request - UpdateJobRecordDurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateJobRecordDurationResponse
+     *
+     * @param UpdateJobRecordDurationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateJobRecordDurationResponse
+     */
+    public function updateJobRecordDurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobRecordDuration) {
+            @$query['JobRecordDuration'] = $request->jobRecordDuration;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateJobRecordDuration',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateJobRecordDurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新作业保留时长
+     *
+     * @param request - UpdateJobRecordDurationRequest
+     *
+     * @returns UpdateJobRecordDurationResponse
+     *
+     * @param UpdateJobRecordDurationRequest $request
+     *
+     * @return UpdateJobRecordDurationResponse
+     */
+    public function updateJobRecordDuration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateJobRecordDurationWithOptions($request, $runtime);
+    }
+
+    /**
      * Update the resource pool configuration.
      *
      * @param tmpReq - UpdatePoolRequest
@@ -2332,6 +2447,10 @@ class EhpcInstant extends OpenApiClient
 
         if (null !== $request->resourceLimitsShrink) {
             @$query['ResourceLimits'] = $request->resourceLimitsShrink;
+        }
+
+        if (null !== $request->schedulingPolicyId) {
+            @$query['SchedulingPolicyId'] = $request->schedulingPolicyId;
         }
 
         $req = new OpenApiRequest([

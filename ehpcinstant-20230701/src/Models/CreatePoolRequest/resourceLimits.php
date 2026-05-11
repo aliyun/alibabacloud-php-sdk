@@ -11,9 +11,9 @@ class resourceLimits extends Model
     /**
      * @var int
      */
-    public $maxExectorNum;
+    public $maxExecutorNum;
     protected $_name = [
-        'maxExectorNum' => 'MaxExectorNum',
+        'maxExecutorNum' => 'MaxExecutorNum',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class resourceLimits extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->maxExectorNum) {
-            $res['MaxExectorNum'] = $this->maxExectorNum;
+        if (null !== $this->maxExecutorNum) {
+            $res['MaxExecutorNum'] = $this->maxExecutorNum;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class resourceLimits extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxExectorNum'])) {
-            $model->maxExectorNum = $map['MaxExectorNum'];
+        if (isset($map['MaxExecutorNum'])) {
+            $model->maxExecutorNum = $map['MaxExecutorNum'];
         }
 
         return $model;

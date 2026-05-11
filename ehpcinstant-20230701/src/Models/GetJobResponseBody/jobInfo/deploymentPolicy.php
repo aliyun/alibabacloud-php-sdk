@@ -26,6 +26,11 @@ class deploymentPolicy extends Model
     public $network;
 
     /**
+     * @var string
+     */
+    public $pool;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -33,6 +38,7 @@ class deploymentPolicy extends Model
         'allocationSpec' => 'AllocationSpec',
         'level' => 'Level',
         'network' => 'Network',
+        'pool' => 'Pool',
         'tags' => 'Tags',
     ];
 
@@ -60,6 +66,10 @@ class deploymentPolicy extends Model
 
         if (null !== $this->network) {
             $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
+        }
+
+        if (null !== $this->pool) {
+            $res['Pool'] = $this->pool;
         }
 
         if (null !== $this->tags) {
@@ -94,6 +104,10 @@ class deploymentPolicy extends Model
 
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
+        }
+
+        if (isset($map['Pool'])) {
+            $model->pool = $map['Pool'];
         }
 
         if (isset($map['Tags'])) {

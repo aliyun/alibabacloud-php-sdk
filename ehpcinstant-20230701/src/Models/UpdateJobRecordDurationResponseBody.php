@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolRequest;
+namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class resourceLimits extends Model
+class UpdateJobRecordDurationResponseBody extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $maxExecutorNum;
+    public $requestId;
     protected $_name = [
-        'maxExecutorNum' => 'MaxExecutorNum',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class resourceLimits extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->maxExecutorNum) {
-            $res['MaxExecutorNum'] = $this->maxExecutorNum;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class resourceLimits extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxExecutorNum'])) {
-            $model->maxExecutorNum = $map['MaxExecutorNum'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

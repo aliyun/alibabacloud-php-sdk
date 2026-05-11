@@ -16,7 +16,7 @@ class poolInfo extends Model
     /**
      * @var int
      */
-    public $exectorUsage;
+    public $executorUsage;
 
     /**
      * @var bool
@@ -26,7 +26,7 @@ class poolInfo extends Model
     /**
      * @var int
      */
-    public $maxExectorNum;
+    public $maxExecutorNum;
 
     /**
      * @var string
@@ -46,6 +46,11 @@ class poolInfo extends Model
     /**
      * @var string
      */
+    public $schedulingPolicyId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -54,12 +59,13 @@ class poolInfo extends Model
     public $updateTime;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'exectorUsage' => 'ExectorUsage',
+        'executorUsage' => 'ExecutorUsage',
         'isDefault' => 'IsDefault',
-        'maxExectorNum' => 'MaxExectorNum',
+        'maxExecutorNum' => 'MaxExecutorNum',
         'poolName' => 'PoolName',
         'priority' => 'Priority',
         'reason' => 'Reason',
+        'schedulingPolicyId' => 'SchedulingPolicyId',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
     ];
@@ -76,16 +82,16 @@ class poolInfo extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
-        if (null !== $this->exectorUsage) {
-            $res['ExectorUsage'] = $this->exectorUsage;
+        if (null !== $this->executorUsage) {
+            $res['ExecutorUsage'] = $this->executorUsage;
         }
 
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
 
-        if (null !== $this->maxExectorNum) {
-            $res['MaxExectorNum'] = $this->maxExectorNum;
+        if (null !== $this->maxExecutorNum) {
+            $res['MaxExecutorNum'] = $this->maxExecutorNum;
         }
 
         if (null !== $this->poolName) {
@@ -98,6 +104,10 @@ class poolInfo extends Model
 
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+
+        if (null !== $this->schedulingPolicyId) {
+            $res['SchedulingPolicyId'] = $this->schedulingPolicyId;
         }
 
         if (null !== $this->status) {
@@ -123,16 +133,16 @@ class poolInfo extends Model
             $model->createTime = $map['CreateTime'];
         }
 
-        if (isset($map['ExectorUsage'])) {
-            $model->exectorUsage = $map['ExectorUsage'];
+        if (isset($map['ExecutorUsage'])) {
+            $model->executorUsage = $map['ExecutorUsage'];
         }
 
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
 
-        if (isset($map['MaxExectorNum'])) {
-            $model->maxExectorNum = $map['MaxExectorNum'];
+        if (isset($map['MaxExecutorNum'])) {
+            $model->maxExecutorNum = $map['MaxExecutorNum'];
         }
 
         if (isset($map['PoolName'])) {
@@ -145,6 +155,10 @@ class poolInfo extends Model
 
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+
+        if (isset($map['SchedulingPolicyId'])) {
+            $model->schedulingPolicyId = $map['SchedulingPolicyId'];
         }
 
         if (isset($map['Status'])) {

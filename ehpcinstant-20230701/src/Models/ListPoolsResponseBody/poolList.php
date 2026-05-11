@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class poolList extends Model
 {
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var bool
      */
     public $isDefault;
@@ -16,7 +21,7 @@ class poolList extends Model
     /**
      * @var int
      */
-    public $maxExectorNum;
+    public $maxExecutorNum;
 
     /**
      * @var string
@@ -31,13 +36,26 @@ class poolList extends Model
     /**
      * @var string
      */
+    public $schedulingPolicyId;
+
+    /**
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
+        'createTime' => 'CreateTime',
         'isDefault' => 'IsDefault',
-        'maxExectorNum' => 'MaxExectorNum',
+        'maxExecutorNum' => 'MaxExecutorNum',
         'poolName' => 'PoolName',
         'priority' => 'Priority',
+        'schedulingPolicyId' => 'SchedulingPolicyId',
         'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -48,12 +66,16 @@ class poolList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
         if (null !== $this->isDefault) {
             $res['IsDefault'] = $this->isDefault;
         }
 
-        if (null !== $this->maxExectorNum) {
-            $res['MaxExectorNum'] = $this->maxExectorNum;
+        if (null !== $this->maxExecutorNum) {
+            $res['MaxExecutorNum'] = $this->maxExecutorNum;
         }
 
         if (null !== $this->poolName) {
@@ -64,8 +86,16 @@ class poolList extends Model
             $res['Priority'] = $this->priority;
         }
 
+        if (null !== $this->schedulingPolicyId) {
+            $res['SchedulingPolicyId'] = $this->schedulingPolicyId;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -79,12 +109,16 @@ class poolList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
         if (isset($map['IsDefault'])) {
             $model->isDefault = $map['IsDefault'];
         }
 
-        if (isset($map['MaxExectorNum'])) {
-            $model->maxExectorNum = $map['MaxExectorNum'];
+        if (isset($map['MaxExecutorNum'])) {
+            $model->maxExecutorNum = $map['MaxExecutorNum'];
         }
 
         if (isset($map['PoolName'])) {
@@ -95,8 +129,16 @@ class poolList extends Model
             $model->priority = $map['Priority'];
         }
 
+        if (isset($map['SchedulingPolicyId'])) {
+            $model->schedulingPolicyId = $map['SchedulingPolicyId'];
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

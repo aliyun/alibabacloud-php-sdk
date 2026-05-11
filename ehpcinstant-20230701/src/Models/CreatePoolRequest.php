@@ -23,10 +23,16 @@ class CreatePoolRequest extends Model
      * @var resourceLimits
      */
     public $resourceLimits;
+
+    /**
+     * @var string
+     */
+    public $schedulingPolicyId;
     protected $_name = [
         'poolName' => 'PoolName',
         'priority' => 'Priority',
         'resourceLimits' => 'ResourceLimits',
+        'schedulingPolicyId' => 'SchedulingPolicyId',
     ];
 
     public function validate()
@@ -52,6 +58,10 @@ class CreatePoolRequest extends Model
             $res['ResourceLimits'] = null !== $this->resourceLimits ? $this->resourceLimits->toArray($noStream) : $this->resourceLimits;
         }
 
+        if (null !== $this->schedulingPolicyId) {
+            $res['SchedulingPolicyId'] = $this->schedulingPolicyId;
+        }
+
         return $res;
     }
 
@@ -73,6 +83,10 @@ class CreatePoolRequest extends Model
 
         if (isset($map['ResourceLimits'])) {
             $model->resourceLimits = resourceLimits::fromMap($map['ResourceLimits']);
+        }
+
+        if (isset($map['SchedulingPolicyId'])) {
+            $model->schedulingPolicyId = $map['SchedulingPolicyId'];
         }
 
         return $model;
