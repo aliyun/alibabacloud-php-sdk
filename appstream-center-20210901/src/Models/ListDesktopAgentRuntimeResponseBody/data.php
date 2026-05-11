@@ -65,6 +65,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $osType;
+
+    /**
+     * @var string[]
+     */
+    public $qrCodeConfiguringList;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -92,6 +102,8 @@ class data extends Model
         'desktopStatus' => 'DesktopStatus',
         'hasAuthUser' => 'HasAuthUser',
         'modelConfigure' => 'ModelConfigure',
+        'osType' => 'OsType',
+        'qrCodeConfiguringList' => 'QrCodeConfiguringList',
         'regionId' => 'RegionId',
         'resourceGroup' => 'ResourceGroup',
         'resourceId' => 'ResourceId',
@@ -111,6 +123,9 @@ class data extends Model
         }
         if (\is_array($this->channelConfiguredList)) {
             Model::validateArray($this->channelConfiguredList);
+        }
+        if (\is_array($this->qrCodeConfiguringList)) {
+            Model::validateArray($this->qrCodeConfiguringList);
         }
         if (null !== $this->resourceGroup) {
             $this->resourceGroup->validate();
@@ -183,6 +198,21 @@ class data extends Model
 
         if (null !== $this->modelConfigure) {
             $res['ModelConfigure'] = $this->modelConfigure;
+        }
+
+        if (null !== $this->osType) {
+            $res['OsType'] = $this->osType;
+        }
+
+        if (null !== $this->qrCodeConfiguringList) {
+            if (\is_array($this->qrCodeConfiguringList)) {
+                $res['QrCodeConfiguringList'] = [];
+                $n1 = 0;
+                foreach ($this->qrCodeConfiguringList as $item1) {
+                    $res['QrCodeConfiguringList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->regionId) {
@@ -271,6 +301,21 @@ class data extends Model
 
         if (isset($map['ModelConfigure'])) {
             $model->modelConfigure = $map['ModelConfigure'];
+        }
+
+        if (isset($map['OsType'])) {
+            $model->osType = $map['OsType'];
+        }
+
+        if (isset($map['QrCodeConfiguringList'])) {
+            if (!empty($map['QrCodeConfiguringList'])) {
+                $model->qrCodeConfiguringList = [];
+                $n1 = 0;
+                foreach ($map['QrCodeConfiguringList'] as $item1) {
+                    $model->qrCodeConfiguringList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RegionId'])) {

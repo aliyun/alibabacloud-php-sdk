@@ -11,12 +11,32 @@ class data extends Model
     /**
      * @var string
      */
+    public $avatarUrl;
+
+    /**
+     * @var string
+     */
     public $code;
 
     /**
      * @var string
      */
     public $config;
+
+    /**
+     * @var string
+     */
+    public $configMode;
+
+    /**
+     * @var string
+     */
+    public $qrCodeNotifyUrl;
+
+    /**
+     * @var string
+     */
+    public $qrCodeStatus;
 
     /**
      * @var string
@@ -28,8 +48,12 @@ class data extends Model
      */
     public $status;
     protected $_name = [
+        'avatarUrl' => 'AvatarUrl',
         'code' => 'Code',
         'config' => 'Config',
+        'configMode' => 'ConfigMode',
+        'qrCodeNotifyUrl' => 'QrCodeNotifyUrl',
+        'qrCodeStatus' => 'QrCodeStatus',
         'riskType' => 'RiskType',
         'status' => 'Status',
     ];
@@ -42,12 +66,28 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->avatarUrl) {
+            $res['AvatarUrl'] = $this->avatarUrl;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
 
         if (null !== $this->config) {
             $res['Config'] = $this->config;
+        }
+
+        if (null !== $this->configMode) {
+            $res['ConfigMode'] = $this->configMode;
+        }
+
+        if (null !== $this->qrCodeNotifyUrl) {
+            $res['QrCodeNotifyUrl'] = $this->qrCodeNotifyUrl;
+        }
+
+        if (null !== $this->qrCodeStatus) {
+            $res['QrCodeStatus'] = $this->qrCodeStatus;
         }
 
         if (null !== $this->riskType) {
@@ -69,12 +109,28 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvatarUrl'])) {
+            $model->avatarUrl = $map['AvatarUrl'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
 
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
+        }
+
+        if (isset($map['ConfigMode'])) {
+            $model->configMode = $map['ConfigMode'];
+        }
+
+        if (isset($map['QrCodeNotifyUrl'])) {
+            $model->qrCodeNotifyUrl = $map['QrCodeNotifyUrl'];
+        }
+
+        if (isset($map['QrCodeStatus'])) {
+            $model->qrCodeStatus = $map['QrCodeStatus'];
         }
 
         if (isset($map['RiskType'])) {

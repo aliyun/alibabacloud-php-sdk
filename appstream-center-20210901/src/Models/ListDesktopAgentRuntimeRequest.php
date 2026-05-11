@@ -102,6 +102,11 @@ class ListDesktopAgentRuntimeRequest extends Model
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string[]
+     */
+    public $resourceIds;
     protected $_name = [
         'agentInstanceStatuses' => 'AgentInstanceStatuses',
         'agentInstanceVersions' => 'AgentInstanceVersions',
@@ -122,6 +127,7 @@ class ListDesktopAgentRuntimeRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceIds' => 'ResourceIds',
     ];
 
     public function validate()
@@ -143,6 +149,9 @@ class ListDesktopAgentRuntimeRequest extends Model
         }
         if (\is_array($this->desktopStatuses)) {
             Model::validateArray($this->desktopStatuses);
+        }
+        if (\is_array($this->resourceIds)) {
+            Model::validateArray($this->resourceIds);
         }
         parent::validate();
     }
@@ -266,6 +275,17 @@ class ListDesktopAgentRuntimeRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->resourceIds) {
+            if (\is_array($this->resourceIds)) {
+                $res['ResourceIds'] = [];
+                $n1 = 0;
+                foreach ($this->resourceIds as $item1) {
+                    $res['ResourceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -395,6 +415,17 @@ class ListDesktopAgentRuntimeRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ResourceIds'])) {
+            if (!empty($map['ResourceIds'])) {
+                $model->resourceIds = [];
+                $n1 = 0;
+                foreach ($map['ResourceIds'] as $item1) {
+                    $model->resourceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

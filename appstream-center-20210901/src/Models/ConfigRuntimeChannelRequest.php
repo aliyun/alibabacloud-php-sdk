@@ -31,6 +31,11 @@ class ConfigRuntimeChannelRequest extends Model
     /**
      * @var string
      */
+    public $configMode;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -47,6 +52,7 @@ class ConfigRuntimeChannelRequest extends Model
         'agentProvider' => 'AgentProvider',
         'code' => 'Code',
         'config' => 'Config',
+        'configMode' => 'ConfigMode',
         'name' => 'Name',
         'runtimeIds' => 'RuntimeIds',
         'runtimeType' => 'RuntimeType',
@@ -77,6 +83,10 @@ class ConfigRuntimeChannelRequest extends Model
 
         if (null !== $this->config) {
             $res['Config'] = $this->config;
+        }
+
+        if (null !== $this->configMode) {
+            $res['ConfigMode'] = $this->configMode;
         }
 
         if (null !== $this->name) {
@@ -123,6 +133,10 @@ class ConfigRuntimeChannelRequest extends Model
 
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
+        }
+
+        if (isset($map['ConfigMode'])) {
+            $model->configMode = $map['ConfigMode'];
         }
 
         if (isset($map['Name'])) {

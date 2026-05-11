@@ -512,12 +512,11 @@ class Appstreamcenter extends OpenApiClient
     public function configRuntimeChannelWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = [];
+        $body = [];
         if (null !== $request->agentPlatform) {
-            @$query['AgentPlatform'] = $request->agentPlatform;
+            @$body['AgentPlatform'] = $request->agentPlatform;
         }
 
-        $body = [];
         if (null !== $request->agentProvider) {
             @$body['AgentProvider'] = $request->agentProvider;
         }
@@ -528,6 +527,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->config) {
             @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->configMode) {
+            @$body['ConfigMode'] = $request->configMode;
         }
 
         if (null !== $request->name) {
@@ -543,7 +546,6 @@ class Appstreamcenter extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -2959,6 +2961,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->resourceGroupId) {
             @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
 
         $req = new OpenApiRequest([
