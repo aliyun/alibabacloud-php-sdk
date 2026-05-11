@@ -268,6 +268,11 @@ class Service extends Model
     /**
      * @var string
      */
+    public $workloadType;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'accessToken' => 'AccessToken',
@@ -321,6 +326,7 @@ class Service extends Model
         'trafficState' => 'TrafficState',
         'updateTime' => 'UpdateTime',
         'weight' => 'Weight',
+        'workloadType' => 'WorkloadType',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -549,6 +555,10 @@ class Service extends Model
             $res['Weight'] = $this->weight;
         }
 
+        if (null !== $this->workloadType) {
+            $res['WorkloadType'] = $this->workloadType;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -773,6 +783,10 @@ class Service extends Model
 
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
+        }
+
+        if (isset($map['WorkloadType'])) {
+            $model->workloadType = $map['WorkloadType'];
         }
 
         if (isset($map['WorkspaceId'])) {
