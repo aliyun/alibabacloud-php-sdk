@@ -12,28 +12,32 @@ class CollectedNumberRequest extends Model
      * @var string
      */
     public $additionalContext;
+
     /**
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceOwnerId;
+
     /**
      * @var string
      */
     public $number;
     protected $_name = [
         'additionalContext' => 'AdditionalContext',
-        'conversationId'    => 'ConversationId',
-        'instanceId'        => 'InstanceId',
-        'instanceOwnerId'   => 'InstanceOwnerId',
-        'number'            => 'Number',
+        'conversationId' => 'ConversationId',
+        'instanceId' => 'InstanceId',
+        'instanceOwnerId' => 'InstanceOwnerId',
+        'number' => 'Number',
     ];
 
     public function validate()

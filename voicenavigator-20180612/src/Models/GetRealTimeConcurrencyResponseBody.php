@@ -12,23 +12,26 @@ class GetRealTimeConcurrencyResponseBody extends Model
      * @var int
      */
     public $maxConcurrency;
+
     /**
      * @var int
      */
     public $realTimeConcurrency;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'maxConcurrency'      => 'MaxConcurrency',
+        'maxConcurrency' => 'MaxConcurrency',
         'realTimeConcurrency' => 'RealTimeConcurrency',
-        'requestId'           => 'RequestId',
-        'timestamp'           => 'Timestamp',
+        'requestId' => 'RequestId',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

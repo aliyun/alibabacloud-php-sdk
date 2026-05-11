@@ -12,32 +12,37 @@ class BeginDialogueRequest extends Model
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $initialContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceOwnerId;
     protected $_name = [
-        'calledNumber'    => 'CalledNumber',
-        'callingNumber'   => 'CallingNumber',
-        'conversationId'  => 'ConversationId',
-        'initialContext'  => 'InitialContext',
-        'instanceId'      => 'InstanceId',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'conversationId' => 'ConversationId',
+        'initialContext' => 'InitialContext',
+        'instanceId' => 'InstanceId',
         'instanceOwnerId' => 'InstanceOwnerId',
     ];
 

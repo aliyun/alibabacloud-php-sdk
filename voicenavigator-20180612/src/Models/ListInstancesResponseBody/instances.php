@@ -12,68 +12,80 @@ class instances extends Model
      * @var string[]
      */
     public $applicableOperations;
+
     /**
      * @var int
      */
     public $concurrency;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $modifyUserName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nluServiceParamsJson;
+
     /**
      * @var string[]
      */
     public $numbers;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $unionInstanceId;
+
     /**
      * @var string
      */
     public $unionSource;
     protected $_name = [
         'applicableOperations' => 'ApplicableOperations',
-        'concurrency'          => 'Concurrency',
-        'createTime'           => 'CreateTime',
-        'description'          => 'Description',
-        'instanceId'           => 'InstanceId',
-        'modifyTime'           => 'ModifyTime',
-        'modifyUserName'       => 'ModifyUserName',
-        'name'                 => 'Name',
+        'concurrency' => 'Concurrency',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'modifyTime' => 'ModifyTime',
+        'modifyUserName' => 'ModifyUserName',
+        'name' => 'Name',
         'nluServiceParamsJson' => 'NluServiceParamsJson',
-        'numbers'              => 'Numbers',
-        'status'               => 'Status',
-        'unionInstanceId'      => 'UnionInstanceId',
-        'unionSource'          => 'UnionSource',
+        'numbers' => 'Numbers',
+        'status' => 'Status',
+        'unionInstanceId' => 'UnionInstanceId',
+        'unionSource' => 'UnionSource',
     ];
 
     public function validate()
@@ -93,9 +105,10 @@ class instances extends Model
         if (null !== $this->applicableOperations) {
             if (\is_array($this->applicableOperations)) {
                 $res['ApplicableOperations'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->applicableOperations as $item1) {
-                    $res['ApplicableOperations'][$n1++] = $item1;
+                    $res['ApplicableOperations'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,9 +148,10 @@ class instances extends Model
         if (null !== $this->numbers) {
             if (\is_array($this->numbers)) {
                 $res['Numbers'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->numbers as $item1) {
-                    $res['Numbers'][$n1++] = $item1;
+                    $res['Numbers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,9 +182,10 @@ class instances extends Model
         if (isset($map['ApplicableOperations'])) {
             if (!empty($map['ApplicableOperations'])) {
                 $model->applicableOperations = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ApplicableOperations'] as $item1) {
-                    $model->applicableOperations[$n1++] = $item1;
+                    $model->applicableOperations[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -210,9 +225,10 @@ class instances extends Model
         if (isset($map['Numbers'])) {
             if (!empty($map['Numbers'])) {
                 $model->numbers = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Numbers'] as $item1) {
-                    $model->numbers[$n1++] = $item1;
+                    $model->numbers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

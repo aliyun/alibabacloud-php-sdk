@@ -11,34 +11,57 @@ class data extends Model
     /**
      * @var string
      */
+    public $appKey;
+
+    /**
+     * @var string
+     */
     public $asrAcousticModelId;
+
     /**
      * @var string
      */
     public $asrClassVocabularyId;
+
     /**
      * @var string
      */
     public $asrCustomizationId;
+
+    /**
+     * @var string
+     */
+    public $asrOverrides;
+
     /**
      * @var string
      */
     public $asrVocabularyId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineXufei;
+
+    /**
+     * @var string
+     */
+    public $nlsServiceType;
     protected $_name = [
-        'asrAcousticModelId'   => 'AsrAcousticModelId',
+        'appKey' => 'AppKey',
+        'asrAcousticModelId' => 'AsrAcousticModelId',
         'asrClassVocabularyId' => 'AsrClassVocabularyId',
-        'asrCustomizationId'   => 'AsrCustomizationId',
-        'asrVocabularyId'      => 'AsrVocabularyId',
-        'engine'               => 'Engine',
-        'engineXufei'          => 'EngineXufei',
+        'asrCustomizationId' => 'AsrCustomizationId',
+        'asrOverrides' => 'AsrOverrides',
+        'asrVocabularyId' => 'AsrVocabularyId',
+        'engine' => 'Engine',
+        'engineXufei' => 'EngineXufei',
+        'nlsServiceType' => 'NlsServiceType',
     ];
 
     public function validate()
@@ -49,6 +72,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
+        }
+
         if (null !== $this->asrAcousticModelId) {
             $res['AsrAcousticModelId'] = $this->asrAcousticModelId;
         }
@@ -59,6 +86,10 @@ class data extends Model
 
         if (null !== $this->asrCustomizationId) {
             $res['AsrCustomizationId'] = $this->asrCustomizationId;
+        }
+
+        if (null !== $this->asrOverrides) {
+            $res['AsrOverrides'] = $this->asrOverrides;
         }
 
         if (null !== $this->asrVocabularyId) {
@@ -73,6 +104,10 @@ class data extends Model
             $res['EngineXufei'] = $this->engineXufei;
         }
 
+        if (null !== $this->nlsServiceType) {
+            $res['NlsServiceType'] = $this->nlsServiceType;
+        }
+
         return $res;
     }
 
@@ -84,6 +119,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
+        }
+
         if (isset($map['AsrAcousticModelId'])) {
             $model->asrAcousticModelId = $map['AsrAcousticModelId'];
         }
@@ -96,6 +135,10 @@ class data extends Model
             $model->asrCustomizationId = $map['AsrCustomizationId'];
         }
 
+        if (isset($map['AsrOverrides'])) {
+            $model->asrOverrides = $map['AsrOverrides'];
+        }
+
         if (isset($map['AsrVocabularyId'])) {
             $model->asrVocabularyId = $map['AsrVocabularyId'];
         }
@@ -106,6 +149,10 @@ class data extends Model
 
         if (isset($map['EngineXufei'])) {
             $model->engineXufei = $map['EngineXufei'];
+        }
+
+        if (isset($map['NlsServiceType'])) {
+            $model->nlsServiceType = $map['NlsServiceType'];
         }
 
         return $model;

@@ -12,14 +12,17 @@ class ModifyInstanceRequest extends Model
      * @var int
      */
     public $concurrency;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class ModifyInstanceRequest extends Model
     protected $_name = [
         'concurrency' => 'Concurrency',
         'description' => 'Description',
-        'instanceId'  => 'InstanceId',
-        'name'        => 'Name',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class ListChatbotInstancesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nluServiceParamsJson;
+
     /**
      * @var string
      */
     public $nluServiceType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $unionSource;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'nluServiceParamsJson' => 'NluServiceParamsJson',
-        'nluServiceType'       => 'NluServiceType',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'unionSource'          => 'UnionSource',
+        'nluServiceType' => 'NluServiceType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'unionSource' => 'UnionSource',
     ];
 
     public function validate()

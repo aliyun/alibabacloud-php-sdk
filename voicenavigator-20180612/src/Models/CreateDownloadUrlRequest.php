@@ -12,13 +12,14 @@ class CreateDownloadUrlRequest extends Model
      * @var string
      */
     public $downloadTaskId;
+
     /**
      * @var string
      */
     public $fileId;
     protected $_name = [
         'downloadTaskId' => 'DownloadTaskId',
-        'fileId'         => 'FileId',
+        'fileId' => 'FileId',
     ];
 
     public function validate()

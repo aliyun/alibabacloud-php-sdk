@@ -12,10 +12,12 @@ class greetingConfig extends Model
      * @var string
      */
     public $greetingWords;
+
     /**
      * @var string
      */
     public $intentTrigger;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class greetingConfig extends Model
     protected $_name = [
         'greetingWords' => 'GreetingWords',
         'intentTrigger' => 'IntentTrigger',
-        'sourceType'    => 'SourceType',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()

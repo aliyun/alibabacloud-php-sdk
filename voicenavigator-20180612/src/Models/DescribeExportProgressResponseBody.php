@@ -12,18 +12,20 @@ class DescribeExportProgressResponseBody extends Model
      * @var string
      */
     public $fileHttpUrl;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'fileHttpUrl' => 'FileHttpUrl',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
     public function validate()

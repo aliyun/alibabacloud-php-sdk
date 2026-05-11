@@ -12,48 +12,56 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $instanceIdListJsonString;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nluServiceTypeListJsonString;
+
     /**
      * @var string
      */
     public $number;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $unionInstanceId;
+
     /**
      * @var string
      */
     public $unionSource;
     protected $_name = [
-        'instanceIdListJsonString'     => 'InstanceIdListJsonString',
-        'name'                         => 'Name',
+        'instanceIdListJsonString' => 'InstanceIdListJsonString',
+        'name' => 'Name',
         'nluServiceTypeListJsonString' => 'NluServiceTypeListJsonString',
-        'number'                       => 'Number',
-        'pageNumber'                   => 'PageNumber',
-        'pageSize'                     => 'PageSize',
-        'status'                       => 'Status',
-        'unionInstanceId'              => 'UnionInstanceId',
-        'unionSource'                  => 'UnionSource',
+        'number' => 'Number',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'status' => 'Status',
+        'unionInstanceId' => 'UnionInstanceId',
+        'unionSource' => 'UnionSource',
     ];
 
     public function validate()

@@ -12,68 +12,80 @@ class conversations extends Model
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $dsReport;
+
     /**
      * @var string[]
      */
     public $dsReportTitles;
+
     /**
      * @var int
      */
     public $endReason;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var bool
      */
     public $hasLastPlaybackCompleted;
+
     /**
      * @var bool
      */
     public $hasToAgent;
+
     /**
      * @var int
      */
     public $rounds;
+
     /**
      * @var bool
      */
     public $sandBox;
+
     /**
      * @var string
      */
     public $skillGroup;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'calledNumber'             => 'CalledNumber',
-        'callingNumber'            => 'CallingNumber',
-        'conversationId'           => 'ConversationId',
-        'dsReport'                 => 'DsReport',
-        'dsReportTitles'           => 'DsReportTitles',
-        'endReason'                => 'EndReason',
-        'endTime'                  => 'EndTime',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'conversationId' => 'ConversationId',
+        'dsReport' => 'DsReport',
+        'dsReportTitles' => 'DsReportTitles',
+        'endReason' => 'EndReason',
+        'endTime' => 'EndTime',
         'hasLastPlaybackCompleted' => 'HasLastPlaybackCompleted',
-        'hasToAgent'               => 'HasToAgent',
-        'rounds'                   => 'Rounds',
-        'sandBox'                  => 'SandBox',
-        'skillGroup'               => 'SkillGroup',
-        'startTime'                => 'StartTime',
+        'hasToAgent' => 'HasToAgent',
+        'rounds' => 'Rounds',
+        'sandBox' => 'SandBox',
+        'skillGroup' => 'SkillGroup',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -106,9 +118,10 @@ class conversations extends Model
         if (null !== $this->dsReportTitles) {
             if (\is_array($this->dsReportTitles)) {
                 $res['DsReportTitles'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->dsReportTitles as $item1) {
-                    $res['DsReportTitles'][$n1++] = $item1;
+                    $res['DsReportTitles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -175,9 +188,10 @@ class conversations extends Model
         if (isset($map['DsReportTitles'])) {
             if (!empty($map['DsReportTitles'])) {
                 $model->dsReportTitles = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DsReportTitles'] as $item1) {
-                    $model->dsReportTitles[$n1++] = $item1;
+                    $model->dsReportTitles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

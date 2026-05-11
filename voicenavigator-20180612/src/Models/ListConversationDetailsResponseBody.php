@@ -13,13 +13,14 @@ class ListConversationDetailsResponseBody extends Model
      * @var conversationDetails[]
      */
     public $conversationDetails;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'conversationDetails' => 'ConversationDetails',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,9 +37,10 @@ class ListConversationDetailsResponseBody extends Model
         if (null !== $this->conversationDetails) {
             if (\is_array($this->conversationDetails)) {
                 $res['ConversationDetails'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->conversationDetails as $item1) {
-                    $res['ConversationDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ConversationDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,9 +63,10 @@ class ListConversationDetailsResponseBody extends Model
         if (isset($map['ConversationDetails'])) {
             if (!empty($map['ConversationDetails'])) {
                 $model->conversationDetails = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['ConversationDetails'] as $item1) {
-                    $model->conversationDetails[$n1++] = conversationDetails::fromMap($item1);
+                    $model->conversationDetails[$n1] = conversationDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

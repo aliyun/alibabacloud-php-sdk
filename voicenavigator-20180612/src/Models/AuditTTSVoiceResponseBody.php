@@ -12,13 +12,14 @@ class AuditTTSVoiceResponseBody extends Model
      * @var string
      */
     public $auditionUrl;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'auditionUrl' => 'AuditionUrl',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

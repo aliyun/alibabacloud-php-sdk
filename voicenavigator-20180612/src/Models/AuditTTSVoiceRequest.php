@@ -12,53 +12,62 @@ class AuditTTSVoiceRequest extends Model
      * @var string
      */
     public $accessKey;
+
     /**
      * @var string
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $pitchRate;
+
     /**
      * @var string
      */
     public $secretKey;
+
     /**
      * @var string
      */
     public $speechRate;
+
     /**
      * @var string
      */
     public $text;
+
     /**
      * @var string
      */
     public $voice;
+
     /**
      * @var string
      */
     public $volume;
     protected $_name = [
-        'accessKey'  => 'AccessKey',
-        'appKey'     => 'AppKey',
-        'engine'     => 'Engine',
+        'accessKey' => 'AccessKey',
+        'appKey' => 'AppKey',
+        'engine' => 'Engine',
         'instanceId' => 'InstanceId',
-        'pitchRate'  => 'PitchRate',
-        'secretKey'  => 'SecretKey',
+        'pitchRate' => 'PitchRate',
+        'secretKey' => 'SecretKey',
         'speechRate' => 'SpeechRate',
-        'text'       => 'Text',
-        'voice'      => 'Voice',
-        'volume'     => 'Volume',
+        'text' => 'Text',
+        'voice' => 'Voice',
+        'volume' => 'Volume',
     ];
 
     public function validate()

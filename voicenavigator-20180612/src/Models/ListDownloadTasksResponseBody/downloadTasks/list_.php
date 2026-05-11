@@ -13,28 +13,32 @@ class list_ extends Model
      * @var downloadTaskFiles[]
      */
     public $downloadTaskFiles;
+
     /**
      * @var int
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
         'downloadTaskFiles' => 'DownloadTaskFiles',
-        'expireTime'        => 'ExpireTime',
-        'status'            => 'Status',
-        'taskId'            => 'TaskId',
-        'title'             => 'Title',
+        'expireTime' => 'ExpireTime',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'title' => 'Title',
     ];
 
     public function validate()
@@ -51,9 +55,10 @@ class list_ extends Model
         if (null !== $this->downloadTaskFiles) {
             if (\is_array($this->downloadTaskFiles)) {
                 $res['DownloadTaskFiles'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->downloadTaskFiles as $item1) {
-                    $res['DownloadTaskFiles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DownloadTaskFiles'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class list_ extends Model
         if (isset($map['DownloadTaskFiles'])) {
             if (!empty($map['DownloadTaskFiles'])) {
                 $model->downloadTaskFiles = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DownloadTaskFiles'] as $item1) {
-                    $model->downloadTaskFiles[$n1++] = downloadTaskFiles::fromMap($item1);
+                    $model->downloadTaskFiles[$n1] = downloadTaskFiles::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,33 +12,38 @@ class ModifyUnrecognizingConfigRequest extends Model
      * @var string
      */
     public $finalAction;
+
     /**
      * @var string
      */
     public $finalActionParams;
+
     /**
      * @var string
      */
     public $finalPrompt;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $prompt;
+
     /**
      * @var int
      */
     public $threshold;
     protected $_name = [
-        'finalAction'       => 'FinalAction',
+        'finalAction' => 'FinalAction',
         'finalActionParams' => 'FinalActionParams',
-        'finalPrompt'       => 'FinalPrompt',
-        'instanceId'        => 'InstanceId',
-        'prompt'            => 'Prompt',
-        'threshold'         => 'Threshold',
+        'finalPrompt' => 'FinalPrompt',
+        'instanceId' => 'InstanceId',
+        'prompt' => 'Prompt',
+        'threshold' => 'Threshold',
     ];
 
     public function validate()

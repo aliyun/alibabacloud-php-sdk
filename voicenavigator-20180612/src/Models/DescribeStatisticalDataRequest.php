@@ -12,23 +12,26 @@ class DescribeStatisticalDataRequest extends Model
      * @var int
      */
     public $beginTimeLeftRange;
+
     /**
      * @var int
      */
     public $beginTimeRightRange;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $timeUnit;
     protected $_name = [
-        'beginTimeLeftRange'  => 'BeginTimeLeftRange',
+        'beginTimeLeftRange' => 'BeginTimeLeftRange',
         'beginTimeRightRange' => 'BeginTimeRightRange',
-        'instanceId'          => 'InstanceId',
-        'timeUnit'            => 'TimeUnit',
+        'instanceId' => 'InstanceId',
+        'timeUnit' => 'TimeUnit',
     ];
 
     public function validate()

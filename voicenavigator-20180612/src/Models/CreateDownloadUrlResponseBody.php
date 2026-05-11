@@ -12,33 +12,38 @@ class CreateDownloadUrlResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $fileHttpUrl;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'fileHttpUrl'    => 'FileHttpUrl',
+        'code' => 'Code',
+        'fileHttpUrl' => 'FileHttpUrl',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

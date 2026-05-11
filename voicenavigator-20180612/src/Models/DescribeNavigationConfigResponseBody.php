@@ -15,23 +15,26 @@ class DescribeNavigationConfigResponseBody extends Model
      * @var greetingConfig
      */
     public $greetingConfig;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var silenceTimeoutConfig
      */
     public $silenceTimeoutConfig;
+
     /**
      * @var unrecognizingConfig
      */
     public $unrecognizingConfig;
     protected $_name = [
-        'greetingConfig'       => 'GreetingConfig',
-        'requestId'            => 'RequestId',
+        'greetingConfig' => 'GreetingConfig',
+        'requestId' => 'RequestId',
         'silenceTimeoutConfig' => 'SilenceTimeoutConfig',
-        'unrecognizingConfig'  => 'UnrecognizingConfig',
+        'unrecognizingConfig' => 'UnrecognizingConfig',
     ];
 
     public function validate()

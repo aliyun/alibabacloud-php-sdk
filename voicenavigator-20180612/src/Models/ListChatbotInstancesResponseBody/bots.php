@@ -12,38 +12,44 @@ class bots extends Model
      * @var string
      */
     public $avatar;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $introduction;
+
     /**
      * @var string
      */
     public $languageCode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $timeZone;
     protected $_name = [
-        'avatar'       => 'Avatar',
-        'createTime'   => 'CreateTime',
-        'instanceId'   => 'InstanceId',
+        'avatar' => 'Avatar',
+        'createTime' => 'CreateTime',
+        'instanceId' => 'InstanceId',
         'introduction' => 'Introduction',
         'languageCode' => 'LanguageCode',
-        'name'         => 'Name',
-        'timeZone'     => 'TimeZone',
+        'name' => 'Name',
+        'timeZone' => 'TimeZone',
     ];
 
     public function validate()

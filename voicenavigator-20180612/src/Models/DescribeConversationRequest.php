@@ -12,13 +12,14 @@ class DescribeConversationRequest extends Model
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'conversationId' => 'ConversationId',
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

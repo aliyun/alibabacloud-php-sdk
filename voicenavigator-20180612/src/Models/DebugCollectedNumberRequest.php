@@ -12,18 +12,20 @@ class DebugCollectedNumberRequest extends Model
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $number;
     protected $_name = [
         'conversationId' => 'ConversationId',
-        'instanceId'     => 'InstanceId',
-        'number'         => 'Number',
+        'instanceId' => 'InstanceId',
+        'number' => 'Number',
     ];
 
     public function validate()

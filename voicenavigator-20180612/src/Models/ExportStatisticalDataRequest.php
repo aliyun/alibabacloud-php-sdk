@@ -12,28 +12,32 @@ class ExportStatisticalDataRequest extends Model
      * @var int
      */
     public $beginTimeLeftRange;
+
     /**
      * @var int
      */
     public $beginTimeRightRange;
+
     /**
      * @var string
      */
     public $exportType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $timeUnit;
     protected $_name = [
-        'beginTimeLeftRange'  => 'BeginTimeLeftRange',
+        'beginTimeLeftRange' => 'BeginTimeLeftRange',
         'beginTimeRightRange' => 'BeginTimeRightRange',
-        'exportType'          => 'ExportType',
-        'instanceId'          => 'InstanceId',
-        'timeUnit'            => 'TimeUnit',
+        'exportType' => 'ExportType',
+        'instanceId' => 'InstanceId',
+        'timeUnit' => 'TimeUnit',
     ];
 
     public function validate()

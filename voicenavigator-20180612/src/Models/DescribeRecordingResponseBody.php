@@ -12,22 +12,25 @@ class DescribeRecordingResponseBody extends Model
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $filePath;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $voiceSliceRecordingListJson;
     protected $_name = [
-        'fileName'                    => 'FileName',
-        'filePath'                    => 'FilePath',
-        'requestId'                   => 'RequestId',
+        'fileName' => 'FileName',
+        'filePath' => 'FilePath',
+        'requestId' => 'RequestId',
         'voiceSliceRecordingListJson' => 'VoiceSliceRecordingListJson',
     ];
 

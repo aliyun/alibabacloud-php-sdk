@@ -12,38 +12,44 @@ class conversationDetails extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $actionParams;
+
     /**
      * @var string
      */
     public $conversationId;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $sequenceId;
+
     /**
      * @var string
      */
     public $speaker;
+
     /**
      * @var string
      */
     public $utterance;
     protected $_name = [
-        'action'         => 'Action',
-        'actionParams'   => 'ActionParams',
+        'action' => 'Action',
+        'actionParams' => 'ActionParams',
         'conversationId' => 'ConversationId',
-        'createTime'     => 'CreateTime',
-        'sequenceId'     => 'SequenceId',
-        'speaker'        => 'Speaker',
-        'utterance'      => 'Utterance',
+        'createTime' => 'CreateTime',
+        'sequenceId' => 'SequenceId',
+        'speaker' => 'Speaker',
+        'utterance' => 'Utterance',
     ];
 
     public function validate()

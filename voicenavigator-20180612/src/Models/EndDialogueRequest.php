@@ -12,22 +12,25 @@ class EndDialogueRequest extends Model
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $hangUpParams;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceOwnerId;
     protected $_name = [
-        'conversationId'  => 'ConversationId',
-        'hangUpParams'    => 'HangUpParams',
-        'instanceId'      => 'InstanceId',
+        'conversationId' => 'ConversationId',
+        'hangUpParams' => 'HangUpParams',
+        'instanceId' => 'InstanceId',
         'instanceOwnerId' => 'InstanceOwnerId',
     ];
 

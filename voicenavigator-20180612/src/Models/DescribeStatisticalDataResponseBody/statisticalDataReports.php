@@ -12,38 +12,44 @@ class statisticalDataReports extends Model
      * @var string
      */
     public $dialoguePassRate;
+
     /**
      * @var string
      */
     public $knowledgeHitRate;
+
     /**
      * @var string
      */
     public $resolutionRate;
+
     /**
      * @var int
      */
     public $resolvedQuestionNum;
+
     /**
      * @var string
      */
     public $statisticalDate;
+
     /**
      * @var int
      */
     public $totalConversationNum;
+
     /**
      * @var string
      */
     public $validAnswerRate;
     protected $_name = [
-        'dialoguePassRate'     => 'DialoguePassRate',
-        'knowledgeHitRate'     => 'KnowledgeHitRate',
-        'resolutionRate'       => 'ResolutionRate',
-        'resolvedQuestionNum'  => 'ResolvedQuestionNum',
-        'statisticalDate'      => 'StatisticalDate',
+        'dialoguePassRate' => 'DialoguePassRate',
+        'knowledgeHitRate' => 'KnowledgeHitRate',
+        'resolutionRate' => 'ResolutionRate',
+        'resolvedQuestionNum' => 'ResolvedQuestionNum',
+        'statisticalDate' => 'StatisticalDate',
         'totalConversationNum' => 'TotalConversationNum',
-        'validAnswerRate'      => 'ValidAnswerRate',
+        'validAnswerRate' => 'ValidAnswerRate',
     ];
 
     public function validate()

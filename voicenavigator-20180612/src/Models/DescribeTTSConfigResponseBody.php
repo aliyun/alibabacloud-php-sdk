@@ -12,53 +12,68 @@ class DescribeTTSConfigResponseBody extends Model
      * @var string
      */
     public $aliCustomizedVoice;
+
     /**
      * @var string
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineXunfei;
+
     /**
      * @var string
      */
     public $nlsServiceType;
+
     /**
      * @var int
      */
     public $pitchRate;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $speechRate;
+
+    /**
+     * @var string
+     */
+    public $ttsOverrides;
+
     /**
      * @var string
      */
     public $voice;
+
     /**
      * @var int
      */
     public $volume;
     protected $_name = [
         'aliCustomizedVoice' => 'AliCustomizedVoice',
-        'appKey'             => 'AppKey',
-        'engine'             => 'Engine',
-        'engineXunfei'       => 'EngineXunfei',
-        'nlsServiceType'     => 'NlsServiceType',
-        'pitchRate'          => 'PitchRate',
-        'requestId'          => 'RequestId',
-        'speechRate'         => 'SpeechRate',
-        'voice'              => 'Voice',
-        'volume'             => 'Volume',
+        'appKey' => 'AppKey',
+        'engine' => 'Engine',
+        'engineXunfei' => 'EngineXunfei',
+        'nlsServiceType' => 'NlsServiceType',
+        'pitchRate' => 'PitchRate',
+        'requestId' => 'RequestId',
+        'speechRate' => 'SpeechRate',
+        'ttsOverrides' => 'TtsOverrides',
+        'voice' => 'Voice',
+        'volume' => 'Volume',
     ];
 
     public function validate()
@@ -99,6 +114,10 @@ class DescribeTTSConfigResponseBody extends Model
 
         if (null !== $this->speechRate) {
             $res['SpeechRate'] = $this->speechRate;
+        }
+
+        if (null !== $this->ttsOverrides) {
+            $res['TtsOverrides'] = $this->ttsOverrides;
         }
 
         if (null !== $this->voice) {
@@ -150,6 +169,10 @@ class DescribeTTSConfigResponseBody extends Model
 
         if (isset($map['SpeechRate'])) {
             $model->speechRate = $map['SpeechRate'];
+        }
+
+        if (isset($map['TtsOverrides'])) {
+            $model->ttsOverrides = $map['TtsOverrides'];
         }
 
         if (isset($map['Voice'])) {

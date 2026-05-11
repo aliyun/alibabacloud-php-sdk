@@ -12,43 +12,56 @@ class ExportConversationDetailsRequest extends Model
      * @var int
      */
     public $beginTimeLeftRange;
+
     /**
      * @var int
      */
     public $beginTimeRightRange;
+
     /**
      * @var string
      */
     public $callingNumber;
+
+    /**
+     * @var int
+     */
+    public $debugConversation;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string[]
      */
     public $options;
+
     /**
      * @var int
      */
     public $result;
+
     /**
      * @var int
      */
     public $roundsLeftRange;
+
     /**
      * @var int
      */
     public $roundsRightRange;
     protected $_name = [
-        'beginTimeLeftRange'  => 'BeginTimeLeftRange',
+        'beginTimeLeftRange' => 'BeginTimeLeftRange',
         'beginTimeRightRange' => 'BeginTimeRightRange',
-        'callingNumber'       => 'CallingNumber',
-        'instanceId'          => 'InstanceId',
-        'options'             => 'Options',
-        'result'              => 'Result',
-        'roundsLeftRange'     => 'RoundsLeftRange',
-        'roundsRightRange'    => 'RoundsRightRange',
+        'callingNumber' => 'CallingNumber',
+        'debugConversation' => 'DebugConversation',
+        'instanceId' => 'InstanceId',
+        'options' => 'Options',
+        'result' => 'Result',
+        'roundsLeftRange' => 'RoundsLeftRange',
+        'roundsRightRange' => 'RoundsRightRange',
     ];
 
     public function validate()
@@ -74,6 +87,10 @@ class ExportConversationDetailsRequest extends Model
             $res['CallingNumber'] = $this->callingNumber;
         }
 
+        if (null !== $this->debugConversation) {
+            $res['DebugConversation'] = $this->debugConversation;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -81,9 +98,10 @@ class ExportConversationDetailsRequest extends Model
         if (null !== $this->options) {
             if (\is_array($this->options)) {
                 $res['Options'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->options as $item1) {
-                    $res['Options'][$n1++] = $item1;
+                    $res['Options'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -123,6 +141,10 @@ class ExportConversationDetailsRequest extends Model
             $model->callingNumber = $map['CallingNumber'];
         }
 
+        if (isset($map['DebugConversation'])) {
+            $model->debugConversation = $map['DebugConversation'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -130,9 +152,10 @@ class ExportConversationDetailsRequest extends Model
         if (isset($map['Options'])) {
             if (!empty($map['Options'])) {
                 $model->options = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Options'] as $item1) {
-                    $model->options[$n1++] = $item1;
+                    $model->options[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

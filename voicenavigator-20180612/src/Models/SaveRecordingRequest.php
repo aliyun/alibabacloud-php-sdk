@@ -12,47 +12,55 @@ class SaveRecordingRequest extends Model
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $duration;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $filePath;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceOwnerId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $voiceSliceRecordingList;
     protected $_name = [
-        'conversationId'          => 'ConversationId',
-        'duration'                => 'Duration',
-        'fileName'                => 'FileName',
-        'filePath'                => 'FilePath',
-        'instanceId'              => 'InstanceId',
-        'instanceOwnerId'         => 'InstanceOwnerId',
-        'startTime'               => 'StartTime',
-        'type'                    => 'Type',
+        'conversationId' => 'ConversationId',
+        'duration' => 'Duration',
+        'fileName' => 'FileName',
+        'filePath' => 'FilePath',
+        'instanceId' => 'InstanceId',
+        'instanceOwnerId' => 'InstanceOwnerId',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
         'voiceSliceRecordingList' => 'VoiceSliceRecordingList',
     ];
 

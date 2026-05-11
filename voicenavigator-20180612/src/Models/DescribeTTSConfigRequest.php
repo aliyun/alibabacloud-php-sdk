@@ -12,12 +12,13 @@ class DescribeTTSConfigRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceOwnerId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceOwnerId' => 'InstanceOwnerId',
     ];
 

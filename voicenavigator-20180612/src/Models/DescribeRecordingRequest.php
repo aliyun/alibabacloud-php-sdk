@@ -12,17 +12,19 @@ class DescribeRecordingRequest extends Model
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $needVoiceSliceRecording;
     protected $_name = [
-        'conversationId'          => 'ConversationId',
-        'instanceId'              => 'InstanceId',
+        'conversationId' => 'ConversationId',
+        'instanceId' => 'InstanceId',
         'needVoiceSliceRecording' => 'NeedVoiceSliceRecording',
     ];
 

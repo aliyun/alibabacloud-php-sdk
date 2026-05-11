@@ -12,22 +12,25 @@ class SilenceTimeoutRequest extends Model
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $initialContext;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceOwnerId;
     protected $_name = [
-        'conversationId'  => 'ConversationId',
-        'initialContext'  => 'InitialContext',
-        'instanceId'      => 'InstanceId',
+        'conversationId' => 'ConversationId',
+        'initialContext' => 'InitialContext',
+        'instanceId' => 'InstanceId',
         'instanceOwnerId' => 'InstanceOwnerId',
     ];
 

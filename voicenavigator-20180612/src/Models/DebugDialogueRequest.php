@@ -12,23 +12,26 @@ class DebugDialogueRequest extends Model
      * @var string
      */
     public $additionalContext;
+
     /**
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $utterance;
     protected $_name = [
         'additionalContext' => 'AdditionalContext',
-        'conversationId'    => 'ConversationId',
-        'instanceId'        => 'InstanceId',
-        'utterance'         => 'Utterance',
+        'conversationId' => 'ConversationId',
+        'instanceId' => 'InstanceId',
+        'utterance' => 'Utterance',
     ];
 
     public function validate()

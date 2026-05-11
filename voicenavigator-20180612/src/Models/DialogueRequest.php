@@ -12,43 +12,50 @@ class DialogueRequest extends Model
      * @var string
      */
     public $additionalContext;
+
     /**
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $emotion;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceOwnerId;
+
     /**
      * @var string
      */
     public $utterance;
     protected $_name = [
         'additionalContext' => 'AdditionalContext',
-        'calledNumber'      => 'CalledNumber',
-        'callingNumber'     => 'CallingNumber',
-        'conversationId'    => 'ConversationId',
-        'emotion'           => 'Emotion',
-        'instanceId'        => 'InstanceId',
-        'instanceOwnerId'   => 'InstanceOwnerId',
-        'utterance'         => 'Utterance',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
+        'conversationId' => 'ConversationId',
+        'emotion' => 'Emotion',
+        'instanceId' => 'InstanceId',
+        'instanceOwnerId' => 'InstanceOwnerId',
+        'utterance' => 'Utterance',
     ];
 
     public function validate()

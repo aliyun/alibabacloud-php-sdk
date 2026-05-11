@@ -12,28 +12,32 @@ class BeginDialogueResponseBody extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $actionParams;
+
     /**
      * @var bool
      */
     public $interruptible;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $textResponse;
     protected $_name = [
-        'action'        => 'Action',
-        'actionParams'  => 'ActionParams',
+        'action' => 'Action',
+        'actionParams' => 'ActionParams',
         'interruptible' => 'Interruptible',
-        'requestId'     => 'RequestId',
-        'textResponse'  => 'TextResponse',
+        'requestId' => 'RequestId',
+        'textResponse' => 'TextResponse',
     ];
 
     public function validate()

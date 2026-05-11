@@ -13,43 +13,50 @@ class DescribeStatisticalDataResponseBody extends Model
      * @var int
      */
     public $conversationTotalNum;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $resolvedQuestionTotalNum;
+
     /**
      * @var statisticalDataReports[]
      */
     public $statisticalDataReports;
+
     /**
      * @var string
      */
     public $totalDialoguePassRate;
+
     /**
      * @var string
      */
     public $totalKnowledgeHitRate;
+
     /**
      * @var string
      */
     public $totalResolutionRate;
+
     /**
      * @var string
      */
     public $totalValidAnswerRate;
     protected $_name = [
-        'conversationTotalNum'     => 'ConversationTotalNum',
-        'requestId'                => 'RequestId',
+        'conversationTotalNum' => 'ConversationTotalNum',
+        'requestId' => 'RequestId',
         'resolvedQuestionTotalNum' => 'ResolvedQuestionTotalNum',
-        'statisticalDataReports'   => 'StatisticalDataReports',
-        'totalDialoguePassRate'    => 'TotalDialoguePassRate',
-        'totalKnowledgeHitRate'    => 'TotalKnowledgeHitRate',
-        'totalResolutionRate'      => 'TotalResolutionRate',
-        'totalValidAnswerRate'     => 'TotalValidAnswerRate',
+        'statisticalDataReports' => 'StatisticalDataReports',
+        'totalDialoguePassRate' => 'TotalDialoguePassRate',
+        'totalKnowledgeHitRate' => 'TotalKnowledgeHitRate',
+        'totalResolutionRate' => 'TotalResolutionRate',
+        'totalValidAnswerRate' => 'TotalValidAnswerRate',
     ];
 
     public function validate()
@@ -78,9 +85,10 @@ class DescribeStatisticalDataResponseBody extends Model
         if (null !== $this->statisticalDataReports) {
             if (\is_array($this->statisticalDataReports)) {
                 $res['StatisticalDataReports'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->statisticalDataReports as $item1) {
-                    $res['StatisticalDataReports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StatisticalDataReports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -127,9 +135,10 @@ class DescribeStatisticalDataResponseBody extends Model
         if (isset($map['StatisticalDataReports'])) {
             if (!empty($map['StatisticalDataReports'])) {
                 $model->statisticalDataReports = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['StatisticalDataReports'] as $item1) {
-                    $model->statisticalDataReports[$n1++] = statisticalDataReports::fromMap($item1);
+                    $model->statisticalDataReports[$n1] = statisticalDataReports::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -12,28 +12,32 @@ class DebugBeginDialogueRequest extends Model
      * @var string
      */
     public $calledNumber;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $conversationId;
+
     /**
      * @var string
      */
     public $initialContext;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'calledNumber'   => 'CalledNumber',
-        'callingNumber'  => 'CallingNumber',
+        'calledNumber' => 'CalledNumber',
+        'callingNumber' => 'CallingNumber',
         'conversationId' => 'ConversationId',
         'initialContext' => 'InitialContext',
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

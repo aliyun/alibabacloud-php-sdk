@@ -12,33 +12,38 @@ class CreateInstanceRequest extends Model
      * @var int
      */
     public $concurrency;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nluServiceParamsJson;
+
     /**
      * @var string
      */
     public $unionInstanceId;
+
     /**
      * @var string
      */
     public $unionSource;
     protected $_name = [
-        'concurrency'          => 'Concurrency',
-        'description'          => 'Description',
-        'name'                 => 'Name',
+        'concurrency' => 'Concurrency',
+        'description' => 'Description',
+        'name' => 'Name',
         'nluServiceParamsJson' => 'NluServiceParamsJson',
-        'unionInstanceId'      => 'UnionInstanceId',
-        'unionSource'          => 'UnionSource',
+        'unionInstanceId' => 'UnionInstanceId',
+        'unionSource' => 'UnionSource',
     ];
 
     public function validate()

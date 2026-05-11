@@ -13,28 +13,32 @@ class ListConversationsResponseBody extends Model
      * @var conversations[]
      */
     public $conversations;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'conversations' => 'Conversations',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,9 +55,10 @@ class ListConversationsResponseBody extends Model
         if (null !== $this->conversations) {
             if (\is_array($this->conversations)) {
                 $res['Conversations'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->conversations as $item1) {
-                    $res['Conversations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Conversations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class ListConversationsResponseBody extends Model
         if (isset($map['Conversations'])) {
             if (!empty($map['Conversations'])) {
                 $model->conversations = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['Conversations'] as $item1) {
-                    $model->conversations[$n1++] = conversations::fromMap($item1);
+                    $model->conversations[$n1] = conversations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

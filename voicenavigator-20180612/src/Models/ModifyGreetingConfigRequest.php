@@ -12,23 +12,26 @@ class ModifyGreetingConfigRequest extends Model
      * @var string
      */
     public $greetingWords;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $intentTrigger;
+
     /**
      * @var string
      */
     public $sourceType;
     protected $_name = [
         'greetingWords' => 'GreetingWords',
-        'instanceId'    => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'intentTrigger' => 'IntentTrigger',
-        'sourceType'    => 'SourceType',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()

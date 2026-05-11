@@ -12,43 +12,50 @@ class silenceTimeoutConfig extends Model
      * @var string
      */
     public $finalAction;
+
     /**
      * @var string
      */
     public $finalActionParams;
+
     /**
      * @var string
      */
     public $finalPrompt;
+
     /**
      * @var string
      */
     public $intentTrigger;
+
     /**
      * @var string
      */
     public $prompt;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var int
      */
     public $threshold;
+
     /**
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'finalAction'       => 'FinalAction',
+        'finalAction' => 'FinalAction',
         'finalActionParams' => 'FinalActionParams',
-        'finalPrompt'       => 'FinalPrompt',
-        'intentTrigger'     => 'IntentTrigger',
-        'prompt'            => 'Prompt',
-        'sourceType'        => 'SourceType',
-        'threshold'         => 'Threshold',
-        'timeout'           => 'Timeout',
+        'finalPrompt' => 'FinalPrompt',
+        'intentTrigger' => 'IntentTrigger',
+        'prompt' => 'Prompt',
+        'sourceType' => 'SourceType',
+        'threshold' => 'Threshold',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class GetAsrConfigRequest extends Model
      * @var int
      */
     public $configLevel;
+
     /**
      * @var string
      */
     public $entryId;
     protected $_name = [
         'configLevel' => 'ConfigLevel',
-        'entryId'     => 'EntryId',
+        'entryId' => 'EntryId',
     ];
 
     public function validate()

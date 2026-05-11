@@ -12,13 +12,14 @@ class DescribeExportProgressRequest extends Model
      * @var string
      */
     public $exportTaskId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'exportTaskId' => 'ExportTaskId',
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

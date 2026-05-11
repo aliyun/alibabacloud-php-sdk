@@ -12,48 +12,68 @@ class ModifyTTSConfigRequest extends Model
      * @var string
      */
     public $aliCustomizedVoice;
+
     /**
      * @var string
      */
     public $appKey;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineXunfei;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nlsServiceType;
+
+    /**
+     * @var string
+     */
+    public $pitchRate;
+
     /**
      * @var string
      */
     public $speechRate;
+
+    /**
+     * @var string
+     */
+    public $ttsOverrides;
+
     /**
      * @var string
      */
     public $voice;
+
     /**
      * @var string
      */
     public $volume;
     protected $_name = [
         'aliCustomizedVoice' => 'AliCustomizedVoice',
-        'appKey'             => 'AppKey',
-        'engine'             => 'Engine',
-        'engineXunfei'       => 'EngineXunfei',
-        'instanceId'         => 'InstanceId',
-        'nlsServiceType'     => 'NlsServiceType',
-        'speechRate'         => 'SpeechRate',
-        'voice'              => 'Voice',
-        'volume'             => 'Volume',
+        'appKey' => 'AppKey',
+        'engine' => 'Engine',
+        'engineXunfei' => 'EngineXunfei',
+        'instanceId' => 'InstanceId',
+        'nlsServiceType' => 'NlsServiceType',
+        'pitchRate' => 'PitchRate',
+        'speechRate' => 'SpeechRate',
+        'ttsOverrides' => 'TtsOverrides',
+        'voice' => 'Voice',
+        'volume' => 'Volume',
     ];
 
     public function validate()
@@ -88,8 +108,16 @@ class ModifyTTSConfigRequest extends Model
             $res['NlsServiceType'] = $this->nlsServiceType;
         }
 
+        if (null !== $this->pitchRate) {
+            $res['PitchRate'] = $this->pitchRate;
+        }
+
         if (null !== $this->speechRate) {
             $res['SpeechRate'] = $this->speechRate;
+        }
+
+        if (null !== $this->ttsOverrides) {
+            $res['TtsOverrides'] = $this->ttsOverrides;
         }
 
         if (null !== $this->voice) {
@@ -135,8 +163,16 @@ class ModifyTTSConfigRequest extends Model
             $model->nlsServiceType = $map['NlsServiceType'];
         }
 
+        if (isset($map['PitchRate'])) {
+            $model->pitchRate = $map['PitchRate'];
+        }
+
         if (isset($map['SpeechRate'])) {
             $model->speechRate = $map['SpeechRate'];
+        }
+
+        if (isset($map['TtsOverrides'])) {
+            $model->ttsOverrides = $map['TtsOverrides'];
         }
 
         if (isset($map['Voice'])) {

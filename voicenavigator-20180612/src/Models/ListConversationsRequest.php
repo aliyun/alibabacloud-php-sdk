@@ -12,58 +12,74 @@ class ListConversationsRequest extends Model
      * @var int
      */
     public $beginTimeLeftRange;
+
     /**
      * @var int
      */
     public $beginTimeRightRange;
+
     /**
      * @var string
      */
     public $callingNumber;
+
+    /**
+     * @var int
+     */
+    public $debugConversation;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $isSandBox;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var int
      */
     public $result;
+
     /**
      * @var int
      */
     public $roundsLeftRange;
+
     /**
      * @var int
      */
     public $roundsRightRange;
     protected $_name = [
-        'beginTimeLeftRange'  => 'BeginTimeLeftRange',
+        'beginTimeLeftRange' => 'BeginTimeLeftRange',
         'beginTimeRightRange' => 'BeginTimeRightRange',
-        'callingNumber'       => 'CallingNumber',
-        'instanceId'          => 'InstanceId',
-        'isSandBox'           => 'IsSandBox',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'query'               => 'Query',
-        'result'              => 'Result',
-        'roundsLeftRange'     => 'RoundsLeftRange',
-        'roundsRightRange'    => 'RoundsRightRange',
+        'callingNumber' => 'CallingNumber',
+        'debugConversation' => 'DebugConversation',
+        'instanceId' => 'InstanceId',
+        'isSandBox' => 'IsSandBox',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'query' => 'Query',
+        'result' => 'Result',
+        'roundsLeftRange' => 'RoundsLeftRange',
+        'roundsRightRange' => 'RoundsRightRange',
     ];
 
     public function validate()
@@ -84,6 +100,10 @@ class ListConversationsRequest extends Model
 
         if (null !== $this->callingNumber) {
             $res['CallingNumber'] = $this->callingNumber;
+        }
+
+        if (null !== $this->debugConversation) {
+            $res['DebugConversation'] = $this->debugConversation;
         }
 
         if (null !== $this->instanceId) {
@@ -139,6 +159,10 @@ class ListConversationsRequest extends Model
 
         if (isset($map['CallingNumber'])) {
             $model->callingNumber = $map['CallingNumber'];
+        }
+
+        if (isset($map['DebugConversation'])) {
+            $model->debugConversation = $map['DebugConversation'];
         }
 
         if (isset($map['InstanceId'])) {

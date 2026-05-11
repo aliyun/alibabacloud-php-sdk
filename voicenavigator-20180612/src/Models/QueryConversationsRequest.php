@@ -12,33 +12,38 @@ class QueryConversationsRequest extends Model
      * @var int
      */
     public $beginTimeLeftRange;
+
     /**
      * @var int
      */
     public $beginTimeRightRange;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'beginTimeLeftRange'  => 'BeginTimeLeftRange',
+        'beginTimeLeftRange' => 'BeginTimeLeftRange',
         'beginTimeRightRange' => 'BeginTimeRightRange',
-        'callingNumber'       => 'CallingNumber',
-        'instanceId'          => 'InstanceId',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
+        'callingNumber' => 'CallingNumber',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

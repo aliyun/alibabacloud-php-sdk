@@ -12,13 +12,14 @@ class ExportConversationDetailsResponseBody extends Model
      * @var string
      */
     public $exportTaskId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'exportTaskId' => 'ExportTaskId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

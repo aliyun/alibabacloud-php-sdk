@@ -12,48 +12,56 @@ class DescribeConversationResponseBody extends Model
      * @var int
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $callingNumber;
+
     /**
      * @var string
      */
     public $conversationId;
+
     /**
      * @var int
      */
     public $effectiveAnswerCount;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $skillGroupId;
+
     /**
      * @var bool
      */
     public $transferredToAgent;
+
     /**
      * @var int
      */
     public $userUtteranceCount;
     protected $_name = [
-        'beginTime'            => 'BeginTime',
-        'callingNumber'        => 'CallingNumber',
-        'conversationId'       => 'ConversationId',
+        'beginTime' => 'BeginTime',
+        'callingNumber' => 'CallingNumber',
+        'conversationId' => 'ConversationId',
         'effectiveAnswerCount' => 'EffectiveAnswerCount',
-        'endTime'              => 'EndTime',
-        'requestId'            => 'RequestId',
-        'skillGroupId'         => 'SkillGroupId',
-        'transferredToAgent'   => 'TransferredToAgent',
-        'userUtteranceCount'   => 'UserUtteranceCount',
+        'endTime' => 'EndTime',
+        'requestId' => 'RequestId',
+        'skillGroupId' => 'SkillGroupId',
+        'transferredToAgent' => 'TransferredToAgent',
+        'userUtteranceCount' => 'UserUtteranceCount',
     ];
 
     public function validate()

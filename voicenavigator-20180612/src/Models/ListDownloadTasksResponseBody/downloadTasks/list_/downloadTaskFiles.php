@@ -12,23 +12,26 @@ class downloadTaskFiles extends Model
      * @var string
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $progress;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'fileId'   => 'FileId',
+        'fileId' => 'FileId',
         'progress' => 'Progress',
-        'status'   => 'Status',
-        'title'    => 'Title',
+        'status' => 'Status',
+        'title' => 'Title',
     ];
 
     public function validate()

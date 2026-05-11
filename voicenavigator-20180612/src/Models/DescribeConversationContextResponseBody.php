@@ -12,13 +12,14 @@ class DescribeConversationContextResponseBody extends Model
      * @var string
      */
     public $conversationContext;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'conversationContext' => 'ConversationContext',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

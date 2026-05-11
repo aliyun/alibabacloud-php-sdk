@@ -13,27 +13,31 @@ class ListChatbotInstancesResponseBody extends Model
      * @var bots[]
      */
     public $bots;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'bots'       => 'Bots',
+        'bots' => 'Bots',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,9 +55,10 @@ class ListChatbotInstancesResponseBody extends Model
         if (null !== $this->bots) {
             if (\is_array($this->bots)) {
                 $res['Bots'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->bots as $item1) {
-                    $res['Bots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Bots'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class ListChatbotInstancesResponseBody extends Model
         if (isset($map['Bots'])) {
             if (!empty($map['Bots'])) {
                 $model->bots = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Bots'] as $item1) {
-                    $model->bots[$n1++] = bots::fromMap($item1);
+                    $model->bots[$n1] = bots::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

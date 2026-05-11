@@ -11,39 +11,63 @@ class ModifyAsrConfigRequest extends Model
     /**
      * @var string
      */
+    public $appKey;
+
+    /**
+     * @var string
+     */
     public $asrAcousticModelId;
+
     /**
      * @var string
      */
     public $asrClassVocabularyId;
+
     /**
      * @var string
      */
     public $asrCustomizationId;
+
+    /**
+     * @var string
+     */
+    public $asrOverrides;
+
     /**
      * @var string
      */
     public $asrVocabularyId;
+
     /**
      * @var int
      */
     public $configLevel;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $entryId;
+
+    /**
+     * @var string
+     */
+    public $nlsServiceType;
     protected $_name = [
-        'asrAcousticModelId'   => 'AsrAcousticModelId',
+        'appKey' => 'AppKey',
+        'asrAcousticModelId' => 'AsrAcousticModelId',
         'asrClassVocabularyId' => 'AsrClassVocabularyId',
-        'asrCustomizationId'   => 'AsrCustomizationId',
-        'asrVocabularyId'      => 'AsrVocabularyId',
-        'configLevel'          => 'ConfigLevel',
-        'engine'               => 'Engine',
-        'entryId'              => 'EntryId',
+        'asrCustomizationId' => 'AsrCustomizationId',
+        'asrOverrides' => 'AsrOverrides',
+        'asrVocabularyId' => 'AsrVocabularyId',
+        'configLevel' => 'ConfigLevel',
+        'engine' => 'Engine',
+        'entryId' => 'EntryId',
+        'nlsServiceType' => 'NlsServiceType',
     ];
 
     public function validate()
@@ -54,6 +78,10 @@ class ModifyAsrConfigRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appKey) {
+            $res['AppKey'] = $this->appKey;
+        }
+
         if (null !== $this->asrAcousticModelId) {
             $res['AsrAcousticModelId'] = $this->asrAcousticModelId;
         }
@@ -64,6 +92,10 @@ class ModifyAsrConfigRequest extends Model
 
         if (null !== $this->asrCustomizationId) {
             $res['AsrCustomizationId'] = $this->asrCustomizationId;
+        }
+
+        if (null !== $this->asrOverrides) {
+            $res['AsrOverrides'] = $this->asrOverrides;
         }
 
         if (null !== $this->asrVocabularyId) {
@@ -82,6 +114,10 @@ class ModifyAsrConfigRequest extends Model
             $res['EntryId'] = $this->entryId;
         }
 
+        if (null !== $this->nlsServiceType) {
+            $res['NlsServiceType'] = $this->nlsServiceType;
+        }
+
         return $res;
     }
 
@@ -93,6 +129,10 @@ class ModifyAsrConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppKey'])) {
+            $model->appKey = $map['AppKey'];
+        }
+
         if (isset($map['AsrAcousticModelId'])) {
             $model->asrAcousticModelId = $map['AsrAcousticModelId'];
         }
@@ -103,6 +143,10 @@ class ModifyAsrConfigRequest extends Model
 
         if (isset($map['AsrCustomizationId'])) {
             $model->asrCustomizationId = $map['AsrCustomizationId'];
+        }
+
+        if (isset($map['AsrOverrides'])) {
+            $model->asrOverrides = $map['AsrOverrides'];
         }
 
         if (isset($map['AsrVocabularyId'])) {
@@ -119,6 +163,10 @@ class ModifyAsrConfigRequest extends Model
 
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
+        }
+
+        if (isset($map['NlsServiceType'])) {
+            $model->nlsServiceType = $map['NlsServiceType'];
         }
 
         return $model;

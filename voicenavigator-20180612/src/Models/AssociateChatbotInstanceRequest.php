@@ -12,33 +12,38 @@ class AssociateChatbotInstanceRequest extends Model
      * @var string
      */
     public $chatbotInstanceId;
+
     /**
      * @var string
      */
     public $chatbotName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nluServiceParamsJson;
+
     /**
      * @var string
      */
     public $nluServiceType;
+
     /**
      * @var string
      */
     public $unionSource;
     protected $_name = [
-        'chatbotInstanceId'    => 'ChatbotInstanceId',
-        'chatbotName'          => 'ChatbotName',
-        'instanceId'           => 'InstanceId',
+        'chatbotInstanceId' => 'ChatbotInstanceId',
+        'chatbotName' => 'ChatbotName',
+        'instanceId' => 'InstanceId',
         'nluServiceParamsJson' => 'NluServiceParamsJson',
-        'nluServiceType'       => 'NluServiceType',
-        'unionSource'          => 'UnionSource',
+        'nluServiceType' => 'NluServiceType',
+        'unionSource' => 'UnionSource',
     ];
 
     public function validate()

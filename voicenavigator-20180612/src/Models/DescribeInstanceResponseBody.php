@@ -12,68 +12,80 @@ class DescribeInstanceResponseBody extends Model
      * @var string
      */
     public $abilityType;
+
     /**
      * @var string[]
      */
     public $applicableOperations;
+
     /**
      * @var int
      */
     public $concurrency;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $modifyUserName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nluServiceParamsJson;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $unionInstanceId;
+
     /**
      * @var string
      */
     public $unionSource;
     protected $_name = [
-        'abilityType'          => 'AbilityType',
+        'abilityType' => 'AbilityType',
         'applicableOperations' => 'ApplicableOperations',
-        'concurrency'          => 'Concurrency',
-        'description'          => 'Description',
-        'instanceId'           => 'InstanceId',
-        'modifyTime'           => 'ModifyTime',
-        'modifyUserName'       => 'ModifyUserName',
-        'name'                 => 'Name',
+        'concurrency' => 'Concurrency',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'modifyTime' => 'ModifyTime',
+        'modifyUserName' => 'ModifyUserName',
+        'name' => 'Name',
         'nluServiceParamsJson' => 'NluServiceParamsJson',
-        'requestId'            => 'RequestId',
-        'status'               => 'Status',
-        'unionInstanceId'      => 'UnionInstanceId',
-        'unionSource'          => 'UnionSource',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'unionInstanceId' => 'UnionInstanceId',
+        'unionSource' => 'UnionSource',
     ];
 
     public function validate()
@@ -94,9 +106,10 @@ class DescribeInstanceResponseBody extends Model
         if (null !== $this->applicableOperations) {
             if (\is_array($this->applicableOperations)) {
                 $res['ApplicableOperations'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->applicableOperations as $item1) {
-                    $res['ApplicableOperations'][$n1++] = $item1;
+                    $res['ApplicableOperations'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,9 +176,10 @@ class DescribeInstanceResponseBody extends Model
         if (isset($map['ApplicableOperations'])) {
             if (!empty($map['ApplicableOperations'])) {
                 $model->applicableOperations = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ApplicableOperations'] as $item1) {
-                    $model->applicableOperations[$n1++] = $item1;
+                    $model->applicableOperations[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
