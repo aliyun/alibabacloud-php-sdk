@@ -56,6 +56,11 @@ class records extends Model
     /**
      * @var int
      */
+    public $totalBillStatCalls;
+
+    /**
+     * @var int
+     */
     public $totalCalls;
 
     /**
@@ -77,6 +82,7 @@ class records extends Model
         'mainAccountId' => 'mainAccountId',
         'subAccountId' => 'subAccountId',
         'successCalls' => 'successCalls',
+        'totalBillStatCalls' => 'totalBillStatCalls',
         'totalCalls' => 'totalCalls',
         'valueAddedAdvanced' => 'valueAddedAdvanced',
         'valueAddedSummary' => 'valueAddedSummary',
@@ -124,6 +130,10 @@ class records extends Model
 
         if (null !== $this->successCalls) {
             $res['successCalls'] = $this->successCalls;
+        }
+
+        if (null !== $this->totalBillStatCalls) {
+            $res['totalBillStatCalls'] = $this->totalBillStatCalls;
         }
 
         if (null !== $this->totalCalls) {
@@ -183,6 +193,10 @@ class records extends Model
 
         if (isset($map['successCalls'])) {
             $model->successCalls = $map['successCalls'];
+        }
+
+        if (isset($map['totalBillStatCalls'])) {
+            $model->totalBillStatCalls = $map['totalBillStatCalls'];
         }
 
         if (isset($map['totalCalls'])) {

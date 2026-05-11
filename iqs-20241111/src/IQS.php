@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\IQS\V20241111;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\CommonQueryBySceneRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\CommonQueryBySceneResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericAdvancedSearchResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GenericSearchRequest;
@@ -16,8 +18,14 @@ use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GlobalSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\MedicalAnswerRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\MedicalAnswerResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\MedicalKnowledgeRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\MedicalKnowledgeResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\MultimodalSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\MultimodalSearchResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\OmniAnswerRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\OmniAnswerResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageScrapeRequest;
@@ -209,6 +217,62 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->aiSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 自然语言通用查询.
+     *
+     * @param request - CommonQueryBySceneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CommonQueryBySceneResponse
+     *
+     * @param CommonQueryBySceneRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CommonQueryBySceneResponse
+     */
+    public function commonQueryBySceneWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CommonQueryByScene',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/amap-function-call-agent/iqs-agent-service/v2/nl/common',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CommonQueryBySceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 自然语言通用查询.
+     *
+     * @param request - CommonQueryBySceneRequest
+     *
+     * @returns CommonQueryBySceneResponse
+     *
+     * @param CommonQueryBySceneRequest $request
+     *
+     * @return CommonQueryBySceneResponse
+     */
+    public function commonQueryByScene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->commonQueryBySceneWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -534,6 +598,118 @@ class IQS extends OpenApiClient
     }
 
     /**
+     * 医疗问答.
+     *
+     * @param request - MedicalAnswerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MedicalAnswerResponse
+     *
+     * @param MedicalAnswerRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return MedicalAnswerResponse
+     */
+    public function medicalAnswerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'MedicalAnswer',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/medical/answer',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return MedicalAnswerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 医疗问答.
+     *
+     * @param request - MedicalAnswerRequest
+     *
+     * @returns MedicalAnswerResponse
+     *
+     * @param MedicalAnswerRequest $request
+     *
+     * @return MedicalAnswerResponse
+     */
+    public function medicalAnswer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->medicalAnswerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 医疗图谱.
+     *
+     * @param request - MedicalKnowledgeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MedicalKnowledgeResponse
+     *
+     * @param MedicalKnowledgeRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return MedicalKnowledgeResponse
+     */
+    public function medicalKnowledgeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'MedicalKnowledge',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/medical/know',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return MedicalKnowledgeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 医疗图谱.
+     *
+     * @param request - MedicalKnowledgeRequest
+     *
+     * @returns MedicalKnowledgeResponse
+     *
+     * @param MedicalKnowledgeRequest $request
+     *
+     * @return MedicalKnowledgeResponse
+     */
+    public function medicalKnowledge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->medicalKnowledgeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 多模态搜索.
      *
      * @param request - MultimodalSearchRequest
@@ -587,6 +763,112 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->multimodalSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通用问答.
+     *
+     * @param request - OmniAnswerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OmniAnswerResponse
+     *
+     * @param OmniAnswerRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return OmniAnswerResponse
+     */
+    public function omniAnswerWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'OmniAnswer',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/answer/omni/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'string',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield OmniAnswerResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 通用问答.
+     *
+     * @param request - OmniAnswerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OmniAnswerResponse
+     *
+     * @param OmniAnswerRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return OmniAnswerResponse
+     */
+    public function omniAnswerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'OmniAnswer',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/answer/omni/search',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'string',
+        ]);
+
+        return OmniAnswerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通用问答.
+     *
+     * @param request - OmniAnswerRequest
+     *
+     * @returns OmniAnswerResponse
+     *
+     * @param OmniAnswerRequest $request
+     *
+     * @return OmniAnswerResponse
+     */
+    public function omniAnswer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->omniAnswerWithOptions($request, $headers, $runtime);
     }
 
     /**
