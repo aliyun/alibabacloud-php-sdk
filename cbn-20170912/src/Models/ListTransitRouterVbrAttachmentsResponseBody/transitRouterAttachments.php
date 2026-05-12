@@ -27,6 +27,11 @@ class transitRouterAttachments extends Model
     /**
      * @var string
      */
+    public $managedService;
+
+    /**
+     * @var string
+     */
     public $orderType;
 
     /**
@@ -82,6 +87,7 @@ class transitRouterAttachments extends Model
         'autoPublishRouteEnabled' => 'AutoPublishRouteEnabled',
         'cenId' => 'CenId',
         'creationTime' => 'CreationTime',
+        'managedService' => 'ManagedService',
         'orderType' => 'OrderType',
         'resourceType' => 'ResourceType',
         'status' => 'Status',
@@ -116,6 +122,10 @@ class transitRouterAttachments extends Model
 
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->managedService) {
+            $res['ManagedService'] = $this->managedService;
         }
 
         if (null !== $this->orderType) {
@@ -190,6 +200,10 @@ class transitRouterAttachments extends Model
 
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['ManagedService'])) {
+            $model->managedService = $map['ManagedService'];
         }
 
         if (isset($map['OrderType'])) {
