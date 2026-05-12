@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteModelTemplateRequest
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteModelTemplateResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeleteWuyingServerResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeliverToUserSlsRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeliverToUserSlsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
@@ -1800,6 +1802,86 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteWuyingServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 配置SLS日志投递.
+     *
+     * @param request - DeliverToUserSlsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeliverToUserSlsResponse
+     *
+     * @param DeliverToUserSlsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeliverToUserSlsResponse
+     */
+    public function deliverToUserSlsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        $bodyFlat = [];
+        if (null !== $request->deliveryScopes) {
+            @$bodyFlat['DeliveryScopes'] = $request->deliveryScopes;
+        }
+
+        if (null !== $request->existedProjectName) {
+            @$body['ExistedProjectName'] = $request->existedProjectName;
+        }
+
+        if (null !== $request->logStoreName) {
+            @$body['LogStoreName'] = $request->logStoreName;
+        }
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->slsRegionId) {
+            @$body['SlsRegionId'] = $request->slsRegionId;
+        }
+
+        if (null !== $request->ttl) {
+            @$body['Ttl'] = $request->ttl;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeliverToUserSls',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeliverToUserSlsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置SLS日志投递.
+     *
+     * @param request - DeliverToUserSlsRequest
+     *
+     * @returns DeliverToUserSlsResponse
+     *
+     * @param DeliverToUserSlsRequest $request
+     *
+     * @return DeliverToUserSlsResponse
+     */
+    public function deliverToUserSls($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deliverToUserSlsWithOptions($request, $runtime);
     }
 
     /**
