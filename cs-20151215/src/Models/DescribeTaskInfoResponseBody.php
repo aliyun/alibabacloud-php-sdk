@@ -41,6 +41,11 @@ class DescribeTaskInfoResponseBody extends Model
     /**
      * @var mixed[]
      */
+    public $outputs;
+
+    /**
+     * @var mixed[]
+     */
     public $parameters;
 
     /**
@@ -83,6 +88,7 @@ class DescribeTaskInfoResponseBody extends Model
         'currentStage' => 'current_stage',
         'error' => 'error',
         'events' => 'events',
+        'outputs' => 'outputs',
         'parameters' => 'parameters',
         'stages' => 'stages',
         'state' => 'state',
@@ -100,6 +106,9 @@ class DescribeTaskInfoResponseBody extends Model
         }
         if (\is_array($this->events)) {
             Model::validateArray($this->events);
+        }
+        if (\is_array($this->outputs)) {
+            Model::validateArray($this->outputs);
         }
         if (\is_array($this->parameters)) {
             Model::validateArray($this->parameters);
@@ -142,6 +151,15 @@ class DescribeTaskInfoResponseBody extends Model
                 foreach ($this->events as $item1) {
                     $res['events'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->outputs) {
+            if (\is_array($this->outputs)) {
+                $res['outputs'] = [];
+                foreach ($this->outputs as $key1 => $value1) {
+                    $res['outputs'][$key1] = $value1;
                 }
             }
         }
@@ -231,6 +249,15 @@ class DescribeTaskInfoResponseBody extends Model
                 foreach ($map['events'] as $item1) {
                     $model->events[$n1] = events::fromMap($item1);
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['outputs'])) {
+            if (!empty($map['outputs'])) {
+                $model->outputs = [];
+                foreach ($map['outputs'] as $key1 => $value1) {
+                    $model->outputs[$key1] = $value1;
                 }
             }
         }
