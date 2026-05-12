@@ -21,6 +21,11 @@ class syncRules extends Model
     /**
      * @var string
      */
+    public $linkId;
+
+    /**
+     * @var string
+     */
     public $localInstanceId;
 
     /**
@@ -100,6 +105,7 @@ class syncRules extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'crossUser' => 'CrossUser',
+        'linkId' => 'LinkId',
         'localInstanceId' => 'LocalInstanceId',
         'localNamespaceName' => 'LocalNamespaceName',
         'localRegionId' => 'LocalRegionId',
@@ -132,6 +138,10 @@ class syncRules extends Model
 
         if (null !== $this->crossUser) {
             $res['CrossUser'] = $this->crossUser;
+        }
+
+        if (null !== $this->linkId) {
+            $res['LinkId'] = $this->linkId;
         }
 
         if (null !== $this->localInstanceId) {
@@ -215,6 +225,10 @@ class syncRules extends Model
 
         if (isset($map['CrossUser'])) {
             $model->crossUser = $map['CrossUser'];
+        }
+
+        if (isset($map['LinkId'])) {
+            $model->linkId = $map['LinkId'];
         }
 
         if (isset($map['LocalInstanceId'])) {

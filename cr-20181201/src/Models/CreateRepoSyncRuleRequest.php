@@ -16,6 +16,11 @@ class CreateRepoSyncRuleRequest extends Model
     /**
      * @var string
      */
+    public $linkId;
+
+    /**
+     * @var string
+     */
     public $namespaceName;
 
     /**
@@ -74,6 +79,7 @@ class CreateRepoSyncRuleRequest extends Model
     public $targetUserId;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'linkId' => 'LinkId',
         'namespaceName' => 'NamespaceName',
         'repoName' => 'RepoName',
         'repoNameFilter' => 'RepoNameFilter',
@@ -98,6 +104,10 @@ class CreateRepoSyncRuleRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->linkId) {
+            $res['LinkId'] = $this->linkId;
         }
 
         if (null !== $this->namespaceName) {
@@ -161,6 +171,10 @@ class CreateRepoSyncRuleRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['LinkId'])) {
+            $model->linkId = $map['LinkId'];
         }
 
         if (isset($map['NamespaceName'])) {

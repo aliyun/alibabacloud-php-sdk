@@ -36,9 +36,19 @@ class syncTasks extends Model
     public $imageTo;
 
     /**
+     * @var string
+     */
+    public $linkId;
+
+    /**
      * @var int
      */
     public $modifedTime;
+
+    /**
+     * @var int
+     */
+    public $modifiedTime;
 
     /**
      * @var string
@@ -80,7 +90,9 @@ class syncTasks extends Model
         'customLink' => 'CustomLink',
         'imageFrom' => 'ImageFrom',
         'imageTo' => 'ImageTo',
+        'linkId' => 'LinkId',
         'modifedTime' => 'ModifedTime',
+        'modifiedTime' => 'ModifiedTime',
         'syncBatchTaskId' => 'SyncBatchTaskId',
         'syncRuleId' => 'SyncRuleId',
         'syncTaskId' => 'SyncTaskId',
@@ -124,8 +136,16 @@ class syncTasks extends Model
             $res['ImageTo'] = null !== $this->imageTo ? $this->imageTo->toArray($noStream) : $this->imageTo;
         }
 
+        if (null !== $this->linkId) {
+            $res['LinkId'] = $this->linkId;
+        }
+
         if (null !== $this->modifedTime) {
             $res['ModifedTime'] = $this->modifedTime;
+        }
+
+        if (null !== $this->modifiedTime) {
+            $res['ModifiedTime'] = $this->modifiedTime;
         }
 
         if (null !== $this->syncBatchTaskId) {
@@ -187,8 +207,16 @@ class syncTasks extends Model
             $model->imageTo = imageTo::fromMap($map['ImageTo']);
         }
 
+        if (isset($map['LinkId'])) {
+            $model->linkId = $map['LinkId'];
+        }
+
         if (isset($map['ModifedTime'])) {
             $model->modifedTime = $map['ModifedTime'];
+        }
+
+        if (isset($map['ModifiedTime'])) {
+            $model->modifiedTime = $map['ModifiedTime'];
         }
 
         if (isset($map['SyncBatchTaskId'])) {

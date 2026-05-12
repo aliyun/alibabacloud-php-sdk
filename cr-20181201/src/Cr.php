@@ -343,7 +343,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Cancels an image building task of a repository.
+     * Cancels a repository building record.
      *
      * @param request - CancelRepoBuildRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -390,7 +390,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Cancels an image building task of a repository.
+     * Cancels a repository building record.
      *
      * @param request - CancelRepoBuildRecordRequest
      *
@@ -1646,6 +1646,10 @@ class Cr extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->linkId) {
+            @$query['LinkId'] = $request->linkId;
+        }
+
         if (null !== $request->namespaceName) {
             @$query['NamespaceName'] = $request->namespaceName;
         }
@@ -1731,6 +1735,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Manually creates an image synchronization task.
+     *
      * @param request - CreateRepoSyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1804,6 +1810,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Manually creates an image synchronization task.
+     *
      * @param request - CreateRepoSyncTaskRequest
      *
      * @returns CreateRepoSyncTaskResponse
@@ -2493,7 +2501,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Deletes a delivery pipeline.
+     * Deletes a delivery chain.
      *
      * @param request - DeleteChainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2536,7 +2544,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Deletes a delivery pipeline.
+     * Deletes a delivery chain.
      *
      * @param request - DeleteChainRequest
      *
@@ -3490,6 +3498,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the details of an artifact building rule.
+     *
      * @param request - GetArtifactBuildRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3523,6 +3533,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the details of an artifact building rule.
+     *
      * @param request - GetArtifactBuildRuleRequest
      *
      * @returns GetArtifactBuildRuleResponse
@@ -3873,7 +3885,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 获取交付链.
+     * Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
      *
      * @param request - GetChainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3916,7 +3928,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * 获取交付链.
+     * Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
      *
      * @param request - GetChainRequest
      *
@@ -4119,7 +4131,6 @@ class Cr extends OpenApiClient
     /**
      * Queries the number of instances.
      *
-     * @param request - GetInstanceCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetInstanceCountResponse
@@ -4161,7 +4172,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the endpoint of an instance.
+     * Queries an endpoint of an instance.
      *
      * @param request - GetInstanceEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4208,7 +4219,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the endpoint of an instance.
+     * Queries an endpoint of an instance.
      *
      * @param request - GetInstanceEndpointRequest
      *
@@ -4661,7 +4672,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The version of the repository.
+     * Queries the information about an image tag.
      *
      * @param request - GetRepoTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4696,7 +4707,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The version of the repository.
+     * Queries the information about an image tag.
      *
      * @param request - GetRepoTagRequest
      *
@@ -4791,6 +4802,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+     *
      * @param request - GetRepoTagScanSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4844,6 +4857,8 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+     *
      * @param request - GetRepoTagScanSummaryRequest
      *
      * @returns GetRepoTagScanSummaryResponse
@@ -4929,7 +4944,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Obtains a scan rule.
+     * Queries a scan rule.
      *
      * @remarks
      * Get scan rule.
@@ -4975,7 +4990,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Obtains a scan rule.
+     * Queries a scan rule.
      *
      * @remarks
      * Get scan rule.
@@ -5348,7 +5363,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The response code.
+     * Queries execution records of delivery chains.
      *
      * @param request - ListChainInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5403,7 +5418,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The response code.
+     * Queries execution records of delivery chains.
      *
      * @param request - ListChainInstanceRequest
      *
@@ -5701,7 +5716,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the names of event notification rules.
+     * Queries the name of an event rule.
      *
      * @param request - ListEventCenterRuleNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5736,7 +5751,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the names of event notification rules.
+     * Queries the name of an event rule.
      *
      * @param request - ListEventCenterRuleNameRequest
      *
@@ -7561,7 +7576,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Updates an event notification rule.
+     * Updates an event rule.
      *
      * @param tmpReq - UpdateEventCenterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7646,7 +7661,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Updates an event notification rule.
+     * Updates an event rule.
      *
      * @param request - UpdateEventCenterRuleRequest
      *
