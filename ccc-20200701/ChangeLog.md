@@ -1,3 +1,10 @@
+2026-05-12 Version: 2.37.0
+- Support API ClaimCall.
+- Support API ListNotificationRecords.
+- Support API UpdateSubscription.
+- Update API AssignUsers: add request parameters Async.
+
+
 2026-03-27 Version: 2.37.0
 - Support API ClaimCall.
 - Support API ListNotificationRecords.

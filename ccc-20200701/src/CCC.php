@@ -1685,6 +1685,10 @@ class CCC extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->async) {
+            @$query['Async'] = $request->async;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
@@ -7451,6 +7455,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 导入管理员.
+     *
      * @param request - ImportAdminsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7492,6 +7498,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 导入管理员.
+     *
      * @param request - ImportAdminsRequest
      *
      * @returns ImportAdminsResponse
@@ -13614,6 +13622,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改实例.
+     *
      * @param request - ModifyInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13655,6 +13665,8 @@ class CCC extends OpenApiClient
     }
 
     /**
+     * 修改实例.
+     *
      * @param request - ModifyInstanceRequest
      *
      * @returns ModifyInstanceResponse

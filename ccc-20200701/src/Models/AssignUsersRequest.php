@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class AssignUsersRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $async;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -33,6 +38,7 @@ class AssignUsersRequest extends Model
      */
     public $workMode;
     protected $_name = [
+        'async' => 'Async',
         'instanceId' => 'InstanceId',
         'ramIdList' => 'RamIdList',
         'roleId' => 'RoleId',
@@ -48,6 +54,10 @@ class AssignUsersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->async) {
+            $res['Async'] = $this->async;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -79,6 +89,10 @@ class AssignUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Async'])) {
+            $model->async = $map['Async'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
