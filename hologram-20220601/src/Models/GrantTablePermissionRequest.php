@@ -14,6 +14,11 @@ class GrantTablePermissionRequest extends Model
     public $allTable;
 
     /**
+     * @var string[]
+     */
+    public $columnNames;
+
+    /**
      * @var string
      */
     public $databaseName;
@@ -39,6 +44,7 @@ class GrantTablePermissionRequest extends Model
     public $userName;
     protected $_name = [
         'allTable' => 'allTable',
+        'columnNames' => 'columnNames',
         'databaseName' => 'databaseName',
         'privileges' => 'privileges',
         'schemaName' => 'schemaName',
@@ -48,6 +54,9 @@ class GrantTablePermissionRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->columnNames)) {
+            Model::validateArray($this->columnNames);
+        }
         if (\is_array($this->privileges)) {
             Model::validateArray($this->privileges);
         }
@@ -59,6 +68,17 @@ class GrantTablePermissionRequest extends Model
         $res = [];
         if (null !== $this->allTable) {
             $res['allTable'] = $this->allTable;
+        }
+
+        if (null !== $this->columnNames) {
+            if (\is_array($this->columnNames)) {
+                $res['columnNames'] = [];
+                $n1 = 0;
+                foreach ($this->columnNames as $item1) {
+                    $res['columnNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->databaseName) {
@@ -101,6 +121,17 @@ class GrantTablePermissionRequest extends Model
         $model = new self();
         if (isset($map['allTable'])) {
             $model->allTable = $map['allTable'];
+        }
+
+        if (isset($map['columnNames'])) {
+            if (!empty($map['columnNames'])) {
+                $model->columnNames = [];
+                $n1 = 0;
+                foreach ($map['columnNames'] as $item1) {
+                    $model->columnNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['databaseName'])) {

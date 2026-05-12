@@ -1299,6 +1299,10 @@ class Hologram extends OpenApiClient
             @$body['allTable'] = $request->allTable;
         }
 
+        if (null !== $request->columnNames) {
+            @$body['columnNames'] = $request->columnNames;
+        }
+
         if (null !== $request->databaseName) {
             @$body['databaseName'] = $request->databaseName;
         }
@@ -2262,6 +2266,10 @@ class Hologram extends OpenApiClient
         $body = [];
         if (null !== $request->allTable) {
             @$body['allTable'] = $request->allTable;
+        }
+
+        if (null !== $request->columnNames) {
+            @$body['columnNames'] = $request->columnNames;
         }
 
         if (null !== $request->databaseName) {
