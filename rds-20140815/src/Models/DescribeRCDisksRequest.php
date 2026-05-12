@@ -17,6 +17,11 @@ class DescribeRCDisksRequest extends Model
     /**
      * @var string
      */
+    public $diskType;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -45,6 +50,7 @@ class DescribeRCDisksRequest extends Model
     public $tag;
     protected $_name = [
         'diskIds' => 'DiskIds',
+        'diskType' => 'DiskType',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -66,6 +72,10 @@ class DescribeRCDisksRequest extends Model
         $res = [];
         if (null !== $this->diskIds) {
             $res['DiskIds'] = $this->diskIds;
+        }
+
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
         }
 
         if (null !== $this->instanceId) {
@@ -112,6 +122,10 @@ class DescribeRCDisksRequest extends Model
         $model = new self();
         if (isset($map['DiskIds'])) {
             $model->diskIds = $map['DiskIds'];
+        }
+
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
         }
 
         if (isset($map['InstanceId'])) {
