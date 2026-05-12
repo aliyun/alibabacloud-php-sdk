@@ -10948,6 +10948,10 @@ class Ecd extends OpenApiClient
             @$query['DesktopIdForModify'] = $request->desktopIdForModify;
         }
 
+        if (null !== $request->desktopScenario) {
+            @$query['DesktopScenario'] = $request->desktopScenario;
+        }
+
         if (null !== $request->desktopTypeId) {
             @$query['DesktopTypeId'] = $request->desktopTypeId;
         }

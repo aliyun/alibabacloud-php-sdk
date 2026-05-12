@@ -36,6 +36,11 @@ class DescribeDesktopTypesRequest extends Model
     /**
      * @var string
      */
+    public $desktopScenario;
+
+    /**
+     * @var string
+     */
     public $desktopTypeId;
 
     /**
@@ -118,6 +123,7 @@ class DescribeDesktopTypesRequest extends Model
         'cpuCount' => 'CpuCount',
         'desktopGroupIdForModify' => 'DesktopGroupIdForModify',
         'desktopIdForModify' => 'DesktopIdForModify',
+        'desktopScenario' => 'DesktopScenario',
         'desktopTypeId' => 'DesktopTypeId',
         'desktopTypeIdList' => 'DesktopTypeIdList',
         'gpuCount' => 'GpuCount',
@@ -168,6 +174,10 @@ class DescribeDesktopTypesRequest extends Model
 
         if (null !== $this->desktopIdForModify) {
             $res['DesktopIdForModify'] = $this->desktopIdForModify;
+        }
+
+        if (null !== $this->desktopScenario) {
+            $res['DesktopScenario'] = $this->desktopScenario;
         }
 
         if (null !== $this->desktopTypeId) {
@@ -277,6 +287,10 @@ class DescribeDesktopTypesRequest extends Model
 
         if (isset($map['DesktopIdForModify'])) {
             $model->desktopIdForModify = $map['DesktopIdForModify'];
+        }
+
+        if (isset($map['DesktopScenario'])) {
+            $model->desktopScenario = $map['DesktopScenario'];
         }
 
         if (isset($map['DesktopTypeId'])) {

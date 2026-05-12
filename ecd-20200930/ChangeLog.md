@@ -1,3 +1,7 @@
+2026-05-12 Version: 4.20.1
+- Update API DescribeDesktopTypes: add request parameters DesktopScenario.
+
+
 2026-05-06 Version: 4.20.0
 - Support API DescribeOnlineUserCount.
 - Support API QueryHistoryAvgMetricList.
