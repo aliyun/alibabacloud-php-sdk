@@ -14,6 +14,11 @@ class records extends Model
     public $consumerName;
 
     /**
+     * @var float
+     */
+    public $inputTokens;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -22,6 +27,11 @@ class records extends Model
      * @var string
      */
     public $model;
+
+    /**
+     * @var float
+     */
+    public $outputTokens;
 
     /**
      * @var string
@@ -39,8 +49,10 @@ class records extends Model
     public $totalTokens;
     protected $_name = [
         'consumerName' => 'ConsumerName',
+        'inputTokens' => 'InputTokens',
         'instanceId' => 'InstanceId',
         'model' => 'Model',
+        'outputTokens' => 'OutputTokens',
         'region' => 'Region',
         'requestTime' => 'RequestTime',
         'totalTokens' => 'TotalTokens',
@@ -58,12 +70,20 @@ class records extends Model
             $res['ConsumerName'] = $this->consumerName;
         }
 
+        if (null !== $this->inputTokens) {
+            $res['InputTokens'] = $this->inputTokens;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->model) {
             $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->outputTokens) {
+            $res['OutputTokens'] = $this->outputTokens;
         }
 
         if (null !== $this->region) {
@@ -93,12 +113,20 @@ class records extends Model
             $model->consumerName = $map['ConsumerName'];
         }
 
+        if (isset($map['InputTokens'])) {
+            $model->inputTokens = $map['InputTokens'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
+        }
+
+        if (isset($map['OutputTokens'])) {
+            $model->outputTokens = $map['OutputTokens'];
         }
 
         if (isset($map['Region'])) {

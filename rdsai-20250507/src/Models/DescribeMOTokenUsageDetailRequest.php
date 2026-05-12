@@ -11,6 +11,11 @@ class DescribeMOTokenUsageDetailRequest extends Model
     /**
      * @var string
      */
+    public $apiKey;
+
+    /**
+     * @var string
+     */
     public $consumerName;
 
     /**
@@ -48,6 +53,7 @@ class DescribeMOTokenUsageDetailRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'apiKey' => 'ApiKey',
         'consumerName' => 'ConsumerName',
         'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
@@ -66,6 +72,10 @@ class DescribeMOTokenUsageDetailRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKey) {
+            $res['ApiKey'] = $this->apiKey;
+        }
+
         if (null !== $this->consumerName) {
             $res['ConsumerName'] = $this->consumerName;
         }
@@ -109,6 +119,10 @@ class DescribeMOTokenUsageDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApiKey'])) {
+            $model->apiKey = $map['ApiKey'];
+        }
+
         if (isset($map['ConsumerName'])) {
             $model->consumerName = $map['ConsumerName'];
         }

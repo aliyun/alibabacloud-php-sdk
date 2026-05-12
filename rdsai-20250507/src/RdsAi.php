@@ -1958,6 +1958,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
         if (null !== $request->consumerName) {
             @$query['ConsumerName'] = $request->consumerName;
         }
