@@ -14,6 +14,11 @@ class ListThreadsShrinkRequest extends Model
     public $filterShrink;
 
     /**
+     * @var bool
+     */
+    public $includeMission;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -34,6 +39,7 @@ class ListThreadsShrinkRequest extends Model
     public $threadId;
     protected $_name = [
         'filterShrink' => 'filter',
+        'includeMission' => 'includeMission',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'status' => 'status',
@@ -50,6 +56,10 @@ class ListThreadsShrinkRequest extends Model
         $res = [];
         if (null !== $this->filterShrink) {
             $res['filter'] = $this->filterShrink;
+        }
+
+        if (null !== $this->includeMission) {
+            $res['includeMission'] = $this->includeMission;
         }
 
         if (null !== $this->maxResults) {
@@ -81,6 +91,10 @@ class ListThreadsShrinkRequest extends Model
         $model = new self();
         if (isset($map['filter'])) {
             $model->filterShrink = $map['filter'];
+        }
+
+        if (isset($map['includeMission'])) {
+            $model->includeMission = $map['includeMission'];
         }
 
         if (isset($map['maxResults'])) {

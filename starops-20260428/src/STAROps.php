@@ -1372,6 +1372,10 @@ class STAROps extends OpenApiClient
             @$query['filter'] = $request->filterShrink;
         }
 
+        if (null !== $request->includeMission) {
+            @$query['includeMission'] = $request->includeMission;
+        }
+
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
         }

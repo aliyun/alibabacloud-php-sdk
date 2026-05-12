@@ -15,6 +15,11 @@ class ListThreadsRequest extends Model
     public $filter;
 
     /**
+     * @var bool
+     */
+    public $includeMission;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -35,6 +40,7 @@ class ListThreadsRequest extends Model
     public $threadId;
     protected $_name = [
         'filter' => 'filter',
+        'includeMission' => 'includeMission',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'status' => 'status',
@@ -61,6 +67,10 @@ class ListThreadsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->includeMission) {
+            $res['includeMission'] = $this->includeMission;
         }
 
         if (null !== $this->maxResults) {
@@ -99,6 +109,10 @@ class ListThreadsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['includeMission'])) {
+            $model->includeMission = $map['includeMission'];
         }
 
         if (isset($map['maxResults'])) {
