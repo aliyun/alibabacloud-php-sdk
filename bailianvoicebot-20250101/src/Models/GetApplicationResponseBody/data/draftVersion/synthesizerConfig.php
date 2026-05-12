@@ -5,9 +5,21 @@
 namespace AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\draftVersion;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\draftVersion\synthesizerConfig\nlsAccessProfile;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\draftVersion\synthesizerConfig\pronRules;
 
 class synthesizerConfig extends Model
 {
+    /**
+     * @var string
+     */
+    public $model;
+
+    /**
+     * @var nlsAccessProfile
+     */
+    public $nlsAccessProfile;
+
     /**
      * @var string
      */
@@ -24,6 +36,11 @@ class synthesizerConfig extends Model
     public $pitchRate;
 
     /**
+     * @var pronRules[]
+     */
+    public $pronRules;
+
+    /**
      * @var int
      */
     public $speechRate;
@@ -38,9 +55,12 @@ class synthesizerConfig extends Model
      */
     public $volume;
     protected $_name = [
+        'model' => 'Model',
+        'nlsAccessProfile' => 'NlsAccessProfile',
         'nlsAccessType' => 'NlsAccessType',
         'nlsEngine' => 'NlsEngine',
         'pitchRate' => 'PitchRate',
+        'pronRules' => 'PronRules',
         'speechRate' => 'SpeechRate',
         'voice' => 'Voice',
         'volume' => 'Volume',
@@ -48,12 +68,26 @@ class synthesizerConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->nlsAccessProfile) {
+            $this->nlsAccessProfile->validate();
+        }
+        if (\is_array($this->pronRules)) {
+            Model::validateArray($this->pronRules);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->nlsAccessProfile) {
+            $res['NlsAccessProfile'] = null !== $this->nlsAccessProfile ? $this->nlsAccessProfile->toArray($noStream) : $this->nlsAccessProfile;
+        }
+
         if (null !== $this->nlsAccessType) {
             $res['NlsAccessType'] = $this->nlsAccessType;
         }
@@ -64,6 +98,17 @@ class synthesizerConfig extends Model
 
         if (null !== $this->pitchRate) {
             $res['PitchRate'] = $this->pitchRate;
+        }
+
+        if (null !== $this->pronRules) {
+            if (\is_array($this->pronRules)) {
+                $res['PronRules'] = [];
+                $n1 = 0;
+                foreach ($this->pronRules as $item1) {
+                    $res['PronRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->speechRate) {
@@ -89,6 +134,14 @@ class synthesizerConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
+
+        if (isset($map['NlsAccessProfile'])) {
+            $model->nlsAccessProfile = nlsAccessProfile::fromMap($map['NlsAccessProfile']);
+        }
+
         if (isset($map['NlsAccessType'])) {
             $model->nlsAccessType = $map['NlsAccessType'];
         }
@@ -99,6 +152,17 @@ class synthesizerConfig extends Model
 
         if (isset($map['PitchRate'])) {
             $model->pitchRate = $map['PitchRate'];
+        }
+
+        if (isset($map['PronRules'])) {
+            if (!empty($map['PronRules'])) {
+                $model->pronRules = [];
+                $n1 = 0;
+                foreach ($map['PronRules'] as $item1) {
+                    $model->pronRules[$n1] = pronRules::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SpeechRate'])) {
