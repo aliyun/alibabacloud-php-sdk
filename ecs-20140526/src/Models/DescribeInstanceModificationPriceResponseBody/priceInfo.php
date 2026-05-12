@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceModificationPric
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceModificationPriceResponseBody\priceInfo\price;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceModificationPriceResponseBody\priceInfo\relatedPrice;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceModificationPriceResponseBody\priceInfo\rules;
 
 class priceInfo extends Model
@@ -16,11 +17,17 @@ class priceInfo extends Model
     public $price;
 
     /**
+     * @var relatedPrice
+     */
+    public $relatedPrice;
+
+    /**
      * @var rules
      */
     public $rules;
     protected $_name = [
         'price' => 'Price',
+        'relatedPrice' => 'RelatedPrice',
         'rules' => 'Rules',
     ];
 
@@ -28,6 +35,9 @@ class priceInfo extends Model
     {
         if (null !== $this->price) {
             $this->price->validate();
+        }
+        if (null !== $this->relatedPrice) {
+            $this->relatedPrice->validate();
         }
         if (null !== $this->rules) {
             $this->rules->validate();
@@ -40,6 +50,10 @@ class priceInfo extends Model
         $res = [];
         if (null !== $this->price) {
             $res['Price'] = null !== $this->price ? $this->price->toArray($noStream) : $this->price;
+        }
+
+        if (null !== $this->relatedPrice) {
+            $res['RelatedPrice'] = null !== $this->relatedPrice ? $this->relatedPrice->toArray($noStream) : $this->relatedPrice;
         }
 
         if (null !== $this->rules) {
@@ -59,6 +73,10 @@ class priceInfo extends Model
         $model = new self();
         if (isset($map['Price'])) {
             $model->price = price::fromMap($map['Price']);
+        }
+
+        if (isset($map['RelatedPrice'])) {
+            $model->relatedPrice = relatedPrice::fromMap($map['RelatedPrice']);
         }
 
         if (isset($map['Rules'])) {

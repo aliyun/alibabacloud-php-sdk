@@ -23,12 +23,37 @@ class DescribeInstanceModificationPriceRequest extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
+    public $ISP;
+
+    /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $internetChargeType;
+
+    /**
+     * @var int
+     */
+    public $internetMaxBandwidthOut;
 
     /**
      * @var string
@@ -54,16 +79,27 @@ class DescribeInstanceModificationPriceRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'systemDisk' => 'SystemDisk',
         'dataDisk' => 'DataDisk',
+        'endTime' => 'EndTime',
+        'ISP' => 'ISP',
+        'imageId' => 'ImageId',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
+        'internetChargeType' => 'InternetChargeType',
+        'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -95,12 +131,32 @@ class DescribeInstanceModificationPriceRequest extends Model
             }
         }
 
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->ISP) {
+            $res['ISP'] = $this->ISP;
+        }
+
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->internetChargeType) {
+            $res['InternetChargeType'] = $this->internetChargeType;
+        }
+
+        if (null !== $this->internetMaxBandwidthOut) {
+            $res['InternetMaxBandwidthOut'] = $this->internetMaxBandwidthOut;
         }
 
         if (null !== $this->ownerAccount) {
@@ -121,6 +177,10 @@ class DescribeInstanceModificationPriceRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -149,12 +209,32 @@ class DescribeInstanceModificationPriceRequest extends Model
             }
         }
 
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['ISP'])) {
+            $model->ISP = $map['ISP'];
+        }
+
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['InternetChargeType'])) {
+            $model->internetChargeType = $map['InternetChargeType'];
+        }
+
+        if (isset($map['InternetMaxBandwidthOut'])) {
+            $model->internetMaxBandwidthOut = $map['InternetMaxBandwidthOut'];
         }
 
         if (isset($map['OwnerAccount'])) {
@@ -175,6 +255,10 @@ class DescribeInstanceModificationPriceRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

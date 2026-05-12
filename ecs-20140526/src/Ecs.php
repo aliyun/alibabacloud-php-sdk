@@ -18441,12 +18441,32 @@ class Ecs extends OpenApiClient
             @$query['DataDisk'] = $request->dataDisk;
         }
 
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ISP) {
+            @$query['ISP'] = $request->ISP;
+        }
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
 
         if (null !== $request->instanceType) {
             @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->internetChargeType) {
+            @$query['InternetChargeType'] = $request->internetChargeType;
+        }
+
+        if (null !== $request->internetMaxBandwidthOut) {
+            @$query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
         }
 
         if (null !== $request->ownerAccount) {
@@ -18467,6 +18487,10 @@ class Ecs extends OpenApiClient
 
         if (null !== $request->resourceOwnerId) {
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
 
         if (null !== $request->systemDisk) {
