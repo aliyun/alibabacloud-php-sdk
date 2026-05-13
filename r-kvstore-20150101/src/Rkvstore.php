@@ -35,6 +35,10 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairKVCacheVNodeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairKVCacheVNodeResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairSkvDdbTableRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairSkvDdbTableResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairSkvDdbWorkspaceRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairSkvDdbWorkspaceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTCInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTCInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountRequest;
@@ -173,6 +177,12 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstanceA
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstancesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheInferInstancesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairSkvDdbTableRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairSkvDdbTableResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairSkvDdbTableSchemaRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairSkvDdbTableSchemaResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTaskDetailRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTaskDetailResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DestroyInstanceRequest;
@@ -2399,6 +2409,228 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTairKVCacheVNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建Tair Serverless 类型实例的Workspace.
+     *
+     * @param request - CreateTairSkvDdbTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTairSkvDdbTableResponse
+     *
+     * @param CreateTairSkvDdbTableRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateTairSkvDdbTableResponse
+     */
+    public function createTairSkvDdbTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->schema) {
+            @$query['Schema'] = $request->schema;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->srcDBInstanceId) {
+            @$query['SrcDBInstanceId'] = $request->srcDBInstanceId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        if (null !== $request->ttlSpec) {
+            @$query['TtlSpec'] = $request->ttlSpec;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTairSkvDdbTable',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTairSkvDdbTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Tair Serverless 类型实例的Workspace.
+     *
+     * @param request - CreateTairSkvDdbTableRequest
+     *
+     * @returns CreateTairSkvDdbTableResponse
+     *
+     * @param CreateTairSkvDdbTableRequest $request
+     *
+     * @return CreateTairSkvDdbTableResponse
+     */
+    public function createTairSkvDdbTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTairSkvDdbTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建Tair Serverless 类型实例的Workspace.
+     *
+     * @param request - CreateTairSkvDdbWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTairSkvDdbWorkspaceResponse
+     *
+     * @param CreateTairSkvDdbWorkspaceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateTairSkvDdbWorkspaceResponse
+     */
+    public function createTairSkvDdbWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTairSkvDdbWorkspace',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTairSkvDdbWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Tair Serverless 类型实例的Workspace.
+     *
+     * @param request - CreateTairSkvDdbWorkspaceRequest
+     *
+     * @returns CreateTairSkvDdbWorkspaceResponse
+     *
+     * @param CreateTairSkvDdbWorkspaceRequest $request
+     *
+     * @return CreateTairSkvDdbWorkspaceResponse
+     */
+    public function createTairSkvDdbWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTairSkvDdbWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -8623,6 +8855,225 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTairKVCacheInferInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Tair Serverless KV DDB实例的table.
+     *
+     * @param request - DescribeTairSkvDdbTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTairSkvDdbTableResponse
+     *
+     * @param DescribeTairSkvDdbTableRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeTairSkvDdbTableResponse
+     */
+    public function describeTairSkvDdbTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTairSkvDdbTable',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTairSkvDdbTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Tair Serverless KV DDB实例的table.
+     *
+     * @param request - DescribeTairSkvDdbTableRequest
+     *
+     * @returns DescribeTairSkvDdbTableResponse
+     *
+     * @param DescribeTairSkvDdbTableRequest $request
+     *
+     * @return DescribeTairSkvDdbTableResponse
+     */
+    public function describeTairSkvDdbTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTairSkvDdbTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Tair Serverless KV DDB实例的table schema.
+     *
+     * @param request - DescribeTairSkvDdbTableSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTairSkvDdbTableSchemaResponse
+     *
+     * @param DescribeTairSkvDdbTableSchemaRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeTairSkvDdbTableSchemaResponse
+     */
+    public function describeTairSkvDdbTableSchemaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTairSkvDdbTableSchema',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTairSkvDdbTableSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Tair Serverless KV DDB实例的table schema.
+     *
+     * @param request - DescribeTairSkvDdbTableSchemaRequest
+     *
+     * @returns DescribeTairSkvDdbTableSchemaResponse
+     *
+     * @param DescribeTairSkvDdbTableSchemaRequest $request
+     *
+     * @return DescribeTairSkvDdbTableSchemaResponse
+     */
+    public function describeTairSkvDdbTableSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTairSkvDdbTableSchemaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询任务详情.
+     *
+     * @param request - DescribeTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTaskDetailResponse
+     *
+     * @param DescribeTaskDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeTaskDetailResponse
+     */
+    public function describeTaskDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTaskDetail',
+            'version' => '2015-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询任务详情.
+     *
+     * @param request - DescribeTaskDetailRequest
+     *
+     * @returns DescribeTaskDetailResponse
+     *
+     * @param DescribeTaskDetailRequest $request
+     *
+     * @return DescribeTaskDetailResponse
+     */
+    public function describeTaskDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTaskDetailWithOptions($request, $runtime);
     }
 
     /**

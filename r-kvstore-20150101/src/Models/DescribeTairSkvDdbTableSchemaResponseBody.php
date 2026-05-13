@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SwitchInstanceHAResponseBody extends Model
+class DescribeTairSkvDdbTableSchemaResponseBody extends Model
 {
     /**
      * @var string
@@ -16,10 +16,16 @@ class SwitchInstanceHAResponseBody extends Model
     /**
      * @var string
      */
-    public $taskId;
+    public $schema;
+
+    /**
+     * @var string
+     */
+    public $ttlSpec;
     protected $_name = [
         'requestId' => 'RequestId',
-        'taskId' => 'TaskId',
+        'schema' => 'Schema',
+        'ttlSpec' => 'TtlSpec',
     ];
 
     public function validate()
@@ -34,8 +40,12 @@ class SwitchInstanceHAResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->schema) {
+            $res['Schema'] = $this->schema;
+        }
+
+        if (null !== $this->ttlSpec) {
+            $res['TtlSpec'] = $this->ttlSpec;
         }
 
         return $res;
@@ -53,8 +63,12 @@ class SwitchInstanceHAResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['Schema'])) {
+            $model->schema = $map['Schema'];
+        }
+
+        if (isset($map['TtlSpec'])) {
+            $model->ttlSpec = $map['TtlSpec'];
         }
 
         return $model;

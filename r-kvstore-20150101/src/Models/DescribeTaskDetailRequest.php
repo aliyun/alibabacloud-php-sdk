@@ -6,19 +6,19 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SwitchInstanceHAResponseBody extends Model
+class DescribeTaskDetailRequest extends Model
 {
     /**
      * @var string
      */
-    public $requestId;
+    public $instanceId;
 
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'instanceId' => 'InstanceId',
         'taskId' => 'TaskId',
     ];
 
@@ -30,8 +30,8 @@ class SwitchInstanceHAResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->taskId) {
@@ -49,8 +49,8 @@ class SwitchInstanceHAResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['TaskId'])) {

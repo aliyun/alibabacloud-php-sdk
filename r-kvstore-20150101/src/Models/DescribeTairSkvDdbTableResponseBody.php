@@ -5,8 +5,9 @@
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairSkvDdbTableResponseBody\tables;
 
-class SwitchInstanceHAResponseBody extends Model
+class DescribeTairSkvDdbTableResponseBody extends Model
 {
     /**
      * @var string
@@ -14,16 +15,19 @@ class SwitchInstanceHAResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var tables
      */
-    public $taskId;
+    public $tables;
     protected $_name = [
         'requestId' => 'RequestId',
-        'taskId' => 'TaskId',
+        'tables' => 'Tables',
     ];
 
     public function validate()
     {
+        if (null !== $this->tables) {
+            $this->tables->validate();
+        }
         parent::validate();
     }
 
@@ -34,8 +38,8 @@ class SwitchInstanceHAResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->tables) {
+            $res['Tables'] = null !== $this->tables ? $this->tables->toArray($noStream) : $this->tables;
         }
 
         return $res;
@@ -53,8 +57,8 @@ class SwitchInstanceHAResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['Tables'])) {
+            $model->tables = tables::fromMap($map['Tables']);
         }
 
         return $model;

@@ -227,6 +227,11 @@ class KVStoreInstance extends Model
     /**
      * @var string
      */
+    public $workspaceId;
+
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'architectureType' => 'ArchitectureType',
@@ -272,6 +277,7 @@ class KVStoreInstance extends Model
         'userName' => 'UserName',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
+        'workspaceId' => 'WorkspaceId',
         'zoneId' => 'ZoneId',
     ];
 
@@ -456,6 +462,10 @@ class KVStoreInstance extends Model
 
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         if (null !== $this->zoneId) {
@@ -643,6 +653,10 @@ class KVStoreInstance extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         if (isset($map['ZoneId'])) {
