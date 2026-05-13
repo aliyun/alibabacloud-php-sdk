@@ -22,6 +22,11 @@ class CreateCredentialRequest extends Model
     /**
      * @var string
      */
+    public $credentialExternalId;
+
+    /**
+     * @var string
+     */
     public $credentialIdentifier;
 
     /**
@@ -71,6 +76,7 @@ class CreateCredentialRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'credentialContent' => 'CredentialContent',
+        'credentialExternalId' => 'CredentialExternalId',
         'credentialIdentifier' => 'CredentialIdentifier',
         'credentialName' => 'CredentialName',
         'credentialScenarioLabel' => 'CredentialScenarioLabel',
@@ -100,6 +106,10 @@ class CreateCredentialRequest extends Model
 
         if (null !== $this->credentialContent) {
             $res['CredentialContent'] = null !== $this->credentialContent ? $this->credentialContent->toArray($noStream) : $this->credentialContent;
+        }
+
+        if (null !== $this->credentialExternalId) {
+            $res['CredentialExternalId'] = $this->credentialExternalId;
         }
 
         if (null !== $this->credentialIdentifier) {
@@ -159,6 +169,10 @@ class CreateCredentialRequest extends Model
 
         if (isset($map['CredentialContent'])) {
             $model->credentialContent = credentialContent::fromMap($map['CredentialContent']);
+        }
+
+        if (isset($map['CredentialExternalId'])) {
+            $model->credentialExternalId = $map['CredentialExternalId'];
         }
 
         if (isset($map['CredentialIdentifier'])) {

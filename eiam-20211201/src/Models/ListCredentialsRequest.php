@@ -12,6 +12,11 @@ class ListCredentialsRequest extends Model
     /**
      * @var string[]
      */
+    public $credentialExternalIds;
+
+    /**
+     * @var string[]
+     */
     public $credentialIds;
 
     /**
@@ -49,6 +54,7 @@ class ListCredentialsRequest extends Model
      */
     public $statuses;
     protected $_name = [
+        'credentialExternalIds' => 'CredentialExternalIds',
         'credentialIds' => 'CredentialIds',
         'credentialSharingScopes' => 'CredentialSharingScopes',
         'credentialTypes' => 'CredentialTypes',
@@ -61,6 +67,9 @@ class ListCredentialsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->credentialExternalIds)) {
+            Model::validateArray($this->credentialExternalIds);
+        }
         if (\is_array($this->credentialIds)) {
             Model::validateArray($this->credentialIds);
         }
@@ -82,6 +91,17 @@ class ListCredentialsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->credentialExternalIds) {
+            if (\is_array($this->credentialExternalIds)) {
+                $res['CredentialExternalIds'] = [];
+                $n1 = 0;
+                foreach ($this->credentialExternalIds as $item1) {
+                    $res['CredentialExternalIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->credentialIds) {
             if (\is_array($this->credentialIds)) {
                 $res['CredentialIds'] = [];
@@ -160,6 +180,17 @@ class ListCredentialsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CredentialExternalIds'])) {
+            if (!empty($map['CredentialExternalIds'])) {
+                $model->credentialExternalIds = [];
+                $n1 = 0;
+                foreach ($map['CredentialExternalIds'] as $item1) {
+                    $model->credentialExternalIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CredentialIds'])) {
             if (!empty($map['CredentialIds'])) {
                 $model->credentialIds = [];

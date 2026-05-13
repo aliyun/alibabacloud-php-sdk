@@ -27,6 +27,11 @@ class credentials extends Model
     /**
      * @var string
      */
+    public $credentialExternalId;
+
+    /**
+     * @var string
+     */
     public $credentialId;
 
     /**
@@ -92,6 +97,7 @@ class credentials extends Model
         'createTime' => 'CreateTime',
         'credentialContent' => 'CredentialContent',
         'credentialCreationType' => 'CredentialCreationType',
+        'credentialExternalId' => 'CredentialExternalId',
         'credentialId' => 'CredentialId',
         'credentialIdentifier' => 'CredentialIdentifier',
         'credentialName' => 'CredentialName',
@@ -128,6 +134,10 @@ class credentials extends Model
 
         if (null !== $this->credentialCreationType) {
             $res['CredentialCreationType'] = $this->credentialCreationType;
+        }
+
+        if (null !== $this->credentialExternalId) {
+            $res['CredentialExternalId'] = $this->credentialExternalId;
         }
 
         if (null !== $this->credentialId) {
@@ -203,6 +213,10 @@ class credentials extends Model
 
         if (isset($map['CredentialCreationType'])) {
             $model->credentialCreationType = $map['CredentialCreationType'];
+        }
+
+        if (isset($map['CredentialExternalId'])) {
+            $model->credentialExternalId = $map['CredentialExternalId'];
         }
 
         if (isset($map['CredentialId'])) {

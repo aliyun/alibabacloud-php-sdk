@@ -3015,6 +3015,10 @@ class Eiam extends OpenApiClient
             @$query['CredentialContent'] = $request->credentialContent;
         }
 
+        if (null !== $request->credentialExternalId) {
+            @$query['CredentialExternalId'] = $request->credentialExternalId;
+        }
+
         if (null !== $request->credentialIdentifier) {
             @$query['CredentialIdentifier'] = $request->credentialIdentifier;
         }
@@ -15293,6 +15297,10 @@ class Eiam extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->credentialExternalIds) {
+            @$query['CredentialExternalIds'] = $request->credentialExternalIds;
+        }
+
         if (null !== $request->credentialIds) {
             @$query['CredentialIds'] = $request->credentialIds;
         }
