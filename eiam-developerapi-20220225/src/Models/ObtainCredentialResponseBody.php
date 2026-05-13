@@ -27,6 +27,11 @@ class ObtainCredentialResponseBody extends Model
     /**
      * @var string
      */
+    public $credentialExternalId;
+
+    /**
+     * @var string
+     */
     public $credentialId;
 
     /**
@@ -92,6 +97,7 @@ class ObtainCredentialResponseBody extends Model
         'createTime' => 'createTime',
         'credentialContent' => 'credentialContent',
         'credentialCreationType' => 'credentialCreationType',
+        'credentialExternalId' => 'credentialExternalId',
         'credentialId' => 'credentialId',
         'credentialIdentifier' => 'credentialIdentifier',
         'credentialName' => 'credentialName',
@@ -128,6 +134,10 @@ class ObtainCredentialResponseBody extends Model
 
         if (null !== $this->credentialCreationType) {
             $res['credentialCreationType'] = $this->credentialCreationType;
+        }
+
+        if (null !== $this->credentialExternalId) {
+            $res['credentialExternalId'] = $this->credentialExternalId;
         }
 
         if (null !== $this->credentialId) {
@@ -203,6 +213,10 @@ class ObtainCredentialResponseBody extends Model
 
         if (isset($map['credentialCreationType'])) {
             $model->credentialCreationType = $map['credentialCreationType'];
+        }
+
+        if (isset($map['credentialExternalId'])) {
+            $model->credentialExternalId = $map['credentialExternalId'];
         }
 
         if (isset($map['credentialId'])) {

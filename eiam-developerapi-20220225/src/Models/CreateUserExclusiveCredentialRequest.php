@@ -17,6 +17,11 @@ class CreateUserExclusiveCredentialRequest extends Model
     /**
      * @var string
      */
+    public $credentialExternalId;
+
+    /**
+     * @var string
+     */
     public $credentialIdentifier;
 
     /**
@@ -40,6 +45,7 @@ class CreateUserExclusiveCredentialRequest extends Model
     public $description;
     protected $_name = [
         'credentialContent' => 'credentialContent',
+        'credentialExternalId' => 'credentialExternalId',
         'credentialIdentifier' => 'credentialIdentifier',
         'credentialName' => 'credentialName',
         'credentialScenarioLabel' => 'credentialScenarioLabel',
@@ -60,6 +66,10 @@ class CreateUserExclusiveCredentialRequest extends Model
         $res = [];
         if (null !== $this->credentialContent) {
             $res['credentialContent'] = null !== $this->credentialContent ? $this->credentialContent->toArray($noStream) : $this->credentialContent;
+        }
+
+        if (null !== $this->credentialExternalId) {
+            $res['credentialExternalId'] = $this->credentialExternalId;
         }
 
         if (null !== $this->credentialIdentifier) {
@@ -95,6 +105,10 @@ class CreateUserExclusiveCredentialRequest extends Model
         $model = new self();
         if (isset($map['credentialContent'])) {
             $model->credentialContent = credentialContent::fromMap($map['credentialContent']);
+        }
+
+        if (isset($map['credentialExternalId'])) {
+            $model->credentialExternalId = $map['credentialExternalId'];
         }
 
         if (isset($map['credentialIdentifier'])) {

@@ -651,6 +651,10 @@ class Eiamdeveloperapi extends OpenApiClient
             @$body['credentialContent'] = $request->credentialContent;
         }
 
+        if (null !== $request->credentialExternalId) {
+            @$body['credentialExternalId'] = $request->credentialExternalId;
+        }
+
         if (null !== $request->credentialIdentifier) {
             @$body['credentialIdentifier'] = $request->credentialIdentifier;
         }
