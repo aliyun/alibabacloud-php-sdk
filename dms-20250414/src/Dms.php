@@ -87,6 +87,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodePublishSettingRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodePublishSettingResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentRequest;
@@ -134,6 +136,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\RemoveUserToDataAgentWorkspaceResponse
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceCodePublishSettingRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceCodePublishSettingResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentSpaceInfoRequest;
@@ -152,6 +156,12 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeTableShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceActionLogRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceActionLogResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceActionStatusRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceActionStatusResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceCodePublishRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceCodePublishResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -2940,6 +2950,63 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 获取工作空间发布配置.
+     *
+     * @param request - GetWorkspaceCodePublishSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceCodePublishSettingResponse
+     *
+     * @param GetWorkspaceCodePublishSettingRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetWorkspaceCodePublishSettingResponse
+     */
+    public function getWorkspaceCodePublishSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspaceCodePublishSetting',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceCodePublishSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工作空间发布配置.
+     *
+     * @param request - GetWorkspaceCodePublishSettingRequest
+     *
+     * @returns GetWorkspaceCodePublishSettingResponse
+     *
+     * @param GetWorkspaceCodePublishSettingRequest $request
+     *
+     * @return GetWorkspaceCodePublishSettingResponse
+     */
+    public function getWorkspaceCodePublishSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWorkspaceCodePublishSettingWithOptions($request, $runtime);
+    }
+
+    /**
      * 列出资源Airflow.
      *
      * @param request - ListAirflowsRequest
@@ -4804,6 +4871,69 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 设置工作空间代码发布配置.
+     *
+     * @param request - SetWorkspaceCodePublishSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetWorkspaceCodePublishSettingResponse
+     *
+     * @param SetWorkspaceCodePublishSettingRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SetWorkspaceCodePublishSettingResponse
+     */
+    public function setWorkspaceCodePublishSettingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetWorkspaceCodePublishSetting',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetWorkspaceCodePublishSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置工作空间代码发布配置.
+     *
+     * @param request - SetWorkspaceCodePublishSettingRequest
+     *
+     * @returns SetWorkspaceCodePublishSettingResponse
+     *
+     * @param SetWorkspaceCodePublishSettingRequest $request
+     *
+     * @return SetWorkspaceCodePublishSettingResponse
+     */
+    public function setWorkspaceCodePublishSetting($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setWorkspaceCodePublishSettingWithOptions($request, $runtime);
+    }
+
+    /**
      * 更新UpdateAirflow.
      *
      * @param request - UpdateAirflowRequest
@@ -5382,5 +5512,190 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataLakeTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 工作空间异步操作日志查询接口.
+     *
+     * @param request - WorkspaceActionLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WorkspaceActionLogResponse
+     *
+     * @param WorkspaceActionLogRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return WorkspaceActionLogResponse
+     */
+    public function workspaceActionLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'WorkspaceActionLog',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return WorkspaceActionLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 工作空间异步操作日志查询接口.
+     *
+     * @param request - WorkspaceActionLogRequest
+     *
+     * @returns WorkspaceActionLogResponse
+     *
+     * @param WorkspaceActionLogRequest $request
+     *
+     * @return WorkspaceActionLogResponse
+     */
+    public function workspaceActionLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->workspaceActionLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * 工作空间异步操作状态查询接口.
+     *
+     * @param request - WorkspaceActionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WorkspaceActionStatusResponse
+     *
+     * @param WorkspaceActionStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return WorkspaceActionStatusResponse
+     */
+    public function workspaceActionStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'WorkspaceActionStatus',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return WorkspaceActionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 工作空间异步操作状态查询接口.
+     *
+     * @param request - WorkspaceActionStatusRequest
+     *
+     * @returns WorkspaceActionStatusResponse
+     *
+     * @param WorkspaceActionStatusRequest $request
+     *
+     * @return WorkspaceActionStatusResponse
+     */
+    public function workspaceActionStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->workspaceActionStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+     *
+     * @param request - WorkspaceCodePublishRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WorkspaceCodePublishResponse
+     *
+     * @param WorkspaceCodePublishRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return WorkspaceCodePublishResponse
+     */
+    public function workspaceCodePublishWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'WorkspaceCodePublish',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return WorkspaceCodePublishResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+     *
+     * @param request - WorkspaceCodePublishRequest
+     *
+     * @returns WorkspaceCodePublishResponse
+     *
+     * @param WorkspaceCodePublishRequest $request
+     *
+     * @return WorkspaceCodePublishResponse
+     */
+    public function workspaceCodePublish($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->workspaceCodePublishWithOptions($request, $runtime);
     }
 }
