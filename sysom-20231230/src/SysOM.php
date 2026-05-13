@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertDestinationRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateAlertStrategyResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateClusterVpcEndpointConnectionRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateClusterVpcEndpointConnectionResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateInstanceInspectionRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateInstanceInspectionResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\CreateVmcoreDiagnosisTaskRequest;
@@ -581,6 +583,75 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->createAlertStrategyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建集群Vpc端点连接.
+     *
+     * @param request - CreateClusterVpcEndpointConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateClusterVpcEndpointConnectionResponse
+     *
+     * @param CreateClusterVpcEndpointConnectionRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateClusterVpcEndpointConnectionResponse
+     */
+    public function createClusterVpcEndpointConnectionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clusterId) {
+            @$body['clusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['dryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->region) {
+            @$body['region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateClusterVpcEndpointConnection',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/k8sProxy/access/createClusterVpcEndpointConnection',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateClusterVpcEndpointConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建集群Vpc端点连接.
+     *
+     * @param request - CreateClusterVpcEndpointConnectionRequest
+     *
+     * @returns CreateClusterVpcEndpointConnectionResponse
+     *
+     * @param CreateClusterVpcEndpointConnectionRequest $request
+     *
+     * @return CreateClusterVpcEndpointConnectionResponse
+     */
+    public function createClusterVpcEndpointConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createClusterVpcEndpointConnectionWithOptions($request, $headers, $runtime);
     }
 
     /**
