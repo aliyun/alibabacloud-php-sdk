@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingConfigurationRequest\resourcePoolOptions\privatePoolTags;
 
 class resourcePoolOptions extends Model
 {
@@ -14,11 +15,17 @@ class resourcePoolOptions extends Model
     public $privatePoolIds;
 
     /**
+     * @var privatePoolTags[]
+     */
+    public $privatePoolTags;
+
+    /**
      * @var string
      */
     public $strategy;
     protected $_name = [
         'privatePoolIds' => 'PrivatePoolIds',
+        'privatePoolTags' => 'PrivatePoolTags',
         'strategy' => 'Strategy',
     ];
 
@@ -26,6 +33,9 @@ class resourcePoolOptions extends Model
     {
         if (\is_array($this->privatePoolIds)) {
             Model::validateArray($this->privatePoolIds);
+        }
+        if (\is_array($this->privatePoolTags)) {
+            Model::validateArray($this->privatePoolTags);
         }
         parent::validate();
     }
@@ -39,6 +49,17 @@ class resourcePoolOptions extends Model
                 $n1 = 0;
                 foreach ($this->privatePoolIds as $item1) {
                     $res['PrivatePoolIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->privatePoolTags) {
+            if (\is_array($this->privatePoolTags)) {
+                $res['PrivatePoolTags'] = [];
+                $n1 = 0;
+                foreach ($this->privatePoolTags as $item1) {
+                    $res['PrivatePoolTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -65,6 +86,17 @@ class resourcePoolOptions extends Model
                 $n1 = 0;
                 foreach ($map['PrivatePoolIds'] as $item1) {
                     $model->privatePoolIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['PrivatePoolTags'])) {
+            if (!empty($map['PrivatePoolTags'])) {
+                $model->privatePoolTags = [];
+                $n1 = 0;
+                foreach ($map['PrivatePoolTags'] as $item1) {
+                    $model->privatePoolTags[$n1] = privatePoolTags::fromMap($item1);
                     ++$n1;
                 }
             }
