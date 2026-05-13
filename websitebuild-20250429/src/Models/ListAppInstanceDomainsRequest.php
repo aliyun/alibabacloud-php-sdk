@@ -14,6 +14,11 @@ class ListAppInstanceDomainsRequest extends Model
     public $bizId;
 
     /**
+     * @var string
+     */
+    public $domainKeyword;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -44,6 +49,7 @@ class ListAppInstanceDomainsRequest extends Model
     public $pageSize;
     protected $_name = [
         'bizId' => 'BizId',
+        'domainKeyword' => 'DomainKeyword',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'orderColumn' => 'OrderColumn',
@@ -62,6 +68,10 @@ class ListAppInstanceDomainsRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->domainKeyword) {
+            $res['DomainKeyword'] = $this->domainKeyword;
         }
 
         if (null !== $this->maxResults) {
@@ -101,6 +111,10 @@ class ListAppInstanceDomainsRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['DomainKeyword'])) {
+            $model->domainKeyword = $map['DomainKeyword'];
         }
 
         if (isset($map['MaxResults'])) {

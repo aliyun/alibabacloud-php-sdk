@@ -2573,6 +2573,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['BizId'] = $request->bizId;
         }
 
+        if (null !== $request->domainKeyword) {
+            @$query['DomainKeyword'] = $request->domainKeyword;
+        }
+
         if (null !== $request->maxResults) {
             @$query['MaxResults'] = $request->maxResults;
         }
