@@ -19,6 +19,11 @@ class ListFileUploadRequest extends Model
     public $dmsUnit;
 
     /**
+     * @var int
+     */
+    public $downloadLinkExpire;
+
+    /**
      * @var string
      */
     public $fileCategory;
@@ -50,6 +55,7 @@ class ListFileUploadRequest extends Model
     protected $_name = [
         'callFrom' => 'CallFrom',
         'dmsUnit' => 'DmsUnit',
+        'downloadLinkExpire' => 'DownloadLinkExpire',
         'fileCategory' => 'FileCategory',
         'fileFrom' => 'FileFrom',
         'fileId' => 'FileId',
@@ -72,6 +78,10 @@ class ListFileUploadRequest extends Model
 
         if (null !== $this->dmsUnit) {
             $res['DmsUnit'] = $this->dmsUnit;
+        }
+
+        if (null !== $this->downloadLinkExpire) {
+            $res['DownloadLinkExpire'] = $this->downloadLinkExpire;
         }
 
         if (null !== $this->fileCategory) {
@@ -115,6 +125,10 @@ class ListFileUploadRequest extends Model
 
         if (isset($map['DmsUnit'])) {
             $model->dmsUnit = $map['DmsUnit'];
+        }
+
+        if (isset($map['DownloadLinkExpire'])) {
+            $model->downloadLinkExpire = $map['DownloadLinkExpire'];
         }
 
         if (isset($map['FileCategory'])) {

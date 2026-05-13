@@ -4367,6 +4367,10 @@ class Dms extends OpenApiClient
             @$query['DmsUnit'] = $request->dmsUnit;
         }
 
+        if (null !== $request->downloadLinkExpire) {
+            @$query['DownloadLinkExpire'] = $request->downloadLinkExpire;
+        }
+
         if (null !== $request->fileCategory) {
             @$query['FileCategory'] = $request->fileCategory;
         }
