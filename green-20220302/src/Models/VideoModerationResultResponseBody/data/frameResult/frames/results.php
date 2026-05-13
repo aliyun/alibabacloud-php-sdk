@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\da
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\logoData;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\publicFigure;
 use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\result;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult\frames\results\vlContent;
 
 class results extends Model
 {
@@ -41,6 +42,11 @@ class results extends Model
      * @var mixed[]
      */
     public $textInImage;
+
+    /**
+     * @var vlContent
+     */
+    public $vlContent;
     protected $_name = [
         'customImage' => 'CustomImage',
         'logoData' => 'LogoData',
@@ -48,6 +54,7 @@ class results extends Model
         'result' => 'Result',
         'service' => 'Service',
         'textInImage' => 'TextInImage',
+        'vlContent' => 'VlContent',
     ];
 
     public function validate()
@@ -66,6 +73,9 @@ class results extends Model
         }
         if (\is_array($this->textInImage)) {
             Model::validateArray($this->textInImage);
+        }
+        if (null !== $this->vlContent) {
+            $this->vlContent->validate();
         }
         parent::validate();
     }
@@ -128,6 +138,10 @@ class results extends Model
                     $res['TextInImage'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->vlContent) {
+            $res['VlContent'] = null !== $this->vlContent ? $this->vlContent->toArray($noStream) : $this->vlContent;
         }
 
         return $res;
@@ -196,6 +210,10 @@ class results extends Model
                     $model->textInImage[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['VlContent'])) {
+            $model->vlContent = vlContent::fromMap($map['VlContent']);
         }
 
         return $model;
