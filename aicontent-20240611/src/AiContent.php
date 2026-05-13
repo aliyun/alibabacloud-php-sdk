@@ -4526,6 +4526,10 @@ class AiContent extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
         if (null !== $request->endTime) {
             @$query['endTime'] = $request->endTime;
         }
@@ -4536,6 +4540,14 @@ class AiContent extends OpenApiClient
 
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->modelId) {
+            @$query['modelId'] = $request->modelId;
+        }
+
+        if (null !== $request->modelTypes) {
+            @$query['modelTypes'] = $request->modelTypes;
         }
 
         if (null !== $request->nextToken) {

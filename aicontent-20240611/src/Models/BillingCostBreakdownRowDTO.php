@@ -26,6 +26,11 @@ class BillingCostBreakdownRowDTO extends Model
     /**
      * @var string
      */
+    public $dimValues;
+
+    /**
+     * @var string
+     */
     public $modelCode;
 
     /**
@@ -52,20 +57,36 @@ class BillingCostBreakdownRowDTO extends Model
      * @var int
      */
     public $summaryTime;
+
+    /**
+     * @var BillingBillTierDTO[]
+     */
+    public $tiers;
+
+    /**
+     * @var string
+     */
+    public $values;
     protected $_name = [
         'billingType' => 'billingType',
         'clientId' => 'clientId',
         'clientName' => 'clientName',
+        'dimValues' => 'dimValues',
         'modelCode' => 'modelCode',
         'modelId' => 'modelId',
         'modelName' => 'modelName',
         'modelType' => 'modelType',
         'payableAmount' => 'payableAmount',
         'summaryTime' => 'summaryTime',
+        'tiers' => 'tiers',
+        'values' => 'values',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tiers)) {
+            Model::validateArray($this->tiers);
+        }
         parent::validate();
     }
 
@@ -82,6 +103,10 @@ class BillingCostBreakdownRowDTO extends Model
 
         if (null !== $this->clientName) {
             $res['clientName'] = $this->clientName;
+        }
+
+        if (null !== $this->dimValues) {
+            $res['dimValues'] = $this->dimValues;
         }
 
         if (null !== $this->modelCode) {
@@ -108,6 +133,21 @@ class BillingCostBreakdownRowDTO extends Model
             $res['summaryTime'] = $this->summaryTime;
         }
 
+        if (null !== $this->tiers) {
+            if (\is_array($this->tiers)) {
+                $res['tiers'] = [];
+                $n1 = 0;
+                foreach ($this->tiers as $item1) {
+                    $res['tiers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->values) {
+            $res['values'] = $this->values;
+        }
+
         return $res;
     }
 
@@ -129,6 +169,10 @@ class BillingCostBreakdownRowDTO extends Model
 
         if (isset($map['clientName'])) {
             $model->clientName = $map['clientName'];
+        }
+
+        if (isset($map['dimValues'])) {
+            $model->dimValues = $map['dimValues'];
         }
 
         if (isset($map['modelCode'])) {
@@ -153,6 +197,21 @@ class BillingCostBreakdownRowDTO extends Model
 
         if (isset($map['summaryTime'])) {
             $model->summaryTime = $map['summaryTime'];
+        }
+
+        if (isset($map['tiers'])) {
+            if (!empty($map['tiers'])) {
+                $model->tiers = [];
+                $n1 = 0;
+                foreach ($map['tiers'] as $item1) {
+                    $model->tiers[$n1] = BillingBillTierDTO::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['values'])) {
+            $model->values = $map['values'];
         }
 
         return $model;

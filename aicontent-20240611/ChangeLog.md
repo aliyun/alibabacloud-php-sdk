@@ -1,3 +1,9 @@
+2026-05-13 Version: 6.4.2
+- Update API ModelRouterQueryBillingCostBreakdown: add request parameters clientId.
+- Update API ModelRouterQueryBillingCostBreakdown: add request parameters modelId.
+- Update API ModelRouterQueryBillingCostBreakdown: add request parameters modelTypes.
+
+
 2026-04-30 Version: 6.4.1
 - Generated php 20240611 for AiContent.
 

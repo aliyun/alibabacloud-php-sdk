@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class BillingCostBreakdownRespDTO extends Model
 {
     /**
+     * @var MetricDefRespDTO[]
+     */
+    public $columns;
+
+    /**
      * @var string
      */
     public $granularity;
@@ -33,6 +38,7 @@ class BillingCostBreakdownRespDTO extends Model
      */
     public $total;
     protected $_name = [
+        'columns' => 'columns',
         'granularity' => 'granularity',
         'page' => 'page',
         'pageSize' => 'pageSize',
@@ -42,6 +48,9 @@ class BillingCostBreakdownRespDTO extends Model
 
     public function validate()
     {
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
+        }
         if (\is_array($this->rows)) {
             Model::validateArray($this->rows);
         }
@@ -51,6 +60,17 @@ class BillingCostBreakdownRespDTO extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->columns) {
+            if (\is_array($this->columns)) {
+                $res['columns'] = [];
+                $n1 = 0;
+                foreach ($this->columns as $item1) {
+                    $res['columns'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->granularity) {
             $res['granularity'] = $this->granularity;
         }
@@ -89,6 +109,17 @@ class BillingCostBreakdownRespDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['columns'])) {
+            if (!empty($map['columns'])) {
+                $model->columns = [];
+                $n1 = 0;
+                foreach ($map['columns'] as $item1) {
+                    $model->columns[$n1] = MetricDefRespDTO::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['granularity'])) {
             $model->granularity = $map['granularity'];
         }

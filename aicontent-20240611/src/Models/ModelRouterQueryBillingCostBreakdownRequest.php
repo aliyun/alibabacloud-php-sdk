@@ -11,6 +11,11 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
     /**
      * @var int
      */
+    public $clientId;
+
+    /**
+     * @var int
+     */
     public $endTime;
 
     /**
@@ -22,6 +27,16 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
      * @var int
      */
     public $maxResults;
+
+    /**
+     * @var int
+     */
+    public $modelId;
+
+    /**
+     * @var string
+     */
+    public $modelTypes;
 
     /**
      * @var string
@@ -43,9 +58,12 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'clientId' => 'clientId',
         'endTime' => 'endTime',
         'granularity' => 'granularity',
         'maxResults' => 'maxResults',
+        'modelId' => 'modelId',
+        'modelTypes' => 'modelTypes',
         'nextToken' => 'nextToken',
         'page' => 'page',
         'pageSize' => 'pageSize',
@@ -60,6 +78,10 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clientId) {
+            $res['clientId'] = $this->clientId;
+        }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
@@ -70,6 +92,14 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
 
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->modelId) {
+            $res['modelId'] = $this->modelId;
+        }
+
+        if (null !== $this->modelTypes) {
+            $res['modelTypes'] = $this->modelTypes;
         }
 
         if (null !== $this->nextToken) {
@@ -99,6 +129,10 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['clientId'])) {
+            $model->clientId = $map['clientId'];
+        }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
@@ -109,6 +143,14 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
 
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['modelId'])) {
+            $model->modelId = $map['modelId'];
+        }
+
+        if (isset($map['modelTypes'])) {
+            $model->modelTypes = $map['modelTypes'];
         }
 
         if (isset($map['nextToken'])) {
