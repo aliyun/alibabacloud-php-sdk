@@ -29,6 +29,21 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $adminKeyboardOnFullScreen;
+
+    /**
+     * @var string
+     */
+    public $adminKeyboardOnWindows;
+
+    /**
+     * @var int
+     */
+    public $adminMonitor;
+
+    /**
+     * @var string
+     */
     public $appContentProtection;
 
     /**
@@ -50,6 +65,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $clientControlMenu;
+
+    /**
+     * @var string
+     */
+    public $clientCreateSnapshot;
 
     /**
      * @var string
@@ -90,6 +110,11 @@ class describePolicyGroups extends Model
      * @var int
      */
     public $cpuDownGradeDuration;
+
+    /**
+     * @var string
+     */
+    public $cpuOverload;
 
     /**
      * @var string[]
@@ -149,6 +174,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $diskOverload;
+
+    /**
+     * @var string
+     */
     public $displayMode;
 
     /**
@@ -174,7 +204,17 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $endUserCount;
+
+    /**
+     * @var string
+     */
     public $endUserGroupCoordinate;
+
+    /**
+     * @var string
+     */
+    public $externalDrive;
 
     /**
      * @var string
@@ -239,6 +279,21 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $keyboardControl;
+
+    /**
+     * @var string
+     */
+    public $kmsServer;
+
+    /**
+     * @var string
+     */
+    public $kmsServerConfig;
+
+    /**
+     * @var string
+     */
     public $localDrive;
 
     /**
@@ -250,6 +305,11 @@ class describePolicyGroups extends Model
      * @var int
      */
     public $memoryDownGradeDuration;
+
+    /**
+     * @var string
+     */
+    public $memoryOverload;
 
     /**
      * @var string[]
@@ -329,12 +389,22 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $networkPrinter;
+
+    /**
+     * @var string
+     */
     public $noOperationDisconnect;
 
     /**
      * @var int
      */
     public $noOperationDisconnectTime;
+
+    /**
+     * @var string
+     */
+    public $organizationCount;
 
     /**
      * @var string
@@ -633,11 +703,15 @@ class describePolicyGroups extends Model
     protected $_name = [
         'academicProxy' => 'AcademicProxy',
         'adminAccess' => 'AdminAccess',
+        'adminKeyboardOnFullScreen' => 'AdminKeyboardOnFullScreen',
+        'adminKeyboardOnWindows' => 'AdminKeyboardOnWindows',
+        'adminMonitor' => 'AdminMonitor',
         'appContentProtection' => 'AppContentProtection',
         'authorizeAccessPolicyRules' => 'AuthorizeAccessPolicyRules',
         'authorizeSecurityPolicyRules' => 'AuthorizeSecurityPolicyRules',
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
+        'clientCreateSnapshot' => 'ClientCreateSnapshot',
         'clientHibernate' => 'ClientHibernate',
         'clientRestart' => 'ClientRestart',
         'clientShutdown' => 'ClientShutdown',
@@ -646,6 +720,7 @@ class describePolicyGroups extends Model
         'colorEnhancement' => 'ColorEnhancement',
         'cpdDriveClipboard' => 'CpdDriveClipboard',
         'cpuDownGradeDuration' => 'CpuDownGradeDuration',
+        'cpuOverload' => 'CpuOverload',
         'cpuProcessors' => 'CpuProcessors',
         'cpuProtectedMode' => 'CpuProtectedMode',
         'cpuRateLimit' => 'CpuRateLimit',
@@ -657,12 +732,15 @@ class describePolicyGroups extends Model
         'deviceRules' => 'DeviceRules',
         'disconnectKeepSession' => 'DisconnectKeepSession',
         'disconnectKeepSessionTime' => 'DisconnectKeepSessionTime',
+        'diskOverload' => 'DiskOverload',
         'displayMode' => 'DisplayMode',
         'domainRegisterValue' => 'DomainRegisterValue',
         'domainResolveRule' => 'DomainResolveRule',
         'domainResolveRuleType' => 'DomainResolveRuleType',
         'endUserApplyAdminCoordinate' => 'EndUserApplyAdminCoordinate',
+        'endUserCount' => 'EndUserCount',
         'endUserGroupCoordinate' => 'EndUserGroupCoordinate',
+        'externalDrive' => 'ExternalDrive',
         'fileTransferAddress' => 'FileTransferAddress',
         'fileTransferSpeed' => 'FileTransferSpeed',
         'fileTransferSpeedLocation' => 'FileTransferSpeedLocation',
@@ -675,9 +753,13 @@ class describePolicyGroups extends Model
         'html5FileTransfer' => 'Html5FileTransfer',
         'internetCommunicationProtocol' => 'InternetCommunicationProtocol',
         'internetPrinter' => 'InternetPrinter',
+        'keyboardControl' => 'KeyboardControl',
+        'kmsServer' => 'KmsServer',
+        'kmsServerConfig' => 'KmsServerConfig',
         'localDrive' => 'LocalDrive',
         'maxReconnectTime' => 'MaxReconnectTime',
         'memoryDownGradeDuration' => 'MemoryDownGradeDuration',
+        'memoryOverload' => 'MemoryOverload',
         'memoryProcessors' => 'MemoryProcessors',
         'memoryProtectedMode' => 'MemoryProtectedMode',
         'memoryRateLimit' => 'MemoryRateLimit',
@@ -693,8 +775,10 @@ class describePolicyGroups extends Model
         'name' => 'Name',
         'netRedirect' => 'NetRedirect',
         'netRedirectRule' => 'NetRedirectRule',
+        'networkPrinter' => 'NetworkPrinter',
         'noOperationDisconnect' => 'NoOperationDisconnect',
         'noOperationDisconnectTime' => 'NoOperationDisconnectTime',
+        'organizationCount' => 'OrganizationCount',
         'policyGroupId' => 'PolicyGroupId',
         'policyGroupType' => 'PolicyGroupType',
         'policyStatus' => 'PolicyStatus',
@@ -811,6 +895,18 @@ class describePolicyGroups extends Model
             $res['AdminAccess'] = $this->adminAccess;
         }
 
+        if (null !== $this->adminKeyboardOnFullScreen) {
+            $res['AdminKeyboardOnFullScreen'] = $this->adminKeyboardOnFullScreen;
+        }
+
+        if (null !== $this->adminKeyboardOnWindows) {
+            $res['AdminKeyboardOnWindows'] = $this->adminKeyboardOnWindows;
+        }
+
+        if (null !== $this->adminMonitor) {
+            $res['AdminMonitor'] = $this->adminMonitor;
+        }
+
         if (null !== $this->appContentProtection) {
             $res['AppContentProtection'] = $this->appContentProtection;
         }
@@ -843,6 +939,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->clientControlMenu) {
             $res['ClientControlMenu'] = $this->clientControlMenu;
+        }
+
+        if (null !== $this->clientCreateSnapshot) {
+            $res['ClientCreateSnapshot'] = $this->clientCreateSnapshot;
         }
 
         if (null !== $this->clientHibernate) {
@@ -882,6 +982,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->cpuDownGradeDuration) {
             $res['CpuDownGradeDuration'] = $this->cpuDownGradeDuration;
+        }
+
+        if (null !== $this->cpuOverload) {
+            $res['CpuOverload'] = $this->cpuOverload;
         }
 
         if (null !== $this->cpuProcessors) {
@@ -949,6 +1053,10 @@ class describePolicyGroups extends Model
             $res['DisconnectKeepSessionTime'] = $this->disconnectKeepSessionTime;
         }
 
+        if (null !== $this->diskOverload) {
+            $res['DiskOverload'] = $this->diskOverload;
+        }
+
         if (null !== $this->displayMode) {
             $res['DisplayMode'] = $this->displayMode;
         }
@@ -976,8 +1084,16 @@ class describePolicyGroups extends Model
             $res['EndUserApplyAdminCoordinate'] = $this->endUserApplyAdminCoordinate;
         }
 
+        if (null !== $this->endUserCount) {
+            $res['EndUserCount'] = $this->endUserCount;
+        }
+
         if (null !== $this->endUserGroupCoordinate) {
             $res['EndUserGroupCoordinate'] = $this->endUserGroupCoordinate;
+        }
+
+        if (null !== $this->externalDrive) {
+            $res['ExternalDrive'] = $this->externalDrive;
         }
 
         if (null !== $this->fileTransferAddress) {
@@ -1028,6 +1144,18 @@ class describePolicyGroups extends Model
             $res['InternetPrinter'] = $this->internetPrinter;
         }
 
+        if (null !== $this->keyboardControl) {
+            $res['KeyboardControl'] = $this->keyboardControl;
+        }
+
+        if (null !== $this->kmsServer) {
+            $res['KmsServer'] = $this->kmsServer;
+        }
+
+        if (null !== $this->kmsServerConfig) {
+            $res['KmsServerConfig'] = $this->kmsServerConfig;
+        }
+
         if (null !== $this->localDrive) {
             $res['LocalDrive'] = $this->localDrive;
         }
@@ -1038,6 +1166,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->memoryDownGradeDuration) {
             $res['MemoryDownGradeDuration'] = $this->memoryDownGradeDuration;
+        }
+
+        if (null !== $this->memoryOverload) {
+            $res['MemoryOverload'] = $this->memoryOverload;
         }
 
         if (null !== $this->memoryProcessors) {
@@ -1114,12 +1246,20 @@ class describePolicyGroups extends Model
             }
         }
 
+        if (null !== $this->networkPrinter) {
+            $res['NetworkPrinter'] = $this->networkPrinter;
+        }
+
         if (null !== $this->noOperationDisconnect) {
             $res['NoOperationDisconnect'] = $this->noOperationDisconnect;
         }
 
         if (null !== $this->noOperationDisconnectTime) {
             $res['NoOperationDisconnectTime'] = $this->noOperationDisconnectTime;
+        }
+
+        if (null !== $this->organizationCount) {
+            $res['OrganizationCount'] = $this->organizationCount;
         }
 
         if (null !== $this->policyGroupId) {
@@ -1405,6 +1545,18 @@ class describePolicyGroups extends Model
             $model->adminAccess = $map['AdminAccess'];
         }
 
+        if (isset($map['AdminKeyboardOnFullScreen'])) {
+            $model->adminKeyboardOnFullScreen = $map['AdminKeyboardOnFullScreen'];
+        }
+
+        if (isset($map['AdminKeyboardOnWindows'])) {
+            $model->adminKeyboardOnWindows = $map['AdminKeyboardOnWindows'];
+        }
+
+        if (isset($map['AdminMonitor'])) {
+            $model->adminMonitor = $map['AdminMonitor'];
+        }
+
         if (isset($map['AppContentProtection'])) {
             $model->appContentProtection = $map['AppContentProtection'];
         }
@@ -1437,6 +1589,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['ClientControlMenu'])) {
             $model->clientControlMenu = $map['ClientControlMenu'];
+        }
+
+        if (isset($map['ClientCreateSnapshot'])) {
+            $model->clientCreateSnapshot = $map['ClientCreateSnapshot'];
         }
 
         if (isset($map['ClientHibernate'])) {
@@ -1476,6 +1632,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['CpuDownGradeDuration'])) {
             $model->cpuDownGradeDuration = $map['CpuDownGradeDuration'];
+        }
+
+        if (isset($map['CpuOverload'])) {
+            $model->cpuOverload = $map['CpuOverload'];
         }
 
         if (isset($map['CpuProcessors'])) {
@@ -1543,6 +1703,10 @@ class describePolicyGroups extends Model
             $model->disconnectKeepSessionTime = $map['DisconnectKeepSessionTime'];
         }
 
+        if (isset($map['DiskOverload'])) {
+            $model->diskOverload = $map['DiskOverload'];
+        }
+
         if (isset($map['DisplayMode'])) {
             $model->displayMode = $map['DisplayMode'];
         }
@@ -1570,8 +1734,16 @@ class describePolicyGroups extends Model
             $model->endUserApplyAdminCoordinate = $map['EndUserApplyAdminCoordinate'];
         }
 
+        if (isset($map['EndUserCount'])) {
+            $model->endUserCount = $map['EndUserCount'];
+        }
+
         if (isset($map['EndUserGroupCoordinate'])) {
             $model->endUserGroupCoordinate = $map['EndUserGroupCoordinate'];
+        }
+
+        if (isset($map['ExternalDrive'])) {
+            $model->externalDrive = $map['ExternalDrive'];
         }
 
         if (isset($map['FileTransferAddress'])) {
@@ -1622,6 +1794,18 @@ class describePolicyGroups extends Model
             $model->internetPrinter = $map['InternetPrinter'];
         }
 
+        if (isset($map['KeyboardControl'])) {
+            $model->keyboardControl = $map['KeyboardControl'];
+        }
+
+        if (isset($map['KmsServer'])) {
+            $model->kmsServer = $map['KmsServer'];
+        }
+
+        if (isset($map['KmsServerConfig'])) {
+            $model->kmsServerConfig = $map['KmsServerConfig'];
+        }
+
         if (isset($map['LocalDrive'])) {
             $model->localDrive = $map['LocalDrive'];
         }
@@ -1632,6 +1816,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['MemoryDownGradeDuration'])) {
             $model->memoryDownGradeDuration = $map['MemoryDownGradeDuration'];
+        }
+
+        if (isset($map['MemoryOverload'])) {
+            $model->memoryOverload = $map['MemoryOverload'];
         }
 
         if (isset($map['MemoryProcessors'])) {
@@ -1708,12 +1896,20 @@ class describePolicyGroups extends Model
             }
         }
 
+        if (isset($map['NetworkPrinter'])) {
+            $model->networkPrinter = $map['NetworkPrinter'];
+        }
+
         if (isset($map['NoOperationDisconnect'])) {
             $model->noOperationDisconnect = $map['NoOperationDisconnect'];
         }
 
         if (isset($map['NoOperationDisconnectTime'])) {
             $model->noOperationDisconnectTime = $map['NoOperationDisconnectTime'];
+        }
+
+        if (isset($map['OrganizationCount'])) {
+            $model->organizationCount = $map['OrganizationCount'];
         }
 
         if (isset($map['PolicyGroupId'])) {
