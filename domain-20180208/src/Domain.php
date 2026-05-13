@@ -64,6 +64,7 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportAuctionDetailRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportAuctionDetailResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsShrinkRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\RecordDemandRequest;
@@ -1811,22 +1812,32 @@ class Domain extends OpenApiClient
     /**
      * 查询导出的抢注域名.
      *
-     * @param request - QueryExportDomainExpireSnatchsRequest
+     * @param tmpReq - QueryExportDomainExpireSnatchsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryExportDomainExpireSnatchsResponse
      *
-     * @param QueryExportDomainExpireSnatchsRequest $request
+     * @param QueryExportDomainExpireSnatchsRequest $tmpReq
      * @param RuntimeOptions                        $runtime
      *
      * @return QueryExportDomainExpireSnatchsResponse
      */
-    public function queryExportDomainExpireSnatchsWithOptions($request, $runtime)
+    public function queryExportDomainExpireSnatchsWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new QueryExportDomainExpireSnatchsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataSources) {
+            $request->dataSourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataSources, 'DataSources', 'json');
+        }
+
         $query = [];
         if (null !== $request->currentId) {
             @$query['CurrentId'] = $request->currentId;
+        }
+
+        if (null !== $request->dataSourcesShrink) {
+            @$query['DataSources'] = $request->dataSourcesShrink;
         }
 
         if (null !== $request->maxResults) {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Domain\V20180208\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class QueryExportDomainExpireSnatchsRequest extends Model
+class QueryExportDomainExpireSnatchsShrinkRequest extends Model
 {
     /**
      * @var int
@@ -14,9 +14,9 @@ class QueryExportDomainExpireSnatchsRequest extends Model
     public $currentId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $dataSources;
+    public $dataSourcesShrink;
 
     /**
      * @var int
@@ -34,7 +34,7 @@ class QueryExportDomainExpireSnatchsRequest extends Model
     public $pageSize;
     protected $_name = [
         'currentId' => 'CurrentId',
-        'dataSources' => 'DataSources',
+        'dataSourcesShrink' => 'DataSources',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'pageSize' => 'PageSize',
@@ -42,9 +42,6 @@ class QueryExportDomainExpireSnatchsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->dataSources)) {
-            Model::validateArray($this->dataSources);
-        }
         parent::validate();
     }
 
@@ -55,15 +52,8 @@ class QueryExportDomainExpireSnatchsRequest extends Model
             $res['CurrentId'] = $this->currentId;
         }
 
-        if (null !== $this->dataSources) {
-            if (\is_array($this->dataSources)) {
-                $res['DataSources'] = [];
-                $n1 = 0;
-                foreach ($this->dataSources as $item1) {
-                    $res['DataSources'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->dataSourcesShrink) {
+            $res['DataSources'] = $this->dataSourcesShrink;
         }
 
         if (null !== $this->maxResults) {
@@ -94,14 +84,7 @@ class QueryExportDomainExpireSnatchsRequest extends Model
         }
 
         if (isset($map['DataSources'])) {
-            if (!empty($map['DataSources'])) {
-                $model->dataSources = [];
-                $n1 = 0;
-                foreach ($map['DataSources'] as $item1) {
-                    $model->dataSources[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->dataSourcesShrink = $map['DataSources'];
         }
 
         if (isset($map['MaxResults'])) {
