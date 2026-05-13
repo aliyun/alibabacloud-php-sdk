@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeMetricMetaListRequest\labels;
 class DescribeMetricMetaListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $keywords;
+
+    /**
      * @var labels[]
      */
     public $labels;
@@ -39,6 +44,7 @@ class DescribeMetricMetaListRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'keywords' => 'keywords',
         'labels' => 'labels',
         'metaFormat' => 'metaFormat',
         'metricName' => 'metricName',
@@ -58,6 +64,10 @@ class DescribeMetricMetaListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->keywords) {
+            $res['keywords'] = $this->keywords;
+        }
+
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['labels'] = [];
@@ -100,6 +110,10 @@ class DescribeMetricMetaListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['keywords'])) {
+            $model->keywords = $map['keywords'];
+        }
+
         if (isset($map['labels'])) {
             if (!empty($map['labels'])) {
                 $model->labels = [];

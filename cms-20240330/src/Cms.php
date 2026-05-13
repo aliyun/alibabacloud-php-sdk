@@ -3794,6 +3794,10 @@ class Cms extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->keywords) {
+            @$query['keywords'] = $request->keywords;
+        }
+
         if (null !== $request->labelsShrink) {
             @$query['labels'] = $request->labelsShrink;
         }

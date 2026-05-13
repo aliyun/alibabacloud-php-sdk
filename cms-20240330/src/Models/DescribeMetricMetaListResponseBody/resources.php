@@ -32,6 +32,11 @@ class resources extends Model
     /**
      * @var string
      */
+    public $metaFormat;
+
+    /**
+     * @var string
+     */
     public $metricName;
 
     /**
@@ -63,6 +68,7 @@ class resources extends Model
         'dimensionDescription' => 'dimensionDescription',
         'dimensions' => 'dimensions',
         'labels' => 'labels',
+        'metaFormat' => 'metaFormat',
         'metricName' => 'metricName',
         'namespace' => 'namespace',
         'periods' => 'periods',
@@ -121,6 +127,10 @@ class resources extends Model
                     $res['labels'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->metaFormat) {
+            $res['metaFormat'] = $this->metaFormat;
         }
 
         if (null !== $this->metricName) {
@@ -191,6 +201,10 @@ class resources extends Model
                     $model->labels[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['metaFormat'])) {
+            $model->metaFormat = $map['metaFormat'];
         }
 
         if (isset($map['metricName'])) {

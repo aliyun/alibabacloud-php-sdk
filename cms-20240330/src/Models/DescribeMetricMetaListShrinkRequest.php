@@ -11,6 +11,11 @@ class DescribeMetricMetaListShrinkRequest extends Model
     /**
      * @var string
      */
+    public $keywords;
+
+    /**
+     * @var string
+     */
     public $labelsShrink;
 
     /**
@@ -38,6 +43,7 @@ class DescribeMetricMetaListShrinkRequest extends Model
      */
     public $pageSize;
     protected $_name = [
+        'keywords' => 'keywords',
         'labelsShrink' => 'labels',
         'metaFormat' => 'metaFormat',
         'metricName' => 'metricName',
@@ -54,6 +60,10 @@ class DescribeMetricMetaListShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->keywords) {
+            $res['keywords'] = $this->keywords;
+        }
+
         if (null !== $this->labelsShrink) {
             $res['labels'] = $this->labelsShrink;
         }
@@ -89,6 +99,10 @@ class DescribeMetricMetaListShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['keywords'])) {
+            $model->keywords = $map['keywords'];
+        }
+
         if (isset($map['labels'])) {
             $model->labelsShrink = $map['labels'];
         }
