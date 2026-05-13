@@ -144,6 +144,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVirtualBorderRouterRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVirtualBorderRouterResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVpcRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVpcResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVscRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVscResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVSwitchRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateVSwitchResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeactivateRouterInterfaceRequest;
@@ -220,6 +222,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVirtualBorderRouterRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVirtualBorderRouterResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVpcRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVpcResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVscRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVscResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVSwitchRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteVSwitchResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeregisterManagedInstanceRequest;
@@ -469,6 +473,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVpcsRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVpcsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVRoutersRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVRoutersResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVscsRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVscsResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeZonesRequest;
@@ -9628,6 +9634,111 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * 创建Vsc.
+     *
+     * @param request - CreateVscRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVscResponse
+     *
+     * @param CreateVscRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateVscResponse
+     */
+    public function createVscWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->vscName) {
+            @$query['VscName'] = $request->vscName;
+        }
+
+        if (null !== $request->vscType) {
+            @$query['VscType'] = $request->vscType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVsc',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVscResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Vsc.
+     *
+     * @param request - CreateVscRequest
+     *
+     * @returns CreateVscResponse
+     *
+     * @param CreateVscRequest $request
+     *
+     * @return CreateVscResponse
+     */
+    public function createVsc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVscWithOptions($request, $runtime);
+    }
+
+    /**
      * DeactivateRouterInterface.
      *
      * @deprecated openAPI DeactivateRouterInterface is deprecated, please use Vpc::2016-04-28::DeactivateRouterInterface instead
@@ -12876,6 +12987,91 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteVpcWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除虚拟存储通道.
+     *
+     * @param request - DeleteVscRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVscResponse
+     *
+     * @param DeleteVscRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteVscResponse
+     */
+    public function deleteVscWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->vscId) {
+            @$query['VscId'] = $request->vscId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVsc',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVscResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除虚拟存储通道.
+     *
+     * @param request - DeleteVscRequest
+     *
+     * @returns DeleteVscResponse
+     *
+     * @param DeleteVscRequest $request
+     *
+     * @return DeleteVscResponse
+     */
+    public function deleteVsc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVscWithOptions($request, $runtime);
     }
 
     /**
@@ -26008,6 +26204,107 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVpcsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询虚拟存储通道.
+     *
+     * @param request - DescribeVscsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVscsResponse
+     *
+     * @param DescribeVscsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeVscsResponse
+     */
+    public function describeVscsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->vscIds) {
+            @$query['VscIds'] = $request->vscIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVscs',
+            'version' => '2014-05-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVscsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询虚拟存储通道.
+     *
+     * @param request - DescribeVscsRequest
+     *
+     * @returns DescribeVscsResponse
+     *
+     * @param DescribeVscsRequest $request
+     *
+     * @return DescribeVscsResponse
+     */
+    public function describeVscs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVscsWithOptions($request, $runtime);
     }
 
     /**
