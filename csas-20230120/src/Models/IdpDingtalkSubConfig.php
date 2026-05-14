@@ -44,6 +44,11 @@ class IdpDingtalkSubConfig extends Model
     public $exclusive;
 
     /**
+     * @var bool
+     */
+    public $oauth;
+
+    /**
      * @var string
      */
     public $redirectUri;
@@ -55,6 +60,7 @@ class IdpDingtalkSubConfig extends Model
         'eventLabel' => 'EventLabel',
         'eventVerifyToken' => 'EventVerifyToken',
         'exclusive' => 'Exclusive',
+        'oauth' => 'Oauth',
         'redirectUri' => 'RedirectUri',
     ];
 
@@ -92,6 +98,10 @@ class IdpDingtalkSubConfig extends Model
 
         if (null !== $this->exclusive) {
             $res['Exclusive'] = $this->exclusive;
+        }
+
+        if (null !== $this->oauth) {
+            $res['Oauth'] = $this->oauth;
         }
 
         if (null !== $this->redirectUri) {
@@ -135,6 +145,10 @@ class IdpDingtalkSubConfig extends Model
 
         if (isset($map['Exclusive'])) {
             $model->exclusive = $map['Exclusive'];
+        }
+
+        if (isset($map['Oauth'])) {
+            $model->oauth = $map['Oauth'];
         }
 
         if (isset($map['RedirectUri'])) {

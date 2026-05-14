@@ -4757,7 +4757,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询转发策略.
+     * Batch query forwarding rules.
      *
      * @param request - ListForwardStrategiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4792,7 +4792,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询转发策略.
+     * Batch query forwarding rules.
      *
      * @param request - ListForwardStrategiesRequest
      *
@@ -4810,7 +4810,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询转发策略绑定项目.
+     * Batch Query Forwarding Rules Attached to Projects.
      *
      * @param request - ListForwardStrategyBindingItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4845,7 +4845,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 批量查询转发策略绑定项目.
+     * Batch Query Forwarding Rules Attached to Projects.
      *
      * @param request - ListForwardStrategyBindingItemsRequest
      *
@@ -6410,7 +6410,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 吊销用户设备会话.
+     * Revoke a user device session.
      *
      * @param request - RevokeUserDeviceSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6453,7 +6453,7 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * 吊销用户设备会话.
+     * Revoke a user device session.
      *
      * @param request - RevokeUserDeviceSessionRequest
      *

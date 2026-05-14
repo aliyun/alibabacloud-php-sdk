@@ -37,12 +37,42 @@ class devices extends Model
     /**
      * @var string
      */
+    public $cityEn;
+
+    /**
+     * @var string
+     */
+    public $cityZh;
+
+    /**
+     * @var string
+     */
     public $continent;
 
     /**
      * @var string
      */
+    public $continentEn;
+
+    /**
+     * @var string
+     */
+    public $continentZh;
+
+    /**
+     * @var string
+     */
     public $country;
+
+    /**
+     * @var string
+     */
+    public $countryEn;
+
+    /**
+     * @var string
+     */
+    public $countryZh;
 
     /**
      * @var string
@@ -162,6 +192,16 @@ class devices extends Model
     /**
      * @var string
      */
+    public $provinceEn;
+
+    /**
+     * @var string
+     */
+    public $provinceZh;
+
+    /**
+     * @var string
+     */
     public $saseUserId;
 
     /**
@@ -219,8 +259,14 @@ class devices extends Model
         'autoLoginStatus' => 'AutoLoginStatus',
         'CPU' => 'CPU',
         'city' => 'City',
+        'cityEn' => 'CityEn',
+        'cityZh' => 'CityZh',
         'continent' => 'Continent',
+        'continentEn' => 'ContinentEn',
+        'continentZh' => 'ContinentZh',
         'country' => 'Country',
+        'countryEn' => 'CountryEn',
+        'countryZh' => 'CountryZh',
         'createTime' => 'CreateTime',
         'department' => 'Department',
         'deviceBelong' => 'DeviceBelong',
@@ -244,6 +290,8 @@ class devices extends Model
         'netInterfaceInfo' => 'NetInterfaceInfo',
         'paStatus' => 'PaStatus',
         'province' => 'Province',
+        'provinceEn' => 'ProvinceEn',
+        'provinceZh' => 'ProvinceZh',
         'saseUserId' => 'SaseUserId',
         'sharingStatus' => 'SharingStatus',
         'snBaseBoard' => 'SnBaseBoard',
@@ -294,12 +342,36 @@ class devices extends Model
             $res['City'] = $this->city;
         }
 
+        if (null !== $this->cityEn) {
+            $res['CityEn'] = $this->cityEn;
+        }
+
+        if (null !== $this->cityZh) {
+            $res['CityZh'] = $this->cityZh;
+        }
+
         if (null !== $this->continent) {
             $res['Continent'] = $this->continent;
         }
 
+        if (null !== $this->continentEn) {
+            $res['ContinentEn'] = $this->continentEn;
+        }
+
+        if (null !== $this->continentZh) {
+            $res['ContinentZh'] = $this->continentZh;
+        }
+
         if (null !== $this->country) {
             $res['Country'] = $this->country;
+        }
+
+        if (null !== $this->countryEn) {
+            $res['CountryEn'] = $this->countryEn;
+        }
+
+        if (null !== $this->countryZh) {
+            $res['CountryZh'] = $this->countryZh;
         }
 
         if (null !== $this->createTime) {
@@ -415,6 +487,14 @@ class devices extends Model
             $res['Province'] = $this->province;
         }
 
+        if (null !== $this->provinceEn) {
+            $res['ProvinceEn'] = $this->provinceEn;
+        }
+
+        if (null !== $this->provinceZh) {
+            $res['ProvinceZh'] = $this->provinceZh;
+        }
+
         if (null !== $this->saseUserId) {
             $res['SaseUserId'] = $this->saseUserId;
         }
@@ -490,12 +570,36 @@ class devices extends Model
             $model->city = $map['City'];
         }
 
+        if (isset($map['CityEn'])) {
+            $model->cityEn = $map['CityEn'];
+        }
+
+        if (isset($map['CityZh'])) {
+            $model->cityZh = $map['CityZh'];
+        }
+
         if (isset($map['Continent'])) {
             $model->continent = $map['Continent'];
         }
 
+        if (isset($map['ContinentEn'])) {
+            $model->continentEn = $map['ContinentEn'];
+        }
+
+        if (isset($map['ContinentZh'])) {
+            $model->continentZh = $map['ContinentZh'];
+        }
+
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
+        }
+
+        if (isset($map['CountryEn'])) {
+            $model->countryEn = $map['CountryEn'];
+        }
+
+        if (isset($map['CountryZh'])) {
+            $model->countryZh = $map['CountryZh'];
         }
 
         if (isset($map['CreateTime'])) {
@@ -609,6 +713,14 @@ class devices extends Model
 
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
+        }
+
+        if (isset($map['ProvinceEn'])) {
+            $model->provinceEn = $map['ProvinceEn'];
+        }
+
+        if (isset($map['ProvinceZh'])) {
+            $model->provinceZh = $map['ProvinceZh'];
         }
 
         if (isset($map['SaseUserId'])) {
