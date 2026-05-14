@@ -1,3 +1,6 @@
+2026-05-14 Version: 1.8.1
+- Generated php 2024-11-11 for IQS.
+
 2026-05-11 Version: 1.8.0
 - Support API CommonQueryByScene.
 - Support API MedicalAnswer.
