@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiResponseBody\data;
 
 class DeployHttpApiResponseBody extends Model
 {
@@ -12,6 +13,11 @@ class DeployHttpApiResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @var string
@@ -24,12 +30,16 @@ class DeployHttpApiResponseBody extends Model
     public $requestId;
     protected $_name = [
         'code' => 'code',
+        'data' => 'data',
         'message' => 'message',
         'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
         parent::validate();
     }
 
@@ -38,6 +48,10 @@ class DeployHttpApiResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->message) {
@@ -61,6 +75,10 @@ class DeployHttpApiResponseBody extends Model
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
         }
 
         if (isset($map['message'])) {

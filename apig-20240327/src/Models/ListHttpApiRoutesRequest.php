@@ -11,6 +11,11 @@ class ListHttpApiRoutesRequest extends Model
     /**
      * @var string
      */
+    public $backendServiceName;
+
+    /**
+     * @var string
+     */
     public $consumerAuthorizationRuleId;
 
     /**
@@ -78,6 +83,7 @@ class ListHttpApiRoutesRequest extends Model
      */
     public $withPluginAttachmentByPluginId;
     protected $_name = [
+        'backendServiceName' => 'backendServiceName',
         'consumerAuthorizationRuleId' => 'consumerAuthorizationRuleId',
         'deployStatuses' => 'deployStatuses',
         'domainId' => 'domainId',
@@ -102,6 +108,10 @@ class ListHttpApiRoutesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backendServiceName) {
+            $res['backendServiceName'] = $this->backendServiceName;
+        }
+
         if (null !== $this->consumerAuthorizationRuleId) {
             $res['consumerAuthorizationRuleId'] = $this->consumerAuthorizationRuleId;
         }
@@ -169,6 +179,10 @@ class ListHttpApiRoutesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['backendServiceName'])) {
+            $model->backendServiceName = $map['backendServiceName'];
+        }
+
         if (isset($map['consumerAuthorizationRuleId'])) {
             $model->consumerAuthorizationRuleId = $map['consumerAuthorizationRuleId'];
         }

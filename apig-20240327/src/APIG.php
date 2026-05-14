@@ -5018,6 +5018,10 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->backendServiceName) {
+            @$query['backendServiceName'] = $request->backendServiceName;
+        }
+
         if (null !== $request->consumerAuthorizationRuleId) {
             @$query['consumerAuthorizationRuleId'] = $request->consumerAuthorizationRuleId;
         }
