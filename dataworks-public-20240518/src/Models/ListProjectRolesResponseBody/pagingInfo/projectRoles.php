@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectRolesResponseBody\pagingInfo;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectRolesResponseBody\pagingInfo\projectRoles\modulePermissions;
 
 class projectRoles extends Model
 {
@@ -12,6 +13,11 @@ class projectRoles extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var modulePermissions[]
+     */
+    public $modulePermissions;
 
     /**
      * @var string
@@ -29,6 +35,7 @@ class projectRoles extends Model
     public $type;
     protected $_name = [
         'code' => 'Code',
+        'modulePermissions' => 'ModulePermissions',
         'name' => 'Name',
         'projectId' => 'ProjectId',
         'type' => 'Type',
@@ -36,6 +43,9 @@ class projectRoles extends Model
 
     public function validate()
     {
+        if (\is_array($this->modulePermissions)) {
+            Model::validateArray($this->modulePermissions);
+        }
         parent::validate();
     }
 
@@ -44,6 +54,17 @@ class projectRoles extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->modulePermissions) {
+            if (\is_array($this->modulePermissions)) {
+                $res['ModulePermissions'] = [];
+                $n1 = 0;
+                foreach ($this->modulePermissions as $item1) {
+                    $res['ModulePermissions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->name) {
@@ -71,6 +92,17 @@ class projectRoles extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['ModulePermissions'])) {
+            if (!empty($map['ModulePermissions'])) {
+                $model->modulePermissions = [];
+                $n1 = 0;
+                foreach ($map['ModulePermissions'] as $item1) {
+                    $model->modulePermissions[$n1] = modulePermissions::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Name'])) {
