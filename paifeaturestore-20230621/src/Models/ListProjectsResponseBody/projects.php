@@ -87,6 +87,11 @@ class projects extends Model
      * @var string
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'description' => 'Description',
         'featureEntityCount' => 'FeatureEntityCount',
@@ -104,6 +109,7 @@ class projects extends Model
         'onlineDatasourceType' => 'OnlineDatasourceType',
         'owner' => 'Owner',
         'projectId' => 'ProjectId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -176,6 +182,10 @@ class projects extends Model
 
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -251,6 +261,10 @@ class projects extends Model
 
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

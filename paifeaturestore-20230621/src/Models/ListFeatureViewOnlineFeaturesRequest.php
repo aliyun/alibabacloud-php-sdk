@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class ListFeatureViewOnlineFeaturesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $config;
+
+    /**
      * @var string[]
      */
     public $joinIds;
     protected $_name = [
+        'config' => 'Config',
         'joinIds' => 'JoinIds',
     ];
 
@@ -27,6 +33,10 @@ class ListFeatureViewOnlineFeaturesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->config) {
+            $res['Config'] = $this->config;
+        }
+
         if (null !== $this->joinIds) {
             if (\is_array($this->joinIds)) {
                 $res['JoinIds'] = [];
@@ -49,6 +59,10 @@ class ListFeatureViewOnlineFeaturesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Config'])) {
+            $model->config = $map['Config'];
+        }
+
         if (isset($map['JoinIds'])) {
             if (!empty($map['JoinIds'])) {
                 $model->joinIds = [];

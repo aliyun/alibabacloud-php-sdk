@@ -2651,6 +2651,10 @@ class PaiFeatureStore extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
+        }
+
         if (null !== $request->joinIdsShrink) {
             @$query['JoinIds'] = $request->joinIdsShrink;
         }

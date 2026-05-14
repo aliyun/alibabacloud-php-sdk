@@ -87,6 +87,11 @@ class GetProjectResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'description' => 'Description',
         'featureEntityCount' => 'FeatureEntityCount',
@@ -104,6 +109,7 @@ class GetProjectResponseBody extends Model
         'onlineDatasourceType' => 'OnlineDatasourceType',
         'owner' => 'Owner',
         'requestId' => 'RequestId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -176,6 +182,10 @@ class GetProjectResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -251,6 +261,10 @@ class GetProjectResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;
