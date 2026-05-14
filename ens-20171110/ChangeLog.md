@@ -2,6 +2,10 @@
 - Update API DescribeSDG: add request parameters SameDiskId.
 
 
+2026-05-14 Version: 10.1.3
+- Update API DescribeSDG: add request parameters SameDiskId.
+
+
 2026-04-28 Version: 10.1.2
 - Update API DescribeEnsEipAddresses: add request parameters LockReason.
 - Update API DescribeEnsEipAddresses: add request parameters Status.
