@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DataMountInfo;
 
 class root extends Model
 {
@@ -12,6 +13,11 @@ class root extends Model
      * @var string
      */
     public $airflowName;
+
+    /**
+     * @var string
+     */
+    public $airflowVersion;
 
     /**
      * @var string
@@ -34,6 +40,11 @@ class root extends Model
     public $dagsDir;
 
     /**
+     * @var DataMountInfo[]
+     */
+    public $dataMountInfoList;
+
+    /**
      * @var string
      */
     public $deployErrorMsg;
@@ -44,6 +55,11 @@ class root extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableServerless;
+
+    /**
      * @var string
      */
     public $environments;
@@ -52,6 +68,11 @@ class root extends Model
      * @var string
      */
     public $gmtCreated;
+
+    /**
+     * @var int
+     */
+    public $gracefulShutdownTimeout;
 
     /**
      * @var string
@@ -124,14 +145,18 @@ class root extends Model
     public $zoneId;
     protected $_name = [
         'airflowName' => 'AirflowName',
+        'airflowVersion' => 'AirflowVersion',
         'appSpec' => 'AppSpec',
         'appType' => 'AppType',
         'customAirflowCfg' => 'CustomAirflowCfg',
         'dagsDir' => 'DagsDir',
+        'dataMountInfoList' => 'DataMountInfoList',
         'deployErrorMsg' => 'DeployErrorMsg',
         'description' => 'Description',
+        'enableServerless' => 'EnableServerless',
         'environments' => 'Environments',
         'gmtCreated' => 'GmtCreated',
+        'gracefulShutdownTimeout' => 'GracefulShutdownTimeout',
         'ossBucketName' => 'OssBucketName',
         'ossPath' => 'OssPath',
         'pluginsDir' => 'PluginsDir',
@@ -153,6 +178,9 @@ class root extends Model
         if (\is_array($this->customAirflowCfg)) {
             Model::validateArray($this->customAirflowCfg);
         }
+        if (\is_array($this->dataMountInfoList)) {
+            Model::validateArray($this->dataMountInfoList);
+        }
         parent::validate();
     }
 
@@ -161,6 +189,10 @@ class root extends Model
         $res = [];
         if (null !== $this->airflowName) {
             $res['AirflowName'] = $this->airflowName;
+        }
+
+        if (null !== $this->airflowVersion) {
+            $res['AirflowVersion'] = $this->airflowVersion;
         }
 
         if (null !== $this->appSpec) {
@@ -186,6 +218,17 @@ class root extends Model
             $res['DagsDir'] = $this->dagsDir;
         }
 
+        if (null !== $this->dataMountInfoList) {
+            if (\is_array($this->dataMountInfoList)) {
+                $res['DataMountInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->dataMountInfoList as $item1) {
+                    $res['DataMountInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->deployErrorMsg) {
             $res['DeployErrorMsg'] = $this->deployErrorMsg;
         }
@@ -194,12 +237,20 @@ class root extends Model
             $res['Description'] = $this->description;
         }
 
+        if (null !== $this->enableServerless) {
+            $res['EnableServerless'] = $this->enableServerless;
+        }
+
         if (null !== $this->environments) {
             $res['Environments'] = $this->environments;
         }
 
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
+        }
+
+        if (null !== $this->gracefulShutdownTimeout) {
+            $res['GracefulShutdownTimeout'] = $this->gracefulShutdownTimeout;
         }
 
         if (null !== $this->ossBucketName) {
@@ -273,6 +324,10 @@ class root extends Model
             $model->airflowName = $map['AirflowName'];
         }
 
+        if (isset($map['AirflowVersion'])) {
+            $model->airflowVersion = $map['AirflowVersion'];
+        }
+
         if (isset($map['AppSpec'])) {
             $model->appSpec = $map['AppSpec'];
         }
@@ -296,6 +351,17 @@ class root extends Model
             $model->dagsDir = $map['DagsDir'];
         }
 
+        if (isset($map['DataMountInfoList'])) {
+            if (!empty($map['DataMountInfoList'])) {
+                $model->dataMountInfoList = [];
+                $n1 = 0;
+                foreach ($map['DataMountInfoList'] as $item1) {
+                    $model->dataMountInfoList[$n1] = DataMountInfo::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['DeployErrorMsg'])) {
             $model->deployErrorMsg = $map['DeployErrorMsg'];
         }
@@ -304,12 +370,20 @@ class root extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['EnableServerless'])) {
+            $model->enableServerless = $map['EnableServerless'];
+        }
+
         if (isset($map['Environments'])) {
             $model->environments = $map['Environments'];
         }
 
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];
+        }
+
+        if (isset($map['GracefulShutdownTimeout'])) {
+            $model->gracefulShutdownTimeout = $map['GracefulShutdownTimeout'];
         }
 
         if (isset($map['OssBucketName'])) {

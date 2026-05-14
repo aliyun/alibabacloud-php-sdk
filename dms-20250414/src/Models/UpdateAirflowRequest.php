@@ -34,9 +34,24 @@ class UpdateAirflowRequest extends Model
     public $dagsDir;
 
     /**
+     * @var DataMountInfo[]
+     */
+    public $dataMountInfoList;
+
+    /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var bool
+     */
+    public $enableServerless;
+
+    /**
+     * @var int
+     */
+    public $gracefulShutdownTimeout;
 
     /**
      * @var string
@@ -68,7 +83,10 @@ class UpdateAirflowRequest extends Model
         'appSpec' => 'AppSpec',
         'clientToken' => 'ClientToken',
         'dagsDir' => 'DagsDir',
+        'dataMountInfoList' => 'DataMountInfoList',
         'description' => 'Description',
+        'enableServerless' => 'EnableServerless',
+        'gracefulShutdownTimeout' => 'GracefulShutdownTimeout',
         'pluginsDir' => 'PluginsDir',
         'requirementFile' => 'RequirementFile',
         'startupFile' => 'StartupFile',
@@ -78,6 +96,9 @@ class UpdateAirflowRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataMountInfoList)) {
+            Model::validateArray($this->dataMountInfoList);
+        }
         parent::validate();
     }
 
@@ -104,8 +125,27 @@ class UpdateAirflowRequest extends Model
             $res['DagsDir'] = $this->dagsDir;
         }
 
+        if (null !== $this->dataMountInfoList) {
+            if (\is_array($this->dataMountInfoList)) {
+                $res['DataMountInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->dataMountInfoList as $item1) {
+                    $res['DataMountInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enableServerless) {
+            $res['EnableServerless'] = $this->enableServerless;
+        }
+
+        if (null !== $this->gracefulShutdownTimeout) {
+            $res['GracefulShutdownTimeout'] = $this->gracefulShutdownTimeout;
         }
 
         if (null !== $this->pluginsDir) {
@@ -159,8 +199,27 @@ class UpdateAirflowRequest extends Model
             $model->dagsDir = $map['DagsDir'];
         }
 
+        if (isset($map['DataMountInfoList'])) {
+            if (!empty($map['DataMountInfoList'])) {
+                $model->dataMountInfoList = [];
+                $n1 = 0;
+                foreach ($map['DataMountInfoList'] as $item1) {
+                    $model->dataMountInfoList[$n1] = DataMountInfo::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['EnableServerless'])) {
+            $model->enableServerless = $map['EnableServerless'];
+        }
+
+        if (isset($map['GracefulShutdownTimeout'])) {
+            $model->gracefulShutdownTimeout = $map['GracefulShutdownTimeout'];
         }
 
         if (isset($map['PluginsDir'])) {

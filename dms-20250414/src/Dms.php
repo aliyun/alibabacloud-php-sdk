@@ -19,6 +19,7 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentShrinkRequest;
@@ -140,6 +141,7 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceCodePublishSettingRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceCodePublishSettingResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentSpaceInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentSpaceInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentWorkspaceMemberRoleRequest;
@@ -532,22 +534,32 @@ class Dms extends OpenApiClient
     /**
      * 创建Airflow.
      *
-     * @param request - CreateAirflowRequest
+     * @param tmpReq - CreateAirflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateAirflowResponse
      *
-     * @param CreateAirflowRequest $request
+     * @param CreateAirflowRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return CreateAirflowResponse
      */
-    public function createAirflowWithOptions($request, $runtime)
+    public function createAirflowWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateAirflowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataMountInfoList) {
+            $request->dataMountInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataMountInfoList, 'DataMountInfoList', 'json');
+        }
+
         $query = [];
         if (null !== $request->airflowName) {
             @$query['AirflowName'] = $request->airflowName;
+        }
+
+        if (null !== $request->airflowVersion) {
+            @$query['AirflowVersion'] = $request->airflowVersion;
         }
 
         if (null !== $request->appSpec) {
@@ -562,8 +574,20 @@ class Dms extends OpenApiClient
             @$query['DagsDir'] = $request->dagsDir;
         }
 
+        if (null !== $request->dataMountInfoListShrink) {
+            @$query['DataMountInfoList'] = $request->dataMountInfoListShrink;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableServerless) {
+            @$query['EnableServerless'] = $request->enableServerless;
+        }
+
+        if (null !== $request->gracefulShutdownTimeout) {
+            @$query['GracefulShutdownTimeout'] = $request->gracefulShutdownTimeout;
         }
 
         if (null !== $request->ossBucketName) {
@@ -4936,19 +4960,25 @@ class Dms extends OpenApiClient
     /**
      * 更新UpdateAirflow.
      *
-     * @param request - UpdateAirflowRequest
+     * @param tmpReq - UpdateAirflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateAirflowResponse
      *
-     * @param UpdateAirflowRequest $request
+     * @param UpdateAirflowRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return UpdateAirflowResponse
      */
-    public function updateAirflowWithOptions($request, $runtime)
+    public function updateAirflowWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateAirflowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataMountInfoList) {
+            $request->dataMountInfoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataMountInfoList, 'DataMountInfoList', 'json');
+        }
+
         $query = [];
         if (null !== $request->airflowId) {
             @$query['AirflowId'] = $request->airflowId;
@@ -4970,8 +5000,20 @@ class Dms extends OpenApiClient
             @$query['DagsDir'] = $request->dagsDir;
         }
 
+        if (null !== $request->dataMountInfoListShrink) {
+            @$query['DataMountInfoList'] = $request->dataMountInfoListShrink;
+        }
+
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enableServerless) {
+            @$query['EnableServerless'] = $request->enableServerless;
+        }
+
+        if (null !== $request->gracefulShutdownTimeout) {
+            @$query['GracefulShutdownTimeout'] = $request->gracefulShutdownTimeout;
         }
 
         if (null !== $request->pluginsDir) {

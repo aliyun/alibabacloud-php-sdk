@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\Dms\V20250414\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateAirflowRequest extends Model
+class UpdateAirflowShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $airflowName;
+    public $airflowId;
 
     /**
      * @var string
      */
-    public $airflowVersion;
+    public $airflowName;
 
     /**
      * @var string
@@ -34,9 +34,9 @@ class CreateAirflowRequest extends Model
     public $dagsDir;
 
     /**
-     * @var DataMountInfo[]
+     * @var string
      */
-    public $dataMountInfoList;
+    public $dataMountInfoListShrink;
 
     /**
      * @var string
@@ -56,16 +56,6 @@ class CreateAirflowRequest extends Model
     /**
      * @var string
      */
-    public $ossBucketName;
-
-    /**
-     * @var string
-     */
-    public $ossPath;
-
-    /**
-     * @var string
-     */
     public $pluginsDir;
 
     /**
@@ -76,22 +66,7 @@ class CreateAirflowRequest extends Model
     /**
      * @var string
      */
-    public $securityGroupId;
-
-    /**
-     * @var string
-     */
     public $startupFile;
-
-    /**
-     * @var string
-     */
-    public $vSwitchId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
 
     /**
      * @var int
@@ -102,51 +77,37 @@ class CreateAirflowRequest extends Model
      * @var string
      */
     public $workspaceId;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
     protected $_name = [
+        'airflowId' => 'AirflowId',
         'airflowName' => 'AirflowName',
-        'airflowVersion' => 'AirflowVersion',
         'appSpec' => 'AppSpec',
         'clientToken' => 'ClientToken',
         'dagsDir' => 'DagsDir',
-        'dataMountInfoList' => 'DataMountInfoList',
+        'dataMountInfoListShrink' => 'DataMountInfoList',
         'description' => 'Description',
         'enableServerless' => 'EnableServerless',
         'gracefulShutdownTimeout' => 'GracefulShutdownTimeout',
-        'ossBucketName' => 'OssBucketName',
-        'ossPath' => 'OssPath',
         'pluginsDir' => 'PluginsDir',
         'requirementFile' => 'RequirementFile',
-        'securityGroupId' => 'SecurityGroupId',
         'startupFile' => 'StartupFile',
-        'vSwitchId' => 'VSwitchId',
-        'vpcId' => 'VpcId',
         'workerServerlessReplicas' => 'WorkerServerlessReplicas',
         'workspaceId' => 'WorkspaceId',
-        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->dataMountInfoList)) {
-            Model::validateArray($this->dataMountInfoList);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->airflowName) {
-            $res['AirflowName'] = $this->airflowName;
+        if (null !== $this->airflowId) {
+            $res['AirflowId'] = $this->airflowId;
         }
 
-        if (null !== $this->airflowVersion) {
-            $res['AirflowVersion'] = $this->airflowVersion;
+        if (null !== $this->airflowName) {
+            $res['AirflowName'] = $this->airflowName;
         }
 
         if (null !== $this->appSpec) {
@@ -161,15 +122,8 @@ class CreateAirflowRequest extends Model
             $res['DagsDir'] = $this->dagsDir;
         }
 
-        if (null !== $this->dataMountInfoList) {
-            if (\is_array($this->dataMountInfoList)) {
-                $res['DataMountInfoList'] = [];
-                $n1 = 0;
-                foreach ($this->dataMountInfoList as $item1) {
-                    $res['DataMountInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->dataMountInfoListShrink) {
+            $res['DataMountInfoList'] = $this->dataMountInfoListShrink;
         }
 
         if (null !== $this->description) {
@@ -184,14 +138,6 @@ class CreateAirflowRequest extends Model
             $res['GracefulShutdownTimeout'] = $this->gracefulShutdownTimeout;
         }
 
-        if (null !== $this->ossBucketName) {
-            $res['OssBucketName'] = $this->ossBucketName;
-        }
-
-        if (null !== $this->ossPath) {
-            $res['OssPath'] = $this->ossPath;
-        }
-
         if (null !== $this->pluginsDir) {
             $res['PluginsDir'] = $this->pluginsDir;
         }
@@ -200,20 +146,8 @@ class CreateAirflowRequest extends Model
             $res['RequirementFile'] = $this->requirementFile;
         }
 
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-
         if (null !== $this->startupFile) {
             $res['StartupFile'] = $this->startupFile;
-        }
-
-        if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = $this->vSwitchId;
-        }
-
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
         }
 
         if (null !== $this->workerServerlessReplicas) {
@@ -222,10 +156,6 @@ class CreateAirflowRequest extends Model
 
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
-        }
-
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -239,12 +169,12 @@ class CreateAirflowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AirflowName'])) {
-            $model->airflowName = $map['AirflowName'];
+        if (isset($map['AirflowId'])) {
+            $model->airflowId = $map['AirflowId'];
         }
 
-        if (isset($map['AirflowVersion'])) {
-            $model->airflowVersion = $map['AirflowVersion'];
+        if (isset($map['AirflowName'])) {
+            $model->airflowName = $map['AirflowName'];
         }
 
         if (isset($map['AppSpec'])) {
@@ -260,14 +190,7 @@ class CreateAirflowRequest extends Model
         }
 
         if (isset($map['DataMountInfoList'])) {
-            if (!empty($map['DataMountInfoList'])) {
-                $model->dataMountInfoList = [];
-                $n1 = 0;
-                foreach ($map['DataMountInfoList'] as $item1) {
-                    $model->dataMountInfoList[$n1] = DataMountInfo::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->dataMountInfoListShrink = $map['DataMountInfoList'];
         }
 
         if (isset($map['Description'])) {
@@ -282,14 +205,6 @@ class CreateAirflowRequest extends Model
             $model->gracefulShutdownTimeout = $map['GracefulShutdownTimeout'];
         }
 
-        if (isset($map['OssBucketName'])) {
-            $model->ossBucketName = $map['OssBucketName'];
-        }
-
-        if (isset($map['OssPath'])) {
-            $model->ossPath = $map['OssPath'];
-        }
-
         if (isset($map['PluginsDir'])) {
             $model->pluginsDir = $map['PluginsDir'];
         }
@@ -298,20 +213,8 @@ class CreateAirflowRequest extends Model
             $model->requirementFile = $map['RequirementFile'];
         }
 
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-
         if (isset($map['StartupFile'])) {
             $model->startupFile = $map['StartupFile'];
-        }
-
-        if (isset($map['VSwitchId'])) {
-            $model->vSwitchId = $map['VSwitchId'];
-        }
-
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
         }
 
         if (isset($map['WorkerServerlessReplicas'])) {
@@ -320,10 +223,6 @@ class CreateAirflowRequest extends Model
 
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
-        }
-
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

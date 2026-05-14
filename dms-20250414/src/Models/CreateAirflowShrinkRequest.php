@@ -2,18 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowResponseBody;
+namespace AlibabaCloud\SDK\Dms\V20250414\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dms\V20250414\Models\DataMountInfo;
 
-class root extends Model
+class CreateAirflowShrinkRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $airflowId;
-
     /**
      * @var string
      */
@@ -32,12 +26,7 @@ class root extends Model
     /**
      * @var string
      */
-    public $appType;
-
-    /**
-     * @var string[]
-     */
-    public $customAirflowCfg;
+    public $clientToken;
 
     /**
      * @var string
@@ -45,14 +34,9 @@ class root extends Model
     public $dagsDir;
 
     /**
-     * @var DataMountInfo[]
-     */
-    public $dataMountInfoList;
-
-    /**
      * @var string
      */
-    public $deployErrorMsg;
+    public $dataMountInfoListShrink;
 
     /**
      * @var string
@@ -63,11 +47,6 @@ class root extends Model
      * @var bool
      */
     public $enableServerless;
-
-    /**
-     * @var string
-     */
-    public $gmtCreated;
 
     /**
      * @var int
@@ -107,11 +86,6 @@ class root extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
     public $vSwitchId;
 
     /**
@@ -134,18 +108,14 @@ class root extends Model
      */
     public $zoneId;
     protected $_name = [
-        'airflowId' => 'AirflowId',
         'airflowName' => 'AirflowName',
         'airflowVersion' => 'AirflowVersion',
         'appSpec' => 'AppSpec',
-        'appType' => 'AppType',
-        'customAirflowCfg' => 'CustomAirflowCfg',
+        'clientToken' => 'ClientToken',
         'dagsDir' => 'DagsDir',
-        'dataMountInfoList' => 'DataMountInfoList',
-        'deployErrorMsg' => 'DeployErrorMsg',
+        'dataMountInfoListShrink' => 'DataMountInfoList',
         'description' => 'Description',
         'enableServerless' => 'EnableServerless',
-        'gmtCreated' => 'GmtCreated',
         'gracefulShutdownTimeout' => 'GracefulShutdownTimeout',
         'ossBucketName' => 'OssBucketName',
         'ossPath' => 'OssPath',
@@ -153,7 +123,6 @@ class root extends Model
         'requirementFile' => 'RequirementFile',
         'securityGroupId' => 'SecurityGroupId',
         'startupFile' => 'StartupFile',
-        'status' => 'Status',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
         'workerServerlessReplicas' => 'WorkerServerlessReplicas',
@@ -163,22 +132,12 @@ class root extends Model
 
     public function validate()
     {
-        if (\is_array($this->customAirflowCfg)) {
-            Model::validateArray($this->customAirflowCfg);
-        }
-        if (\is_array($this->dataMountInfoList)) {
-            Model::validateArray($this->dataMountInfoList);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->airflowId) {
-            $res['AirflowId'] = $this->airflowId;
-        }
-
         if (null !== $this->airflowName) {
             $res['AirflowName'] = $this->airflowName;
         }
@@ -191,38 +150,16 @@ class root extends Model
             $res['AppSpec'] = $this->appSpec;
         }
 
-        if (null !== $this->appType) {
-            $res['AppType'] = $this->appType;
-        }
-
-        if (null !== $this->customAirflowCfg) {
-            if (\is_array($this->customAirflowCfg)) {
-                $res['CustomAirflowCfg'] = [];
-                $n1 = 0;
-                foreach ($this->customAirflowCfg as $item1) {
-                    $res['CustomAirflowCfg'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         if (null !== $this->dagsDir) {
             $res['DagsDir'] = $this->dagsDir;
         }
 
-        if (null !== $this->dataMountInfoList) {
-            if (\is_array($this->dataMountInfoList)) {
-                $res['DataMountInfoList'] = [];
-                $n1 = 0;
-                foreach ($this->dataMountInfoList as $item1) {
-                    $res['DataMountInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
-        if (null !== $this->deployErrorMsg) {
-            $res['DeployErrorMsg'] = $this->deployErrorMsg;
+        if (null !== $this->dataMountInfoListShrink) {
+            $res['DataMountInfoList'] = $this->dataMountInfoListShrink;
         }
 
         if (null !== $this->description) {
@@ -231,10 +168,6 @@ class root extends Model
 
         if (null !== $this->enableServerless) {
             $res['EnableServerless'] = $this->enableServerless;
-        }
-
-        if (null !== $this->gmtCreated) {
-            $res['GmtCreated'] = $this->gmtCreated;
         }
 
         if (null !== $this->gracefulShutdownTimeout) {
@@ -263,10 +196,6 @@ class root extends Model
 
         if (null !== $this->startupFile) {
             $res['StartupFile'] = $this->startupFile;
-        }
-
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
         }
 
         if (null !== $this->vSwitchId) {
@@ -300,10 +229,6 @@ class root extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AirflowId'])) {
-            $model->airflowId = $map['AirflowId'];
-        }
-
         if (isset($map['AirflowName'])) {
             $model->airflowName = $map['AirflowName'];
         }
@@ -316,19 +241,8 @@ class root extends Model
             $model->appSpec = $map['AppSpec'];
         }
 
-        if (isset($map['AppType'])) {
-            $model->appType = $map['AppType'];
-        }
-
-        if (isset($map['CustomAirflowCfg'])) {
-            if (!empty($map['CustomAirflowCfg'])) {
-                $model->customAirflowCfg = [];
-                $n1 = 0;
-                foreach ($map['CustomAirflowCfg'] as $item1) {
-                    $model->customAirflowCfg[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         if (isset($map['DagsDir'])) {
@@ -336,18 +250,7 @@ class root extends Model
         }
 
         if (isset($map['DataMountInfoList'])) {
-            if (!empty($map['DataMountInfoList'])) {
-                $model->dataMountInfoList = [];
-                $n1 = 0;
-                foreach ($map['DataMountInfoList'] as $item1) {
-                    $model->dataMountInfoList[$n1] = DataMountInfo::fromMap($item1);
-                    ++$n1;
-                }
-            }
-        }
-
-        if (isset($map['DeployErrorMsg'])) {
-            $model->deployErrorMsg = $map['DeployErrorMsg'];
+            $model->dataMountInfoListShrink = $map['DataMountInfoList'];
         }
 
         if (isset($map['Description'])) {
@@ -356,10 +259,6 @@ class root extends Model
 
         if (isset($map['EnableServerless'])) {
             $model->enableServerless = $map['EnableServerless'];
-        }
-
-        if (isset($map['GmtCreated'])) {
-            $model->gmtCreated = $map['GmtCreated'];
         }
 
         if (isset($map['GracefulShutdownTimeout'])) {
@@ -388,10 +287,6 @@ class root extends Model
 
         if (isset($map['StartupFile'])) {
             $model->startupFile = $map['StartupFile'];
-        }
-
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
         }
 
         if (isset($map['VSwitchId'])) {
