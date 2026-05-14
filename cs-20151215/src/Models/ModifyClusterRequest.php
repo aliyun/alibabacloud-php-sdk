@@ -39,6 +39,11 @@ class ModifyClusterRequest extends Model
     public $clusterName;
 
     /**
+     * @var string
+     */
+    public $clusterSpec;
+
+    /**
      * @var controlPlaneConfig
      */
     public $controlPlaneConfig;
@@ -113,6 +118,7 @@ class ModifyClusterRequest extends Model
         'apiServerEip' => 'api_server_eip',
         'apiServerEipId' => 'api_server_eip_id',
         'clusterName' => 'cluster_name',
+        'clusterSpec' => 'cluster_spec',
         'controlPlaneConfig' => 'control_plane_config',
         'controlPlaneEndpointsConfig' => 'control_plane_endpoints_config',
         'deletionProtection' => 'deletion_protection',
@@ -186,6 +192,10 @@ class ModifyClusterRequest extends Model
 
         if (null !== $this->clusterName) {
             $res['cluster_name'] = $this->clusterName;
+        }
+
+        if (null !== $this->clusterSpec) {
+            $res['cluster_spec'] = $this->clusterSpec;
         }
 
         if (null !== $this->controlPlaneConfig) {
@@ -287,6 +297,10 @@ class ModifyClusterRequest extends Model
 
         if (isset($map['cluster_name'])) {
             $model->clusterName = $map['cluster_name'];
+        }
+
+        if (isset($map['cluster_spec'])) {
+            $model->clusterSpec = $map['cluster_spec'];
         }
 
         if (isset($map['control_plane_config'])) {

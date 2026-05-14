@@ -7611,6 +7611,10 @@ class CS extends OpenApiClient
             @$body['cluster_name'] = $request->clusterName;
         }
 
+        if (null !== $request->clusterSpec) {
+            @$body['cluster_spec'] = $request->clusterSpec;
+        }
+
         if (null !== $request->controlPlaneConfig) {
             @$body['control_plane_config'] = $request->controlPlaneConfig;
         }
