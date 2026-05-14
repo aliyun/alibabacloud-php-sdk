@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\Tag;
 class digitalEmployees extends Model
 {
     /**
+     * @var string[]
+     */
+    public $attributes;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -65,6 +70,7 @@ class digitalEmployees extends Model
      */
     public $updateTime;
     protected $_name = [
+        'attributes' => 'attributes',
         'createTime' => 'createTime',
         'defaultRule' => 'defaultRule',
         'description' => 'description',
@@ -80,6 +86,9 @@ class digitalEmployees extends Model
 
     public function validate()
     {
+        if (\is_array($this->attributes)) {
+            Model::validateArray($this->attributes);
+        }
         if (null !== $this->knowledges) {
             $this->knowledges->validate();
         }
@@ -92,6 +101,15 @@ class digitalEmployees extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->attributes) {
+            if (\is_array($this->attributes)) {
+                $res['attributes'] = [];
+                foreach ($this->attributes as $key1 => $value1) {
+                    $res['attributes'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
@@ -154,6 +172,15 @@ class digitalEmployees extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['attributes'])) {
+            if (!empty($map['attributes'])) {
+                $model->attributes = [];
+                foreach ($map['attributes'] as $key1 => $value1) {
+                    $model->attributes[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }

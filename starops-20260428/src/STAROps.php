@@ -257,6 +257,10 @@ class STAROps extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->attributes) {
+            @$body['attributes'] = $request->attributes;
+        }
+
         if (null !== $request->defaultRule) {
             @$body['defaultRule'] = $request->defaultRule;
         }
@@ -1451,6 +1455,10 @@ class STAROps extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->attributes) {
+            @$body['attributes'] = $request->attributes;
+        }
+
         if (null !== $request->defaultRule) {
             @$body['defaultRule'] = $request->defaultRule;
         }
