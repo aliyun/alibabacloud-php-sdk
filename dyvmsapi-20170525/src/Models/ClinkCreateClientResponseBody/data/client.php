@@ -1,0 +1,446 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ClinkCreateClientResponseBody\data;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ClinkCreateClientResponseBody\data\client\clidArea;
+use AlibabaCloud\SDK\Dyvmsapi\V20170525\Models\ClinkCreateClientResponseBody\data\client\permission;
+
+class client extends Model
+{
+    /**
+     * @var int
+     */
+    public $active;
+
+    /**
+     * @var string
+     */
+    public $areaCode;
+
+    /**
+     * @var int
+     */
+    public $assignType;
+
+    /**
+     * @var string[]
+     */
+    public $clid;
+
+    /**
+     * @var clidArea[]
+     */
+    public $clidArea;
+
+    /**
+     * @var string[]
+     */
+    public $clidDefault;
+
+    /**
+     * @var int
+     */
+    public $clidRule;
+
+    /**
+     * @var int
+     */
+    public $clidType;
+
+    /**
+     * @var int
+     */
+    public $cloudNumberEnabled;
+
+    /**
+     * @var int[]
+     */
+    public $cloudNumberModes;
+
+    /**
+     * @var int
+     */
+    public $cno;
+
+    /**
+     * @var int
+     */
+    public $crmId;
+
+    /**
+     * @var string
+     */
+    public $dynamicTelGroupName;
+
+    /**
+     * @var int
+     */
+    public $hiddenTel;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $password;
+
+    /**
+     * @var permission
+     */
+    public $permission;
+
+    /**
+     * @var string[]
+     */
+    public $qnos;
+
+    /**
+     * @var int
+     */
+    public $recurrentselectionType;
+
+    /**
+     * @var int
+     */
+    public $recurrentselectionValue;
+
+    /**
+     * @var int
+     */
+    public $role;
+
+    /**
+     * @var int
+     */
+    public $type;
+
+    /**
+     * @var int
+     */
+    public $wrapupTime;
+    protected $_name = [
+        'active' => 'Active',
+        'areaCode' => 'AreaCode',
+        'assignType' => 'AssignType',
+        'clid' => 'Clid',
+        'clidArea' => 'ClidArea',
+        'clidDefault' => 'ClidDefault',
+        'clidRule' => 'ClidRule',
+        'clidType' => 'ClidType',
+        'cloudNumberEnabled' => 'CloudNumberEnabled',
+        'cloudNumberModes' => 'CloudNumberModes',
+        'cno' => 'Cno',
+        'crmId' => 'CrmId',
+        'dynamicTelGroupName' => 'DynamicTelGroupName',
+        'hiddenTel' => 'HiddenTel',
+        'name' => 'Name',
+        'password' => 'Password',
+        'permission' => 'Permission',
+        'qnos' => 'Qnos',
+        'recurrentselectionType' => 'RecurrentselectionType',
+        'recurrentselectionValue' => 'RecurrentselectionValue',
+        'role' => 'Role',
+        'type' => 'Type',
+        'wrapupTime' => 'WrapupTime',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->clid)) {
+            Model::validateArray($this->clid);
+        }
+        if (\is_array($this->clidArea)) {
+            Model::validateArray($this->clidArea);
+        }
+        if (\is_array($this->clidDefault)) {
+            Model::validateArray($this->clidDefault);
+        }
+        if (\is_array($this->cloudNumberModes)) {
+            Model::validateArray($this->cloudNumberModes);
+        }
+        if (null !== $this->permission) {
+            $this->permission->validate();
+        }
+        if (\is_array($this->qnos)) {
+            Model::validateArray($this->qnos);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->active) {
+            $res['Active'] = $this->active;
+        }
+
+        if (null !== $this->areaCode) {
+            $res['AreaCode'] = $this->areaCode;
+        }
+
+        if (null !== $this->assignType) {
+            $res['AssignType'] = $this->assignType;
+        }
+
+        if (null !== $this->clid) {
+            if (\is_array($this->clid)) {
+                $res['Clid'] = [];
+                $n1 = 0;
+                foreach ($this->clid as $item1) {
+                    $res['Clid'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->clidArea) {
+            if (\is_array($this->clidArea)) {
+                $res['ClidArea'] = [];
+                $n1 = 0;
+                foreach ($this->clidArea as $item1) {
+                    $res['ClidArea'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->clidDefault) {
+            if (\is_array($this->clidDefault)) {
+                $res['ClidDefault'] = [];
+                $n1 = 0;
+                foreach ($this->clidDefault as $item1) {
+                    $res['ClidDefault'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->clidRule) {
+            $res['ClidRule'] = $this->clidRule;
+        }
+
+        if (null !== $this->clidType) {
+            $res['ClidType'] = $this->clidType;
+        }
+
+        if (null !== $this->cloudNumberEnabled) {
+            $res['CloudNumberEnabled'] = $this->cloudNumberEnabled;
+        }
+
+        if (null !== $this->cloudNumberModes) {
+            if (\is_array($this->cloudNumberModes)) {
+                $res['CloudNumberModes'] = [];
+                $n1 = 0;
+                foreach ($this->cloudNumberModes as $item1) {
+                    $res['CloudNumberModes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->cno) {
+            $res['Cno'] = $this->cno;
+        }
+
+        if (null !== $this->crmId) {
+            $res['CrmId'] = $this->crmId;
+        }
+
+        if (null !== $this->dynamicTelGroupName) {
+            $res['DynamicTelGroupName'] = $this->dynamicTelGroupName;
+        }
+
+        if (null !== $this->hiddenTel) {
+            $res['HiddenTel'] = $this->hiddenTel;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->password) {
+            $res['Password'] = $this->password;
+        }
+
+        if (null !== $this->permission) {
+            $res['Permission'] = null !== $this->permission ? $this->permission->toArray($noStream) : $this->permission;
+        }
+
+        if (null !== $this->qnos) {
+            if (\is_array($this->qnos)) {
+                $res['Qnos'] = [];
+                $n1 = 0;
+                foreach ($this->qnos as $item1) {
+                    $res['Qnos'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->recurrentselectionType) {
+            $res['RecurrentselectionType'] = $this->recurrentselectionType;
+        }
+
+        if (null !== $this->recurrentselectionValue) {
+            $res['RecurrentselectionValue'] = $this->recurrentselectionValue;
+        }
+
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
+        if (null !== $this->wrapupTime) {
+            $res['WrapupTime'] = $this->wrapupTime;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Active'])) {
+            $model->active = $map['Active'];
+        }
+
+        if (isset($map['AreaCode'])) {
+            $model->areaCode = $map['AreaCode'];
+        }
+
+        if (isset($map['AssignType'])) {
+            $model->assignType = $map['AssignType'];
+        }
+
+        if (isset($map['Clid'])) {
+            if (!empty($map['Clid'])) {
+                $model->clid = [];
+                $n1 = 0;
+                foreach ($map['Clid'] as $item1) {
+                    $model->clid[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ClidArea'])) {
+            if (!empty($map['ClidArea'])) {
+                $model->clidArea = [];
+                $n1 = 0;
+                foreach ($map['ClidArea'] as $item1) {
+                    $model->clidArea[$n1] = clidArea::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ClidDefault'])) {
+            if (!empty($map['ClidDefault'])) {
+                $model->clidDefault = [];
+                $n1 = 0;
+                foreach ($map['ClidDefault'] as $item1) {
+                    $model->clidDefault[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ClidRule'])) {
+            $model->clidRule = $map['ClidRule'];
+        }
+
+        if (isset($map['ClidType'])) {
+            $model->clidType = $map['ClidType'];
+        }
+
+        if (isset($map['CloudNumberEnabled'])) {
+            $model->cloudNumberEnabled = $map['CloudNumberEnabled'];
+        }
+
+        if (isset($map['CloudNumberModes'])) {
+            if (!empty($map['CloudNumberModes'])) {
+                $model->cloudNumberModes = [];
+                $n1 = 0;
+                foreach ($map['CloudNumberModes'] as $item1) {
+                    $model->cloudNumberModes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Cno'])) {
+            $model->cno = $map['Cno'];
+        }
+
+        if (isset($map['CrmId'])) {
+            $model->crmId = $map['CrmId'];
+        }
+
+        if (isset($map['DynamicTelGroupName'])) {
+            $model->dynamicTelGroupName = $map['DynamicTelGroupName'];
+        }
+
+        if (isset($map['HiddenTel'])) {
+            $model->hiddenTel = $map['HiddenTel'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
+        }
+
+        if (isset($map['Permission'])) {
+            $model->permission = permission::fromMap($map['Permission']);
+        }
+
+        if (isset($map['Qnos'])) {
+            if (!empty($map['Qnos'])) {
+                $model->qnos = [];
+                $n1 = 0;
+                foreach ($map['Qnos'] as $item1) {
+                    $model->qnos[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RecurrentselectionType'])) {
+            $model->recurrentselectionType = $map['RecurrentselectionType'];
+        }
+
+        if (isset($map['RecurrentselectionValue'])) {
+            $model->recurrentselectionValue = $map['RecurrentselectionValue'];
+        }
+
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
+        }
+
+        if (isset($map['WrapupTime'])) {
+            $model->wrapupTime = $map['WrapupTime'];
+        }
+
+        return $model;
+    }
+}
