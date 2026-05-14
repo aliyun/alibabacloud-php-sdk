@@ -5,13 +5,24 @@
 namespace AlibabaCloud\SDK\MaasAISearchProxy\V20260424\Models\WebSearchResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\MaasAISearchProxy\V20260424\Models\WebSearchResponseBody\data\result\source;
 
 class result extends Model
 {
     /**
      * @var string
      */
+    public $date;
+
+    /**
+     * @var string
+     */
     public $snippet;
+
+    /**
+     * @var source
+     */
+    public $source;
 
     /**
      * @var string
@@ -23,21 +34,34 @@ class result extends Model
      */
     public $url;
     protected $_name = [
+        'date' => 'date',
         'snippet' => 'snippet',
+        'source' => 'source',
         'title' => 'title',
         'url' => 'url',
     ];
 
     public function validate()
     {
+        if (null !== $this->source) {
+            $this->source->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->date) {
+            $res['date'] = $this->date;
+        }
+
         if (null !== $this->snippet) {
             $res['snippet'] = $this->snippet;
+        }
+
+        if (null !== $this->source) {
+            $res['source'] = null !== $this->source ? $this->source->toArray($noStream) : $this->source;
         }
 
         if (null !== $this->title) {
@@ -59,8 +83,16 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['date'])) {
+            $model->date = $map['date'];
+        }
+
         if (isset($map['snippet'])) {
             $model->snippet = $map['snippet'];
+        }
+
+        if (isset($map['source'])) {
+            $model->source = source::fromMap($map['source']);
         }
 
         if (isset($map['title'])) {

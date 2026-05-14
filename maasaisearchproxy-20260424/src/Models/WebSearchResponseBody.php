@@ -23,16 +23,10 @@ class WebSearchResponseBody extends Model
      * @var string
      */
     public $message;
-
-    /**
-     * @var string
-     */
-    public $traceId;
     protected $_name = [
         'code' => 'code',
         'data' => 'data',
         'message' => 'message',
-        'traceId' => 'traceId',
     ];
 
     public function validate()
@@ -58,10 +52,6 @@ class WebSearchResponseBody extends Model
             $res['message'] = $this->message;
         }
 
-        if (null !== $this->traceId) {
-            $res['traceId'] = $this->traceId;
-        }
-
         return $res;
     }
 
@@ -83,10 +73,6 @@ class WebSearchResponseBody extends Model
 
         if (isset($map['message'])) {
             $model->message = $map['message'];
-        }
-
-        if (isset($map['traceId'])) {
-            $model->traceId = $map['traceId'];
         }
 
         return $model;
