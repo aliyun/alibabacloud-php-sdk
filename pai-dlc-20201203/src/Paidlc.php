@@ -321,7 +321,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Create a Job Template.
+     * Create a job template.
      *
      * @param request - CreateJobTemplateRequest
      * @param headers - map
@@ -383,7 +383,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Create a Job Template.
+     * Create a job template.
      *
      * @param request - CreateJobTemplateRequest
      *
@@ -596,7 +596,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Delete an unused job template. If the template is already used by a job, you cannot delete it.
+     * Deletes an unused job template. Templates that are used by jobs cannot be deleted.
      *
      * @param request - DeleteJobTemplateRequest
      * @param headers - map
@@ -633,7 +633,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Delete an unused job template. If the template is already used by a job, you cannot delete it.
+     * Deletes an unused job template. Templates that are used by jobs cannot be deleted.
      *
      * @param request - DeleteJobTemplateRequest
      *
@@ -2541,7 +2541,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Update a Job template.
+     * Updates a job template.
      *
      * @param request - UpdateJobTemplateRequest
      * @param headers - map
@@ -2608,7 +2608,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Update a Job template.
+     * Updates a job template.
      *
      * @param request - UpdateJobTemplateRequest
      *

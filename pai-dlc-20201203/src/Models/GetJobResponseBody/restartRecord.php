@@ -47,6 +47,11 @@ class restartRecord extends Model
     /**
      * @var string
      */
+    public $restartLevelType;
+
+    /**
+     * @var string
+     */
     public $restartStatus;
 
     /**
@@ -61,6 +66,7 @@ class restartRecord extends Model
         'reason' => 'Reason',
         'restartDurationInSec' => 'RestartDurationInSec',
         'restartFailReason' => 'RestartFailReason',
+        'restartLevelType' => 'RestartLevelType',
         'restartStatus' => 'RestartStatus',
         'triggerID' => 'TriggerID',
     ];
@@ -109,6 +115,10 @@ class restartRecord extends Model
 
         if (null !== $this->restartFailReason) {
             $res['RestartFailReason'] = $this->restartFailReason;
+        }
+
+        if (null !== $this->restartLevelType) {
+            $res['RestartLevelType'] = $this->restartLevelType;
         }
 
         if (null !== $this->restartStatus) {
@@ -163,6 +173,10 @@ class restartRecord extends Model
 
         if (isset($map['RestartFailReason'])) {
             $model->restartFailReason = $map['RestartFailReason'];
+        }
+
+        if (isset($map['RestartLevelType'])) {
+            $model->restartLevelType = $map['RestartLevelType'];
         }
 
         if (isset($map['RestartStatus'])) {
