@@ -2,17 +2,31 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogStatusResponseBody;
+namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeResourceLogStatusResponseBody\result\traceConfig;
 
-class result extends Model
+class ModifyResourceLogStatusShrinkRequest extends Model
 {
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resource;
+
+    /**
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
 
     /**
      * @var bool
@@ -20,42 +34,54 @@ class result extends Model
     public $status;
 
     /**
-     * @var traceConfig
+     * @var string
      */
-    public $traceConfig;
+    public $traceConfigShrink;
 
     /**
      * @var bool
      */
     public $traceStatus;
     protected $_name = [
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resource' => 'Resource',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'status' => 'Status',
-        'traceConfig' => 'TraceConfig',
+        'traceConfigShrink' => 'TraceConfig',
         'traceStatus' => 'TraceStatus',
     ];
 
     public function validate()
     {
-        if (null !== $this->traceConfig) {
-            $this->traceConfig->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
+        }
+
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
 
-        if (null !== $this->traceConfig) {
-            $res['TraceConfig'] = null !== $this->traceConfig ? $this->traceConfig->toArray($noStream) : $this->traceConfig;
+        if (null !== $this->traceConfigShrink) {
+            $res['TraceConfig'] = $this->traceConfigShrink;
         }
 
         if (null !== $this->traceStatus) {
@@ -73,8 +99,20 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
+        }
+
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
 
         if (isset($map['Status'])) {
@@ -82,7 +120,7 @@ class result extends Model
         }
 
         if (isset($map['TraceConfig'])) {
-            $model->traceConfig = traceConfig::fromMap($map['TraceConfig']);
+            $model->traceConfigShrink = $map['TraceConfig'];
         }
 
         if (isset($map['TraceStatus'])) {

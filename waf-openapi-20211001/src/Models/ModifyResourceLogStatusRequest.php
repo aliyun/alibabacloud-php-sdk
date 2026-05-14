@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest\traceConfig;
 
 class ModifyResourceLogStatusRequest extends Model
 {
@@ -32,16 +33,31 @@ class ModifyResourceLogStatusRequest extends Model
      * @var bool
      */
     public $status;
+
+    /**
+     * @var traceConfig
+     */
+    public $traceConfig;
+
+    /**
+     * @var bool
+     */
+    public $traceStatus;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
         'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'status' => 'Status',
+        'traceConfig' => 'TraceConfig',
+        'traceStatus' => 'TraceStatus',
     ];
 
     public function validate()
     {
+        if (null !== $this->traceConfig) {
+            $this->traceConfig->validate();
+        }
         parent::validate();
     }
 
@@ -66,6 +82,14 @@ class ModifyResourceLogStatusRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->traceConfig) {
+            $res['TraceConfig'] = null !== $this->traceConfig ? $this->traceConfig->toArray($noStream) : $this->traceConfig;
+        }
+
+        if (null !== $this->traceStatus) {
+            $res['TraceStatus'] = $this->traceStatus;
         }
 
         return $res;
@@ -97,6 +121,14 @@ class ModifyResourceLogStatusRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['TraceConfig'])) {
+            $model->traceConfig = traceConfig::fromMap($map['TraceConfig']);
+        }
+
+        if (isset($map['TraceStatus'])) {
+            $model->traceStatus = $map['TraceStatus'];
         }
 
         return $model;

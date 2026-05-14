@@ -478,6 +478,7 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogFieldConfigReq
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogFieldConfigResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyTemplateResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyUserLogFieldConfigRequest;
@@ -18686,19 +18687,25 @@ class Wafopenapi extends OpenApiClient
     /**
      * Enables or disables the log collection feature for a protected object.
      *
-     * @param request - ModifyResourceLogStatusRequest
+     * @param tmpReq - ModifyResourceLogStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyResourceLogStatusResponse
      *
-     * @param ModifyResourceLogStatusRequest $request
+     * @param ModifyResourceLogStatusRequest $tmpReq
      * @param RuntimeOptions                 $runtime
      *
      * @return ModifyResourceLogStatusResponse
      */
-    public function modifyResourceLogStatusWithOptions($request, $runtime)
+    public function modifyResourceLogStatusWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ModifyResourceLogStatusShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->traceConfig) {
+            $request->traceConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->traceConfig, 'TraceConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
@@ -18718,6 +18725,14 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->traceConfigShrink) {
+            @$query['TraceConfig'] = $request->traceConfigShrink;
+        }
+
+        if (null !== $request->traceStatus) {
+            @$query['TraceStatus'] = $request->traceStatus;
         }
 
         $req = new OpenApiRequest([
