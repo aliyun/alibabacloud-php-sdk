@@ -22,10 +22,16 @@ class DescribeSDGRequest extends Model
      * @var string[]
      */
     public $SDGIds;
+
+    /**
+     * @var bool
+     */
+    public $sameDiskId;
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'SDGIds' => 'SDGIds',
+        'sameDiskId' => 'SameDiskId',
     ];
 
     public function validate()
@@ -58,6 +64,10 @@ class DescribeSDGRequest extends Model
             }
         }
 
+        if (null !== $this->sameDiskId) {
+            $res['SameDiskId'] = $this->sameDiskId;
+        }
+
         return $res;
     }
 
@@ -86,6 +96,10 @@ class DescribeSDGRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SameDiskId'])) {
+            $model->sameDiskId = $map['SameDiskId'];
         }
 
         return $model;

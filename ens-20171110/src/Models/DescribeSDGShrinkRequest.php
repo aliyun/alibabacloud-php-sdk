@@ -22,10 +22,16 @@ class DescribeSDGShrinkRequest extends Model
      * @var string
      */
     public $SDGIdsShrink;
+
+    /**
+     * @var bool
+     */
+    public $sameDiskId;
     protected $_name = [
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'SDGIdsShrink' => 'SDGIds',
+        'sameDiskId' => 'SameDiskId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class DescribeSDGShrinkRequest extends Model
 
         if (null !== $this->SDGIdsShrink) {
             $res['SDGIds'] = $this->SDGIdsShrink;
+        }
+
+        if (null !== $this->sameDiskId) {
+            $res['SameDiskId'] = $this->sameDiskId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class DescribeSDGShrinkRequest extends Model
 
         if (isset($map['SDGIds'])) {
             $model->SDGIdsShrink = $map['SDGIds'];
+        }
+
+        if (isset($map['SameDiskId'])) {
+            $model->sameDiskId = $map['SameDiskId'];
         }
 
         return $model;
