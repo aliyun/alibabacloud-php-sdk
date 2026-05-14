@@ -15,6 +15,11 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAm
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CancelFundAccountLowAvailableAmountAlarmResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckAccountExistRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckAccountExistResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckBudgetNameExistsRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CheckBudgetNameExistsResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateBudgetRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateBudgetResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateBudgetShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateCostCenterRuleRequest;
@@ -41,6 +46,10 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCouponDeductTagShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteReportDefinitionRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteReportDefinitionResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeBudgetRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeBudgetResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeBudgetsRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeBudgetsResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DescribeCouponItemListShrinkRequest;
@@ -118,6 +127,9 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountLowAvailableAmoun
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpdateBudgetRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpdateBudgetResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpdateBudgetShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -503,6 +515,198 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkAccountExistWithOptions($request, $runtime);
+    }
+
+    /**
+     * 检测budgetName是否存在.
+     *
+     * @param request - CheckBudgetNameExistsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckBudgetNameExistsResponse
+     *
+     * @param CheckBudgetNameExistsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckBudgetNameExistsResponse
+     */
+    public function checkBudgetNameExistsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $body = [];
+        if (null !== $request->budgetName) {
+            @$body['BudgetName'] = $request->budgetName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckBudgetNameExists',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckBudgetNameExistsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 检测budgetName是否存在.
+     *
+     * @param request - CheckBudgetNameExistsRequest
+     *
+     * @returns CheckBudgetNameExistsResponse
+     *
+     * @param CheckBudgetNameExistsRequest $request
+     *
+     * @return CheckBudgetNameExistsResponse
+     */
+    public function checkBudgetNameExists($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkBudgetNameExistsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建预算.
+     *
+     * @param tmpReq - CreateBudgetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBudgetResponse
+     *
+     * @param CreateBudgetRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateBudgetResponse
+     */
+    public function createBudgetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateBudgetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cycleQuota) {
+            $request->cycleQuotaShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cycleQuota, 'CycleQuota', 'json');
+        }
+
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        if (null !== $tmpReq->queryFilter) {
+            $request->queryFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryFilter, 'QueryFilter', 'json');
+        }
+
+        if (null !== $tmpReq->warnConfs) {
+            $request->warnConfsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->warnConfs, 'WarnConfs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $body = [];
+        if (null !== $request->budgetName) {
+            @$body['BudgetName'] = $request->budgetName;
+        }
+
+        if (null !== $request->budgetType) {
+            @$body['BudgetType'] = $request->budgetType;
+        }
+
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->cycleEndPeriod) {
+            @$body['CycleEndPeriod'] = $request->cycleEndPeriod;
+        }
+
+        if (null !== $request->cycleQuotaShrink) {
+            @$body['CycleQuota'] = $request->cycleQuotaShrink;
+        }
+
+        if (null !== $request->cycleStartPeriod) {
+            @$body['CycleStartPeriod'] = $request->cycleStartPeriod;
+        }
+
+        if (null !== $request->cycleType) {
+            @$body['CycleType'] = $request->cycleType;
+        }
+
+        if (null !== $request->metric) {
+            @$body['Metric'] = $request->metric;
+        }
+
+        if (null !== $request->queryFilterShrink) {
+            @$body['QueryFilter'] = $request->queryFilterShrink;
+        }
+
+        if (null !== $request->quota) {
+            @$body['Quota'] = $request->quota;
+        }
+
+        if (null !== $request->quotaType) {
+            @$body['QuotaType'] = $request->quotaType;
+        }
+
+        if (null !== $request->warnConfsShrink) {
+            @$body['WarnConfs'] = $request->warnConfsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBudget',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBudgetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建预算.
+     *
+     * @param request - CreateBudgetRequest
+     *
+     * @returns CreateBudgetResponse
+     *
+     * @param CreateBudgetRequest $request
+     *
+     * @return CreateBudgetResponse
+     */
+    public function createBudget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBudgetWithOptions($request, $runtime);
     }
 
     /**
@@ -1285,6 +1489,148 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteReportDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询单个Budget.
+     *
+     * @param request - DescribeBudgetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBudgetResponse
+     *
+     * @param DescribeBudgetRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeBudgetResponse
+     */
+    public function describeBudgetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $body = [];
+        if (null !== $request->budgetName) {
+            @$body['BudgetName'] = $request->budgetName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBudget',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBudgetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单个Budget.
+     *
+     * @param request - DescribeBudgetRequest
+     *
+     * @returns DescribeBudgetResponse
+     *
+     * @param DescribeBudgetRequest $request
+     *
+     * @return DescribeBudgetResponse
+     */
+    public function describeBudget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBudgetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询预算列表.
+     *
+     * @param request - DescribeBudgetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBudgetsResponse
+     *
+     * @param DescribeBudgetsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeBudgetsResponse
+     */
+    public function describeBudgetsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $body = [];
+        if (null !== $request->budgetName) {
+            @$body['BudgetName'] = $request->budgetName;
+        }
+
+        if (null !== $request->budgetType) {
+            @$body['BudgetType'] = $request->budgetType;
+        }
+
+        if (null !== $request->expireStatus) {
+            @$body['ExpireStatus'] = $request->expireStatus;
+        }
+
+        if (null !== $request->pageNo) {
+            @$body['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBudgets',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBudgetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询预算列表.
+     *
+     * @param request - DescribeBudgetsRequest
+     *
+     * @returns DescribeBudgetsResponse
+     *
+     * @param DescribeBudgetsRequest $request
+     *
+     * @return DescribeBudgetsResponse
+     */
+    public function describeBudgets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBudgetsWithOptions($request, $runtime);
     }
 
     /**
@@ -3673,5 +4019,138 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setSavingPlanUserDeductRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新预算.
+     *
+     * @param tmpReq - UpdateBudgetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBudgetResponse
+     *
+     * @param UpdateBudgetRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateBudgetResponse
+     */
+    public function updateBudgetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateBudgetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->cycleQuota) {
+            $request->cycleQuotaShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->cycleQuota, 'CycleQuota', 'json');
+        }
+
+        if (null !== $tmpReq->ecIdAccountIds) {
+            $request->ecIdAccountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+
+        if (null !== $tmpReq->queryFilter) {
+            $request->queryFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queryFilter, 'QueryFilter', 'json');
+        }
+
+        if (null !== $tmpReq->warnConfs) {
+            $request->warnConfsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->warnConfs, 'WarnConfs', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->ecIdAccountIdsShrink) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $body = [];
+        if (null !== $request->budgetName) {
+            @$body['BudgetName'] = $request->budgetName;
+        }
+
+        if (null !== $request->budgetType) {
+            @$body['BudgetType'] = $request->budgetType;
+        }
+
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->cycleEndPeriod) {
+            @$body['CycleEndPeriod'] = $request->cycleEndPeriod;
+        }
+
+        if (null !== $request->cycleQuotaShrink) {
+            @$body['CycleQuota'] = $request->cycleQuotaShrink;
+        }
+
+        if (null !== $request->cycleStartPeriod) {
+            @$body['CycleStartPeriod'] = $request->cycleStartPeriod;
+        }
+
+        if (null !== $request->cycleType) {
+            @$body['CycleType'] = $request->cycleType;
+        }
+
+        if (null !== $request->metric) {
+            @$body['Metric'] = $request->metric;
+        }
+
+        if (null !== $request->originalBudgetName) {
+            @$body['OriginalBudgetName'] = $request->originalBudgetName;
+        }
+
+        if (null !== $request->queryFilterShrink) {
+            @$body['QueryFilter'] = $request->queryFilterShrink;
+        }
+
+        if (null !== $request->quota) {
+            @$body['Quota'] = $request->quota;
+        }
+
+        if (null !== $request->quotaType) {
+            @$body['QuotaType'] = $request->quotaType;
+        }
+
+        if (null !== $request->warnConfsShrink) {
+            @$body['WarnConfs'] = $request->warnConfsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBudget',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBudgetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新预算.
+     *
+     * @param request - UpdateBudgetRequest
+     *
+     * @returns UpdateBudgetResponse
+     *
+     * @param UpdateBudgetRequest $request
+     *
+     * @return UpdateBudgetResponse
+     */
+    public function updateBudget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBudgetWithOptions($request, $runtime);
     }
 }
