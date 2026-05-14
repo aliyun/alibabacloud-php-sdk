@@ -5101,6 +5101,10 @@ class Green extends OpenApiClient
             @$query['Classify'] = $request->classify;
         }
 
+        if (null !== $request->protectionType) {
+            @$query['ProtectionType'] = $request->protectionType;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }

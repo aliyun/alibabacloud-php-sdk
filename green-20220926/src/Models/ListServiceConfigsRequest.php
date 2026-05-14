@@ -16,6 +16,11 @@ class ListServiceConfigsRequest extends Model
     /**
      * @var string
      */
+    public $protectionType;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -29,6 +34,7 @@ class ListServiceConfigsRequest extends Model
     public $useStatus;
     protected $_name = [
         'classify' => 'Classify',
+        'protectionType' => 'ProtectionType',
         'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
         'useStatus' => 'UseStatus',
@@ -44,6 +50,10 @@ class ListServiceConfigsRequest extends Model
         $res = [];
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
+        }
+
+        if (null !== $this->protectionType) {
+            $res['ProtectionType'] = $this->protectionType;
         }
 
         if (null !== $this->regionId) {
@@ -71,6 +81,10 @@ class ListServiceConfigsRequest extends Model
         $model = new self();
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
+        }
+
+        if (isset($map['ProtectionType'])) {
+            $model->protectionType = $map['ProtectionType'];
         }
 
         if (isset($map['RegionId'])) {
