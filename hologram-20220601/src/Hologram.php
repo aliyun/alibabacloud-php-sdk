@@ -8,25 +8,47 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateDatabaseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateDatabaseResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateExternalDatabaseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateExternalDatabaseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateModelServiceRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateModelServiceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateUserResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateWarehouseRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateWarehouseResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateWarehouseScheduleTaskRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateWarehouseScheduleTaskResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteModelResourceRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteModelResourceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteModelServiceRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteModelServiceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteWarehouseScheduleTaskRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteWarehouseScheduleTaskResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableSSLResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableWarehouseAutoScaleRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableWarehouseAutoScaleResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DropUserRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DropUserResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableSSLResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableWarehouseAutoScaleRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableWarehouseAutoScaleResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetCertificateAttributeResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceModelRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceModelResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetRootCertificateResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetWarehouseDetailResponse;
@@ -40,8 +62,16 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListDatabasesRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListDatabasesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstanceModelRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstanceModelResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListModelCatalogRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListModelCatalogResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehouseScheduleEventRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehouseScheduleEventResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehouseScheduleTaskRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehouseScheduleTaskResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehousesResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RebalanceHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RebalanceHoloWarehouseResponse;
@@ -73,6 +103,10 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNetworkTypeRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNetworkTypeResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateModelServiceRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateModelServiceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateWarehouseScheduleTaskRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateWarehouseScheduleTaskResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -175,6 +209,152 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建db.
+     *
+     * @param request - CreateDatabaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatabaseResponse
+     *
+     * @param string                $instanceId
+     * @param CreateDatabaseRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateDatabaseResponse
+     */
+    public function createDatabaseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->databaseName) {
+            @$body['databaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->permissionModel) {
+            @$body['permissionModel'] = $request->permissionModel;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDatabase',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/createDatabase',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建db.
+     *
+     * @param request - CreateDatabaseRequest
+     *
+     * @returns CreateDatabaseResponse
+     *
+     * @param string                $instanceId
+     * @param CreateDatabaseRequest $request
+     *
+     * @return CreateDatabaseResponse
+     */
+    public function createDatabase($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDatabaseWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建外部db.
+     *
+     * @param request - CreateExternalDatabaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExternalDatabaseResponse
+     *
+     * @param string                        $instanceId
+     * @param CreateExternalDatabaseRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateExternalDatabaseResponse
+     */
+    public function createExternalDatabaseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['comment'] = $request->comment;
+        }
+
+        if (null !== $request->databaseName) {
+            @$body['databaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->defaultUserMapping) {
+            @$body['defaultUserMapping'] = $request->defaultUserMapping;
+        }
+
+        if (null !== $request->externalConfig) {
+            @$body['externalConfig'] = $request->externalConfig;
+        }
+
+        if (null !== $request->metastoreType) {
+            @$body['metastoreType'] = $request->metastoreType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateExternalDatabase',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/createExternalDatabase',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateExternalDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建外部db.
+     *
+     * @param request - CreateExternalDatabaseRequest
+     *
+     * @returns CreateExternalDatabaseResponse
+     *
+     * @param string                        $instanceId
+     * @param CreateExternalDatabaseRequest $request
+     *
+     * @return CreateExternalDatabaseResponse
+     */
+    public function createExternalDatabase($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createExternalDatabaseWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -428,6 +608,109 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 创建模型服务
+     *
+     * @param request - CreateModelServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelServiceResponse
+     *
+     * @param string                    $instanceId
+     * @param CreateModelServiceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateModelServiceResponse
+     */
+    public function createModelServiceWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->apiKey) {
+            @$body['apiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->cpu) {
+            @$body['cpu'] = $request->cpu;
+        }
+
+        if (null !== $request->gpu) {
+            @$body['gpu'] = $request->gpu;
+        }
+
+        if (null !== $request->gpuMemory) {
+            @$body['gpuMemory'] = $request->gpuMemory;
+        }
+
+        if (null !== $request->memory) {
+            @$body['memory'] = $request->memory;
+        }
+
+        if (null !== $request->modelParams) {
+            @$body['modelParams'] = $request->modelParams;
+        }
+
+        if (null !== $request->modelServiceName) {
+            @$body['modelServiceName'] = $request->modelServiceName;
+        }
+
+        if (null !== $request->modelType) {
+            @$body['modelType'] = $request->modelType;
+        }
+
+        if (null !== $request->provider) {
+            @$body['provider'] = $request->provider;
+        }
+
+        if (null !== $request->serviceCount) {
+            @$body['serviceCount'] = $request->serviceCount;
+        }
+
+        if (null !== $request->taskType) {
+            @$body['taskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelService',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/createModelService',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模型服务
+     *
+     * @param request - CreateModelServiceRequest
+     *
+     * @returns CreateModelServiceResponse
+     *
+     * @param string                    $instanceId
+     * @param CreateModelServiceRequest $request
+     *
+     * @return CreateModelServiceResponse
+     */
+    public function createModelService($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createModelServiceWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 添加用户.
      *
      * @param request - CreateUserRequest
@@ -492,6 +775,162 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->createUserWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建warehouse.
+     *
+     * @param request - CreateWarehouseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWarehouseResponse
+     *
+     * @param string                 $instanceId
+     * @param CreateWarehouseRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateWarehouseResponse
+     */
+    public function createWarehouseWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->cpu) {
+            @$body['cpu'] = $request->cpu;
+        }
+
+        if (null !== $request->warehouseName) {
+            @$body['warehouseName'] = $request->warehouseName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWarehouse',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/warehouse/' . Url::percentEncode($instanceId) . '/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建warehouse.
+     *
+     * @param request - CreateWarehouseRequest
+     *
+     * @returns CreateWarehouseResponse
+     *
+     * @param string                 $instanceId
+     * @param CreateWarehouseRequest $request
+     *
+     * @return CreateWarehouseResponse
+     */
+    public function createWarehouse($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWarehouseWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建分时弹性计划.
+     *
+     * @param request - CreateWarehouseScheduleTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWarehouseScheduleTaskResponse
+     *
+     * @param string                             $instanceId
+     * @param CreateWarehouseScheduleTaskRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateWarehouseScheduleTaskResponse
+     */
+    public function createWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->elasticCu) {
+            @$body['elasticCu'] = $request->elasticCu;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->warehouseId) {
+            @$body['warehouseId'] = $request->warehouseId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWarehouseScheduleTask',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/createWarehouseScheduleTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWarehouseScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建分时弹性计划.
+     *
+     * @param request - CreateWarehouseScheduleTaskRequest
+     *
+     * @returns CreateWarehouseScheduleTaskResponse
+     *
+     * @param string                             $instanceId
+     * @param CreateWarehouseScheduleTaskRequest $request
+     *
+     * @return CreateWarehouseScheduleTaskResponse
+     */
+    public function createWarehouseScheduleTask($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -631,6 +1070,199 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 删除模型资源.
+     *
+     * @param request - DeleteModelResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelResourceResponse
+     *
+     * @param string                     $instanceId
+     * @param DeleteModelResourceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteModelResourceResponse
+     */
+    public function deleteModelResourceWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aiInstanceId) {
+            @$query['aiInstanceId'] = $request->aiInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelResource',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/deleteModelResource',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除模型资源.
+     *
+     * @param request - DeleteModelResourceRequest
+     *
+     * @returns DeleteModelResourceResponse
+     *
+     * @param string                     $instanceId
+     * @param DeleteModelResourceRequest $request
+     *
+     * @return DeleteModelResourceResponse
+     */
+    public function deleteModelResource($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteModelResourceWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建模型服务
+     *
+     * @param request - DeleteModelServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteModelServiceResponse
+     *
+     * @param string                    $instanceId
+     * @param DeleteModelServiceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteModelServiceResponse
+     */
+    public function deleteModelServiceWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->modelServiceName) {
+            @$query['modelServiceName'] = $request->modelServiceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteModelService',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/deleteModelService',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模型服务
+     *
+     * @param request - DeleteModelServiceRequest
+     *
+     * @returns DeleteModelServiceResponse
+     *
+     * @param string                    $instanceId
+     * @param DeleteModelServiceRequest $request
+     *
+     * @return DeleteModelServiceResponse
+     */
+    public function deleteModelService($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteModelServiceWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除计算组弹性计划.
+     *
+     * @param request - DeleteWarehouseScheduleTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWarehouseScheduleTaskResponse
+     *
+     * @param string                             $instanceId
+     * @param DeleteWarehouseScheduleTaskRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteWarehouseScheduleTaskResponse
+     */
+    public function deleteWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->warehouseId) {
+            @$body['warehouseId'] = $request->warehouseId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWarehouseScheduleTask',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/deleteWarehouseScheduleTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWarehouseScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除计算组弹性计划.
+     *
+     * @param request - DeleteWarehouseScheduleTaskRequest
+     *
+     * @returns DeleteWarehouseScheduleTaskResponse
+     *
+     * @param string                             $instanceId
+     * @param DeleteWarehouseScheduleTaskRequest $request
+     *
+     * @return DeleteWarehouseScheduleTaskResponse
+     */
+    public function deleteWarehouseScheduleTask($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Disables data lake acceleration.
      *
      * @param request - DisableHiveAccessRequest
@@ -742,6 +1374,69 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->disableSSLWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 关闭自动弹性.
+     *
+     * @param request - DisableWarehouseAutoScaleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableWarehouseAutoScaleResponse
+     *
+     * @param string                           $instanceId
+     * @param DisableWarehouseAutoScaleRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableWarehouseAutoScaleResponse
+     */
+    public function disableWarehouseAutoScaleWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableWarehouseAutoScale',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/disableWarehouseAutoScale',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableWarehouseAutoScaleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭自动弹性.
+     *
+     * @param request - DisableWarehouseAutoScaleRequest
+     *
+     * @returns DisableWarehouseAutoScaleResponse
+     *
+     * @param string                           $instanceId
+     * @param DisableWarehouseAutoScaleRequest $request
+     *
+     * @return DisableWarehouseAutoScaleResponse
+     */
+    public function disableWarehouseAutoScale($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableWarehouseAutoScaleWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -926,6 +1621,73 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 开启自动弹性.
+     *
+     * @param request - EnableWarehouseAutoScaleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableWarehouseAutoScaleResponse
+     *
+     * @param string                          $instanceId
+     * @param EnableWarehouseAutoScaleRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EnableWarehouseAutoScaleResponse
+     */
+    public function enableWarehouseAutoScaleWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->maxClusterCount) {
+            @$body['maxClusterCount'] = $request->maxClusterCount;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableWarehouseAutoScale',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/enableWarehouseAutoScale',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableWarehouseAutoScaleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启自动弹性.
+     *
+     * @param request - EnableWarehouseAutoScaleRequest
+     *
+     * @returns EnableWarehouseAutoScaleResponse
+     *
+     * @param string                          $instanceId
+     * @param EnableWarehouseAutoScaleRequest $request
+     *
+     * @return EnableWarehouseAutoScaleResponse
+     */
+    public function enableWarehouseAutoScale($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableWarehouseAutoScaleWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获得证书信息.
      *
      * @param headers - map
@@ -1025,6 +1787,63 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->getInstanceWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 模型信息.
+     *
+     * @param request - GetInstanceModelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceModelResponse
+     *
+     * @param string                  $instanceId
+     * @param GetInstanceModelRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetInstanceModelResponse
+     */
+    public function getInstanceModelWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceModel',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/getInstanceModel',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模型信息.
+     *
+     * @param request - GetInstanceModelRequest
+     *
+     * @returns GetInstanceModelResponse
+     *
+     * @param string                  $instanceId
+     * @param GetInstanceModelRequest $request
+     *
+     * @return GetInstanceModelResponse
+     */
+    public function getInstanceModel($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceModelWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1491,6 +2310,61 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * AI资源列表.
+     *
+     * @param request - ListInstanceModelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceModelResponse
+     *
+     * @param ListInstanceModelRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListInstanceModelResponse
+     */
+    public function listInstanceModelWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceModel',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/rpc/listInstanceModel',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AI资源列表.
+     *
+     * @param request - ListInstanceModelRequest
+     *
+     * @returns ListInstanceModelResponse
+     *
+     * @param ListInstanceModelRequest $request
+     *
+     * @return ListInstanceModelResponse
+     */
+    public function listInstanceModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstanceModelWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of instances.
      *
      * @param request - ListInstancesRequest
@@ -1557,6 +2431,209 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->listInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 列出模型列表.
+     *
+     * @param request - ListModelCatalogRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelCatalogResponse
+     *
+     * @param string                  $instanceId
+     * @param ListModelCatalogRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListModelCatalogResponse
+     */
+    public function listModelCatalogWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelCatalog',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/listModelCatalog',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出模型列表.
+     *
+     * @param request - ListModelCatalogRequest
+     *
+     * @returns ListModelCatalogResponse
+     *
+     * @param string                  $instanceId
+     * @param ListModelCatalogRequest $request
+     *
+     * @return ListModelCatalogResponse
+     */
+    public function listModelCatalog($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listModelCatalogWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 分时弹性日志.
+     *
+     * @param request - ListWarehouseScheduleEventRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWarehouseScheduleEventResponse
+     *
+     * @param string                            $instanceId
+     * @param ListWarehouseScheduleEventRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListWarehouseScheduleEventResponse
+     */
+    public function listWarehouseScheduleEventWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->elasticType) {
+            @$body['elasticType'] = $request->elasticType;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListWarehouseScheduleEvent',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/listWarehouseScheduleEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWarehouseScheduleEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分时弹性日志.
+     *
+     * @param request - ListWarehouseScheduleEventRequest
+     *
+     * @returns ListWarehouseScheduleEventResponse
+     *
+     * @param string                            $instanceId
+     * @param ListWarehouseScheduleEventRequest $request
+     *
+     * @return ListWarehouseScheduleEventResponse
+     */
+    public function listWarehouseScheduleEvent($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWarehouseScheduleEventWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 计算分时弹性计划列表.
+     *
+     * @param request - ListWarehouseScheduleTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWarehouseScheduleTaskResponse
+     *
+     * @param string                           $instanceId
+     * @param ListWarehouseScheduleTaskRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListWarehouseScheduleTaskResponse
+     */
+    public function listWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListWarehouseScheduleTask',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/listWarehouseScheduleTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWarehouseScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 计算分时弹性计划列表.
+     *
+     * @param request - ListWarehouseScheduleTaskRequest
+     *
+     * @returns ListWarehouseScheduleTaskResponse
+     *
+     * @param string                           $instanceId
+     * @param ListWarehouseScheduleTaskRequest $request
+     *
+     * @return ListWarehouseScheduleTaskResponse
+     */
+    public function listWarehouseScheduleTask($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2753,5 +3830,167 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->updateInstanceNetworkTypeWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建模型服务
+     *
+     * @param request - UpdateModelServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelServiceResponse
+     *
+     * @param string                    $instanceId
+     * @param UpdateModelServiceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateModelServiceResponse
+     */
+    public function updateModelServiceWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->cpu) {
+            @$body['cpu'] = $request->cpu;
+        }
+
+        if (null !== $request->gpu) {
+            @$body['gpu'] = $request->gpu;
+        }
+
+        if (null !== $request->memory) {
+            @$body['memory'] = $request->memory;
+        }
+
+        if (null !== $request->modelServiceName) {
+            @$body['modelServiceName'] = $request->modelServiceName;
+        }
+
+        if (null !== $request->modelType) {
+            @$body['modelType'] = $request->modelType;
+        }
+
+        if (null !== $request->serviceCount) {
+            @$body['serviceCount'] = $request->serviceCount;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelService',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/updateModelService',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模型服务
+     *
+     * @param request - UpdateModelServiceRequest
+     *
+     * @returns UpdateModelServiceResponse
+     *
+     * @param string                    $instanceId
+     * @param UpdateModelServiceRequest $request
+     *
+     * @return UpdateModelServiceResponse
+     */
+    public function updateModelService($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateModelServiceWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建分时弹性计划.
+     *
+     * @param request - UpdateWarehouseScheduleTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWarehouseScheduleTaskResponse
+     *
+     * @param string                             $instanceId
+     * @param UpdateWarehouseScheduleTaskRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateWarehouseScheduleTaskResponse
+     */
+    public function updateWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->elasticCu) {
+            @$body['elasticCu'] = $request->elasticCu;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->warehouseId) {
+            @$body['warehouseId'] = $request->warehouseId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWarehouseScheduleTask',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/updateWarehouseScheduleTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWarehouseScheduleTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建分时弹性计划.
+     *
+     * @param request - UpdateWarehouseScheduleTaskRequest
+     *
+     * @returns UpdateWarehouseScheduleTaskResponse
+     *
+     * @param string                             $instanceId
+     * @param UpdateWarehouseScheduleTaskRequest $request
+     *
+     * @return UpdateWarehouseScheduleTaskResponse
+     */
+    public function updateWarehouseScheduleTask($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime);
     }
 }
