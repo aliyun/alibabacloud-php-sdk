@@ -61,6 +61,11 @@ class callbackList extends Model
     /**
      * @var string
      */
+    public $storageType;
+
+    /**
+     * @var string
+     */
     public $streamName;
     protected $_name = [
         'appName' => 'AppName',
@@ -73,6 +78,7 @@ class callbackList extends Model
         'notifyTime' => 'NotifyTime',
         'notifyType' => 'NotifyType',
         'notifyUrl' => 'NotifyUrl',
+        'storageType' => 'StorageType',
         'streamName' => 'StreamName',
     ];
 
@@ -122,6 +128,10 @@ class callbackList extends Model
 
         if (null !== $this->notifyUrl) {
             $res['NotifyUrl'] = $this->notifyUrl;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         if (null !== $this->streamName) {
@@ -177,6 +187,10 @@ class callbackList extends Model
 
         if (isset($map['NotifyUrl'])) {
             $model->notifyUrl = $map['NotifyUrl'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         if (isset($map['StreamName'])) {

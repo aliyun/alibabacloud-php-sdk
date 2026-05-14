@@ -56,6 +56,11 @@ class DescribeLiveRecordNotifyRecordsRequest extends Model
     /**
      * @var string
      */
+    public $storageType;
+
+    /**
+     * @var string
+     */
     public $streamName;
     protected $_name = [
         'appName' => 'AppName',
@@ -67,6 +72,7 @@ class DescribeLiveRecordNotifyRecordsRequest extends Model
         'regionId' => 'RegionId',
         'startTime' => 'StartTime',
         'status' => 'Status',
+        'storageType' => 'StorageType',
         'streamName' => 'StreamName',
     ];
 
@@ -112,6 +118,10 @@ class DescribeLiveRecordNotifyRecordsRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         if (null !== $this->streamName) {
@@ -163,6 +173,10 @@ class DescribeLiveRecordNotifyRecordsRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         if (isset($map['StreamName'])) {

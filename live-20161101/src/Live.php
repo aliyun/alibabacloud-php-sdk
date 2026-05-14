@@ -19253,6 +19253,10 @@ class Live extends OpenApiClient
             @$query['Status'] = $request->status;
         }
 
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
         if (null !== $request->streamName) {
             @$query['StreamName'] = $request->streamName;
         }
