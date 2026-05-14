@@ -1,3 +1,7 @@
+2026-05-14 Version: 2.6.0
+- Support API GetJinaAiReader.
+
+
 2026-04-28 Version: 2.5.0
 - Support API CreateMemory.
 - Support API CreateMemorySkill.

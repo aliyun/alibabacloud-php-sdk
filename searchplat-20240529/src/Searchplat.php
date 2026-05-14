@@ -39,6 +39,8 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusReques
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageObjectDetectionRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageObjectDetectionResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetJinaAiReaderRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetJinaAiReaderResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemoryHealthRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemoryHealthResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetMemoryRequest;
@@ -1268,6 +1270,71 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->getImageObjectDetectionWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取JinaAiReader解析结果.
+     *
+     * @param request - GetJinaAiReaderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJinaAiReaderResponse
+     *
+     * @param string                 $workspaceName
+     * @param string                 $serviceId
+     * @param GetJinaAiReaderRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetJinaAiReaderResponse
+     */
+    public function getJinaAiReaderWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->url) {
+            @$body['url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetJinaAiReader',
+            'version' => '2024-05-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v3/openapi/workspaces/' . $workspaceName . '/jina-ai-reader/' . $serviceId . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetJinaAiReaderResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取JinaAiReader解析结果.
+     *
+     * @param request - GetJinaAiReaderRequest
+     *
+     * @returns GetJinaAiReaderResponse
+     *
+     * @param string                 $workspaceName
+     * @param string                 $serviceId
+     * @param GetJinaAiReaderRequest $request
+     *
+     * @return GetJinaAiReaderResponse
+     */
+    public function getJinaAiReader($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getJinaAiReaderWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
     }
 
     /**
