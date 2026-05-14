@@ -82,6 +82,11 @@ class advancedDataPolicy extends Model
      * @var string
      */
     public $srcType;
+
+    /**
+     * @var string
+     */
+    public $storageClass;
     protected $_name = [
         'autoCreated' => 'AutoCreated',
         'bakType' => 'BakType',
@@ -98,6 +103,7 @@ class advancedDataPolicy extends Model
         'retentionValue' => 'RetentionValue',
         'srcRegion' => 'SrcRegion',
         'srcType' => 'SrcType',
+        'storageClass' => 'StorageClass',
     ];
 
     public function validate()
@@ -166,6 +172,10 @@ class advancedDataPolicy extends Model
 
         if (null !== $this->srcType) {
             $res['SrcType'] = $this->srcType;
+        }
+
+        if (null !== $this->storageClass) {
+            $res['StorageClass'] = $this->storageClass;
         }
 
         return $res;
@@ -237,6 +247,10 @@ class advancedDataPolicy extends Model
 
         if (isset($map['SrcType'])) {
             $model->srcType = $map['SrcType'];
+        }
+
+        if (isset($map['StorageClass'])) {
+            $model->storageClass = $map['StorageClass'];
         }
 
         return $model;
