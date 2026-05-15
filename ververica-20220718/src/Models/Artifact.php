@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class Artifact extends Model
 {
     /**
+     * @var CdcYamlArtifact
+     */
+    public $cdcYamlArtifact;
+
+    /**
      * @var JarArtifact
      */
     public $jarArtifact;
@@ -28,6 +33,7 @@ class Artifact extends Model
      */
     public $sqlArtifact;
     protected $_name = [
+        'cdcYamlArtifact' => 'cdcYamlArtifact',
         'jarArtifact' => 'jarArtifact',
         'kind' => 'kind',
         'pythonArtifact' => 'pythonArtifact',
@@ -36,6 +42,9 @@ class Artifact extends Model
 
     public function validate()
     {
+        if (null !== $this->cdcYamlArtifact) {
+            $this->cdcYamlArtifact->validate();
+        }
         if (null !== $this->jarArtifact) {
             $this->jarArtifact->validate();
         }
@@ -51,6 +60,10 @@ class Artifact extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cdcYamlArtifact) {
+            $res['cdcYamlArtifact'] = null !== $this->cdcYamlArtifact ? $this->cdcYamlArtifact->toArray($noStream) : $this->cdcYamlArtifact;
+        }
+
         if (null !== $this->jarArtifact) {
             $res['jarArtifact'] = null !== $this->jarArtifact ? $this->jarArtifact->toArray($noStream) : $this->jarArtifact;
         }
@@ -78,6 +91,10 @@ class Artifact extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cdcYamlArtifact'])) {
+            $model->cdcYamlArtifact = CdcYamlArtifact::fromMap($map['cdcYamlArtifact']);
+        }
+
         if (isset($map['jarArtifact'])) {
             $model->jarArtifact = JarArtifact::fromMap($map['jarArtifact']);
         }
