@@ -15,6 +15,9 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\BatchDeleteDataLakePartitionsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchUpdateDataLakePartitionsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchUpdateDataLakePartitionsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\BatchUpdateDataLakePartitionsShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ConfigAirflowShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowLoginTokenResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowRequest;
@@ -23,6 +26,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionShrinkRequest;
@@ -44,6 +49,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteCustomAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeDatabaseRequest;
@@ -63,6 +70,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeFileUploadSignatureRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeFileUploadSignatureResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseStatsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseStatsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
@@ -90,8 +99,12 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodePublishSettingRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodePublishSettingResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceQuotaRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceQuotaResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowVersionsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowVersionsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionRequest;
@@ -132,6 +145,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\OperateCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\OperateCustomAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\RedeployAirflowRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\RedeployAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RemoveUserToDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RemoveUserToDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
@@ -139,6 +154,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceCodePublishSettingRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceCodePublishSettingResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceQuotaRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceQuotaResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowShrinkRequest;
@@ -532,6 +549,77 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 更新Airflow实例的自定义配置.
+     *
+     * @param tmpReq - ConfigAirflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfigAirflowResponse
+     *
+     * @param ConfigAirflowRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ConfigAirflowResponse
+     */
+    public function configAirflowWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ConfigAirflowShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customAirflowCfg) {
+            $request->customAirflowCfgShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customAirflowCfg, 'CustomAirflowCfg', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->airflowId) {
+            @$query['AirflowId'] = $request->airflowId;
+        }
+
+        if (null !== $request->customAirflowCfgShrink) {
+            @$query['CustomAirflowCfg'] = $request->customAirflowCfgShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfigAirflow',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfigAirflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Airflow实例的自定义配置.
+     *
+     * @param request - ConfigAirflowRequest
+     *
+     * @returns ConfigAirflowResponse
+     *
+     * @param ConfigAirflowRequest $request
+     *
+     * @return ConfigAirflowResponse
+     */
+    public function configAirflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->configAirflowWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建Airflow.
      *
      * @param tmpReq - CreateAirflowRequest
@@ -848,6 +936,79 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * CreateDataAgentKnowledgeBase.
+     *
+     * @param request - CreateDataAgentKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataAgentKnowledgeBaseResponse
+     *
+     * @param CreateDataAgentKnowledgeBaseRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateDataAgentKnowledgeBaseResponse
+     */
+    public function createDataAgentKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->fromKbUuid) {
+            @$query['FromKbUuid'] = $request->fromKbUuid;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataAgentKnowledgeBase',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataAgentKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateDataAgentKnowledgeBase.
+     *
+     * @param request - CreateDataAgentKnowledgeBaseRequest
+     *
+     * @returns CreateDataAgentKnowledgeBaseResponse
+     *
+     * @param CreateDataAgentKnowledgeBaseRequest $request
+     *
+     * @return CreateDataAgentKnowledgeBaseResponse
+     */
+    public function createDataAgentKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataAgentKnowledgeBaseWithOptions($request, $runtime);
     }
 
     /**
@@ -1467,6 +1628,71 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * DeleteDataAgentKnowledgeBase.
+     *
+     * @param request - DeleteDataAgentKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataAgentKnowledgeBaseResponse
+     *
+     * @param DeleteDataAgentKnowledgeBaseRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteDataAgentKnowledgeBaseResponse
+     */
+    public function deleteDataAgentKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$query['KbUuid'] = $request->kbUuid;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataAgentKnowledgeBase',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataAgentKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteDataAgentKnowledgeBase.
+     *
+     * @param request - DeleteDataAgentKnowledgeBaseRequest
+     *
+     * @returns DeleteDataAgentKnowledgeBaseResponse
+     *
+     * @param DeleteDataAgentKnowledgeBaseRequest $request
+     *
+     * @return DeleteDataAgentKnowledgeBaseResponse
+     */
+    public function deleteDataAgentKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataAgentKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除DataAgent工作空间.
      *
      * @param request - DeleteDataAgentWorkspaceRequest
@@ -2079,6 +2305,63 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeFileUploadSignatureWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取onemeta3.0的知识库统计信息.
+     *
+     * @param request - DescribeKnowledgeBaseStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKnowledgeBaseStatsResponse
+     *
+     * @param DescribeKnowledgeBaseStatsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeKnowledgeBaseStatsResponse
+     */
+    public function describeKnowledgeBaseStatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->kbUuid) {
+            @$query['KbUuid'] = $request->kbUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKnowledgeBaseStats',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKnowledgeBaseStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取onemeta3.0的知识库统计信息.
+     *
+     * @param request - DescribeKnowledgeBaseStatsRequest
+     *
+     * @returns DescribeKnowledgeBaseStatsResponse
+     *
+     * @param DescribeKnowledgeBaseStatsRequest $request
+     *
+     * @return DescribeKnowledgeBaseStatsResponse
+     */
+    public function describeKnowledgeBaseStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKnowledgeBaseStatsWithOptions($request, $runtime);
     }
 
     /**
@@ -3028,6 +3311,120 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWorkspaceCodePublishSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取工作空间配额.
+     *
+     * @param request - GetWorkspaceQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceQuotaResponse
+     *
+     * @param GetWorkspaceQuotaRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetWorkspaceQuotaResponse
+     */
+    public function getWorkspaceQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspaceQuota',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工作空间配额.
+     *
+     * @param request - GetWorkspaceQuotaRequest
+     *
+     * @returns GetWorkspaceQuotaResponse
+     *
+     * @param GetWorkspaceQuotaRequest $request
+     *
+     * @return GetWorkspaceQuotaResponse
+     */
+    public function getWorkspaceQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWorkspaceQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取可用的Airflow版本列表.
+     *
+     * @param request - ListAirflowVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAirflowVersionsResponse
+     *
+     * @param ListAirflowVersionsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAirflowVersionsResponse
+     */
+    public function listAirflowVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAirflowVersions',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAirflowVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取可用的Airflow版本列表.
+     *
+     * @param request - ListAirflowVersionsRequest
+     *
+     * @returns ListAirflowVersionsResponse
+     *
+     * @param ListAirflowVersionsRequest $request
+     *
+     * @return ListAirflowVersionsResponse
+     */
+    public function listAirflowVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAirflowVersionsWithOptions($request, $runtime);
     }
 
     /**
@@ -4715,6 +5112,67 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 重新部署Airflow实例.
+     *
+     * @param request - RedeployAirflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RedeployAirflowResponse
+     *
+     * @param RedeployAirflowRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RedeployAirflowResponse
+     */
+    public function redeployAirflowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->airflowId) {
+            @$query['AirflowId'] = $request->airflowId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RedeployAirflow',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RedeployAirflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重新部署Airflow实例.
+     *
+     * @param request - RedeployAirflowRequest
+     *
+     * @returns RedeployAirflowResponse
+     *
+     * @param RedeployAirflowRequest $request
+     *
+     * @return RedeployAirflowResponse
+     */
+    public function redeployAirflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->redeployAirflowWithOptions($request, $runtime);
+    }
+
+    /**
      * 从空间中移除用户.
      *
      * @param request - RemoveUserToDataAgentWorkspaceRequest
@@ -4955,6 +5413,79 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setWorkspaceCodePublishSettingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 设置工作空间配额.
+     *
+     * @param request - SetWorkspaceQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetWorkspaceQuotaResponse
+     *
+     * @param SetWorkspaceQuotaRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SetWorkspaceQuotaResponse
+     */
+    public function setWorkspaceQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->cuQuota) {
+            @$query['CuQuota'] = $request->cuQuota;
+        }
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetWorkspaceQuota',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetWorkspaceQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置工作空间配额.
+     *
+     * @param request - SetWorkspaceQuotaRequest
+     *
+     * @returns SetWorkspaceQuotaResponse
+     *
+     * @param SetWorkspaceQuotaRequest $request
+     *
+     * @return SetWorkspaceQuotaResponse
+     */
+    public function setWorkspaceQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setWorkspaceQuotaWithOptions($request, $runtime);
     }
 
     /**
