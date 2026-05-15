@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\autoMode;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\autoScaling;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\efloNodeGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\interconnectConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\kubernetesConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolDetailResponseBody\management;
@@ -28,6 +29,11 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
      * @var autoScaling
      */
     public $autoScaling;
+
+    /**
+     * @var efloNodeGroup
+     */
+    public $efloNodeGroup;
 
     /**
      * @var bool
@@ -96,6 +102,7 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     protected $_name = [
         'autoMode' => 'auto_mode',
         'autoScaling' => 'auto_scaling',
+        'efloNodeGroup' => 'eflo_node_group',
         'hostNetwork' => 'host_network',
         'interconnectConfig' => 'interconnect_config',
         'interconnectMode' => 'interconnect_mode',
@@ -118,6 +125,9 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
         }
         if (null !== $this->autoScaling) {
             $this->autoScaling->validate();
+        }
+        if (null !== $this->efloNodeGroup) {
+            $this->efloNodeGroup->validate();
         }
         if (null !== $this->interconnectConfig) {
             $this->interconnectConfig->validate();
@@ -158,6 +168,10 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
 
         if (null !== $this->autoScaling) {
             $res['auto_scaling'] = null !== $this->autoScaling ? $this->autoScaling->toArray($noStream) : $this->autoScaling;
+        }
+
+        if (null !== $this->efloNodeGroup) {
+            $res['eflo_node_group'] = null !== $this->efloNodeGroup ? $this->efloNodeGroup->toArray($noStream) : $this->efloNodeGroup;
         }
 
         if (null !== $this->hostNetwork) {
@@ -236,6 +250,10 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
 
         if (isset($map['auto_scaling'])) {
             $model->autoScaling = autoScaling::fromMap($map['auto_scaling']);
+        }
+
+        if (isset($map['eflo_node_group'])) {
+            $model->efloNodeGroup = efloNodeGroup::fromMap($map['eflo_node_group']);
         }
 
         if (isset($map['host_network'])) {

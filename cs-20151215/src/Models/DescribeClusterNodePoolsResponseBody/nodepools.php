@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseB
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\autoMode;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\autoScaling;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\efloNodeGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\interconnectConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\kubernetesConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterNodePoolsResponseBody\nodepools\management;
@@ -28,6 +29,11 @@ class nodepools extends Model
      * @var autoScaling
      */
     public $autoScaling;
+
+    /**
+     * @var efloNodeGroup
+     */
+    public $efloNodeGroup;
 
     /**
      * @var interconnectConfig
@@ -86,6 +92,7 @@ class nodepools extends Model
     protected $_name = [
         'autoMode' => 'auto_mode',
         'autoScaling' => 'auto_scaling',
+        'efloNodeGroup' => 'eflo_node_group',
         'interconnectConfig' => 'interconnect_config',
         'interconnectMode' => 'interconnect_mode',
         'kubernetesConfig' => 'kubernetes_config',
@@ -106,6 +113,9 @@ class nodepools extends Model
         }
         if (null !== $this->autoScaling) {
             $this->autoScaling->validate();
+        }
+        if (null !== $this->efloNodeGroup) {
+            $this->efloNodeGroup->validate();
         }
         if (null !== $this->interconnectConfig) {
             $this->interconnectConfig->validate();
@@ -146,6 +156,10 @@ class nodepools extends Model
 
         if (null !== $this->autoScaling) {
             $res['auto_scaling'] = null !== $this->autoScaling ? $this->autoScaling->toArray($noStream) : $this->autoScaling;
+        }
+
+        if (null !== $this->efloNodeGroup) {
+            $res['eflo_node_group'] = null !== $this->efloNodeGroup ? $this->efloNodeGroup->toArray($noStream) : $this->efloNodeGroup;
         }
 
         if (null !== $this->interconnectConfig) {
@@ -216,6 +230,10 @@ class nodepools extends Model
 
         if (isset($map['auto_scaling'])) {
             $model->autoScaling = autoScaling::fromMap($map['auto_scaling']);
+        }
+
+        if (isset($map['eflo_node_group'])) {
+            $model->efloNodeGroup = efloNodeGroup::fromMap($map['eflo_node_group']);
         }
 
         if (isset($map['interconnect_config'])) {
