@@ -116,6 +116,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberRespons
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectRoleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectRoleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectRoleShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceAdvanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceFileAdvanceRequest;
@@ -192,6 +195,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectMemberRequest
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectRoleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectRoleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceRequest;
@@ -647,6 +652,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateParameterResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateParameterShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRoleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRoleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRoleShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceAdvanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceGroupResponse;
@@ -4239,6 +4247,83 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Create a workspace custom role.
+     *
+     * @param tmpReq - CreateProjectRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProjectRoleResponse
+     *
+     * @param CreateProjectRoleRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateProjectRoleResponse
+     */
+    public function createProjectRoleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateProjectRoleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->modulePermissions) {
+            $request->modulePermissionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modulePermissions, 'ModulePermissions', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->modulePermissionsShrink) {
+            @$query['ModulePermissions'] = $request->modulePermissionsShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProjectRole',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProjectRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Create a workspace custom role.
+     *
+     * @param Request - CreateProjectRoleRequest
+     *
+     * @returns CreateProjectRoleResponse
+     *
+     * @param CreateProjectRoleRequest $request
+     *
+     * @return CreateProjectRoleResponse
+     */
+    public function createProjectRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProjectRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
      *
      * @remarks
@@ -6843,6 +6928,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteProjectMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete a workspace custom role.
+     *
+     * @param Request - DeleteProjectRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectRoleResponse
+     *
+     * @param DeleteProjectRoleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteProjectRoleResponse
+     */
+    public function deleteProjectRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProjectRole',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProjectRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delete a workspace custom role.
+     *
+     * @param Request - DeleteProjectRoleRequest
+     *
+     * @returns DeleteProjectRoleResponse
+     *
+     * @param DeleteProjectRoleRequest $request
+     *
+     * @return DeleteProjectRoleResponse
+     */
+    public function deleteProjectRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -21096,6 +21242,83 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Update the permissions of a custom role.
+     *
+     * @param tmpReq - UpdateProjectRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProjectRoleResponse
+     *
+     * @param UpdateProjectRoleRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateProjectRoleResponse
+     */
+    public function updateProjectRoleWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateProjectRoleShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->modulePermissions) {
+            $request->modulePermissionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modulePermissions, 'ModulePermissions', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
+        }
+
+        if (null !== $request->modulePermissionsShrink) {
+            @$query['ModulePermissions'] = $request->modulePermissionsShrink;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProjectRole',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProjectRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Update the permissions of a custom role.
+     *
+     * @param Request - UpdateProjectRoleRequest
+     *
+     * @returns UpdateProjectRoleResponse
+     *
+     * @param UpdateProjectRoleRequest $request
+     *
+     * @return UpdateProjectRoleResponse
+     */
+    public function updateProjectRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProjectRoleWithOptions($request, $runtime);
     }
 
     /**
