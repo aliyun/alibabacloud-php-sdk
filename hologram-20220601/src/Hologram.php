@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteModelServiceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteWarehouseScheduleTaskRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteWarehouseScheduleTaskResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableExecuteStatementRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableExecuteStatementResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableSSLResponse;
@@ -41,12 +43,18 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableWarehouseAutoScaleRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableWarehouseAutoScaleResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DropUserRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DropUserResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableExecuteStatementRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableExecuteStatementResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableSSLResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableWarehouseAutoScaleRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableWarehouseAutoScaleResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ExecuteStatementRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ExecuteStatementResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetCertificateAttributeResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetExecuteStatementEnabledRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetExecuteStatementEnabledResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceModelRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceModelResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponse;
@@ -1263,6 +1271,63 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 关闭OpenAPI执行SQL功能.
+     *
+     * @param request - DisableExecuteStatementRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableExecuteStatementResponse
+     *
+     * @param string                         $instanceId
+     * @param DisableExecuteStatementRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisableExecuteStatementResponse
+     */
+    public function disableExecuteStatementWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DisableExecuteStatement',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/disableExecuteStatement',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableExecuteStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭OpenAPI执行SQL功能.
+     *
+     * @param request - DisableExecuteStatementRequest
+     *
+     * @returns DisableExecuteStatementResponse
+     *
+     * @param string                         $instanceId
+     * @param DisableExecuteStatementRequest $request
+     *
+     * @return DisableExecuteStatementResponse
+     */
+    public function disableExecuteStatement($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableExecuteStatementWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Disables data lake acceleration.
      *
      * @param request - DisableHiveAccessRequest
@@ -1507,6 +1572,63 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 开启或关闭OpenAPI执行SQL功能.
+     *
+     * @param request - EnableExecuteStatementRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableExecuteStatementResponse
+     *
+     * @param string                        $instanceId
+     * @param EnableExecuteStatementRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableExecuteStatementResponse
+     */
+    public function enableExecuteStatementWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'EnableExecuteStatement',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/enableExecuteStatement',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableExecuteStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启或关闭OpenAPI执行SQL功能.
+     *
+     * @param request - EnableExecuteStatementRequest
+     *
+     * @returns EnableExecuteStatementResponse
+     *
+     * @param string                        $instanceId
+     * @param EnableExecuteStatementRequest $request
+     *
+     * @return EnableExecuteStatementResponse
+     */
+    public function enableExecuteStatement($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableExecuteStatementWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Enables data lake acceleration.
      *
      * @param request - EnableHiveAccessRequest
@@ -1688,6 +1810,89 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * SQL执行.
+     *
+     * @param request - ExecuteStatementRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteStatementResponse
+     *
+     * @param string                  $instanceId
+     * @param ExecuteStatementRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExecuteStatementResponse
+     */
+    public function executeStatementWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dbName) {
+            @$body['dbName'] = $request->dbName;
+        }
+
+        if (null !== $request->maxBytes) {
+            @$body['maxBytes'] = $request->maxBytes;
+        }
+
+        if (null !== $request->maxRows) {
+            @$body['maxRows'] = $request->maxRows;
+        }
+
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->queryTimeout) {
+            @$body['queryTimeout'] = $request->queryTimeout;
+        }
+
+        if (null !== $request->sql) {
+            @$body['sql'] = $request->sql;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteStatement',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/executeStatement',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SQL执行.
+     *
+     * @param request - ExecuteStatementRequest
+     *
+     * @returns ExecuteStatementResponse
+     *
+     * @param string                  $instanceId
+     * @param ExecuteStatementRequest $request
+     *
+     * @return ExecuteStatementResponse
+     */
+    public function executeStatement($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeStatementWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获得证书信息.
      *
      * @param headers - map
@@ -1736,6 +1941,63 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->getCertificateAttributeWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 查询实例是否已开启OpenAPI执行SQL功能.
+     *
+     * @param request - GetExecuteStatementEnabledRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExecuteStatementEnabledResponse
+     *
+     * @param string                            $instanceId
+     * @param GetExecuteStatementEnabledRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetExecuteStatementEnabledResponse
+     */
+    public function getExecuteStatementEnabledWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetExecuteStatementEnabled',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/executeStatementEnabled',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetExecuteStatementEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例是否已开启OpenAPI执行SQL功能.
+     *
+     * @param request - GetExecuteStatementEnabledRequest
+     *
+     * @returns GetExecuteStatementEnabledResponse
+     *
+     * @param string                            $instanceId
+     * @param GetExecuteStatementEnabledRequest $request
+     *
+     * @return GetExecuteStatementEnabledResponse
+     */
+    public function getExecuteStatementEnabled($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getExecuteStatementEnabledWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
