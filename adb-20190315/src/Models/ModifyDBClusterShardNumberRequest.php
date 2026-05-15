@@ -19,6 +19,11 @@ class ModifyDBClusterShardNumberRequest extends Model
     public $dryRun;
 
     /**
+     * @var bool
+     */
+    public $isRollback;
+
+    /**
      * @var int
      */
     public $newShardNumber;
@@ -60,6 +65,7 @@ class ModifyDBClusterShardNumberRequest extends Model
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'dryRun' => 'DryRun',
+        'isRollback' => 'IsRollback',
         'newShardNumber' => 'NewShardNumber',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -84,6 +90,10 @@ class ModifyDBClusterShardNumberRequest extends Model
 
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->isRollback) {
+            $res['IsRollback'] = $this->isRollback;
         }
 
         if (null !== $this->newShardNumber) {
@@ -135,6 +145,10 @@ class ModifyDBClusterShardNumberRequest extends Model
 
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['IsRollback'])) {
+            $model->isRollback = $map['IsRollback'];
         }
 
         if (isset($map['NewShardNumber'])) {

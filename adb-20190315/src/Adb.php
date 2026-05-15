@@ -11281,6 +11281,10 @@ class Adb extends OpenApiClient
             @$query['DryRun'] = $request->dryRun;
         }
 
+        if (null !== $request->isRollback) {
+            @$query['IsRollback'] = $request->isRollback;
+        }
+
         if (null !== $request->newShardNumber) {
             @$query['NewShardNumber'] = $request->newShardNumber;
         }
