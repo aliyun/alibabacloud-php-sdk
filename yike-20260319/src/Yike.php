@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAIAppJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAssetMediaInfoRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAssetMediaInfoResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikePromptExpansionVoiceFixJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikePromptExpansionVoiceFixJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeStoryboardJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeStoryboardJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeUserCreditRequest;
@@ -53,6 +55,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeUserRoleRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeUserRoleResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAIAppJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAIAppJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikePromptExpansionVoiceFixJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikePromptExpansionVoiceFixJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeStoryboardJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeStoryboardJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVoiceNarratorJobRequest;
@@ -767,6 +771,63 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getYikeAssetMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询一刻提示词扩写和音频修复视频生成任务
+     *
+     * @param request - GetYikePromptExpansionVoiceFixJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikePromptExpansionVoiceFixJobResponse
+     *
+     * @param GetYikePromptExpansionVoiceFixJobRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetYikePromptExpansionVoiceFixJobResponse
+     */
+    public function getYikePromptExpansionVoiceFixJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikePromptExpansionVoiceFixJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikePromptExpansionVoiceFixJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询一刻提示词扩写和音频修复视频生成任务
+     *
+     * @param request - GetYikePromptExpansionVoiceFixJobRequest
+     *
+     * @returns GetYikePromptExpansionVoiceFixJobResponse
+     *
+     * @param GetYikePromptExpansionVoiceFixJobRequest $request
+     *
+     * @return GetYikePromptExpansionVoiceFixJobResponse
+     */
+    public function getYikePromptExpansionVoiceFixJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikePromptExpansionVoiceFixJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1633,6 +1694,67 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitYikeAIAppJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交一刻提示词扩写和音频修复视频生成任务
+     *
+     * @param request - SubmitYikePromptExpansionVoiceFixJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitYikePromptExpansionVoiceFixJobResponse
+     *
+     * @param SubmitYikePromptExpansionVoiceFixJobRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return SubmitYikePromptExpansionVoiceFixJobResponse
+     */
+    public function submitYikePromptExpansionVoiceFixJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobParams) {
+            @$body['JobParams'] = $request->jobParams;
+        }
+
+        if (null !== $request->userData) {
+            @$body['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitYikePromptExpansionVoiceFixJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitYikePromptExpansionVoiceFixJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交一刻提示词扩写和音频修复视频生成任务
+     *
+     * @param request - SubmitYikePromptExpansionVoiceFixJobRequest
+     *
+     * @returns SubmitYikePromptExpansionVoiceFixJobResponse
+     *
+     * @param SubmitYikePromptExpansionVoiceFixJobRequest $request
+     *
+     * @return SubmitYikePromptExpansionVoiceFixJobResponse
+     */
+    public function submitYikePromptExpansionVoiceFixJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitYikePromptExpansionVoiceFixJobWithOptions($request, $runtime);
     }
 
     /**
