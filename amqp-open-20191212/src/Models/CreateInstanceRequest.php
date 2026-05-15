@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceRequest\tags;
 class CreateInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $authModel;
+
+    /**
      * @var bool
      */
     public $autoRenew;
@@ -120,6 +125,11 @@ class CreateInstanceRequest extends Model
     public $serverlessChargeType;
 
     /**
+     * @var bool
+     */
+    public $serverlessSwitch;
+
+    /**
      * @var int
      */
     public $storageSize;
@@ -154,6 +164,7 @@ class CreateInstanceRequest extends Model
      */
     public $vswitchIds;
     protected $_name = [
+        'authModel' => 'AuthModel',
         'autoRenew' => 'AutoRenew',
         'autoRenewPeriod' => 'AutoRenewPeriod',
         'clientToken' => 'ClientToken',
@@ -176,6 +187,7 @@ class CreateInstanceRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
         'serverlessChargeType' => 'ServerlessChargeType',
+        'serverlessSwitch' => 'ServerlessSwitch',
         'storageSize' => 'StorageSize',
         'supportEip' => 'SupportEip',
         'supportTracing' => 'SupportTracing',
@@ -199,6 +211,10 @@ class CreateInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authModel) {
+            $res['AuthModel'] = $this->authModel;
+        }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -287,6 +303,10 @@ class CreateInstanceRequest extends Model
             $res['ServerlessChargeType'] = $this->serverlessChargeType;
         }
 
+        if (null !== $this->serverlessSwitch) {
+            $res['ServerlessSwitch'] = $this->serverlessSwitch;
+        }
+
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
         }
@@ -340,6 +360,10 @@ class CreateInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthModel'])) {
+            $model->authModel = $map['AuthModel'];
+        }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
@@ -426,6 +450,10 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['ServerlessChargeType'])) {
             $model->serverlessChargeType = $map['ServerlessChargeType'];
+        }
+
+        if (isset($map['ServerlessSwitch'])) {
+            $model->serverlessSwitch = $map['ServerlessSwitch'];
         }
 
         if (isset($map['StorageSize'])) {

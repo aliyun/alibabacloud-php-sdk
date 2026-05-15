@@ -372,6 +372,10 @@ class Amqpopen extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->authModel) {
+            @$query['AuthModel'] = $request->authModel;
+        }
+
         if (null !== $request->autoRenew) {
             @$query['AutoRenew'] = $request->autoRenew;
         }
@@ -458,6 +462,10 @@ class Amqpopen extends OpenApiClient
 
         if (null !== $request->serverlessChargeType) {
             @$query['ServerlessChargeType'] = $request->serverlessChargeType;
+        }
+
+        if (null !== $request->serverlessSwitch) {
+            @$query['ServerlessSwitch'] = $request->serverlessSwitch;
         }
 
         if (null !== $request->storageSize) {

@@ -115,6 +115,11 @@ class instances extends Model
     public $securityGroupId;
 
     /**
+     * @var bool
+     */
+    public $serverlessSwitch;
+
+    /**
      * @var string
      */
     public $status;
@@ -165,6 +170,7 @@ class instances extends Model
         'publicEndpoint' => 'PublicEndpoint',
         'resourceGroupId' => 'ResourceGroupId',
         'securityGroupId' => 'SecurityGroupId',
+        'serverlessSwitch' => 'ServerlessSwitch',
         'status' => 'Status',
         'storageSize' => 'StorageSize',
         'supportEIP' => 'SupportEIP',
@@ -269,6 +275,10 @@ class instances extends Model
 
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->serverlessSwitch) {
+            $res['ServerlessSwitch'] = $this->serverlessSwitch;
         }
 
         if (null !== $this->status) {
@@ -402,6 +412,10 @@ class instances extends Model
 
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['ServerlessSwitch'])) {
+            $model->serverlessSwitch = $map['ServerlessSwitch'];
         }
 
         if (isset($map['Status'])) {
