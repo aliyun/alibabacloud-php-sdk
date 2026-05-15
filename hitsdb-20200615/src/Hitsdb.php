@@ -482,6 +482,14 @@ class Hitsdb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->additionalAliBid) {
+            @$query['AdditionalAliBid'] = $request->additionalAliBid;
+        }
+
+        if (null !== $request->additionalAliUid) {
+            @$query['AdditionalAliUid'] = $request->additionalAliUid;
+        }
+
         if (null !== $request->additionalVpcId) {
             @$query['AdditionalVpcId'] = $request->additionalVpcId;
         }

@@ -11,6 +11,16 @@ class CreateAdditionalVpcLinkRequest extends Model
     /**
      * @var string
      */
+    public $additionalAliBid;
+
+    /**
+     * @var string
+     */
+    public $additionalAliUid;
+
+    /**
+     * @var string
+     */
     public $additionalVpcId;
 
     /**
@@ -33,6 +43,8 @@ class CreateAdditionalVpcLinkRequest extends Model
      */
     public $securityToken;
     protected $_name = [
+        'additionalAliBid' => 'AdditionalAliBid',
+        'additionalAliUid' => 'AdditionalAliUid',
         'additionalVpcId' => 'AdditionalVpcId',
         'additionalVswitchId' => 'AdditionalVswitchId',
         'instanceId' => 'InstanceId',
@@ -48,6 +60,14 @@ class CreateAdditionalVpcLinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->additionalAliBid) {
+            $res['AdditionalAliBid'] = $this->additionalAliBid;
+        }
+
+        if (null !== $this->additionalAliUid) {
+            $res['AdditionalAliUid'] = $this->additionalAliUid;
+        }
+
         if (null !== $this->additionalVpcId) {
             $res['AdditionalVpcId'] = $this->additionalVpcId;
         }
@@ -79,6 +99,14 @@ class CreateAdditionalVpcLinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalAliBid'])) {
+            $model->additionalAliBid = $map['AdditionalAliBid'];
+        }
+
+        if (isset($map['AdditionalAliUid'])) {
+            $model->additionalAliUid = $map['AdditionalAliUid'];
+        }
+
         if (isset($map['AdditionalVpcId'])) {
             $model->additionalVpcId = $map['AdditionalVpcId'];
         }
