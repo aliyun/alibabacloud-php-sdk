@@ -32,12 +32,18 @@ class ExportRecallManagementTableRequest extends Model
      * @var string[]
      */
     public $partitions;
+
+    /**
+     * @var string
+     */
+    public $recallManagementTableVersionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'maxcomputeProjectName' => 'MaxcomputeProjectName',
         'maxcomputeSchema' => 'MaxcomputeSchema',
         'maxcomputeTableName' => 'MaxcomputeTableName',
         'partitions' => 'Partitions',
+        'recallManagementTableVersionId' => 'RecallManagementTableVersionId',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class ExportRecallManagementTableRequest extends Model
             }
         }
 
+        if (null !== $this->recallManagementTableVersionId) {
+            $res['RecallManagementTableVersionId'] = $this->recallManagementTableVersionId;
+        }
+
         return $res;
     }
 
@@ -110,6 +120,10 @@ class ExportRecallManagementTableRequest extends Model
                     $model->partitions[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['RecallManagementTableVersionId'])) {
+            $model->recallManagementTableVersionId = $map['RecallManagementTableVersionId'];
         }
 
         return $model;

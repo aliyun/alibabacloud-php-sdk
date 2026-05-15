@@ -5593,6 +5593,10 @@ class PaiRecService extends OpenApiClient
             @$body['Partitions'] = $request->partitions;
         }
 
+        if (null !== $request->recallManagementTableVersionId) {
+            @$body['RecallManagementTableVersionId'] = $request->recallManagementTableVersionId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
