@@ -340,6 +340,10 @@ class RocketMQ extends OpenApiClient
             @$body['deliveryOrderType'] = $request->deliveryOrderType;
         }
 
+        if (null !== $request->exclusive) {
+            @$body['exclusive'] = $request->exclusive;
+        }
+
         if (null !== $request->maxReceiveTps) {
             @$body['maxReceiveTps'] = $request->maxReceiveTps;
         }

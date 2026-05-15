@@ -30,6 +30,11 @@ class data extends Model
     public $deliveryOrderType;
 
     /**
+     * @var bool
+     */
+    public $exclusive;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -73,6 +78,7 @@ class data extends Model
         'consumerGroupId' => 'consumerGroupId',
         'createTime' => 'createTime',
         'deliveryOrderType' => 'deliveryOrderType',
+        'exclusive' => 'exclusive',
         'instanceId' => 'instanceId',
         'maxReceiveTps' => 'maxReceiveTps',
         'messageModel' => 'messageModel',
@@ -108,6 +114,10 @@ class data extends Model
 
         if (null !== $this->deliveryOrderType) {
             $res['deliveryOrderType'] = $this->deliveryOrderType;
+        }
+
+        if (null !== $this->exclusive) {
+            $res['exclusive'] = $this->exclusive;
         }
 
         if (null !== $this->instanceId) {
@@ -167,6 +177,10 @@ class data extends Model
 
         if (isset($map['deliveryOrderType'])) {
             $model->deliveryOrderType = $map['deliveryOrderType'];
+        }
+
+        if (isset($map['exclusive'])) {
+            $model->exclusive = $map['exclusive'];
         }
 
         if (isset($map['instanceId'])) {

@@ -20,6 +20,11 @@ class CreateConsumerGroupRequest extends Model
     public $deliveryOrderType;
 
     /**
+     * @var bool
+     */
+    public $exclusive;
+
+    /**
      * @var int
      */
     public $maxReceiveTps;
@@ -41,6 +46,7 @@ class CreateConsumerGroupRequest extends Model
     protected $_name = [
         'consumeRetryPolicy' => 'consumeRetryPolicy',
         'deliveryOrderType' => 'deliveryOrderType',
+        'exclusive' => 'exclusive',
         'maxReceiveTps' => 'maxReceiveTps',
         'messageModel' => 'messageModel',
         'remark' => 'remark',
@@ -64,6 +70,10 @@ class CreateConsumerGroupRequest extends Model
 
         if (null !== $this->deliveryOrderType) {
             $res['deliveryOrderType'] = $this->deliveryOrderType;
+        }
+
+        if (null !== $this->exclusive) {
+            $res['exclusive'] = $this->exclusive;
         }
 
         if (null !== $this->maxReceiveTps) {
@@ -99,6 +109,10 @@ class CreateConsumerGroupRequest extends Model
 
         if (isset($map['deliveryOrderType'])) {
             $model->deliveryOrderType = $map['deliveryOrderType'];
+        }
+
+        if (isset($map['exclusive'])) {
+            $model->exclusive = $map['exclusive'];
         }
 
         if (isset($map['maxReceiveTps'])) {
