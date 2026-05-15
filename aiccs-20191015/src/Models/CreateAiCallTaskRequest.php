@@ -19,11 +19,6 @@ class CreateAiCallTaskRequest extends Model
     public $applicationCode;
 
     /**
-     * @var string
-     */
-    public $applicationName;
-
-    /**
      * @var string[]
      */
     public $callDay;
@@ -115,7 +110,6 @@ class CreateAiCallTaskRequest extends Model
     protected $_name = [
         'agentId' => 'AgentId',
         'applicationCode' => 'ApplicationCode',
-        'applicationName' => 'ApplicationName',
         'callDay' => 'CallDay',
         'callRetryInterval' => 'CallRetryInterval',
         'callRetryReason' => 'CallRetryReason',
@@ -159,10 +153,6 @@ class CreateAiCallTaskRequest extends Model
 
         if (null !== $this->applicationCode) {
             $res['ApplicationCode'] = $this->applicationCode;
-        }
-
-        if (null !== $this->applicationName) {
-            $res['ApplicationName'] = $this->applicationName;
         }
 
         if (null !== $this->callDay) {
@@ -275,10 +265,6 @@ class CreateAiCallTaskRequest extends Model
 
         if (isset($map['ApplicationCode'])) {
             $model->applicationCode = $map['ApplicationCode'];
-        }
-
-        if (isset($map['ApplicationName'])) {
-            $model->applicationName = $map['ApplicationName'];
         }
 
         if (isset($map['CallDay'])) {

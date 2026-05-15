@@ -21,11 +21,6 @@ class CreateAiCallTaskShrinkRequest extends Model
     /**
      * @var string
      */
-    public $applicationName;
-
-    /**
-     * @var string
-     */
     public $callDayShrink;
 
     /**
@@ -115,7 +110,6 @@ class CreateAiCallTaskShrinkRequest extends Model
     protected $_name = [
         'agentId' => 'AgentId',
         'applicationCode' => 'ApplicationCode',
-        'applicationName' => 'ApplicationName',
         'callDayShrink' => 'CallDay',
         'callRetryInterval' => 'CallRetryInterval',
         'callRetryReasonShrink' => 'CallRetryReason',
@@ -150,10 +144,6 @@ class CreateAiCallTaskShrinkRequest extends Model
 
         if (null !== $this->applicationCode) {
             $res['ApplicationCode'] = $this->applicationCode;
-        }
-
-        if (null !== $this->applicationName) {
-            $res['ApplicationName'] = $this->applicationName;
         }
 
         if (null !== $this->callDayShrink) {
@@ -245,10 +235,6 @@ class CreateAiCallTaskShrinkRequest extends Model
 
         if (isset($map['ApplicationCode'])) {
             $model->applicationCode = $map['ApplicationCode'];
-        }
-
-        if (isset($map['ApplicationName'])) {
-            $model->applicationName = $map['ApplicationName'];
         }
 
         if (isset($map['CallDay'])) {

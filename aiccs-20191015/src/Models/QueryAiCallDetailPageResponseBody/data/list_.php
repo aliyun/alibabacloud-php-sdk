@@ -19,6 +19,11 @@ class list_ extends Model
     public $branchId;
 
     /**
+     * @var string
+     */
+    public $branchName;
+
+    /**
      * @var int
      */
     public $branchVersionId;
@@ -102,9 +107,20 @@ class list_ extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $versionName;
+
+    /**
+     * @var int
+     */
+    public $versionNo;
     protected $_name = [
         'batchId' => 'BatchId',
         'branchId' => 'BranchId',
+        'branchName' => 'BranchName',
         'branchVersionId' => 'BranchVersionId',
         'callResult' => 'CallResult',
         'calledNumber' => 'CalledNumber',
@@ -122,6 +138,8 @@ class list_ extends Model
         'recordingFilePath' => 'RecordingFilePath',
         'status' => 'Status',
         'taskId' => 'TaskId',
+        'versionName' => 'VersionName',
+        'versionNo' => 'VersionNo',
     ];
 
     public function validate()
@@ -138,6 +156,10 @@ class list_ extends Model
 
         if (null !== $this->branchId) {
             $res['BranchId'] = $this->branchId;
+        }
+
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
         }
 
         if (null !== $this->branchVersionId) {
@@ -208,6 +230,14 @@ class list_ extends Model
             $res['TaskId'] = $this->taskId;
         }
 
+        if (null !== $this->versionName) {
+            $res['VersionName'] = $this->versionName;
+        }
+
+        if (null !== $this->versionNo) {
+            $res['VersionNo'] = $this->versionNo;
+        }
+
         return $res;
     }
 
@@ -225,6 +255,10 @@ class list_ extends Model
 
         if (isset($map['BranchId'])) {
             $model->branchId = $map['BranchId'];
+        }
+
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
         }
 
         if (isset($map['BranchVersionId'])) {
@@ -293,6 +327,14 @@ class list_ extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['VersionName'])) {
+            $model->versionName = $map['VersionName'];
+        }
+
+        if (isset($map['VersionNo'])) {
+            $model->versionNo = $map['VersionNo'];
         }
 
         return $model;

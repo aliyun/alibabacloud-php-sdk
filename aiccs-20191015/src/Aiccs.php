@@ -276,6 +276,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\MakeCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\MakeCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\MakeDoubleCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\MakeDoubleCallResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\PageQueryAgentListNewRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\PageQueryAgentListNewResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\PageQueryAgentListRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\PageQueryAgentListResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallDetailPageRequest;
@@ -285,6 +287,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskDetailResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskPageRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiCallTaskPageResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiVoiceAgentDetailNewRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiVoiceAgentDetailNewResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiVoiceAgentDetailRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiVoiceAgentDetailResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryConversationDetailInfoNewRequest;
@@ -1495,10 +1499,6 @@ class Aiccs extends OpenApiClient
 
         if (null !== $request->applicationCode) {
             @$query['ApplicationCode'] = $request->applicationCode;
-        }
-
-        if (null !== $request->applicationName) {
-            @$query['ApplicationName'] = $request->applicationName;
         }
 
         if (null !== $request->callDayShrink) {
@@ -8999,6 +8999,83 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 分页查询智能体列表（代运营模式V2）.
+     *
+     * @param request - PageQueryAgentListNewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PageQueryAgentListNewResponse
+     *
+     * @param PageQueryAgentListNewRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PageQueryAgentListNewResponse
+     */
+    public function pageQueryAgentListNewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentName) {
+            @$query['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->isAvailable) {
+            @$query['IsAvailable'] = $request->isAvailable;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PageQueryAgentListNew',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PageQueryAgentListNewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询智能体列表（代运营模式V2）.
+     *
+     * @param request - PageQueryAgentListNewRequest
+     *
+     * @returns PageQueryAgentListNewResponse
+     *
+     * @param PageQueryAgentListNewRequest $request
+     *
+     * @return PageQueryAgentListNewResponse
+     */
+    public function pageQueryAgentListNew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pageQueryAgentListNewWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询明细记录.
      *
      * @param tmpReq - QueryAiCallDetailPageRequest
@@ -9370,6 +9447,71 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryAiVoiceAgentDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询智能体详情（代运营模式V2）.
+     *
+     * @param request - QueryAiVoiceAgentDetailNewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAiVoiceAgentDetailNewResponse
+     *
+     * @param QueryAiVoiceAgentDetailNewRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryAiVoiceAgentDetailNewResponse
+     */
+    public function queryAiVoiceAgentDetailNewWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAiVoiceAgentDetailNew',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAiVoiceAgentDetailNewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询智能体详情（代运营模式V2）.
+     *
+     * @param request - QueryAiVoiceAgentDetailNewRequest
+     *
+     * @returns QueryAiVoiceAgentDetailNewResponse
+     *
+     * @param QueryAiVoiceAgentDetailNewRequest $request
+     *
+     * @return QueryAiVoiceAgentDetailNewResponse
+     */
+    public function queryAiVoiceAgentDetailNew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAiVoiceAgentDetailNewWithOptions($request, $runtime);
     }
 
     /**
