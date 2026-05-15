@@ -21,6 +21,11 @@ class ListTasksShrinkRequest extends Model
     /**
      * @var string
      */
+    public $kmsKeyId;
+
+    /**
+     * @var string
+     */
     public $moduleId;
 
     /**
@@ -55,6 +60,7 @@ class ListTasksShrinkRequest extends Model
     protected $_name = [
         'groupId' => 'groupId',
         'keyword' => 'keyword',
+        'kmsKeyId' => 'kmsKeyId',
         'moduleId' => 'moduleId',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
@@ -78,6 +84,10 @@ class ListTasksShrinkRequest extends Model
 
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->kmsKeyId) {
+            $res['kmsKeyId'] = $this->kmsKeyId;
         }
 
         if (null !== $this->moduleId) {
@@ -125,6 +135,10 @@ class ListTasksShrinkRequest extends Model
 
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
+        }
+
+        if (isset($map['kmsKeyId'])) {
+            $model->kmsKeyId = $map['kmsKeyId'];
         }
 
         if (isset($map['moduleId'])) {

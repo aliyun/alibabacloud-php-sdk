@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\IaCService\V20210806\Models\GetParameterSetResponseBody\parameterSet;
+namespace AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobResponseBody\job;
 
 use AlibabaCloud\Dara\Model;
 
-class parameters extends Model
+class allParameters extends Model
 {
     /**
      * @var string
@@ -21,22 +21,10 @@ class parameters extends Model
     /**
      * @var string
      */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var mixed
-     */
     public $value;
     protected $_name = [
         'name' => 'name',
         'secret' => 'secret',
-        'status' => 'status',
-        'type' => 'type',
         'value' => 'value',
     ];
 
@@ -54,14 +42,6 @@ class parameters extends Model
 
         if (null !== $this->secret) {
             $res['secret'] = $this->secret;
-        }
-
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
-        }
-
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
         }
 
         if (null !== $this->value) {
@@ -85,14 +65,6 @@ class parameters extends Model
 
         if (isset($map['secret'])) {
             $model->secret = $map['secret'];
-        }
-
-        if (isset($map['status'])) {
-            $model->status = $map['status'];
-        }
-
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
         }
 
         if (isset($map['value'])) {

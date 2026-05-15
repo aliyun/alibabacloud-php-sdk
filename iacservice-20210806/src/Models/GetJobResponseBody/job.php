@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobResponseBody\job\allParameters;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobResponseBody\job\assertCheckDetail;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\GetJobResponseBody\job\config;
 use AlibabaCloud\SDK\IaCService\V20210806\Models\JobStatusDetailValue;
 
 class job extends Model
 {
+    /**
+     * @var allParameters[]
+     */
+    public $allParameters;
+
     /**
      * @var assertCheckDetail[]
      */
@@ -106,6 +112,7 @@ class job extends Model
      */
     public $terraformProviderVersion;
     protected $_name = [
+        'allParameters' => 'allParameters',
         'assertCheckDetail' => 'assertCheckDetail',
         'config' => 'config',
         'createTime' => 'createTime',
@@ -129,6 +136,9 @@ class job extends Model
 
     public function validate()
     {
+        if (\is_array($this->allParameters)) {
+            Model::validateArray($this->allParameters);
+        }
         if (\is_array($this->assertCheckDetail)) {
             Model::validateArray($this->assertCheckDetail);
         }
@@ -153,6 +163,17 @@ class job extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allParameters) {
+            if (\is_array($this->allParameters)) {
+                $res['allParameters'] = [];
+                $n1 = 0;
+                foreach ($this->allParameters as $item1) {
+                    $res['allParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->assertCheckDetail) {
             if (\is_array($this->assertCheckDetail)) {
                 $res['assertCheckDetail'] = [];
@@ -267,6 +288,17 @@ class job extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['allParameters'])) {
+            if (!empty($map['allParameters'])) {
+                $model->allParameters = [];
+                $n1 = 0;
+                foreach ($map['allParameters'] as $item1) {
+                    $model->allParameters[$n1] = allParameters::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['assertCheckDetail'])) {
             if (!empty($map['assertCheckDetail'])) {
                 $model->assertCheckDetail = [];

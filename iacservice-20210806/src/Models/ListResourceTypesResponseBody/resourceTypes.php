@@ -36,6 +36,11 @@ class resourceTypes extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -73,6 +78,7 @@ class resourceTypes extends Model
         'productName' => 'productName',
         'resourceDetailPageUrl' => 'resourceDetailPageUrl',
         'resourceListPageUrl' => 'resourceListPageUrl',
+        'resourceType' => 'resourceType',
         'status' => 'status',
         'statusStartVersion' => 'statusStartVersion',
         'subcategory' => 'subcategory',
@@ -108,6 +114,10 @@ class resourceTypes extends Model
 
         if (null !== $this->resourceListPageUrl) {
             $res['resourceListPageUrl'] = $this->resourceListPageUrl;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['resourceType'] = $this->resourceType;
         }
 
         if (null !== $this->status) {
@@ -167,6 +177,10 @@ class resourceTypes extends Model
 
         if (isset($map['resourceListPageUrl'])) {
             $model->resourceListPageUrl = $map['resourceListPageUrl'];
+        }
+
+        if (isset($map['resourceType'])) {
+            $model->resourceType = $map['resourceType'];
         }
 
         if (isset($map['status'])) {

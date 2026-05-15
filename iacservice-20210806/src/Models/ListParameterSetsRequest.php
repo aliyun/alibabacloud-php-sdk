@@ -14,6 +14,11 @@ class ListParameterSetsRequest extends Model
     public $keyword;
 
     /**
+     * @var string
+     */
+    public $kmsKeyId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -24,6 +29,7 @@ class ListParameterSetsRequest extends Model
     public $pageSize;
     protected $_name = [
         'keyword' => 'keyword',
+        'kmsKeyId' => 'kmsKeyId',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
     ];
@@ -38,6 +44,10 @@ class ListParameterSetsRequest extends Model
         $res = [];
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->kmsKeyId) {
+            $res['kmsKeyId'] = $this->kmsKeyId;
         }
 
         if (null !== $this->pageNumber) {
@@ -61,6 +71,10 @@ class ListParameterSetsRequest extends Model
         $model = new self();
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
+        }
+
+        if (isset($map['kmsKeyId'])) {
+            $model->kmsKeyId = $map['kmsKeyId'];
         }
 
         if (isset($map['pageNumber'])) {

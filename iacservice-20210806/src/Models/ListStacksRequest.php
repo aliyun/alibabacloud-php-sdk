@@ -14,6 +14,11 @@ class ListStacksRequest extends Model
     public $keyword;
 
     /**
+     * @var string
+     */
+    public $kmsKeyId;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -39,6 +44,7 @@ class ListStacksRequest extends Model
     public $status;
     protected $_name = [
         'keyword' => 'keyword',
+        'kmsKeyId' => 'kmsKeyId',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'pageNumber' => 'pageNumber',
@@ -56,6 +62,10 @@ class ListStacksRequest extends Model
         $res = [];
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->kmsKeyId) {
+            $res['kmsKeyId'] = $this->kmsKeyId;
         }
 
         if (null !== $this->maxResults) {
@@ -91,6 +101,10 @@ class ListStacksRequest extends Model
         $model = new self();
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
+        }
+
+        if (isset($map['kmsKeyId'])) {
+            $model->kmsKeyId = $map['kmsKeyId'];
         }
 
         if (isset($map['maxResults'])) {

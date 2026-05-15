@@ -24,6 +24,11 @@ class variable extends Model
     public $name;
 
     /**
+     * @var bool
+     */
+    public $sensitive;
+
+    /**
      * @var string
      */
     public $type;
@@ -31,6 +36,7 @@ class variable extends Model
         'default' => 'default',
         'description' => 'description',
         'name' => 'name',
+        'sensitive' => 'sensitive',
         'type' => 'type',
     ];
 
@@ -52,6 +58,10 @@ class variable extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->sensitive) {
+            $res['sensitive'] = $this->sensitive;
         }
 
         if (null !== $this->type) {
@@ -79,6 +89,10 @@ class variable extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['sensitive'])) {
+            $model->sensitive = $map['sensitive'];
         }
 
         if (isset($map['type'])) {

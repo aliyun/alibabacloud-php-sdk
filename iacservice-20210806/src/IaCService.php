@@ -1073,7 +1073,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建模板版本.
+     * Publish a template version.
      *
      * @param Request - CreateModuleVersionRequest
      * @param headers - map
@@ -1124,7 +1124,7 @@ class IaCService extends OpenApiClient
     }
 
     /**
-     * 创建模板版本.
+     * Publish a template version.
      *
      * @param Request - CreateModuleVersionRequest
      *
@@ -1682,6 +1682,10 @@ class IaCService extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->parameterSetIds) {
+            @$body['parameterSetIds'] = $request->parameterSetIds;
         }
 
         if (null !== $request->protectionStrategy) {
@@ -4970,6 +4974,10 @@ class IaCService extends OpenApiClient
             @$query['keyword'] = $request->keyword;
         }
 
+        if (null !== $request->kmsKeyId) {
+            @$query['kmsKeyId'] = $request->kmsKeyId;
+        }
+
         if (null !== $request->pageNumber) {
             @$query['pageNumber'] = $request->pageNumber;
         }
@@ -5841,6 +5849,10 @@ class IaCService extends OpenApiClient
             @$query['keyword'] = $request->keyword;
         }
 
+        if (null !== $request->kmsKeyId) {
+            @$query['kmsKeyId'] = $request->kmsKeyId;
+        }
+
         if (null !== $request->maxResults) {
             @$query['maxResults'] = $request->maxResults;
         }
@@ -5930,6 +5942,10 @@ class IaCService extends OpenApiClient
 
         if (null !== $request->keyword) {
             @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->kmsKeyId) {
+            @$query['kmsKeyId'] = $request->kmsKeyId;
         }
 
         if (null !== $request->moduleId) {

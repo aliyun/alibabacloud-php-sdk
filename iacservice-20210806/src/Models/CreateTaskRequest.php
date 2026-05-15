@@ -59,6 +59,11 @@ class CreateTaskRequest extends Model
     /**
      * @var string[]
      */
+    public $parameterSetIds;
+
+    /**
+     * @var string[]
+     */
     public $protectionStrategy;
 
     /**
@@ -100,6 +105,7 @@ class CreateTaskRequest extends Model
         'moduleId' => 'moduleId',
         'moduleVersion' => 'moduleVersion',
         'name' => 'name',
+        'parameterSetIds' => 'parameterSetIds',
         'protectionStrategy' => 'protectionStrategy',
         'ramRole' => 'ramRole',
         'skipPropertyValidation' => 'skipPropertyValidation',
@@ -113,6 +119,9 @@ class CreateTaskRequest extends Model
     {
         if (null !== $this->groupInfo) {
             $this->groupInfo->validate();
+        }
+        if (\is_array($this->parameterSetIds)) {
+            Model::validateArray($this->parameterSetIds);
         }
         if (\is_array($this->protectionStrategy)) {
             Model::validateArray($this->protectionStrategy);
@@ -163,6 +172,17 @@ class CreateTaskRequest extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->parameterSetIds) {
+            if (\is_array($this->parameterSetIds)) {
+                $res['parameterSetIds'] = [];
+                $n1 = 0;
+                foreach ($this->parameterSetIds as $item1) {
+                    $res['parameterSetIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->protectionStrategy) {
@@ -252,6 +272,17 @@ class CreateTaskRequest extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['parameterSetIds'])) {
+            if (!empty($map['parameterSetIds'])) {
+                $model->parameterSetIds = [];
+                $n1 = 0;
+                foreach ($map['parameterSetIds'] as $item1) {
+                    $model->parameterSetIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['protectionStrategy'])) {

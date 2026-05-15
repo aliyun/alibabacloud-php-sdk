@@ -14,6 +14,11 @@ class parameters extends Model
     public $name;
 
     /**
+     * @var bool
+     */
+    public $secret;
+
+    /**
      * @var string
      */
     public $status;
@@ -29,6 +34,7 @@ class parameters extends Model
     public $value;
     protected $_name = [
         'name' => 'name',
+        'secret' => 'secret',
         'status' => 'status',
         'type' => 'type',
         'value' => 'value',
@@ -44,6 +50,10 @@ class parameters extends Model
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->secret) {
+            $res['secret'] = $this->secret;
         }
 
         if (null !== $this->status) {
@@ -71,6 +81,10 @@ class parameters extends Model
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['secret'])) {
+            $model->secret = $map['secret'];
         }
 
         if (isset($map['status'])) {
