@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveRecordVodConfigRequest\recordFormat;
 
 class UpdateLiveRecordVodConfigRequest extends Model
 {
@@ -29,9 +30,19 @@ class UpdateLiveRecordVodConfigRequest extends Model
     public $cycleDuration;
 
     /**
+     * @var int
+     */
+    public $delayTime;
+
+    /**
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var bool
+     */
+    public $formatConfig;
 
     /**
      * @var int
@@ -44,6 +55,11 @@ class UpdateLiveRecordVodConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @var recordFormat[]
+     */
+    public $recordFormat;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -54,6 +70,11 @@ class UpdateLiveRecordVodConfigRequest extends Model
     public $streamName;
 
     /**
+     * @var string[]
+     */
+    public $transcodeTemplates;
+
+    /**
      * @var string
      */
     public $vodTranscodeGroupId;
@@ -62,16 +83,26 @@ class UpdateLiveRecordVodConfigRequest extends Model
         'autoCompose' => 'AutoCompose',
         'composeVodTranscodeGroupId' => 'ComposeVodTranscodeGroupId',
         'cycleDuration' => 'CycleDuration',
+        'delayTime' => 'DelayTime',
         'domainName' => 'DomainName',
+        'formatConfig' => 'FormatConfig',
         'onDemand' => 'OnDemand',
         'ownerId' => 'OwnerId',
+        'recordFormat' => 'RecordFormat',
         'regionId' => 'RegionId',
         'streamName' => 'StreamName',
+        'transcodeTemplates' => 'TranscodeTemplates',
         'vodTranscodeGroupId' => 'VodTranscodeGroupId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->recordFormat)) {
+            Model::validateArray($this->recordFormat);
+        }
+        if (\is_array($this->transcodeTemplates)) {
+            Model::validateArray($this->transcodeTemplates);
+        }
         parent::validate();
     }
 
@@ -94,8 +125,16 @@ class UpdateLiveRecordVodConfigRequest extends Model
             $res['CycleDuration'] = $this->cycleDuration;
         }
 
+        if (null !== $this->delayTime) {
+            $res['DelayTime'] = $this->delayTime;
+        }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->formatConfig) {
+            $res['FormatConfig'] = $this->formatConfig;
         }
 
         if (null !== $this->onDemand) {
@@ -106,12 +145,34 @@ class UpdateLiveRecordVodConfigRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
+        if (null !== $this->recordFormat) {
+            if (\is_array($this->recordFormat)) {
+                $res['RecordFormat'] = [];
+                $n1 = 0;
+                foreach ($this->recordFormat as $item1) {
+                    $res['RecordFormat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
+        }
+
+        if (null !== $this->transcodeTemplates) {
+            if (\is_array($this->transcodeTemplates)) {
+                $res['TranscodeTemplates'] = [];
+                $n1 = 0;
+                foreach ($this->transcodeTemplates as $item1) {
+                    $res['TranscodeTemplates'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vodTranscodeGroupId) {
@@ -145,8 +206,16 @@ class UpdateLiveRecordVodConfigRequest extends Model
             $model->cycleDuration = $map['CycleDuration'];
         }
 
+        if (isset($map['DelayTime'])) {
+            $model->delayTime = $map['DelayTime'];
+        }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['FormatConfig'])) {
+            $model->formatConfig = $map['FormatConfig'];
         }
 
         if (isset($map['OnDemand'])) {
@@ -157,12 +226,34 @@ class UpdateLiveRecordVodConfigRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
+        if (isset($map['RecordFormat'])) {
+            if (!empty($map['RecordFormat'])) {
+                $model->recordFormat = [];
+                $n1 = 0;
+                foreach ($map['RecordFormat'] as $item1) {
+                    $model->recordFormat[$n1] = recordFormat::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
+        }
+
+        if (isset($map['TranscodeTemplates'])) {
+            if (!empty($map['TranscodeTemplates'])) {
+                $model->transcodeTemplates = [];
+                $n1 = 0;
+                foreach ($map['TranscodeTemplates'] as $item1) {
+                    $model->transcodeTemplates[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VodTranscodeGroupId'])) {

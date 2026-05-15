@@ -3453,8 +3453,16 @@ class Live extends OpenApiClient
             @$query['CycleDuration'] = $request->cycleDuration;
         }
 
+        if (null !== $request->delayTime) {
+            @$query['DelayTime'] = $request->delayTime;
+        }
+
         if (null !== $request->domainName) {
             @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->formatConfig) {
+            @$query['FormatConfig'] = $request->formatConfig;
         }
 
         if (null !== $request->onDemand) {
@@ -3465,8 +3473,20 @@ class Live extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->recordContent) {
+            @$query['RecordContent'] = $request->recordContent;
+        }
+
+        if (null !== $request->recordFormat) {
+            @$query['RecordFormat'] = $request->recordFormat;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->spaceId) {
+            @$query['SpaceId'] = $request->spaceId;
         }
 
         if (null !== $request->storageLocation) {
@@ -3475,6 +3495,10 @@ class Live extends OpenApiClient
 
         if (null !== $request->streamName) {
             @$query['StreamName'] = $request->streamName;
+        }
+
+        if (null !== $request->transcodeTemplates) {
+            @$query['TranscodeTemplates'] = $request->transcodeTemplates;
         }
 
         if (null !== $request->vodTranscodeGroupId) {
@@ -37624,8 +37648,16 @@ class Live extends OpenApiClient
             @$query['CycleDuration'] = $request->cycleDuration;
         }
 
+        if (null !== $request->delayTime) {
+            @$query['DelayTime'] = $request->delayTime;
+        }
+
         if (null !== $request->domainName) {
             @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->formatConfig) {
+            @$query['FormatConfig'] = $request->formatConfig;
         }
 
         if (null !== $request->onDemand) {
@@ -37636,12 +37668,20 @@ class Live extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->recordFormat) {
+            @$query['RecordFormat'] = $request->recordFormat;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
 
         if (null !== $request->streamName) {
             @$query['StreamName'] = $request->streamName;
+        }
+
+        if (null !== $request->transcodeTemplates) {
+            @$query['TranscodeTemplates'] = $request->transcodeTemplates;
         }
 
         if (null !== $request->vodTranscodeGroupId) {

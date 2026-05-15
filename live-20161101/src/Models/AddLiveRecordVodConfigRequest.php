@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\AddLiveRecordVodConfigRequest\recordFormat;
 
 class AddLiveRecordVodConfigRequest extends Model
 {
@@ -29,9 +30,19 @@ class AddLiveRecordVodConfigRequest extends Model
     public $cycleDuration;
 
     /**
+     * @var int
+     */
+    public $delayTime;
+
+    /**
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var bool
+     */
+    public $formatConfig;
 
     /**
      * @var int
@@ -46,7 +57,22 @@ class AddLiveRecordVodConfigRequest extends Model
     /**
      * @var string
      */
+    public $recordContent;
+
+    /**
+     * @var recordFormat[]
+     */
+    public $recordFormat;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $spaceId;
 
     /**
      * @var string
@@ -59,6 +85,11 @@ class AddLiveRecordVodConfigRequest extends Model
     public $streamName;
 
     /**
+     * @var string[]
+     */
+    public $transcodeTemplates;
+
+    /**
      * @var string
      */
     public $vodTranscodeGroupId;
@@ -67,17 +98,29 @@ class AddLiveRecordVodConfigRequest extends Model
         'autoCompose' => 'AutoCompose',
         'composeVodTranscodeGroupId' => 'ComposeVodTranscodeGroupId',
         'cycleDuration' => 'CycleDuration',
+        'delayTime' => 'DelayTime',
         'domainName' => 'DomainName',
+        'formatConfig' => 'FormatConfig',
         'onDemand' => 'OnDemand',
         'ownerId' => 'OwnerId',
+        'recordContent' => 'RecordContent',
+        'recordFormat' => 'RecordFormat',
         'regionId' => 'RegionId',
+        'spaceId' => 'SpaceId',
         'storageLocation' => 'StorageLocation',
         'streamName' => 'StreamName',
+        'transcodeTemplates' => 'TranscodeTemplates',
         'vodTranscodeGroupId' => 'VodTranscodeGroupId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->recordFormat)) {
+            Model::validateArray($this->recordFormat);
+        }
+        if (\is_array($this->transcodeTemplates)) {
+            Model::validateArray($this->transcodeTemplates);
+        }
         parent::validate();
     }
 
@@ -100,8 +143,16 @@ class AddLiveRecordVodConfigRequest extends Model
             $res['CycleDuration'] = $this->cycleDuration;
         }
 
+        if (null !== $this->delayTime) {
+            $res['DelayTime'] = $this->delayTime;
+        }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->formatConfig) {
+            $res['FormatConfig'] = $this->formatConfig;
         }
 
         if (null !== $this->onDemand) {
@@ -112,8 +163,27 @@ class AddLiveRecordVodConfigRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
+        if (null !== $this->recordContent) {
+            $res['RecordContent'] = $this->recordContent;
+        }
+
+        if (null !== $this->recordFormat) {
+            if (\is_array($this->recordFormat)) {
+                $res['RecordFormat'] = [];
+                $n1 = 0;
+                foreach ($this->recordFormat as $item1) {
+                    $res['RecordFormat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->spaceId) {
+            $res['SpaceId'] = $this->spaceId;
         }
 
         if (null !== $this->storageLocation) {
@@ -122,6 +192,17 @@ class AddLiveRecordVodConfigRequest extends Model
 
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
+        }
+
+        if (null !== $this->transcodeTemplates) {
+            if (\is_array($this->transcodeTemplates)) {
+                $res['TranscodeTemplates'] = [];
+                $n1 = 0;
+                foreach ($this->transcodeTemplates as $item1) {
+                    $res['TranscodeTemplates'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vodTranscodeGroupId) {
@@ -155,8 +236,16 @@ class AddLiveRecordVodConfigRequest extends Model
             $model->cycleDuration = $map['CycleDuration'];
         }
 
+        if (isset($map['DelayTime'])) {
+            $model->delayTime = $map['DelayTime'];
+        }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['FormatConfig'])) {
+            $model->formatConfig = $map['FormatConfig'];
         }
 
         if (isset($map['OnDemand'])) {
@@ -167,8 +256,27 @@ class AddLiveRecordVodConfigRequest extends Model
             $model->ownerId = $map['OwnerId'];
         }
 
+        if (isset($map['RecordContent'])) {
+            $model->recordContent = $map['RecordContent'];
+        }
+
+        if (isset($map['RecordFormat'])) {
+            if (!empty($map['RecordFormat'])) {
+                $model->recordFormat = [];
+                $n1 = 0;
+                foreach ($map['RecordFormat'] as $item1) {
+                    $model->recordFormat[$n1] = recordFormat::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SpaceId'])) {
+            $model->spaceId = $map['SpaceId'];
         }
 
         if (isset($map['StorageLocation'])) {
@@ -177,6 +285,17 @@ class AddLiveRecordVodConfigRequest extends Model
 
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
+        }
+
+        if (isset($map['TranscodeTemplates'])) {
+            if (!empty($map['TranscodeTemplates'])) {
+                $model->transcodeTemplates = [];
+                $n1 = 0;
+                foreach ($map['TranscodeTemplates'] as $item1) {
+                    $model->transcodeTemplates[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VodTranscodeGroupId'])) {
