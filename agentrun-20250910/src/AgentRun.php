@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateFlowEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateFlowEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateFlowRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateFlowResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateIMBotRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateIMBotResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\CreateMemoryCollectionRequest;
@@ -54,6 +56,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteFlowVersionResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteIMBotRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteIMBotResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteMemoryCollectionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\DeleteModelProxyResponse;
@@ -79,6 +83,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowVersionRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetFlowVersionResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetIMBotRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetIMBotResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetMemoryCollectionResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\GetModelProxyResponse;
@@ -108,6 +114,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowVersionsRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListFlowVersionsResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListIMBotsRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListIMBotsResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListKnowledgeBasesResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\ListMemoryCollectionsRequest;
@@ -148,6 +156,8 @@ use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowEndpointRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowEndpointResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateFlowResponse;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateIMBotRequest;
+use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateIMBotResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseRequest;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateKnowledgeBaseResponse;
 use AlibabaCloud\SDK\AgentRun\V20250910\Models\UpdateMemoryCollectionRequest;
@@ -818,6 +828,68 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->createFlowEndpointWithOptions($flowName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建 IM Bot.
+     *
+     * @remarks
+     * POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+     *
+     * @param request - CreateIMBotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIMBotResponse
+     *
+     * @param CreateIMBotRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateIMBotResponse
+     */
+    public function createIMBotWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateIMBot',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/im-bots',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateIMBotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 IM Bot.
+     *
+     * @remarks
+     * POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+     *
+     * @param request - CreateIMBotRequest
+     *
+     * @returns CreateIMBotResponse
+     *
+     * @param CreateIMBotRequest $request
+     *
+     * @return CreateIMBotResponse
+     */
+    public function createIMBot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createIMBotWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1809,6 +1881,69 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->deleteFlowVersionWithOptions($flowName, $flowVersion, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除 IM Bot.
+     *
+     * @remarks
+     * DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+     *
+     * @param request - DeleteIMBotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIMBotResponse
+     *
+     * @param string             $imBotId
+     * @param DeleteIMBotRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteIMBotResponse
+     */
+    public function deleteIMBotWithOptions($imBotId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteIMBot',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/im-bots/' . Url::percentEncode($imBotId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteIMBotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 IM Bot.
+     *
+     * @remarks
+     * DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+     *
+     * @param request - DeleteIMBotRequest
+     *
+     * @returns DeleteIMBotResponse
+     *
+     * @param string             $imBotId
+     * @param DeleteIMBotRequest $request
+     *
+     * @return DeleteIMBotResponse
+     */
+    public function deleteIMBot($imBotId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteIMBotWithOptions($imBotId, $request, $headers, $runtime);
     }
 
     /**
@@ -2898,6 +3033,69 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->getFlowVersionWithOptions($flowName, $flowVersion, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取 IM Bot.
+     *
+     * @remarks
+     * GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
+     *
+     * @param request - GetIMBotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIMBotResponse
+     *
+     * @param string          $imBotId
+     * @param GetIMBotRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetIMBotResponse
+     */
+    public function getIMBotWithOptions($imBotId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetIMBot',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/im-bots/' . Url::percentEncode($imBotId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIMBotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取 IM Bot.
+     *
+     * @remarks
+     * GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
+     *
+     * @param request - GetIMBotRequest
+     *
+     * @returns GetIMBotResponse
+     *
+     * @param string          $imBotId
+     * @param GetIMBotRequest $request
+     *
+     * @return GetIMBotResponse
+     */
+    public function getIMBot($imBotId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIMBotWithOptions($imBotId, $request, $headers, $runtime);
     }
 
     /**
@@ -4189,6 +4387,93 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->listFlowsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 分页列举 IM Bots.
+     *
+     * @remarks
+     * GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+     *
+     * @param request - ListIMBotsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIMBotsResponse
+     *
+     * @param ListIMBotsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListIMBotsResponse
+     */
+    public function listIMBotsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentRuntimeId) {
+            @$query['agentRuntimeId'] = $request->agentRuntimeId;
+        }
+
+        if (null !== $request->botBizType) {
+            @$query['botBizType'] = $request->botBizType;
+        }
+
+        if (null !== $request->botName) {
+            @$query['botName'] = $request->botName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIMBots',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/im-bots',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIMBotsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页列举 IM Bots.
+     *
+     * @remarks
+     * GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+     *
+     * @param request - ListIMBotsRequest
+     *
+     * @returns ListIMBotsResponse
+     *
+     * @param ListIMBotsRequest $request
+     *
+     * @return ListIMBotsResponse
+     */
+    public function listIMBots($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIMBotsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5716,6 +6001,70 @@ class AgentRun extends OpenApiClient
         $headers = [];
 
         return $this->updateFlowEndpointWithOptions($flowName, $flowEndpointName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新 IM Bot.
+     *
+     * @remarks
+     * PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
+     *
+     * @param request - UpdateIMBotRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateIMBotResponse
+     *
+     * @param string             $imBotId
+     * @param UpdateIMBotRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateIMBotResponse
+     */
+    public function updateIMBotWithOptions($imBotId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateIMBot',
+            'version' => '2025-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2025-09-10/agents/im-bots/' . Url::percentEncode($imBotId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateIMBotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 IM Bot.
+     *
+     * @remarks
+     * PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
+     *
+     * @param request - UpdateIMBotRequest
+     *
+     * @returns UpdateIMBotResponse
+     *
+     * @param string             $imBotId
+     * @param UpdateIMBotRequest $request
+     *
+     * @return UpdateIMBotResponse
+     */
+    public function updateIMBot($imBotId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateIMBotWithOptions($imBotId, $request, $headers, $runtime);
     }
 
     /**
