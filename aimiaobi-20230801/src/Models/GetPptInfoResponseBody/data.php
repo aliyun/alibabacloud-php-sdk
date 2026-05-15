@@ -2,31 +2,21 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InitiatePptCreationV2ResponseBody;
+namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptInfoResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $alert;
-
-    /**
-     * @var string
-     */
-    public $appKey;
+    public $exportFileLink;
 
     /**
      * @var string
      */
     public $exportTaskId;
-
-    /**
-     * @var string
-     */
-    public $pptArtifactCover;
 
     /**
      * @var string
@@ -41,39 +31,45 @@ class data extends Model
     /**
      * @var string
      */
-    public $signature;
+    public $query;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
-        'alert' => 'Alert',
-        'appKey' => 'AppKey',
+        'exportFileLink' => 'ExportFileLink',
         'exportTaskId' => 'ExportTaskId',
-        'pptArtifactCover' => 'PptArtifactCover',
         'pptArtifactId' => 'PptArtifactId',
         'pptProcessId' => 'PptProcessId',
-        'signature' => 'Signature',
+        'query' => 'Query',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->exportFileLink)) {
+            Model::validateArray($this->exportFileLink);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->alert) {
-            $res['Alert'] = $this->alert;
-        }
-
-        if (null !== $this->appKey) {
-            $res['AppKey'] = $this->appKey;
+        if (null !== $this->exportFileLink) {
+            if (\is_array($this->exportFileLink)) {
+                $res['ExportFileLink'] = [];
+                $n1 = 0;
+                foreach ($this->exportFileLink as $item1) {
+                    $res['ExportFileLink'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->exportTaskId) {
             $res['ExportTaskId'] = $this->exportTaskId;
-        }
-
-        if (null !== $this->pptArtifactCover) {
-            $res['PptArtifactCover'] = $this->pptArtifactCover;
         }
 
         if (null !== $this->pptArtifactId) {
@@ -84,8 +80,12 @@ class data extends Model
             $res['PptProcessId'] = $this->pptProcessId;
         }
 
-        if (null !== $this->signature) {
-            $res['Signature'] = $this->signature;
+        if (null !== $this->query) {
+            $res['Query'] = $this->query;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -99,20 +99,19 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Alert'])) {
-            $model->alert = $map['Alert'];
-        }
-
-        if (isset($map['AppKey'])) {
-            $model->appKey = $map['AppKey'];
+        if (isset($map['ExportFileLink'])) {
+            if (!empty($map['ExportFileLink'])) {
+                $model->exportFileLink = [];
+                $n1 = 0;
+                foreach ($map['ExportFileLink'] as $item1) {
+                    $model->exportFileLink[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ExportTaskId'])) {
             $model->exportTaskId = $map['ExportTaskId'];
-        }
-
-        if (isset($map['PptArtifactCover'])) {
-            $model->pptArtifactCover = $map['PptArtifactCover'];
         }
 
         if (isset($map['PptArtifactId'])) {
@@ -123,8 +122,12 @@ class data extends Model
             $model->pptProcessId = $map['PptProcessId'];
         }
 
-        if (isset($map['Signature'])) {
-            $model->signature = $map['Signature'];
+        if (isset($map['Query'])) {
+            $model->query = $map['Query'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

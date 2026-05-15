@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocInfoResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocInfoResponseBody\data\pageInfo;
 
 class data extends Model
 {
@@ -29,6 +30,11 @@ class data extends Model
     public $fileUrl;
 
     /**
+     * @var pageInfo
+     */
+    public $pageInfo;
+
+    /**
      * @var int
      */
     public $status;
@@ -47,6 +53,7 @@ class data extends Model
         'docName' => 'DocName',
         'docType' => 'DocType',
         'fileUrl' => 'FileUrl',
+        'pageInfo' => 'PageInfo',
         'status' => 'Status',
         'statusMessage' => 'StatusMessage',
         'videoContents' => 'VideoContents',
@@ -54,6 +61,9 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
         if (\is_array($this->videoContents)) {
             Model::validateArray($this->videoContents);
         }
@@ -77,6 +87,10 @@ class data extends Model
 
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+
+        if (null !== $this->pageInfo) {
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
 
         if (null !== $this->status) {
@@ -123,6 +137,10 @@ class data extends Model
 
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+
+        if (isset($map['PageInfo'])) {
+            $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
 
         if (isset($map['Status'])) {

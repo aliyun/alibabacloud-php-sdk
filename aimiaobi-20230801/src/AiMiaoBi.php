@@ -207,6 +207,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptArtifactRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptArtifactResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptConfigResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptInfoRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptInfoResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptTemplateSelectorRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPptTemplateSelectorResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesRequest;
@@ -6745,6 +6747,67 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 查询PPT任务信息.
+     *
+     * @param request - GetPptInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPptInfoResponse
+     *
+     * @param GetPptInfoRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetPptInfoResponse
+     */
+    public function getPptInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetPptInfo',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPptInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询PPT任务信息.
+     *
+     * @param request - GetPptInfoRequest
+     *
+     * @returns GetPptInfoResponse
+     *
+     * @param GetPptInfoRequest $request
+     *
+     * @return GetPptInfoResponse
+     */
+    public function getPptInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPptInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询PPT模板筛选器.
      *
      * @param request - GetPptTemplateSelectorRequest
@@ -7415,6 +7478,10 @@ class AiMiaoBi extends OpenApiClient
 
         if (null !== $request->pptTemplateType) {
             @$body['PptTemplateType'] = $request->pptTemplateType;
+        }
+
+        if (null !== $request->pptTitle) {
+            @$body['PptTitle'] = $request->pptTitle;
         }
 
         if (null !== $request->processType) {

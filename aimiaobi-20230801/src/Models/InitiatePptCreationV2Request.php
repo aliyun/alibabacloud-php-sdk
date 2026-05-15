@@ -34,6 +34,11 @@ class InitiatePptCreationV2Request extends Model
     public $pptTemplateType;
 
     /**
+     * @var string
+     */
+    public $pptTitle;
+
+    /**
      * @var int
      */
     public $processType;
@@ -53,6 +58,7 @@ class InitiatePptCreationV2Request extends Model
         'outline' => 'Outline',
         'pptTemplateId' => 'PptTemplateId',
         'pptTemplateType' => 'PptTemplateType',
+        'pptTitle' => 'PptTitle',
         'processType' => 'ProcessType',
         'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
@@ -84,6 +90,10 @@ class InitiatePptCreationV2Request extends Model
 
         if (null !== $this->pptTemplateType) {
             $res['PptTemplateType'] = $this->pptTemplateType;
+        }
+
+        if (null !== $this->pptTitle) {
+            $res['PptTitle'] = $this->pptTitle;
         }
 
         if (null !== $this->processType) {
@@ -127,6 +137,10 @@ class InitiatePptCreationV2Request extends Model
 
         if (isset($map['PptTemplateType'])) {
             $model->pptTemplateType = $map['PptTemplateType'];
+        }
+
+        if (isset($map['PptTitle'])) {
+            $model->pptTitle = $map['PptTitle'];
         }
 
         if (isset($map['ProcessType'])) {
