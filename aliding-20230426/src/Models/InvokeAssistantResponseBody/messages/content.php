@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\aguiContent;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\cardCallback;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\dingCard;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\dingNormalCard;
@@ -14,6 +15,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messag
 
 class content extends Model
 {
+    /**
+     * @var aguiContent
+     */
+    public $aguiContent;
+
     /**
      * @var cardCallback
      */
@@ -49,6 +55,7 @@ class content extends Model
      */
     public $type;
     protected $_name = [
+        'aguiContent' => 'aguiContent',
         'cardCallback' => 'cardCallback',
         'dingCard' => 'dingCard',
         'dingNormalCard' => 'dingNormalCard',
@@ -60,6 +67,9 @@ class content extends Model
 
     public function validate()
     {
+        if (null !== $this->aguiContent) {
+            $this->aguiContent->validate();
+        }
         if (null !== $this->cardCallback) {
             $this->cardCallback->validate();
         }
@@ -84,6 +94,10 @@ class content extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aguiContent) {
+            $res['aguiContent'] = null !== $this->aguiContent ? $this->aguiContent->toArray($noStream) : $this->aguiContent;
+        }
+
         if (null !== $this->cardCallback) {
             $res['cardCallback'] = null !== $this->cardCallback ? $this->cardCallback->toArray($noStream) : $this->cardCallback;
         }
@@ -123,6 +137,10 @@ class content extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aguiContent'])) {
+            $model->aguiContent = aguiContent::fromMap($map['aguiContent']);
+        }
+
         if (isset($map['cardCallback'])) {
             $model->cardCallback = cardCallback::fromMap($map['cardCallback']);
         }

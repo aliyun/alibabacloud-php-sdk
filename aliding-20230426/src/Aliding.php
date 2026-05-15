@@ -898,6 +898,21 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteAllHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteAllRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteAllResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteAllShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteAllShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteMembersHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteMembersRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteMembersResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteMembersShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteMembersShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventResponse;
@@ -20149,6 +20164,284 @@ class Aliding extends OpenApiClient
         $headers = new ListWorkspacesHeaders([]);
 
         return $this->listWorkspacesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按会议 conferenceId 聚合查询实时听记.
+     *
+     * @param tmpReq - MeetingFlashMinutesRequest
+     * @param tmpHeader - MeetingFlashMinutesHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MeetingFlashMinutesResponse
+     *
+     * @param MeetingFlashMinutesRequest $tmpReq
+     * @param MeetingFlashMinutesHeaders $tmpHeader
+     * @param RuntimeOptions             $runtime
+     *
+     * @return MeetingFlashMinutesResponse
+     */
+    public function meetingFlashMinutesWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MeetingFlashMinutesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new MeetingFlashMinutesShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->conferenceId) {
+            @$body['conferenceId'] = $request->conferenceId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MeetingFlashMinutes',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/minutes/meetingFlashMinutes',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MeetingFlashMinutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按会议 conferenceId 聚合查询实时听记.
+     *
+     * @param request - MeetingFlashMinutesRequest
+     *
+     * @returns MeetingFlashMinutesResponse
+     *
+     * @param MeetingFlashMinutesRequest $request
+     *
+     * @return MeetingFlashMinutesResponse
+     */
+    public function meetingFlashMinutes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MeetingFlashMinutesHeaders([]);
+
+        return $this->meetingFlashMinutesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 全员静音或全员取消静音.
+     *
+     * @param tmpReq - MuteAllRequest
+     * @param tmpHeader - MuteAllHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MuteAllResponse
+     *
+     * @param MuteAllRequest $tmpReq
+     * @param MuteAllHeaders $tmpHeader
+     * @param RuntimeOptions $runtime
+     *
+     * @return MuteAllResponse
+     */
+    public function muteAllWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MuteAllShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new MuteAllShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->forceMute) {
+            @$body['ForceMute'] = $request->forceMute;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->conferenceId) {
+            @$body['conferenceId'] = $request->conferenceId;
+        }
+
+        if (null !== $request->muteAction) {
+            @$body['muteAction'] = $request->muteAction;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MuteAll',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/muteAll',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MuteAllResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 全员静音或全员取消静音.
+     *
+     * @param request - MuteAllRequest
+     *
+     * @returns MuteAllResponse
+     *
+     * @param MuteAllRequest $request
+     *
+     * @return MuteAllResponse
+     */
+    public function muteAll($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MuteAllHeaders([]);
+
+        return $this->muteAllWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 指定人员静音或取消静音.
+     *
+     * @param tmpReq - MuteMembersRequest
+     * @param tmpHeader - MuteMembersHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MuteMembersResponse
+     *
+     * @param MuteMembersRequest $tmpReq
+     * @param MuteMembersHeaders $tmpHeader
+     * @param RuntimeOptions     $runtime
+     *
+     * @return MuteMembersResponse
+     */
+    public function muteMembersWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MuteMembersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new MuteMembersShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        if (null !== $tmpReq->userIds) {
+            $request->userIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->userIds, 'UserIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->userIdsShrink) {
+            @$body['UserIds'] = $request->userIdsShrink;
+        }
+
+        if (null !== $request->conferenceId) {
+            @$body['conferenceId'] = $request->conferenceId;
+        }
+
+        if (null !== $request->muteAction) {
+            @$body['muteAction'] = $request->muteAction;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MuteMembers',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/ysp/muteMembers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MuteMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 指定人员静音或取消静音.
+     *
+     * @param request - MuteMembersRequest
+     *
+     * @returns MuteMembersResponse
+     *
+     * @param MuteMembersRequest $request
+     *
+     * @return MuteMembersResponse
+     */
+    public function muteMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MuteMembersHeaders([]);
+
+        return $this->muteMembersWithOptions($request, $headers, $runtime);
     }
 
     /**
