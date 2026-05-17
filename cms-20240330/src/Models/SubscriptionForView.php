@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\SubscriptionForView\agentConfig;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SubscriptionForView\pushingSetting;
 
 class SubscriptionForView extends Model
 {
+    /**
+     * @var agentConfig
+     */
+    public $agentConfig;
+
     /**
      * @var string
      */
@@ -52,6 +58,11 @@ class SubscriptionForView extends Model
     /**
      * @var string
      */
+    public $subscriptionType;
+
+    /**
+     * @var string
+     */
     public $syncFromType;
 
     /**
@@ -74,6 +85,7 @@ class SubscriptionForView extends Model
      */
     public $workspaceFilterSetting;
     protected $_name = [
+        'agentConfig' => 'agentConfig',
         'createTime' => 'createTime',
         'description' => 'description',
         'enable' => 'enable',
@@ -82,6 +94,7 @@ class SubscriptionForView extends Model
         'pushingSetting' => 'pushingSetting',
         'subscriptionId' => 'subscriptionId',
         'subscriptionName' => 'subscriptionName',
+        'subscriptionType' => 'subscriptionType',
         'syncFromType' => 'syncFromType',
         'updateTime' => 'updateTime',
         'userId' => 'userId',
@@ -91,6 +104,9 @@ class SubscriptionForView extends Model
 
     public function validate()
     {
+        if (null !== $this->agentConfig) {
+            $this->agentConfig->validate();
+        }
         if (null !== $this->filterSetting) {
             $this->filterSetting->validate();
         }
@@ -106,6 +122,10 @@ class SubscriptionForView extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentConfig) {
+            $res['agentConfig'] = null !== $this->agentConfig ? $this->agentConfig->toArray($noStream) : $this->agentConfig;
+        }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
@@ -136,6 +156,10 @@ class SubscriptionForView extends Model
 
         if (null !== $this->subscriptionName) {
             $res['subscriptionName'] = $this->subscriptionName;
+        }
+
+        if (null !== $this->subscriptionType) {
+            $res['subscriptionType'] = $this->subscriptionType;
         }
 
         if (null !== $this->syncFromType) {
@@ -169,6 +193,10 @@ class SubscriptionForView extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentConfig'])) {
+            $model->agentConfig = agentConfig::fromMap($map['agentConfig']);
+        }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
@@ -199,6 +227,10 @@ class SubscriptionForView extends Model
 
         if (isset($map['subscriptionName'])) {
             $model->subscriptionName = $map['subscriptionName'];
+        }
+
+        if (isset($map['subscriptionType'])) {
+            $model->subscriptionType = $map['subscriptionType'];
         }
 
         if (isset($map['syncFromType'])) {

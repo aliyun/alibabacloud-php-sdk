@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20240330\Models\SubscriptionForModify\agentConfig;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SubscriptionForModify\pushingSetting;
 
 class SubscriptionForModify extends Model
 {
+    /**
+     * @var agentConfig
+     */
+    public $agentConfig;
+
     /**
      * @var string
      */
@@ -39,6 +45,7 @@ class SubscriptionForModify extends Model
      */
     public $workspaceFilterSetting;
     protected $_name = [
+        'agentConfig' => 'agentConfig',
         'description' => 'description',
         'filterSetting' => 'filterSetting',
         'notifyStrategyId' => 'notifyStrategyId',
@@ -49,6 +56,9 @@ class SubscriptionForModify extends Model
 
     public function validate()
     {
+        if (null !== $this->agentConfig) {
+            $this->agentConfig->validate();
+        }
         if (null !== $this->filterSetting) {
             $this->filterSetting->validate();
         }
@@ -64,6 +74,10 @@ class SubscriptionForModify extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentConfig) {
+            $res['agentConfig'] = null !== $this->agentConfig ? $this->agentConfig->toArray($noStream) : $this->agentConfig;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -99,6 +113,10 @@ class SubscriptionForModify extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentConfig'])) {
+            $model->agentConfig = agentConfig::fromMap($map['agentConfig']);
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
