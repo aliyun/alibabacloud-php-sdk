@@ -21938,6 +21938,10 @@ class Ens extends OpenApiClient
             @$query['DeletionProtection'] = $request->deletionProtection;
         }
 
+        if (null !== $request->deploymentSetId) {
+            @$query['DeploymentSetId'] = $request->deploymentSetId;
+        }
+
         if (null !== $request->ensRegionId) {
             @$query['EnsRegionId'] = $request->ensRegionId;
         }

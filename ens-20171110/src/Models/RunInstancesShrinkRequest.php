@@ -52,6 +52,11 @@ class RunInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $deploymentSetId;
+
+    /**
+     * @var string
+     */
     public $ensRegionId;
 
     /**
@@ -237,6 +242,7 @@ class RunInstancesShrinkRequest extends Model
         'carrier' => 'Carrier',
         'dataDiskShrink' => 'DataDisk',
         'deletionProtection' => 'DeletionProtection',
+        'deploymentSetId' => 'DeploymentSetId',
         'ensRegionId' => 'EnsRegionId',
         'hostName' => 'HostName',
         'imageId' => 'ImageId',
@@ -316,6 +322,10 @@ class RunInstancesShrinkRequest extends Model
 
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
+        }
+
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
         }
 
         if (null !== $this->ensRegionId) {
@@ -510,6 +520,10 @@ class RunInstancesShrinkRequest extends Model
 
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
+        }
+
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
         }
 
         if (isset($map['EnsRegionId'])) {

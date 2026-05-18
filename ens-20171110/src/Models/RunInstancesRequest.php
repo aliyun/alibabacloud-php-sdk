@@ -54,6 +54,11 @@ class RunInstancesRequest extends Model
     /**
      * @var string
      */
+    public $deploymentSetId;
+
+    /**
+     * @var string
+     */
     public $ensRegionId;
 
     /**
@@ -239,6 +244,7 @@ class RunInstancesRequest extends Model
         'carrier' => 'Carrier',
         'dataDisk' => 'DataDisk',
         'deletionProtection' => 'DeletionProtection',
+        'deploymentSetId' => 'DeploymentSetId',
         'ensRegionId' => 'EnsRegionId',
         'hostName' => 'HostName',
         'imageId' => 'ImageId',
@@ -334,6 +340,10 @@ class RunInstancesRequest extends Model
 
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
+        }
+
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
         }
 
         if (null !== $this->ensRegionId) {
@@ -542,6 +552,10 @@ class RunInstancesRequest extends Model
 
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
+        }
+
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
         }
 
         if (isset($map['EnsRegionId'])) {
