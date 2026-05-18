@@ -15,6 +15,11 @@ class CreateExternalCACertificateShrinkRequest extends Model
     public $apiPassthroughShrink;
 
     /**
+     * @var int
+     */
+    public $certMaxTime;
+
+    /**
      * @var string
      */
     public $csr;
@@ -40,6 +45,7 @@ class CreateExternalCACertificateShrinkRequest extends Model
     public $validity;
     protected $_name = [
         'apiPassthroughShrink' => 'ApiPassthrough',
+        'certMaxTime' => 'CertMaxTime',
         'csr' => 'Csr',
         'instanceId' => 'InstanceId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -60,6 +66,10 @@ class CreateExternalCACertificateShrinkRequest extends Model
         $res = [];
         if (null !== $this->apiPassthroughShrink) {
             $res['ApiPassthrough'] = $this->apiPassthroughShrink;
+        }
+
+        if (null !== $this->certMaxTime) {
+            $res['CertMaxTime'] = $this->certMaxTime;
         }
 
         if (null !== $this->csr) {
@@ -102,6 +112,10 @@ class CreateExternalCACertificateShrinkRequest extends Model
         $model = new self();
         if (isset($map['ApiPassthrough'])) {
             $model->apiPassthroughShrink = $map['ApiPassthrough'];
+        }
+
+        if (isset($map['CertMaxTime'])) {
+            $model->certMaxTime = $map['CertMaxTime'];
         }
 
         if (isset($map['Csr'])) {

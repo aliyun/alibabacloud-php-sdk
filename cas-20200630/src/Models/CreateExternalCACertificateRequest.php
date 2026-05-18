@@ -16,6 +16,11 @@ class CreateExternalCACertificateRequest extends Model
     public $apiPassthrough;
 
     /**
+     * @var int
+     */
+    public $certMaxTime;
+
+    /**
      * @var string
      */
     public $csr;
@@ -41,6 +46,7 @@ class CreateExternalCACertificateRequest extends Model
     public $validity;
     protected $_name = [
         'apiPassthrough' => 'ApiPassthrough',
+        'certMaxTime' => 'CertMaxTime',
         'csr' => 'Csr',
         'instanceId' => 'InstanceId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -64,6 +70,10 @@ class CreateExternalCACertificateRequest extends Model
         $res = [];
         if (null !== $this->apiPassthrough) {
             $res['ApiPassthrough'] = null !== $this->apiPassthrough ? $this->apiPassthrough->toArray($noStream) : $this->apiPassthrough;
+        }
+
+        if (null !== $this->certMaxTime) {
+            $res['CertMaxTime'] = $this->certMaxTime;
         }
 
         if (null !== $this->csr) {
@@ -106,6 +116,10 @@ class CreateExternalCACertificateRequest extends Model
         $model = new self();
         if (isset($map['ApiPassthrough'])) {
             $model->apiPassthrough = apiPassthrough::fromMap($map['ApiPassthrough']);
+        }
+
+        if (isset($map['CertMaxTime'])) {
+            $model->certMaxTime = $map['CertMaxTime'];
         }
 
         if (isset($map['Csr'])) {

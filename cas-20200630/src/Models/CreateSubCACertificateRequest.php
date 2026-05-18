@@ -15,6 +15,11 @@ class CreateSubCACertificateRequest extends Model
     public $algorithm;
 
     /**
+     * @var int
+     */
+    public $certMaxTime;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -90,6 +95,7 @@ class CreateSubCACertificateRequest extends Model
     public $years;
     protected $_name = [
         'algorithm' => 'Algorithm',
+        'certMaxTime' => 'CertMaxTime',
         'clientToken' => 'ClientToken',
         'commonName' => 'CommonName',
         'countryCode' => 'CountryCode',
@@ -123,6 +129,10 @@ class CreateSubCACertificateRequest extends Model
         $res = [];
         if (null !== $this->algorithm) {
             $res['Algorithm'] = $this->algorithm;
+        }
+
+        if (null !== $this->certMaxTime) {
+            $res['CertMaxTime'] = $this->certMaxTime;
         }
 
         if (null !== $this->clientToken) {
@@ -212,6 +222,10 @@ class CreateSubCACertificateRequest extends Model
         $model = new self();
         if (isset($map['Algorithm'])) {
             $model->algorithm = $map['Algorithm'];
+        }
+
+        if (isset($map['CertMaxTime'])) {
+            $model->certMaxTime = $map['CertMaxTime'];
         }
 
         if (isset($map['ClientToken'])) {
