@@ -50,6 +50,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\CreateReceiverRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateReceiverResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTagRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTagResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTemplateRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateUserSuppressionRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateUserSuppressionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DedicatedIpAutoRenewalRequest;
@@ -1586,6 +1588,107 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建模板
+     *
+     * @param Request - CreateTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromType) {
+            @$query['FromType'] = $request->fromType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->smsContent) {
+            @$query['SmsContent'] = $request->smsContent;
+        }
+
+        if (null !== $request->smsType) {
+            @$query['SmsType'] = $request->smsType;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->templateNickName) {
+            @$query['TemplateNickName'] = $request->templateNickName;
+        }
+
+        if (null !== $request->templateSubject) {
+            @$query['TemplateSubject'] = $request->templateSubject;
+        }
+
+        if (null !== $request->templateText) {
+            @$query['TemplateText'] = $request->templateText;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTemplate',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模板
+     *
+     * @param Request - CreateTemplateRequest
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     *
+     * @return CreateTemplateResponse
+     */
+    public function createTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTemplateWithOptions($request, $runtime);
     }
 
     /**
