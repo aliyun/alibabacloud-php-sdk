@@ -58,7 +58,7 @@ class desensRules extends Model
     /**
      * @var bool
      */
-    public $emptyNotDesesn;
+    public $emptyNotDesens;
     protected $_name = [
         'checkWatermark' => 'CheckWatermark',
         'dataType' => 'DataType',
@@ -69,7 +69,7 @@ class desensRules extends Model
         'sceneIds' => 'SceneIds',
         'status' => 'Status',
         'columns' => 'columns',
-        'emptyNotDesesn' => 'emptyNotDesesn',
+        'emptyNotDesens' => 'emptyNotDesens',
     ];
 
     public function validate()
@@ -139,8 +139,8 @@ class desensRules extends Model
             }
         }
 
-        if (null !== $this->emptyNotDesesn) {
-            $res['emptyNotDesesn'] = $this->emptyNotDesesn;
+        if (null !== $this->emptyNotDesens) {
+            $res['emptyNotDesens'] = $this->emptyNotDesens;
         }
 
         return $res;
@@ -204,8 +204,8 @@ class desensRules extends Model
             }
         }
 
-        if (isset($map['emptyNotDesesn'])) {
-            $model->emptyNotDesesn = $map['emptyNotDesesn'];
+        if (isset($map['emptyNotDesens'])) {
+            $model->emptyNotDesens = $map['emptyNotDesens'];
         }
 
         return $model;

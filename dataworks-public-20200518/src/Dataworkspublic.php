@@ -784,11 +784,13 @@ class Dataworkspublic extends OpenApiClient
             try {
                 $_request = new Request();
                 $boundary = FormUtil::getBoundary();
+                $tmp = '' . @$form['host'];
+                $host = '' . $bucketName . '.' . $tmp . '';
                 $_request->protocol = 'HTTPS';
                 $_request->method = 'POST';
                 $_request->pathname = '/';
                 $_request->headers = [
-                    'host' => '' . @$form['host'],
+                    'host' => $host,
                     'date' => Utils::getDateUTCString(),
                     'user-agent' => Utils::getUserAgent(''),
                 ];
@@ -3358,7 +3360,7 @@ class Dataworkspublic extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -4543,7 +4545,7 @@ class Dataworkspublic extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -7330,6 +7332,14 @@ class Dataworkspublic extends OpenApiClient
             @$body['TenantId'] = $request->tenantId;
         }
 
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
@@ -7981,7 +7991,6 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries a list of users or roles of the current tenant.
      *
-     * @param Request - DsgUserGroupQueryUserListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DsgUserGroupQueryUserListResponse
@@ -18756,7 +18765,6 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Queries the built-in sensitive data identification rule that is used to configure a sensitive field.
      *
-     * @param Request - QueryRecognizeRulesTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns QueryRecognizeRulesTypeResponse

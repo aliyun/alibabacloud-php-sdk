@@ -82,6 +82,16 @@ class DsgQuerySensResultRequest extends Model
      * @var string
      */
     public $tenantId;
+
+    /**
+     * @var string
+     */
+    public $endDate;
+
+    /**
+     * @var string
+     */
+    public $startDate;
     protected $_name = [
         'col' => 'Col',
         'dbType' => 'DbType',
@@ -98,6 +108,8 @@ class DsgQuerySensResultRequest extends Model
         'sensitiveName' => 'SensitiveName',
         'table' => 'Table',
         'tenantId' => 'TenantId',
+        'endDate' => 'endDate',
+        'startDate' => 'startDate',
     ];
 
     public function validate()
@@ -166,6 +178,14 @@ class DsgQuerySensResultRequest extends Model
 
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
+        }
+
+        if (null !== $this->endDate) {
+            $res['endDate'] = $this->endDate;
+        }
+
+        if (null !== $this->startDate) {
+            $res['startDate'] = $this->startDate;
         }
 
         return $res;
@@ -237,6 +257,14 @@ class DsgQuerySensResultRequest extends Model
 
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
+        }
+
+        if (isset($map['endDate'])) {
+            $model->endDate = $map['endDate'];
+        }
+
+        if (isset($map['startDate'])) {
+            $model->startDate = $map['startDate'];
         }
 
         return $model;
