@@ -479,6 +479,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsObjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsObjectsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaListRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyRequest;
@@ -20414,6 +20416,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolarFsQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询配额列表.
+     *
+     * @param request - DescribePolarFsQuotaListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarFsQuotaListResponse
+     *
+     * @param DescribePolarFsQuotaListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribePolarFsQuotaListResponse
+     */
+    public function describePolarFsQuotaListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->quotaMode) {
+            @$query['QuotaMode'] = $request->quotaMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarFsQuotaList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarFsQuotaListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询配额列表.
+     *
+     * @param request - DescribePolarFsQuotaListRequest
+     *
+     * @returns DescribePolarFsQuotaListResponse
+     *
+     * @param DescribePolarFsQuotaListRequest $request
+     *
+     * @return DescribePolarFsQuotaListResponse
+     */
+    public function describePolarFsQuotaList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarFsQuotaListWithOptions($request, $runtime);
     }
 
     /**
