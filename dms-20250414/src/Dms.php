@@ -62,16 +62,25 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeTableResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDocumentChunksRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDocumentChunksResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDocumentChunksShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDocumentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteFileUploadRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteFileUploadResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDocumentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDocumentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeFileUploadSignatureRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeFileUploadSignatureResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseStatsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseStatsResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseUploadSignatureRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseUploadSignatureResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
@@ -138,8 +147,14 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableNameRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableNameResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataLakeTableResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDocumentChunksRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDocumentChunksResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDocumentsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDocumentsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListKnowledgeBasesRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListKnowledgeBasesResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentShrinkRequest;
@@ -175,6 +190,15 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeTableRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeTableResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataLakeTableShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDocumentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDocumentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateKnowledgeBaseRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UploadDocumentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UploadDocumentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UploadDocumentShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpsertDocumentChunksRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpsertDocumentChunksResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceActionLogRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceActionLogResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\WorkspaceActionStatusRequest;
@@ -2056,6 +2080,138 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 删除文档.
+     *
+     * @param request - DeleteDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDocumentResponse
+     *
+     * @param DeleteDocumentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteDocumentResponse
+     */
+    public function deleteDocumentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->documentName) {
+            @$body['DocumentName'] = $request->documentName;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$body['KbUuid'] = $request->kbUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDocument',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除文档.
+     *
+     * @param request - DeleteDocumentRequest
+     *
+     * @returns DeleteDocumentResponse
+     *
+     * @param DeleteDocumentRequest $request
+     *
+     * @return DeleteDocumentResponse
+     */
+    public function deleteDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除onemeta3.0的知识库chunks.
+     *
+     * @param tmpReq - DeleteDocumentChunksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDocumentChunksResponse
+     *
+     * @param DeleteDocumentChunksRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDocumentChunksResponse
+     */
+    public function deleteDocumentChunksWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteDocumentChunksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->chunkIds) {
+            $request->chunkIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->chunkIds, 'ChunkIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->chunkIdsShrink) {
+            @$body['ChunkIds'] = $request->chunkIdsShrink;
+        }
+
+        if (null !== $request->documentName) {
+            @$body['DocumentName'] = $request->documentName;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$body['KbUuid'] = $request->kbUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDocumentChunks',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDocumentChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除onemeta3.0的知识库chunks.
+     *
+     * @param request - DeleteDocumentChunksRequest
+     *
+     * @returns DeleteDocumentChunksResponse
+     *
+     * @param DeleteDocumentChunksRequest $request
+     *
+     * @return DeleteDocumentChunksResponse
+     */
+    public function deleteDocumentChunks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDocumentChunksWithOptions($request, $runtime);
+    }
+
+    /**
      * DeleteFileUpload.
      *
      * @param request - DeleteFileUploadRequest
@@ -2247,6 +2403,67 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 获取文档详情.
+     *
+     * @param request - DescribeDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDocumentResponse
+     *
+     * @param DescribeDocumentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeDocumentResponse
+     */
+    public function describeDocumentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->documentName) {
+            @$body['DocumentName'] = $request->documentName;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$body['KbUuid'] = $request->kbUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDocument',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文档详情.
+     *
+     * @param request - DescribeDocumentRequest
+     *
+     * @returns DescribeDocumentResponse
+     *
+     * @param DescribeDocumentRequest $request
+     *
+     * @return DescribeDocumentResponse
+     */
+    public function describeDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDocumentWithOptions($request, $runtime);
+    }
+
+    /**
      * DescribeFileUploadSignature.
      *
      * @param request - DescribeFileUploadSignatureRequest
@@ -2362,6 +2579,63 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeKnowledgeBaseStatsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取知识库中的上传签名.
+     *
+     * @param request - DescribeKnowledgeBaseUploadSignatureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKnowledgeBaseUploadSignatureResponse
+     *
+     * @param DescribeKnowledgeBaseUploadSignatureRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeKnowledgeBaseUploadSignatureResponse
+     */
+    public function describeKnowledgeBaseUploadSignatureWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->kbUuid) {
+            @$query['KbUuid'] = $request->kbUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeKnowledgeBaseUploadSignature',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeKnowledgeBaseUploadSignatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取知识库中的上传签名.
+     *
+     * @param request - DescribeKnowledgeBaseUploadSignatureRequest
+     *
+     * @returns DescribeKnowledgeBaseUploadSignatureResponse
+     *
+     * @param DescribeKnowledgeBaseUploadSignatureRequest $request
+     *
+     * @return DescribeKnowledgeBaseUploadSignatureResponse
+     */
+    public function describeKnowledgeBaseUploadSignature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKnowledgeBaseUploadSignatureWithOptions($request, $runtime);
     }
 
     /**
@@ -4831,6 +5105,168 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 分页查询onemeta3.0的知识库chunks.
+     *
+     * @param request - ListDocumentChunksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDocumentChunksResponse
+     *
+     * @param ListDocumentChunksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListDocumentChunksResponse
+     */
+    public function listDocumentChunksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->chunkTitlePattern) {
+            @$body['ChunkTitlePattern'] = $request->chunkTitlePattern;
+        }
+
+        if (null !== $request->documentName) {
+            @$body['DocumentName'] = $request->documentName;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$body['KbUuid'] = $request->kbUuid;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->sortFieldName) {
+            @$body['SortFieldName'] = $request->sortFieldName;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$body['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDocumentChunks',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDocumentChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询onemeta3.0的知识库chunks.
+     *
+     * @param request - ListDocumentChunksRequest
+     *
+     * @returns ListDocumentChunksResponse
+     *
+     * @param ListDocumentChunksRequest $request
+     *
+     * @return ListDocumentChunksResponse
+     */
+    public function listDocumentChunks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDocumentChunksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文档列表.
+     *
+     * @param request - ListDocumentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDocumentsResponse
+     *
+     * @param ListDocumentsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDocumentsResponse
+     */
+    public function listDocumentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->filters) {
+            @$body['Filters'] = $request->filters;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$body['KbUuid'] = $request->kbUuid;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->namePattern) {
+            @$body['NamePattern'] = $request->namePattern;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->sortFieldName) {
+            @$body['SortFieldName'] = $request->sortFieldName;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$body['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDocuments',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDocumentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文档列表.
+     *
+     * @param request - ListDocumentsRequest
+     *
+     * @returns ListDocumentsResponse
+     *
+     * @param ListDocumentsRequest $request
+     *
+     * @return ListDocumentsResponse
+     */
+    public function listDocuments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDocumentsWithOptions($request, $runtime);
+    }
+
+    /**
      * ListFileUpload.
      *
      * @param request - ListFileUploadRequest
@@ -4917,6 +5353,87 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFileUploadWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询onemeta3.0的知识库.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBasesResponse
+     *
+     * @param ListKnowledgeBasesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListKnowledgeBasesResponse
+     */
+    public function listKnowledgeBasesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->filters) {
+            @$body['Filters'] = $request->filters;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->namePattern) {
+            @$body['NamePattern'] = $request->namePattern;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->sortFieldName) {
+            @$body['SortFieldName'] = $request->sortFieldName;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$body['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKnowledgeBases',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKnowledgeBasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询onemeta3.0的知识库.
+     *
+     * @param request - ListKnowledgeBasesRequest
+     *
+     * @returns ListKnowledgeBasesResponse
+     *
+     * @param ListKnowledgeBasesRequest $request
+     *
+     * @return ListKnowledgeBasesResponse
+     */
+    public function listKnowledgeBases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKnowledgeBasesWithOptions($request, $runtime);
     }
 
     /**
@@ -6085,6 +6602,308 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataLakeTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新文档.
+     *
+     * @param request - UpdateDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDocumentResponse
+     *
+     * @param UpdateDocumentRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateDocumentResponse
+     */
+    public function updateDocumentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->documentName) {
+            @$body['DocumentName'] = $request->documentName;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$body['KbUuid'] = $request->kbUuid;
+        }
+
+        if (null !== $request->newDescription) {
+            @$body['NewDescription'] = $request->newDescription;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDocument',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新文档.
+     *
+     * @param request - UpdateDocumentRequest
+     *
+     * @returns UpdateDocumentResponse
+     *
+     * @param UpdateDocumentRequest $request
+     *
+     * @return UpdateDocumentResponse
+     */
+    public function updateDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新onemeta3.0的知识库.
+     *
+     * @param request - UpdateKnowledgeBaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param UpdateKnowledgeBaseRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBaseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$query['KbUuid'] = $request->kbUuid;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKnowledgeBase',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新onemeta3.0的知识库.
+     *
+     * @param request - UpdateKnowledgeBaseRequest
+     *
+     * @returns UpdateKnowledgeBaseResponse
+     *
+     * @param UpdateKnowledgeBaseRequest $request
+     *
+     * @return UpdateKnowledgeBaseResponse
+     */
+    public function updateKnowledgeBase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKnowledgeBaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传文档.
+     *
+     * @param tmpReq - UploadDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadDocumentResponse
+     *
+     * @param UploadDocumentRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UploadDocumentResponse
+     */
+    public function uploadDocumentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UploadDocumentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->separators) {
+            $request->separatorsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->separators, 'Separators', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->chunkOverlap) {
+            @$body['ChunkOverlap'] = $request->chunkOverlap;
+        }
+
+        if (null !== $request->chunkSize) {
+            @$body['ChunkSize'] = $request->chunkSize;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->documentLoaderName) {
+            @$body['DocumentLoaderName'] = $request->documentLoaderName;
+        }
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$body['KbUuid'] = $request->kbUuid;
+        }
+
+        if (null !== $request->location) {
+            @$body['Location'] = $request->location;
+        }
+
+        if (null !== $request->separatorsShrink) {
+            @$body['Separators'] = $request->separatorsShrink;
+        }
+
+        if (null !== $request->splitterModel) {
+            @$body['SplitterModel'] = $request->splitterModel;
+        }
+
+        if (null !== $request->textSplitterName) {
+            @$body['TextSplitterName'] = $request->textSplitterName;
+        }
+
+        if (null !== $request->vlEnhance) {
+            @$body['VlEnhance'] = $request->vlEnhance;
+        }
+
+        if (null !== $request->zhTitleEnhance) {
+            @$body['ZhTitleEnhance'] = $request->zhTitleEnhance;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UploadDocument',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传文档.
+     *
+     * @param request - UploadDocumentRequest
+     *
+     * @returns UploadDocumentResponse
+     *
+     * @param UploadDocumentRequest $request
+     *
+     * @return UploadDocumentResponse
+     */
+    public function uploadDocument($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新或插入onemeta3.0的知识库chunks.
+     *
+     * @param request - UpsertDocumentChunksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpsertDocumentChunksResponse
+     *
+     * @param UpsertDocumentChunksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpsertDocumentChunksResponse
+     */
+    public function upsertDocumentChunksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->chunks) {
+            @$body['Chunks'] = $request->chunks;
+        }
+
+        if (null !== $request->documentName) {
+            @$body['DocumentName'] = $request->documentName;
+        }
+
+        if (null !== $request->kbUuid) {
+            @$body['KbUuid'] = $request->kbUuid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpsertDocumentChunks',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpsertDocumentChunksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新或插入onemeta3.0的知识库chunks.
+     *
+     * @param request - UpsertDocumentChunksRequest
+     *
+     * @returns UpsertDocumentChunksResponse
+     *
+     * @param UpsertDocumentChunksRequest $request
+     *
+     * @return UpsertDocumentChunksResponse
+     */
+    public function upsertDocumentChunks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertDocumentChunksWithOptions($request, $runtime);
     }
 
     /**
