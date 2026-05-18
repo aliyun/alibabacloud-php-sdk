@@ -21,6 +21,11 @@ class videoOptions extends Model
     /**
      * @var string
      */
+    public $mode;
+
+    /**
+     * @var string
+     */
     public $resolution;
 
     /**
@@ -30,6 +35,7 @@ class videoOptions extends Model
     protected $_name = [
         'fps' => 'fps',
         'languageHints' => 'languageHints',
+        'mode' => 'mode',
         'resolution' => 'resolution',
         'watermark' => 'watermark',
     ];
@@ -58,6 +64,10 @@ class videoOptions extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->mode) {
+            $res['mode'] = $this->mode;
         }
 
         if (null !== $this->resolution) {
@@ -92,6 +102,10 @@ class videoOptions extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['mode'])) {
+            $model->mode = $map['mode'];
         }
 
         if (isset($map['resolution'])) {

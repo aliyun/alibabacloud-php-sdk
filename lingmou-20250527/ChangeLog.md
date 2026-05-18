@@ -1,3 +1,7 @@
+2026-05-18 Version: 1.6.5
+- Update API CreateBroadcastVideoFromTemplate: add request parameters body.videoOptions.mode.
+
+
 2026-04-16 Version: 1.6.4
 - Generated php 2025-05-27 for LingMou.
 
