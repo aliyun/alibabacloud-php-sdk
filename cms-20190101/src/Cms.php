@@ -6312,6 +6312,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * Queries blacklist policies.
+     *
      * @param request - DescribeMetricRuleBlackListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6385,6 +6387,8 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * Queries blacklist policies.
+     *
      * @param request - DescribeMetricRuleBlackListRequest
      *
      * @returns DescribeMetricRuleBlackListResponse
@@ -7601,7 +7605,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询指定资源的进程数列表.
+     * Invokes the DescribeMonitoringAgentProcesses interface to query the process list of a specified resource.
      *
      * @remarks
      * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
@@ -7644,7 +7648,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询指定资源的进程数列表.
+     * Invokes the DescribeMonitoringAgentProcesses interface to query the process list of a specified resource.
      *
      * @remarks
      * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
@@ -8519,7 +8523,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询拨测探测节点列表.
+     * Queries detection points.
      *
      * @param request - DescribeSyntheticProbeListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8586,7 +8590,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询拨测探测节点列表.
+     * Queries detection points.
      *
      * @param request - DescribeSyntheticProbeListRequest
      *
@@ -12095,6 +12099,10 @@ class Cms extends OpenApiClient
 
         if (null !== $request->ruleName) {
             @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sendOK) {
+            @$query['SendOK'] = $request->sendOK;
         }
 
         if (null !== $request->silenceTime) {

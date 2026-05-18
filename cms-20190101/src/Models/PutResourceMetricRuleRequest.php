@@ -93,6 +93,11 @@ class PutResourceMetricRuleRequest extends Model
     public $ruleName;
 
     /**
+     * @var bool
+     */
+    public $sendOK;
+
+    /**
      * @var int
      */
     public $silenceTime;
@@ -118,6 +123,7 @@ class PutResourceMetricRuleRequest extends Model
         'resources' => 'Resources',
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
+        'sendOK' => 'SendOK',
         'silenceTime' => 'SilenceTime',
         'webhook' => 'Webhook',
     ];
@@ -213,6 +219,10 @@ class PutResourceMetricRuleRequest extends Model
             $res['RuleName'] = $this->ruleName;
         }
 
+        if (null !== $this->sendOK) {
+            $res['SendOK'] = $this->sendOK;
+        }
+
         if (null !== $this->silenceTime) {
             $res['SilenceTime'] = $this->silenceTime;
         }
@@ -301,6 +311,10 @@ class PutResourceMetricRuleRequest extends Model
 
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+
+        if (isset($map['SendOK'])) {
+            $model->sendOK = $map['SendOK'];
         }
 
         if (isset($map['SilenceTime'])) {

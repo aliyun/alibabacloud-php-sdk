@@ -91,6 +91,11 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $ruleName;
 
     /**
+     * @var bool
+     */
+    public $sendOK;
+
+    /**
      * @var int
      */
     public $silenceTime;
@@ -116,6 +121,7 @@ class PutResourceMetricRuleShrinkRequest extends Model
         'resources' => 'Resources',
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
+        'sendOK' => 'SendOK',
         'silenceTime' => 'SilenceTime',
         'webhook' => 'Webhook',
     ];
@@ -203,6 +209,10 @@ class PutResourceMetricRuleShrinkRequest extends Model
 
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+
+        if (null !== $this->sendOK) {
+            $res['SendOK'] = $this->sendOK;
         }
 
         if (null !== $this->silenceTime) {
@@ -293,6 +303,10 @@ class PutResourceMetricRuleShrinkRequest extends Model
 
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+
+        if (isset($map['SendOK'])) {
+            $model->sendOK = $map['SendOK'];
         }
 
         if (isset($map['SilenceTime'])) {
