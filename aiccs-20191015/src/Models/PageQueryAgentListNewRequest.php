@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class PageQueryAgentListNewRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $agentId;
 

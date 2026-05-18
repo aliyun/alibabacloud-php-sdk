@@ -6,7 +6,6 @@ namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiVoiceAgentDetailNewResp
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiVoiceAgentDetailNewResponseBody\data\summaryConfig\callResultTagConfig\defaultTag;
-use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryAiVoiceAgentDetailNewResponseBody\data\summaryConfig\callResultTagConfig\mappingTag;
 
 class callResultTagConfig extends Model
 {
@@ -16,7 +15,7 @@ class callResultTagConfig extends Model
     public $defaultTag;
 
     /**
-     * @var mappingTag
+     * @var string[]
      */
     public $mappingTag;
     protected $_name = [
@@ -29,8 +28,8 @@ class callResultTagConfig extends Model
         if (null !== $this->defaultTag) {
             $this->defaultTag->validate();
         }
-        if (null !== $this->mappingTag) {
-            $this->mappingTag->validate();
+        if (\is_array($this->mappingTag)) {
+            Model::validateArray($this->mappingTag);
         }
         parent::validate();
     }
@@ -43,7 +42,12 @@ class callResultTagConfig extends Model
         }
 
         if (null !== $this->mappingTag) {
-            $res['MappingTag'] = null !== $this->mappingTag ? $this->mappingTag->toArray($noStream) : $this->mappingTag;
+            if (\is_array($this->mappingTag)) {
+                $res['MappingTag'] = [];
+                foreach ($this->mappingTag as $key1 => $value1) {
+                    $res['MappingTag'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
@@ -62,7 +66,12 @@ class callResultTagConfig extends Model
         }
 
         if (isset($map['MappingTag'])) {
-            $model->mappingTag = mappingTag::fromMap($map['MappingTag']);
+            if (!empty($map['MappingTag'])) {
+                $model->mappingTag = [];
+                foreach ($map['MappingTag'] as $key1 => $value1) {
+                    $model->mappingTag[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

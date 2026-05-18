@@ -9,17 +9,17 @@ use AlibabaCloud\Dara\Model;
 class QueryAiVoiceAgentDetailNewRequest extends Model
 {
     /**
-     * @var int
+     * @var string
      */
     public $agentId;
 
     /**
-     * @var int
+     * @var string
      */
     public $branchId;
 
     /**
-     * @var int
+     * @var string
      */
     public $versionId;
     protected $_name = [
