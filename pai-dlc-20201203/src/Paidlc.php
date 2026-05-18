@@ -12,7 +12,6 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobTemplateRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobTemplateResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobTemplateRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobTemplateResponse;
@@ -59,7 +58,6 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\SetJobTemplateDefaultVersionRequest
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\SetJobTemplateDefaultVersionResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardResponse;
-use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardResponse;
@@ -541,22 +539,19 @@ class Paidlc extends OpenApiClient
     /**
      * Deletes a completed or stopped job.
      *
-     * @param request - DeleteJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteJobResponse
      *
-     * @param string           $JobId
-     * @param DeleteJobRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param string         $JobId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
      * @return DeleteJobResponse
      */
-    public function deleteJobWithOptions($JobId, $request, $headers, $runtime)
+    public function deleteJobWithOptions($JobId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -578,21 +573,18 @@ class Paidlc extends OpenApiClient
     /**
      * Deletes a completed or stopped job.
      *
-     * @param request - DeleteJobRequest
-     *
      * @returns DeleteJobResponse
      *
-     * @param string           $JobId
-     * @param DeleteJobRequest $request
+     * @param string $JobId
      *
      * @return DeleteJobResponse
      */
-    public function deleteJob($JobId, $request)
+    public function deleteJob($JobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteJobWithOptions($JobId, $request, $headers, $runtime);
+        return $this->deleteJobWithOptions($JobId, $headers, $runtime);
     }
 
     /**
@@ -2348,22 +2340,19 @@ class Paidlc extends OpenApiClient
     /**
      * Stops a running job.
      *
-     * @param request - StopJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns StopJobResponse
      *
      * @param string         $JobId
-     * @param StopJobRequest $request
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
      * @return StopJobResponse
      */
-    public function stopJobWithOptions($JobId, $request, $headers, $runtime)
+    public function stopJobWithOptions($JobId, $headers, $runtime)
     {
-        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
@@ -2385,21 +2374,18 @@ class Paidlc extends OpenApiClient
     /**
      * Stops a running job.
      *
-     * @param request - StopJobRequest
-     *
      * @returns StopJobResponse
      *
-     * @param string         $JobId
-     * @param StopJobRequest $request
+     * @param string $JobId
      *
      * @return StopJobResponse
      */
-    public function stopJob($JobId, $request)
+    public function stopJob($JobId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->stopJobWithOptions($JobId, $request, $headers, $runtime);
+        return $this->stopJobWithOptions($JobId, $headers, $runtime);
     }
 
     /**
