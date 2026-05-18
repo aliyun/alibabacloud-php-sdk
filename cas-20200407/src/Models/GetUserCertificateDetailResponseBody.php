@@ -38,6 +38,11 @@ class GetUserCertificateDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $certSha2;
+
+    /**
+     * @var string
+     */
     public $city;
 
     /**
@@ -175,6 +180,7 @@ class GetUserCertificateDetailResponseBody extends Model
         'cert' => 'Cert',
         'certChain' => 'CertChain',
         'certIdentifier' => 'CertIdentifier',
+        'certSha2' => 'CertSha2',
         'city' => 'City',
         'common' => 'Common',
         'country' => 'Country',
@@ -243,6 +249,10 @@ class GetUserCertificateDetailResponseBody extends Model
 
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
+        }
+
+        if (null !== $this->certSha2) {
+            $res['CertSha2'] = $this->certSha2;
         }
 
         if (null !== $this->city) {
@@ -396,6 +406,10 @@ class GetUserCertificateDetailResponseBody extends Model
 
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
+        }
+
+        if (isset($map['CertSha2'])) {
+            $model->certSha2 = $map['CertSha2'];
         }
 
         if (isset($map['City'])) {

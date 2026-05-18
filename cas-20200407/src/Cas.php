@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\AddCloudAccessRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\AddCloudAccessResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ApplyCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ApplyCertificateResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\BatchUpdateNoticeStatusRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\BatchUpdateNoticeStatusResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelCertificateForPackageRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelCertificateForPackageRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelOrderRequestRequest;
@@ -352,6 +354,79 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->applyCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量更新通知状态
+     *
+     * @param request - BatchUpdateNoticeStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchUpdateNoticeStatusResponse
+     *
+     * @param BatchUpdateNoticeStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchUpdateNoticeStatusResponse
+     */
+    public function batchUpdateNoticeStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->noticeBiz) {
+            @$query['NoticeBiz'] = $request->noticeBiz;
+        }
+
+        if (null !== $request->noticeStatus) {
+            @$query['NoticeStatus'] = $request->noticeStatus;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchUpdateNoticeStatus',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchUpdateNoticeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量更新通知状态
+     *
+     * @param request - BatchUpdateNoticeStatusRequest
+     *
+     * @returns BatchUpdateNoticeStatusResponse
+     *
+     * @param BatchUpdateNoticeStatusRequest $request
+     *
+     * @return BatchUpdateNoticeStatusResponse
+     */
+    public function batchUpdateNoticeStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchUpdateNoticeStatusWithOptions($request, $runtime);
     }
 
     /**
