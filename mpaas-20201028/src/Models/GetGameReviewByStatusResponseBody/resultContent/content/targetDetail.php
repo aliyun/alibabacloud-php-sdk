@@ -66,6 +66,11 @@ class targetDetail extends Model
     /**
      * @var string
      */
+    public $publishStatusDesc;
+
+    /**
+     * @var string
+     */
     public $qrCodeUrl;
 
     /**
@@ -99,6 +104,7 @@ class targetDetail extends Model
         'miniProgramName' => 'MiniProgramName',
         'miniResourceId' => 'MiniResourceId',
         'publishStatus' => 'PublishStatus',
+        'publishStatusDesc' => 'PublishStatusDesc',
         'qrCodeUrl' => 'QrCodeUrl',
         'reviewTargetType' => 'ReviewTargetType',
         'subType' => 'SubType',
@@ -156,6 +162,10 @@ class targetDetail extends Model
 
         if (null !== $this->publishStatus) {
             $res['PublishStatus'] = $this->publishStatus;
+        }
+
+        if (null !== $this->publishStatusDesc) {
+            $res['PublishStatusDesc'] = $this->publishStatusDesc;
         }
 
         if (null !== $this->qrCodeUrl) {
@@ -231,6 +241,10 @@ class targetDetail extends Model
 
         if (isset($map['PublishStatus'])) {
             $model->publishStatus = $map['PublishStatus'];
+        }
+
+        if (isset($map['PublishStatusDesc'])) {
+            $model->publishStatusDesc = $map['PublishStatusDesc'];
         }
 
         if (isset($map['QrCodeUrl'])) {

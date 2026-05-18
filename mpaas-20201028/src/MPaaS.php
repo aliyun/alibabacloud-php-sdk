@@ -17,6 +17,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMcubePublicTaskStatusRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMcubePublicTaskStatusResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMdsCubeTaskStatusRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMdsCubeTaskStatusResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CheckUserAuthToMsceneRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\CheckUserAuthToMsceneResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateLinkRequest;
@@ -787,6 +789,87 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeMdsCubeTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用户校验.
+     *
+     * @param request - CheckUserAuthToMsceneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckUserAuthToMsceneResponse
+     *
+     * @param CheckUserAuthToMsceneRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckUserAuthToMsceneResponse
+     */
+    public function checkUserAuthToMsceneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->authToken) {
+            @$body['AuthToken'] = $request->authToken;
+        }
+
+        if (null !== $request->miniProgramId) {
+            @$body['MiniProgramId'] = $request->miniProgramId;
+        }
+
+        if (null !== $request->openUid) {
+            @$body['OpenUid'] = $request->openUid;
+        }
+
+        if (null !== $request->platformId) {
+            @$body['PlatformId'] = $request->platformId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckUserAuthToMscene',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckUserAuthToMsceneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用户校验.
+     *
+     * @param request - CheckUserAuthToMsceneRequest
+     *
+     * @returns CheckUserAuthToMsceneResponse
+     *
+     * @param CheckUserAuthToMsceneRequest $request
+     *
+     * @return CheckUserAuthToMsceneResponse
+     */
+    public function checkUserAuthToMscene($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkUserAuthToMsceneWithOptions($request, $runtime);
     }
 
     /**
