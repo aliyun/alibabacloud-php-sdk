@@ -52,6 +52,9 @@ use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeVscMountPointsRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DescribeVscMountPointsResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DetachVscFromMountPointsRequest;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DetachVscFromMountPointsResponse;
+use AlibabaCloud\SDK\DFS\V20180620\Models\DetachVscFromMountPointsShrinkRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DetachVscMountPointRequest;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DetachVscMountPointResponse;
 use AlibabaCloud\SDK\DFS\V20180620\Models\DetachVscMountPointShrinkRequest;
@@ -1560,6 +1563,77 @@ class DFS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVscMountPointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量卸载VSC 挂载点.
+     *
+     * @param tmpReq - DetachVscFromMountPointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachVscFromMountPointsResponse
+     *
+     * @param DetachVscFromMountPointsRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DetachVscFromMountPointsResponse
+     */
+    public function detachVscFromMountPointsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DetachVscFromMountPointsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->detachInfos) {
+            $request->detachInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->detachInfos, 'DetachInfos', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->detachInfosShrink) {
+            @$query['DetachInfos'] = $request->detachInfosShrink;
+        }
+
+        if (null !== $request->inputRegionId) {
+            @$query['InputRegionId'] = $request->inputRegionId;
+        }
+
+        if (null !== $request->useAssumeRoleChkServerPerm) {
+            @$query['UseAssumeRoleChkServerPerm'] = $request->useAssumeRoleChkServerPerm;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachVscFromMountPoints',
+            'version' => '2018-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachVscFromMountPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量卸载VSC 挂载点.
+     *
+     * @param request - DetachVscFromMountPointsRequest
+     *
+     * @returns DetachVscFromMountPointsResponse
+     *
+     * @param DetachVscFromMountPointsRequest $request
+     *
+     * @return DetachVscFromMountPointsResponse
+     */
+    public function detachVscFromMountPoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachVscFromMountPointsWithOptions($request, $runtime);
     }
 
     /**

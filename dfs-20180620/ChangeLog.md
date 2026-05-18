@@ -1,3 +1,7 @@
+2026-05-18 Version: 1.2.0
+- Support API DetachVscFromMountPoints.
+
+
 2025-12-03 Version: 1.1.3
 - Generated php 2018-06-20 for DFS.
 
