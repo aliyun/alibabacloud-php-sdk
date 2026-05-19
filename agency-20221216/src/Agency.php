@@ -61,6 +61,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetUnassociatedCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubResellerRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubResellerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\IssueCouponForCustomerRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\IssueCouponForCustomerResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListCountriesResponse;
@@ -1782,7 +1784,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询T2优惠券审批详情.
+     * View Tier 2 coupon approval details.
      *
      * @param request - GetTier2CouponApprovalDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1821,7 +1823,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询T2优惠券审批详情.
+     * View Tier 2 coupon approval details.
      *
      * @param request - GetTier2CouponApprovalDetailRequest
      *
@@ -1955,6 +1957,75 @@ class Agency extends OpenApiClient
     }
 
     /**
+     * T2 Sub-distributor Invitation (Supports Cross-Regional Validation).
+     *
+     * @remarks
+     * 1. The API caller must be a channel general distributor partner of Alibaba Cloud International.
+     * 2. The system automatically determines if the invitation is cross-regional based on whether the `registerNation` parameter is within the T1 contract coverage area (the contract coverage area can be queried using the ListCountries API).
+     * - If it\\"s a cross-regional invitation, a cross-regional approval process will be initiated. After approval by Alibaba Cloud, an invitation registration email will be sent to the invited email address.
+     * - If it\\"s not a cross-regional invitation, an invitation registration email will be sent directly.
+     *
+     * @param request - InviteSubResellerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InviteSubResellerResponse
+     *
+     * @param InviteSubResellerRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InviteSubResellerResponse
+     */
+    public function inviteSubResellerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountInfoList) {
+            @$query['AccountInfoList'] = $request->accountInfoList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InviteSubReseller',
+            'version' => '2022-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InviteSubResellerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * T2 Sub-distributor Invitation (Supports Cross-Regional Validation).
+     *
+     * @remarks
+     * 1. The API caller must be a channel general distributor partner of Alibaba Cloud International.
+     * 2. The system automatically determines if the invitation is cross-regional based on whether the `registerNation` parameter is within the T1 contract coverage area (the contract coverage area can be queried using the ListCountries API).
+     * - If it\\"s a cross-regional invitation, a cross-regional approval process will be initiated. After approval by Alibaba Cloud, an invitation registration email will be sent to the invited email address.
+     * - If it\\"s not a cross-regional invitation, an invitation registration email will be sent directly.
+     *
+     * @param request - InviteSubResellerRequest
+     *
+     * @returns InviteSubResellerResponse
+     *
+     * @param InviteSubResellerRequest $request
+     *
+     * @return InviteSubResellerResponse
+     */
+    public function inviteSubReseller($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->inviteSubResellerWithOptions($request, $runtime);
+    }
+
+    /**
      * 发放优惠券.
      *
      * @param request - IssueCouponForCustomerRequest
@@ -2033,7 +2104,6 @@ class Agency extends OpenApiClient
      * @remarks
      * The current API request rate for cloud products has not been disclosed.
      *
-     * @param request - ListCountriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListCountriesResponse
