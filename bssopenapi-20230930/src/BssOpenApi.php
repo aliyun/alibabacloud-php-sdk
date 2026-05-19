@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterRuleShrinkReque
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\ModifyCostCenterShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\PayOrderRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\PayOrderResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostByCostCenterRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostByCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResourceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterResourceResponse;
@@ -518,7 +520,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 检测budgetName是否存在.
+     * Check whether budgetName exists.
      *
      * @param request - CheckBudgetNameExistsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -563,7 +565,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 检测budgetName是否存在.
+     * Check whether budgetName exists.
      *
      * @param request - CheckBudgetNameExistsRequest
      *
@@ -581,7 +583,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 创建预算.
+     * Create Budget.
      *
      * @param tmpReq - CreateBudgetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -692,7 +694,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 创建预算.
+     * Create Budget.
      *
      * @param request - CreateBudgetRequest
      *
@@ -1492,7 +1494,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 查询单个Budget.
+     * Query a Single Budget.
      *
      * @param request - DescribeBudgetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1537,7 +1539,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 查询单个Budget.
+     * Query a Single Budget.
      *
      * @param request - DescribeBudgetRequest
      *
@@ -1555,7 +1557,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 查询预算列表.
+     * Query budget list.
      *
      * @param request - DescribeBudgetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1616,7 +1618,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 查询预算列表.
+     * Query budget list.
      *
      * @param request - DescribeBudgetsRequest
      *
@@ -3426,6 +3428,79 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * Query Cost Overview of a Cost Center.
+     *
+     * @param request - QueryCostByCostCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCostByCostCenterResponse
+     *
+     * @param QueryCostByCostCenterRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryCostByCostCenterResponse
+     */
+    public function queryCostByCostCenterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->billingMonth) {
+            @$query['BillingMonth'] = $request->billingMonth;
+        }
+
+        if (null !== $request->displayZeroAmountBills) {
+            @$query['DisplayZeroAmountBills'] = $request->displayZeroAmountBills;
+        }
+
+        if (null !== $request->groupByCostCenterLevel) {
+            @$query['GroupByCostCenterLevel'] = $request->groupByCostCenterLevel;
+        }
+
+        if (null !== $request->metrics) {
+            @$query['Metrics'] = $request->metrics;
+        }
+
+        if (null !== $request->ownerAccountId) {
+            @$query['OwnerAccountId'] = $request->ownerAccountId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCostByCostCenter',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCostByCostCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query Cost Overview of a Cost Center.
+     *
+     * @param request - QueryCostByCostCenterRequest
+     *
+     * @returns QueryCostByCostCenterResponse
+     *
+     * @param QueryCostByCostCenterRequest $request
+     *
+     * @return QueryCostByCostCenterResponse
+     */
+    public function queryCostByCostCenter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCostByCostCenterWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询财务单元.
      *
      * @param tmpReq - QueryCostCenterRequest
@@ -3728,7 +3803,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 修改财务单元分摊规则.
+     * Modify cost center allocation rules, including creating, modifying, and deleting allocation rules.
      *
      * @param tmpReq - SaveCostCenterShareRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3797,7 +3872,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * 修改财务单元分摊规则.
+     * Modify cost center allocation rules, including creating, modifying, and deleting allocation rules.
      *
      * @param request - SaveCostCenterShareRuleRequest
      *
