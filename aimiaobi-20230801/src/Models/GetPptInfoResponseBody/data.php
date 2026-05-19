@@ -21,6 +21,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $pptArtifactCover;
+
+    /**
+     * @var string
+     */
     public $pptArtifactId;
 
     /**
@@ -40,6 +45,7 @@ class data extends Model
     protected $_name = [
         'exportFileLink' => 'ExportFileLink',
         'exportTaskId' => 'ExportTaskId',
+        'pptArtifactCover' => 'PptArtifactCover',
         'pptArtifactId' => 'PptArtifactId',
         'pptProcessId' => 'PptProcessId',
         'query' => 'Query',
@@ -70,6 +76,10 @@ class data extends Model
 
         if (null !== $this->exportTaskId) {
             $res['ExportTaskId'] = $this->exportTaskId;
+        }
+
+        if (null !== $this->pptArtifactCover) {
+            $res['PptArtifactCover'] = $this->pptArtifactCover;
         }
 
         if (null !== $this->pptArtifactId) {
@@ -112,6 +122,10 @@ class data extends Model
 
         if (isset($map['ExportTaskId'])) {
             $model->exportTaskId = $map['ExportTaskId'];
+        }
+
+        if (isset($map['PptArtifactCover'])) {
+            $model->pptArtifactCover = $map['PptArtifactCover'];
         }
 
         if (isset($map['PptArtifactId'])) {
