@@ -12,7 +12,17 @@ class GetYikePromptExpansionVoiceFixJobResponseBody extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @var string
+     */
     public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
 
     /**
      * @var string
@@ -42,14 +52,22 @@ class GetYikePromptExpansionVoiceFixJobResponseBody extends Model
     /**
      * @var string
      */
+    public $startTime;
+
+    /**
+     * @var string
+     */
     public $userData;
     protected $_name = [
+        'endTime' => 'EndTime',
         'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'jobId' => 'JobId',
         'jobParams' => 'JobParams',
         'jobResult' => 'JobResult',
         'jobStatus' => 'JobStatus',
         'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
         'userData' => 'UserData',
     ];
 
@@ -64,8 +82,16 @@ class GetYikePromptExpansionVoiceFixJobResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
 
         if (null !== $this->jobId) {
@@ -95,6 +121,10 @@ class GetYikePromptExpansionVoiceFixJobResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -110,8 +140,16 @@ class GetYikePromptExpansionVoiceFixJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
 
         if (isset($map['JobId'])) {
@@ -139,6 +177,10 @@ class GetYikePromptExpansionVoiceFixJobResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['UserData'])) {
