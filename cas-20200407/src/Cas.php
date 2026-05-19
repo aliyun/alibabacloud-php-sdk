@@ -75,6 +75,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceDetailResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceSummaryRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceSummaryResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetMatchedResourcesRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetMatchedResourcesResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetRiskCountResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetTaskAttributeRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetTaskAttributeResponse;
@@ -2636,6 +2638,75 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取匹配的资源.
+     *
+     * @param request - GetMatchedResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMatchedResourcesResponse
+     *
+     * @param GetMatchedResourcesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMatchedResourcesResponse
+     */
+    public function getMatchedResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certIds) {
+            @$query['CertIds'] = $request->certIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceScope) {
+            @$query['ResourceScope'] = $request->resourceScope;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMatchedResources',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMatchedResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取匹配的资源.
+     *
+     * @param request - GetMatchedResourcesRequest
+     *
+     * @returns GetMatchedResourcesResponse
+     *
+     * @param GetMatchedResourcesRequest $request
+     *
+     * @return GetMatchedResourcesResponse
+     */
+    public function getMatchedResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMatchedResourcesWithOptions($request, $runtime);
     }
 
     /**
