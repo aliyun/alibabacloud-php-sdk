@@ -15,6 +15,10 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckUserResourceMeasureRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckUserResourceMeasureResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAIStaffChatRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAIStaffChatResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAIStaffConversationRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAIStaffConversationResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentSsoLoginRequest;
@@ -73,6 +77,10 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAIStaffChatEventsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAIStaffChatEventsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAIStaffChatMessagesRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAIStaffChatMessagesResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppAssistantAgentsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppAssistantAgentsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsForPartnerResponse;
@@ -575,6 +583,139 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkUserResourceMeasureWithOptions($request, $runtime);
+    }
+
+    /**
+     * 异步发起AI员工对话.
+     *
+     * @param request - CreateAIStaffChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAIStaffChatResponse
+     *
+     * @param CreateAIStaffChatRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAIStaffChatResponse
+     */
+    public function createAIStaffChatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->chatId) {
+            @$body['ChatId'] = $request->chatId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->messages) {
+            @$body['Messages'] = $request->messages;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->metaData) {
+            @$bodyFlat['MetaData'] = $request->metaData;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAIStaffChat',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAIStaffChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 异步发起AI员工对话.
+     *
+     * @param request - CreateAIStaffChatRequest
+     *
+     * @returns CreateAIStaffChatResponse
+     *
+     * @param CreateAIStaffChatRequest $request
+     *
+     * @return CreateAIStaffChatResponse
+     */
+    public function createAIStaffChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAIStaffChatWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建AI员工会话.
+     *
+     * @param request - CreateAIStaffConversationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAIStaffConversationResponse
+     *
+     * @param CreateAIStaffConversationRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateAIStaffConversationResponse
+     */
+    public function createAIStaffConversationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->text) {
+            @$body['Text'] = $request->text;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAIStaffConversation',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAIStaffConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建AI员工会话.
+     *
+     * @param request - CreateAIStaffConversationRequest
+     *
+     * @returns CreateAIStaffConversationResponse
+     *
+     * @param CreateAIStaffConversationRequest $request
+     *
+     * @return CreateAIStaffConversationResponse
+     */
+    public function createAIStaffConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAIStaffConversationWithOptions($request, $runtime);
     }
 
     /**
@@ -2377,6 +2518,148 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->introspectAppInstanceTicketForPreviewWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取AI员工对话增量SSE事件.
+     *
+     * @param request - ListAIStaffChatEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAIStaffChatEventsResponse
+     *
+     * @param ListAIStaffChatEventsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAIStaffChatEventsResponse
+     */
+    public function listAIStaffChatEventsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        $body = [];
+        if (null !== $request->chatId) {
+            @$body['ChatId'] = $request->chatId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->lastEventId) {
+            @$body['LastEventId'] = $request->lastEventId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAIStaffChatEvents',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAIStaffChatEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取AI员工对话增量SSE事件.
+     *
+     * @param request - ListAIStaffChatEventsRequest
+     *
+     * @returns ListAIStaffChatEventsResponse
+     *
+     * @param ListAIStaffChatEventsRequest $request
+     *
+     * @return ListAIStaffChatEventsResponse
+     */
+    public function listAIStaffChatEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAIStaffChatEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询AI员工对话消息列表.
+     *
+     * @param request - ListAIStaffChatMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAIStaffChatMessagesResponse
+     *
+     * @param ListAIStaffChatMessagesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListAIStaffChatMessagesResponse
+     */
+    public function listAIStaffChatMessagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startCreateTime) {
+            @$body['StartCreateTime'] = $request->startCreateTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAIStaffChatMessages',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAIStaffChatMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询AI员工对话消息列表.
+     *
+     * @param request - ListAIStaffChatMessagesRequest
+     *
+     * @returns ListAIStaffChatMessagesResponse
+     *
+     * @param ListAIStaffChatMessagesRequest $request
+     *
+     * @return ListAIStaffChatMessagesResponse
+     */
+    public function listAIStaffChatMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAIStaffChatMessagesWithOptions($request, $runtime);
     }
 
     /**
