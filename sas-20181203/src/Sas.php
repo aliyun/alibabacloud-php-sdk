@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\AddContainerDefenseRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddContainerDefenseRuleShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddContainerPluginRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddContainerPluginRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddFileProtectBindMachineRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\AddFileProtectBindMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddIdcProbeRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddIdcProbeResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\AddImageEventOperationRequest;
@@ -129,6 +131,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileProtectClientRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileProtectClientRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileProtectRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileProtectRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileUploadLimitRequest;
@@ -247,6 +251,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCycleTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteCycleTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteDingTalkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteDingTalkResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteFileProtectClientRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteFileProtectClientRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteFileProtectRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteFileProtectRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteGroupRequest;
@@ -1054,6 +1060,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectReportRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectReportResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectResultResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectClientEventDashboardRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectClientEventDashboardResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectClientEventRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectClientEventResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectClientRuleDashboardRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectClientRuleDashboardResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectClientRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectClientRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectDashboardResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectEventCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectEventCountResponse;
@@ -1303,6 +1317,14 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListCriteriaStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCriteriaStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListDockerhubImageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListDockerhubImageResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectBindMachineRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectBindMachineResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectClientEventRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectClientEventResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectClientRuleFileTypeRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectClientRuleFileTypeResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectClientRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectClientRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectEventRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectPluginStatusRequest;
@@ -1765,6 +1787,12 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCommonSwitchConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCommonSwitchConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCustomizeReportStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateCustomizeReportStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectClientEventRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectClientEventResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectClientRuleRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectClientRuleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectClientRuleStatusRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectClientRuleStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectEventStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectEventStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateFileProtectRemarkRequest;
@@ -2672,6 +2700,71 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addContainerPluginRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建文件防护规则.
+     *
+     * @param request - AddFileProtectBindMachineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddFileProtectBindMachineResponse
+     *
+     * @param AddFileProtectBindMachineRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddFileProtectBindMachineResponse
+     */
+    public function addFileProtectBindMachineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertUuids) {
+            @$query['AlertUuids'] = $request->alertUuids;
+        }
+
+        if (null !== $request->blockUuids) {
+            @$query['BlockUuids'] = $request->blockUuids;
+        }
+
+        if (null !== $request->noneUuids) {
+            @$query['NoneUuids'] = $request->noneUuids;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddFileProtectBindMachine',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddFileProtectBindMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建文件防护规则.
+     *
+     * @param request - AddFileProtectBindMachineRequest
+     *
+     * @returns AddFileProtectBindMachineResponse
+     *
+     * @param AddFileProtectBindMachineRequest $request
+     *
+     * @return AddFileProtectBindMachineResponse
+     */
+    public function addFileProtectBindMachine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addFileProtectBindMachineWithOptions($request, $runtime);
     }
 
     /**
@@ -6338,6 +6431,109 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createFileDetectUploadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建文件防护规则.
+     *
+     * @param request - CreateFileProtectClientRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFileProtectClientRuleResponse
+     *
+     * @param CreateFileProtectClientRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateFileProtectClientRuleResponse
+     */
+    public function createFileProtectClientRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertLevel) {
+            @$query['AlertLevel'] = $request->alertLevel;
+        }
+
+        if (null !== $request->excludeUsers) {
+            @$query['ExcludeUsers'] = $request->excludeUsers;
+        }
+
+        if (null !== $request->fileOps) {
+            @$query['FileOps'] = $request->fileOps;
+        }
+
+        if (null !== $request->filePaths) {
+            @$query['FilePaths'] = $request->filePaths;
+        }
+
+        if (null !== $request->fileTypes) {
+            @$query['FileTypes'] = $request->fileTypes;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->procPaths) {
+            @$query['ProcPaths'] = $request->procPaths;
+        }
+
+        if (null !== $request->ruleAction) {
+            @$query['RuleAction'] = $request->ruleAction;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->switchId) {
+            @$query['SwitchId'] = $request->switchId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFileProtectClientRule',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFileProtectClientRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建文件防护规则.
+     *
+     * @param request - CreateFileProtectClientRuleRequest
+     *
+     * @returns CreateFileProtectClientRuleResponse
+     *
+     * @param CreateFileProtectClientRuleRequest $request
+     *
+     * @return CreateFileProtectClientRuleResponse
+     */
+    public function createFileProtectClientRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFileProtectClientRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -10441,6 +10637,87 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDingTalkWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除文件防护规则.
+     *
+     * @param request - DeleteFileProtectClientRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFileProtectClientRuleResponse
+     *
+     * @param DeleteFileProtectClientRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteFileProtectClientRuleResponse
+     */
+    public function deleteFileProtectClientRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertLevel) {
+            @$query['AlertLevel'] = $request->alertLevel;
+        }
+
+        if (null !== $request->excludeIdList) {
+            @$query['ExcludeIdList'] = $request->excludeIdList;
+        }
+
+        if (null !== $request->idList) {
+            @$query['IdList'] = $request->idList;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->ruleAction) {
+            @$query['RuleAction'] = $request->ruleAction;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->selectAll) {
+            @$query['SelectAll'] = $request->selectAll;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFileProtectClientRule',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFileProtectClientRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除文件防护规则.
+     *
+     * @param request - DeleteFileProtectClientRuleRequest
+     *
+     * @returns DeleteFileProtectClientRuleResponse
+     *
+     * @param DeleteFileProtectClientRuleRequest $request
+     *
+     * @return DeleteFileProtectClientRuleResponse
+     */
+    public function deleteFileProtectClientRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFileProtectClientRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -39360,6 +39637,235 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * 获取文件防护事件.
+     *
+     * @param request - GetFileProtectClientEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileProtectClientEventResponse
+     *
+     * @param GetFileProtectClientEventRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetFileProtectClientEventResponse
+     */
+    public function getFileProtectClientEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetFileProtectClientEvent',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFileProtectClientEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件防护事件.
+     *
+     * @param request - GetFileProtectClientEventRequest
+     *
+     * @returns GetFileProtectClientEventResponse
+     *
+     * @param GetFileProtectClientEventRequest $request
+     *
+     * @return GetFileProtectClientEventResponse
+     */
+    public function getFileProtectClientEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileProtectClientEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文件防护事件大盘.
+     *
+     * @param request - GetFileProtectClientEventDashboardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileProtectClientEventDashboardResponse
+     *
+     * @param GetFileProtectClientEventDashboardRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetFileProtectClientEventDashboardResponse
+     */
+    public function getFileProtectClientEventDashboardWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetFileProtectClientEventDashboard',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFileProtectClientEventDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件防护事件大盘.
+     *
+     * @param request - GetFileProtectClientEventDashboardRequest
+     *
+     * @returns GetFileProtectClientEventDashboardResponse
+     *
+     * @param GetFileProtectClientEventDashboardRequest $request
+     *
+     * @return GetFileProtectClientEventDashboardResponse
+     */
+    public function getFileProtectClientEventDashboard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileProtectClientEventDashboardWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文件保护规则.
+     *
+     * @param request - GetFileProtectClientRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileProtectClientRuleResponse
+     *
+     * @param GetFileProtectClientRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetFileProtectClientRuleResponse
+     */
+    public function getFileProtectClientRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetFileProtectClientRule',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFileProtectClientRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件保护规则.
+     *
+     * @param request - GetFileProtectClientRuleRequest
+     *
+     * @returns GetFileProtectClientRuleResponse
+     *
+     * @param GetFileProtectClientRuleRequest $request
+     *
+     * @return GetFileProtectClientRuleResponse
+     */
+    public function getFileProtectClientRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileProtectClientRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文件防护规则大盘.
+     *
+     * @param request - GetFileProtectClientRuleDashboardRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFileProtectClientRuleDashboardResponse
+     *
+     * @param GetFileProtectClientRuleDashboardRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetFileProtectClientRuleDashboardResponse
+     */
+    public function getFileProtectClientRuleDashboardWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetFileProtectClientRuleDashboard',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFileProtectClientRuleDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件防护规则大盘.
+     *
+     * @param request - GetFileProtectClientRuleDashboardRequest
+     *
+     * @returns GetFileProtectClientRuleDashboardResponse
+     *
+     * @param GetFileProtectClientRuleDashboardRequest $request
+     *
+     * @return GetFileProtectClientRuleDashboardResponse
+     */
+    public function getFileProtectClientRuleDashboard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFileProtectClientRuleDashboardWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
      *
      * @param runtime - runtime options for this request RuntimeOptions
@@ -47878,6 +48384,239 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDockerhubImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取绑定防篡改机器列表.
+     *
+     * @param request - ListFileProtectBindMachineRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFileProtectBindMachineResponse
+     *
+     * @param ListFileProtectBindMachineRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListFileProtectBindMachineResponse
+     */
+    public function listFileProtectBindMachineWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFileProtectBindMachine',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFileProtectBindMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取绑定防篡改机器列表.
+     *
+     * @param request - ListFileProtectBindMachineRequest
+     *
+     * @returns ListFileProtectBindMachineResponse
+     *
+     * @param ListFileProtectBindMachineRequest $request
+     *
+     * @return ListFileProtectBindMachineResponse
+     */
+    public function listFileProtectBindMachine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFileProtectBindMachineWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文件防护事件列表.
+     *
+     * @param request - ListFileProtectClientEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFileProtectClientEventResponse
+     *
+     * @param ListFileProtectClientEventRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListFileProtectClientEventResponse
+     */
+    public function listFileProtectClientEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFileProtectClientEvent',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFileProtectClientEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件防护事件列表.
+     *
+     * @param request - ListFileProtectClientEventRequest
+     *
+     * @returns ListFileProtectClientEventResponse
+     *
+     * @param ListFileProtectClientEventRequest $request
+     *
+     * @return ListFileProtectClientEventResponse
+     */
+    public function listFileProtectClientEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFileProtectClientEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文件防护规则列表.
+     *
+     * @param request - ListFileProtectClientRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFileProtectClientRuleResponse
+     *
+     * @param ListFileProtectClientRuleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListFileProtectClientRuleResponse
+     */
+    public function listFileProtectClientRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertLevel) {
+            @$query['AlertLevel'] = $request->alertLevel;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->ruleAction) {
+            @$query['RuleAction'] = $request->ruleAction;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFileProtectClientRule',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFileProtectClientRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件防护规则列表.
+     *
+     * @param request - ListFileProtectClientRuleRequest
+     *
+     * @returns ListFileProtectClientRuleResponse
+     *
+     * @param ListFileProtectClientRuleRequest $request
+     *
+     * @return ListFileProtectClientRuleResponse
+     */
+    public function listFileProtectClientRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFileProtectClientRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取文件防护规则所有文件类型.
+     *
+     * @param request - ListFileProtectClientRuleFileTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFileProtectClientRuleFileTypeResponse
+     *
+     * @param ListFileProtectClientRuleFileTypeRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListFileProtectClientRuleFileTypeResponse
+     */
+    public function listFileProtectClientRuleFileTypeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListFileProtectClientRuleFileType',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFileProtectClientRuleFileTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文件防护规则所有文件类型.
+     *
+     * @param request - ListFileProtectClientRuleFileTypeRequest
+     *
+     * @returns ListFileProtectClientRuleFileTypeResponse
+     *
+     * @param ListFileProtectClientRuleFileTypeRequest $request
+     *
+     * @return ListFileProtectClientRuleFileTypeResponse
+     */
+    public function listFileProtectClientRuleFileType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFileProtectClientRuleFileTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -64067,6 +64806,309 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCustomizeReportStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新文件防护事件状态
+     *
+     * @param request - UpdateFileProtectClientEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileProtectClientEventResponse
+     *
+     * @param UpdateFileProtectClientEventRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateFileProtectClientEventResponse
+     */
+    public function updateFileProtectClientEventWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertLevels) {
+            @$query['AlertLevels'] = $request->alertLevels;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->excludeIdList) {
+            @$query['ExcludeIdList'] = $request->excludeIdList;
+        }
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
+        }
+
+        if (null !== $request->idList) {
+            @$query['IdList'] = $request->idList;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->internetIp) {
+            @$query['InternetIp'] = $request->internetIp;
+        }
+
+        if (null !== $request->intranetIp) {
+            @$query['IntranetIp'] = $request->intranetIp;
+        }
+
+        if (null !== $request->newStatus) {
+            @$query['NewStatus'] = $request->newStatus;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        if (null !== $request->procPath) {
+            @$query['ProcPath'] = $request->procPath;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->selectAll) {
+            @$query['SelectAll'] = $request->selectAll;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFileProtectClientEvent',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFileProtectClientEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新文件防护事件状态
+     *
+     * @param request - UpdateFileProtectClientEventRequest
+     *
+     * @returns UpdateFileProtectClientEventResponse
+     *
+     * @param UpdateFileProtectClientEventRequest $request
+     *
+     * @return UpdateFileProtectClientEventResponse
+     */
+    public function updateFileProtectClientEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFileProtectClientEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新文件防护规则.
+     *
+     * @param request - UpdateFileProtectClientRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileProtectClientRuleResponse
+     *
+     * @param UpdateFileProtectClientRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateFileProtectClientRuleResponse
+     */
+    public function updateFileProtectClientRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertLevel) {
+            @$query['AlertLevel'] = $request->alertLevel;
+        }
+
+        if (null !== $request->excludeUsers) {
+            @$query['ExcludeUsers'] = $request->excludeUsers;
+        }
+
+        if (null !== $request->fileOps) {
+            @$query['FileOps'] = $request->fileOps;
+        }
+
+        if (null !== $request->filePaths) {
+            @$query['FilePaths'] = $request->filePaths;
+        }
+
+        if (null !== $request->fileTypes) {
+            @$query['FileTypes'] = $request->fileTypes;
+        }
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->procPaths) {
+            @$query['ProcPaths'] = $request->procPaths;
+        }
+
+        if (null !== $request->ruleAction) {
+            @$query['RuleAction'] = $request->ruleAction;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFileProtectClientRule',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFileProtectClientRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新文件防护规则.
+     *
+     * @param request - UpdateFileProtectClientRuleRequest
+     *
+     * @returns UpdateFileProtectClientRuleResponse
+     *
+     * @param UpdateFileProtectClientRuleRequest $request
+     *
+     * @return UpdateFileProtectClientRuleResponse
+     */
+    public function updateFileProtectClientRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFileProtectClientRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新文件防护规则状态
+     *
+     * @param request - UpdateFileProtectClientRuleStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFileProtectClientRuleStatusResponse
+     *
+     * @param UpdateFileProtectClientRuleStatusRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateFileProtectClientRuleStatusResponse
+     */
+    public function updateFileProtectClientRuleStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertLevel) {
+            @$query['AlertLevel'] = $request->alertLevel;
+        }
+
+        if (null !== $request->excludeIdList) {
+            @$query['ExcludeIdList'] = $request->excludeIdList;
+        }
+
+        if (null !== $request->idList) {
+            @$query['IdList'] = $request->idList;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->ruleAction) {
+            @$query['RuleAction'] = $request->ruleAction;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->selectAll) {
+            @$query['SelectAll'] = $request->selectAll;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFileProtectClientRuleStatus',
+            'version' => '2018-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFileProtectClientRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新文件防护规则状态
+     *
+     * @param request - UpdateFileProtectClientRuleStatusRequest
+     *
+     * @returns UpdateFileProtectClientRuleStatusResponse
+     *
+     * @param UpdateFileProtectClientRuleStatusRequest $request
+     *
+     * @return UpdateFileProtectClientRuleStatusResponse
+     */
+    public function updateFileProtectClientRuleStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFileProtectClientRuleStatusWithOptions($request, $runtime);
     }
 
     /**

@@ -1,0 +1,356 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetFileProtectClientEventResponseBody;
+
+use AlibabaCloud\Dara\Model;
+
+class data extends Model
+{
+    /**
+     * @var int
+     */
+    public $alertLevel;
+
+    /**
+     * @var string
+     */
+    public $cmdLine;
+
+    /**
+     * @var int
+     */
+    public $count;
+
+    /**
+     * @var string
+     */
+    public $filePath;
+
+    /**
+     * @var string
+     */
+    public $filePermission;
+
+    /**
+     * @var int
+     */
+    public $firstTime;
+
+    /**
+     * @var int
+     */
+    public $handleTime;
+
+    /**
+     * @var int
+     */
+    public $id;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
+     * @var int
+     */
+    public $latestTime;
+
+    /**
+     * @var string
+     */
+    public $operation;
+
+    /**
+     * @var string
+     */
+    public $platform;
+
+    /**
+     * @var string
+     */
+    public $procPath;
+
+    /**
+     * @var string
+     */
+    public $processId;
+
+    /**
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @var string
+     */
+    public $ruleAction;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
+
+    /**
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $userId;
+
+    /**
+     * @var string
+     */
+    public $userName;
+
+    /**
+     * @var string
+     */
+    public $uuid;
+    protected $_name = [
+        'alertLevel' => 'AlertLevel',
+        'cmdLine' => 'CmdLine',
+        'count' => 'Count',
+        'filePath' => 'FilePath',
+        'filePermission' => 'FilePermission',
+        'firstTime' => 'FirstTime',
+        'handleTime' => 'HandleTime',
+        'id' => 'Id',
+        'instanceName' => 'InstanceName',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'latestTime' => 'LatestTime',
+        'operation' => 'Operation',
+        'platform' => 'Platform',
+        'procPath' => 'ProcPath',
+        'processId' => 'ProcessId',
+        'remark' => 'Remark',
+        'ruleAction' => 'RuleAction',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
+        'uuid' => 'Uuid',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->alertLevel) {
+            $res['AlertLevel'] = $this->alertLevel;
+        }
+
+        if (null !== $this->cmdLine) {
+            $res['CmdLine'] = $this->cmdLine;
+        }
+
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
+
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
+        }
+
+        if (null !== $this->filePermission) {
+            $res['FilePermission'] = $this->filePermission;
+        }
+
+        if (null !== $this->firstTime) {
+            $res['FirstTime'] = $this->firstTime;
+        }
+
+        if (null !== $this->handleTime) {
+            $res['HandleTime'] = $this->handleTime;
+        }
+
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
+
+        if (null !== $this->internetIp) {
+            $res['InternetIp'] = $this->internetIp;
+        }
+
+        if (null !== $this->intranetIp) {
+            $res['IntranetIp'] = $this->intranetIp;
+        }
+
+        if (null !== $this->latestTime) {
+            $res['LatestTime'] = $this->latestTime;
+        }
+
+        if (null !== $this->operation) {
+            $res['Operation'] = $this->operation;
+        }
+
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
+        }
+
+        if (null !== $this->procPath) {
+            $res['ProcPath'] = $this->procPath;
+        }
+
+        if (null !== $this->processId) {
+            $res['ProcessId'] = $this->processId;
+        }
+
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+
+        if (null !== $this->ruleAction) {
+            $res['RuleAction'] = $this->ruleAction;
+        }
+
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
+        }
+
+        if (null !== $this->uuid) {
+            $res['Uuid'] = $this->uuid;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['AlertLevel'])) {
+            $model->alertLevel = $map['AlertLevel'];
+        }
+
+        if (isset($map['CmdLine'])) {
+            $model->cmdLine = $map['CmdLine'];
+        }
+
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
+
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
+        }
+
+        if (isset($map['FilePermission'])) {
+            $model->filePermission = $map['FilePermission'];
+        }
+
+        if (isset($map['FirstTime'])) {
+            $model->firstTime = $map['FirstTime'];
+        }
+
+        if (isset($map['HandleTime'])) {
+            $model->handleTime = $map['HandleTime'];
+        }
+
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
+
+        if (isset($map['InternetIp'])) {
+            $model->internetIp = $map['InternetIp'];
+        }
+
+        if (isset($map['IntranetIp'])) {
+            $model->intranetIp = $map['IntranetIp'];
+        }
+
+        if (isset($map['LatestTime'])) {
+            $model->latestTime = $map['LatestTime'];
+        }
+
+        if (isset($map['Operation'])) {
+            $model->operation = $map['Operation'];
+        }
+
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
+        }
+
+        if (isset($map['ProcPath'])) {
+            $model->procPath = $map['ProcPath'];
+        }
+
+        if (isset($map['ProcessId'])) {
+            $model->processId = $map['ProcessId'];
+        }
+
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+
+        if (isset($map['RuleAction'])) {
+            $model->ruleAction = $map['RuleAction'];
+        }
+
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
+        }
+
+        if (isset($map['Uuid'])) {
+            $model->uuid = $map['Uuid'];
+        }
+
+        return $model;
+    }
+}
