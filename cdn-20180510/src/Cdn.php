@@ -76,6 +76,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDiagnoseReportRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDiagnoseReportResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainAtoaLogsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainAtoaLogsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDomainByCertificateRequest;
@@ -115,6 +117,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSSLCertificateListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSSLCertificateListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSubListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnTaskListRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnTaskListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnTypesRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnTypesResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryRequest;
@@ -2993,6 +2997,67 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * Queries the details of a diagnostic report.
+     *
+     * @param request - DescribeCdnDiagnoseReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCdnDiagnoseReportResponse
+     *
+     * @param DescribeCdnDiagnoseReportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeCdnDiagnoseReportResponse
+     */
+    public function describeCdnDiagnoseReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->traceId) {
+            @$query['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCdnDiagnoseReport',
+            'version' => '2018-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCdnDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a diagnostic report.
+     *
+     * @param request - DescribeCdnDiagnoseReportRequest
+     *
+     * @returns DescribeCdnDiagnoseReportResponse
+     *
+     * @param DescribeCdnDiagnoseReportRequest $request
+     *
+     * @return DescribeCdnDiagnoseReportResponse
+     */
+    public function describeCdnDiagnoseReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnDiagnoseReportWithOptions($request, $runtime);
+    }
+
+    /**
      * 天翼定制化小时日志下载接口.
      *
      * @param request - DescribeCdnDomainAtoaLogsRequest
@@ -4416,6 +4481,95 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnSubListWithOptions($runtime);
+    }
+
+    /**
+     * Queries a list of diagnostic tasks.
+     *
+     * @param request - DescribeCdnTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCdnTaskListResponse
+     *
+     * @param DescribeCdnTaskListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeCdnTaskListResponse
+     */
+    public function describeCdnTaskListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
+        }
+
+        if (null !== $request->diagnoseId) {
+            @$query['DiagnoseId'] = $request->diagnoseId;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->traceId) {
+            @$query['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCdnTaskList',
+            'version' => '2018-05-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCdnTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of diagnostic tasks.
+     *
+     * @param request - DescribeCdnTaskListRequest
+     *
+     * @returns DescribeCdnTaskListResponse
+     *
+     * @param DescribeCdnTaskListRequest $request
+     *
+     * @return DescribeCdnTaskListResponse
+     */
+    public function describeCdnTaskList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnTaskListWithOptions($request, $runtime);
     }
 
     /**
