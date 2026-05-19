@@ -59,6 +59,11 @@ class DescribeBaseSystemRulesRequest extends Model
     public $ruleId;
 
     /**
+     * @var int[]
+     */
+    public $ruleIds;
+
+    /**
      * @var string
      */
     public $ruleName;
@@ -83,6 +88,7 @@ class DescribeBaseSystemRulesRequest extends Model
         'riskLevel' => 'RiskLevel',
         'ruleAction' => 'RuleAction',
         'ruleId' => 'RuleId',
+        'ruleIds' => 'RuleIds',
         'ruleName' => 'RuleName',
         'ruleStatus' => 'RuleStatus',
         'templateId' => 'TemplateId',
@@ -90,6 +96,9 @@ class DescribeBaseSystemRulesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->ruleIds)) {
+            Model::validateArray($this->ruleIds);
+        }
         parent::validate();
     }
 
@@ -134,6 +143,17 @@ class DescribeBaseSystemRulesRequest extends Model
 
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
+        }
+
+        if (null !== $this->ruleIds) {
+            if (\is_array($this->ruleIds)) {
+                $res['RuleIds'] = [];
+                $n1 = 0;
+                foreach ($this->ruleIds as $item1) {
+                    $res['RuleIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->ruleName) {
@@ -197,6 +217,17 @@ class DescribeBaseSystemRulesRequest extends Model
 
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
+        }
+
+        if (isset($map['RuleIds'])) {
+            if (!empty($map['RuleIds'])) {
+                $model->ruleIds = [];
+                $n1 = 0;
+                foreach ($map['RuleIds'] as $item1) {
+                    $model->ruleIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['RuleName'])) {

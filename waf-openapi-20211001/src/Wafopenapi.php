@@ -5906,6 +5906,10 @@ class Wafopenapi extends OpenApiClient
             @$query['RuleId'] = $request->ruleId;
         }
 
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
+        }
+
         if (null !== $request->ruleName) {
             @$query['RuleName'] = $request->ruleName;
         }
