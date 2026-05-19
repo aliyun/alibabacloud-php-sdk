@@ -143,6 +143,9 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionGroupReq
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionGroupResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RevertAssignedSessionResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RunCompletionMessageRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RunCompletionMessageResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\RunCompletionMessageShrinkRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SaveConfigDataSetRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SaveConfigDataSetResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitComplaintRequest;
@@ -4634,6 +4637,143 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revertAssignedSessionGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 使用原生Prompt调用通义晓蜜.
+     *
+     * @param tmpReq - RunCompletionMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCompletionMessageResponse
+     *
+     * @param RunCompletionMessageRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RunCompletionMessageResponse
+     */
+    public function runCompletionMessageWithSSE($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunCompletionMessageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->messages) {
+            $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->messagesShrink) {
+            @$body['Messages'] = $request->messagesShrink;
+        }
+
+        if (null !== $request->modelCode) {
+            @$body['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunCompletionMessage',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield RunCompletionMessageResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 使用原生Prompt调用通义晓蜜.
+     *
+     * @param tmpReq - RunCompletionMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCompletionMessageResponse
+     *
+     * @param RunCompletionMessageRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RunCompletionMessageResponse
+     */
+    public function runCompletionMessageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunCompletionMessageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->messages) {
+            $request->messagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'Messages', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->messagesShrink) {
+            @$body['Messages'] = $request->messagesShrink;
+        }
+
+        if (null !== $request->modelCode) {
+            @$body['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunCompletionMessage',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunCompletionMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 使用原生Prompt调用通义晓蜜.
+     *
+     * @param request - RunCompletionMessageRequest
+     *
+     * @returns RunCompletionMessageResponse
+     *
+     * @param RunCompletionMessageRequest $request
+     *
+     * @return RunCompletionMessageResponse
+     */
+    public function runCompletionMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runCompletionMessageWithOptions($request, $runtime);
     }
 
     /**
