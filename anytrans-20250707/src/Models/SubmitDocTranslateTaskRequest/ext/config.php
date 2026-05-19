@@ -11,8 +11,14 @@ class config extends Model
     /**
      * @var bool
      */
+    public $isBilingual;
+
+    /**
+     * @var bool
+     */
     public $skipImgTrans;
     protected $_name = [
+        'isBilingual' => 'isBilingual',
         'skipImgTrans' => 'skipImgTrans',
     ];
 
@@ -24,6 +30,10 @@ class config extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->isBilingual) {
+            $res['isBilingual'] = $this->isBilingual;
+        }
+
         if (null !== $this->skipImgTrans) {
             $res['skipImgTrans'] = $this->skipImgTrans;
         }
@@ -39,6 +49,10 @@ class config extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['isBilingual'])) {
+            $model->isBilingual = $map['isBilingual'];
+        }
+
         if (isset($map['skipImgTrans'])) {
             $model->skipImgTrans = $map['skipImgTrans'];
         }
