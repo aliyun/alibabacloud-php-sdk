@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\ADBAI\V20250812\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\ModifyEmbodiedAIPlatformRequest\rayConfig;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\ModifyEmbodiedAIPlatformRequest\rayTrainConfig;
 
 class ModifyEmbodiedAIPlatformRequest extends Model
 {
@@ -30,6 +31,11 @@ class ModifyEmbodiedAIPlatformRequest extends Model
     public $rayConfig;
 
     /**
+     * @var rayTrainConfig
+     */
+    public $rayTrainConfig;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -43,6 +49,7 @@ class ModifyEmbodiedAIPlatformRequest extends Model
         'deviceCount' => 'DeviceCount',
         'platformName' => 'PlatformName',
         'rayConfig' => 'RayConfig',
+        'rayTrainConfig' => 'RayTrainConfig',
         'regionId' => 'RegionId',
         'webserverSpecName' => 'WebserverSpecName',
     ];
@@ -51,6 +58,9 @@ class ModifyEmbodiedAIPlatformRequest extends Model
     {
         if (null !== $this->rayConfig) {
             $this->rayConfig->validate();
+        }
+        if (null !== $this->rayTrainConfig) {
+            $this->rayTrainConfig->validate();
         }
         parent::validate();
     }
@@ -72,6 +82,10 @@ class ModifyEmbodiedAIPlatformRequest extends Model
 
         if (null !== $this->rayConfig) {
             $res['RayConfig'] = null !== $this->rayConfig ? $this->rayConfig->toArray($noStream) : $this->rayConfig;
+        }
+
+        if (null !== $this->rayTrainConfig) {
+            $res['RayTrainConfig'] = null !== $this->rayTrainConfig ? $this->rayTrainConfig->toArray($noStream) : $this->rayTrainConfig;
         }
 
         if (null !== $this->regionId) {
@@ -107,6 +121,10 @@ class ModifyEmbodiedAIPlatformRequest extends Model
 
         if (isset($map['RayConfig'])) {
             $model->rayConfig = rayConfig::fromMap($map['RayConfig']);
+        }
+
+        if (isset($map['RayTrainConfig'])) {
+            $model->rayTrainConfig = rayTrainConfig::fromMap($map['RayTrainConfig']);
         }
 
         if (isset($map['RegionId'])) {

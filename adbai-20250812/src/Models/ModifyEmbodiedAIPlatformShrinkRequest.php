@@ -31,6 +31,11 @@ class ModifyEmbodiedAIPlatformShrinkRequest extends Model
     /**
      * @var string
      */
+    public $rayTrainConfigShrink;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -42,6 +47,7 @@ class ModifyEmbodiedAIPlatformShrinkRequest extends Model
         'deviceCount' => 'DeviceCount',
         'platformName' => 'PlatformName',
         'rayConfigShrink' => 'RayConfig',
+        'rayTrainConfigShrink' => 'RayTrainConfig',
         'regionId' => 'RegionId',
         'webserverSpecName' => 'WebserverSpecName',
     ];
@@ -68,6 +74,10 @@ class ModifyEmbodiedAIPlatformShrinkRequest extends Model
 
         if (null !== $this->rayConfigShrink) {
             $res['RayConfig'] = $this->rayConfigShrink;
+        }
+
+        if (null !== $this->rayTrainConfigShrink) {
+            $res['RayTrainConfig'] = $this->rayTrainConfigShrink;
         }
 
         if (null !== $this->regionId) {
@@ -103,6 +113,10 @@ class ModifyEmbodiedAIPlatformShrinkRequest extends Model
 
         if (isset($map['RayConfig'])) {
             $model->rayConfigShrink = $map['RayConfig'];
+        }
+
+        if (isset($map['RayTrainConfig'])) {
+            $model->rayTrainConfigShrink = $map['RayTrainConfig'];
         }
 
         if (isset($map['RegionId'])) {

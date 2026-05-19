@@ -171,6 +171,10 @@ class ADBAI extends OpenApiClient
             $request->rayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rayConfig, 'RayConfig', 'json');
         }
 
+        if (null !== $tmpReq->rayTrainConfig) {
+            $request->rayTrainConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rayTrainConfig, 'RayTrainConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
@@ -186,6 +190,10 @@ class ADBAI extends OpenApiClient
 
         if (null !== $request->rayConfigShrink) {
             @$query['RayConfig'] = $request->rayConfigShrink;
+        }
+
+        if (null !== $request->rayTrainConfigShrink) {
+            @$query['RayTrainConfig'] = $request->rayTrainConfigShrink;
         }
 
         if (null !== $request->regionId) {
@@ -888,6 +896,10 @@ class ADBAI extends OpenApiClient
             $request->rayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rayConfig, 'RayConfig', 'json');
         }
 
+        if (null !== $tmpReq->rayTrainConfig) {
+            $request->rayTrainConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rayTrainConfig, 'RayTrainConfig', 'json');
+        }
+
         $query = [];
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
@@ -903,6 +915,10 @@ class ADBAI extends OpenApiClient
 
         if (null !== $request->rayConfigShrink) {
             @$query['RayConfig'] = $request->rayConfigShrink;
+        }
+
+        if (null !== $request->rayTrainConfigShrink) {
+            @$query['RayTrainConfig'] = $request->rayTrainConfigShrink;
         }
 
         if (null !== $request->regionId) {

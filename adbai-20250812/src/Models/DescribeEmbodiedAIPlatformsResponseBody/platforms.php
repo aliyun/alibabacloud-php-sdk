@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsRes
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsResponseBody\platforms\eapConfig;
 use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsResponseBody\platforms\rayConfig;
+use AlibabaCloud\SDK\ADBAI\V20250812\Models\DescribeEmbodiedAIPlatformsResponseBody\platforms\rayTrainConfig;
 
 class platforms extends Model
 {
@@ -36,6 +37,11 @@ class platforms extends Model
     public $rayConfig;
 
     /**
+     * @var rayTrainConfig
+     */
+    public $rayTrainConfig;
+
+    /**
      * @var string
      */
     public $state;
@@ -45,6 +51,7 @@ class platforms extends Model
         'ossBucketName' => 'OssBucketName',
         'platformName' => 'PlatformName',
         'rayConfig' => 'RayConfig',
+        'rayTrainConfig' => 'RayTrainConfig',
         'state' => 'State',
     ];
 
@@ -55,6 +62,9 @@ class platforms extends Model
         }
         if (null !== $this->rayConfig) {
             $this->rayConfig->validate();
+        }
+        if (null !== $this->rayTrainConfig) {
+            $this->rayTrainConfig->validate();
         }
         parent::validate();
     }
@@ -80,6 +90,10 @@ class platforms extends Model
 
         if (null !== $this->rayConfig) {
             $res['RayConfig'] = null !== $this->rayConfig ? $this->rayConfig->toArray($noStream) : $this->rayConfig;
+        }
+
+        if (null !== $this->rayTrainConfig) {
+            $res['RayTrainConfig'] = null !== $this->rayTrainConfig ? $this->rayTrainConfig->toArray($noStream) : $this->rayTrainConfig;
         }
 
         if (null !== $this->state) {
@@ -115,6 +129,10 @@ class platforms extends Model
 
         if (isset($map['RayConfig'])) {
             $model->rayConfig = rayConfig::fromMap($map['RayConfig']);
+        }
+
+        if (isset($map['RayTrainConfig'])) {
+            $model->rayTrainConfig = rayTrainConfig::fromMap($map['RayTrainConfig']);
         }
 
         if (isset($map['State'])) {
