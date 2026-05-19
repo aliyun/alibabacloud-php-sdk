@@ -148,6 +148,11 @@ class GetAICoachScriptResponseBody extends Model
     public $orderAckFlag;
 
     /**
+     * @var bool
+     */
+    public $pointCoveredFlag;
+
+    /**
      * @var pointDeductionRuleList[]
      */
     public $pointDeductionRuleList;
@@ -248,6 +253,7 @@ class GetAICoachScriptResponseBody extends Model
         'name' => 'name',
         'openingRemarks' => 'openingRemarks',
         'orderAckFlag' => 'orderAckFlag',
+        'pointCoveredFlag' => 'pointCoveredFlag',
         'pointDeductionRuleList' => 'pointDeductionRuleList',
         'points' => 'points',
         'requestId' => 'requestId',
@@ -434,6 +440,10 @@ class GetAICoachScriptResponseBody extends Model
 
         if (null !== $this->orderAckFlag) {
             $res['orderAckFlag'] = $this->orderAckFlag;
+        }
+
+        if (null !== $this->pointCoveredFlag) {
+            $res['pointCoveredFlag'] = $this->pointCoveredFlag;
         }
 
         if (null !== $this->pointDeductionRuleList) {
@@ -656,6 +666,10 @@ class GetAICoachScriptResponseBody extends Model
 
         if (isset($map['orderAckFlag'])) {
             $model->orderAckFlag = $map['orderAckFlag'];
+        }
+
+        if (isset($map['pointCoveredFlag'])) {
+            $model->pointCoveredFlag = $map['pointCoveredFlag'];
         }
 
         if (isset($map['pointDeductionRuleList'])) {
