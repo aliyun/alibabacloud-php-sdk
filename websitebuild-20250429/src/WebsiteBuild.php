@@ -65,6 +65,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerReques
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetLlmProxyConfigForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetLlmProxyConfigForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerRequest;
@@ -2119,6 +2121,67 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getIcpFilingInfoForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询LLM Proxy配置.
+     *
+     * @param request - GetLlmProxyConfigForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLlmProxyConfigForAdminResponse
+     *
+     * @param GetLlmProxyConfigForAdminRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetLlmProxyConfigForAdminResponse
+     */
+    public function getLlmProxyConfigForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->capability) {
+            @$query['Capability'] = $request->capability;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLlmProxyConfigForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLlmProxyConfigForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询LLM Proxy配置.
+     *
+     * @param request - GetLlmProxyConfigForAdminRequest
+     *
+     * @returns GetLlmProxyConfigForAdminResponse
+     *
+     * @param GetLlmProxyConfigForAdminRequest $request
+     *
+     * @return GetLlmProxyConfigForAdminResponse
+     */
+    public function getLlmProxyConfigForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLlmProxyConfigForAdminWithOptions($request, $runtime);
     }
 
     /**
