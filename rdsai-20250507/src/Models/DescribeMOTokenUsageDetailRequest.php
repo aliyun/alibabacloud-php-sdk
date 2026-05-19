@@ -21,6 +21,11 @@ class DescribeMOTokenUsageDetailRequest extends Model
     /**
      * @var string
      */
+    public $cursor;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -55,6 +60,7 @@ class DescribeMOTokenUsageDetailRequest extends Model
     protected $_name = [
         'apiKey' => 'ApiKey',
         'consumerName' => 'ConsumerName',
+        'cursor' => 'Cursor',
         'endTime' => 'EndTime',
         'instanceId' => 'InstanceId',
         'model' => 'Model',
@@ -78,6 +84,10 @@ class DescribeMOTokenUsageDetailRequest extends Model
 
         if (null !== $this->consumerName) {
             $res['ConsumerName'] = $this->consumerName;
+        }
+
+        if (null !== $this->cursor) {
+            $res['Cursor'] = $this->cursor;
         }
 
         if (null !== $this->endTime) {
@@ -125,6 +135,10 @@ class DescribeMOTokenUsageDetailRequest extends Model
 
         if (isset($map['ConsumerName'])) {
             $model->consumerName = $map['ConsumerName'];
+        }
+
+        if (isset($map['Cursor'])) {
+            $model->cursor = $map['Cursor'];
         }
 
         if (isset($map['EndTime'])) {

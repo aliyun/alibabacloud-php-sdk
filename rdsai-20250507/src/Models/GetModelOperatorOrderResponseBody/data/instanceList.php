@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class instanceList extends Model
 {
     /**
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @var int
      */
     public $endTime;
@@ -33,6 +38,7 @@ class instanceList extends Model
      */
     public $status;
     protected $_name = [
+        'chargeType' => 'ChargeType',
         'endTime' => 'EndTime',
         'instanceClass' => 'InstanceClass',
         'instanceId' => 'InstanceId',
@@ -48,6 +54,10 @@ class instanceList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -79,6 +89,10 @@ class instanceList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

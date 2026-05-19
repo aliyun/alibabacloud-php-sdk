@@ -1966,6 +1966,10 @@ class RdsAi extends OpenApiClient
             @$query['ConsumerName'] = $request->consumerName;
         }
 
+        if (null !== $request->cursor) {
+            @$query['Cursor'] = $request->cursor;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
         }

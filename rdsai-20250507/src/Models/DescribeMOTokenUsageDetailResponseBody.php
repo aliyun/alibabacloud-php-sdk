@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOTokenUsageDetailResponseBo
 class DescribeMOTokenUsageDetailResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $nextCursor;
+
+    /**
      * @var int
      */
     public $page;
@@ -34,6 +39,7 @@ class DescribeMOTokenUsageDetailResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
+        'nextCursor' => 'NextCursor',
         'page' => 'Page',
         'pageSize' => 'PageSize',
         'records' => 'Records',
@@ -52,6 +58,10 @@ class DescribeMOTokenUsageDetailResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->nextCursor) {
+            $res['NextCursor'] = $this->nextCursor;
+        }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
@@ -90,6 +100,10 @@ class DescribeMOTokenUsageDetailResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextCursor'])) {
+            $model->nextCursor = $map['NextCursor'];
+        }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
