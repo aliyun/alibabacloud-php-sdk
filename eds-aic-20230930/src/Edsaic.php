@@ -162,6 +162,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateRespons
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\OperateAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\OperateAppResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\PauseAgentTaskRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\PauseAgentTaskResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoverAndroidInstanceRequest;
@@ -176,6 +178,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewCloudPhoneNodesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewCloudPhoneNodesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResetAndroidInstancesInGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResetAndroidInstancesInGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResumeAgentTaskRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResumeAgentTaskResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunCommandRequest;
@@ -6068,6 +6072,63 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * 暂停云手机实例上正在运行的 Agent 任务。
+     *
+     * @param request - PauseAgentTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseAgentTaskResponse
+     *
+     * @param PauseAgentTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PauseAgentTaskResponse
+     */
+    public function pauseAgentTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PauseAgentTask',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PauseAgentTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停云手机实例上正在运行的 Agent 任务。
+     *
+     * @param request - PauseAgentTaskRequest
+     *
+     * @returns PauseAgentTaskResponse
+     *
+     * @param PauseAgentTaskRequest $request
+     *
+     * @return PauseAgentTaskResponse
+     */
+    public function pauseAgentTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseAgentTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Restarts one or more cloud phone instances.
      *
      * @remarks
@@ -6604,6 +6665,67 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetAndroidInstancesInGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 继续云手机实例上正在运行的 Agent 任务。
+     *
+     * @param request - ResumeAgentTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeAgentTaskResponse
+     *
+     * @param ResumeAgentTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ResumeAgentTaskResponse
+     */
+    public function resumeAgentTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->additionalPrompt) {
+            @$query['AdditionalPrompt'] = $request->additionalPrompt;
+        }
+
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeAgentTask',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeAgentTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 继续云手机实例上正在运行的 Agent 任务。
+     *
+     * @param request - ResumeAgentTaskRequest
+     *
+     * @returns ResumeAgentTaskResponse
+     *
+     * @param ResumeAgentTaskRequest $request
+     *
+     * @return ResumeAgentTaskResponse
+     */
+    public function resumeAgentTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeAgentTaskWithOptions($request, $runtime);
     }
 
     /**
