@@ -13,7 +13,7 @@ class GetUserRequest extends Model
      */
     public $sceneType;
     protected $_name = [
-        'sceneType' => 'SceneType',
+        'sceneType' => 'scene_type',
     ];
 
     public function validate()
@@ -25,7 +25,7 @@ class GetUserRequest extends Model
     {
         $res = [];
         if (null !== $this->sceneType) {
-            $res['SceneType'] = $this->sceneType;
+            $res['scene_type'] = $this->sceneType;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class GetUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['SceneType'])) {
-            $model->sceneType = $map['SceneType'];
+        if (isset($map['scene_type'])) {
+            $model->sceneType = $map['scene_type'];
         }
 
         return $model;

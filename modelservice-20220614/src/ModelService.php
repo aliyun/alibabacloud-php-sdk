@@ -133,7 +133,7 @@ class ModelService extends OpenApiClient
         $request->validate();
         $query = [];
         if (null !== $request->sceneType) {
-            @$query['SceneType'] = $request->sceneType;
+            @$query['scene_type'] = $request->sceneType;
         }
 
         $req = new OpenApiRequest([
