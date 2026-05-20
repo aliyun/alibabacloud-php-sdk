@@ -59,6 +59,11 @@ class CreateAgentRuntimeInput extends Model
     public $diskSize;
 
     /**
+     * @var string
+     */
+    public $edition;
+
+    /**
      * @var bool
      */
     public $enableSessionIsolation;
@@ -153,6 +158,7 @@ class CreateAgentRuntimeInput extends Model
         'credentialName' => 'credentialName',
         'description' => 'description',
         'diskSize' => 'diskSize',
+        'edition' => 'edition',
         'enableSessionIsolation' => 'enableSessionIsolation',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
@@ -251,6 +257,10 @@ class CreateAgentRuntimeInput extends Model
 
         if (null !== $this->diskSize) {
             $res['diskSize'] = $this->diskSize;
+        }
+
+        if (null !== $this->edition) {
+            $res['edition'] = $this->edition;
         }
 
         if (null !== $this->enableSessionIsolation) {
@@ -382,6 +392,10 @@ class CreateAgentRuntimeInput extends Model
 
         if (isset($map['diskSize'])) {
             $model->diskSize = $map['diskSize'];
+        }
+
+        if (isset($map['edition'])) {
+            $model->edition = $map['edition'];
         }
 
         if (isset($map['enableSessionIsolation'])) {

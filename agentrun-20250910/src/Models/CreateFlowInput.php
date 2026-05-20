@@ -19,6 +19,11 @@ class CreateFlowInput extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $disablePublicNetworkAccess;
+
+    /**
      * @var EnvironmentConfiguration
      */
     public $environmentConfiguration;
@@ -60,6 +65,7 @@ class CreateFlowInput extends Model
     protected $_name = [
         'definition' => 'definition',
         'description' => 'description',
+        'disablePublicNetworkAccess' => 'disablePublicNetworkAccess',
         'environmentConfiguration' => 'environmentConfiguration',
         'executionRoleArn' => 'executionRoleArn',
         'externalStorageLocation' => 'externalStorageLocation',
@@ -93,6 +99,10 @@ class CreateFlowInput extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->disablePublicNetworkAccess) {
+            $res['disablePublicNetworkAccess'] = $this->disablePublicNetworkAccess;
         }
 
         if (null !== $this->environmentConfiguration) {
@@ -144,6 +154,10 @@ class CreateFlowInput extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['disablePublicNetworkAccess'])) {
+            $model->disablePublicNetworkAccess = $map['disablePublicNetworkAccess'];
         }
 
         if (isset($map['environmentConfiguration'])) {

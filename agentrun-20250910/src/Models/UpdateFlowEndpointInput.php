@@ -14,6 +14,11 @@ class UpdateFlowEndpointInput extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $disablePublicNetworkAccess;
+
+    /**
      * @var string
      */
     public $flowEndpointName;
@@ -29,6 +34,7 @@ class UpdateFlowEndpointInput extends Model
     public $targetVersion;
     protected $_name = [
         'description' => 'description',
+        'disablePublicNetworkAccess' => 'disablePublicNetworkAccess',
         'flowEndpointName' => 'flowEndpointName',
         'routingConfiguration' => 'routingConfiguration',
         'targetVersion' => 'targetVersion',
@@ -47,6 +53,10 @@ class UpdateFlowEndpointInput extends Model
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->disablePublicNetworkAccess) {
+            $res['disablePublicNetworkAccess'] = $this->disablePublicNetworkAccess;
         }
 
         if (null !== $this->flowEndpointName) {
@@ -81,6 +91,10 @@ class UpdateFlowEndpointInput extends Model
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['disablePublicNetworkAccess'])) {
+            $model->disablePublicNetworkAccess = $map['disablePublicNetworkAccess'];
         }
 
         if (isset($map['flowEndpointName'])) {

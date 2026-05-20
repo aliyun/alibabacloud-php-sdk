@@ -24,6 +24,11 @@ class Flow extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $disablePublicNetworkAccess;
+
+    /**
      * @var EnvironmentConfiguration
      */
     public $environmentConfiguration;
@@ -81,6 +86,7 @@ class Flow extends Model
         'createdAt' => 'createdAt',
         'definition' => 'definition',
         'description' => 'description',
+        'disablePublicNetworkAccess' => 'disablePublicNetworkAccess',
         'environmentConfiguration' => 'environmentConfiguration',
         'executionRoleArn' => 'executionRoleArn',
         'externalStorageLocation' => 'externalStorageLocation',
@@ -121,6 +127,10 @@ class Flow extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->disablePublicNetworkAccess) {
+            $res['disablePublicNetworkAccess'] = $this->disablePublicNetworkAccess;
         }
 
         if (null !== $this->environmentConfiguration) {
@@ -188,6 +198,10 @@ class Flow extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['disablePublicNetworkAccess'])) {
+            $model->disablePublicNetworkAccess = $map['disablePublicNetworkAccess'];
         }
 
         if (isset($map['environmentConfiguration'])) {

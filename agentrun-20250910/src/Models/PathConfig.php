@@ -14,6 +14,16 @@ class PathConfig extends Model
     public $agentRuntimeEndpointName;
 
     /**
+     * @var string
+     */
+    public $compatibleProtocol;
+
+    /**
+     * @var string
+     */
+    public $flowEndpointName;
+
+    /**
      * @var string[]
      */
     public $methods;
@@ -39,6 +49,8 @@ class PathConfig extends Model
     public $resourceType;
     protected $_name = [
         'agentRuntimeEndpointName' => 'agentRuntimeEndpointName',
+        'compatibleProtocol' => 'compatibleProtocol',
+        'flowEndpointName' => 'flowEndpointName',
         'methods' => 'methods',
         'path' => 'path',
         'removeBasePathOnForward' => 'removeBasePathOnForward',
@@ -59,6 +71,14 @@ class PathConfig extends Model
         $res = [];
         if (null !== $this->agentRuntimeEndpointName) {
             $res['agentRuntimeEndpointName'] = $this->agentRuntimeEndpointName;
+        }
+
+        if (null !== $this->compatibleProtocol) {
+            $res['compatibleProtocol'] = $this->compatibleProtocol;
+        }
+
+        if (null !== $this->flowEndpointName) {
+            $res['flowEndpointName'] = $this->flowEndpointName;
         }
 
         if (null !== $this->methods) {
@@ -101,6 +121,14 @@ class PathConfig extends Model
         $model = new self();
         if (isset($map['agentRuntimeEndpointName'])) {
             $model->agentRuntimeEndpointName = $map['agentRuntimeEndpointName'];
+        }
+
+        if (isset($map['compatibleProtocol'])) {
+            $model->compatibleProtocol = $map['compatibleProtocol'];
+        }
+
+        if (isset($map['flowEndpointName'])) {
+            $model->flowEndpointName = $map['flowEndpointName'];
         }
 
         if (isset($map['methods'])) {

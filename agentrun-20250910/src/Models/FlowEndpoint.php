@@ -19,6 +19,11 @@ class FlowEndpoint extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $disablePublicNetworkAccess;
+
+    /**
      * @var string
      */
     public $flowEndpointArn;
@@ -55,6 +60,7 @@ class FlowEndpoint extends Model
     protected $_name = [
         'createdAt' => 'createdAt',
         'description' => 'description',
+        'disablePublicNetworkAccess' => 'disablePublicNetworkAccess',
         'flowEndpointArn' => 'flowEndpointArn',
         'flowEndpointId' => 'flowEndpointId',
         'flowEndpointName' => 'flowEndpointName',
@@ -81,6 +87,10 @@ class FlowEndpoint extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->disablePublicNetworkAccess) {
+            $res['disablePublicNetworkAccess'] = $this->disablePublicNetworkAccess;
         }
 
         if (null !== $this->flowEndpointArn) {
@@ -135,6 +145,10 @@ class FlowEndpoint extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['disablePublicNetworkAccess'])) {
+            $model->disablePublicNetworkAccess = $map['disablePublicNetworkAccess'];
         }
 
         if (isset($map['flowEndpointArn'])) {
