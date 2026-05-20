@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateInvoiceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateInvoiceShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\CreateReportDefinitionResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteBudgetRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteBudgetResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\DeleteCostCenterRuleRequest;
@@ -1213,6 +1215,69 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createReportDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除预算.
+     *
+     * @param request - DeleteBudgetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBudgetResponse
+     *
+     * @param DeleteBudgetRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteBudgetResponse
+     */
+    public function deleteBudgetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $body = [];
+        if (null !== $request->budgetName) {
+            @$body['BudgetName'] = $request->budgetName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBudget',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBudgetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除预算.
+     *
+     * @param request - DeleteBudgetRequest
+     *
+     * @returns DeleteBudgetResponse
+     *
+     * @param DeleteBudgetRequest $request
+     *
+     * @return DeleteBudgetResponse
+     */
+    public function deleteBudget($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBudgetWithOptions($request, $runtime);
     }
 
     /**
