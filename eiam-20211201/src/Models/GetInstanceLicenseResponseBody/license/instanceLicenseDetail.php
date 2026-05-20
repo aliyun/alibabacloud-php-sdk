@@ -24,9 +24,19 @@ class instanceLicenseDetail extends Model
     public $m2mApplicationQuota;
 
     /**
+     * @var string
+     */
+    public $mimApplicationLicenseStatus;
+
+    /**
      * @var int
      */
     public $networkAccessEndpointQuota;
+
+    /**
+     * @var int
+     */
+    public $prepaidActiveUserNumber;
 
     /**
      * @var int
@@ -36,7 +46,9 @@ class instanceLicenseDetail extends Model
         'conditionalAccessPolicyLicenseStatus' => 'ConditionalAccessPolicyLicenseStatus',
         'm2mApplicationLicenseStatus' => 'M2mApplicationLicenseStatus',
         'm2mApplicationQuota' => 'M2mApplicationQuota',
+        'mimApplicationLicenseStatus' => 'MimApplicationLicenseStatus',
         'networkAccessEndpointQuota' => 'NetworkAccessEndpointQuota',
+        'prepaidActiveUserNumber' => 'PrepaidActiveUserNumber',
         'userQuota' => 'UserQuota',
     ];
 
@@ -60,8 +72,16 @@ class instanceLicenseDetail extends Model
             $res['M2mApplicationQuota'] = $this->m2mApplicationQuota;
         }
 
+        if (null !== $this->mimApplicationLicenseStatus) {
+            $res['MimApplicationLicenseStatus'] = $this->mimApplicationLicenseStatus;
+        }
+
         if (null !== $this->networkAccessEndpointQuota) {
             $res['NetworkAccessEndpointQuota'] = $this->networkAccessEndpointQuota;
+        }
+
+        if (null !== $this->prepaidActiveUserNumber) {
+            $res['PrepaidActiveUserNumber'] = $this->prepaidActiveUserNumber;
         }
 
         if (null !== $this->userQuota) {
@@ -91,8 +111,16 @@ class instanceLicenseDetail extends Model
             $model->m2mApplicationQuota = $map['M2mApplicationQuota'];
         }
 
+        if (isset($map['MimApplicationLicenseStatus'])) {
+            $model->mimApplicationLicenseStatus = $map['MimApplicationLicenseStatus'];
+        }
+
         if (isset($map['NetworkAccessEndpointQuota'])) {
             $model->networkAccessEndpointQuota = $map['NetworkAccessEndpointQuota'];
+        }
+
+        if (isset($map['PrepaidActiveUserNumber'])) {
+            $model->prepaidActiveUserNumber = $map['PrepaidActiveUserNumber'];
         }
 
         if (isset($map['UserQuota'])) {
