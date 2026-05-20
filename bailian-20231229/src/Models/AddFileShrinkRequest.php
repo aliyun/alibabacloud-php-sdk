@@ -36,6 +36,11 @@ class AddFileShrinkRequest extends Model
     /**
      * @var string
      */
+    public $parserConfigShrink;
+
+    /**
+     * @var string
+     */
     public $tagsShrink;
     protected $_name = [
         'categoryId' => 'CategoryId',
@@ -43,6 +48,7 @@ class AddFileShrinkRequest extends Model
         'leaseId' => 'LeaseId',
         'originalFileUrl' => 'OriginalFileUrl',
         'parser' => 'Parser',
+        'parserConfigShrink' => 'ParserConfig',
         'tagsShrink' => 'Tags',
     ];
 
@@ -72,6 +78,10 @@ class AddFileShrinkRequest extends Model
 
         if (null !== $this->parser) {
             $res['Parser'] = $this->parser;
+        }
+
+        if (null !== $this->parserConfigShrink) {
+            $res['ParserConfig'] = $this->parserConfigShrink;
         }
 
         if (null !== $this->tagsShrink) {
@@ -107,6 +117,10 @@ class AddFileShrinkRequest extends Model
 
         if (isset($map['Parser'])) {
             $model->parser = $map['Parser'];
+        }
+
+        if (isset($map['ParserConfig'])) {
+            $model->parserConfigShrink = $map['ParserConfig'];
         }
 
         if (isset($map['Tags'])) {

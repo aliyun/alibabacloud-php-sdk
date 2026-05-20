@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileRequest\parserConfig;
 
 class AddFileRequest extends Model
 {
@@ -34,6 +35,11 @@ class AddFileRequest extends Model
     public $parser;
 
     /**
+     * @var parserConfig
+     */
+    public $parserConfig;
+
+    /**
      * @var string[]
      */
     public $tags;
@@ -43,11 +49,15 @@ class AddFileRequest extends Model
         'leaseId' => 'LeaseId',
         'originalFileUrl' => 'OriginalFileUrl',
         'parser' => 'Parser',
+        'parserConfig' => 'ParserConfig',
         'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (null !== $this->parserConfig) {
+            $this->parserConfig->validate();
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -75,6 +85,10 @@ class AddFileRequest extends Model
 
         if (null !== $this->parser) {
             $res['Parser'] = $this->parser;
+        }
+
+        if (null !== $this->parserConfig) {
+            $res['ParserConfig'] = null !== $this->parserConfig ? $this->parserConfig->toArray($noStream) : $this->parserConfig;
         }
 
         if (null !== $this->tags) {
@@ -117,6 +131,10 @@ class AddFileRequest extends Model
 
         if (isset($map['Parser'])) {
             $model->parser = $map['Parser'];
+        }
+
+        if (isset($map['ParserConfig'])) {
+            $model->parserConfig = parserConfig::fromMap($map['ParserConfig']);
         }
 
         if (isset($map['Tags'])) {

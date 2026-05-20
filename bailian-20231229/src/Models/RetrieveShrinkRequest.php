@@ -26,6 +26,11 @@ class RetrieveShrinkRequest extends Model
     /**
      * @var string
      */
+    public $extraShrink;
+
+    /**
+     * @var string
+     */
     public $imagesShrink;
 
     /**
@@ -81,6 +86,7 @@ class RetrieveShrinkRequest extends Model
         'denseSimilarityTopK' => 'DenseSimilarityTopK',
         'enableReranking' => 'EnableReranking',
         'enableRewrite' => 'EnableRewrite',
+        'extraShrink' => 'Extra',
         'imagesShrink' => 'Images',
         'indexId' => 'IndexId',
         'query' => 'Query',
@@ -112,6 +118,10 @@ class RetrieveShrinkRequest extends Model
 
         if (null !== $this->enableRewrite) {
             $res['EnableRewrite'] = $this->enableRewrite;
+        }
+
+        if (null !== $this->extraShrink) {
+            $res['Extra'] = $this->extraShrink;
         }
 
         if (null !== $this->imagesShrink) {
@@ -179,6 +189,10 @@ class RetrieveShrinkRequest extends Model
 
         if (isset($map['EnableRewrite'])) {
             $model->enableRewrite = $map['EnableRewrite'];
+        }
+
+        if (isset($map['Extra'])) {
+            $model->extraShrink = $map['Extra'];
         }
 
         if (isset($map['Images'])) {

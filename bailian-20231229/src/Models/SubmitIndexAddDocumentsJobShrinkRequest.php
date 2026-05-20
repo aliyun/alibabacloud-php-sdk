@@ -36,6 +36,11 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
     /**
      * @var string
      */
+    public $extraShrink;
+
+    /**
+     * @var string
+     */
     public $indexId;
 
     /**
@@ -58,6 +63,7 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
         'chunkSize' => 'ChunkSize',
         'documentIdsShrink' => 'DocumentIds',
         'enableHeaders' => 'EnableHeaders',
+        'extraShrink' => 'Extra',
         'indexId' => 'IndexId',
         'overlapSize' => 'OverlapSize',
         'separator' => 'Separator',
@@ -90,6 +96,10 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
 
         if (null !== $this->enableHeaders) {
             $res['EnableHeaders'] = $this->enableHeaders;
+        }
+
+        if (null !== $this->extraShrink) {
+            $res['Extra'] = $this->extraShrink;
         }
 
         if (null !== $this->indexId) {
@@ -137,6 +147,10 @@ class SubmitIndexAddDocumentsJobShrinkRequest extends Model
 
         if (isset($map['EnableHeaders'])) {
             $model->enableHeaders = $map['EnableHeaders'];
+        }
+
+        if (isset($map['Extra'])) {
+            $model->extraShrink = $map['Extra'];
         }
 
         if (isset($map['IndexId'])) {

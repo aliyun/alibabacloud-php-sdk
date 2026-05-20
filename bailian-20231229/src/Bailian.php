@@ -21,6 +21,9 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyFileUploadLeaseResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyTempStorageLeaseRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ApplyTempStorageLeaseResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\BatchUpdateFileTagRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\BatchUpdateFileTagResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\BatchUpdateFileTagShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ChangeParseSettingRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ChangeParseSettingResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ChangeParseSettingShrinkRequest;
@@ -285,6 +288,10 @@ class Bailian extends OpenApiClient
         $tmpReq->validate();
         $request = new AddFileShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parserConfig) {
+            $request->parserConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parserConfig, 'ParserConfig', 'json');
+        }
+
         if (null !== $tmpReq->tags) {
             $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
@@ -308,6 +315,10 @@ class Bailian extends OpenApiClient
 
         if (null !== $request->parser) {
             @$body['Parser'] = $request->parser;
+        }
+
+        if (null !== $request->parserConfigShrink) {
+            @$body['ParserConfig'] = $request->parserConfigShrink;
         }
 
         if (null !== $request->tagsShrink) {
@@ -698,6 +709,79 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->applyTempStorageLeaseWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 批量更新文档Tag.
+     *
+     * @param tmpReq - BatchUpdateFileTagRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchUpdateFileTagResponse
+     *
+     * @param string                    $WorkspaceId
+     * @param BatchUpdateFileTagRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BatchUpdateFileTagResponse
+     */
+    public function batchUpdateFileTagWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchUpdateFileTagShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileInfos) {
+            $request->fileInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileInfos, 'FileInfos', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->fileInfosShrink) {
+            @$body['FileInfos'] = $request->fileInfosShrink;
+        }
+
+        if (null !== $request->updateMode) {
+            @$body['UpdateMode'] = $request->updateMode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchUpdateFileTag',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/batchupdatetag',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchUpdateFileTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量更新文档Tag.
+     *
+     * @param request - BatchUpdateFileTagRequest
+     *
+     * @returns BatchUpdateFileTagResponse
+     *
+     * @param string                    $WorkspaceId
+     * @param BatchUpdateFileTagRequest $request
+     *
+     * @return BatchUpdateFileTagResponse
+     */
+    public function batchUpdateFileTag($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchUpdateFileTagWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3533,6 +3617,10 @@ class Bailian extends OpenApiClient
         $tmpReq->validate();
         $request = new RetrieveShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'Extra', 'json');
+        }
+
         if (null !== $tmpReq->images) {
             $request->imagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->images, 'Images', 'simple');
         }
@@ -3564,6 +3652,10 @@ class Bailian extends OpenApiClient
 
         if (null !== $request->enableRewrite) {
             @$query['EnableRewrite'] = $request->enableRewrite;
+        }
+
+        if (null !== $request->extraShrink) {
+            @$query['Extra'] = $request->extraShrink;
         }
 
         if (null !== $request->imagesShrink) {
@@ -3689,6 +3781,10 @@ class Bailian extends OpenApiClient
             $request->documentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->documentIds, 'DocumentIds', 'json');
         }
 
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'Extra', 'json');
+        }
+
         $query = [];
         if (null !== $request->categoryIdsShrink) {
             @$query['CategoryIds'] = $request->categoryIdsShrink;
@@ -3708,6 +3804,10 @@ class Bailian extends OpenApiClient
 
         if (null !== $request->enableHeaders) {
             @$query['EnableHeaders'] = $request->enableHeaders;
+        }
+
+        if (null !== $request->extraShrink) {
+            @$query['Extra'] = $request->extraShrink;
         }
 
         if (null !== $request->indexId) {

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest\extra;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest\queryHistory;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest\rerank;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\RetrieveRequest\rewrite;
@@ -25,6 +26,11 @@ class RetrieveRequest extends Model
      * @var bool
      */
     public $enableRewrite;
+
+    /**
+     * @var extra
+     */
+    public $extra;
 
     /**
      * @var string[]
@@ -84,6 +90,7 @@ class RetrieveRequest extends Model
         'denseSimilarityTopK' => 'DenseSimilarityTopK',
         'enableReranking' => 'EnableReranking',
         'enableRewrite' => 'EnableRewrite',
+        'extra' => 'Extra',
         'images' => 'Images',
         'indexId' => 'IndexId',
         'query' => 'Query',
@@ -99,6 +106,9 @@ class RetrieveRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->extra) {
+            $this->extra->validate();
+        }
         if (\is_array($this->images)) {
             Model::validateArray($this->images);
         }
@@ -130,6 +140,10 @@ class RetrieveRequest extends Model
 
         if (null !== $this->enableRewrite) {
             $res['EnableRewrite'] = $this->enableRewrite;
+        }
+
+        if (null !== $this->extra) {
+            $res['Extra'] = null !== $this->extra ? $this->extra->toArray($noStream) : $this->extra;
         }
 
         if (null !== $this->images) {
@@ -237,6 +251,10 @@ class RetrieveRequest extends Model
 
         if (isset($map['EnableRewrite'])) {
             $model->enableRewrite = $map['EnableRewrite'];
+        }
+
+        if (isset($map['Extra'])) {
+            $model->extra = extra::fromMap($map['Extra']);
         }
 
         if (isset($map['Images'])) {

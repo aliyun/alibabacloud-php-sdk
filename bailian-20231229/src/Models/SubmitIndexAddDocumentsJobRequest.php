@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexAddDocumentsJobRequest\extra;
 
 class SubmitIndexAddDocumentsJobRequest extends Model
 {
@@ -34,6 +35,11 @@ class SubmitIndexAddDocumentsJobRequest extends Model
     public $enableHeaders;
 
     /**
+     * @var extra
+     */
+    public $extra;
+
+    /**
      * @var string
      */
     public $indexId;
@@ -58,6 +64,7 @@ class SubmitIndexAddDocumentsJobRequest extends Model
         'chunkSize' => 'ChunkSize',
         'documentIds' => 'DocumentIds',
         'enableHeaders' => 'EnableHeaders',
+        'extra' => 'Extra',
         'indexId' => 'IndexId',
         'overlapSize' => 'OverlapSize',
         'separator' => 'Separator',
@@ -71,6 +78,9 @@ class SubmitIndexAddDocumentsJobRequest extends Model
         }
         if (\is_array($this->documentIds)) {
             Model::validateArray($this->documentIds);
+        }
+        if (null !== $this->extra) {
+            $this->extra->validate();
         }
         parent::validate();
     }
@@ -110,6 +120,10 @@ class SubmitIndexAddDocumentsJobRequest extends Model
 
         if (null !== $this->enableHeaders) {
             $res['EnableHeaders'] = $this->enableHeaders;
+        }
+
+        if (null !== $this->extra) {
+            $res['Extra'] = null !== $this->extra ? $this->extra->toArray($noStream) : $this->extra;
         }
 
         if (null !== $this->indexId) {
@@ -171,6 +185,10 @@ class SubmitIndexAddDocumentsJobRequest extends Model
 
         if (isset($map['EnableHeaders'])) {
             $model->enableHeaders = $map['EnableHeaders'];
+        }
+
+        if (isset($map['Extra'])) {
+            $model->extra = extra::fromMap($map['Extra']);
         }
 
         if (isset($map['IndexId'])) {
