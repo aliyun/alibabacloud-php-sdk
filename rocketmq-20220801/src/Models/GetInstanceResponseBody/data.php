@@ -27,6 +27,16 @@ class data extends Model
     public $aclInfo;
 
     /**
+     * @var bool
+     */
+    public $autoRenew;
+
+    /**
+     * @var int
+     */
+    public $autoRenewPeriod;
+
+    /**
      * @var string
      */
     public $bid;
@@ -158,6 +168,8 @@ class data extends Model
     protected $_name = [
         'accountInfo' => 'accountInfo',
         'aclInfo' => 'aclInfo',
+        'autoRenew' => 'autoRenew',
+        'autoRenewPeriod' => 'autoRenewPeriod',
         'bid' => 'bid',
         'commodityCode' => 'commodityCode',
         'createTime' => 'createTime',
@@ -224,6 +236,14 @@ class data extends Model
 
         if (null !== $this->aclInfo) {
             $res['aclInfo'] = null !== $this->aclInfo ? $this->aclInfo->toArray($noStream) : $this->aclInfo;
+        }
+
+        if (null !== $this->autoRenew) {
+            $res['autoRenew'] = $this->autoRenew;
+        }
+
+        if (null !== $this->autoRenewPeriod) {
+            $res['autoRenewPeriod'] = $this->autoRenewPeriod;
         }
 
         if (null !== $this->bid) {
@@ -361,6 +381,14 @@ class data extends Model
 
         if (isset($map['aclInfo'])) {
             $model->aclInfo = aclInfo::fromMap($map['aclInfo']);
+        }
+
+        if (isset($map['autoRenew'])) {
+            $model->autoRenew = $map['autoRenew'];
+        }
+
+        if (isset($map['autoRenewPeriod'])) {
+            $model->autoRenewPeriod = $map['autoRenewPeriod'];
         }
 
         if (isset($map['bid'])) {
