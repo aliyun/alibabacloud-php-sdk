@@ -496,6 +496,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeResourcePackagesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeScheduleTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeScheduleTasksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSharedBackupsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSharedBackupsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogsRequest;
@@ -16001,6 +16003,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询实例性能数据.
+     *
      * @param request - DescribeDBInstancePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -16066,6 +16070,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 查询实例性能数据.
+     *
      * @param request - DescribeDBInstancePerformanceRequest
      *
      * @returns DescribeDBInstancePerformanceResponse
@@ -20439,6 +20445,14 @@ class Polardb extends OpenApiClient
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         if (null !== $request->polarFsInstanceId) {
             @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
         }
@@ -21095,6 +21109,107 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeScheduleTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询共享备份集.
+     *
+     * @param request - DescribeSharedBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSharedBackupsResponse
+     *
+     * @param DescribeSharedBackupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSharedBackupsResponse
+     */
+    public function describeSharedBackupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->backupId) {
+            @$query['BackupId'] = $request->backupId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBType) {
+            @$query['DBType'] = $request->DBType;
+        }
+
+        if (null !== $request->DBVersion) {
+            @$query['DBVersion'] = $request->DBVersion;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->shareType) {
+            @$query['ShareType'] = $request->shareType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSharedBackups',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSharedBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询共享备份集.
+     *
+     * @param request - DescribeSharedBackupsRequest
+     *
+     * @returns DescribeSharedBackupsResponse
+     *
+     * @param DescribeSharedBackupsRequest $request
+     *
+     * @return DescribeSharedBackupsResponse
+     */
+    public function describeSharedBackups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSharedBackupsWithOptions($request, $runtime);
     }
 
     /**

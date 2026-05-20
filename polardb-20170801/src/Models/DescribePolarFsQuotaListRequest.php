@@ -14,6 +14,16 @@ class DescribePolarFsQuotaListRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $polarFsInstanceId;
@@ -29,6 +39,8 @@ class DescribePolarFsQuotaListRequest extends Model
     public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'polarFsInstanceId' => 'PolarFsInstanceId',
         'quotaMode' => 'QuotaMode',
         'regionId' => 'RegionId',
@@ -44,6 +56,14 @@ class DescribePolarFsQuotaListRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->polarFsInstanceId) {
@@ -71,6 +91,14 @@ class DescribePolarFsQuotaListRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['PolarFsInstanceId'])) {

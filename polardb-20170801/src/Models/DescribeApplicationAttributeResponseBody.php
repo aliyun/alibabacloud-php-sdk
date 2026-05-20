@@ -31,6 +31,11 @@ class DescribeApplicationAttributeResponseBody extends Model
     public $architecture;
 
     /**
+     * @var bool
+     */
+    public $canDisableSnat;
+
+    /**
      * @var components[]
      */
     public $components;
@@ -103,6 +108,11 @@ class DescribeApplicationAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $natGatewayId;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -143,6 +153,11 @@ class DescribeApplicationAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $snatStatus;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -178,6 +193,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'applicationId' => 'ApplicationId',
         'applicationType' => 'ApplicationType',
         'architecture' => 'Architecture',
+        'canDisableSnat' => 'CanDisableSnat',
         'components' => 'Components',
         'creationTime' => 'CreationTime',
         'DBClusterId' => 'DBClusterId',
@@ -192,6 +208,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'maintainStartTime' => 'MaintainStartTime',
         'memApplicationAttribute' => 'MemApplicationAttribute',
         'minorVersion' => 'MinorVersion',
+        'natGatewayId' => 'NatGatewayId',
         'payType' => 'PayType',
         'polarClawSaaSApplicationAttribute' => 'PolarClawSaaSApplicationAttribute',
         'polarFSInstanceId' => 'PolarFSInstanceId',
@@ -200,6 +217,7 @@ class DescribeApplicationAttributeResponseBody extends Model
         'securityGroups' => 'SecurityGroups',
         'securityIPArrays' => 'SecurityIPArrays',
         'serverlessType' => 'ServerlessType',
+        'snatStatus' => 'SnatStatus',
         'status' => 'Status',
         'storages' => 'Storages',
         'upgradeAvailable' => 'UpgradeAvailable',
@@ -248,6 +266,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (null !== $this->architecture) {
             $res['Architecture'] = $this->architecture;
+        }
+
+        if (null !== $this->canDisableSnat) {
+            $res['CanDisableSnat'] = $this->canDisableSnat;
         }
 
         if (null !== $this->components) {
@@ -320,6 +342,10 @@ class DescribeApplicationAttributeResponseBody extends Model
             $res['MinorVersion'] = $this->minorVersion;
         }
 
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
+        }
+
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
@@ -364,6 +390,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (null !== $this->serverlessType) {
             $res['ServerlessType'] = $this->serverlessType;
+        }
+
+        if (null !== $this->snatStatus) {
+            $res['SnatStatus'] = $this->snatStatus;
         }
 
         if (null !== $this->status) {
@@ -422,6 +452,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['Architecture'])) {
             $model->architecture = $map['Architecture'];
+        }
+
+        if (isset($map['CanDisableSnat'])) {
+            $model->canDisableSnat = $map['CanDisableSnat'];
         }
 
         if (isset($map['Components'])) {
@@ -494,6 +528,10 @@ class DescribeApplicationAttributeResponseBody extends Model
             $model->minorVersion = $map['MinorVersion'];
         }
 
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
+        }
+
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
@@ -538,6 +576,10 @@ class DescribeApplicationAttributeResponseBody extends Model
 
         if (isset($map['ServerlessType'])) {
             $model->serverlessType = $map['ServerlessType'];
+        }
+
+        if (isset($map['SnatStatus'])) {
+            $model->snatStatus = $map['SnatStatus'];
         }
 
         if (isset($map['Status'])) {
