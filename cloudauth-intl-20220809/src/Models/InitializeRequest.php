@@ -186,6 +186,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $ocrValueStandard;
+
+    /**
+     * @var string
+     */
     public $pages;
 
     /**
@@ -318,6 +323,7 @@ class InitializeRequest extends Model
         'mobile' => 'Mobile',
         'model' => 'Model',
         'ocr' => 'Ocr',
+        'ocrValueStandard' => 'OcrValueStandard',
         'pages' => 'Pages',
         'procedurePriority' => 'ProcedurePriority',
         'productCode' => 'ProductCode',
@@ -496,6 +502,10 @@ class InitializeRequest extends Model
 
         if (null !== $this->ocr) {
             $res['Ocr'] = $this->ocr;
+        }
+
+        if (null !== $this->ocrValueStandard) {
+            $res['OcrValueStandard'] = $this->ocrValueStandard;
         }
 
         if (null !== $this->pages) {
@@ -734,6 +744,10 @@ class InitializeRequest extends Model
 
         if (isset($map['Ocr'])) {
             $model->ocr = $map['Ocr'];
+        }
+
+        if (isset($map['OcrValueStandard'])) {
+            $model->ocrValueStandard = $map['OcrValueStandard'];
         }
 
         if (isset($map['Pages'])) {

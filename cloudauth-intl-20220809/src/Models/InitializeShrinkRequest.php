@@ -186,6 +186,11 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $ocrValueStandard;
+
+    /**
+     * @var string
+     */
     public $pages;
 
     /**
@@ -318,6 +323,7 @@ class InitializeShrinkRequest extends Model
         'mobile' => 'Mobile',
         'model' => 'Model',
         'ocr' => 'Ocr',
+        'ocrValueStandard' => 'OcrValueStandard',
         'pages' => 'Pages',
         'procedurePriority' => 'ProcedurePriority',
         'productCode' => 'ProductCode',
@@ -486,6 +492,10 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->ocr) {
             $res['Ocr'] = $this->ocr;
+        }
+
+        if (null !== $this->ocrValueStandard) {
+            $res['OcrValueStandard'] = $this->ocrValueStandard;
         }
 
         if (null !== $this->pages) {
@@ -717,6 +727,10 @@ class InitializeShrinkRequest extends Model
 
         if (isset($map['Ocr'])) {
             $model->ocr = $map['Ocr'];
+        }
+
+        if (isset($map['OcrValueStandard'])) {
+            $model->ocrValueStandard = $map['OcrValueStandard'];
         }
 
         if (isset($map['Pages'])) {

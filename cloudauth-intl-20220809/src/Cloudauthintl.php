@@ -4153,6 +4153,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['Ocr'] = $request->ocr;
         }
 
+        if (null !== $request->ocrValueStandard) {
+            @$query['OcrValueStandard'] = $request->ocrValueStandard;
+        }
+
         if (null !== $request->pages) {
             @$query['Pages'] = $request->pages;
         }
