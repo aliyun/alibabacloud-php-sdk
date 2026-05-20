@@ -31,12 +31,18 @@ class FileUploadCallbackRequest extends Model
     /**
      * @var string
      */
+    public $ossBucket;
+
+    /**
+     * @var string
+     */
     public $uploadLocation;
     protected $_name = [
         'callFrom' => 'CallFrom',
         'dmsUnit' => 'DmsUnit',
         'fileSize' => 'FileSize',
         'filename' => 'Filename',
+        'ossBucket' => 'OssBucket',
         'uploadLocation' => 'UploadLocation',
     ];
 
@@ -62,6 +68,10 @@ class FileUploadCallbackRequest extends Model
 
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
+        }
+
+        if (null !== $this->ossBucket) {
+            $res['OssBucket'] = $this->ossBucket;
         }
 
         if (null !== $this->uploadLocation) {
@@ -93,6 +103,10 @@ class FileUploadCallbackRequest extends Model
 
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
+        }
+
+        if (isset($map['OssBucket'])) {
+            $model->ossBucket = $map['OssBucket'];
         }
 
         if (isset($map['UploadLocation'])) {

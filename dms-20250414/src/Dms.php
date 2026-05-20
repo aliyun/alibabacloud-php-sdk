@@ -2671,6 +2671,10 @@ class Dms extends OpenApiClient
             @$query['Filename'] = $request->filename;
         }
 
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
         if (null !== $request->uploadLocation) {
             @$query['UploadLocation'] = $request->uploadLocation;
         }
