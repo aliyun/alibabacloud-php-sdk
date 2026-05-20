@@ -11,6 +11,16 @@ class UsageBreakdownRowDTO extends Model
     /**
      * @var int
      */
+    public $apiKeyId;
+
+    /**
+     * @var string
+     */
+    public $apiKeyName;
+
+    /**
+     * @var int
+     */
     public $clientId;
 
     /**
@@ -48,6 +58,8 @@ class UsageBreakdownRowDTO extends Model
      */
     public $summaryTime;
     protected $_name = [
+        'apiKeyId' => 'apiKeyId',
+        'apiKeyName' => 'apiKeyName',
         'clientId' => 'clientId',
         'clientName' => 'clientName',
         'metrics' => 'metrics',
@@ -69,6 +81,14 @@ class UsageBreakdownRowDTO extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKeyId) {
+            $res['apiKeyId'] = $this->apiKeyId;
+        }
+
+        if (null !== $this->apiKeyName) {
+            $res['apiKeyName'] = $this->apiKeyName;
+        }
+
         if (null !== $this->clientId) {
             $res['clientId'] = $this->clientId;
         }
@@ -119,6 +139,14 @@ class UsageBreakdownRowDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiKeyId'])) {
+            $model->apiKeyId = $map['apiKeyId'];
+        }
+
+        if (isset($map['apiKeyName'])) {
+            $model->apiKeyName = $map['apiKeyName'];
+        }
+
         if (isset($map['clientId'])) {
             $model->clientId = $map['clientId'];
         }

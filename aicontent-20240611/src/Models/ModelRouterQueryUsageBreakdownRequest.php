@@ -11,6 +11,16 @@ class ModelRouterQueryUsageBreakdownRequest extends Model
     /**
      * @var int
      */
+    public $apiKeyId;
+
+    /**
+     * @var int
+     */
+    public $clientId;
+
+    /**
+     * @var int
+     */
     public $endTime;
 
     /**
@@ -43,6 +53,8 @@ class ModelRouterQueryUsageBreakdownRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'apiKeyId' => 'apiKeyId',
+        'clientId' => 'clientId',
         'endTime' => 'endTime',
         'granularity' => 'granularity',
         'maxResults' => 'maxResults',
@@ -60,6 +72,14 @@ class ModelRouterQueryUsageBreakdownRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKeyId) {
+            $res['apiKeyId'] = $this->apiKeyId;
+        }
+
+        if (null !== $this->clientId) {
+            $res['clientId'] = $this->clientId;
+        }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
@@ -99,6 +119,14 @@ class ModelRouterQueryUsageBreakdownRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiKeyId'])) {
+            $model->apiKeyId = $map['apiKeyId'];
+        }
+
+        if (isset($map['clientId'])) {
+            $model->clientId = $map['clientId'];
+        }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }

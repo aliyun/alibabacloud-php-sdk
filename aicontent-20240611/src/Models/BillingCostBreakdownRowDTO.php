@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class BillingCostBreakdownRowDTO extends Model
 {
     /**
+     * @var int
+     */
+    public $apiKeyId;
+
+    /**
+     * @var string
+     */
+    public $apiKeyName;
+
+    /**
      * @var string
      */
     public $billingType;
@@ -68,6 +78,8 @@ class BillingCostBreakdownRowDTO extends Model
      */
     public $values;
     protected $_name = [
+        'apiKeyId' => 'apiKeyId',
+        'apiKeyName' => 'apiKeyName',
         'billingType' => 'billingType',
         'clientId' => 'clientId',
         'clientName' => 'clientName',
@@ -93,6 +105,14 @@ class BillingCostBreakdownRowDTO extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKeyId) {
+            $res['apiKeyId'] = $this->apiKeyId;
+        }
+
+        if (null !== $this->apiKeyName) {
+            $res['apiKeyName'] = $this->apiKeyName;
+        }
+
         if (null !== $this->billingType) {
             $res['billingType'] = $this->billingType;
         }
@@ -159,6 +179,14 @@ class BillingCostBreakdownRowDTO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiKeyId'])) {
+            $model->apiKeyId = $map['apiKeyId'];
+        }
+
+        if (isset($map['apiKeyName'])) {
+            $model->apiKeyName = $map['apiKeyName'];
+        }
+
         if (isset($map['billingType'])) {
             $model->billingType = $map['billingType'];
         }

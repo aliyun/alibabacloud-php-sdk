@@ -11,6 +11,11 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
     /**
      * @var int
      */
+    public $apiKeyId;
+
+    /**
+     * @var int
+     */
     public $clientId;
 
     /**
@@ -58,6 +63,7 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'apiKeyId' => 'apiKeyId',
         'clientId' => 'clientId',
         'endTime' => 'endTime',
         'granularity' => 'granularity',
@@ -78,6 +84,10 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiKeyId) {
+            $res['apiKeyId'] = $this->apiKeyId;
+        }
+
         if (null !== $this->clientId) {
             $res['clientId'] = $this->clientId;
         }
@@ -129,6 +139,10 @@ class ModelRouterQueryBillingCostBreakdownRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiKeyId'])) {
+            $model->apiKeyId = $map['apiKeyId'];
+        }
+
         if (isset($map['clientId'])) {
             $model->clientId = $map['clientId'];
         }

@@ -4526,6 +4526,10 @@ class AiContent extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
         }
@@ -5093,6 +5097,10 @@ class AiContent extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
         }
@@ -5186,6 +5194,10 @@ class AiContent extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
         }
@@ -5275,6 +5287,10 @@ class AiContent extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
         }
@@ -5360,6 +5376,10 @@ class AiContent extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
         if (null !== $request->clientId) {
             @$query['clientId'] = $request->clientId;
         }
@@ -6086,6 +6106,14 @@ class AiContent extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['apiKeyId'] = $request->apiKeyId;
+        }
+
+        if (null !== $request->clientId) {
+            @$query['clientId'] = $request->clientId;
+        }
+
         if (null !== $request->endTime) {
             @$query['endTime'] = $request->endTime;
         }
