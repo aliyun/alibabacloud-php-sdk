@@ -3871,6 +3871,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['ExportFileType'] = $request->exportFileType;
         }
 
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->pptArtifactId) {
             @$body['PptArtifactId'] = $request->pptArtifactId;
         }
@@ -6645,6 +6649,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['ExportTaskId'] = $request->exportTaskId;
         }
 
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -6763,6 +6771,10 @@ class AiMiaoBi extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->externalUserId) {
+            @$body['ExternalUserId'] = $request->externalUserId;
+        }
+
         if (null !== $request->taskId) {
             @$body['TaskId'] = $request->taskId;
         }

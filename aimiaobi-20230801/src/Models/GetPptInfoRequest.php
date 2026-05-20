@@ -11,6 +11,11 @@ class GetPptInfoRequest extends Model
     /**
      * @var string
      */
+    public $externalUserId;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -18,6 +23,7 @@ class GetPptInfoRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'externalUserId' => 'ExternalUserId',
         'taskId' => 'TaskId',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -30,6 +36,10 @@ class GetPptInfoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->externalUserId) {
+            $res['ExternalUserId'] = $this->externalUserId;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -49,6 +59,10 @@ class GetPptInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExternalUserId'])) {
+            $model->externalUserId = $map['ExternalUserId'];
+        }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

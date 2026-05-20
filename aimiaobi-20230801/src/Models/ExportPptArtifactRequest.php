@@ -19,6 +19,11 @@ class ExportPptArtifactRequest extends Model
     public $exportFileType;
 
     /**
+     * @var string
+     */
+    public $externalUserId;
+
+    /**
      * @var int
      */
     public $pptArtifactId;
@@ -35,6 +40,7 @@ class ExportPptArtifactRequest extends Model
     protected $_name = [
         'edit' => 'Edit',
         'exportFileType' => 'ExportFileType',
+        'externalUserId' => 'ExternalUserId',
         'pptArtifactId' => 'PptArtifactId',
         'workspaceId' => 'WorkspaceId',
         'zip' => 'Zip',
@@ -54,6 +60,10 @@ class ExportPptArtifactRequest extends Model
 
         if (null !== $this->exportFileType) {
             $res['ExportFileType'] = $this->exportFileType;
+        }
+
+        if (null !== $this->externalUserId) {
+            $res['ExternalUserId'] = $this->externalUserId;
         }
 
         if (null !== $this->pptArtifactId) {
@@ -85,6 +95,10 @@ class ExportPptArtifactRequest extends Model
 
         if (isset($map['ExportFileType'])) {
             $model->exportFileType = $map['ExportFileType'];
+        }
+
+        if (isset($map['ExternalUserId'])) {
+            $model->externalUserId = $map['ExternalUserId'];
         }
 
         if (isset($map['PptArtifactId'])) {

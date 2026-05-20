@@ -16,9 +16,15 @@ class GetPptArtifactExportResultRequest extends Model
     /**
      * @var string
      */
+    public $externalUserId;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'exportTaskId' => 'ExportTaskId',
+        'externalUserId' => 'ExternalUserId',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -32,6 +38,10 @@ class GetPptArtifactExportResultRequest extends Model
         $res = [];
         if (null !== $this->exportTaskId) {
             $res['ExportTaskId'] = $this->exportTaskId;
+        }
+
+        if (null !== $this->externalUserId) {
+            $res['ExternalUserId'] = $this->externalUserId;
         }
 
         if (null !== $this->workspaceId) {
@@ -51,6 +61,10 @@ class GetPptArtifactExportResultRequest extends Model
         $model = new self();
         if (isset($map['ExportTaskId'])) {
             $model->exportTaskId = $map['ExportTaskId'];
+        }
+
+        if (isset($map['ExternalUserId'])) {
+            $model->externalUserId = $map['ExternalUserId'];
         }
 
         if (isset($map['WorkspaceId'])) {
