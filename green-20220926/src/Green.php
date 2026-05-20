@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\CreateAnswerLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateAnswerLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateCallbackResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateImageLibRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateImageLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateOnlineTestRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateOnlineTestResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreatePreCheckRequest;
@@ -1123,6 +1125,73 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCallbackWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建图库.
+     *
+     * @param request - CreateImageLibRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateImageLibResponse
+     *
+     * @param CreateImageLibRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateImageLibResponse
+     */
+    public function createImageLibWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->libName) {
+            @$body['LibName'] = $request->libName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateImageLib',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateImageLibResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建图库.
+     *
+     * @param request - CreateImageLibRequest
+     *
+     * @returns CreateImageLibResponse
+     *
+     * @param CreateImageLibRequest $request
+     *
+     * @return CreateImageLibResponse
+     */
+    public function createImageLib($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createImageLibWithOptions($request, $runtime);
     }
 
     /**
