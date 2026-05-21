@@ -327,6 +327,10 @@ class BailianVoiceBot extends OpenApiClient
             $request->synthesizerConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->synthesizerConfig, 'SynthesizerConfig', 'json');
         }
 
+        if (null !== $tmpReq->toolConfig) {
+            $request->toolConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->toolConfig, 'ToolConfig', 'json');
+        }
+
         if (null !== $tmpReq->transcriberConfig) {
             $request->transcriberConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transcriberConfig, 'TranscriberConfig', 'json');
         }
@@ -358,6 +362,10 @@ class BailianVoiceBot extends OpenApiClient
 
         if (null !== $request->synthesizerConfigShrink) {
             @$query['SynthesizerConfig'] = $request->synthesizerConfigShrink;
+        }
+
+        if (null !== $request->toolConfigShrink) {
+            @$query['ToolConfig'] = $request->toolConfigShrink;
         }
 
         if (null !== $request->transcriberConfigShrink) {
@@ -2392,6 +2400,10 @@ class BailianVoiceBot extends OpenApiClient
             $request->synthesizerConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->synthesizerConfig, 'SynthesizerConfig', 'json');
         }
 
+        if (null !== $tmpReq->toolConfig) {
+            $request->toolConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->toolConfig, 'ToolConfig', 'json');
+        }
+
         if (null !== $tmpReq->transcriberConfig) {
             $request->transcriberConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transcriberConfig, 'TranscriberConfig', 'json');
         }
@@ -2419,6 +2431,10 @@ class BailianVoiceBot extends OpenApiClient
 
         if (null !== $request->synthesizerConfigShrink) {
             @$query['SynthesizerConfig'] = $request->synthesizerConfigShrink;
+        }
+
+        if (null !== $request->toolConfigShrink) {
+            @$query['ToolConfig'] = $request->toolConfigShrink;
         }
 
         if (null !== $request->transcriberConfigShrink) {

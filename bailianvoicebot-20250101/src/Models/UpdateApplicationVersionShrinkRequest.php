@@ -41,6 +41,11 @@ class UpdateApplicationVersionShrinkRequest extends Model
     /**
      * @var string
      */
+    public $toolConfigShrink;
+
+    /**
+     * @var string
+     */
     public $transcriberConfigShrink;
 
     /**
@@ -54,6 +59,7 @@ class UpdateApplicationVersionShrinkRequest extends Model
         'ragConfigShrink' => 'RagConfig',
         'scriptProfileShrink' => 'ScriptProfile',
         'synthesizerConfigShrink' => 'SynthesizerConfig',
+        'toolConfigShrink' => 'ToolConfig',
         'transcriberConfigShrink' => 'TranscriberConfig',
         'versionId' => 'VersionId',
     ];
@@ -88,6 +94,10 @@ class UpdateApplicationVersionShrinkRequest extends Model
 
         if (null !== $this->synthesizerConfigShrink) {
             $res['SynthesizerConfig'] = $this->synthesizerConfigShrink;
+        }
+
+        if (null !== $this->toolConfigShrink) {
+            $res['ToolConfig'] = $this->toolConfigShrink;
         }
 
         if (null !== $this->transcriberConfigShrink) {
@@ -131,6 +141,10 @@ class UpdateApplicationVersionShrinkRequest extends Model
 
         if (isset($map['SynthesizerConfig'])) {
             $model->synthesizerConfigShrink = $map['SynthesizerConfig'];
+        }
+
+        if (isset($map['ToolConfig'])) {
+            $model->toolConfigShrink = $map['ToolConfig'];
         }
 
         if (isset($map['TranscriberConfig'])) {

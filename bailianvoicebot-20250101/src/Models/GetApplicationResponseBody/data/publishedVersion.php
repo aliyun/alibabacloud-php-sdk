@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\ragConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\scriptProfile;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\synthesizerConfig;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\toolConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\GetApplicationResponseBody\data\publishedVersion\transcriberConfig;
 
 class publishedVersion extends Model
@@ -34,6 +35,11 @@ class publishedVersion extends Model
     public $synthesizerConfig;
 
     /**
+     * @var toolConfig
+     */
+    public $toolConfig;
+
+    /**
      * @var transcriberConfig
      */
     public $transcriberConfig;
@@ -47,6 +53,7 @@ class publishedVersion extends Model
         'ragConfig' => 'RagConfig',
         'scriptProfile' => 'ScriptProfile',
         'synthesizerConfig' => 'SynthesizerConfig',
+        'toolConfig' => 'ToolConfig',
         'transcriberConfig' => 'TranscriberConfig',
         'versionId' => 'VersionId',
     ];
@@ -64,6 +71,9 @@ class publishedVersion extends Model
         }
         if (null !== $this->synthesizerConfig) {
             $this->synthesizerConfig->validate();
+        }
+        if (null !== $this->toolConfig) {
+            $this->toolConfig->validate();
         }
         if (null !== $this->transcriberConfig) {
             $this->transcriberConfig->validate();
@@ -88,6 +98,10 @@ class publishedVersion extends Model
 
         if (null !== $this->synthesizerConfig) {
             $res['SynthesizerConfig'] = null !== $this->synthesizerConfig ? $this->synthesizerConfig->toArray($noStream) : $this->synthesizerConfig;
+        }
+
+        if (null !== $this->toolConfig) {
+            $res['ToolConfig'] = null !== $this->toolConfig ? $this->toolConfig->toArray($noStream) : $this->toolConfig;
         }
 
         if (null !== $this->transcriberConfig) {
@@ -123,6 +137,10 @@ class publishedVersion extends Model
 
         if (isset($map['SynthesizerConfig'])) {
             $model->synthesizerConfig = synthesizerConfig::fromMap($map['SynthesizerConfig']);
+        }
+
+        if (isset($map['ToolConfig'])) {
+            $model->toolConfig = toolConfig::fromMap($map['ToolConfig']);
         }
 
         if (isset($map['TranscriberConfig'])) {

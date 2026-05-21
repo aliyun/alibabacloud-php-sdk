@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRe
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\ragConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\scriptProfile;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\synthesizerConfig;
+use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\toolConfig;
 use AlibabaCloud\SDK\BailianVoiceBot\V20250101\Models\CreateApplicationVersionRequest\transcriberConfig;
 
 class CreateApplicationVersionRequest extends Model
@@ -49,6 +50,11 @@ class CreateApplicationVersionRequest extends Model
     public $synthesizerConfig;
 
     /**
+     * @var toolConfig
+     */
+    public $toolConfig;
+
+    /**
      * @var transcriberConfig
      */
     public $transcriberConfig;
@@ -60,6 +66,7 @@ class CreateApplicationVersionRequest extends Model
         'scriptProfile' => 'ScriptProfile',
         'sourceVersionId' => 'SourceVersionId',
         'synthesizerConfig' => 'SynthesizerConfig',
+        'toolConfig' => 'ToolConfig',
         'transcriberConfig' => 'TranscriberConfig',
     ];
 
@@ -76,6 +83,9 @@ class CreateApplicationVersionRequest extends Model
         }
         if (null !== $this->synthesizerConfig) {
             $this->synthesizerConfig->validate();
+        }
+        if (null !== $this->toolConfig) {
+            $this->toolConfig->validate();
         }
         if (null !== $this->transcriberConfig) {
             $this->transcriberConfig->validate();
@@ -112,6 +122,10 @@ class CreateApplicationVersionRequest extends Model
 
         if (null !== $this->synthesizerConfig) {
             $res['SynthesizerConfig'] = null !== $this->synthesizerConfig ? $this->synthesizerConfig->toArray($noStream) : $this->synthesizerConfig;
+        }
+
+        if (null !== $this->toolConfig) {
+            $res['ToolConfig'] = null !== $this->toolConfig ? $this->toolConfig->toArray($noStream) : $this->toolConfig;
         }
 
         if (null !== $this->transcriberConfig) {
@@ -155,6 +169,10 @@ class CreateApplicationVersionRequest extends Model
 
         if (isset($map['SynthesizerConfig'])) {
             $model->synthesizerConfig = synthesizerConfig::fromMap($map['SynthesizerConfig']);
+        }
+
+        if (isset($map['ToolConfig'])) {
+            $model->toolConfig = toolConfig::fromMap($map['ToolConfig']);
         }
 
         if (isset($map['TranscriberConfig'])) {
