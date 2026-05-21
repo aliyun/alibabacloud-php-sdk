@@ -63,6 +63,8 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListAlgorithmVersionsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesShrinkRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodeTypesRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodeTypesResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotaActiveUserUsagesRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotaActiveUserUsagesResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotasRequest;
@@ -2341,6 +2343,83 @@ class PaiStudio extends OpenApiClient
         $headers = [];
 
         return $this->listAlgorithmsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取节点规格列表.
+     *
+     * @param request - ListNodeTypesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNodeTypesResponse
+     *
+     * @param ListNodeTypesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListNodeTypesResponse
+     */
+    public function listNodeTypesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->acceleratorType) {
+            @$query['AcceleratorType'] = $request->acceleratorType;
+        }
+
+        if (null !== $request->GPUType) {
+            @$query['GPUType'] = $request->GPUType;
+        }
+
+        if (null !== $request->nodeTypes) {
+            @$query['NodeTypes'] = $request->nodeTypes;
+        }
+
+        if (null !== $request->quotaId) {
+            @$query['QuotaId'] = $request->quotaId;
+        }
+
+        if (null !== $request->resourceGroupIds) {
+            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNodeTypes',
+            'version' => '2022-01-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/nodetypes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNodeTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取节点规格列表.
+     *
+     * @param request - ListNodeTypesRequest
+     *
+     * @returns ListNodeTypesResponse
+     *
+     * @param ListNodeTypesRequest $request
+     *
+     * @return ListNodeTypesResponse
+     */
+    public function listNodeTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listNodeTypesWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -21,6 +21,11 @@ class CacheService extends Model
     /**
      * @var string
      */
+    public $clusterId;
+
+    /**
+     * @var string
+     */
     public $createdBy;
 
     /**
@@ -70,6 +75,7 @@ class CacheService extends Model
     protected $_name = [
         'cacheInfos' => 'CacheInfos',
         'cacheServiceId' => 'CacheServiceId',
+        'clusterId' => 'ClusterId',
         'createdBy' => 'CreatedBy',
         'gmtCreated' => 'GmtCreated',
         'networkType' => 'NetworkType',
@@ -112,6 +118,10 @@ class CacheService extends Model
 
         if (null !== $this->cacheServiceId) {
             $res['CacheServiceId'] = $this->cacheServiceId;
+        }
+
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         if (null !== $this->createdBy) {
@@ -185,6 +195,10 @@ class CacheService extends Model
 
         if (isset($map['CacheServiceId'])) {
             $model->cacheServiceId = $map['CacheServiceId'];
+        }
+
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         if (isset($map['CreatedBy'])) {
