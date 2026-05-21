@@ -285,6 +285,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePocFunctionsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePocFunctionsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePostpayBillsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePostpayBillsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePrepayDailyBillsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePrepayDailyBillsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesRequest;
@@ -11341,6 +11343,91 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePocFunctionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看用户账单详情.
+     *
+     * @param request - DescribePostpayBillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePostpayBillsResponse
+     *
+     * @param DescribePostpayBillsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribePostpayBillsResponse
+     */
+    public function describePostpayBillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->periodType) {
+            @$query['PeriodType'] = $request->periodType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePostpayBills',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePostpayBillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看用户账单详情.
+     *
+     * @param request - DescribePostpayBillsRequest
+     *
+     * @returns DescribePostpayBillsResponse
+     *
+     * @param DescribePostpayBillsRequest $request
+     *
+     * @return DescribePostpayBillsResponse
+     */
+    public function describePostpayBills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePostpayBillsWithOptions($request, $runtime);
     }
 
     /**
