@@ -16,6 +16,11 @@ class ListWorkflowInstancesRequest extends Model
     /**
      * @var string
      */
+    public $envType;
+
+    /**
+     * @var string
+     */
     public $filter;
 
     /**
@@ -74,6 +79,7 @@ class ListWorkflowInstancesRequest extends Model
     public $workflowId;
     protected $_name = [
         'bizDate' => 'BizDate',
+        'envType' => 'EnvType',
         'filter' => 'Filter',
         'ids' => 'Ids',
         'name' => 'Name',
@@ -104,6 +110,10 @@ class ListWorkflowInstancesRequest extends Model
         $res = [];
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
+        }
+
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
 
         if (null !== $this->filter) {
@@ -181,6 +191,10 @@ class ListWorkflowInstancesRequest extends Model
         $model = new self();
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
+        }
+
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
 
         if (isset($map['Filter'])) {

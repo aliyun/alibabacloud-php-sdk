@@ -16,6 +16,11 @@ class ListWorkflowInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $envType;
+
+    /**
+     * @var string
+     */
     public $filter;
 
     /**
@@ -74,6 +79,7 @@ class ListWorkflowInstancesShrinkRequest extends Model
     public $workflowId;
     protected $_name = [
         'bizDate' => 'BizDate',
+        'envType' => 'EnvType',
         'filter' => 'Filter',
         'idsShrink' => 'Ids',
         'name' => 'Name',
@@ -98,6 +104,10 @@ class ListWorkflowInstancesShrinkRequest extends Model
         $res = [];
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
+        }
+
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
 
         if (null !== $this->filter) {
@@ -161,6 +171,10 @@ class ListWorkflowInstancesShrinkRequest extends Model
         $model = new self();
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
+        }
+
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
 
         if (isset($map['Filter'])) {

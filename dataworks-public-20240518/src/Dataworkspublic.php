@@ -1069,7 +1069,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Associates a resource group with a workspace.
+     * Bind a resource group to a workspace.
      *
      * @remarks
      * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -1117,7 +1117,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Associates a resource group with a workspace.
+     * Bind a resource group to a workspace.
      *
      * @remarks
      * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -16614,6 +16614,10 @@ class Dataworkspublic extends OpenApiClient
         $body = [];
         if (null !== $request->bizDate) {
             @$body['BizDate'] = $request->bizDate;
+        }
+
+        if (null !== $request->envType) {
+            @$body['EnvType'] = $request->envType;
         }
 
         if (null !== $request->filter) {
