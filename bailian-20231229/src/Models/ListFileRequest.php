@@ -14,6 +14,11 @@ class ListFileRequest extends Model
     public $categoryId;
 
     /**
+     * @var string[]
+     */
+    public $fileIds;
+
+    /**
      * @var string
      */
     public $fileName;
@@ -29,6 +34,7 @@ class ListFileRequest extends Model
     public $nextToken;
     protected $_name = [
         'categoryId' => 'CategoryId',
+        'fileIds' => 'FileIds',
         'fileName' => 'FileName',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -36,6 +42,9 @@ class ListFileRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->fileIds)) {
+            Model::validateArray($this->fileIds);
+        }
         parent::validate();
     }
 
@@ -44,6 +53,17 @@ class ListFileRequest extends Model
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
+        }
+
+        if (null !== $this->fileIds) {
+            if (\is_array($this->fileIds)) {
+                $res['FileIds'] = [];
+                $n1 = 0;
+                foreach ($this->fileIds as $item1) {
+                    $res['FileIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->fileName) {
@@ -71,6 +91,17 @@ class ListFileRequest extends Model
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
+        }
+
+        if (isset($map['FileIds'])) {
+            if (!empty($map['FileIds'])) {
+                $model->fileIds = [];
+                $n1 = 0;
+                foreach ($map['FileIds'] as $item1) {
+                    $model->fileIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['FileName'])) {

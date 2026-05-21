@@ -1,3 +1,10 @@
+2026-05-21 Version: 2.11.0
+- Support API AddConnector.
+- Support API GetConnector.
+- Update API ListCategory: add request parameters ConnectorId.
+- Update API ListFile: add request parameters FileIds.
+
+
 2026-05-20 Version: 2.10.0
 - Support API BatchUpdateFileTag.
 - Update API AddFile: add request parameters ParserConfig.

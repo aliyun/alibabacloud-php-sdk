@@ -6,22 +6,22 @@ namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListCategoryRequest extends Model
+class ListFileShrinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $categoryName;
+    public $categoryId;
 
     /**
      * @var string
      */
-    public $categoryType;
+    public $fileIdsShrink;
 
     /**
      * @var string
      */
-    public $connectorId;
+    public $fileName;
 
     /**
      * @var int
@@ -32,18 +32,12 @@ class ListCategoryRequest extends Model
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $parentCategoryId;
     protected $_name = [
-        'categoryName' => 'CategoryName',
-        'categoryType' => 'CategoryType',
-        'connectorId' => 'ConnectorId',
+        'categoryId' => 'CategoryId',
+        'fileIdsShrink' => 'FileIds',
+        'fileName' => 'FileName',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
-        'parentCategoryId' => 'ParentCategoryId',
     ];
 
     public function validate()
@@ -54,16 +48,16 @@ class ListCategoryRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->categoryName) {
-            $res['CategoryName'] = $this->categoryName;
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
         }
 
-        if (null !== $this->categoryType) {
-            $res['CategoryType'] = $this->categoryType;
+        if (null !== $this->fileIdsShrink) {
+            $res['FileIds'] = $this->fileIdsShrink;
         }
 
-        if (null !== $this->connectorId) {
-            $res['ConnectorId'] = $this->connectorId;
+        if (null !== $this->fileName) {
+            $res['FileName'] = $this->fileName;
         }
 
         if (null !== $this->maxResults) {
@@ -72,10 +66,6 @@ class ListCategoryRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->parentCategoryId) {
-            $res['ParentCategoryId'] = $this->parentCategoryId;
         }
 
         return $res;
@@ -89,16 +79,16 @@ class ListCategoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CategoryName'])) {
-            $model->categoryName = $map['CategoryName'];
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
         }
 
-        if (isset($map['CategoryType'])) {
-            $model->categoryType = $map['CategoryType'];
+        if (isset($map['FileIds'])) {
+            $model->fileIdsShrink = $map['FileIds'];
         }
 
-        if (isset($map['ConnectorId'])) {
-            $model->connectorId = $map['ConnectorId'];
+        if (isset($map['FileName'])) {
+            $model->fileName = $map['FileName'];
         }
 
         if (isset($map['MaxResults'])) {
@@ -107,10 +97,6 @@ class ListCategoryRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-
-        if (isset($map['ParentCategoryId'])) {
-            $model->parentCategoryId = $map['ParentCategoryId'];
         }
 
         return $model;

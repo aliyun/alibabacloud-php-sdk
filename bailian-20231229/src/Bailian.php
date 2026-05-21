@@ -8,6 +8,9 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddCategoryRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddCategoryResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddConnectorRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddConnectorResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddConnectorShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssRequest;
@@ -67,6 +70,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayUrlRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayUrlResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAvailableParserTypesRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAvailableParserTypesResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetConnectorRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetConnectorResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexMonitorRequest;
@@ -89,6 +94,7 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListChunksResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListFileResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListFileShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexFileDetailsRequest;
@@ -258,6 +264,87 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->addCategoryWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建连接器.
+     *
+     * @param tmpReq - AddConnectorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddConnectorResponse
+     *
+     * @param string              $WorkspaceId
+     * @param AddConnectorRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AddConnectorResponse
+     */
+    public function addConnectorWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddConnectorShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileConnectorConfig) {
+            $request->fileConnectorConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileConnectorConfig, 'FileConnectorConfig', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->connectorName) {
+            @$body['ConnectorName'] = $request->connectorName;
+        }
+
+        if (null !== $request->connectorType) {
+            @$body['ConnectorType'] = $request->connectorType;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->fileConnectorConfigShrink) {
+            @$body['FileConnectorConfig'] = $request->fileConnectorConfigShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddConnector',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/connector',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建连接器.
+     *
+     * @param request - AddConnectorRequest
+     *
+     * @returns AddConnectorResponse
+     *
+     * @param string              $WorkspaceId
+     * @param AddConnectorRequest $request
+     *
+     * @return AddConnectorResponse
+     */
+    public function addConnector($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addConnectorWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2266,6 +2353,73 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * GetConnector.
+     *
+     * @param request - GetConnectorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConnectorResponse
+     *
+     * @param string              $WorkspaceId
+     * @param GetConnectorRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetConnectorResponse
+     */
+    public function getConnectorWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->connectorName) {
+            @$query['ConnectorName'] = $request->connectorName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetConnector',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/connector',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetConnector.
+     *
+     * @param request - GetConnectorRequest
+     *
+     * @returns GetConnectorResponse
+     *
+     * @param string              $WorkspaceId
+     * @param GetConnectorRequest $request
+     *
+     * @return GetConnectorResponse
+     */
+    public function getConnector($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getConnectorWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the current status of a specified knowledge base creation or add document job.
      *
      * @remarks
@@ -2833,6 +2987,10 @@ class Bailian extends OpenApiClient
             @$body['CategoryType'] = $request->categoryType;
         }
 
+        if (null !== $request->connectorId) {
+            @$body['ConnectorId'] = $request->connectorId;
+        }
+
         if (null !== $request->maxResults) {
             @$body['MaxResults'] = $request->maxResults;
         }
@@ -2984,25 +3142,35 @@ class Bailian extends OpenApiClient
      * *   This operation is idempotent.
      * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
      *
-     * @param request - ListFileRequest
+     * @param tmpReq - ListFileRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListFileResponse
      *
      * @param string          $WorkspaceId
-     * @param ListFileRequest $request
+     * @param ListFileRequest $tmpReq
      * @param string[]        $headers
      * @param RuntimeOptions  $runtime
      *
      * @return ListFileResponse
      */
-    public function listFileWithOptions($WorkspaceId, $request, $headers, $runtime)
+    public function listFileWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ListFileShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileIds) {
+            $request->fileIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileIds, 'FileIds', 'json');
+        }
+
         $query = [];
         if (null !== $request->categoryId) {
             @$query['CategoryId'] = $request->categoryId;
+        }
+
+        if (null !== $request->fileIdsShrink) {
+            @$query['FileIds'] = $request->fileIdsShrink;
         }
 
         if (null !== $request->fileName) {
