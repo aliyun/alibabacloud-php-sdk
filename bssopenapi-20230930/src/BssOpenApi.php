@@ -121,6 +121,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterShareRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterShareRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryCostCenterShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryMonthlySlaListRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\QueryMonthlySlaListResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SaveCostCenterShareRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SaveCostCenterShareRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SaveCostCenterShareRuleShrinkRequest;
@@ -131,6 +133,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetFundAccountLowAvailableAmoun
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SetSavingPlanUserDeductRuleShrinkRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SubmitSlaCouponApplyRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\SubmitSlaCouponApplyResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpdateBudgetRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpdateBudgetResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20230930\Models\UpdateBudgetShrinkRequest;
@@ -3868,6 +3872,93 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
+     * 查询SLA优惠券.
+     *
+     * @param request - QueryMonthlySlaListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMonthlySlaListResponse
+     *
+     * @param QueryMonthlySlaListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryMonthlySlaListResponse
+     */
+    public function queryMonthlySlaListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->ecIdAccountIds) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIds;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $body = [];
+        if (null !== $request->instanceIds) {
+            @$body['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->months) {
+            @$body['Months'] = $request->months;
+        }
+
+        if (null !== $request->payStatuses) {
+            @$body['PayStatuses'] = $request->payStatuses;
+        }
+
+        if (null !== $request->productCodes) {
+            @$body['ProductCodes'] = $request->productCodes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMonthlySlaList',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMonthlySlaListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询SLA优惠券.
+     *
+     * @param request - QueryMonthlySlaListRequest
+     *
+     * @returns QueryMonthlySlaListResponse
+     *
+     * @param QueryMonthlySlaListRequest $request
+     *
+     * @return QueryMonthlySlaListResponse
+     */
+    public function queryMonthlySlaList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMonthlySlaListWithOptions($request, $runtime);
+    }
+
+    /**
      * Modify cost center allocation rules, including creating, modifying, and deleting allocation rules.
      *
      * @param tmpReq - SaveCostCenterShareRuleRequest
@@ -4159,6 +4250,77 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setSavingPlanUserDeductRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * SLA优惠券申领.
+     *
+     * @param request - SubmitSlaCouponApplyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitSlaCouponApplyResponse
+     *
+     * @param SubmitSlaCouponApplyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SubmitSlaCouponApplyResponse
+     */
+    public function submitSlaCouponApplyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ecIdAccountIds) {
+            @$query['EcIdAccountIds'] = $request->ecIdAccountIds;
+        }
+
+        if (null !== $request->nbid) {
+            @$query['Nbid'] = $request->nbid;
+        }
+
+        $body = [];
+        if (null !== $request->damagedIds) {
+            @$body['DamagedIds'] = $request->damagedIds;
+        }
+
+        if (null !== $request->month) {
+            @$body['Month'] = $request->month;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitSlaCouponApply',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitSlaCouponApplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SLA优惠券申领.
+     *
+     * @param request - SubmitSlaCouponApplyRequest
+     *
+     * @returns SubmitSlaCouponApplyResponse
+     *
+     * @param SubmitSlaCouponApplyRequest $request
+     *
+     * @return SubmitSlaCouponApplyResponse
+     */
+    public function submitSlaCouponApply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSlaCouponApplyWithOptions($request, $runtime);
     }
 
     /**
