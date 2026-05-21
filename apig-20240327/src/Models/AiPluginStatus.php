@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class AiPluginStatus extends Model
 {
     /**
-     * @var string[]
+     * @var mixed[][]
      */
     public $errorLogs;
 
@@ -42,8 +42,15 @@ class AiPluginStatus extends Model
         if (null !== $this->errorLogs) {
             if (\is_array($this->errorLogs)) {
                 $res['errorLogs'] = [];
-                foreach ($this->errorLogs as $key1 => $value1) {
-                    $res['errorLogs'][$key1] = $value1;
+                $n1 = 0;
+                foreach ($this->errorLogs as $item1) {
+                    if (\is_array($item1)) {
+                        $res['errorLogs'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['errorLogs'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
                 }
             }
         }
@@ -70,8 +77,15 @@ class AiPluginStatus extends Model
         if (isset($map['errorLogs'])) {
             if (!empty($map['errorLogs'])) {
                 $model->errorLogs = [];
-                foreach ($map['errorLogs'] as $key1 => $value1) {
-                    $model->errorLogs[$key1] = $value1;
+                $n1 = 0;
+                foreach ($map['errorLogs'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->errorLogs[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->errorLogs[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
                 }
             }
         }

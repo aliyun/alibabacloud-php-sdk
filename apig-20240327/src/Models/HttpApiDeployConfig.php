@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\customDomainInfos;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\envDomainInfos;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\serviceConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\subDomains;
 
@@ -35,6 +36,16 @@ class HttpApiDeployConfig extends Model
      * @var customDomainInfos[]
      */
     public $customDomainInfos;
+
+    /**
+     * @var string[]
+     */
+    public $envDomainIds;
+
+    /**
+     * @var envDomainInfos[]
+     */
+    public $envDomainInfos;
 
     /**
      * @var string
@@ -86,6 +97,8 @@ class HttpApiDeployConfig extends Model
         'builtinRouteNames' => 'builtinRouteNames',
         'customDomainIds' => 'customDomainIds',
         'customDomainInfos' => 'customDomainInfos',
+        'envDomainIds' => 'envDomainIds',
+        'envDomainInfos' => 'envDomainInfos',
         'environmentId' => 'environmentId',
         'gatewayId' => 'gatewayId',
         'gatewayInfo' => 'gatewayInfo',
@@ -107,6 +120,12 @@ class HttpApiDeployConfig extends Model
         }
         if (\is_array($this->customDomainInfos)) {
             Model::validateArray($this->customDomainInfos);
+        }
+        if (\is_array($this->envDomainIds)) {
+            Model::validateArray($this->envDomainIds);
+        }
+        if (\is_array($this->envDomainInfos)) {
+            Model::validateArray($this->envDomainInfos);
         }
         if (null !== $this->gatewayInfo) {
             $this->gatewayInfo->validate();
@@ -168,6 +187,28 @@ class HttpApiDeployConfig extends Model
                 $n1 = 0;
                 foreach ($this->customDomainInfos as $item1) {
                     $res['customDomainInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->envDomainIds) {
+            if (\is_array($this->envDomainIds)) {
+                $res['envDomainIds'] = [];
+                $n1 = 0;
+                foreach ($this->envDomainIds as $item1) {
+                    $res['envDomainIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->envDomainInfos) {
+            if (\is_array($this->envDomainInfos)) {
+                $res['envDomainInfos'] = [];
+                $n1 = 0;
+                foreach ($this->envDomainInfos as $item1) {
+                    $res['envDomainInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -277,6 +318,28 @@ class HttpApiDeployConfig extends Model
                 $n1 = 0;
                 foreach ($map['customDomainInfos'] as $item1) {
                     $model->customDomainInfos[$n1] = customDomainInfos::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['envDomainIds'])) {
+            if (!empty($map['envDomainIds'])) {
+                $model->envDomainIds = [];
+                $n1 = 0;
+                foreach ($map['envDomainIds'] as $item1) {
+                    $model->envDomainIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['envDomainInfos'])) {
+            if (!empty($map['envDomainInfos'])) {
+                $model->envDomainInfos = [];
+                $n1 = 0;
+                foreach ($map['envDomainInfos'] as $item1) {
+                    $model->envDomainInfos[$n1] = envDomainInfos::fromMap($item1);
                     ++$n1;
                 }
             }
