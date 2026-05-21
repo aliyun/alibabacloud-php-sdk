@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Hologram\V20220601;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\BindLeaderInstanceRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\BindLeaderInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateDatabaseRequest;
@@ -16,6 +18,8 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateManualBackupRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateManualBackupResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateModelServiceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateModelServiceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateUserRequest;
@@ -24,6 +28,8 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateWarehouseScheduleTaskRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\CreateWarehouseScheduleTaskResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteBackupDataRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteBackupDataResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteInstanceRequest;
@@ -34,13 +40,21 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteModelServiceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteModelServiceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteWarehouseScheduleTaskRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DeleteWarehouseScheduleTaskResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DescribeTagsRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableExecuteStatementRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableExecuteStatementResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableHiveAccessResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableOperationEventRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableOperationEventResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableSSLResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableSupportAccountRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableSupportAccountResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableWarehouseAutoScaleRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DisableWarehouseAutoScaleResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DiscardUpgradeRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\DiscardUpgradeResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DropUserRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\DropUserResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableExecuteStatementRequest;
@@ -48,6 +62,8 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableExecuteStatementResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableHiveAccessResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableSSLResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableSupportAccountRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableSupportAccountResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableWarehouseAutoScaleRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\EnableWarehouseAutoScaleResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ExecuteStatementRequest;
@@ -55,10 +71,20 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\ExecuteStatementResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetCertificateAttributeResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetExecuteStatementEnabledRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetExecuteStatementEnabledResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetHoloWebLoginSettingRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetHoloWebLoginSettingResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceModelRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceModelResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetLastUpgradeRecordRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetLastUpgradeRecordResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetRootCertificateResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetScheduledBackupConfigRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetScheduledBackupConfigResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetUpgradeableRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetUpgradeableResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetUpgradeStatusRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\GetUpgradeStatusResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GetWarehouseDetailResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GrantDatabasePermissionRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\GrantDatabasePermissionResponse;
@@ -70,17 +96,33 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListBackupDataResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListDatabasesRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListDatabasesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListFollowerInstancesRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListFollowerInstancesResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstanceModelRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstanceModelResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListLeaderInstancesRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListLeaderInstancesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListMigrationZonesRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListMigrationZonesResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListModelCatalogRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListModelCatalogResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListOperationEventsRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListOperationEventsResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListRegionsRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListRegionsResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListUpgradeReleaseVersionsRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\ListUpgradeReleaseVersionsResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehouseScheduleEventRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehouseScheduleEventResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehouseScheduleTaskRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehouseScheduleTaskResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\ListWarehousesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\MigrateInstanceZoneRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\MigrateInstanceZoneResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\PrepareUpgradeRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\PrepareUpgradeResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RebalanceHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RebalanceHoloWarehouseResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\RenameHoloWarehouseRequest;
@@ -107,14 +149,36 @@ use AlibabaCloud\SDK\Hologram\V20220601\Models\ScaleInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\SuspendHoloWarehouseRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\SuspendHoloWarehouseResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UnBindLeaderInstanceRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UnBindLeaderInstanceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateAutoUpgradeRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateAutoUpgradeResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateBackupDataDescRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateBackupDataDescResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateHoloWebLoginSettingRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateHoloWebLoginSettingResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNetworkTypeRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstanceNetworkTypeResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstancePortRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateInstancePortResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateMaintenanceWindowRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateMaintenanceWindowResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateModelServiceRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateModelServiceResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateOperationEventScheduleTimeRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateOperationEventScheduleTimeResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateScheduledBackupConfigRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateScheduledBackupConfigResponse;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateWarehouseScheduleTaskRequest;
 use AlibabaCloud\SDK\Hologram\V20220601\Models\UpdateWarehouseScheduleTaskResponse;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpgradeInstanceRequest;
+use AlibabaCloud\SDK\Hologram\V20220601\Models\UpgradeInstanceResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -152,6 +216,75 @@ class Hologram extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 绑定主实例.
+     *
+     * @param request - BindLeaderInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindLeaderInstanceResponse
+     *
+     * @param string                    $instanceId
+     * @param BindLeaderInstanceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return BindLeaderInstanceResponse
+     */
+    public function bindLeaderInstanceWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->leaderInstanceId) {
+            @$body['leaderInstanceId'] = $request->leaderInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BindLeaderInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/bindReadOnly',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BindLeaderInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 绑定主实例.
+     *
+     * @param request - BindLeaderInstanceRequest
+     *
+     * @returns BindLeaderInstanceResponse
+     *
+     * @param string                    $instanceId
+     * @param BindLeaderInstanceRequest $request
+     *
+     * @return BindLeaderInstanceResponse
+     */
+    public function bindLeaderInstance($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->bindLeaderInstanceWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -616,6 +749,73 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 创建手动备份.
+     *
+     * @param request - CreateManualBackupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateManualBackupResponse
+     *
+     * @param CreateManualBackupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateManualBackupResponse
+     */
+    public function createManualBackupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateManualBackup',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/backups/manual',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateManualBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建手动备份.
+     *
+     * @param request - CreateManualBackupRequest
+     *
+     * @returns CreateManualBackupResponse
+     *
+     * @param CreateManualBackupRequest $request
+     *
+     * @return CreateManualBackupResponse
+     */
+    public function createManualBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createManualBackupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 创建模型服务
      *
      * @param request - CreateModelServiceRequest
@@ -939,6 +1139,69 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->createWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除备份.
+     *
+     * @param request - DeleteBackupDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBackupDataResponse
+     *
+     * @param string                  $id
+     * @param DeleteBackupDataRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteBackupDataResponse
+     */
+    public function deleteBackupDataWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBackupData',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/backups/' . Url::percentEncode($id) . '/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBackupDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除备份.
+     *
+     * @param request - DeleteBackupDataRequest
+     *
+     * @returns DeleteBackupDataResponse
+     *
+     * @param string                  $id
+     * @param DeleteBackupDataRequest $request
+     *
+     * @return DeleteBackupDataResponse
+     */
+    public function deleteBackupData($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteBackupDataWithOptions($id, $request, $headers, $runtime);
     }
 
     /**
@@ -1271,6 +1534,71 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 暂停实例.
+     *
+     * @param request - DescribeTagsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagsResponse
+     *
+     * @param DescribeTagsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeTagsResponse
+     */
+    public function describeTagsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tagsOnly) {
+            @$query['tagsOnly'] = $request->tagsOnly;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTags',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tag',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停实例.
+     *
+     * @param request - DescribeTagsRequest
+     *
+     * @returns DescribeTagsResponse
+     *
+     * @param DescribeTagsRequest $request
+     *
+     * @return DescribeTagsResponse
+     */
+    public function describeTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeTagsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 关闭OpenAPI执行SQL功能.
      *
      * @param request - DisableExecuteStatementRequest
@@ -1391,6 +1719,69 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 取消执行计划.
+     *
+     * @param request - DisableOperationEventRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableOperationEventResponse
+     *
+     * @param string                       $instanceId
+     * @param DisableOperationEventRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DisableOperationEventResponse
+     */
+    public function disableOperationEventWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableOperationEvent',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/disableOperationEvent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableOperationEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消执行计划.
+     *
+     * @param request - DisableOperationEventRequest
+     *
+     * @returns DisableOperationEventResponse
+     *
+     * @param string                       $instanceId
+     * @param DisableOperationEventRequest $request
+     *
+     * @return DisableOperationEventResponse
+     */
+    public function disableOperationEvent($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableOperationEventWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 关闭SSL.
      *
      * @param headers - map
@@ -1439,6 +1830,69 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->disableSSLWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 关闭服务账号.
+     *
+     * @param request - DisableSupportAccountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSupportAccountResponse
+     *
+     * @param string                       $instanceId
+     * @param DisableSupportAccountRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DisableSupportAccountResponse
+     */
+    public function disableSupportAccountWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableSupportAccount',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/supportAccount/disable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableSupportAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 关闭服务账号.
+     *
+     * @param request - DisableSupportAccountRequest
+     *
+     * @returns DisableSupportAccountResponse
+     *
+     * @param string                       $instanceId
+     * @param DisableSupportAccountRequest $request
+     *
+     * @return DisableSupportAccountResponse
+     */
+    public function disableSupportAccount($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableSupportAccountWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1502,6 +1956,69 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->disableWarehouseAutoScaleWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 取消升级.
+     *
+     * @param request - DiscardUpgradeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DiscardUpgradeResponse
+     *
+     * @param string                $instanceId
+     * @param DiscardUpgradeRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DiscardUpgradeResponse
+     */
+    public function discardUpgradeWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DiscardUpgrade',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/upgrade/discard',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DiscardUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 取消升级.
+     *
+     * @param request - DiscardUpgradeRequest
+     *
+     * @returns DiscardUpgradeResponse
+     *
+     * @param string                $instanceId
+     * @param DiscardUpgradeRequest $request
+     *
+     * @return DiscardUpgradeResponse
+     */
+    public function discardUpgrade($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->discardUpgradeWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1740,6 +2257,83 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->enableSSLWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 打开服务账号.
+     *
+     * @param request - EnableSupportAccountRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSupportAccountResponse
+     *
+     * @param string                      $instanceId
+     * @param EnableSupportAccountRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return EnableSupportAccountResponse
+     */
+    public function enableSupportAccountWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->expireTime) {
+            @$body['expireTime'] = $request->expireTime;
+        }
+
+        if (null !== $request->password) {
+            @$body['password'] = $request->password;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableSupportAccount',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/supportAccount/enable',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableSupportAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 打开服务账号.
+     *
+     * @param request - EnableSupportAccountRequest
+     *
+     * @returns EnableSupportAccountResponse
+     *
+     * @param string                      $instanceId
+     * @param EnableSupportAccountRequest $request
+     *
+     * @return EnableSupportAccountResponse
+     */
+    public function enableSupportAccount($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableSupportAccountWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2001,6 +2595,69 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 获取holoweb登陆权限.
+     *
+     * @param request - GetHoloWebLoginSettingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHoloWebLoginSettingResponse
+     *
+     * @param string                        $instanceId
+     * @param GetHoloWebLoginSettingRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetHoloWebLoginSettingResponse
+     */
+    public function getHoloWebLoginSettingWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetHoloWebLoginSetting',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/getHoloWebLoginSetting',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetHoloWebLoginSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取holoweb登陆权限.
+     *
+     * @param request - GetHoloWebLoginSettingRequest
+     *
+     * @returns GetHoloWebLoginSettingResponse
+     *
+     * @param string                        $instanceId
+     * @param GetHoloWebLoginSettingRequest $request
+     *
+     * @return GetHoloWebLoginSettingResponse
+     */
+    public function getHoloWebLoginSetting($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getHoloWebLoginSettingWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Obtains the details of an instance.
      *
      * @param headers - map
@@ -2109,6 +2766,63 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 获取上次升级历史.
+     *
+     * @param request - GetLastUpgradeRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLastUpgradeRecordResponse
+     *
+     * @param string                      $instanceId
+     * @param GetLastUpgradeRecordRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetLastUpgradeRecordResponse
+     */
+    public function getLastUpgradeRecordWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetLastUpgradeRecord',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/lastUpgradeRecord',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLastUpgradeRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取上次升级历史.
+     *
+     * @param request - GetLastUpgradeRecordRequest
+     *
+     * @returns GetLastUpgradeRecordResponse
+     *
+     * @param string                      $instanceId
+     * @param GetLastUpgradeRecordRequest $request
+     *
+     * @return GetLastUpgradeRecordResponse
+     */
+    public function getLastUpgradeRecord($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getLastUpgradeRecordWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 获得根证书.
      *
      * @param headers - map
@@ -2157,6 +2871,201 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->getRootCertificateWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 获取周期备份配置.
+     *
+     * @param request - GetScheduledBackupConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetScheduledBackupConfigResponse
+     *
+     * @param GetScheduledBackupConfigRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetScheduledBackupConfigResponse
+     */
+    public function getScheduledBackupConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->scheduleType) {
+            @$query['scheduleType'] = $request->scheduleType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetScheduledBackupConfig',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/backups/scheduledConfig',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetScheduledBackupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取周期备份配置.
+     *
+     * @param request - GetScheduledBackupConfigRequest
+     *
+     * @returns GetScheduledBackupConfigResponse
+     *
+     * @param GetScheduledBackupConfigRequest $request
+     *
+     * @return GetScheduledBackupConfigResponse
+     */
+    public function getScheduledBackupConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getScheduledBackupConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取升级状态
+     *
+     * @param request - GetUpgradeStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUpgradeStatusResponse
+     *
+     * @param string                  $instanceId
+     * @param GetUpgradeStatusRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetUpgradeStatusResponse
+     */
+    public function getUpgradeStatusWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUpgradeStatus',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/upgrade/status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUpgradeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取升级状态
+     *
+     * @param request - GetUpgradeStatusRequest
+     *
+     * @returns GetUpgradeStatusResponse
+     *
+     * @param string                  $instanceId
+     * @param GetUpgradeStatusRequest $request
+     *
+     * @return GetUpgradeStatusResponse
+     */
+    public function getUpgradeStatus($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getUpgradeStatusWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 是否可升级.
+     *
+     * @param request - GetUpgradeableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUpgradeableResponse
+     *
+     * @param string                $instanceId
+     * @param GetUpgradeableRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetUpgradeableResponse
+     */
+    public function getUpgradeableWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUpgradeable',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/upgradeable',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUpgradeableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 是否可升级.
+     *
+     * @param request - GetUpgradeableRequest
+     *
+     * @returns GetUpgradeableResponse
+     *
+     * @param string                $instanceId
+     * @param GetUpgradeableRequest $request
+     *
+     * @return GetUpgradeableResponse
+     */
+    public function getUpgradeable($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getUpgradeableWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2572,6 +3481,69 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 获取只读从实例.
+     *
+     * @param request - ListFollowerInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFollowerInstancesResponse
+     *
+     * @param string                       $instanceId
+     * @param ListFollowerInstancesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListFollowerInstancesResponse
+     */
+    public function listFollowerInstancesWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFollowerInstances',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/listFollowerInstances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFollowerInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取只读从实例.
+     *
+     * @param request - ListFollowerInstancesRequest
+     *
+     * @returns ListFollowerInstancesResponse
+     *
+     * @param string                       $instanceId
+     * @param ListFollowerInstancesRequest $request
+     *
+     * @return ListFollowerInstancesResponse
+     */
+    public function listFollowerInstances($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listFollowerInstancesWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * AI资源列表.
      *
      * @param request - ListInstanceModelRequest
@@ -2696,6 +3668,136 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 获取主实例.
+     *
+     * @param request - ListLeaderInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListLeaderInstancesResponse
+     *
+     * @param string                     $instanceId
+     * @param ListLeaderInstancesRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListLeaderInstancesResponse
+     */
+    public function listLeaderInstancesWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListLeaderInstances',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/primaryInstances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListLeaderInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取主实例.
+     *
+     * @param request - ListLeaderInstancesRequest
+     *
+     * @returns ListLeaderInstancesResponse
+     *
+     * @param string                     $instanceId
+     * @param ListLeaderInstancesRequest $request
+     *
+     * @return ListLeaderInstancesResponse
+     */
+    public function listLeaderInstances($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listLeaderInstancesWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 实例可迁移可用区列表.
+     *
+     * @param request - ListMigrationZonesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMigrationZonesResponse
+     *
+     * @param string                    $instanceId
+     * @param ListMigrationZonesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListMigrationZonesResponse
+     */
+    public function listMigrationZonesWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMigrationZones',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/listMigrationZones',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMigrationZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 实例可迁移可用区列表.
+     *
+     * @param request - ListMigrationZonesRequest
+     *
+     * @returns ListMigrationZonesResponse
+     *
+     * @param string                    $instanceId
+     * @param ListMigrationZonesRequest $request
+     *
+     * @return ListMigrationZonesResponse
+     */
+    public function listMigrationZones($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMigrationZonesWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 列出模型列表.
      *
      * @param request - ListModelCatalogRequest
@@ -2760,6 +3862,213 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->listModelCatalogWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 运维事件列表.
+     *
+     * @param request - ListOperationEventsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOperationEventsResponse
+     *
+     * @param ListOperationEventsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListOperationEventsResponse
+     */
+    public function listOperationEventsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->eventName) {
+            @$body['eventName'] = $request->eventName;
+        }
+
+        if (null !== $request->eventNameDesc) {
+            @$body['eventNameDesc'] = $request->eventNameDesc;
+        }
+
+        if (null !== $request->eventType) {
+            @$body['eventType'] = $request->eventType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scheduleTimeDesc) {
+            @$body['scheduleTimeDesc'] = $request->scheduleTimeDesc;
+        }
+
+        if (null !== $request->state) {
+            @$body['state'] = $request->state;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListOperationEvents',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/listOperationEvents',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOperationEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 运维事件列表.
+     *
+     * @param request - ListOperationEventsRequest
+     *
+     * @returns ListOperationEventsResponse
+     *
+     * @param ListOperationEventsRequest $request
+     *
+     * @return ListOperationEventsResponse
+     */
+    public function listOperationEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOperationEventsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * holoapp共有云所有开服的region.
+     *
+     * @param request - ListRegionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRegionsResponse
+     *
+     * @param ListRegionsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRegionsResponse
+     */
+    public function listRegionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ListRegions',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/regions/listRegions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * holoapp共有云所有开服的region.
+     *
+     * @param request - ListRegionsRequest
+     *
+     * @returns ListRegionsResponse
+     *
+     * @param ListRegionsRequest $request
+     *
+     * @return ListRegionsResponse
+     */
+    public function listRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取版本列表.
+     *
+     * @param request - ListUpgradeReleaseVersionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUpgradeReleaseVersionsResponse
+     *
+     * @param string                            $instanceId
+     * @param ListUpgradeReleaseVersionsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListUpgradeReleaseVersionsResponse
+     */
+    public function listUpgradeReleaseVersionsWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUpgradeReleaseVersions',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/upgrade/listReleaseVersions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUpgradeReleaseVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取版本列表.
+     *
+     * @param request - ListUpgradeReleaseVersionsRequest
+     *
+     * @returns ListUpgradeReleaseVersionsResponse
+     *
+     * @param string                            $instanceId
+     * @param ListUpgradeReleaseVersionsRequest $request
+     *
+     * @return ListUpgradeReleaseVersionsResponse
+     */
+    public function listUpgradeReleaseVersions($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUpgradeReleaseVersionsWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -2947,6 +4256,142 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->listWarehousesWithOptions($instanceId, $headers, $runtime);
+    }
+
+    /**
+     * 实例迁移.
+     *
+     * @param request - MigrateInstanceZoneRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MigrateInstanceZoneResponse
+     *
+     * @param string                     $instanceId
+     * @param MigrateInstanceZoneRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return MigrateInstanceZoneResponse
+     */
+    public function migrateInstanceZoneWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->zoneId) {
+            @$body['zoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MigrateInstanceZone',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/migrateInstanceZone',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return MigrateInstanceZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 实例迁移.
+     *
+     * @param request - MigrateInstanceZoneRequest
+     *
+     * @returns MigrateInstanceZoneResponse
+     *
+     * @param string                     $instanceId
+     * @param MigrateInstanceZoneRequest $request
+     *
+     * @return MigrateInstanceZoneResponse
+     */
+    public function migrateInstanceZone($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->migrateInstanceZoneWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 准备升级.
+     *
+     * @param request - PrepareUpgradeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PrepareUpgradeResponse
+     *
+     * @param string                $instanceId
+     * @param PrepareUpgradeRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PrepareUpgradeResponse
+     */
+    public function prepareUpgradeWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->dryRun) {
+            @$body['dryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PrepareUpgrade',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/upgrade/prepare',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PrepareUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 准备升级.
+     *
+     * @param request - PrepareUpgradeRequest
+     *
+     * @returns PrepareUpgradeResponse
+     *
+     * @param string                $instanceId
+     * @param PrepareUpgradeRequest $request
+     *
+     * @return PrepareUpgradeResponse
+     */
+    public function prepareUpgrade($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->prepareUpgradeWithOptions($instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3949,6 +5394,440 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 新增tag.
+     *
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $body = [];
+        if (null !== $request->category) {
+            @$body['category'] = $request->category;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$body['resourceIds'] = $request->resourceIds;
+        }
+
+        if (null !== $request->tagOwnerUid) {
+            @$body['tagOwnerUid'] = $request->tagOwnerUid;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tag',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增tag.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 解除绑定主实例.
+     *
+     * @param request - UnBindLeaderInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnBindLeaderInstanceResponse
+     *
+     * @param string                      $instanceId
+     * @param UnBindLeaderInstanceRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UnBindLeaderInstanceResponse
+     */
+    public function unBindLeaderInstanceWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnBindLeaderInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/unBindReadOnly',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UnBindLeaderInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解除绑定主实例.
+     *
+     * @param request - UnBindLeaderInstanceRequest
+     *
+     * @returns UnBindLeaderInstanceResponse
+     *
+     * @param string                      $instanceId
+     * @param UnBindLeaderInstanceRequest $request
+     *
+     * @return UnBindLeaderInstanceResponse
+     */
+    public function unBindLeaderInstance($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->unBindLeaderInstanceWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除tag.
+     *
+     * @param request - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->category) {
+            @$body['category'] = $request->category;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$body['resourceIds'] = $request->resourceIds;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKeys) {
+            @$body['tagKeys'] = $request->tagKeys;
+        }
+
+        if (null !== $request->tagOwnerUid) {
+            @$body['tagOwnerUid'] = $request->tagOwnerUid;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/tag/unTag',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除tag.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 修改小版本自动升级开关.
+     *
+     * @param request - UpdateAutoUpgradeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAutoUpgradeResponse
+     *
+     * @param string                   $instanceId
+     * @param UpdateAutoUpgradeRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateAutoUpgradeResponse
+     */
+    public function updateAutoUpgradeWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->autoUpgrade) {
+            @$body['autoUpgrade'] = $request->autoUpgrade;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAutoUpgrade',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/autoUpgrade',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAutoUpgradeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改小版本自动升级开关.
+     *
+     * @param request - UpdateAutoUpgradeRequest
+     *
+     * @returns UpdateAutoUpgradeResponse
+     *
+     * @param string                   $instanceId
+     * @param UpdateAutoUpgradeRequest $request
+     *
+     * @return UpdateAutoUpgradeResponse
+     */
+    public function updateAutoUpgrade($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAutoUpgradeWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新备份描述.
+     *
+     * @param request - UpdateBackupDataDescRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBackupDataDescResponse
+     *
+     * @param string                      $id
+     * @param UpdateBackupDataDescRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateBackupDataDescResponse
+     */
+    public function updateBackupDataDescWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->desc) {
+            @$body['desc'] = $request->desc;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBackupDataDesc',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/backups/' . Url::percentEncode($id) . '/desc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBackupDataDescResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新备份描述.
+     *
+     * @param request - UpdateBackupDataDescRequest
+     *
+     * @returns UpdateBackupDataDescResponse
+     *
+     * @param string                      $id
+     * @param UpdateBackupDataDescRequest $request
+     *
+     * @return UpdateBackupDataDescResponse
+     */
+    public function updateBackupDataDesc($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateBackupDataDescWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改holoweb登陆权限.
+     *
+     * @param request - UpdateHoloWebLoginSettingRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHoloWebLoginSettingResponse
+     *
+     * @param string                           $instanceId
+     * @param UpdateHoloWebLoginSettingRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateHoloWebLoginSettingResponse
+     */
+    public function updateHoloWebLoginSettingWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->allowExternalAccountsLogin) {
+            @$body['allowExternalAccountsLogin'] = $request->allowExternalAccountsLogin;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateHoloWebLoginSetting',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/updateHoloWebLoginSetting',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateHoloWebLoginSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改holoweb登陆权限.
+     *
+     * @param request - UpdateHoloWebLoginSettingRequest
+     *
+     * @returns UpdateHoloWebLoginSettingResponse
+     *
+     * @param string                           $instanceId
+     * @param UpdateHoloWebLoginSettingRequest $request
+     *
+     * @return UpdateHoloWebLoginSettingResponse
+     */
+    public function updateHoloWebLoginSetting($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateHoloWebLoginSettingWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Changes the name of an instance.
      *
      * @param request - UpdateInstanceNameRequest
@@ -4095,6 +5974,136 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 修改端口号.
+     *
+     * @param request - UpdateInstancePortRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstancePortResponse
+     *
+     * @param string                    $instanceId
+     * @param UpdateInstancePortRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateInstancePortResponse
+     */
+    public function updateInstancePortWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->port) {
+            @$body['port'] = $request->port;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstancePort',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/updatePort',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstancePortResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改端口号.
+     *
+     * @param request - UpdateInstancePortRequest
+     *
+     * @returns UpdateInstancePortResponse
+     *
+     * @param string                    $instanceId
+     * @param UpdateInstancePortRequest $request
+     *
+     * @return UpdateInstancePortResponse
+     */
+    public function updateInstancePort($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateInstancePortWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改可维护时间窗口.
+     *
+     * @param request - UpdateMaintenanceWindowRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMaintenanceWindowResponse
+     *
+     * @param string                         $instanceId
+     * @param UpdateMaintenanceWindowRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateMaintenanceWindowResponse
+     */
+    public function updateMaintenanceWindowWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMaintenanceWindow',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/maintenanceWindow',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMaintenanceWindowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改可维护时间窗口.
+     *
+     * @param request - UpdateMaintenanceWindowRequest
+     *
+     * @returns UpdateMaintenanceWindowResponse
+     *
+     * @param string                         $instanceId
+     * @param UpdateMaintenanceWindowRequest $request
+     *
+     * @return UpdateMaintenanceWindowResponse
+     */
+    public function updateMaintenanceWindow($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMaintenanceWindowWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
      * 创建模型服务
      *
      * @param request - UpdateModelServiceRequest
@@ -4178,6 +6187,172 @@ class Hologram extends OpenApiClient
     }
 
     /**
+     * 修改运维事件执行时间.
+     *
+     * @param request - UpdateOperationEventScheduleTimeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOperationEventScheduleTimeResponse
+     *
+     * @param string                                  $instanceId
+     * @param UpdateOperationEventScheduleTimeRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateOperationEventScheduleTimeResponse
+     */
+    public function updateOperationEventScheduleTimeWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
+        }
+
+        if (null !== $request->scheduleTime) {
+            @$body['scheduleTime'] = $request->scheduleTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOperationEventScheduleTime',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/updateOperationEventScheduleTime',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOperationEventScheduleTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改运维事件执行时间.
+     *
+     * @param request - UpdateOperationEventScheduleTimeRequest
+     *
+     * @returns UpdateOperationEventScheduleTimeResponse
+     *
+     * @param string                                  $instanceId
+     * @param UpdateOperationEventScheduleTimeRequest $request
+     *
+     * @return UpdateOperationEventScheduleTimeResponse
+     */
+    public function updateOperationEventScheduleTime($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOperationEventScheduleTimeWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 配置周期备份.
+     *
+     * @param request - UpdateScheduledBackupConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateScheduledBackupConfigResponse
+     *
+     * @param UpdateScheduledBackupConfigRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateScheduledBackupConfigResponse
+     */
+    public function updateScheduledBackupConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->dataKeepQuantity) {
+            @$body['dataKeepQuantity'] = $request->dataKeepQuantity;
+        }
+
+        if (null !== $request->dstRegion) {
+            @$body['dstRegion'] = $request->dstRegion;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->hour) {
+            @$body['hour'] = $request->hour;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->manualDataKeepQuantity) {
+            @$body['manualDataKeepQuantity'] = $request->manualDataKeepQuantity;
+        }
+
+        if (null !== $request->scheduleType) {
+            @$body['scheduleType'] = $request->scheduleType;
+        }
+
+        if (null !== $request->week) {
+            @$body['week'] = $request->week;
+        }
+
+        if (null !== $request->zoneId) {
+            @$body['zoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateScheduledBackupConfig',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/backups/scheduledConfig',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateScheduledBackupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 配置周期备份.
+     *
+     * @param request - UpdateScheduledBackupConfigRequest
+     *
+     * @returns UpdateScheduledBackupConfigResponse
+     *
+     * @param UpdateScheduledBackupConfigRequest $request
+     *
+     * @return UpdateScheduledBackupConfigResponse
+     */
+    public function updateScheduledBackupConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateScheduledBackupConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 创建分时弹性计划.
      *
      * @param request - UpdateWarehouseScheduleTaskRequest
@@ -4254,5 +6429,76 @@ class Hologram extends OpenApiClient
         $headers = [];
 
         return $this->updateWarehouseScheduleTaskWithOptions($instanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 开始升级.
+     *
+     * @param request - UpgradeInstanceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeInstanceResponse
+     *
+     * @param string                 $instanceId
+     * @param UpgradeInstanceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpgradeInstanceResponse
+     */
+    public function upgradeInstanceWithOptions($instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        if (null !== $request->upgradeTime) {
+            @$query['upgradeTime'] = $request->upgradeTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeInstance',
+            'version' => '2022-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instances/' . Url::percentEncode($instanceId) . '/upgrade',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开始升级.
+     *
+     * @param request - UpgradeInstanceRequest
+     *
+     * @returns UpgradeInstanceResponse
+     *
+     * @param string                 $instanceId
+     * @param UpgradeInstanceRequest $request
+     *
+     * @return UpgradeInstanceResponse
+     */
+    public function upgradeInstance($instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->upgradeInstanceWithOptions($instanceId, $request, $headers, $runtime);
     }
 }
