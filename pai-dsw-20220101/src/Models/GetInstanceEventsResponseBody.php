@@ -42,6 +42,11 @@ class GetInstanceEventsResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'code' => 'Code',
         'events' => 'Events',
@@ -50,6 +55,7 @@ class GetInstanceEventsResponseBody extends Model
         'message' => 'Message',
         'requestId' => 'RequestId',
         'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -98,6 +104,10 @@ class GetInstanceEventsResponseBody extends Model
             $res['Success'] = $this->success;
         }
 
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
+        }
+
         return $res;
     }
 
@@ -142,6 +152,10 @@ class GetInstanceEventsResponseBody extends Model
 
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

@@ -24,6 +24,16 @@ class GetInstanceEventsRequest extends Model
     public $maxEventsNum;
 
     /**
+     * @var int
+     */
+    public $offset;
+
+    /**
+     * @var bool
+     */
+    public $reverse;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -36,6 +46,8 @@ class GetInstanceEventsRequest extends Model
         'endTime' => 'EndTime',
         'eventLevel' => 'EventLevel',
         'maxEventsNum' => 'MaxEventsNum',
+        'offset' => 'Offset',
+        'reverse' => 'Reverse',
         'startTime' => 'StartTime',
         'token' => 'Token',
     ];
@@ -58,6 +70,14 @@ class GetInstanceEventsRequest extends Model
 
         if (null !== $this->maxEventsNum) {
             $res['MaxEventsNum'] = $this->maxEventsNum;
+        }
+
+        if (null !== $this->offset) {
+            $res['Offset'] = $this->offset;
+        }
+
+        if (null !== $this->reverse) {
+            $res['Reverse'] = $this->reverse;
         }
 
         if (null !== $this->startTime) {
@@ -89,6 +109,14 @@ class GetInstanceEventsRequest extends Model
 
         if (isset($map['MaxEventsNum'])) {
             $model->maxEventsNum = $map['MaxEventsNum'];
+        }
+
+        if (isset($map['Offset'])) {
+            $model->offset = $map['Offset'];
+        }
+
+        if (isset($map['Reverse'])) {
+            $model->reverse = $map['Reverse'];
         }
 
         if (isset($map['StartTime'])) {

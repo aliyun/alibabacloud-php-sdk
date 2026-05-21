@@ -1430,6 +1430,14 @@ class Paidsw extends OpenApiClient
             @$query['MaxEventsNum'] = $request->maxEventsNum;
         }
 
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
+        }
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
+        }
+
         if (null !== $request->startTime) {
             @$query['StartTime'] = $request->startTime;
         }
