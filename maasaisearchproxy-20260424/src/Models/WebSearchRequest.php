@@ -41,6 +41,11 @@ class WebSearchRequest extends Model
     /**
      * @var string
      */
+    public $searchType;
+
+    /**
+     * @var string
+     */
     public $startTime;
     protected $_name = [
         'endTime' => 'endTime',
@@ -49,6 +54,7 @@ class WebSearchRequest extends Model
         'limit' => 'limit',
         'query' => 'query',
         'region' => 'region',
+        'searchType' => 'searchType',
         'startTime' => 'startTime',
     ];
 
@@ -104,6 +110,10 @@ class WebSearchRequest extends Model
             $res['region'] = $this->region;
         }
 
+        if (null !== $this->searchType) {
+            $res['searchType'] = $this->searchType;
+        }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -155,6 +165,10 @@ class WebSearchRequest extends Model
 
         if (isset($map['region'])) {
             $model->region = $map['region'];
+        }
+
+        if (isset($map['searchType'])) {
+            $model->searchType = $map['searchType'];
         }
 
         if (isset($map['startTime'])) {
