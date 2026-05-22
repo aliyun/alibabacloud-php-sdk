@@ -734,6 +734,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetTodoTaskShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOpenDingtalkIdHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOpenDingtalkIdRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOpenDingtalkIdResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOpenDingtalkIdShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOpenDingtalkIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdResponse;
@@ -16726,6 +16731,92 @@ class Aliding extends OpenApiClient
         $headers = new GetUserIdHeaders([]);
 
         return $this->getUserIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 根据操作人工号与 openDingtalkId 获取被查看用户工号.
+     *
+     * @param tmpReq - GetUserIdByOpenDingtalkIdRequest
+     * @param tmpHeader - GetUserIdByOpenDingtalkIdHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserIdByOpenDingtalkIdResponse
+     *
+     * @param GetUserIdByOpenDingtalkIdRequest $tmpReq
+     * @param GetUserIdByOpenDingtalkIdHeaders $tmpHeader
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetUserIdByOpenDingtalkIdResponse
+     */
+    public function getUserIdByOpenDingtalkIdWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetUserIdByOpenDingtalkIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new GetUserIdByOpenDingtalkIdShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->openDingtalkId) {
+            @$body['openDingtalkId'] = $request->openDingtalkId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserIdByOpenDingtalkId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/getUserIdByOpenDingtalkId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserIdByOpenDingtalkIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据操作人工号与 openDingtalkId 获取被查看用户工号.
+     *
+     * @param request - GetUserIdByOpenDingtalkIdRequest
+     *
+     * @returns GetUserIdByOpenDingtalkIdResponse
+     *
+     * @param GetUserIdByOpenDingtalkIdRequest $request
+     *
+     * @return GetUserIdByOpenDingtalkIdResponse
+     */
+    public function getUserIdByOpenDingtalkId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetUserIdByOpenDingtalkIdHeaders([]);
+
+        return $this->getUserIdByOpenDingtalkIdWithOptions($request, $headers, $runtime);
     }
 
     /**

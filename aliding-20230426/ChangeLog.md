@@ -1,3 +1,7 @@
+2026-05-22 Version: 2.44.0
+- Support API GetUserIdByOpenDingtalkId.
+
+
 2026-05-15 Version: 2.43.0
 - Support API MeetingFlashMinutes.
 - Support API MuteAll.
