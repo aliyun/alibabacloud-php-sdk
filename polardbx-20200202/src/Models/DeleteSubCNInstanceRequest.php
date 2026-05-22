@@ -16,9 +16,15 @@ class DeleteSubCNInstanceRequest extends Model
     /**
      * @var string
      */
+    public $instanceClusterName;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
+        'instanceClusterName' => 'InstanceClusterName',
         'regionId' => 'RegionId',
     ];
 
@@ -32,6 +38,10 @@ class DeleteSubCNInstanceRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+
+        if (null !== $this->instanceClusterName) {
+            $res['InstanceClusterName'] = $this->instanceClusterName;
         }
 
         if (null !== $this->regionId) {
@@ -51,6 +61,10 @@ class DeleteSubCNInstanceRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
+        }
+
+        if (isset($map['InstanceClusterName'])) {
+            $model->instanceClusterName = $map['InstanceClusterName'];
         }
 
         if (isset($map['RegionId'])) {

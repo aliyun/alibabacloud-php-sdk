@@ -2249,7 +2249,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开通CN子实例.
+     * 创建自定义地址
      *
      * @remarks
      *
@@ -2302,7 +2302,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开通CN子实例.
+     * 创建自定义地址
      *
      * @remarks
      *
@@ -2895,7 +2895,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除CN子实例.
+     * 删除自定义地址
      *
      * @remarks
      *
@@ -2915,6 +2915,10 @@ class Polardbx extends OpenApiClient
         $query = [];
         if (null !== $request->DBInstanceName) {
             @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->instanceClusterName) {
+            @$query['InstanceClusterName'] = $request->instanceClusterName;
         }
 
         if (null !== $request->regionId) {
@@ -2940,7 +2944,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除CN子实例.
+     * 删除自定义地址
      *
      * @remarks
      *
