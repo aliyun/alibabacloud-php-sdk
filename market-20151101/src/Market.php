@@ -66,6 +66,8 @@ use AlibabaCloud\SDK\Market\V20151101\Models\PauseProjectRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\PauseProjectResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\PushMeteringDataRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\PushMeteringDataResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\PushTimesUsageRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\PushTimesUsageResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\ResumeProjectRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\ResumeProjectResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\RollbackCurrentProjectNodeRequest;
@@ -196,6 +198,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 设置自动续费.
+     *
      * @param request - AutoRenewInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -249,6 +253,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 设置自动续费.
+     *
      * @param request - AutoRenewInstanceRequest
      *
      * @returns AutoRenewInstanceResponse
@@ -322,6 +328,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 创建订单.
+     *
      * @param request - CreateOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -379,6 +387,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 创建订单.
+     *
      * @param request - CreateOrderRequest
      *
      * @returns CreateOrderResponse
@@ -395,6 +405,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 跨账号角色授权，根据token获取用户信息.
+     *
      * @param request - CrossAccountVerifyTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -432,6 +444,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 跨账号角色授权，根据token获取用户信息.
+     *
      * @param request - CrossAccountVerifyTokenRequest
      *
      * @returns CrossAccountVerifyTokenResponse
@@ -501,6 +515,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 工作流当前节点信息.
+     *
      * @param request - DescribeCurrentNodeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -538,6 +554,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 工作流当前节点信息.
+     *
      * @param request - DescribeCurrentNodeInfoRequest
      *
      * @returns DescribeCurrentNodeInfoResponse
@@ -792,6 +810,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询实例.
+     *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -837,6 +857,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询实例.
+     *
      * @param request - DescribeInstanceRequest
      *
      * @returns DescribeInstanceResponse
@@ -910,6 +932,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询实例列表.
+     *
      * @param request - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -963,6 +987,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询实例列表.
+     *
      * @param request - DescribeInstancesRequest
      *
      * @returns DescribeInstancesResponse
@@ -1129,6 +1155,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询订单.
+     *
      * @param request - DescribeOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1166,6 +1194,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询订单.
+     *
      * @param request - DescribeOrderRequest
      *
      * @returns DescribeOrderResponse
@@ -1239,6 +1269,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询价格
+     *
      * @param request - DescribePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1280,6 +1312,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询价格
+     *
      * @param request - DescribePriceRequest
      *
      * @returns DescribePriceResponse
@@ -1422,6 +1456,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 附件信息.
+     *
      * @param request - DescribeProjectAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1459,6 +1495,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 附件信息.
+     *
      * @param request - DescribeProjectAttachmentsRequest
      *
      * @returns DescribeProjectAttachmentsResponse
@@ -1475,6 +1513,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 项目信息.
+     *
      * @param request - DescribeProjectInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1512,6 +1552,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 项目信息.
+     *
      * @param request - DescribeProjectInfoRequest
      *
      * @returns DescribeProjectInfoResponse
@@ -1528,6 +1570,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询项目留言信息.
+     *
      * @param request - DescribeProjectMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1569,6 +1613,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询项目留言信息.
+     *
      * @param request - DescribeProjectMessagesRequest
      *
      * @returns DescribeProjectMessagesResponse
@@ -1585,6 +1631,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询项目流程节点list.
+     *
      * @remarks
      *
      * @param request - DescribeProjectNodesRequest
@@ -1624,6 +1672,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询项目流程节点list.
+     *
      * @remarks
      *
      * @param request - DescribeProjectNodesRequest
@@ -1642,6 +1692,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询项目操作记录列表.
+     *
      * @param request - DescribeProjectOperateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1679,6 +1731,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询项目操作记录列表.
+     *
      * @param request - DescribeProjectOperateLogsRequest
      *
      * @returns DescribeProjectOperateLogsResponse
@@ -1695,6 +1749,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 完成当前流程节点.
+     *
      * @param request - FinishCurrentProjectNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1744,6 +1800,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 完成当前流程节点.
+     *
      * @param request - FinishCurrentProjectNodeRequest
      *
      * @returns FinishCurrentProjectNodeResponse
@@ -1837,6 +1895,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 暂停项目.
+     *
      * @param request - PauseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1882,6 +1942,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 暂停项目.
+     *
      * @param request - PauseProjectRequest
      *
      * @returns PauseProjectResponse
@@ -1898,6 +1960,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 云市场计量推送接口.
+     *
      * @param request - PushMeteringDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1935,6 +1999,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 云市场计量推送接口.
+     *
      * @param request - PushMeteringDataRequest
      *
      * @returns PushMeteringDataResponse
@@ -1951,6 +2017,73 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 按次售卖按量计费.
+     *
+     * @param request - PushTimesUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushTimesUsageResponse
+     *
+     * @param PushTimesUsageRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PushTimesUsageResponse
+     */
+    public function pushTimesUsageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->times) {
+            @$query['Times'] = $request->times;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PushTimesUsage',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PushTimesUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按次售卖按量计费.
+     *
+     * @param request - PushTimesUsageRequest
+     *
+     * @returns PushTimesUsageResponse
+     *
+     * @param PushTimesUsageRequest $request
+     *
+     * @return PushTimesUsageResponse
+     */
+    public function pushTimesUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pushTimesUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 恢复已暂停的项目.
+     *
      * @param request - ResumeProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1996,6 +2129,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 恢复已暂停的项目.
+     *
      * @param request - ResumeProjectRequest
      *
      * @returns ResumeProjectResponse
@@ -2012,6 +2147,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 当前流程节点回滚到上一步.
+     *
      * @param request - RollbackCurrentProjectNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2057,6 +2194,8 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 当前流程节点回滚到上一步.
+     *
      * @param request - RollbackCurrentProjectNodeRequest
      *
      * @returns RollbackCurrentProjectNodeResponse
