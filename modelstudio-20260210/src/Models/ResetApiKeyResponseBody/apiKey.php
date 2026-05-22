@@ -2,50 +2,46 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models;
+namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models\ResetApiKeyResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateApiKeyRequest\auth;
 
-class CreateApiKeyRequest extends Model
+class apiKey extends Model
 {
     /**
-     * @var auth
+     * @var int
      */
-    public $auth;
+    public $apiKeyId;
 
     /**
      * @var string
      */
-    public $description;
+    public $apiKeyValue;
 
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'auth' => 'auth',
-        'description' => 'description',
+        'apiKeyId' => 'apiKeyId',
+        'apiKeyValue' => 'apiKeyValue',
         'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
     {
-        if (null !== $this->auth) {
-            $this->auth->validate();
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->auth) {
-            $res['auth'] = null !== $this->auth ? $this->auth->toArray($noStream) : $this->auth;
+        if (null !== $this->apiKeyId) {
+            $res['apiKeyId'] = $this->apiKeyId;
         }
 
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
+        if (null !== $this->apiKeyValue) {
+            $res['apiKeyValue'] = $this->apiKeyValue;
         }
 
         if (null !== $this->workspaceId) {
@@ -63,12 +59,12 @@ class CreateApiKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['auth'])) {
-            $model->auth = auth::fromMap($map['auth']);
+        if (isset($map['apiKeyId'])) {
+            $model->apiKeyId = $map['apiKeyId'];
         }
 
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
+        if (isset($map['apiKeyValue'])) {
+            $model->apiKeyValue = $map['apiKeyValue'];
         }
 
         if (isset($map['workspaceId'])) {

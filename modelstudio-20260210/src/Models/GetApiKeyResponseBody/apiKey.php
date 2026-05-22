@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetApiKeyResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetApiKeyResponseBody\apiKey\auth;
 
 class apiKey extends Model
 {
@@ -17,6 +18,11 @@ class apiKey extends Model
      * @var string
      */
     public $apiKeyValue;
+
+    /**
+     * @var auth
+     */
+    public $auth;
 
     /**
      * @var string
@@ -45,6 +51,7 @@ class apiKey extends Model
     protected $_name = [
         'apiKeyId' => 'apiKeyId',
         'apiKeyValue' => 'apiKeyValue',
+        'auth' => 'auth',
         'createdBy' => 'createdBy',
         'description' => 'description',
         'disabled' => 'disabled',
@@ -54,6 +61,9 @@ class apiKey extends Model
 
     public function validate()
     {
+        if (null !== $this->auth) {
+            $this->auth->validate();
+        }
         parent::validate();
     }
 
@@ -66,6 +76,10 @@ class apiKey extends Model
 
         if (null !== $this->apiKeyValue) {
             $res['apiKeyValue'] = $this->apiKeyValue;
+        }
+
+        if (null !== $this->auth) {
+            $res['auth'] = null !== $this->auth ? $this->auth->toArray($noStream) : $this->auth;
         }
 
         if (null !== $this->createdBy) {
@@ -105,6 +119,10 @@ class apiKey extends Model
 
         if (isset($map['apiKeyValue'])) {
             $model->apiKeyValue = $map['apiKeyValue'];
+        }
+
+        if (isset($map['auth'])) {
+            $model->auth = auth::fromMap($map['auth']);
         }
 
         if (isset($map['createdBy'])) {

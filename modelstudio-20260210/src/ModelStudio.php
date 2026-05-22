@@ -11,11 +11,17 @@ use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DeleteApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DisableApiKeyRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DisableApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\EnableApiKeyRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\EnableApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListApiKeysResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListWorkspacesResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ResetApiKeyRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ResetApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateApiKeyResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -84,9 +90,15 @@ class ModelStudio extends OpenApiClient
             @$query['workspaceId'] = $request->workspaceId;
         }
 
+        $body = [];
+        if (null !== $request->auth) {
+            @$body['auth'] = $request->auth;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateApiKey',
@@ -96,7 +108,7 @@ class ModelStudio extends OpenApiClient
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
 
@@ -236,6 +248,120 @@ class ModelStudio extends OpenApiClient
         $headers = [];
 
         return $this->deleteApiKeyWithOptions($apiKeyId, $headers, $runtime);
+    }
+
+    /**
+     * 禁用API Key.
+     *
+     * @param request - DisableApiKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableApiKeyResponse
+     *
+     * @param string               $apiKeyId
+     * @param DisableApiKeyRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DisableApiKeyResponse
+     */
+    public function disableApiKeyWithOptions($apiKeyId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DisableApiKey',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/apikeys/' . Url::percentEncode($apiKeyId) . '/disable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用API Key.
+     *
+     * @param request - DisableApiKeyRequest
+     *
+     * @returns DisableApiKeyResponse
+     *
+     * @param string               $apiKeyId
+     * @param DisableApiKeyRequest $request
+     *
+     * @return DisableApiKeyResponse
+     */
+    public function disableApiKey($apiKeyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableApiKeyWithOptions($apiKeyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 启用API Key.
+     *
+     * @param request - EnableApiKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableApiKeyResponse
+     *
+     * @param string              $apiKeyId
+     * @param EnableApiKeyRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EnableApiKeyResponse
+     */
+    public function enableApiKeyWithOptions($apiKeyId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'EnableApiKey',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/apikeys/' . Url::percentEncode($apiKeyId) . '/enable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用API Key.
+     *
+     * @param request - EnableApiKeyRequest
+     *
+     * @returns EnableApiKeyResponse
+     *
+     * @param string              $apiKeyId
+     * @param EnableApiKeyRequest $request
+     *
+     * @return EnableApiKeyResponse
+     */
+    public function enableApiKey($apiKeyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableApiKeyWithOptions($apiKeyId, $request, $headers, $runtime);
     }
 
     /**
@@ -440,6 +566,63 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
+     * 重置API Key.
+     *
+     * @param request - ResetApiKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetApiKeyResponse
+     *
+     * @param string             $apiKeyId
+     * @param ResetApiKeyRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ResetApiKeyResponse
+     */
+    public function resetApiKeyWithOptions($apiKeyId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ResetApiKey',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/apikeys/' . Url::percentEncode($apiKeyId) . '/reset',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置API Key.
+     *
+     * @param request - ResetApiKeyRequest
+     *
+     * @returns ResetApiKeyResponse
+     *
+     * @param string             $apiKeyId
+     * @param ResetApiKeyRequest $request
+     *
+     * @return ResetApiKeyResponse
+     */
+    public function resetApiKey($apiKeyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resetApiKeyWithOptions($apiKeyId, $request, $headers, $runtime);
+    }
+
+    /**
      * 编辑apiKey的描述.
      *
      * @param request - UpdateApiKeyRequest
@@ -463,9 +646,15 @@ class ModelStudio extends OpenApiClient
             @$query['description'] = $request->description;
         }
 
+        $body = [];
+        if (null !== $request->auth) {
+            @$body['auth'] = $request->auth;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateApiKey',
@@ -475,7 +664,7 @@ class ModelStudio extends OpenApiClient
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
-            'reqBodyType' => 'json',
+            'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
 
