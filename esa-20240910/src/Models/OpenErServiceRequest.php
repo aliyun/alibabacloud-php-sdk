@@ -9,16 +9,10 @@ use AlibabaCloud\Dara\Model;
 class OpenErServiceRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $securityToken;
     protected $_name = [
-        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
 
@@ -30,10 +24,6 @@ class OpenErServiceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -49,10 +39,6 @@ class OpenErServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

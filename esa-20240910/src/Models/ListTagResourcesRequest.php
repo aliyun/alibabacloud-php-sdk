@@ -20,11 +20,6 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $regionId;
@@ -51,7 +46,6 @@ class ListTagResourcesRequest extends Model
     protected $_name = [
         'maxItem' => 'MaxItem',
         'nextToken' => 'NextToken',
-        'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
@@ -79,10 +73,6 @@ class ListTagResourcesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
         }
 
         if (null !== $this->regionId) {
@@ -136,10 +126,6 @@ class ListTagResourcesRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
         }
 
         if (isset($map['RegionId'])) {

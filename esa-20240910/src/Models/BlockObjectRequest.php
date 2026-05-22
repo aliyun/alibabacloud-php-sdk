@@ -14,11 +14,6 @@ class BlockObjectRequest extends Model
     public $content;
 
     /**
-     * @var string
-     */
-    public $extension;
-
-    /**
      * @var int
      */
     public $maxage;
@@ -34,7 +29,6 @@ class BlockObjectRequest extends Model
     public $type;
     protected $_name = [
         'content' => 'Content',
-        'extension' => 'Extension',
         'maxage' => 'Maxage',
         'siteId' => 'SiteId',
         'type' => 'Type',
@@ -60,10 +54,6 @@ class BlockObjectRequest extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
         }
 
         if (null !== $this->maxage) {
@@ -98,10 +88,6 @@ class BlockObjectRequest extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
         }
 
         if (isset($map['Maxage'])) {

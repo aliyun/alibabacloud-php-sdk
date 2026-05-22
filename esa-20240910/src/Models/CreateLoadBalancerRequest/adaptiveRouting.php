@@ -12,8 +12,14 @@ class adaptiveRouting extends Model
      * @var bool
      */
     public $failoverAcrossPools;
+
+    /**
+     * @var bool
+     */
+    public $originLevelRetry;
     protected $_name = [
         'failoverAcrossPools' => 'FailoverAcrossPools',
+        'originLevelRetry' => 'OriginLevelRetry',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class adaptiveRouting extends Model
         $res = [];
         if (null !== $this->failoverAcrossPools) {
             $res['FailoverAcrossPools'] = $this->failoverAcrossPools;
+        }
+
+        if (null !== $this->originLevelRetry) {
+            $res['OriginLevelRetry'] = $this->originLevelRetry;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class adaptiveRouting extends Model
         $model = new self();
         if (isset($map['FailoverAcrossPools'])) {
             $model->failoverAcrossPools = $map['FailoverAcrossPools'];
+        }
+
+        if (isset($map['OriginLevelRetry'])) {
+            $model->originLevelRetry = $map['OriginLevelRetry'];
         }
 
         return $model;

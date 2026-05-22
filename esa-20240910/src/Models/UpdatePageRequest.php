@@ -32,16 +32,25 @@ class UpdatePageRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var int[]
+     */
+    public $siteIds;
     protected $_name = [
         'content' => 'Content',
         'contentType' => 'ContentType',
         'description' => 'Description',
         'id' => 'Id',
         'name' => 'Name',
+        'siteIds' => 'SiteIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->siteIds)) {
+            Model::validateArray($this->siteIds);
+        }
         parent::validate();
     }
 
@@ -66,6 +75,17 @@ class UpdatePageRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->siteIds) {
+            if (\is_array($this->siteIds)) {
+                $res['SiteIds'] = [];
+                $n1 = 0;
+                foreach ($this->siteIds as $item1) {
+                    $res['SiteIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -97,6 +117,17 @@ class UpdatePageRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['SiteIds'])) {
+            if (!empty($map['SiteIds'])) {
+                $model->siteIds = [];
+                $n1 = 0;
+                foreach ($map['SiteIds'] as $item1) {
+                    $model->siteIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

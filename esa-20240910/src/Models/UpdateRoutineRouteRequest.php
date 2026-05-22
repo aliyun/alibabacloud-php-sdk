@@ -52,6 +52,11 @@ class UpdateRoutineRouteRequest extends Model
      * @var int
      */
     public $siteId;
+
+    /**
+     * @var string
+     */
+    public $timeout;
     protected $_name = [
         'bypass' => 'Bypass',
         'configId' => 'ConfigId',
@@ -62,6 +67,7 @@ class UpdateRoutineRouteRequest extends Model
         'rule' => 'Rule',
         'sequence' => 'Sequence',
         'siteId' => 'SiteId',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -106,6 +112,10 @@ class UpdateRoutineRouteRequest extends Model
 
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
+        }
+
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -153,6 +163,10 @@ class UpdateRoutineRouteRequest extends Model
 
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
+        }
+
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

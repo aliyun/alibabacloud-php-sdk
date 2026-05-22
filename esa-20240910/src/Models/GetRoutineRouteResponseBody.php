@@ -67,6 +67,11 @@ class GetRoutineRouteResponseBody extends Model
      * @var int
      */
     public $siteVersion;
+
+    /**
+     * @var string
+     */
+    public $timeout;
     protected $_name = [
         'bypass' => 'Bypass',
         'configId' => 'ConfigId',
@@ -80,6 +85,7 @@ class GetRoutineRouteResponseBody extends Model
         'rule' => 'Rule',
         'sequence' => 'Sequence',
         'siteVersion' => 'SiteVersion',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -136,6 +142,10 @@ class GetRoutineRouteResponseBody extends Model
 
         if (null !== $this->siteVersion) {
             $res['SiteVersion'] = $this->siteVersion;
+        }
+
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -195,6 +205,10 @@ class GetRoutineRouteResponseBody extends Model
 
         if (isset($map['SiteVersion'])) {
             $model->siteVersion = $map['SiteVersion'];
+        }
+
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

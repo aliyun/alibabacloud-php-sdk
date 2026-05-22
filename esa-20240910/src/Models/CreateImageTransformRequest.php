@@ -11,6 +11,16 @@ class CreateImageTransformRequest extends Model
     /**
      * @var string
      */
+    public $autoAvif;
+
+    /**
+     * @var string
+     */
+    public $autoWebp;
+
+    /**
+     * @var string
+     */
     public $enable;
 
     /**
@@ -43,6 +53,8 @@ class CreateImageTransformRequest extends Model
      */
     public $siteVersion;
     protected $_name = [
+        'autoAvif' => 'AutoAvif',
+        'autoWebp' => 'AutoWebp',
         'enable' => 'Enable',
         'rule' => 'Rule',
         'ruleEnable' => 'RuleEnable',
@@ -60,6 +72,14 @@ class CreateImageTransformRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoAvif) {
+            $res['AutoAvif'] = $this->autoAvif;
+        }
+
+        if (null !== $this->autoWebp) {
+            $res['AutoWebp'] = $this->autoWebp;
+        }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
@@ -99,6 +119,14 @@ class CreateImageTransformRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoAvif'])) {
+            $model->autoAvif = $map['AutoAvif'];
+        }
+
+        if (isset($map['AutoWebp'])) {
+            $model->autoWebp = $map['AutoWebp'];
+        }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }

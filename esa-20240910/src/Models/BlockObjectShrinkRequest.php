@@ -14,11 +14,6 @@ class BlockObjectShrinkRequest extends Model
     public $contentShrink;
 
     /**
-     * @var string
-     */
-    public $extension;
-
-    /**
      * @var int
      */
     public $maxage;
@@ -34,7 +29,6 @@ class BlockObjectShrinkRequest extends Model
     public $type;
     protected $_name = [
         'contentShrink' => 'Content',
-        'extension' => 'Extension',
         'maxage' => 'Maxage',
         'siteId' => 'SiteId',
         'type' => 'Type',
@@ -50,10 +44,6 @@ class BlockObjectShrinkRequest extends Model
         $res = [];
         if (null !== $this->contentShrink) {
             $res['Content'] = $this->contentShrink;
-        }
-
-        if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
         }
 
         if (null !== $this->maxage) {
@@ -81,10 +71,6 @@ class BlockObjectShrinkRequest extends Model
         $model = new self();
         if (isset($map['Content'])) {
             $model->contentShrink = $map['Content'];
-        }
-
-        if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
         }
 
         if (isset($map['Maxage'])) {

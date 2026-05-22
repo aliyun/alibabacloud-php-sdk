@@ -27,6 +27,11 @@ class CreateTransportLayerApplicationRequest extends Model
     /**
      * @var string
      */
+    public $keepAliveProtection;
+
+    /**
+     * @var string
+     */
     public $recordName;
 
     /**
@@ -47,6 +52,7 @@ class CreateTransportLayerApplicationRequest extends Model
         'crossBorderOptimization' => 'CrossBorderOptimization',
         'ipAccessRule' => 'IpAccessRule',
         'ipv6' => 'Ipv6',
+        'keepAliveProtection' => 'KeepAliveProtection',
         'recordName' => 'RecordName',
         'rules' => 'Rules',
         'siteId' => 'SiteId',
@@ -74,6 +80,10 @@ class CreateTransportLayerApplicationRequest extends Model
 
         if (null !== $this->ipv6) {
             $res['Ipv6'] = $this->ipv6;
+        }
+
+        if (null !== $this->keepAliveProtection) {
+            $res['KeepAliveProtection'] = $this->keepAliveProtection;
         }
 
         if (null !== $this->recordName) {
@@ -120,6 +130,10 @@ class CreateTransportLayerApplicationRequest extends Model
 
         if (isset($map['Ipv6'])) {
             $model->ipv6 = $map['Ipv6'];
+        }
+
+        if (isset($map['KeepAliveProtection'])) {
+            $model->keepAliveProtection = $map['KeepAliveProtection'];
         }
 
         if (isset($map['RecordName'])) {

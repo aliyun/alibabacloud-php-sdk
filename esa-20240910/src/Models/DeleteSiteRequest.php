@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class DeleteSiteRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
      * @var string
      */
     public $securityToken;
@@ -23,7 +18,6 @@ class DeleteSiteRequest extends Model
      */
     public $siteId;
     protected $_name = [
-        'ownerId' => 'OwnerId',
         'securityToken' => 'SecurityToken',
         'siteId' => 'SiteId',
     ];
@@ -36,10 +30,6 @@ class DeleteSiteRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -59,10 +49,6 @@ class DeleteSiteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

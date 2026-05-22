@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class UpdateImageTransformRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $autoAvif;
+
+    /**
+     * @var string
+     */
+    public $autoWebp;
+
+    /**
      * @var int
      */
     public $configId;
@@ -43,6 +53,8 @@ class UpdateImageTransformRequest extends Model
      */
     public $siteId;
     protected $_name = [
+        'autoAvif' => 'AutoAvif',
+        'autoWebp' => 'AutoWebp',
         'configId' => 'ConfigId',
         'enable' => 'Enable',
         'rule' => 'Rule',
@@ -60,6 +72,14 @@ class UpdateImageTransformRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoAvif) {
+            $res['AutoAvif'] = $this->autoAvif;
+        }
+
+        if (null !== $this->autoWebp) {
+            $res['AutoWebp'] = $this->autoWebp;
+        }
+
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
@@ -99,6 +119,14 @@ class UpdateImageTransformRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoAvif'])) {
+            $model->autoAvif = $map['AutoAvif'];
+        }
+
+        if (isset($map['AutoWebp'])) {
+            $model->autoWebp = $map['AutoWebp'];
+        }
+
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }

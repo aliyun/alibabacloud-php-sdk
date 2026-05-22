@@ -11,8 +11,14 @@ class queryArgs extends Model
     /**
      * @var string
      */
+    public $contentType;
+
+    /**
+     * @var string
+     */
     public $nameDescriptionLike;
     protected $_name = [
+        'contentType' => 'ContentType',
         'nameDescriptionLike' => 'NameDescriptionLike',
     ];
 
@@ -24,6 +30,10 @@ class queryArgs extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->contentType) {
+            $res['ContentType'] = $this->contentType;
+        }
+
         if (null !== $this->nameDescriptionLike) {
             $res['NameDescriptionLike'] = $this->nameDescriptionLike;
         }
@@ -39,6 +49,10 @@ class queryArgs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContentType'])) {
+            $model->contentType = $map['ContentType'];
+        }
+
         if (isset($map['NameDescriptionLike'])) {
             $model->nameDescriptionLike = $map['NameDescriptionLike'];
         }

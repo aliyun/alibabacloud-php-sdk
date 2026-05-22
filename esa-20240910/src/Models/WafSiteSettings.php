@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\bandwidthAbuseProtecti
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\botManagement;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\clientIpIdentifier;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\disableSecurityModule;
+use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\requestBodyInspection;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\securityLevel;
 
 class WafSiteSettings extends Model
@@ -46,6 +47,11 @@ class WafSiteSettings extends Model
     public $disableSecurityModule;
 
     /**
+     * @var requestBodyInspection
+     */
+    public $requestBodyInspection;
+
+    /**
      * @var securityLevel
      */
     public $securityLevel;
@@ -56,6 +62,7 @@ class WafSiteSettings extends Model
         'botManagement' => 'BotManagement',
         'clientIpIdentifier' => 'ClientIpIdentifier',
         'disableSecurityModule' => 'DisableSecurityModule',
+        'requestBodyInspection' => 'RequestBodyInspection',
         'securityLevel' => 'SecurityLevel',
     ];
 
@@ -78,6 +85,9 @@ class WafSiteSettings extends Model
         }
         if (null !== $this->disableSecurityModule) {
             $this->disableSecurityModule->validate();
+        }
+        if (null !== $this->requestBodyInspection) {
+            $this->requestBodyInspection->validate();
         }
         if (null !== $this->securityLevel) {
             $this->securityLevel->validate();
@@ -110,6 +120,10 @@ class WafSiteSettings extends Model
 
         if (null !== $this->disableSecurityModule) {
             $res['DisableSecurityModule'] = null !== $this->disableSecurityModule ? $this->disableSecurityModule->toArray($noStream) : $this->disableSecurityModule;
+        }
+
+        if (null !== $this->requestBodyInspection) {
+            $res['RequestBodyInspection'] = null !== $this->requestBodyInspection ? $this->requestBodyInspection->toArray($noStream) : $this->requestBodyInspection;
         }
 
         if (null !== $this->securityLevel) {
@@ -149,6 +163,10 @@ class WafSiteSettings extends Model
 
         if (isset($map['DisableSecurityModule'])) {
             $model->disableSecurityModule = disableSecurityModule::fromMap($map['DisableSecurityModule']);
+        }
+
+        if (isset($map['RequestBodyInspection'])) {
+            $model->requestBodyInspection = requestBodyInspection::fromMap($map['RequestBodyInspection']);
         }
 
         if (isset($map['SecurityLevel'])) {

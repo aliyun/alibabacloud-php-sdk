@@ -62,6 +62,11 @@ class configs extends Model
      * @var int
      */
     public $siteVersion;
+
+    /**
+     * @var string
+     */
+    public $timeout;
     protected $_name = [
         'bypass' => 'Bypass',
         'configId' => 'ConfigId',
@@ -74,6 +79,7 @@ class configs extends Model
         'rule' => 'Rule',
         'sequence' => 'Sequence',
         'siteVersion' => 'SiteVersion',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -126,6 +132,10 @@ class configs extends Model
 
         if (null !== $this->siteVersion) {
             $res['SiteVersion'] = $this->siteVersion;
+        }
+
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -181,6 +191,10 @@ class configs extends Model
 
         if (isset($map['SiteVersion'])) {
             $model->siteVersion = $map['SiteVersion'];
+        }
+
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

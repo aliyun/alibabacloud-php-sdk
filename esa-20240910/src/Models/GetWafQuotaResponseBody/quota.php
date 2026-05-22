@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\list_;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\managedRulesGroup;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\page;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\scenePolicy;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota\sliderCaptchaPage;
 
 class quota extends Model
 {
@@ -37,12 +38,18 @@ class quota extends Model
      * @var scenePolicy
      */
     public $scenePolicy;
+
+    /**
+     * @var sliderCaptchaPage
+     */
+    public $sliderCaptchaPage;
     protected $_name = [
         'captcha' => 'Captcha',
         'list' => 'List',
         'managedRulesGroup' => 'ManagedRulesGroup',
         'page' => 'Page',
         'scenePolicy' => 'ScenePolicy',
+        'sliderCaptchaPage' => 'SliderCaptchaPage',
     ];
 
     public function validate()
@@ -61,6 +68,9 @@ class quota extends Model
         }
         if (null !== $this->scenePolicy) {
             $this->scenePolicy->validate();
+        }
+        if (null !== $this->sliderCaptchaPage) {
+            $this->sliderCaptchaPage->validate();
         }
         parent::validate();
     }
@@ -86,6 +96,10 @@ class quota extends Model
 
         if (null !== $this->scenePolicy) {
             $res['ScenePolicy'] = null !== $this->scenePolicy ? $this->scenePolicy->toArray($noStream) : $this->scenePolicy;
+        }
+
+        if (null !== $this->sliderCaptchaPage) {
+            $res['SliderCaptchaPage'] = null !== $this->sliderCaptchaPage ? $this->sliderCaptchaPage->toArray($noStream) : $this->sliderCaptchaPage;
         }
 
         return $res;
@@ -117,6 +131,10 @@ class quota extends Model
 
         if (isset($map['ScenePolicy'])) {
             $model->scenePolicy = scenePolicy::fromMap($map['ScenePolicy']);
+        }
+
+        if (isset($map['SliderCaptchaPage'])) {
+            $model->sliderCaptchaPage = sliderCaptchaPage::fromMap($map['SliderCaptchaPage']);
         }
 
         return $model;

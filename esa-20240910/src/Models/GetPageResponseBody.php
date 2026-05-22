@@ -44,6 +44,11 @@ class GetPageResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int[]
+     */
+    public $siteIds;
+
+    /**
      * @var string
      */
     public $updateTime;
@@ -55,11 +60,15 @@ class GetPageResponseBody extends Model
         'kind' => 'Kind',
         'name' => 'Name',
         'requestId' => 'RequestId',
+        'siteIds' => 'SiteIds',
         'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->siteIds)) {
+            Model::validateArray($this->siteIds);
+        }
         parent::validate();
     }
 
@@ -92,6 +101,17 @@ class GetPageResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->siteIds) {
+            if (\is_array($this->siteIds)) {
+                $res['SiteIds'] = [];
+                $n1 = 0;
+                foreach ($this->siteIds as $item1) {
+                    $res['SiteIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->updateTime) {
@@ -135,6 +155,17 @@ class GetPageResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SiteIds'])) {
+            if (!empty($map['SiteIds'])) {
+                $model->siteIds = [];
+                $n1 = 0;
+                foreach ($map['SiteIds'] as $item1) {
+                    $model->siteIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UpdateTime'])) {

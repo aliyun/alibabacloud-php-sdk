@@ -1,3 +1,58 @@
+2026-05-22 Version: 3.0.0
+- Support API DeleteKeylessServer.
+- Support API DescribeRatePlanPrice.
+- Support API DescribeTraceDiagnoseReport.
+- Support API GenerateTraceDiagnose.
+- Support API GetAutomaticFrequencyControlConfig.
+- Support API GetClientCaCertificateHostnames.
+- Support API GetKeylessServer.
+- Support API GetPerformanceDataCollection.
+- Support API ListDDoSInstances.
+- Support API ListKeylessServers.
+- Support API ListPostpaidRatePlanInstances.
+- Support API ListTraceTasks.
+- Support API ReleaseInstance.
+- Support API SetAutomaticFrequencyControlConfig.
+- Support API SetClientCaCertificateHostnames.
+- Support API SetKeylessServer.
+- Support API UpdatePerformanceDataCollection.
+- Update API BlockObject: delete request parameters Extension.
+- Update API CreateImageTransform: add request parameters AutoAvif.
+- Update API CreateImageTransform: add request parameters AutoWebp.
+- Update API CreateLoadBalancer: add request parameters AdaptiveRouting.OriginLevelRetry.
+- Update API CreatePage: add request parameters SiteIds.
+- Update API CreateRoutineRoute: add request parameters Timeout.
+- Update API CreateTransportLayerApplication: add request parameters KeepAliveProtection.
+- Update API DeleteSite: delete request parameters OwnerId.
+- Update API GetErService: delete request parameters OwnerId.
+- Update API GetImageTransform: add response parameters Body.AutoAvif.
+- Update API GetImageTransform: add response parameters Body.AutoWebp.
+- Update API GetLoadBalancer: add response parameters Body.AdaptiveRouting.OriginLevelRetry.
+- Update API GetPage: add response parameters Body.SiteIds.
+- Update API GetPurgeQuota: add response parameters Body.Quota30Day.
+- Update API GetPurgeQuota: add response parameters Body.Usage30Day.
+- Update API GetRoutineRoute: add response parameters Body.Timeout.
+- Update API GetTransportLayerApplication: add response parameters Body.KeepAliveProtection.
+- Update API GetWafQuota: add response parameters Body.Quota.SliderCaptchaPage.
+- Update API ListImageTransforms: add response parameters Body.Configs.$.AutoAvif.
+- Update API ListImageTransforms: add response parameters Body.Configs.$.AutoWebp.
+- Update API ListLoadBalancers: add response parameters Body.LoadBalancers.$.AdaptiveRouting.OriginLevelRetry.
+- Update API ListPages: add request parameters QueryArgs.ContentType.
+- Update API ListRoutineRoutes: add response parameters Body.Configs.$.Timeout.
+- Update API ListSiteRoutes: add response parameters Body.Configs.$.Timeout.
+- Update API ListTagResources: delete request parameters OwnerId.
+- Update API ListTransportLayerApplications: add response parameters Body.Applications.$.KeepAliveProtection.
+- Update API OpenErService: delete request parameters OwnerId.
+- Update API SetCertificate: delete request parameters OwnerId.
+- Update API UntagResources: delete request parameters OwnerId.
+- Update API UpdateImageTransform: add request parameters AutoAvif.
+- Update API UpdateImageTransform: add request parameters AutoWebp.
+- Update API UpdateLoadBalancer: add request parameters AdaptiveRouting.OriginLevelRetry.
+- Update API UpdatePage: add request parameters SiteIds.
+- Update API UpdateRoutineRoute: add request parameters Timeout.
+- Update API UpdateTransportLayerApplication: add request parameters KeepAliveProtection.
+
+
 2026-02-06 Version: 2.39.0
 - Support API CreateCustomResponseCodeRule.
 - Support API DeleteCustomResponseCodeRule.

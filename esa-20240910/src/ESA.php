@@ -116,6 +116,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreatePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreatePageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreatePageShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRecordShrinkRequest;
@@ -216,6 +217,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsBasicConfigurationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpsBasicConfigurationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteImageTransformRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteImageTransformResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKeylessServerRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKeylessServerResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvRequest;
@@ -311,6 +314,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePurgeTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePurgeTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanInstanceStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanInstanceStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanPriceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanPriceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteLogsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteLogsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataRequest;
@@ -319,6 +324,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataShrinkReques
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTopDataRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTopDataResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTopDataShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeTraceDiagnoseReportRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeTraceDiagnoseReportResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeUrlObservationDataRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeUrlObservationDataResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DisableCustomScenePolicyRequest;
@@ -330,8 +337,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GenerateTraceDiagnoseRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GenerateTraceDiagnoseResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetApiSchemaUsageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetApiSchemaUsageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetAutomaticFrequencyControlConfigRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetAutomaticFrequencyControlConfigResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveSpecificationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheRuleResponse;
@@ -341,6 +352,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateHostnamesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateHostnamesRequest;
@@ -399,6 +412,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetImageTransformRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetImageTransformResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetIPv6Request;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetIPv6Response;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetKeylessServerRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetKeylessServerResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvAccountResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvDetailRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvDetailResponse;
@@ -428,6 +443,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetPerformanceDataCollectionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetPerformanceDataCollectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPurgeQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPurgeQuotaResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRealtimeDeliveryFieldRequest;
@@ -515,6 +532,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomHostnamesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomResponseCodeRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCustomResponseCodeRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListDDoSInstancesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListDDoSInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppImageSecretsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppImageSecretsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsRequest;
@@ -548,6 +567,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListKeylessServersRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListKeylessServersResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListKvsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListKvsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListListsRequest;
@@ -574,6 +595,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidRatePlanInstancesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidRatePlanInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRedirectRulesRequest;
@@ -602,6 +625,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListTraceTasksRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListTraceTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTransportLayerApplicationsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListTransportLayerApplicationsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUploadTasksRequest;
@@ -665,14 +690,21 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvWithHighCapacityRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvWithHighCapacityResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ReleaseInstanceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ResetScheduledPreloadJobRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ResetScheduledPreloadJobResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RevokeClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RevokeClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetAutomaticFrequencyControlConfigRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetAutomaticFrequencyControlConfigResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCaCertificateHostnamesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCaCertificateHostnamesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCaCertificateHostnamesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCertificateHostnamesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCertificateHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCertificateHostnamesShrinkRequest;
@@ -686,6 +718,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackRuleActionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackRuleActionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackRuleStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackRuleStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetKeylessServerRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetKeylessServerResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesShrinkRequest;
@@ -763,6 +797,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePageShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePerformanceDataCollectionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePerformanceDataCollectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRatePlanSpecRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRatePlanSpecResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRecordRequest;
@@ -902,11 +939,13 @@ class ESA extends OpenApiClient
             try {
                 $_request = new Request();
                 $boundary = FormUtil::getBoundary();
+                $tmp = '' . @$form['host'];
+                $host = '' . $bucketName . '.' . $tmp . '';
                 $_request->protocol = 'HTTPS';
                 $_request->method = 'POST';
                 $_request->pathname = '/';
                 $_request->headers = [
-                    'host' => '' . @$form['host'],
+                    'host' => $host,
                     'date' => Utils::getDateUTCString(),
                     'user-agent' => Utils::getUserAgent(''),
                 ];
@@ -1653,7 +1692,7 @@ class ESA extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -2050,7 +2089,7 @@ class ESA extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -2181,10 +2220,6 @@ class ESA extends OpenApiClient
             @$query['Content'] = $request->contentShrink;
         }
 
-        if (null !== $request->extension) {
-            @$query['Extension'] = $request->extension;
-        }
-
         if (null !== $request->maxage) {
             @$query['Maxage'] = $request->maxage;
         }
@@ -2236,7 +2271,6 @@ class ESA extends OpenApiClient
     /**
      * 检查实时日志slr角色是否已创建.
      *
-     * @param Request - CheckAssumeSlrRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CheckAssumeSlrRoleResponse
@@ -4006,6 +4040,14 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoAvif) {
+            @$query['AutoAvif'] = $request->autoAvif;
+        }
+
+        if (null !== $request->autoWebp) {
+            @$query['AutoWebp'] = $request->autoWebp;
+        }
+
         if (null !== $request->enable) {
             @$query['Enable'] = $request->enable;
         }
@@ -4730,19 +4772,25 @@ class ESA extends OpenApiClient
     /**
      * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
      *
-     * @param Request - CreatePageRequest
+     * @param tmpReq - CreatePageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreatePageResponse
      *
-     * @param CreatePageRequest $request
+     * @param CreatePageRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return CreatePageResponse
      */
-    public function createPageWithOptions($request, $runtime)
+    public function createPageWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreatePageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->siteIds) {
+            $request->siteIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->siteIds, 'SiteIds', 'json');
+        }
+
         $body = [];
         if (null !== $request->content) {
             @$body['Content'] = $request->content;
@@ -4758,6 +4806,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->siteIdsShrink) {
+            @$body['SiteIds'] = $request->siteIdsShrink;
         }
 
         $req = new OpenApiRequest([
@@ -5353,6 +5405,10 @@ class ESA extends OpenApiClient
             @$query['SiteId'] = $request->siteId;
         }
 
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5914,7 +5970,6 @@ class ESA extends OpenApiClient
     /**
      * 创建一个实时日志slr角色.
      *
-     * @param Request - CreateSlrRoleForRealtimeLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateSlrRoleForRealtimeLogResponse
@@ -5988,6 +6043,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->ipv6) {
             @$query['Ipv6'] = $request->ipv6;
+        }
+
+        if (null !== $request->keepAliveProtection) {
+            @$query['KeepAliveProtection'] = $request->keepAliveProtection;
         }
 
         if (null !== $request->recordName) {
@@ -8217,6 +8276,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 删除一个keyless server配置.
+     *
+     * @param Request - DeleteKeylessServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKeylessServerResponse
+     *
+     * @param DeleteKeylessServerRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteKeylessServerResponse
+     */
+    public function deleteKeylessServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKeylessServer',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKeylessServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除一个keyless server配置.
+     *
+     * @param Request - DeleteKeylessServerRequest
+     *
+     * @returns DeleteKeylessServerResponse
+     *
+     * @param DeleteKeylessServerRequest $request
+     *
+     * @return DeleteKeylessServerResponse
+     */
+    public function deleteKeylessServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKeylessServerWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a key-value pair from a namespace.
      *
      * @param Request - DeleteKvRequest
@@ -9417,10 +9537,6 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
         if (null !== $request->securityToken) {
             @$query['SecurityToken'] = $request->securityToken;
         }
@@ -10913,7 +11029,6 @@ class ESA extends OpenApiClient
     /**
      * Queries whether Edge KV is activated in your Alibaba Cloud account.
      *
-     * @param Request - DescribeKvAccountStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeKvAccountStatusResponse
@@ -11121,6 +11236,71 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRatePlanInstanceStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the prices, types, and status of plans.
+     *
+     * @param Request - DescribeRatePlanPriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRatePlanPriceResponse
+     *
+     * @param DescribeRatePlanPriceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeRatePlanPriceResponse
+     */
+    public function describeRatePlanPriceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->planName) {
+            @$query['PlanName'] = $request->planName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRatePlanPrice',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRatePlanPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the prices, types, and status of plans.
+     *
+     * @param Request - DescribeRatePlanPriceRequest
+     *
+     * @returns DescribeRatePlanPriceResponse
+     *
+     * @param DescribeRatePlanPriceRequest $request
+     *
+     * @return DescribeRatePlanPriceResponse
+     */
+    public function describeRatePlanPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRatePlanPriceWithOptions($request, $runtime);
     }
 
     /**
@@ -11394,6 +11574,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSiteTopDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * 边缘容器的监控.
+     *
+     * @param Request - DescribeTraceDiagnoseReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTraceDiagnoseReportResponse
+     *
+     * @param DescribeTraceDiagnoseReportRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeTraceDiagnoseReportResponse
+     */
+    public function describeTraceDiagnoseReportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->traceId) {
+            @$query['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeTraceDiagnoseReport',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeTraceDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 边缘容器的监控.
+     *
+     * @param Request - DescribeTraceDiagnoseReportRequest
+     *
+     * @returns DescribeTraceDiagnoseReportResponse
+     *
+     * @param DescribeTraceDiagnoseReportRequest $request
+     *
+     * @return DescribeTraceDiagnoseReportResponse
+     */
+    public function describeTraceDiagnoseReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTraceDiagnoseReportWithOptions($request, $runtime);
     }
 
     /**
@@ -11720,6 +11961,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 边缘容器的监控.
+     *
+     * @param Request - GenerateTraceDiagnoseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateTraceDiagnoseResponse
+     *
+     * @param GenerateTraceDiagnoseRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GenerateTraceDiagnoseResponse
+     */
+    public function generateTraceDiagnoseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateTraceDiagnose',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateTraceDiagnoseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 边缘容器的监控.
+     *
+     * @param Request - GenerateTraceDiagnoseRequest
+     *
+     * @returns GenerateTraceDiagnoseResponse
+     *
+     * @param GenerateTraceDiagnoseRequest $request
+     *
+     * @return GenerateTraceDiagnoseResponse
+     */
+    public function generateTraceDiagnose($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateTraceDiagnoseWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the usage of the upload file quota for API security schema verification.
      *
      * @param Request - GetApiSchemaUsageRequest
@@ -11781,9 +12079,69 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询站点智能限频阈值
+     *
+     * @param Request - GetAutomaticFrequencyControlConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAutomaticFrequencyControlConfigResponse
+     *
+     * @param GetAutomaticFrequencyControlConfigRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetAutomaticFrequencyControlConfigResponse
+     */
+    public function getAutomaticFrequencyControlConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAutomaticFrequencyControlConfig',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAutomaticFrequencyControlConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点智能限频阈值
+     *
+     * @param Request - GetAutomaticFrequencyControlConfigRequest
+     *
+     * @returns GetAutomaticFrequencyControlConfigResponse
+     *
+     * @param GetAutomaticFrequencyControlConfigRequest $request
+     *
+     * @return GetAutomaticFrequencyControlConfigResponse
+     */
+    public function getAutomaticFrequencyControlConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAutomaticFrequencyControlConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the available specifications of cache reserve instances.
      *
-     * @param Request - GetCacheReserveSpecificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetCacheReserveSpecificationResponse
@@ -12095,6 +12453,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getClientCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取客户端CA证书绑定的域名列表.
+     *
+     * @param Request - GetClientCaCertificateHostnamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetClientCaCertificateHostnamesResponse
+     *
+     * @param GetClientCaCertificateHostnamesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetClientCaCertificateHostnamesResponse
+     */
+    public function getClientCaCertificateHostnamesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetClientCaCertificateHostnames',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetClientCaCertificateHostnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取客户端CA证书绑定的域名列表.
+     *
+     * @param Request - GetClientCaCertificateHostnamesRequest
+     *
+     * @returns GetClientCaCertificateHostnamesResponse
+     *
+     * @param GetClientCaCertificateHostnamesRequest $request
+     *
+     * @return GetClientCaCertificateHostnamesResponse
+     */
+    public function getClientCaCertificateHostnames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientCaCertificateHostnamesWithOptions($request, $runtime);
     }
 
     /**
@@ -13622,6 +14041,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 获取一个keyless server配置.
+     *
+     * @param Request - GetKeylessServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKeylessServerResponse
+     *
+     * @param GetKeylessServerRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetKeylessServerResponse
+     */
+    public function getKeylessServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKeylessServer',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKeylessServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取一个keyless server配置.
+     *
+     * @param Request - GetKeylessServerRequest
+     *
+     * @returns GetKeylessServerResponse
+     *
+     * @param GetKeylessServerRequest $request
+     *
+     * @return GetKeylessServerResponse
+     */
+    public function getKeylessServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKeylessServerWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the value of a key in a key-value pair.
      *
      * @param Request - GetKvRequest
@@ -13677,7 +14157,6 @@ class ESA extends OpenApiClient
     /**
      * Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
      *
-     * @param Request - GetKvAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetKvAccountResponse
@@ -14430,6 +14909,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询数据质量采集配置.
+     *
+     * @param Request - GetPerformanceDataCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPerformanceDataCollectionResponse
+     *
+     * @param GetPerformanceDataCollectionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetPerformanceDataCollectionResponse
+     */
+    public function getPerformanceDataCollectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPerformanceDataCollection',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPerformanceDataCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据质量采集配置.
+     *
+     * @param Request - GetPerformanceDataCollectionRequest
+     *
+     * @returns GetPerformanceDataCollectionResponse
+     *
+     * @param GetPerformanceDataCollectionRequest $request
+     *
+     * @return GetPerformanceDataCollectionResponse
+     */
+    public function getPerformanceDataCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPerformanceDataCollectionWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the quotas and quota usage for different cache purge options.
      *
      * @param Request - GetPurgeQuotaRequest
@@ -14445,7 +14981,15 @@ class ESA extends OpenApiClient
     public function getPurgeQuotaWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = Utils::query($request->toMap());
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -14454,7 +14998,7 @@ class ESA extends OpenApiClient
             'version' => '2024-09-10',
             'protocol' => 'HTTPS',
             'pathname' => '/',
-            'method' => 'GET',
+            'method' => 'POST',
             'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
@@ -15002,7 +15546,6 @@ class ESA extends OpenApiClient
     /**
      * Queries the IP addresses of staging environments for Edge Routine.
      *
-     * @param Request - GetRoutineStagingEnvIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRoutineStagingEnvIpResponse
@@ -15046,7 +15589,6 @@ class ESA extends OpenApiClient
     /**
      * Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
      *
-     * @param Request - GetRoutineUserInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetRoutineUserInfoResponse
@@ -16114,7 +16656,6 @@ class ESA extends OpenApiClient
     /**
      * This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
      *
-     * @param Request - GetWafBotAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetWafBotAppKeyResponse
@@ -17030,6 +17571,87 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 查询DDoS安全实例列表.
+     *
+     * @param Request - ListDDoSInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDDoSInstancesResponse
+     *
+     * @param ListDDoSInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDDoSInstancesResponse
+     */
+    public function listDDoSInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->siteInstanceId) {
+            @$query['SiteInstanceId'] = $request->siteInstanceId;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDDoSInstances',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDDoSInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询DDoS安全实例列表.
+     *
+     * @param Request - ListDDoSInstancesRequest
+     *
+     * @returns ListDDoSInstancesResponse
+     *
+     * @param ListDDoSInstancesRequest $request
+     *
+     * @return ListDDoSInstancesResponse
+     */
+    public function listDDoSInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDDoSInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * Batch query whether the IP address is included in the ESA resolution result.
      *
      * @remarks
@@ -17384,7 +18006,6 @@ class ESA extends OpenApiClient
     /**
      * Queries Edge Routine plans.
      *
-     * @param Request - ListEdgeRoutinePlansRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListEdgeRoutinePlansResponse
@@ -17959,6 +18580,71 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstanceQuotasWithUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取站点下keyless server列表.
+     *
+     * @param Request - ListKeylessServersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKeylessServersResponse
+     *
+     * @param ListKeylessServersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListKeylessServersResponse
+     */
+    public function listKeylessServersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListKeylessServers',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKeylessServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取站点下keyless server列表.
+     *
+     * @param Request - ListKeylessServersRequest
+     *
+     * @returns ListKeylessServersResponse
+     *
+     * @param ListKeylessServersRequest $request
+     *
+     * @return ListKeylessServersResponse
+     */
+    public function listKeylessServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKeylessServersWithOptions($request, $runtime);
     }
 
     /**
@@ -18662,6 +19348,59 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries pay-as-you-go instances.
+     *
+     * @param Request - ListPostpaidRatePlanInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPostpaidRatePlanInstancesResponse
+     *
+     * @param ListPostpaidRatePlanInstancesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListPostpaidRatePlanInstancesResponse
+     */
+    public function listPostpaidRatePlanInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPostpaidRatePlanInstances',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPostpaidRatePlanInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries pay-as-you-go instances.
+     *
+     * @param Request - ListPostpaidRatePlanInstancesRequest
+     *
+     * @returns ListPostpaidRatePlanInstancesResponse
+     *
+     * @param ListPostpaidRatePlanInstancesRequest $request
+     *
+     * @return ListPostpaidRatePlanInstancesResponse
+     */
+    public function listPostpaidRatePlanInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPostpaidRatePlanInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
      *
      * @remarks
@@ -18829,7 +19568,6 @@ class ESA extends OpenApiClient
     /**
      * Lists the regions to which Edge Routine code can be released for canary deployment.
      *
-     * @param Request - ListRoutineCanaryAreasRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRoutineCanaryAreasResponse
@@ -19462,10 +20200,6 @@ class ESA extends OpenApiClient
             @$query['NextToken'] = $request->nextToken;
         }
 
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -19520,6 +20254,95 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 边缘容器的监控.
+     *
+     * @param Request - ListTraceTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTraceTasksResponse
+     *
+     * @param ListTraceTasksRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListTraceTasksResponse
+     */
+    public function listTraceTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
+        }
+
+        if (null !== $request->diagnoseId) {
+            @$query['DiagnoseId'] = $request->diagnoseId;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->traceId) {
+            @$query['TraceId'] = $request->traceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTraceTasks',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTraceTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 边缘容器的监控.
+     *
+     * @param Request - ListTraceTasksRequest
+     *
+     * @returns ListTraceTasksResponse
+     *
+     * @param ListTraceTasksRequest $request
+     *
+     * @return ListTraceTasksResponse
+     */
+    public function listTraceTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTraceTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -20702,10 +21525,6 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
-        }
-
         if (null !== $request->securityToken) {
             @$query['SecurityToken'] = $request->securityToken;
         }
@@ -21166,7 +21985,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Cache Refresh.
+     * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
      *
      * @param tmpReq - PurgeCachesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21227,7 +22046,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Cache Refresh.
+     * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
      *
      * @param Request - PurgeCachesRequest
      *
@@ -21541,7 +22360,7 @@ class ESA extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -21611,6 +22430,63 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebuildEdgeContainerAppStagingEnvWithOptions($request, $runtime);
+    }
+
+    /**
+     * 预约释放安全实例.
+     *
+     * @param Request - ReleaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReleaseInstanceResponse
+     */
+    public function releaseInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReleaseInstance',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预约释放安全实例.
+     *
+     * @param Request - ReleaseInstanceRequest
+     *
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     *
+     * @return ReleaseInstanceResponse
+     */
+    public function releaseInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -21799,6 +22675,79 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 设置站点智能限频阈值
+     *
+     * @param Request - SetAutomaticFrequencyControlConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAutomaticFrequencyControlConfigResponse
+     *
+     * @param SetAutomaticFrequencyControlConfigRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SetAutomaticFrequencyControlConfigResponse
+     */
+    public function setAutomaticFrequencyControlConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->actionType) {
+            @$query['ActionType'] = $request->actionType;
+        }
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetAutomaticFrequencyControlConfig',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetAutomaticFrequencyControlConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置站点智能限频阈值
+     *
+     * @param Request - SetAutomaticFrequencyControlConfigRequest
+     *
+     * @returns SetAutomaticFrequencyControlConfigResponse
+     *
+     * @param SetAutomaticFrequencyControlConfigRequest $request
+     *
+     * @return SetAutomaticFrequencyControlConfigResponse
+     */
+    public function setAutomaticFrequencyControlConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAutomaticFrequencyControlConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * Configures whether to enable certificates and update certificate information for a website.
      *
      * @param Request - SetCertificateRequest
@@ -21817,10 +22766,6 @@ class ESA extends OpenApiClient
         $query = [];
         if (null !== $request->keyServerId) {
             @$query['KeyServerId'] = $request->keyServerId;
-        }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
         }
 
         if (null !== $request->securityToken) {
@@ -21895,6 +22840,79 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为客户端CA证书绑定域名.
+     *
+     * @param tmpReq - SetClientCaCertificateHostnamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetClientCaCertificateHostnamesResponse
+     *
+     * @param SetClientCaCertificateHostnamesRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SetClientCaCertificateHostnamesResponse
+     */
+    public function setClientCaCertificateHostnamesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SetClientCaCertificateHostnamesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hostnames) {
+            $request->hostnamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hostnames, 'Hostnames', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $body = [];
+        if (null !== $request->hostnamesShrink) {
+            @$body['Hostnames'] = $request->hostnamesShrink;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetClientCaCertificateHostnames',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetClientCaCertificateHostnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为客户端CA证书绑定域名.
+     *
+     * @param Request - SetClientCaCertificateHostnamesRequest
+     *
+     * @returns SetClientCaCertificateHostnamesResponse
+     *
+     * @param SetClientCaCertificateHostnamesRequest $request
+     *
+     * @return SetClientCaCertificateHostnamesResponse
+     */
+    public function setClientCaCertificateHostnames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setClientCaCertificateHostnamesWithOptions($request, $runtime);
     }
 
     /**
@@ -22288,6 +23306,97 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 创建/更新一个keyless server.
+     *
+     * @param Request - SetKeylessServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetKeylessServerResponse
+     *
+     * @param SetKeylessServerRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SetKeylessServerResponse
+     */
+    public function setKeylessServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $body = [];
+        if (null !== $request->caCertificate) {
+            @$body['CaCertificate'] = $request->caCertificate;
+        }
+
+        if (null !== $request->clientCertificate) {
+            @$body['ClientCertificate'] = $request->clientCertificate;
+        }
+
+        if (null !== $request->clientPrivateKey) {
+            @$body['ClientPrivateKey'] = $request->clientPrivateKey;
+        }
+
+        if (null !== $request->host) {
+            @$body['Host'] = $request->host;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->port) {
+            @$body['Port'] = $request->port;
+        }
+
+        if (null !== $request->verify) {
+            @$body['Verify'] = $request->verify;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetKeylessServer',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetKeylessServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建/更新一个keyless server.
+     *
+     * @param Request - SetKeylessServerRequest
+     *
+     * @returns SetKeylessServerResponse
+     *
+     * @param SetKeylessServerRequest $request
+     *
+     * @return SetKeylessServerResponse
+     */
+    public function setKeylessServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setKeylessServerWithOptions($request, $runtime);
+    }
+
+    /**
      * 为域名回源客户端证书绑定域名.
      *
      * @param tmpReq - SetOriginClientCertificateHostnamesRequest
@@ -22568,10 +23677,6 @@ class ESA extends OpenApiClient
         $query = [];
         if (null !== $request->all) {
             @$query['All'] = $request->all;
-        }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
         }
 
         if (null !== $request->regionId) {
@@ -24280,6 +25385,14 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoAvif) {
+            @$query['AutoAvif'] = $request->autoAvif;
+        }
+
+        if (null !== $request->autoWebp) {
+            @$query['AutoWebp'] = $request->autoWebp;
+        }
+
         if (null !== $request->configId) {
             @$query['ConfigId'] = $request->configId;
         }
@@ -25071,19 +26184,25 @@ class ESA extends OpenApiClient
     /**
      * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
      *
-     * @param Request - UpdatePageRequest
+     * @param tmpReq - UpdatePageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdatePageResponse
      *
-     * @param UpdatePageRequest $request
+     * @param UpdatePageRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return UpdatePageResponse
      */
-    public function updatePageWithOptions($request, $runtime)
+    public function updatePageWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdatePageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->siteIds) {
+            $request->siteIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->siteIds, 'SiteIds', 'json');
+        }
+
         $body = [];
         if (null !== $request->content) {
             @$body['Content'] = $request->content;
@@ -25103,6 +26222,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->siteIdsShrink) {
+            @$body['SiteIds'] = $request->siteIdsShrink;
         }
 
         $req = new OpenApiRequest([
@@ -25142,7 +26265,68 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 套餐变配.
+     * 修改网页数据质量采集配置.
+     *
+     * @param Request - UpdatePerformanceDataCollectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePerformanceDataCollectionResponse
+     *
+     * @param UpdatePerformanceDataCollectionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdatePerformanceDataCollectionResponse
+     */
+    public function updatePerformanceDataCollectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePerformanceDataCollection',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePerformanceDataCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改网页数据质量采集配置.
+     *
+     * @param Request - UpdatePerformanceDataCollectionRequest
+     *
+     * @returns UpdatePerformanceDataCollectionResponse
+     *
+     * @param UpdatePerformanceDataCollectionRequest $request
+     *
+     * @return UpdatePerformanceDataCollectionResponse
+     */
+    public function updatePerformanceDataCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePerformanceDataCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Plan Adjustment.
      *
      * @param Request - UpdateRatePlanSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25201,7 +26385,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 套餐变配.
+     * Plan Adjustment.
      *
      * @param Request - UpdateRatePlanSpecRequest
      *
@@ -25637,6 +26821,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->siteId) {
             @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
 
         $req = new OpenApiRequest([
@@ -26437,6 +27625,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->ipv6) {
             @$query['Ipv6'] = $request->ipv6;
+        }
+
+        if (null !== $request->keepAliveProtection) {
+            @$query['KeepAliveProtection'] = $request->keepAliveProtection;
         }
 
         if (null !== $request->rulesShrink) {
@@ -27634,7 +28826,7 @@ class ESA extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],

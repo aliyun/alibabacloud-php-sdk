@@ -31,6 +31,11 @@ class UpdateTransportLayerApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $keepAliveProtection;
+
+    /**
+     * @var string
+     */
     public $rulesShrink;
 
     /**
@@ -47,6 +52,7 @@ class UpdateTransportLayerApplicationShrinkRequest extends Model
         'crossBorderOptimization' => 'CrossBorderOptimization',
         'ipAccessRule' => 'IpAccessRule',
         'ipv6' => 'Ipv6',
+        'keepAliveProtection' => 'KeepAliveProtection',
         'rulesShrink' => 'Rules',
         'siteId' => 'SiteId',
         'staticIp' => 'StaticIp',
@@ -74,6 +80,10 @@ class UpdateTransportLayerApplicationShrinkRequest extends Model
 
         if (null !== $this->ipv6) {
             $res['Ipv6'] = $this->ipv6;
+        }
+
+        if (null !== $this->keepAliveProtection) {
+            $res['KeepAliveProtection'] = $this->keepAliveProtection;
         }
 
         if (null !== $this->rulesShrink) {
@@ -113,6 +123,10 @@ class UpdateTransportLayerApplicationShrinkRequest extends Model
 
         if (isset($map['Ipv6'])) {
             $model->ipv6 = $map['Ipv6'];
+        }
+
+        if (isset($map['KeepAliveProtection'])) {
+            $model->keepAliveProtection = $map['KeepAliveProtection'];
         }
 
         if (isset($map['Rules'])) {
