@@ -36,6 +36,10 @@ use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalAgentRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalAgentResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultimodalAsyncModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultimodalAsyncModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResultRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResultResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardForBase64Request;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardForBase64Response;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardRequest;
@@ -1097,6 +1101,128 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->multiModalGuardWithOptions($request, $runtime);
+    }
+
+    /**
+     * 视频检测任务提交.
+     *
+     * @param request - MultiModalGuardAsyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultiModalGuardAsyncResponse
+     *
+     * @param MultiModalGuardAsyncRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return MultiModalGuardAsyncResponse
+     */
+    public function multiModalGuardAsyncWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
+        }
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MultiModalGuardAsync',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MultiModalGuardAsyncResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 视频检测任务提交.
+     *
+     * @param request - MultiModalGuardAsyncRequest
+     *
+     * @returns MultiModalGuardAsyncResponse
+     *
+     * @param MultiModalGuardAsyncRequest $request
+     *
+     * @return MultiModalGuardAsyncResponse
+     */
+    public function multiModalGuardAsync($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->multiModalGuardAsyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取视频检测结果.
+     *
+     * @param request - MultiModalGuardAsyncResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultiModalGuardAsyncResultResponse
+     *
+     * @param MultiModalGuardAsyncResultRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return MultiModalGuardAsyncResultResponse
+     */
+    public function multiModalGuardAsyncResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->service) {
+            @$body['Service'] = $request->service;
+        }
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MultiModalGuardAsyncResult',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MultiModalGuardAsyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取视频检测结果.
+     *
+     * @param request - MultiModalGuardAsyncResultRequest
+     *
+     * @returns MultiModalGuardAsyncResultResponse
+     *
+     * @param MultiModalGuardAsyncResultRequest $request
+     *
+     * @return MultiModalGuardAsyncResultResponse
+     */
+    public function multiModalGuardAsyncResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->multiModalGuardAsyncResultWithOptions($request, $runtime);
     }
 
     /**

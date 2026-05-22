@@ -1,0 +1,126 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResultResponseBody;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResultResponseBody\data\audioResult;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncResultResponseBody\data\frameResult;
+
+class data extends Model
+{
+    /**
+     * @var audioResult
+     */
+    public $audioResult;
+
+    /**
+     * @var string
+     */
+    public $dataId;
+
+    /**
+     * @var frameResult
+     */
+    public $frameResult;
+
+    /**
+     * @var string
+     */
+    public $liveId;
+
+    /**
+     * @var string
+     */
+    public $suggestion;
+
+    /**
+     * @var string
+     */
+    public $taskId;
+    protected $_name = [
+        'audioResult' => 'AudioResult',
+        'dataId' => 'DataId',
+        'frameResult' => 'FrameResult',
+        'liveId' => 'LiveId',
+        'suggestion' => 'Suggestion',
+        'taskId' => 'TaskId',
+    ];
+
+    public function validate()
+    {
+        if (null !== $this->audioResult) {
+            $this->audioResult->validate();
+        }
+        if (null !== $this->frameResult) {
+            $this->frameResult->validate();
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->audioResult) {
+            $res['AudioResult'] = null !== $this->audioResult ? $this->audioResult->toArray($noStream) : $this->audioResult;
+        }
+
+        if (null !== $this->dataId) {
+            $res['DataId'] = $this->dataId;
+        }
+
+        if (null !== $this->frameResult) {
+            $res['FrameResult'] = null !== $this->frameResult ? $this->frameResult->toArray($noStream) : $this->frameResult;
+        }
+
+        if (null !== $this->liveId) {
+            $res['LiveId'] = $this->liveId;
+        }
+
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['AudioResult'])) {
+            $model->audioResult = audioResult::fromMap($map['AudioResult']);
+        }
+
+        if (isset($map['DataId'])) {
+            $model->dataId = $map['DataId'];
+        }
+
+        if (isset($map['FrameResult'])) {
+            $model->frameResult = frameResult::fromMap($map['FrameResult']);
+        }
+
+        if (isset($map['LiveId'])) {
+            $model->liveId = $map['LiveId'];
+        }
+
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
+        }
+
+        return $model;
+    }
+}
