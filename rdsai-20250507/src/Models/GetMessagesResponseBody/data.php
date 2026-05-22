@@ -37,7 +37,27 @@ class data extends Model
     /**
      * @var string
      */
+    public $generationFinishedAt;
+
+    /**
+     * @var string
+     */
+    public $generationStartedAt;
+
+    /**
+     * @var string
+     */
+    public $generationStatus;
+
+    /**
+     * @var string
+     */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $lastSentEntryId;
 
     /**
      * @var string
@@ -48,15 +68,25 @@ class data extends Model
      * @var mixed[]
      */
     public $retrieverResources;
+
+    /**
+     * @var string
+     */
+    public $streamKey;
     protected $_name = [
         'answer' => 'Answer',
         'conversationId' => 'ConversationId',
         'createdAt' => 'CreatedAt',
         'events' => 'Events',
         'feedback' => 'Feedback',
+        'generationFinishedAt' => 'GenerationFinishedAt',
+        'generationStartedAt' => 'GenerationStartedAt',
+        'generationStatus' => 'GenerationStatus',
         'id' => 'Id',
+        'lastSentEntryId' => 'LastSentEntryId',
         'query' => 'Query',
         'retrieverResources' => 'RetrieverResources',
+        'streamKey' => 'StreamKey',
     ];
 
     public function validate()
@@ -100,8 +130,24 @@ class data extends Model
             $res['Feedback'] = $this->feedback;
         }
 
+        if (null !== $this->generationFinishedAt) {
+            $res['GenerationFinishedAt'] = $this->generationFinishedAt;
+        }
+
+        if (null !== $this->generationStartedAt) {
+            $res['GenerationStartedAt'] = $this->generationStartedAt;
+        }
+
+        if (null !== $this->generationStatus) {
+            $res['GenerationStatus'] = $this->generationStatus;
+        }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->lastSentEntryId) {
+            $res['LastSentEntryId'] = $this->lastSentEntryId;
         }
 
         if (null !== $this->query) {
@@ -117,6 +163,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->streamKey) {
+            $res['StreamKey'] = $this->streamKey;
         }
 
         return $res;
@@ -157,8 +207,24 @@ class data extends Model
             $model->feedback = $map['Feedback'];
         }
 
+        if (isset($map['GenerationFinishedAt'])) {
+            $model->generationFinishedAt = $map['GenerationFinishedAt'];
+        }
+
+        if (isset($map['GenerationStartedAt'])) {
+            $model->generationStartedAt = $map['GenerationStartedAt'];
+        }
+
+        if (isset($map['GenerationStatus'])) {
+            $model->generationStatus = $map['GenerationStatus'];
+        }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['LastSentEntryId'])) {
+            $model->lastSentEntryId = $map['LastSentEntryId'];
         }
 
         if (isset($map['Query'])) {
@@ -174,6 +240,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['StreamKey'])) {
+            $model->streamKey = $map['StreamKey'];
         }
 
         return $model;
