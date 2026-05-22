@@ -64,6 +64,11 @@ class AgentRuntime extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $disableSessionAffinity;
+
+    /**
      * @var int
      */
     public $diskSize;
@@ -184,6 +189,7 @@ class AgentRuntime extends Model
         'createdAt' => 'createdAt',
         'credentialName' => 'credentialName',
         'description' => 'description',
+        'disableSessionAffinity' => 'disableSessionAffinity',
         'diskSize' => 'diskSize',
         'edition' => 'edition',
         'enableSessionIsolation' => 'enableSessionIsolation',
@@ -288,6 +294,10 @@ class AgentRuntime extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->disableSessionAffinity) {
+            $res['disableSessionAffinity'] = $this->disableSessionAffinity;
         }
 
         if (null !== $this->diskSize) {
@@ -443,6 +453,10 @@ class AgentRuntime extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['disableSessionAffinity'])) {
+            $model->disableSessionAffinity = $map['disableSessionAffinity'];
         }
 
         if (isset($map['diskSize'])) {
