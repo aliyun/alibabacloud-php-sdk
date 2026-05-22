@@ -47,6 +47,11 @@ class ruleHitRecords extends Model
      * @var string
      */
     public $ruleStatus;
+
+    /**
+     * @var string
+     */
+    public $ruleType;
     protected $_name = [
         'cost' => 'cost',
         'hitSuccessful' => 'hitSuccessful',
@@ -56,6 +61,7 @@ class ruleHitRecords extends Model
         'ruleName' => 'ruleName',
         'ruleSnapshotId' => 'ruleSnapshotId',
         'ruleStatus' => 'ruleStatus',
+        'ruleType' => 'ruleType',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class ruleHitRecords extends Model
 
         if (null !== $this->ruleStatus) {
             $res['ruleStatus'] = $this->ruleStatus;
+        }
+
+        if (null !== $this->ruleType) {
+            $res['ruleType'] = $this->ruleType;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class ruleHitRecords extends Model
 
         if (isset($map['ruleStatus'])) {
             $model->ruleStatus = $map['ruleStatus'];
+        }
+
+        if (isset($map['ruleType'])) {
+            $model->ruleType = $map['ruleType'];
         }
 
         return $model;
