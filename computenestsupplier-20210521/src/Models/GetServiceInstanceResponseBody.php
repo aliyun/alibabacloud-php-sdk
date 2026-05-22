@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponseBody\grantedPermission;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponseBody\networkConfig;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponseBody\service;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponseBody\tags;
@@ -40,6 +41,11 @@ class GetServiceInstanceResponseBody extends Model
      * @var string
      */
     public $grafanaDashBoardUrl;
+
+    /**
+     * @var grantedPermission
+     */
+    public $grantedPermission;
 
     /**
      * @var bool
@@ -95,6 +101,11 @@ class GetServiceInstanceResponseBody extends Model
      * @var string
      */
     public $payType;
+
+    /**
+     * @var string
+     */
+    public $policyNames;
 
     /**
      * @var string
@@ -187,6 +198,7 @@ class GetServiceInstanceResponseBody extends Model
         'enableUserPrometheus' => 'EnableUserPrometheus',
         'endTime' => 'EndTime',
         'grafanaDashBoardUrl' => 'GrafanaDashBoardUrl',
+        'grantedPermission' => 'GrantedPermission',
         'isOperated' => 'IsOperated',
         'licenseMetadata' => 'LicenseMetadata',
         'name' => 'Name',
@@ -198,6 +210,7 @@ class GetServiceInstanceResponseBody extends Model
         'outputs' => 'Outputs',
         'parameters' => 'Parameters',
         'payType' => 'PayType',
+        'policyNames' => 'PolicyNames',
         'predefinedParameterName' => 'PredefinedParameterName',
         'progress' => 'Progress',
         'rdAccountLoginUrl' => 'RdAccountLoginUrl',
@@ -219,6 +232,9 @@ class GetServiceInstanceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->grantedPermission) {
+            $this->grantedPermission->validate();
+        }
         if (null !== $this->networkConfig) {
             $this->networkConfig->validate();
         }
@@ -256,6 +272,10 @@ class GetServiceInstanceResponseBody extends Model
 
         if (null !== $this->grafanaDashBoardUrl) {
             $res['GrafanaDashBoardUrl'] = $this->grafanaDashBoardUrl;
+        }
+
+        if (null !== $this->grantedPermission) {
+            $res['GrantedPermission'] = null !== $this->grantedPermission ? $this->grantedPermission->toArray($noStream) : $this->grantedPermission;
         }
 
         if (null !== $this->isOperated) {
@@ -300,6 +320,10 @@ class GetServiceInstanceResponseBody extends Model
 
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+
+        if (null !== $this->policyNames) {
+            $res['PolicyNames'] = $this->policyNames;
         }
 
         if (null !== $this->predefinedParameterName) {
@@ -412,6 +436,10 @@ class GetServiceInstanceResponseBody extends Model
             $model->grafanaDashBoardUrl = $map['GrafanaDashBoardUrl'];
         }
 
+        if (isset($map['GrantedPermission'])) {
+            $model->grantedPermission = grantedPermission::fromMap($map['GrantedPermission']);
+        }
+
         if (isset($map['IsOperated'])) {
             $model->isOperated = $map['IsOperated'];
         }
@@ -454,6 +482,10 @@ class GetServiceInstanceResponseBody extends Model
 
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+
+        if (isset($map['PolicyNames'])) {
+            $model->policyNames = $map['PolicyNames'];
         }
 
         if (isset($map['PredefinedParameterName'])) {

@@ -21,6 +21,11 @@ class RejectServiceUsageRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $serviceId;
 
     /**
@@ -35,6 +40,7 @@ class RejectServiceUsageRequest extends Model
     protected $_name = [
         'clientToken' => 'ClientToken',
         'comments' => 'Comments',
+        'regionId' => 'RegionId',
         'serviceId' => 'ServiceId',
         'type' => 'Type',
         'userAliUid' => 'UserAliUid',
@@ -54,6 +60,10 @@ class RejectServiceUsageRequest extends Model
 
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->serviceId) {
@@ -85,6 +95,10 @@ class RejectServiceUsageRequest extends Model
 
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['ServiceId'])) {

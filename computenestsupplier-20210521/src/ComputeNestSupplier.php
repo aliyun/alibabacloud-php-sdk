@@ -1222,7 +1222,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 注册成为服务商.
+     * Register as a service provider.
      *
      * @param request - CreateSupplierRegistrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1329,7 +1329,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 注册成为服务商.
+     * Register as a service provider.
      *
      * @param request - CreateSupplierRegistrationRequest
      *
@@ -1879,7 +1879,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 生成并校验服务创建stack所需要
+     * Generate and validate the stack required for service creation.
      *
      * @param request - GenerateServicePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1938,7 +1938,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 生成并校验服务创建stack所需要
+     * Generate and validate the stack required for service creation.
      *
      * @param request - GenerateServicePolicyRequest
      *
@@ -3931,7 +3931,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询服务实例资源.
+     * Query service instance resources.
      *
      * @param request - ListServiceInstanceResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3994,7 +3994,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询服务实例资源.
+     * Query service instance resources.
      *
      * @param request - ListServiceInstanceResourcesRequest
      *
@@ -4454,7 +4454,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 获取任务执行列表.
+     * Get task execution list.
      *
      * @param request - ListServiceTestTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4513,7 +4513,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 获取任务执行列表.
+     * Get task execution list.
      *
      * @param request - ListServiceTestTasksRequest
      *
@@ -5221,6 +5221,10 @@ class ComputeNestSupplier extends OpenApiClient
             @$query['Comments'] = $request->comments;
         }
 
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         if (null !== $request->serviceId) {
             @$query['ServiceId'] = $request->serviceId;
         }
@@ -5599,7 +5603,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+     * Stops a service instance that is in the Deployed or StopFailed state.
      *
      * @param request - StopServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5646,7 +5650,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+     * Stops a service instance that is in the Deployed or StopFailed state.
      *
      * @param request - StopServiceInstanceRequest
      *
@@ -5969,6 +5973,10 @@ class ComputeNestSupplier extends OpenApiClient
 
         if (null !== $request->duration) {
             @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->isDefault) {
+            @$query['IsDefault'] = $request->isDefault;
         }
 
         if (null !== $request->isSupportOperated) {

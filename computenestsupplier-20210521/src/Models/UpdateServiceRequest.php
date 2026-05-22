@@ -66,6 +66,11 @@ class UpdateServiceRequest extends Model
     /**
      * @var bool
      */
+    public $isDefault;
+
+    /**
+     * @var bool
+     */
     public $isSupportOperated;
 
     /**
@@ -163,6 +168,7 @@ class UpdateServiceRequest extends Model
         'deployType' => 'DeployType',
         'dryRun' => 'DryRun',
         'duration' => 'Duration',
+        'isDefault' => 'IsDefault',
         'isSupportOperated' => 'IsSupportOperated',
         'licenseMetadata' => 'LicenseMetadata',
         'logMetadata' => 'LogMetadata',
@@ -244,6 +250,10 @@ class UpdateServiceRequest extends Model
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
 
         if (null !== $this->isSupportOperated) {
@@ -381,6 +391,10 @@ class UpdateServiceRequest extends Model
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
 
         if (isset($map['IsSupportOperated'])) {

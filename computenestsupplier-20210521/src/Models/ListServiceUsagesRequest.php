@@ -27,11 +27,17 @@ class ListServiceUsagesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $supplierRole;
     protected $_name = [
         'filter' => 'Filter',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'supplierRole' => 'SupplierRole',
     ];
 
@@ -63,6 +69,10 @@ class ListServiceUsagesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->supplierRole) {
@@ -97,6 +107,10 @@ class ListServiceUsagesRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['SupplierRole'])) {
