@@ -509,6 +509,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryAvgMetricListResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryAvgMetricListShrinkRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryMetricDistributionRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryMetricDistributionResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryUsageDurationRankRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\QueryHistoryUsageDurationRankResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebootDesktopsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RebuildDesktopsRequest;
@@ -22724,6 +22726,79 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryHistoryMetricDistributionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询桌面历史使用时长排行榜.
+     *
+     * @param request - QueryHistoryUsageDurationRankRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryHistoryUsageDurationRankResponse
+     *
+     * @param QueryHistoryUsageDurationRankRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryHistoryUsageDurationRankResponse
+     */
+    public function queryHistoryUsageDurationRankWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryHistoryUsageDurationRank',
+            'version' => '2020-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryHistoryUsageDurationRankResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询桌面历史使用时长排行榜.
+     *
+     * @param request - QueryHistoryUsageDurationRankRequest
+     *
+     * @returns QueryHistoryUsageDurationRankResponse
+     *
+     * @param QueryHistoryUsageDurationRankRequest $request
+     *
+     * @return QueryHistoryUsageDurationRankResponse
+     */
+    public function queryHistoryUsageDurationRank($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryHistoryUsageDurationRankWithOptions($request, $runtime);
     }
 
     /**
