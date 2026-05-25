@@ -12,28 +12,32 @@ class DescribeNumberHLRRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $phoneNumber;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
+        'authCode' => 'AuthCode',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

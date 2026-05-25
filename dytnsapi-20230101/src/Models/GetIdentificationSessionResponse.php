@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Dytnsapi\V20230101\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetPhoneNumberIdentificationUrlResponse extends Model
+class GetIdentificationSessionResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetPhoneNumberIdentificationUrlResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetPhoneNumberIdentificationUrlResponseBody
+     * @var GetIdentificationSessionResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class GetPhoneNumberIdentificationUrlResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = GetPhoneNumberIdentificationUrlResponseBody::fromMap($map['body']);
+            $model->body = GetIdentificationSessionResponseBody::fromMap($map['body']);
         }
 
         return $model;

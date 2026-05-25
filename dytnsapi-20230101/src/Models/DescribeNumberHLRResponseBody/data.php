@@ -15,43 +15,50 @@ class data extends Model
      * @var string
      */
     public $blocked;
+
     /**
      * @var call
      */
     public $call;
+
     /**
      * @var string
      */
     public $carrier;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $countryIso3;
+
     /**
      * @var live
      */
     public $live;
+
     /**
      * @var string
      */
     public $phoneType;
+
     /**
      * @var sms
      */
     public $sms;
     protected $_name = [
-        'blocked'     => 'Blocked',
-        'call'        => 'Call',
-        'carrier'     => 'Carrier',
-        'city'        => 'City',
+        'blocked' => 'Blocked',
+        'call' => 'Call',
+        'carrier' => 'Carrier',
+        'city' => 'City',
         'countryIso3' => 'CountryIso3',
-        'live'        => 'Live',
-        'phoneType'   => 'PhoneType',
-        'sms'         => 'Sms',
+        'live' => 'Live',
+        'phoneType' => 'PhoneType',
+        'sms' => 'Sms',
     ];
 
     public function validate()

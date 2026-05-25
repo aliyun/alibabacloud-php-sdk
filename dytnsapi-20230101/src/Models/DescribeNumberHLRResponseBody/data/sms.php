@@ -12,18 +12,20 @@ class sms extends Model
      * @var int
      */
     public $cleansedCode;
+
     /**
      * @var int
      */
     public $maxLength;
+
     /**
      * @var int
      */
     public $minLength;
     protected $_name = [
         'cleansedCode' => 'CleansedCode',
-        'maxLength'    => 'MaxLength',
-        'minLength'    => 'MinLength',
+        'maxLength' => 'MaxLength',
+        'minLength' => 'MinLength',
     ];
 
     public function validate()

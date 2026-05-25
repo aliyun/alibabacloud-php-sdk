@@ -12,22 +12,25 @@ class live extends Model
      * @var string
      */
     public $deviceStatus;
+
     /**
      * @var string
      */
     public $roaming;
+
     /**
      * @var string
      */
     public $roamingCountry;
+
     /**
      * @var string
      */
     public $subscriberStatus;
     protected $_name = [
-        'deviceStatus'     => 'DeviceStatus',
-        'roaming'          => 'Roaming',
-        'roamingCountry'   => 'RoamingCountry',
+        'deviceStatus' => 'DeviceStatus',
+        'roaming' => 'Roaming',
+        'roamingCountry' => 'RoamingCountry',
         'subscriberStatus' => 'SubscriberStatus',
     ];
 

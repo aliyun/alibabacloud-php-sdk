@@ -12,23 +12,26 @@ class data extends Model
      * @var string
      */
     public $countryIso3;
+
     /**
      * @var string
      */
     public $mcc;
+
     /**
      * @var string
      */
     public $mnc;
+
     /**
      * @var bool
      */
     public $ported;
     protected $_name = [
         'countryIso3' => 'CountryIso3',
-        'mcc'         => 'Mcc',
-        'mnc'         => 'Mnc',
-        'ported'      => 'Ported',
+        'mcc' => 'Mcc',
+        'mnc' => 'Mnc',
+        'ported' => 'Ported',
     ];
 
     public function validate()

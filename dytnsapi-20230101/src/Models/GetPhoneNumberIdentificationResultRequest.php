@@ -12,43 +12,50 @@ class GetPhoneNumberIdentificationResultRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $phoneNumber;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $sessionPayload;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'outId'                => 'OutId',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
+        'authCode' => 'AuthCode',
+        'outId' => 'OutId',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sessionId'            => 'SessionId',
-        'sessionPayload'       => 'SessionPayload',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sessionId' => 'SessionId',
+        'sessionPayload' => 'SessionPayload',
     ];
 
     public function validate()

@@ -9,6 +9,10 @@ use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\DescribeNumberHLRRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\DescribeNumberHLRResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\DescribeNumberMccMncRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\DescribeNumberMccMncResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetIdentificationResultRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetIdentificationResultResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetIdentificationSessionRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetIdentificationSessionResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationResultRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationResultResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationUrlRequest;
@@ -57,6 +61,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribeNumberHLRRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeNumberHLRResponse
      *
      * @param DescribeNumberHLRRequest $request
@@ -92,27 +97,25 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNumberHLR',
-            'version'     => '2023-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNumberHLR',
+            'version' => '2023-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNumberHLRResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNumberHLRResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNumberHLRResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * HLR服务
      *
      * @param request - DescribeNumberHLRRequest
+     *
      * @returns DescribeNumberHLRResponse
      *
      * @param DescribeNumberHLRRequest $request
@@ -131,6 +134,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - DescribeNumberMccMncRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeNumberMccMncResponse
      *
      * @param DescribeNumberMccMncRequest $request
@@ -166,27 +170,25 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNumberMccMnc',
-            'version'     => '2023-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNumberMccMnc',
+            'version' => '2023-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeNumberMccMncResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNumberMccMncResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNumberMccMncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 号码百科国际站号码归属服务
      *
      * @param request - DescribeNumberMccMncRequest
+     *
      * @returns DescribeNumberMccMncResponse
      *
      * @param DescribeNumberMccMncRequest $request
@@ -201,10 +203,129 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
+     * 获取认证结果.
+     *
+     * @param request - GetIdentificationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIdentificationResultResponse
+     *
+     * @param GetIdentificationResultRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetIdentificationResultResponse
+     */
+    public function getIdentificationResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetIdentificationResult',
+            'version' => '2023-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIdentificationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取认证结果.
+     *
+     * @param request - GetIdentificationResultRequest
+     *
+     * @returns GetIdentificationResultResponse
+     *
+     * @param GetIdentificationResultRequest $request
+     *
+     * @return GetIdentificationResultResponse
+     */
+    public function getIdentificationResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIdentificationResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 国际认证获取sessionId.
+     *
+     * @param request - GetIdentificationSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIdentificationSessionResponse
+     *
+     * @param GetIdentificationSessionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetIdentificationSessionResponse
+     */
+    public function getIdentificationSessionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetIdentificationSession',
+            'version' => '2023-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIdentificationSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际认证获取sessionId.
+     *
+     * @param request - GetIdentificationSessionRequest
+     *
+     * @returns GetIdentificationSessionResponse
+     *
+     * @param GetIdentificationSessionRequest $request
+     *
+     * @return GetIdentificationSessionResponse
+     */
+    public function getIdentificationSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIdentificationSessionWithOptions($request, $runtime);
+    }
+
+    /**
      * Obtains the verification result of your phone number.
      *
      * @param request - GetPhoneNumberIdentificationResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPhoneNumberIdentificationResultResponse
      *
      * @param GetPhoneNumberIdentificationResultRequest $request
@@ -252,27 +373,25 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPhoneNumberIdentificationResult',
-            'version'     => '2023-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPhoneNumberIdentificationResult',
+            'version' => '2023-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPhoneNumberIdentificationResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPhoneNumberIdentificationResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPhoneNumberIdentificationResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains the verification result of your phone number.
      *
      * @param request - GetPhoneNumberIdentificationResultRequest
+     *
      * @returns GetPhoneNumberIdentificationResultResponse
      *
      * @param GetPhoneNumberIdentificationResultRequest $request
@@ -291,6 +410,7 @@ class Dytnsapi extends OpenApiClient
      *
      * @param request - GetPhoneNumberIdentificationUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPhoneNumberIdentificationUrlResponse
      *
      * @param GetPhoneNumberIdentificationUrlRequest $request
@@ -338,27 +458,25 @@ class Dytnsapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPhoneNumberIdentificationUrl',
-            'version'     => '2023-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPhoneNumberIdentificationUrl',
+            'version' => '2023-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPhoneNumberIdentificationUrlResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPhoneNumberIdentificationUrlResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPhoneNumberIdentificationUrlResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Obtains the verification URL of your phone number.
      *
      * @param request - GetPhoneNumberIdentificationUrlRequest
+     *
      * @returns GetPhoneNumberIdentificationUrlResponse
      *
      * @param GetPhoneNumberIdentificationUrlRequest $request

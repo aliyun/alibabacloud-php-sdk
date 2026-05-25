@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetPhoneNumberIdentificationUrlResponseBody;
+namespace AlibabaCloud\SDK\Dytnsapi\V20230101\Models\GetIdentificationSessionResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
@@ -11,14 +11,14 @@ class data extends Model
     /**
      * @var string
      */
-    public $identificationUrl;
+    public $expireDate;
 
     /**
      * @var string
      */
     public $sessionId;
     protected $_name = [
-        'identificationUrl' => 'IdentificationUrl',
+        'expireDate' => 'ExpireDate',
         'sessionId' => 'SessionId',
     ];
 
@@ -30,8 +30,8 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->identificationUrl) {
-            $res['IdentificationUrl'] = $this->identificationUrl;
+        if (null !== $this->expireDate) {
+            $res['ExpireDate'] = $this->expireDate;
         }
 
         if (null !== $this->sessionId) {
@@ -49,8 +49,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IdentificationUrl'])) {
-            $model->identificationUrl = $map['IdentificationUrl'];
+        if (isset($map['ExpireDate'])) {
+            $model->expireDate = $map['ExpireDate'];
         }
 
         if (isset($map['SessionId'])) {

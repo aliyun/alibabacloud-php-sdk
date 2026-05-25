@@ -12,43 +12,50 @@ class GetPhoneNumberIdentificationUrlRequest extends Model
      * @var string
      */
     public $authCode;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $outId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $phoneNumber;
+
     /**
      * @var bool
      */
     public $rememberPhoneNumber;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authCode'             => 'AuthCode',
-        'ip'                   => 'Ip',
-        'outId'                => 'OutId',
-        'ownerId'              => 'OwnerId',
-        'phoneNumber'          => 'PhoneNumber',
-        'rememberPhoneNumber'  => 'RememberPhoneNumber',
+        'authCode' => 'AuthCode',
+        'ip' => 'Ip',
+        'outId' => 'OutId',
+        'ownerId' => 'OwnerId',
+        'phoneNumber' => 'PhoneNumber',
+        'rememberPhoneNumber' => 'RememberPhoneNumber',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
