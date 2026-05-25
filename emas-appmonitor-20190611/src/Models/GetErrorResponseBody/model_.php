@@ -146,6 +146,11 @@ class model_ extends Model
     /**
      * @var string
      */
+    public $controllers;
+
+    /**
+     * @var string
+     */
     public $country;
 
     /**
@@ -321,6 +326,11 @@ class model_ extends Model
     /**
      * @var string
      */
+    public $fileDescriptor;
+
+    /**
+     * @var string
+     */
     public $fileName;
 
     /**
@@ -424,9 +434,19 @@ class model_ extends Model
     public $jsBacktrace;
 
     /**
+     * @var int
+     */
+    public $lagCost;
+
+    /**
      * @var string
      */
     public $language;
+
+    /**
+     * @var int
+     */
+    public $launchedCrashStage;
 
     /**
      * @var string
@@ -447,6 +467,11 @@ class model_ extends Model
      * @var string
      */
     public $mainLog;
+
+    /**
+     * @var string
+     */
+    public $memInfo;
 
     /**
      * @var string
@@ -755,6 +780,7 @@ class model_ extends Model
         'clientIp' => 'ClientIp',
         'clientTime' => 'ClientTime',
         'colNo' => 'ColNo',
+        'controllers' => 'Controllers',
         'country' => 'Country',
         'cpuModel' => 'CpuModel',
         'cruxModule' => 'CruxModule',
@@ -790,6 +816,7 @@ class model_ extends Model
         'exportStatus' => 'ExportStatus',
         'externalStorageDirectory' => 'ExternalStorageDirectory',
         'featureScene' => 'FeatureScene',
+        'fileDescriptor' => 'FileDescriptor',
         'fileName' => 'FileName',
         'filePath' => 'FilePath',
         'filename' => 'Filename',
@@ -811,11 +838,14 @@ class model_ extends Model
         'isSpeedVersion' => 'IsSpeedVersion',
         'isp' => 'Isp',
         'jsBacktrace' => 'JsBacktrace',
+        'lagCost' => 'LagCost',
         'language' => 'Language',
+        'launchedCrashStage' => 'LaunchedCrashStage',
         'launchedTime' => 'LaunchedTime',
         'lineNo' => 'LineNo',
         'logHash' => 'LogHash',
         'mainLog' => 'MainLog',
+        'memInfo' => 'MemInfo',
         'memoryMap' => 'MemoryMap',
         'moreInfo1' => 'MoreInfo1',
         'moreInfo2' => 'MoreInfo2',
@@ -990,6 +1020,10 @@ class model_ extends Model
             $res['ColNo'] = $this->colNo;
         }
 
+        if (null !== $this->controllers) {
+            $res['Controllers'] = $this->controllers;
+        }
+
         if (null !== $this->country) {
             $res['Country'] = $this->country;
         }
@@ -1130,6 +1164,10 @@ class model_ extends Model
             $res['FeatureScene'] = $this->featureScene;
         }
 
+        if (null !== $this->fileDescriptor) {
+            $res['FileDescriptor'] = $this->fileDescriptor;
+        }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -1214,8 +1252,16 @@ class model_ extends Model
             $res['JsBacktrace'] = $this->jsBacktrace;
         }
 
+        if (null !== $this->lagCost) {
+            $res['LagCost'] = $this->lagCost;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->launchedCrashStage) {
+            $res['LaunchedCrashStage'] = $this->launchedCrashStage;
         }
 
         if (null !== $this->launchedTime) {
@@ -1232,6 +1278,10 @@ class model_ extends Model
 
         if (null !== $this->mainLog) {
             $res['MainLog'] = $this->mainLog;
+        }
+
+        if (null !== $this->memInfo) {
+            $res['MemInfo'] = $this->memInfo;
         }
 
         if (null !== $this->memoryMap) {
@@ -1577,6 +1627,10 @@ class model_ extends Model
             $model->colNo = $map['ColNo'];
         }
 
+        if (isset($map['Controllers'])) {
+            $model->controllers = $map['Controllers'];
+        }
+
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
         }
@@ -1717,6 +1771,10 @@ class model_ extends Model
             $model->featureScene = $map['FeatureScene'];
         }
 
+        if (isset($map['FileDescriptor'])) {
+            $model->fileDescriptor = $map['FileDescriptor'];
+        }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
@@ -1801,8 +1859,16 @@ class model_ extends Model
             $model->jsBacktrace = $map['JsBacktrace'];
         }
 
+        if (isset($map['LagCost'])) {
+            $model->lagCost = $map['LagCost'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['LaunchedCrashStage'])) {
+            $model->launchedCrashStage = $map['LaunchedCrashStage'];
         }
 
         if (isset($map['LaunchedTime'])) {
@@ -1819,6 +1885,10 @@ class model_ extends Model
 
         if (isset($map['MainLog'])) {
             $model->mainLog = $map['MainLog'];
+        }
+
+        if (isset($map['MemInfo'])) {
+            $model->memInfo = $map['MemInfo'];
         }
 
         if (isset($map['MemoryMap'])) {

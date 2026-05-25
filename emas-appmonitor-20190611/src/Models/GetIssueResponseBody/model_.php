@@ -141,6 +141,11 @@ class model_ extends Model
     /**
      * @var string
      */
+    public $reason;
+
+    /**
+     * @var string
+     */
     public $stack;
 
     /**
@@ -162,6 +167,11 @@ class model_ extends Model
      * @var string[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'affectedVersions' => 'AffectedVersions',
         'allocSizeMax' => 'AllocSizeMax',
@@ -189,11 +199,13 @@ class model_ extends Model
         'gmtLatest' => 'GmtLatest',
         'keyLine' => 'KeyLine',
         'name' => 'Name',
+        'reason' => 'Reason',
         'stack' => 'Stack',
         'status' => 'Status',
         'summary' => 'Summary',
         'symbolicStatus' => 'SymbolicStatus',
         'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -321,6 +333,10 @@ class model_ extends Model
             $res['Name'] = $this->name;
         }
 
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
+
         if (null !== $this->stack) {
             $res['Stack'] = $this->stack;
         }
@@ -346,6 +362,10 @@ class model_ extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -470,6 +490,10 @@ class model_ extends Model
             $model->name = $map['Name'];
         }
 
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
+        }
+
         if (isset($map['Stack'])) {
             $model->stack = $map['Stack'];
         }
@@ -495,6 +519,10 @@ class model_ extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

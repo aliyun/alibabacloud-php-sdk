@@ -99,9 +99,19 @@ class items extends Model
     public $firstVersion;
 
     /**
+     * @var int
+     */
+    public $lagCost;
+
+    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $reason;
 
     /**
      * @var string
@@ -112,6 +122,16 @@ class items extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string[]
+     */
+    public $tags;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'affectedUserCount' => 'AffectedUserCount',
         'allocSizeMax' => 'AllocSizeMax',
@@ -131,13 +151,20 @@ class items extends Model
         'errorType' => 'ErrorType',
         'eventTime' => 'EventTime',
         'firstVersion' => 'FirstVersion',
+        'lagCost' => 'LagCost',
         'name' => 'Name',
+        'reason' => 'Reason',
         'stack' => 'Stack',
         'status' => 'Status',
+        'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -216,8 +243,16 @@ class items extends Model
             $res['FirstVersion'] = $this->firstVersion;
         }
 
+        if (null !== $this->lagCost) {
+            $res['LagCost'] = $this->lagCost;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
 
         if (null !== $this->stack) {
@@ -226,6 +261,21 @@ class items extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -311,8 +361,16 @@ class items extends Model
             $model->firstVersion = $map['FirstVersion'];
         }
 
+        if (isset($map['LagCost'])) {
+            $model->lagCost = $map['LagCost'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
 
         if (isset($map['Stack'])) {
@@ -321,6 +379,21 @@ class items extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

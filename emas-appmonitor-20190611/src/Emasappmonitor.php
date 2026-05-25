@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Emasappmonitor\V20190611;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\CreateTlogTaskRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\CreateTlogTaskResponse;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetErrorRequest;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetErrorResponse;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetErrorsRequest;
@@ -18,8 +20,20 @@ use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssuesResponse;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetIssuesShrinkRequest;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetSymbolicFilesRequest;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetSymbolicFilesResponse;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogCollectListRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogCollectListResponse;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogDeviceInfoRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogDeviceInfoResponse;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogDeviceListRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogDeviceListResponse;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogTaskCollectionsRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogTaskCollectionsResponse;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogTaskInfoRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\GetTlogTaskInfoResponse;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\RequestUploadTokenRequest;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\RequestUploadTokenResponse;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\SearchTlogRequest;
+use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\SearchTlogResponse;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\SubmitSymbolicRequest;
 use AlibabaCloud\SDK\Emasappmonitor\V20190611\Models\SubmitSymbolicResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -59,6 +73,139 @@ class Emasappmonitor extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * CreateTlogTask.
+     *
+     * @param request - CreateTlogTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTlogTaskResponse
+     *
+     * @param CreateTlogTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTlogTaskResponse
+     */
+    public function createTlogTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->aliYunCurrentPk) {
+            @$body['AliYunCurrentPk'] = $request->aliYunCurrentPk;
+        }
+
+        if (null !== $request->aliYunMainPk) {
+            @$body['AliYunMainPk'] = $request->aliYunMainPk;
+        }
+
+        if (null !== $request->aliYunName) {
+            @$body['AliYunName'] = $request->aliYunName;
+        }
+
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
+        }
+
+        if (null !== $request->beginDate) {
+            @$body['BeginDate'] = $request->beginDate;
+        }
+
+        if (null !== $request->brand) {
+            @$body['Brand'] = $request->brand;
+        }
+
+        if (null !== $request->city) {
+            @$body['City'] = $request->city;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->collectionNums) {
+            @$body['CollectionNums'] = $request->collectionNums;
+        }
+
+        if (null !== $request->days) {
+            @$body['Days'] = $request->days;
+        }
+
+        if (null !== $request->deviceJson) {
+            @$body['DeviceJson'] = $request->deviceJson;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->errorType) {
+            @$body['ErrorType'] = $request->errorType;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->notifySettingJson) {
+            @$body['NotifySettingJson'] = $request->notifySettingJson;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        if (null !== $request->osVersion) {
+            @$body['OsVersion'] = $request->osVersion;
+        }
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTlogTask',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTlogTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * CreateTlogTask.
+     *
+     * @param request - CreateTlogTaskRequest
+     *
+     * @returns CreateTlogTaskResponse
+     *
+     * @param CreateTlogTaskRequest $request
+     *
+     * @return CreateTlogTaskResponse
+     */
+    public function createTlogTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTlogTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -538,6 +685,467 @@ class Emasappmonitor extends OpenApiClient
     }
 
     /**
+     * GetTlogCollectList.
+     *
+     * @param request - GetTlogCollectListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTlogCollectListResponse
+     *
+     * @param GetTlogCollectListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTlogCollectListResponse
+     */
+    public function getTlogCollectListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
+        }
+
+        if (null !== $request->author) {
+            @$body['Author'] = $request->author;
+        }
+
+        if (null !== $request->beginDate) {
+            @$body['BeginDate'] = $request->beginDate;
+        }
+
+        if (null !== $request->city) {
+            @$body['City'] = $request->city;
+        }
+
+        if (null !== $request->createBeginDate) {
+            @$body['CreateBeginDate'] = $request->createBeginDate;
+        }
+
+        if (null !== $request->createEndDate) {
+            @$body['CreateEndDate'] = $request->createEndDate;
+        }
+
+        if (null !== $request->deviceId) {
+            @$body['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        if (null !== $request->osVersion) {
+            @$body['OsVersion'] = $request->osVersion;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->positiveComment) {
+            @$body['PositiveComment'] = $request->positiveComment;
+        }
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->updateBeginDate) {
+            @$body['UpdateBeginDate'] = $request->updateBeginDate;
+        }
+
+        if (null !== $request->updateEndDate) {
+            @$body['UpdateEndDate'] = $request->updateEndDate;
+        }
+
+        if (null !== $request->userNick) {
+            @$body['UserNick'] = $request->userNick;
+        }
+
+        if (null !== $request->utdid) {
+            @$body['Utdid'] = $request->utdid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTlogCollectList',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTlogCollectListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetTlogCollectList.
+     *
+     * @param request - GetTlogCollectListRequest
+     *
+     * @returns GetTlogCollectListResponse
+     *
+     * @param GetTlogCollectListRequest $request
+     *
+     * @return GetTlogCollectListResponse
+     */
+    public function getTlogCollectList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTlogCollectListWithOptions($request, $runtime);
+    }
+
+    /**
+     * TlogDeviceInfo.
+     *
+     * @param request - GetTlogDeviceInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTlogDeviceInfoResponse
+     *
+     * @param GetTlogDeviceInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetTlogDeviceInfoResponse
+     */
+    public function getTlogDeviceInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->deviceId) {
+            @$body['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTlogDeviceInfo',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTlogDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * TlogDeviceInfo.
+     *
+     * @param request - GetTlogDeviceInfoRequest
+     *
+     * @returns GetTlogDeviceInfoResponse
+     *
+     * @param GetTlogDeviceInfoRequest $request
+     *
+     * @return GetTlogDeviceInfoResponse
+     */
+    public function getTlogDeviceInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTlogDeviceInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * GetTlogDeviceList.
+     *
+     * @param request - GetTlogDeviceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTlogDeviceListResponse
+     *
+     * @param GetTlogDeviceListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetTlogDeviceListResponse
+     */
+    public function getTlogDeviceListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
+        }
+
+        if (null !== $request->beginDate) {
+            @$body['BeginDate'] = $request->beginDate;
+        }
+
+        if (null !== $request->brand) {
+            @$body['Brand'] = $request->brand;
+        }
+
+        if (null !== $request->city) {
+            @$body['City'] = $request->city;
+        }
+
+        if (null !== $request->createBeginDate) {
+            @$body['CreateBeginDate'] = $request->createBeginDate;
+        }
+
+        if (null !== $request->createEndDate) {
+            @$body['CreateEndDate'] = $request->createEndDate;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        if (null !== $request->osVersion) {
+            @$body['OsVersion'] = $request->osVersion;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->updateBeginDate) {
+            @$body['UpdateBeginDate'] = $request->updateBeginDate;
+        }
+
+        if (null !== $request->updateEndDate) {
+            @$body['UpdateEndDate'] = $request->updateEndDate;
+        }
+
+        if (null !== $request->userNick) {
+            @$body['UserNick'] = $request->userNick;
+        }
+
+        if (null !== $request->utdid) {
+            @$body['Utdid'] = $request->utdid;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTlogDeviceList',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTlogDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetTlogDeviceList.
+     *
+     * @param request - GetTlogDeviceListRequest
+     *
+     * @returns GetTlogDeviceListResponse
+     *
+     * @param GetTlogDeviceListRequest $request
+     *
+     * @return GetTlogDeviceListResponse
+     */
+    public function getTlogDeviceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTlogDeviceListWithOptions($request, $runtime);
+    }
+
+    /**
+     * GetTlogTaskCollections.
+     *
+     * @param request - GetTlogTaskCollectionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTlogTaskCollectionsResponse
+     *
+     * @param GetTlogTaskCollectionsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetTlogTaskCollectionsResponse
+     */
+    public function getTlogTaskCollectionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTlogTaskCollections',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTlogTaskCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetTlogTaskCollections.
+     *
+     * @param request - GetTlogTaskCollectionsRequest
+     *
+     * @returns GetTlogTaskCollectionsResponse
+     *
+     * @param GetTlogTaskCollectionsRequest $request
+     *
+     * @return GetTlogTaskCollectionsResponse
+     */
+    public function getTlogTaskCollections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTlogTaskCollectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * GetTlogTaskInfo.
+     *
+     * @param request - GetTlogTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTlogTaskInfoResponse
+     *
+     * @param GetTlogTaskInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetTlogTaskInfoResponse
+     */
+    public function getTlogTaskInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTlogTaskInfo',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTlogTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetTlogTaskInfo.
+     *
+     * @param request - GetTlogTaskInfoRequest
+     *
+     * @returns GetTlogTaskInfoResponse
+     *
+     * @param GetTlogTaskInfoRequest $request
+     *
+     * @return GetTlogTaskInfoResponse
+     */
+    public function getTlogTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTlogTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * RequestUploadToken.
      *
      * @param request - RequestUploadTokenRequest
@@ -596,6 +1204,95 @@ class Emasappmonitor extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->requestUploadTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * SearchTlog.
+     *
+     * @param request - SearchTlogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchTlogResponse
+     *
+     * @param SearchTlogRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return SearchTlogResponse
+     */
+    public function searchTlogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appKey) {
+            @$body['AppKey'] = $request->appKey;
+        }
+
+        if (null !== $request->beginDate) {
+            @$body['BeginDate'] = $request->beginDate;
+        }
+
+        if (null !== $request->deviceId) {
+            @$body['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->levelJson) {
+            @$body['LevelJson'] = $request->levelJson;
+        }
+
+        if (null !== $request->os) {
+            @$body['Os'] = $request->os;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchTlog',
+            'version' => '2019-06-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchTlogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SearchTlog.
+     *
+     * @param request - SearchTlogRequest
+     *
+     * @returns SearchTlogResponse
+     *
+     * @param SearchTlogRequest $request
+     *
+     * @return SearchTlogResponse
+     */
+    public function searchTlog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchTlogWithOptions($request, $runtime);
     }
 
     /**
