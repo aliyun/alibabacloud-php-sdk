@@ -61,6 +61,11 @@ class DescribeRecordFileRequest extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -78,6 +83,7 @@ class DescribeRecordFileRequest extends Model
         'pageSize' => 'PageSize',
         'recordType' => 'RecordType',
         'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
         'startTime' => 'StartTime',
         'status' => 'Status',
     ];
@@ -128,6 +134,10 @@ class DescribeRecordFileRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         if (null !== $this->startTime) {
@@ -187,6 +197,10 @@ class DescribeRecordFileRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         if (isset($map['StartTime'])) {
