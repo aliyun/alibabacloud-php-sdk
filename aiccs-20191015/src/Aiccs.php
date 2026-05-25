@@ -266,9 +266,14 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskDetailRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskDetailResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmFullDuplexCallOperateRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmFullDuplexCallOperateResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallEncryptRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallEncryptResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallEncryptShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallFullDuplexRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallFullDuplexResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallFullDuplexShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\LlmSmartCallShrinkRequest;
@@ -8546,6 +8551,71 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * 高德全双工.
+     *
+     * @param request - LlmFullDuplexCallOperateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LlmFullDuplexCallOperateResponse
+     *
+     * @param LlmFullDuplexCallOperateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return LlmFullDuplexCallOperateResponse
+     */
+    public function llmFullDuplexCallOperateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
+        }
+
+        if (null !== $request->command) {
+            @$query['Command'] = $request->command;
+        }
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LlmFullDuplexCallOperate',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LlmFullDuplexCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 高德全双工.
+     *
+     * @param request - LlmFullDuplexCallOperateRequest
+     *
+     * @returns LlmFullDuplexCallOperateResponse
+     *
+     * @param LlmFullDuplexCallOperateRequest $request
+     *
+     * @return LlmFullDuplexCallOperateResponse
+     */
+    public function llmFullDuplexCallOperate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->llmFullDuplexCallOperateWithOptions($request, $runtime);
+    }
+
+    /**
      * 基于大模型的智能外呼
      *
      * @param tmpReq - LlmSmartCallRequest
@@ -8761,6 +8831,101 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->llmSmartCallEncryptWithOptions($request, $runtime);
+    }
+
+    /**
+     * 基于大模型的智能外呼
+     *
+     * @param tmpReq - LlmSmartCallFullDuplexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LlmSmartCallFullDuplexResponse
+     *
+     * @param LlmSmartCallFullDuplexRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return LlmSmartCallFullDuplexResponse
+     */
+    public function llmSmartCallFullDuplexWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new LlmSmartCallFullDuplexShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->startWordParam) {
+            $request->startWordParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->startWordParam, 'StartWordParam', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationCode) {
+            @$query['ApplicationCode'] = $request->applicationCode;
+        }
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
+        }
+
+        if (null !== $request->callerNumber) {
+            @$query['CallerNumber'] = $request->callerNumber;
+        }
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
+        }
+
+        if (null !== $request->sessionTimeout) {
+            @$query['SessionTimeout'] = $request->sessionTimeout;
+        }
+
+        if (null !== $request->startWordParamShrink) {
+            @$query['StartWordParam'] = $request->startWordParamShrink;
+        }
+
+        if (null !== $request->ttsSpeed) {
+            @$query['TtsSpeed'] = $request->ttsSpeed;
+        }
+
+        if (null !== $request->ttsVoiceCode) {
+            @$query['TtsVoiceCode'] = $request->ttsVoiceCode;
+        }
+
+        if (null !== $request->ttsVolume) {
+            @$query['TtsVolume'] = $request->ttsVolume;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LlmSmartCallFullDuplex',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LlmSmartCallFullDuplexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 基于大模型的智能外呼
+     *
+     * @param request - LlmSmartCallFullDuplexRequest
+     *
+     * @returns LlmSmartCallFullDuplexResponse
+     *
+     * @param LlmSmartCallFullDuplexRequest $request
+     *
+     * @return LlmSmartCallFullDuplexResponse
+     */
+    public function llmSmartCallFullDuplex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->llmSmartCallFullDuplexWithOptions($request, $runtime);
     }
 
     /**
