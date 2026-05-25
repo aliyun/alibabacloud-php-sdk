@@ -116,6 +116,11 @@ class summaryMap extends Model
     /**
      * @var int
      */
+    public $serviceCredentialsPerUserPerServiceQuota;
+
+    /**
+     * @var int
+     */
     public $users;
 
     /**
@@ -154,6 +159,7 @@ class summaryMap extends Model
         'policySizeQuota' => 'PolicySizeQuota',
         'roles' => 'Roles',
         'rolesQuota' => 'RolesQuota',
+        'serviceCredentialsPerUserPerServiceQuota' => 'ServiceCredentialsPerUserPerServiceQuota',
         'users' => 'Users',
         'usersQuota' => 'UsersQuota',
         'versionsPerPolicyQuota' => 'VersionsPerPolicyQuota',
@@ -250,6 +256,10 @@ class summaryMap extends Model
 
         if (null !== $this->rolesQuota) {
             $res['RolesQuota'] = $this->rolesQuota;
+        }
+
+        if (null !== $this->serviceCredentialsPerUserPerServiceQuota) {
+            $res['ServiceCredentialsPerUserPerServiceQuota'] = $this->serviceCredentialsPerUserPerServiceQuota;
         }
 
         if (null !== $this->users) {
@@ -361,6 +371,10 @@ class summaryMap extends Model
 
         if (isset($map['RolesQuota'])) {
             $model->rolesQuota = $map['RolesQuota'];
+        }
+
+        if (isset($map['ServiceCredentialsPerUserPerServiceQuota'])) {
+            $model->serviceCredentialsPerUserPerServiceQuota = $map['ServiceCredentialsPerUserPerServiceQuota'];
         }
 
         if (isset($map['Users'])) {

@@ -2110,7 +2110,6 @@ class Ims extends OpenApiClient
     /**
      * Generates the user credential report of an Alibaba Cloud account.
      *
-     * @param request - GenerateCredentialReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GenerateCredentialReportResponse
@@ -2154,7 +2153,6 @@ class Ims extends OpenApiClient
     /**
      * Generates a check report for Cloud Governance.
      *
-     * @param request - GenerateGovernanceReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GenerateGovernanceReportResponse
@@ -2316,7 +2314,6 @@ class Ims extends OpenApiClient
     /**
      * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
      *
-     * @param request - GetAccountMFAInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAccountMFAInfoResponse
@@ -2360,7 +2357,6 @@ class Ims extends OpenApiClient
     /**
      * Queries the security report of an Alibaba Cloud account.
      *
-     * @param request - GetAccountSecurityPracticeReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAccountSecurityPracticeReportResponse
@@ -2404,7 +2400,6 @@ class Ims extends OpenApiClient
     /**
      * Queries the overview information about an Alibaba Cloud account.
      *
-     * @param request - GetAccountSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetAccountSummaryResponse
@@ -2690,7 +2685,6 @@ class Ims extends OpenApiClient
     /**
      * Queries the default domain name of an Alibaba Cloud account.
      *
-     * @param request - GetDefaultDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetDefaultDomainResponse
@@ -2856,7 +2850,6 @@ class Ims extends OpenApiClient
     /**
      * 查询成熟度报告状态
      *
-     * @param request - GetGovernanceReportStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetGovernanceReportStatusResponse
@@ -3079,7 +3072,6 @@ class Ims extends OpenApiClient
     /**
      * Queries the details of the password policy for RAM users.
      *
-     * @param request - GetPasswordPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetPasswordPolicyResponse
@@ -3180,7 +3172,6 @@ class Ims extends OpenApiClient
     /**
      * Queries the security preferences for RAM users.
      *
-     * @param request - GetSecurityPreferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetSecurityPreferenceResponse
@@ -3407,7 +3398,6 @@ class Ims extends OpenApiClient
     /**
      * Queries the configurations of user-based single sign-on (SSO).
      *
-     * @param request - GetUserSsoSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetUserSsoSettingsResponse
@@ -3739,7 +3729,6 @@ class Ims extends OpenApiClient
      * @remarks
      * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
      *
-     * @param request - ListApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListApplicationsResponse
@@ -3786,7 +3775,6 @@ class Ims extends OpenApiClient
     /**
      * Queries information about all installed external applications.
      *
-     * @param request - ListExternalApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListExternalApplicationsResponse
@@ -4131,7 +4119,6 @@ class Ims extends OpenApiClient
     /**
      * Queries all metric values in the most recent governance check.
      *
-     * @param request - ListRecentGovernanceMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListRecentGovernanceMetricsResponse
@@ -5321,6 +5308,10 @@ class Ims extends OpenApiClient
 
         if (null !== $request->allowUserToManagePersonalDingTalk) {
             @$query['AllowUserToManagePersonalDingTalk'] = $request->allowUserToManagePersonalDingTalk;
+        }
+
+        if (null !== $request->allowUserToManageServiceCredentials) {
+            @$query['AllowUserToManageServiceCredentials'] = $request->allowUserToManageServiceCredentials;
         }
 
         if (null !== $request->enableSaveMFATicket) {

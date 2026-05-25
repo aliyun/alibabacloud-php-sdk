@@ -36,6 +36,11 @@ class SetSecurityPreferenceShrinkRequest extends Model
     /**
      * @var bool
      */
+    public $allowUserToManageServiceCredentials;
+
+    /**
+     * @var bool
+     */
     public $enableSaveMFATicket;
 
     /**
@@ -78,6 +83,7 @@ class SetSecurityPreferenceShrinkRequest extends Model
         'allowUserToManageAccessKeys' => 'AllowUserToManageAccessKeys',
         'allowUserToManageMFADevices' => 'AllowUserToManageMFADevices',
         'allowUserToManagePersonalDingTalk' => 'AllowUserToManagePersonalDingTalk',
+        'allowUserToManageServiceCredentials' => 'AllowUserToManageServiceCredentials',
         'enableSaveMFATicket' => 'EnableSaveMFATicket',
         'loginNetworkMasks' => 'LoginNetworkMasks',
         'loginSessionDuration' => 'LoginSessionDuration',
@@ -114,6 +120,10 @@ class SetSecurityPreferenceShrinkRequest extends Model
 
         if (null !== $this->allowUserToManagePersonalDingTalk) {
             $res['AllowUserToManagePersonalDingTalk'] = $this->allowUserToManagePersonalDingTalk;
+        }
+
+        if (null !== $this->allowUserToManageServiceCredentials) {
+            $res['AllowUserToManageServiceCredentials'] = $this->allowUserToManageServiceCredentials;
         }
 
         if (null !== $this->enableSaveMFATicket) {
@@ -177,6 +187,10 @@ class SetSecurityPreferenceShrinkRequest extends Model
 
         if (isset($map['AllowUserToManagePersonalDingTalk'])) {
             $model->allowUserToManagePersonalDingTalk = $map['AllowUserToManagePersonalDingTalk'];
+        }
+
+        if (isset($map['AllowUserToManageServiceCredentials'])) {
+            $model->allowUserToManageServiceCredentials = $map['AllowUserToManageServiceCredentials'];
         }
 
         if (isset($map['EnableSaveMFATicket'])) {

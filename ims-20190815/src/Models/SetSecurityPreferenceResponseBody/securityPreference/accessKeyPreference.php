@@ -12,8 +12,14 @@ class accessKeyPreference extends Model
      * @var bool
      */
     public $allowUserToManageAccessKeys;
+
+    /**
+     * @var bool
+     */
+    public $allowUserToManageServiceCredentials;
     protected $_name = [
         'allowUserToManageAccessKeys' => 'AllowUserToManageAccessKeys',
+        'allowUserToManageServiceCredentials' => 'AllowUserToManageServiceCredentials',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class accessKeyPreference extends Model
         $res = [];
         if (null !== $this->allowUserToManageAccessKeys) {
             $res['AllowUserToManageAccessKeys'] = $this->allowUserToManageAccessKeys;
+        }
+
+        if (null !== $this->allowUserToManageServiceCredentials) {
+            $res['AllowUserToManageServiceCredentials'] = $this->allowUserToManageServiceCredentials;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class accessKeyPreference extends Model
         $model = new self();
         if (isset($map['AllowUserToManageAccessKeys'])) {
             $model->allowUserToManageAccessKeys = $map['AllowUserToManageAccessKeys'];
+        }
+
+        if (isset($map['AllowUserToManageServiceCredentials'])) {
+            $model->allowUserToManageServiceCredentials = $map['AllowUserToManageServiceCredentials'];
         }
 
         return $model;
