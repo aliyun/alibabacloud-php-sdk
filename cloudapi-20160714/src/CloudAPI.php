@@ -67,6 +67,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePrivateDNSResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePrivateDNSShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateSignatureRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateSignatureResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateStageModelRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateStageModelResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateTrafficControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreateTrafficControlResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteAccessControlListRequest;
@@ -115,6 +117,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeletePrivateDNSRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeletePrivateDNSResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteSignatureRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteSignatureResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteStageModelRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteStageModelResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteTrafficControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteTrafficControlResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DeleteTrafficSpecialControlRequest;
@@ -281,6 +285,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesByApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesByApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeStageModelsRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeStageModelsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSummaryDataRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSummaryDataResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSystemParametersRequest;
@@ -368,6 +374,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyPluginRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyPluginResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifySignatureRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifySignatureResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyStageModelRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyStageModelResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyTrafficControlRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyTrafficControlResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyVpcAccessAndUpdateApisRequest;
@@ -1536,7 +1544,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建API分组.
+     * Creates an API group.
      *
      * @param request - CreateApiGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1595,7 +1603,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建API分组.
+     * Creates an API group.
      *
      * @param request - CreateApiGroupRequest
      *
@@ -1700,7 +1708,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an application for calling APIs in API Gateway.
+     * Creates an app for API Gateway.
      *
      * @remarks
      *   This operation is intended for API callers.
@@ -1775,7 +1783,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates an application for calling APIs in API Gateway.
+     * Creates an app for API Gateway.
      *
      * @remarks
      *   This operation is intended for API callers.
@@ -2008,7 +2016,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建后端服务在环境上的配置.
+     * Creates a backend service configuration in an environment.
      *
      * @param request - CreateBackendModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2067,7 +2075,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建后端服务在环境上的配置.
+     * Creates a backend service configuration in an environment.
      *
      * @param request - CreateBackendModelRequest
      *
@@ -2158,7 +2166,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建自定义数据集条目.
+     * Creates a data entry in a custom dataset.
      *
      * @param request - CreateDatasetItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2213,7 +2221,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建自定义数据集条目.
+     * Creates a data entry in a custom dataset.
      *
      * @param request - CreateDatasetItemRequest
      *
@@ -2340,7 +2348,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建内网域名.
+     * Grants an internal second-level domain name to an API group.
      *
      * @param request - CreateIntranetDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2383,7 +2391,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 创建内网域名.
+     * Grants an internal second-level domain name to an API group.
      *
      * @param request - CreateIntranetDomainRequest
      *
@@ -2962,6 +2970,75 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * 创建环境模型.
+     *
+     * @param request - CreateStageModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateStageModelResponse
+     *
+     * @param CreateStageModelRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateStageModelResponse
+     */
+    public function createStageModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->stageAlias) {
+            @$query['StageAlias'] = $request->stageAlias;
+        }
+
+        if (null !== $request->stageName) {
+            @$query['StageName'] = $request->stageName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateStageModel',
+            'version' => '2016-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateStageModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建环境模型.
+     *
+     * @param request - CreateStageModelRequest
+     *
+     * @returns CreateStageModelResponse
+     *
+     * @param CreateStageModelRequest $request
+     *
+     * @return CreateStageModelResponse
+     */
+    public function createStageModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStageModelWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a custom throttling policy.
      *
      * @remarks
@@ -3471,7 +3548,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * Deletes a specified app.
      *
      * @remarks
      *   This operation is intended for API callers.
@@ -3523,7 +3600,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes an application.
+     * Deletes a specified app.
      *
      * @remarks
      *   This operation is intended for API callers.
@@ -3798,7 +3875,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除自定义数据集.
+     * Deletes a custom dataset.
      *
      * @param request - DeleteDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3841,7 +3918,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除自定义数据集.
+     * Deletes a custom dataset.
      *
      * @param request - DeleteDatasetRequest
      *
@@ -4200,7 +4277,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Delete the specified log configuration.
+     * Deletes a log configuration.
      *
      * @param request - DeleteLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4243,7 +4320,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Delete the specified log configuration.
+     * Deletes a log configuration.
      *
      * @param request - DeleteLogConfigRequest
      *
@@ -4602,6 +4679,67 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * 删除环境.
+     *
+     * @param request - DeleteStageModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteStageModelResponse
+     *
+     * @param DeleteStageModelRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteStageModelResponse
+     */
+    public function deleteStageModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->stageModelId) {
+            @$query['StageModelId'] = $request->stageModelId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteStageModel',
+            'version' => '2016-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteStageModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除环境.
+     *
+     * @param request - DeleteStageModelRequest
+     *
+     * @returns DeleteStageModelResponse
+     *
+     * @param DeleteStageModelRequest $request
+     *
+     * @return DeleteStageModelResponse
+     */
+    public function deleteStageModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteStageModelWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a custom throttling policy and the special throttling rules in the policy.
      *
      * @remarks
@@ -4750,7 +4888,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Publishes an API to an environment.
+     * Publishes an API to a specified environment.
      *
      * @remarks
      *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
@@ -4810,7 +4948,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Publishes an API to an environment.
+     * Publishes an API to a specified environment.
      *
      * @remarks
      *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
@@ -4833,7 +4971,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询批量下线API任务
+     * Queries the progress of an API unpublishing task.
      *
      * @param request - DescribeAbolishApiTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4876,7 +5014,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询批量下线API任务
+     * Queries the progress of an API unpublishing task.
      *
      * @param request - DescribeAbolishApiTaskRequest
      *
@@ -6881,7 +7019,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs by application. The environment information is also returned.
+     * Queries APIs by application and returns the result by environment.
      *
      * @param request - DescribeApisWithStageNameIntegratedByAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6952,7 +7090,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs by application. The environment information is also returned.
+     * Queries APIs by application and returns the result by environment.
      *
      * @param request - DescribeApisWithStageNameIntegratedByAppRequest
      *
@@ -9498,6 +9636,14 @@ class CloudAPI extends OpenApiClient
             @$query['Language'] = $request->language;
         }
 
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         if (null !== $request->securityToken) {
             @$query['SecurityToken'] = $request->securityToken;
         }
@@ -10092,7 +10238,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询插件列表.
+     * Describes the plug-in modes supported by API Gateway.
      *
      * @param request - DescribePluginSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10135,7 +10281,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询插件列表.
+     * Describes the plug-in modes supported by API Gateway.
      *
      * @param request - DescribePluginSchemasRequest
      *
@@ -10311,7 +10457,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the plug-ins that are bound to a running API in an environment.
+     * Queries the plug-ins that are bound to a running API in a specified environment.
      *
      * @remarks
      *   This operation is intended for API callers.
@@ -10374,7 +10520,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the plug-ins that are bound to a running API in an environment.
+     * Queries the plug-ins that are bound to a running API in a specified environment.
      *
      * @remarks
      *   This operation is intended for API callers.
@@ -10595,7 +10741,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs that are purchased from Alibaba Cloud Marketplace.
+     * Queries the APIs purchased in the Alibaba Cloud Marketplace.
      *
      * @param request - DescribePurchasedApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10662,7 +10808,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries APIs that are purchased from Alibaba Cloud Marketplace.
+     * Queries the APIs purchased in the Alibaba Cloud Marketplace.
      *
      * @param request - DescribePurchasedApisRequest
      *
@@ -10902,6 +11048,79 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSignaturesByApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询环境列表.
+     *
+     * @param request - DescribeStageModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeStageModelsResponse
+     *
+     * @param DescribeStageModelsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeStageModelsResponse
+     */
+    public function describeStageModelsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->stageAlias) {
+            @$query['StageAlias'] = $request->stageAlias;
+        }
+
+        if (null !== $request->stageName) {
+            @$query['StageName'] = $request->stageName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeStageModels',
+            'version' => '2016-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeStageModelsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询环境列表.
+     *
+     * @param request - DescribeStageModelsRequest
+     *
+     * @returns DescribeStageModelsResponse
+     *
+     * @param DescribeStageModelsRequest $request
+     *
+     * @return DescribeStageModelsResponse
+     */
+    public function describeStageModels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeStageModelsWithOptions($request, $runtime);
     }
 
     /**
@@ -11197,7 +11416,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询批量更新API后端元定结果.
+     * Queries the update results of associated published APIs after the definition of a backend service is modified in an environment.
      *
      * @param request - DescribeUpdateBackendTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11240,7 +11459,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询批量更新API后端元定结果.
+     * Queries the update results of associated published APIs after the definition of a backend service is modified in an environment.
      *
      * @param request - DescribeUpdateBackendTaskRequest
      *
@@ -11258,7 +11477,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询更新VPC授权的任务
+     * Queries the update progress of an API that is being published after its associated VPC access authorization is updated.
      *
      * @param request - DescribeUpdateVpcInfoTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11301,7 +11520,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 查询更新VPC授权的任务
+     * Queries the update progress of an API that is being published after its associated VPC access authorization is updated.
      *
      * @param request - DescribeUpdateVpcInfoTaskRequest
      *
@@ -11607,7 +11826,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 解绑插件.
+     * Unbinds a plug-in from an API.
      *
      * @param request - DetachPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11662,7 +11881,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 解绑插件.
+     * Unbinds a plug-in from an API.
      *
      * @param request - DetachPluginRequest
      *
@@ -11980,7 +12199,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 导出OAS.
+     * Exports APIs based on OpenAPI Specification (OAS).
      *
      * @param tmpReq - ExportOASRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12053,7 +12272,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 导出OAS.
+     * Exports APIs based on OpenAPI Specification (OAS).
      *
      * @param request - ExportOASRequest
      *
@@ -12071,7 +12290,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Imports APIs based on the OAS standard.
+     * Imports OpenAPI Specification (OAS)-compliant data to create an API.
      *
      * @param request - ImportOASRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12148,7 +12367,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Imports APIs based on the OAS standard.
+     * Imports OpenAPI Specification (OAS)-compliant data to create an API.
      *
      * @param request - ImportOASRequest
      *
@@ -12608,7 +12827,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+     * This API operation is used to modify the draft definition of an API. It is different from the ModifyApi operation in that it does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you need to only specify the value of AuthType, which is APP.
      *
      * @param request - ModifyApiConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12787,7 +13006,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+     * This API operation is used to modify the draft definition of an API. It is different from the ModifyApi operation in that it does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you need to only specify the value of AuthType, which is APP.
      *
      * @param request - ModifyApiConfigurationRequest
      *
@@ -13248,7 +13467,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改后端服务
+     * Modifies the basic information of a backend service, such as name and description. The backend service type cannot be modified once the backend service is created.
      *
      * @param request - ModifyBackendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13303,7 +13522,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改后端服务
+     * Modifies the basic information of a backend service, such as name and description. The backend service type cannot be modified once the backend service is created.
      *
      * @param request - ModifyBackendRequest
      *
@@ -13321,7 +13540,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改后端服务在环境上的定义.
+     * Modifies the definition of a backend service in the environment. After the modification, the backend paths of the APIs that use the backend service in the same environment will be updated at the same time automatically. You do not need to manually publish the APIs again.
      *
      * @param request - ModifyBackendModelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13384,7 +13603,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改后端服务在环境上的定义.
+     * Modifies the definition of a backend service in the environment. After the modification, the backend paths of the APIs that use the backend service in the same environment will be updated at the same time automatically. You do not need to manually publish the APIs again.
      *
      * @param request - ModifyBackendModelRequest
      *
@@ -13471,7 +13690,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the expiration time and description of a data entry in a custom dataset.
+     * Modifies the timeout period and description of a data entry in a custom dataset.
      *
      * @param request - ModifyDatasetItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13526,7 +13745,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the expiration time and description of a data entry in a custom dataset.
+     * Modifies the timeout period and description of a data entry in a custom dataset.
      *
      * @param request - ModifyDatasetItemRequest
      *
@@ -14342,6 +14561,75 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * 修改环境模型.
+     *
+     * @param request - ModifyStageModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyStageModelResponse
+     *
+     * @param ModifyStageModelRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyStageModelResponse
+     */
+    public function modifyStageModelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->stageAlias) {
+            @$query['StageAlias'] = $request->stageAlias;
+        }
+
+        if (null !== $request->stageModelId) {
+            @$query['StageModelId'] = $request->stageModelId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyStageModel',
+            'version' => '2016-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyStageModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改环境模型.
+     *
+     * @param request - ModifyStageModelRequest
+     *
+     * @returns ModifyStageModelResponse
+     *
+     * @param ModifyStageModelRequest $request
+     *
+     * @return ModifyStageModelResponse
+     */
+    public function modifyStageModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyStageModelWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the settings of a custom throttling policy.
      *
      * @remarks
@@ -14437,7 +14725,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+     * Modifies the information of a VPC access authorization and updates the metadata of the associated API.
      *
      * @param request - ModifyVpcAccessAndUpdateApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14508,7 +14796,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+     * Modifies the information of a VPC access authorization and updates the metadata of the associated API.
      *
      * @param request - ModifyVpcAccessAndUpdateApisRequest
      *
@@ -14526,9 +14814,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 开通API网关服务
+     * Activates the API Gateway service.
      *
-     * @param request - OpenApiGatewayServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns OpenApiGatewayServiceResponse
@@ -14556,7 +14843,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 开通API网关服务
+     * Activates the API Gateway service.
      *
      * @returns OpenApiGatewayServiceResponse
      *
@@ -14708,7 +14995,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除访问控制策略中IP条目.
+     * This feature provides instance-level access control for dedicated instances. Deletes an IP address entry from an access control policy.
      *
      * @param request - RemoveAccessControlListEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14755,7 +15042,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除访问控制策略中IP条目.
+     * This feature provides instance-level access control for dedicated instances. Deletes an IP address entry from an access control policy.
      *
      * @param request - RemoveAccessControlListEntryRequest
      *
@@ -14929,7 +15216,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+     * Revokes the access permissions on a specified API from multiple apps. In this case, multiple apps map to a single API.
      *
      * @remarks
      *   This operation is intended for API providers and callers.
@@ -14988,7 +15275,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+     * Revokes the access permissions on a specified API from multiple apps. In this case, multiple apps map to a single API.
      *
      * @remarks
      *   This operation is intended for API providers and callers.
@@ -15324,7 +15611,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a VPC authorization without unpublishing the associated APIs.
+     * Deletes a VPC access authorization without unpublishing the associated APIs.
      *
      * @remarks
      *   This API is intended for API providers.
@@ -15384,7 +15671,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Deletes a VPC authorization without unpublishing the associated APIs.
+     * Deletes a VPC access authorization without unpublishing the associated APIs.
      *
      * @remarks
      *   This API is intended for API providers.
@@ -15407,7 +15694,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除VPC授权并下线关联API.
+     * Deletes a VPC access authorization and unpublishes the associated API.
      *
      * @param request - RemoveVpcAccessAndAbolishApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15462,7 +15749,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 删除VPC授权并下线关联API.
+     * Deletes a VPC access authorization and unpublishes the associated API.
      *
      * @param request - RemoveVpcAccessAndAbolishApisRequest
      *
@@ -15545,7 +15832,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Resets the key of an application.
+     * Resets the key for an app.
      *
      * @remarks
      *   This operation is intended for API callers.
@@ -15601,7 +15888,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Resets the key of an application.
+     * Resets the key for an app.
      *
      * @remarks
      *   This operation is intended for API callers.
@@ -15624,7 +15911,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 根据APP生成SDK.
+     * Generates an SDK by application.
      *
      * @param request - SdkGenerateByAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15671,7 +15958,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 根据APP生成SDK.
+     * Generates an SDK by application.
      *
      * @param request - SdkGenerateByAppRequest
      *
@@ -15754,7 +16041,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 根据分组生成SDK.
+     * Generates an SDK by API group.
      *
      * @param request - SdkGenerateByGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15801,7 +16088,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 根据分组生成SDK.
+     * Generates an SDK by API group.
      *
      * @param request - SdkGenerateByGroupRequest
      *
@@ -15819,7 +16106,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改访问控制策略的名称.
+     * This feature provides instance-level access control for dedicated instances. Modifies the name of an access control policy.
      *
      * @param request - SetAccessControlListAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15866,7 +16153,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * 修改访问控制策略的名称.
+     * This feature provides instance-level access control for dedicated instances. Modifies the name of an access control policy.
      *
      * @param request - SetAccessControlListAttributeRequest
      *
@@ -17014,7 +17301,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a tag-resource relationship.
+     * Adds user tags to resources.
      *
      * @remarks
      *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
@@ -17072,7 +17359,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Creates a tag-resource relationship.
+     * Adds user tags to resources.
      *
      * @remarks
      *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.

@@ -1,3 +1,12 @@
+2026-05-25 Version: 4.9.0
+- Support API CreateStageModel.
+- Support API DeleteStageModel.
+- Support API DescribeStageModels.
+- Support API ModifyStageModel.
+- Update API DescribeInstances: add request parameters PageNumber.
+- Update API DescribeInstances: add request parameters PageSize.
+
+
 2026-01-19 Version: 4.8.9
 - Update API DescribeApiGroup: add response parameters Body.CustomDomains.$.ClientCertSDnPassThrough.
 - Update API DescribeApiGroup: add response parameters Body.CustomDomains.$.SslOcspCacheEnable.

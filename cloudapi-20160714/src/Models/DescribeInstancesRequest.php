@@ -30,6 +30,16 @@ class DescribeInstancesRequest extends Model
     public $language;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $securityToken;
@@ -43,6 +53,8 @@ class DescribeInstancesRequest extends Model
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
         'language' => 'Language',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'securityToken' => 'SecurityToken',
         'tag' => 'Tag',
     ];
@@ -72,6 +84,14 @@ class DescribeInstancesRequest extends Model
 
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->securityToken) {
@@ -114,6 +134,14 @@ class DescribeInstancesRequest extends Model
 
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['SecurityToken'])) {
