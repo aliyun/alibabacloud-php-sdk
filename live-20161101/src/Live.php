@@ -3461,10 +3461,6 @@ class Live extends OpenApiClient
             @$query['DomainName'] = $request->domainName;
         }
 
-        if (null !== $request->formatConfig) {
-            @$query['FormatConfig'] = $request->formatConfig;
-        }
-
         if (null !== $request->onDemand) {
             @$query['OnDemand'] = $request->onDemand;
         }
@@ -37654,10 +37650,6 @@ class Live extends OpenApiClient
 
         if (null !== $request->domainName) {
             @$query['DomainName'] = $request->domainName;
-        }
-
-        if (null !== $request->formatConfig) {
-            @$query['FormatConfig'] = $request->formatConfig;
         }
 
         if (null !== $request->onDemand) {

@@ -40,11 +40,6 @@ class UpdateLiveRecordVodConfigRequest extends Model
     public $domainName;
 
     /**
-     * @var bool
-     */
-    public $formatConfig;
-
-    /**
      * @var int
      */
     public $onDemand;
@@ -85,7 +80,6 @@ class UpdateLiveRecordVodConfigRequest extends Model
         'cycleDuration' => 'CycleDuration',
         'delayTime' => 'DelayTime',
         'domainName' => 'DomainName',
-        'formatConfig' => 'FormatConfig',
         'onDemand' => 'OnDemand',
         'ownerId' => 'OwnerId',
         'recordFormat' => 'RecordFormat',
@@ -131,10 +125,6 @@ class UpdateLiveRecordVodConfigRequest extends Model
 
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-
-        if (null !== $this->formatConfig) {
-            $res['FormatConfig'] = $this->formatConfig;
         }
 
         if (null !== $this->onDemand) {
@@ -212,10 +202,6 @@ class UpdateLiveRecordVodConfigRequest extends Model
 
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-
-        if (isset($map['FormatConfig'])) {
-            $model->formatConfig = $map['FormatConfig'];
         }
 
         if (isset($map['OnDemand'])) {
