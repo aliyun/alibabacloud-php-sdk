@@ -19,6 +19,11 @@ class DetectImageCroppingRequest extends Model
     public $credentialConfig;
 
     /**
+     * @var string[]
+     */
+    public $inclusionHints;
+
+    /**
      * @var string
      */
     public $projectName;
@@ -30,6 +35,7 @@ class DetectImageCroppingRequest extends Model
     protected $_name = [
         'aspectRatios' => 'AspectRatios',
         'credentialConfig' => 'CredentialConfig',
+        'inclusionHints' => 'InclusionHints',
         'projectName' => 'ProjectName',
         'sourceURI' => 'SourceURI',
     ];
@@ -38,6 +44,9 @@ class DetectImageCroppingRequest extends Model
     {
         if (null !== $this->credentialConfig) {
             $this->credentialConfig->validate();
+        }
+        if (\is_array($this->inclusionHints)) {
+            Model::validateArray($this->inclusionHints);
         }
         parent::validate();
     }
@@ -51,6 +60,17 @@ class DetectImageCroppingRequest extends Model
 
         if (null !== $this->credentialConfig) {
             $res['CredentialConfig'] = null !== $this->credentialConfig ? $this->credentialConfig->toArray($noStream) : $this->credentialConfig;
+        }
+
+        if (null !== $this->inclusionHints) {
+            if (\is_array($this->inclusionHints)) {
+                $res['InclusionHints'] = [];
+                $n1 = 0;
+                foreach ($this->inclusionHints as $item1) {
+                    $res['InclusionHints'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->projectName) {
@@ -78,6 +98,17 @@ class DetectImageCroppingRequest extends Model
 
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfig = CredentialConfig::fromMap($map['CredentialConfig']);
+        }
+
+        if (isset($map['InclusionHints'])) {
+            if (!empty($map['InclusionHints'])) {
+                $model->inclusionHints = [];
+                $n1 = 0;
+                foreach ($map['InclusionHints'] as $item1) {
+                    $model->inclusionHints[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ProjectName'])) {

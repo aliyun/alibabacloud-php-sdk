@@ -14,11 +14,17 @@ class DetectImageCroppingResponseBody extends Model
     public $croppings;
 
     /**
+     * @var string[]
+     */
+    public $matchedInclusionHints;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'croppings' => 'Croppings',
+        'matchedInclusionHints' => 'MatchedInclusionHints',
         'requestId' => 'RequestId',
     ];
 
@@ -26,6 +32,9 @@ class DetectImageCroppingResponseBody extends Model
     {
         if (\is_array($this->croppings)) {
             Model::validateArray($this->croppings);
+        }
+        if (\is_array($this->matchedInclusionHints)) {
+            Model::validateArray($this->matchedInclusionHints);
         }
         parent::validate();
     }
@@ -39,6 +48,17 @@ class DetectImageCroppingResponseBody extends Model
                 $n1 = 0;
                 foreach ($this->croppings as $item1) {
                     $res['Croppings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->matchedInclusionHints) {
+            if (\is_array($this->matchedInclusionHints)) {
+                $res['MatchedInclusionHints'] = [];
+                $n1 = 0;
+                foreach ($this->matchedInclusionHints as $item1) {
+                    $res['MatchedInclusionHints'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -65,6 +85,17 @@ class DetectImageCroppingResponseBody extends Model
                 $n1 = 0;
                 foreach ($map['Croppings'] as $item1) {
                     $model->croppings[$n1] = CroppingSuggestion::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['MatchedInclusionHints'])) {
+            if (!empty($map['MatchedInclusionHints'])) {
+                $model->matchedInclusionHints = [];
+                $n1 = 0;
+                foreach ($map['MatchedInclusionHints'] as $item1) {
+                    $model->matchedInclusionHints[$n1] = $item1;
                     ++$n1;
                 }
             }

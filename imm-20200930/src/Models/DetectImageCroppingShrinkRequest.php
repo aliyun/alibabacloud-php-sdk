@@ -21,6 +21,11 @@ class DetectImageCroppingShrinkRequest extends Model
     /**
      * @var string
      */
+    public $inclusionHintsShrink;
+
+    /**
+     * @var string
+     */
     public $projectName;
 
     /**
@@ -30,6 +35,7 @@ class DetectImageCroppingShrinkRequest extends Model
     protected $_name = [
         'aspectRatios' => 'AspectRatios',
         'credentialConfigShrink' => 'CredentialConfig',
+        'inclusionHintsShrink' => 'InclusionHints',
         'projectName' => 'ProjectName',
         'sourceURI' => 'SourceURI',
     ];
@@ -48,6 +54,10 @@ class DetectImageCroppingShrinkRequest extends Model
 
         if (null !== $this->credentialConfigShrink) {
             $res['CredentialConfig'] = $this->credentialConfigShrink;
+        }
+
+        if (null !== $this->inclusionHintsShrink) {
+            $res['InclusionHints'] = $this->inclusionHintsShrink;
         }
 
         if (null !== $this->projectName) {
@@ -75,6 +85,10 @@ class DetectImageCroppingShrinkRequest extends Model
 
         if (isset($map['CredentialConfig'])) {
             $model->credentialConfigShrink = $map['CredentialConfig'];
+        }
+
+        if (isset($map['InclusionHints'])) {
+            $model->inclusionHintsShrink = $map['InclusionHints'];
         }
 
         if (isset($map['ProjectName'])) {

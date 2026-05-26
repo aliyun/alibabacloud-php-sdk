@@ -12,12 +12,21 @@ class InsightsConfig extends Model
      * @var string
      */
     public $language;
+
+    /**
+     * @var VideoInsightsConfig
+     */
+    public $video;
     protected $_name = [
         'language' => 'Language',
+        'video' => 'Video',
     ];
 
     public function validate()
     {
+        if (null !== $this->video) {
+            $this->video->validate();
+        }
         parent::validate();
     }
 
@@ -26,6 +35,10 @@ class InsightsConfig extends Model
         $res = [];
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+
+        if (null !== $this->video) {
+            $res['Video'] = null !== $this->video ? $this->video->toArray($noStream) : $this->video;
         }
 
         return $res;
@@ -41,6 +54,10 @@ class InsightsConfig extends Model
         $model = new self();
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+
+        if (isset($map['Video'])) {
+            $model->video = VideoInsightsConfig::fromMap($map['Video']);
         }
 
         return $model;

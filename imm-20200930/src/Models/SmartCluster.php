@@ -11,6 +11,11 @@ class SmartCluster extends Model
     /**
      * @var string
      */
+    public $clusterType;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -54,15 +59,26 @@ class SmartCluster extends Model
     public $projectName;
 
     /**
+     * @var string
+     */
+    public $reason;
+
+    /**
      * @var SmartClusterRule
      */
     public $rule;
+
+    /**
+     * @var SmartClusterRule[]
+     */
+    public $rules;
 
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
+        'clusterType' => 'ClusterType',
         'createTime' => 'CreateTime',
         'datasetName' => 'DatasetName',
         'description' => 'Description',
@@ -72,7 +88,9 @@ class SmartCluster extends Model
         'objectType' => 'ObjectType',
         'ownerId' => 'OwnerId',
         'projectName' => 'ProjectName',
+        'reason' => 'Reason',
         'rule' => 'Rule',
+        'rules' => 'Rules',
         'updateTime' => 'UpdateTime',
     ];
 
@@ -81,12 +99,19 @@ class SmartCluster extends Model
         if (null !== $this->rule) {
             $this->rule->validate();
         }
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -123,8 +148,23 @@ class SmartCluster extends Model
             $res['ProjectName'] = $this->projectName;
         }
 
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
+
         if (null !== $this->rule) {
             $res['Rule'] = null !== $this->rule ? $this->rule->toArray($noStream) : $this->rule;
+        }
+
+        if (null !== $this->rules) {
+            if (\is_array($this->rules)) {
+                $res['Rules'] = [];
+                $n1 = 0;
+                foreach ($this->rules as $item1) {
+                    $res['Rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->updateTime) {
@@ -142,6 +182,10 @@ class SmartCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -178,8 +222,23 @@ class SmartCluster extends Model
             $model->projectName = $map['ProjectName'];
         }
 
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
+        }
+
         if (isset($map['Rule'])) {
             $model->rule = SmartClusterRule::fromMap($map['Rule']);
+        }
+
+        if (isset($map['Rules'])) {
+            if (!empty($map['Rules'])) {
+                $model->rules = [];
+                $n1 = 0;
+                foreach ($map['Rules'] as $item1) {
+                    $model->rules[$n1] = SmartClusterRule::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['UpdateTime'])) {

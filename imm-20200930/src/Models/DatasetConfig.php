@@ -12,14 +12,23 @@ class DatasetConfig extends Model
      * @var InsightsConfig
      */
     public $insights;
+
+    /**
+     * @var SmartClusterConfig
+     */
+    public $smartCluster;
     protected $_name = [
         'insights' => 'Insights',
+        'smartCluster' => 'SmartCluster',
     ];
 
     public function validate()
     {
         if (null !== $this->insights) {
             $this->insights->validate();
+        }
+        if (null !== $this->smartCluster) {
+            $this->smartCluster->validate();
         }
         parent::validate();
     }
@@ -29,6 +38,10 @@ class DatasetConfig extends Model
         $res = [];
         if (null !== $this->insights) {
             $res['Insights'] = null !== $this->insights ? $this->insights->toArray($noStream) : $this->insights;
+        }
+
+        if (null !== $this->smartCluster) {
+            $res['SmartCluster'] = null !== $this->smartCluster ? $this->smartCluster->toArray($noStream) : $this->smartCluster;
         }
 
         return $res;
@@ -44,6 +57,10 @@ class DatasetConfig extends Model
         $model = new self();
         if (isset($map['Insights'])) {
             $model->insights = InsightsConfig::fromMap($map['Insights']);
+        }
+
+        if (isset($map['SmartCluster'])) {
+            $model->smartCluster = SmartClusterConfig::fromMap($map['SmartCluster']);
         }
 
         return $model;

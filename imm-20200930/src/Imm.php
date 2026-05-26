@@ -5327,6 +5327,10 @@ class Imm extends OpenApiClient
             $request->credentialConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->credentialConfig, 'CredentialConfig', 'json');
         }
 
+        if (null !== $tmpReq->inclusionHints) {
+            $request->inclusionHintsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inclusionHints, 'InclusionHints', 'json');
+        }
+
         $query = [];
         if (null !== $request->aspectRatios) {
             @$query['AspectRatios'] = $request->aspectRatios;
@@ -5334,6 +5338,10 @@ class Imm extends OpenApiClient
 
         if (null !== $request->credentialConfigShrink) {
             @$query['CredentialConfig'] = $request->credentialConfigShrink;
+        }
+
+        if (null !== $request->inclusionHintsShrink) {
+            @$query['InclusionHints'] = $request->inclusionHintsShrink;
         }
 
         if (null !== $request->projectName) {
