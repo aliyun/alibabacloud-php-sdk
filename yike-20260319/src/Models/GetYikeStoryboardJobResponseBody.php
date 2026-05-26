@@ -5,11 +5,17 @@
 namespace AlibabaCloud\SDK\Yike\V20260319\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeStoryboardJobResponseBody\jobCredit;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeStoryboardJobResponseBody\jobParams;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeStoryboardJobResponseBody\jobResult;
 
 class GetYikeStoryboardJobResponseBody extends Model
 {
+    /**
+     * @var jobCredit
+     */
+    public $jobCredit;
+
     /**
      * @var string
      */
@@ -35,6 +41,7 @@ class GetYikeStoryboardJobResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'jobCredit' => 'JobCredit',
         'jobId' => 'JobId',
         'jobParams' => 'JobParams',
         'jobResult' => 'JobResult',
@@ -44,6 +51,9 @@ class GetYikeStoryboardJobResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->jobCredit) {
+            $this->jobCredit->validate();
+        }
         if (null !== $this->jobParams) {
             $this->jobParams->validate();
         }
@@ -56,6 +66,10 @@ class GetYikeStoryboardJobResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->jobCredit) {
+            $res['JobCredit'] = null !== $this->jobCredit ? $this->jobCredit->toArray($noStream) : $this->jobCredit;
+        }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -87,6 +101,10 @@ class GetYikeStoryboardJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['JobCredit'])) {
+            $model->jobCredit = jobCredit::fromMap($map['JobCredit']);
+        }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
