@@ -2858,7 +2858,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 根据实例id查询域名信息.
+     * Queries the basic information about a domain name based on the instance ID.
      *
      * @param request - QueryDomainByInstanceIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2905,7 +2905,7 @@ class Domain extends OpenApiClient
     }
 
     /**
-     * 根据实例id查询域名信息.
+     * Queries the basic information about a domain name based on the instance ID.
      *
      * @param request - QueryDomainByInstanceIdRequest
      *
@@ -7338,6 +7338,10 @@ class Domain extends OpenApiClient
 
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->permitPremiumRenew) {
+            @$query['PermitPremiumRenew'] = $request->permitPremiumRenew;
         }
 
         if (null !== $request->promotionNo) {

@@ -29,6 +29,11 @@ class SaveSingleTaskForCreatingOrderRenewRequest extends Model
     public $lang;
 
     /**
+     * @var bool
+     */
+    public $permitPremiumRenew;
+
+    /**
      * @var string
      */
     public $promotionNo;
@@ -57,6 +62,7 @@ class SaveSingleTaskForCreatingOrderRenewRequest extends Model
         'currentExpirationDate' => 'CurrentExpirationDate',
         'domainName' => 'DomainName',
         'lang' => 'Lang',
+        'permitPremiumRenew' => 'PermitPremiumRenew',
         'promotionNo' => 'PromotionNo',
         'subscriptionDuration' => 'SubscriptionDuration',
         'useCoupon' => 'UseCoupon',
@@ -86,6 +92,10 @@ class SaveSingleTaskForCreatingOrderRenewRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->permitPremiumRenew) {
+            $res['PermitPremiumRenew'] = $this->permitPremiumRenew;
         }
 
         if (null !== $this->promotionNo) {
@@ -133,6 +143,10 @@ class SaveSingleTaskForCreatingOrderRenewRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['PermitPremiumRenew'])) {
+            $model->permitPremiumRenew = $map['PermitPremiumRenew'];
         }
 
         if (isset($map['PromotionNo'])) {

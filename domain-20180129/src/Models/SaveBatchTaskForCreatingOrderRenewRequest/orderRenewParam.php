@@ -19,12 +19,18 @@ class orderRenewParam extends Model
     public $domainName;
 
     /**
+     * @var bool
+     */
+    public $permitPremiumRenew;
+
+    /**
      * @var int
      */
     public $subscriptionDuration;
     protected $_name = [
         'currentExpirationDate' => 'CurrentExpirationDate',
         'domainName' => 'DomainName',
+        'permitPremiumRenew' => 'PermitPremiumRenew',
         'subscriptionDuration' => 'SubscriptionDuration',
     ];
 
@@ -42,6 +48,10 @@ class orderRenewParam extends Model
 
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->permitPremiumRenew) {
+            $res['PermitPremiumRenew'] = $this->permitPremiumRenew;
         }
 
         if (null !== $this->subscriptionDuration) {
@@ -65,6 +75,10 @@ class orderRenewParam extends Model
 
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['PermitPremiumRenew'])) {
+            $model->permitPremiumRenew = $map['PermitPremiumRenew'];
         }
 
         if (isset($map['SubscriptionDuration'])) {
