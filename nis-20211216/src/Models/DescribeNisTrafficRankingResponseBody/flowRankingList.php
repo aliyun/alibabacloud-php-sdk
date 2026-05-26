@@ -26,7 +26,22 @@ class flowRankingList extends Model
     /**
      * @var float
      */
+    public $bytesIncrease;
+
+    /**
+     * @var float
+     */
+    public $bytesIncreaseRatio;
+
+    /**
+     * @var float
+     */
     public $bytesRate;
+
+    /**
+     * @var string
+     */
+    public $cenId;
 
     /**
      * @var string
@@ -231,7 +246,10 @@ class flowRankingList extends Model
         'bindingResourceId' => 'BindingResourceId',
         'bindingResourceType' => 'BindingResourceType',
         'bytes' => 'Bytes',
+        'bytesIncrease' => 'BytesIncrease',
+        'bytesIncreaseRatio' => 'BytesIncreaseRatio',
         'bytesRate' => 'BytesRate',
+        'cenId' => 'CenId',
         'clientAsn' => 'ClientAsn',
         'clientCity' => 'ClientCity',
         'clientCountry' => 'ClientCountry',
@@ -294,8 +312,20 @@ class flowRankingList extends Model
             $res['Bytes'] = $this->bytes;
         }
 
+        if (null !== $this->bytesIncrease) {
+            $res['BytesIncrease'] = $this->bytesIncrease;
+        }
+
+        if (null !== $this->bytesIncreaseRatio) {
+            $res['BytesIncreaseRatio'] = $this->bytesIncreaseRatio;
+        }
+
         if (null !== $this->bytesRate) {
             $res['BytesRate'] = $this->bytesRate;
+        }
+
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
         }
 
         if (null !== $this->clientAsn) {
@@ -481,8 +511,20 @@ class flowRankingList extends Model
             $model->bytes = $map['Bytes'];
         }
 
+        if (isset($map['BytesIncrease'])) {
+            $model->bytesIncrease = $map['BytesIncrease'];
+        }
+
+        if (isset($map['BytesIncreaseRatio'])) {
+            $model->bytesIncreaseRatio = $map['BytesIncreaseRatio'];
+        }
+
         if (isset($map['BytesRate'])) {
             $model->bytesRate = $map['BytesRate'];
+        }
+
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
         }
 
         if (isset($map['ClientAsn'])) {
