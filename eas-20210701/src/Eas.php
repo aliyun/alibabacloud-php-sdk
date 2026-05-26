@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateAppServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateConfigRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateConfigResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateFaultInjectionRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateFaultInjectionResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGatewayIntranetLinkedVpcPeerRequest;
@@ -56,6 +58,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteAclPolicyShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteConfigRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteConfigResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteFaultInjectionRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteFaultInjectionResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DeleteGatewayIntranetLinkedVpcPeerRequest;
@@ -151,6 +155,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListAclPolicyResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListConfigsRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListConfigsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayDomainsRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayDomainsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcPeerRequest;
@@ -209,6 +215,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateAppServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateAppServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateBenchmarkTaskResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateConfigRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateConfigResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayLabelRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayLabelResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGatewayRequest;
@@ -722,6 +730,75 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->createBenchmarkTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建单个配置.
+     *
+     * @param request - CreateConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConfigResponse
+     *
+     * @param string              $ClusterId
+     * @param string              $ConfigType
+     * @param string              $Name
+     * @param string              $ConfigKey
+     * @param CreateConfigRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateConfigResponse
+     */
+    public function createConfigWithOptions($ClusterId, $ConfigType, $Name, $ConfigKey, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateConfig',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/configs/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ConfigType) . '/' . Url::percentEncode($Name) . '/' . Url::percentEncode($ConfigKey) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建单个配置.
+     *
+     * @param request - CreateConfigRequest
+     *
+     * @returns CreateConfigResponse
+     *
+     * @param string              $ClusterId
+     * @param string              $ConfigType
+     * @param string              $Name
+     * @param string              $ConfigKey
+     * @param CreateConfigRequest $request
+     *
+     * @return CreateConfigResponse
+     */
+    public function createConfig($ClusterId, $ConfigType, $Name, $ConfigKey, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createConfigWithOptions($ClusterId, $ConfigType, $Name, $ConfigKey, $request, $headers, $runtime);
     }
 
     /**
@@ -1971,6 +2048,69 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->deleteBenchmarkTaskWithOptions($ClusterId, $TaskName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除单个配置项.
+     *
+     * @param request - DeleteConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConfigResponse
+     *
+     * @param string              $ClusterId
+     * @param string              $ConfigType
+     * @param string              $Name
+     * @param string              $ConfigKey
+     * @param DeleteConfigRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteConfigResponse
+     */
+    public function deleteConfigWithOptions($ClusterId, $ConfigType, $Name, $ConfigKey, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConfig',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/configs/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ConfigType) . '/' . Url::percentEncode($Name) . '/' . Url::percentEncode($ConfigKey) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除单个配置项.
+     *
+     * @param request - DeleteConfigRequest
+     *
+     * @returns DeleteConfigResponse
+     *
+     * @param string              $ClusterId
+     * @param string              $ConfigType
+     * @param string              $Name
+     * @param string              $ConfigKey
+     * @param DeleteConfigRequest $request
+     *
+     * @return DeleteConfigResponse
+     */
+    public function deleteConfig($ClusterId, $ConfigType, $Name, $ConfigKey, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConfigWithOptions($ClusterId, $ConfigType, $Name, $ConfigKey, $request, $headers, $runtime);
     }
 
     /**
@@ -4944,6 +5084,77 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * 查询服务的所有配置项（支持分页）.
+     *
+     * @param request - ListConfigsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConfigsResponse
+     *
+     * @param string             $ClusterId
+     * @param string             $ConfigType
+     * @param string             $Name
+     * @param ListConfigsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListConfigsResponse
+     */
+    public function listConfigsWithOptions($ClusterId, $ConfigType, $Name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConfigs',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/configs/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ConfigType) . '/' . Url::percentEncode($Name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询服务的所有配置项（支持分页）.
+     *
+     * @param request - ListConfigsRequest
+     *
+     * @returns ListConfigsResponse
+     *
+     * @param string             $ClusterId
+     * @param string             $ConfigType
+     * @param string             $Name
+     * @param ListConfigsRequest $request
+     *
+     * @return ListConfigsResponse
+     */
+    public function listConfigs($ClusterId, $ConfigType, $Name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConfigsWithOptions($ClusterId, $ConfigType, $Name, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of private gateways.
      *
      * @param tmpReq - ListGatewayRequest
@@ -7096,6 +7307,75 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->updateBenchmarkTaskWithOptions($ClusterId, $TaskName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新单个配置项.
+     *
+     * @param request - UpdateConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConfigResponse
+     *
+     * @param string              $ClusterId
+     * @param string              $ConfigType
+     * @param string              $Name
+     * @param string              $ConfigKey
+     * @param UpdateConfigRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateConfigResponse
+     */
+    public function updateConfigWithOptions($ClusterId, $ConfigType, $Name, $ConfigKey, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->value) {
+            @$body['Value'] = $request->value;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConfig',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/configs/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ConfigType) . '/' . Url::percentEncode($Name) . '/' . Url::percentEncode($ConfigKey) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新单个配置项.
+     *
+     * @param request - UpdateConfigRequest
+     *
+     * @returns UpdateConfigResponse
+     *
+     * @param string              $ClusterId
+     * @param string              $ConfigType
+     * @param string              $Name
+     * @param string              $ConfigKey
+     * @param UpdateConfigRequest $request
+     *
+     * @return UpdateConfigResponse
+     */
+    public function updateConfig($ClusterId, $ConfigType, $Name, $ConfigKey, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConfigWithOptions($ClusterId, $ConfigType, $Name, $ConfigKey, $request, $headers, $runtime);
     }
 
     /**
