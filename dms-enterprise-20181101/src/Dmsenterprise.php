@@ -460,6 +460,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceUserPermissionsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInstanceUserPermissionsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInventoryJobsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListInventoryJobsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesRequest;
@@ -599,6 +601,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchDataTrackResultShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchInventoryAssetRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchInventoryAssetResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchInventoryKnowledgeRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchInventoryKnowledgeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableAssetKnowledgeRequest;
@@ -6232,16 +6236,16 @@ class Dmsenterprise extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
         if (null !== $request->vpcId) {
             @$query['VpcId'] = $request->vpcId;
         }
 
         if (null !== $request->workspaceName) {
             @$query['WorkspaceName'] = $request->workspaceName;
+        }
+
+        if (null !== $request->workspaceRegion) {
+            @$query['WorkspaceRegion'] = $request->workspaceRegion;
         }
 
         $body = [];
@@ -8904,7 +8908,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 数据库知识库补数据接口.
+     * Database knowledge base data supplementation interface.
      *
      * @param request - GenMetaKnowledgeAssetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8943,7 +8947,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * 数据库知识库补数据接口.
+     * Database knowledge base data supplementation interface.
      *
      * @param request - GenMetaKnowledgeAssetRequest
      *
@@ -10771,7 +10775,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries basic information about tables in the data lake.
+     * Invokes this API to obtain table info in the data lake.
      *
      * @param request - GetDataLakeTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10830,7 +10834,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Queries basic information about tables in the data lake.
+     * Invokes this API to obtain table info in the data lake.
      *
      * @param request - GetDataLakeTableRequest
      *
@@ -16874,6 +16878,89 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * 分页查询资产盘点任务历史列表.
+     *
+     * @remarks
+     * 对应控制台 /knowledge/job/inventory/list，分页查询当前租户下的资产盘点任务历史，支持按任务 ID、创建人关键词及状态筛选
+     *
+     * @param request - ListInventoryJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInventoryJobsResponse
+     *
+     * @param ListInventoryJobsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListInventoryJobsResponse
+     */
+    public function listInventoryJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInventoryJobs',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInventoryJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询资产盘点任务历史列表.
+     *
+     * @remarks
+     * 对应控制台 /knowledge/job/inventory/list，分页查询当前租户下的资产盘点任务历史，支持按任务 ID、创建人关键词及状态筛选
+     *
+     * @param request - ListInventoryJobsRequest
+     *
+     * @returns ListInventoryJobsResponse
+     *
+     * @param ListInventoryJobsRequest $request
+     *
+     * @return ListInventoryJobsResponse
+     */
+    public function listInventoryJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInventoryJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
      *
      * @remarks
@@ -21991,6 +22078,89 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询盘点任务下的表资产列表.
+     *
+     * @remarks
+     * 对应控制台 /knowledge/job/inventory/asset，分页查询指定盘点任务产出的表级资产信息，支持关键词筛选与排序
+     *
+     * @param request - SearchInventoryAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchInventoryAssetResponse
+     *
+     * @param SearchInventoryAssetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SearchInventoryAssetResponse
+     */
+    public function searchInventoryAssetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchInventoryAsset',
+            'version' => '2018-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchInventoryAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询盘点任务下的表资产列表.
+     *
+     * @remarks
+     * 对应控制台 /knowledge/job/inventory/asset，分页查询指定盘点任务产出的表级资产信息，支持关键词筛选与排序
+     *
+     * @param request - SearchInventoryAssetRequest
+     *
+     * @returns SearchInventoryAssetResponse
+     *
+     * @param SearchInventoryAssetRequest $request
+     *
+     * @return SearchInventoryAssetResponse
+     */
+    public function searchInventoryAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchInventoryAssetWithOptions($request, $runtime);
     }
 
     /**

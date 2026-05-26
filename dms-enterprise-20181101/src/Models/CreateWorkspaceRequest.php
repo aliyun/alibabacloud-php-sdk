@@ -21,23 +21,23 @@ class CreateWorkspaceRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $vpcId;
 
     /**
      * @var string
      */
     public $workspaceName;
+
+    /**
+     * @var string
+     */
+    public $workspaceRegion;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'description' => 'Description',
-        'regionId' => 'RegionId',
         'vpcId' => 'VpcId',
         'workspaceName' => 'WorkspaceName',
+        'workspaceRegion' => 'WorkspaceRegion',
     ];
 
     public function validate()
@@ -56,16 +56,16 @@ class CreateWorkspaceRequest extends Model
             $res['Description'] = $this->description;
         }
 
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
 
         if (null !== $this->workspaceName) {
             $res['WorkspaceName'] = $this->workspaceName;
+        }
+
+        if (null !== $this->workspaceRegion) {
+            $res['WorkspaceRegion'] = $this->workspaceRegion;
         }
 
         return $res;
@@ -87,16 +87,16 @@ class CreateWorkspaceRequest extends Model
             $model->description = $map['Description'];
         }
 
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
 
         if (isset($map['WorkspaceName'])) {
             $model->workspaceName = $map['WorkspaceName'];
+        }
+
+        if (isset($map['WorkspaceRegion'])) {
+            $model->workspaceRegion = $map['WorkspaceRegion'];
         }
 
         return $model;
