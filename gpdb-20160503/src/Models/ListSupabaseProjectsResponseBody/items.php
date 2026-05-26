@@ -61,6 +61,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $projectDescription;
+
+    /**
+     * @var string
+     */
     public $projectId;
 
     /**
@@ -123,6 +128,7 @@ class items extends Model
         'expireTime' => 'ExpireTime',
         'payType' => 'PayType',
         'privateConnectUrl' => 'PrivateConnectUrl',
+        'projectDescription' => 'ProjectDescription',
         'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
         'projectSpec' => 'ProjectSpec',
@@ -182,6 +188,10 @@ class items extends Model
 
         if (null !== $this->privateConnectUrl) {
             $res['PrivateConnectUrl'] = $this->privateConnectUrl;
+        }
+
+        if (null !== $this->projectDescription) {
+            $res['ProjectDescription'] = $this->projectDescription;
         }
 
         if (null !== $this->projectId) {
@@ -277,6 +287,10 @@ class items extends Model
 
         if (isset($map['PrivateConnectUrl'])) {
             $model->privateConnectUrl = $map['PrivateConnectUrl'];
+        }
+
+        if (isset($map['ProjectDescription'])) {
+            $model->projectDescription = $map['ProjectDescription'];
         }
 
         if (isset($map['ProjectId'])) {
