@@ -7,6 +7,10 @@ namespace AlibabaCloud\SDK\AiSearchEngine\V20260417;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AiSearchEngine\V20260417\Models\EngineSearchRequest;
 use AlibabaCloud\SDK\AiSearchEngine\V20260417\Models\EngineSearchResponse;
+use AlibabaCloud\SDK\AiSearchEngine\V20260417\Models\GetDatasetResourceUrlRequest;
+use AlibabaCloud\SDK\AiSearchEngine\V20260417\Models\GetDatasetResourceUrlResponse;
+use AlibabaCloud\SDK\AiSearchEngine\V20260417\Models\ImportDatasetDataRequest;
+use AlibabaCloud\SDK\AiSearchEngine\V20260417\Models\ImportDatasetDataResponse;
 use AlibabaCloud\SDK\AiSearchEngine\V20260417\Models\QaChatRequest;
 use AlibabaCloud\SDK\AiSearchEngine\V20260417\Models\QaChatResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -135,6 +139,136 @@ class AiSearchEngine extends OpenApiClient
         $headers = [];
 
         return $this->engineSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取数据集资源 OSS 访问地址
+     *
+     * @param request - GetDatasetResourceUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasetResourceUrlResponse
+     *
+     * @param GetDatasetResourceUrlRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDatasetResourceUrlResponse
+     */
+    public function getDatasetResourceUrlWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->datasetId) {
+            @$body['datasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->primaryKey) {
+            @$body['primaryKey'] = $request->primaryKey;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDatasetResourceUrl',
+            'version' => '2026-04-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/dataset/open/resources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDatasetResourceUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据集资源 OSS 访问地址
+     *
+     * @param request - GetDatasetResourceUrlRequest
+     *
+     * @returns GetDatasetResourceUrlResponse
+     *
+     * @param GetDatasetResourceUrlRequest $request
+     *
+     * @return GetDatasetResourceUrlResponse
+     */
+    public function getDatasetResourceUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDatasetResourceUrlWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 提交单条记录导入任务
+     *
+     * @param request - ImportDatasetDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportDatasetDataResponse
+     *
+     * @param ImportDatasetDataRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ImportDatasetDataResponse
+     */
+    public function importDatasetDataWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->datasetId) {
+            @$body['datasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->records) {
+            @$body['records'] = $request->records;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportDatasetData',
+            'version' => '2026-04-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/dataset/open/upsert',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportDatasetDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交单条记录导入任务
+     *
+     * @param request - ImportDatasetDataRequest
+     *
+     * @returns ImportDatasetDataResponse
+     *
+     * @param ImportDatasetDataRequest $request
+     *
+     * @return ImportDatasetDataResponse
+     */
+    public function importDatasetData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->importDatasetDataWithOptions($request, $headers, $runtime);
     }
 
     /**
