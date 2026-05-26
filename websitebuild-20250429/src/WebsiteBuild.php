@@ -221,6 +221,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['BizId'] = $request->bizId;
         }
 
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
         if (null !== $request->orderColumn) {
             @$query['OrderColumn'] = $request->orderColumn;
         }
@@ -3663,6 +3667,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['BizId'] = $request->bizId;
         }
 
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
         if (null !== $request->executeSql) {
             @$query['ExecuteSql'] = $request->executeSql;
         }
@@ -4558,6 +4566,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['BizId'] = $request->bizId;
         }
 
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
         if (null !== $request->orderColumn) {
             @$query['OrderColumn'] = $request->orderColumn;
         }
@@ -4633,6 +4645,10 @@ class WebsiteBuild extends OpenApiClient
         $query = [];
         if (null !== $request->bizId) {
             @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
         }
 
         if (null !== $request->orderColumn) {

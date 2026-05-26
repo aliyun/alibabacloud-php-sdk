@@ -16,6 +16,11 @@ class OperateSupabaseForAdminRequest extends Model
     /**
      * @var string
      */
+    public $env;
+
+    /**
+     * @var string
+     */
     public $executeSql;
 
     /**
@@ -64,6 +69,7 @@ class OperateSupabaseForAdminRequest extends Model
     public $whereClause;
     protected $_name = [
         'bizId' => 'BizId',
+        'env' => 'Env',
         'executeSql' => 'ExecuteSql',
         'operateType' => 'OperateType',
         'orderByClause' => 'OrderByClause',
@@ -86,6 +92,10 @@ class OperateSupabaseForAdminRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->env) {
+            $res['Env'] = $this->env;
         }
 
         if (null !== $this->executeSql) {
@@ -141,6 +151,10 @@ class OperateSupabaseForAdminRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['Env'])) {
+            $model->env = $map['Env'];
         }
 
         if (isset($map['ExecuteSql'])) {

@@ -21,6 +21,11 @@ class QuerySupabaseAuthConfigsForAdminRequest extends Model
     /**
      * @var string
      */
+    public $env;
+
+    /**
+     * @var string
+     */
     public $orderColumn;
 
     /**
@@ -45,6 +50,7 @@ class QuerySupabaseAuthConfigsForAdminRequest extends Model
     protected $_name = [
         'authType' => 'AuthType',
         'bizId' => 'BizId',
+        'env' => 'Env',
         'orderColumn' => 'OrderColumn',
         'orderType' => 'OrderType',
         'pageNum' => 'PageNum',
@@ -66,6 +72,10 @@ class QuerySupabaseAuthConfigsForAdminRequest extends Model
 
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->env) {
+            $res['Env'] = $this->env;
         }
 
         if (null !== $this->orderColumn) {
@@ -105,6 +115,10 @@ class QuerySupabaseAuthConfigsForAdminRequest extends Model
 
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['Env'])) {
+            $model->env = $map['Env'];
         }
 
         if (isset($map['OrderColumn'])) {
