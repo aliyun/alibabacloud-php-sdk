@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDApplyTokenSignRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDApplyTokenSignResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDConversionSignRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\GetUAIDConversionSignResponse;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\HistoryThreeElementsVerificationRequest;
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\HistoryThreeElementsVerificationResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterRequest;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\InvalidPhoneNumberFilterResponse;
 use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\ListContactsRequest;
@@ -816,7 +818,7 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * 号码分析实时查询蚂蚁
+     * Obtains the analysis results of a number.
      *
      * @param request - DescribePhoneNumberAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -883,7 +885,7 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * 号码分析实时查询蚂蚁
+     * Obtains the analysis results of a number.
      *
      * @param request - DescribePhoneNumberAnalysisRequest
      *
@@ -1732,7 +1734,7 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * 获取UAID申请Token所需的签名字段.
+     * Obtains the signature of an authorization token when China Mobile, China Unicom, or China Telecom provides the Uniform Anonymous Identifier (UAID) capability.
      *
      * @param request - GetUAIDApplyTokenSignRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1811,7 +1813,7 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * 获取UAID申请Token所需的签名字段.
+     * Obtains the signature of an authorization token when China Mobile, China Unicom, or China Telecom provides the Uniform Anonymous Identifier (UAID) capability.
      *
      * @param request - GetUAIDApplyTokenSignRequest
      *
@@ -1923,6 +1925,87 @@ class Dytnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUAIDConversionSignWithOptions($request, $runtime);
+    }
+
+    /**
+     * 历史三要素.
+     *
+     * @param request - HistoryThreeElementsVerificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns HistoryThreeElementsVerificationResponse
+     *
+     * @param HistoryThreeElementsVerificationRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return HistoryThreeElementsVerificationResponse
+     */
+    public function historyThreeElementsVerificationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
+        }
+
+        if (null !== $request->carrier) {
+            @$query['Carrier'] = $request->carrier;
+        }
+
+        if (null !== $request->certCode) {
+            @$query['CertCode'] = $request->certCode;
+        }
+
+        if (null !== $request->inputNumber) {
+            @$query['InputNumber'] = $request->inputNumber;
+        }
+
+        if (null !== $request->mask) {
+            @$query['Mask'] = $request->mask;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->verificationTime) {
+            @$query['VerificationTime'] = $request->verificationTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'HistoryThreeElementsVerification',
+            'version' => '2020-02-17',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return HistoryThreeElementsVerificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 历史三要素.
+     *
+     * @param request - HistoryThreeElementsVerificationRequest
+     *
+     * @returns HistoryThreeElementsVerificationResponse
+     *
+     * @param HistoryThreeElementsVerificationRequest $request
+     *
+     * @return HistoryThreeElementsVerificationResponse
+     */
+    public function historyThreeElementsVerification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->historyThreeElementsVerificationWithOptions($request, $runtime);
     }
 
     /**
@@ -3873,7 +3956,7 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * 获取UAID.
+     * Obtains a Uniform Anonymous Identifier (UAID) based on the authorization token of a carrier. For more information about how to obtain the authorization token and its signature value, see the GetUAIDApplyTokenSign documentation.
      *
      * @param request - UAIDVerificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3948,7 +4031,7 @@ class Dytnsapi extends OpenApiClient
     }
 
     /**
-     * 获取UAID.
+     * Obtains a Uniform Anonymous Identifier (UAID) based on the authorization token of a carrier. For more information about how to obtain the authorization token and its signature value, see the GetUAIDApplyTokenSign documentation.
      *
      * @param request - UAIDVerificationRequest
      *
