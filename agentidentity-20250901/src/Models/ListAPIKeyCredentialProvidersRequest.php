@@ -17,9 +17,15 @@ class ListAPIKeyCredentialProvidersRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $tokenVaultName;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'tokenVaultName' => 'TokenVaultName',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ListAPIKeyCredentialProvidersRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->tokenVaultName) {
+            $res['TokenVaultName'] = $this->tokenVaultName;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ListAPIKeyCredentialProvidersRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['TokenVaultName'])) {
+            $model->tokenVaultName = $map['TokenVaultName'];
         }
 
         return $model;

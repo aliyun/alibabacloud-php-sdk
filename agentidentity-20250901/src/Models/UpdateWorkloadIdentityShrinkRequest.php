@@ -31,12 +31,18 @@ class UpdateWorkloadIdentityShrinkRequest extends Model
     /**
      * @var string
      */
+    public $sessionBindingEnabled;
+
+    /**
+     * @var string
+     */
     public $workloadIdentityName;
     protected $_name = [
         'allowedResourceOAuth2ReturnURLsShrink' => 'AllowedResourceOAuth2ReturnURLs',
         'description' => 'Description',
         'identityProviderName' => 'IdentityProviderName',
         'roleArn' => 'RoleArn',
+        'sessionBindingEnabled' => 'SessionBindingEnabled',
         'workloadIdentityName' => 'WorkloadIdentityName',
     ];
 
@@ -62,6 +68,10 @@ class UpdateWorkloadIdentityShrinkRequest extends Model
 
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->sessionBindingEnabled) {
+            $res['SessionBindingEnabled'] = $this->sessionBindingEnabled;
         }
 
         if (null !== $this->workloadIdentityName) {
@@ -93,6 +103,10 @@ class UpdateWorkloadIdentityShrinkRequest extends Model
 
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
+        }
+
+        if (isset($map['SessionBindingEnabled'])) {
+            $model->sessionBindingEnabled = $map['SessionBindingEnabled'];
         }
 
         if (isset($map['WorkloadIdentityName'])) {

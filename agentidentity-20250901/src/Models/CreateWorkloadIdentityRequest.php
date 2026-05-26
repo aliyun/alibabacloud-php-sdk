@@ -14,6 +14,11 @@ class CreateWorkloadIdentityRequest extends Model
     public $allowedResourceOAuth2ReturnURLs;
 
     /**
+     * @var bool
+     */
+    public $createRAMRole;
+
+    /**
      * @var string
      */
     public $description;
@@ -29,14 +34,33 @@ class CreateWorkloadIdentityRequest extends Model
     public $roleArn;
 
     /**
+     * @var bool
+     */
+    public $sessionBindingEnabled;
+
+    /**
+     * @var string
+     */
+    public $sourceAgentArn;
+
+    /**
+     * @var string
+     */
+    public $sourcePlatform;
+
+    /**
      * @var string
      */
     public $workloadIdentityName;
     protected $_name = [
         'allowedResourceOAuth2ReturnURLs' => 'AllowedResourceOAuth2ReturnURLs',
+        'createRAMRole' => 'CreateRAMRole',
         'description' => 'Description',
         'identityProviderName' => 'IdentityProviderName',
         'roleArn' => 'RoleArn',
+        'sessionBindingEnabled' => 'SessionBindingEnabled',
+        'sourceAgentArn' => 'SourceAgentArn',
+        'sourcePlatform' => 'SourcePlatform',
         'workloadIdentityName' => 'WorkloadIdentityName',
     ];
 
@@ -62,6 +86,10 @@ class CreateWorkloadIdentityRequest extends Model
             }
         }
 
+        if (null !== $this->createRAMRole) {
+            $res['CreateRAMRole'] = $this->createRAMRole;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -72,6 +100,18 @@ class CreateWorkloadIdentityRequest extends Model
 
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->sessionBindingEnabled) {
+            $res['SessionBindingEnabled'] = $this->sessionBindingEnabled;
+        }
+
+        if (null !== $this->sourceAgentArn) {
+            $res['SourceAgentArn'] = $this->sourceAgentArn;
+        }
+
+        if (null !== $this->sourcePlatform) {
+            $res['SourcePlatform'] = $this->sourcePlatform;
         }
 
         if (null !== $this->workloadIdentityName) {
@@ -100,6 +140,10 @@ class CreateWorkloadIdentityRequest extends Model
             }
         }
 
+        if (isset($map['CreateRAMRole'])) {
+            $model->createRAMRole = $map['CreateRAMRole'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -110,6 +154,18 @@ class CreateWorkloadIdentityRequest extends Model
 
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
+        }
+
+        if (isset($map['SessionBindingEnabled'])) {
+            $model->sessionBindingEnabled = $map['SessionBindingEnabled'];
+        }
+
+        if (isset($map['SourceAgentArn'])) {
+            $model->sourceAgentArn = $map['SourceAgentArn'];
+        }
+
+        if (isset($map['SourcePlatform'])) {
+            $model->sourcePlatform = $map['SourcePlatform'];
         }
 
         if (isset($map['WorkloadIdentityName'])) {

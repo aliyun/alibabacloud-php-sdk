@@ -31,12 +31,18 @@ class APIKeyCredentialProviders extends Model
     /**
      * @var string
      */
+    public $tokenVaultName;
+
+    /**
+     * @var string
+     */
     public $updateTime;
     protected $_name = [
         'APIKeyCredentialProviderName' => 'APIKeyCredentialProviderName',
         'createTime' => 'CreateTime',
         'credentialProviderArn' => 'CredentialProviderArn',
         'description' => 'Description',
+        'tokenVaultName' => 'TokenVaultName',
         'updateTime' => 'UpdateTime',
     ];
 
@@ -62,6 +68,10 @@ class APIKeyCredentialProviders extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->tokenVaultName) {
+            $res['TokenVaultName'] = $this->tokenVaultName;
         }
 
         if (null !== $this->updateTime) {
@@ -93,6 +103,10 @@ class APIKeyCredentialProviders extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['TokenVaultName'])) {
+            $model->tokenVaultName = $map['TokenVaultName'];
         }
 
         if (isset($map['UpdateTime'])) {

@@ -12,8 +12,14 @@ class GetOAuth2CredentialProviderRequest extends Model
      * @var string
      */
     public $OAuth2CredentialProviderName;
+
+    /**
+     * @var string
+     */
+    public $tokenVaultName;
     protected $_name = [
         'OAuth2CredentialProviderName' => 'OAuth2CredentialProviderName',
+        'tokenVaultName' => 'TokenVaultName',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class GetOAuth2CredentialProviderRequest extends Model
         $res = [];
         if (null !== $this->OAuth2CredentialProviderName) {
             $res['OAuth2CredentialProviderName'] = $this->OAuth2CredentialProviderName;
+        }
+
+        if (null !== $this->tokenVaultName) {
+            $res['TokenVaultName'] = $this->tokenVaultName;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class GetOAuth2CredentialProviderRequest extends Model
         $model = new self();
         if (isset($map['OAuth2CredentialProviderName'])) {
             $model->OAuth2CredentialProviderName = $map['OAuth2CredentialProviderName'];
+        }
+
+        if (isset($map['TokenVaultName'])) {
+            $model->tokenVaultName = $map['TokenVaultName'];
         }
 
         return $model;

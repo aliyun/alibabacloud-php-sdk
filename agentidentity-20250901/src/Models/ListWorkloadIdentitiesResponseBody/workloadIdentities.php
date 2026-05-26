@@ -34,6 +34,21 @@ class workloadIdentities extends Model
     public $roleArn;
 
     /**
+     * @var bool
+     */
+    public $sessionBindingEnabled;
+
+    /**
+     * @var string
+     */
+    public $sourceAgentArn;
+
+    /**
+     * @var string
+     */
+    public $sourcePlatform;
+
+    /**
      * @var string
      */
     public $updateTime;
@@ -53,6 +68,9 @@ class workloadIdentities extends Model
         'description' => 'Description',
         'identityProviderName' => 'IdentityProviderName',
         'roleArn' => 'RoleArn',
+        'sessionBindingEnabled' => 'SessionBindingEnabled',
+        'sourceAgentArn' => 'SourceAgentArn',
+        'sourcePlatform' => 'SourcePlatform',
         'updateTime' => 'UpdateTime',
         'workloadIdentityArn' => 'WorkloadIdentityArn',
         'workloadIdentityName' => 'WorkloadIdentityName',
@@ -94,6 +112,18 @@ class workloadIdentities extends Model
 
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->sessionBindingEnabled) {
+            $res['SessionBindingEnabled'] = $this->sessionBindingEnabled;
+        }
+
+        if (null !== $this->sourceAgentArn) {
+            $res['SourceAgentArn'] = $this->sourceAgentArn;
+        }
+
+        if (null !== $this->sourcePlatform) {
+            $res['SourcePlatform'] = $this->sourcePlatform;
         }
 
         if (null !== $this->updateTime) {
@@ -144,6 +174,18 @@ class workloadIdentities extends Model
 
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
+        }
+
+        if (isset($map['SessionBindingEnabled'])) {
+            $model->sessionBindingEnabled = $map['SessionBindingEnabled'];
+        }
+
+        if (isset($map['SourceAgentArn'])) {
+            $model->sourceAgentArn = $map['SourceAgentArn'];
+        }
+
+        if (isset($map['SourcePlatform'])) {
+            $model->sourcePlatform = $map['SourcePlatform'];
         }
 
         if (isset($map['UpdateTime'])) {

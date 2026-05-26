@@ -32,12 +32,18 @@ class CreateOAuth2CredentialProviderShrinkRequest extends Model
      * @var string
      */
     public $OAuth2ProviderConfigShrink;
+
+    /**
+     * @var string
+     */
+    public $tokenVaultName;
     protected $_name = [
         'callbackURL' => 'CallbackURL',
         'credentialProviderVendor' => 'CredentialProviderVendor',
         'description' => 'Description',
         'OAuth2CredentialProviderName' => 'OAuth2CredentialProviderName',
         'OAuth2ProviderConfigShrink' => 'OAuth2ProviderConfig',
+        'tokenVaultName' => 'TokenVaultName',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class CreateOAuth2CredentialProviderShrinkRequest extends Model
 
         if (null !== $this->OAuth2ProviderConfigShrink) {
             $res['OAuth2ProviderConfig'] = $this->OAuth2ProviderConfigShrink;
+        }
+
+        if (null !== $this->tokenVaultName) {
+            $res['TokenVaultName'] = $this->tokenVaultName;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class CreateOAuth2CredentialProviderShrinkRequest extends Model
 
         if (isset($map['OAuth2ProviderConfig'])) {
             $model->OAuth2ProviderConfigShrink = $map['OAuth2ProviderConfig'];
+        }
+
+        if (isset($map['TokenVaultName'])) {
+            $model->tokenVaultName = $map['TokenVaultName'];
         }
 
         return $model;

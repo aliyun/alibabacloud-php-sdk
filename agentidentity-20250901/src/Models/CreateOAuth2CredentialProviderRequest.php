@@ -32,12 +32,18 @@ class CreateOAuth2CredentialProviderRequest extends Model
      * @var OAuth2ProviderConfig
      */
     public $OAuth2ProviderConfig;
+
+    /**
+     * @var string
+     */
+    public $tokenVaultName;
     protected $_name = [
         'callbackURL' => 'CallbackURL',
         'credentialProviderVendor' => 'CredentialProviderVendor',
         'description' => 'Description',
         'OAuth2CredentialProviderName' => 'OAuth2CredentialProviderName',
         'OAuth2ProviderConfig' => 'OAuth2ProviderConfig',
+        'tokenVaultName' => 'TokenVaultName',
     ];
 
     public function validate()
@@ -71,6 +77,10 @@ class CreateOAuth2CredentialProviderRequest extends Model
             $res['OAuth2ProviderConfig'] = null !== $this->OAuth2ProviderConfig ? $this->OAuth2ProviderConfig->toArray($noStream) : $this->OAuth2ProviderConfig;
         }
 
+        if (null !== $this->tokenVaultName) {
+            $res['TokenVaultName'] = $this->tokenVaultName;
+        }
+
         return $res;
     }
 
@@ -100,6 +110,10 @@ class CreateOAuth2CredentialProviderRequest extends Model
 
         if (isset($map['OAuth2ProviderConfig'])) {
             $model->OAuth2ProviderConfig = OAuth2ProviderConfig::fromMap($map['OAuth2ProviderConfig']);
+        }
+
+        if (isset($map['TokenVaultName'])) {
+            $model->tokenVaultName = $map['TokenVaultName'];
         }
 
         return $model;

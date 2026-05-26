@@ -12,8 +12,14 @@ class GetAPIKeyCredentialProviderRequest extends Model
      * @var string
      */
     public $APIKeyCredentialProviderName;
+
+    /**
+     * @var string
+     */
+    public $tokenVaultName;
     protected $_name = [
         'APIKeyCredentialProviderName' => 'APIKeyCredentialProviderName',
+        'tokenVaultName' => 'TokenVaultName',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class GetAPIKeyCredentialProviderRequest extends Model
         $res = [];
         if (null !== $this->APIKeyCredentialProviderName) {
             $res['APIKeyCredentialProviderName'] = $this->APIKeyCredentialProviderName;
+        }
+
+        if (null !== $this->tokenVaultName) {
+            $res['TokenVaultName'] = $this->tokenVaultName;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class GetAPIKeyCredentialProviderRequest extends Model
         $model = new self();
         if (isset($map['APIKeyCredentialProviderName'])) {
             $model->APIKeyCredentialProviderName = $map['APIKeyCredentialProviderName'];
+        }
+
+        if (isset($map['TokenVaultName'])) {
+            $model->tokenVaultName = $map['TokenVaultName'];
         }
 
         return $model;
