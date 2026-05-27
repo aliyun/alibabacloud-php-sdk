@@ -394,6 +394,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingJobsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectTagsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupabaseProjectTagsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupportModelsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSupportModelsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTablesRequest;
@@ -454,6 +456,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyStreamingJobShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseAutoScalePolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseAutoScalePolicyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectDescriptionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectDescriptionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectResourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectResourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySupabaseProjectSecurityIpsRequest;
@@ -506,6 +510,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\SwitchDBInstanceNetTypeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SwitchDBInstanceNetTypeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagSupabaseProjectRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingShrinkRequest;
@@ -516,6 +522,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnloadSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnloadSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagSupabaseProjectRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataShrinkRequest;
@@ -15399,6 +15407,79 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Query the label List of Supabase instances.
+     *
+     * @param Request - ListSupabaseProjectTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSupabaseProjectTagsResponse
+     *
+     * @param ListSupabaseProjectTagsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListSupabaseProjectTagsResponse
+     */
+    public function listSupabaseProjectTagsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSupabaseProjectTags',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSupabaseProjectTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query the label List of Supabase instances.
+     *
+     * @param Request - ListSupabaseProjectTagsRequest
+     *
+     * @returns ListSupabaseProjectTagsResponse
+     *
+     * @param ListSupabaseProjectTagsRequest $request
+     *
+     * @return ListSupabaseProjectTagsResponse
+     */
+    public function listSupabaseProjectTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSupabaseProjectTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
      *
      * @remarks
@@ -17795,6 +17876,71 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Modify the Supabase project description.
+     *
+     * @param Request - ModifySupabaseProjectDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySupabaseProjectDescriptionResponse
+     *
+     * @param ModifySupabaseProjectDescriptionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifySupabaseProjectDescriptionResponse
+     */
+    public function modifySupabaseProjectDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectDescription) {
+            @$query['ProjectDescription'] = $request->projectDescription;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySupabaseProjectDescription',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySupabaseProjectDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modify the Supabase project description.
+     *
+     * @param Request - ModifySupabaseProjectDescriptionRequest
+     *
+     * @returns ModifySupabaseProjectDescriptionResponse
+     *
+     * @param ModifySupabaseProjectDescriptionRequest $request
+     *
+     * @return ModifySupabaseProjectDescriptionResponse
+     */
+    public function modifySupabaseProjectDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySupabaseProjectDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
      * Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
      *
      * @param Request - ModifySupabaseProjectResourceRequest
@@ -19754,6 +19900,75 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Supabase project labeling.
+     *
+     * @param Request - TagSupabaseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagSupabaseProjectResponse
+     *
+     * @param TagSupabaseProjectRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TagSupabaseProjectResponse
+     */
+    public function tagSupabaseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagSupabaseProject',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagSupabaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Supabase project labeling.
+     *
+     * @param Request - TagSupabaseProjectRequest
+     *
+     * @returns TagSupabaseProjectResponse
+     *
+     * @param TagSupabaseProjectRequest $request
+     *
+     * @return TagSupabaseProjectResponse
+     */
+    public function tagSupabaseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagSupabaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Generates text embeddings using an embedding model.
      *
      * @param tmpReq - TextEmbeddingRequest
@@ -20071,6 +20286,79 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Detach labels from a Supabase instance.
+     *
+     * @param Request - UntagSupabaseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagSupabaseProjectResponse
+     *
+     * @param UntagSupabaseProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UntagSupabaseProjectResponse
+     */
+    public function untagSupabaseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagSupabaseProject',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagSupabaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Detach labels from a Supabase instance.
+     *
+     * @param Request - UntagSupabaseProjectRequest
+     *
+     * @returns UntagSupabaseProjectResponse
+     *
+     * @param UntagSupabaseProjectRequest $request
+     *
+     * @return UntagSupabaseProjectResponse
+     */
+    public function untagSupabaseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagSupabaseProjectWithOptions($request, $runtime);
     }
 
     /**
