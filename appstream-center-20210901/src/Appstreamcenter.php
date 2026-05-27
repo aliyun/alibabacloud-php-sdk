@@ -51,6 +51,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeliverToUserSlsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DeliverToUserSlsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerEipInfoResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\DescribeWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetAppInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetConnectionTicketRequest;
@@ -1947,6 +1949,63 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deliverToUserSlsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询研发主机详情.
+     *
+     * @param request - DescribeWuyingServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeWuyingServerResponse
+     *
+     * @param DescribeWuyingServerRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeWuyingServerResponse
+     */
+    public function describeWuyingServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->wuyingServerId) {
+            @$body['WuyingServerId'] = $request->wuyingServerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeWuyingServer',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeWuyingServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询研发主机详情.
+     *
+     * @param request - DescribeWuyingServerRequest
+     *
+     * @returns DescribeWuyingServerResponse
+     *
+     * @param DescribeWuyingServerRequest $request
+     *
+     * @return DescribeWuyingServerResponse
+     */
+    public function describeWuyingServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWuyingServerWithOptions($request, $runtime);
     }
 
     /**
