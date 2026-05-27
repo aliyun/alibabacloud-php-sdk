@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SumStorageMetricsByDateRequest extends Model
+class SumComputeMetricsByUsageRequest extends Model
 {
     /**
      * @var int
@@ -26,12 +26,12 @@ class SumStorageMetricsByDateRequest extends Model
     /**
      * @var string
      */
-    public $statsType;
+    public $usageType;
     protected $_name = [
         'endDate' => 'endDate',
         'projectNames' => 'projectNames',
         'startDate' => 'startDate',
-        'statsType' => 'statsType',
+        'usageType' => 'usageType',
     ];
 
     public function validate()
@@ -64,8 +64,8 @@ class SumStorageMetricsByDateRequest extends Model
             $res['startDate'] = $this->startDate;
         }
 
-        if (null !== $this->statsType) {
-            $res['statsType'] = $this->statsType;
+        if (null !== $this->usageType) {
+            $res['usageType'] = $this->usageType;
         }
 
         return $res;
@@ -98,8 +98,8 @@ class SumStorageMetricsByDateRequest extends Model
             $model->startDate = $map['startDate'];
         }
 
-        if (isset($map['statsType'])) {
-            $model->statsType = $map['statsType'];
+        if (isset($map['usageType'])) {
+            $model->usageType = $map['usageType'];
         }
 
         return $model;

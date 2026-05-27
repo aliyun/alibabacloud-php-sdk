@@ -5,12 +5,12 @@
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeMetricsByInstanceResponseBody\data;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumComputeMetricsByUsageResponseBody\data;
 
-class ListComputeMetricsByInstanceResponseBody extends Model
+class SumComputeMetricsByUsageResponseBody extends Model
 {
     /**
-     * @var data
+     * @var data[]
      */
     public $data;
 
@@ -31,8 +31,8 @@ class ListComputeMetricsByInstanceResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->data) {
-            $this->data->validate();
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
         }
         parent::validate();
     }
@@ -41,7 +41,14 @@ class ListComputeMetricsByInstanceResponseBody extends Model
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->httpCode) {
@@ -64,7 +71,14 @@ class ListComputeMetricsByInstanceResponseBody extends Model
     {
         $model = new self();
         if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+            if (!empty($map['data'])) {
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['httpCode'])) {

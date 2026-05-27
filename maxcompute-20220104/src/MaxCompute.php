@@ -87,9 +87,13 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\KillJobsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\KillJobsResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeMetricsByInstanceRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeMetricsByInstanceResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeMetricsBySignatureRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeMetricsBySignatureResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListFunctionsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListFunctionsResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListInstancesRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobInfosRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobInfosResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobMetricRequest;
@@ -116,6 +120,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTasksRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTasksResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTimerLogsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTimerLogsResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTimersRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTimersResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListPackagesResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsResponse;
@@ -152,10 +158,26 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryTunnelMetricDetailResponse
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryTunnelMetricRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryTunnelMetricResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\RetryMmsJobResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\RetryMmsTaskRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\RetryMmsTaskResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\StartMmsJobResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\StopMmsJobResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumBillsByDateRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumBillsByDateResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumBillsRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumBillsResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumComputeMetricsByRecordRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumComputeMetricsByRecordResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumComputeMetricsByUsageRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumComputeMetricsByUsageResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumDailyBillsByItemRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumDailyBillsByItemResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByDateRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByDateResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByTypeRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByTypeResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\TriggerMmsTimerRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\TriggerMmsTimerResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaPlanRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaScheduleRequest;
@@ -164,6 +186,14 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeSubQuotaRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeSubQuotaResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsDataSourceRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsDataSourceResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsDbRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsDbResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsTableRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsTableResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsTablesRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsTablesResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsTimerRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateMmsTimerResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdatePackageRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdatePackageResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateProjectBasicMetaRequest;
@@ -3441,10 +3471,6 @@ class MaxCompute extends OpenApiClient
             @$body['projectNames'] = $request->projectNames;
         }
 
-        if (null !== $request->region) {
-            @$body['region'] = $request->region;
-        }
-
         if (null !== $request->signature) {
             @$body['signature'] = $request->signature;
         }
@@ -3497,6 +3523,99 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->listComputeMetricsByInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按Signature查看作业计算使用量明细.
+     *
+     * @param request - ListComputeMetricsBySignatureRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListComputeMetricsBySignatureResponse
+     *
+     * @param ListComputeMetricsBySignatureRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListComputeMetricsBySignatureResponse
+     */
+    public function listComputeMetricsBySignatureWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['instanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->jobOwner) {
+            @$body['jobOwner'] = $request->jobOwner;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectNames) {
+            @$body['projectNames'] = $request->projectNames;
+        }
+
+        if (null !== $request->signature) {
+            @$body['signature'] = $request->signature;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->types) {
+            @$body['types'] = $request->types;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListComputeMetricsBySignature',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/computeMetrics/listBySignature',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListComputeMetricsBySignatureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按Signature查看作业计算使用量明细.
+     *
+     * @param request - ListComputeMetricsBySignatureRequest
+     *
+     * @returns ListComputeMetricsBySignatureResponse
+     *
+     * @param ListComputeMetricsBySignatureRequest $request
+     *
+     * @return ListComputeMetricsBySignatureResponse
+     */
+    public function listComputeMetricsBySignature($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listComputeMetricsBySignatureWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3623,6 +3742,71 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->listFunctionsWithOptions($projectName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取需要进行成本分析的项目或者实例.
+     *
+     * @param request - ListInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstancesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endDate) {
+            @$query['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['startDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstances',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/bills/instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取需要进行成本分析的项目或者实例.
+     *
+     * @param request - ListInstancesRequest
+     *
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstancesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4792,6 +4976,89 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * ListMmsTimers.
+     *
+     * @param request - ListMmsTimersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMmsTimersResponse
+     *
+     * @param string               $sourceId
+     * @param ListMmsTimersRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListMmsTimersResponse
+     */
+    public function listMmsTimersWithOptions($sourceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['pageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->srcDbName) {
+            @$query['srcDbName'] = $request->srcDbName;
+        }
+
+        if (null !== $request->srcTableName) {
+            @$query['srcTableName'] = $request->srcTableName;
+        }
+
+        if (null !== $request->stopped) {
+            @$query['stopped'] = $request->stopped;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMmsTimers',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/timers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMmsTimersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ListMmsTimers.
+     *
+     * @param request - ListMmsTimersRequest
+     *
+     * @returns ListMmsTimersResponse
+     *
+     * @param string               $sourceId
+     * @param ListMmsTimersRequest $request
+     *
+     * @return ListMmsTimersResponse
+     */
+    public function listMmsTimers($sourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMmsTimersWithOptions($sourceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries the packages in a MaxCompute project.
      *
      * @param headers - map
@@ -5291,7 +5558,7 @@ class MaxCompute extends OpenApiClient
         $request = new ListStoragePartitionsInfoShrinkRequest([]);
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->types) {
-            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'types', 'json');
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'types', 'simple');
         }
 
         $query = [];
@@ -6196,6 +6463,10 @@ class MaxCompute extends OpenApiClient
             @$body['ascOrder'] = $request->ascOrder;
         }
 
+        if (null !== $request->codeList) {
+            @$body['codeList'] = $request->codeList;
+        }
+
         if (null !== $request->groupList) {
             @$body['groupList'] = $request->groupList;
         }
@@ -6318,6 +6589,65 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * RetryMmsTask.
+     *
+     * @param request - RetryMmsTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RetryMmsTaskResponse
+     *
+     * @param string              $sourceId
+     * @param string              $taskId
+     * @param RetryMmsTaskRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RetryMmsTaskResponse
+     */
+    public function retryMmsTaskWithOptions($sourceId, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'RetryMmsTask',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/tasks/' . Url::percentEncode($taskId) . '/retry',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RetryMmsTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * RetryMmsTask.
+     *
+     * @param request - RetryMmsTaskRequest
+     *
+     * @returns RetryMmsTaskResponse
+     *
+     * @param string              $sourceId
+     * @param string              $taskId
+     * @param RetryMmsTaskRequest $request
+     *
+     * @return RetryMmsTaskResponse
+     */
+    public function retryMmsTask($sourceId, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->retryMmsTaskWithOptions($sourceId, $taskId, $request, $headers, $runtime);
+    }
+
+    /**
      * Starts a migration job.
      *
      * @param headers - map
@@ -6424,6 +6754,389 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 按实例统计或者按计费项统计费用信息.
+     *
+     * @param request - SumBillsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SumBillsResponse
+     *
+     * @param SumBillsRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SumBillsResponse
+     */
+    public function sumBillsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->projectNames) {
+            @$body['projectNames'] = $request->projectNames;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->statsType) {
+            @$body['statsType'] = $request->statsType;
+        }
+
+        if (null !== $request->topN) {
+            @$body['topN'] = $request->topN;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SumBills',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/bills/sum',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SumBillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按实例统计或者按计费项统计费用信息.
+     *
+     * @param request - SumBillsRequest
+     *
+     * @returns SumBillsResponse
+     *
+     * @param SumBillsRequest $request
+     *
+     * @return SumBillsResponse
+     */
+    public function sumBills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sumBillsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按实例统计或者按计费项逐日进行费用统计
+     *
+     * @param request - SumBillsByDateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SumBillsByDateResponse
+     *
+     * @param SumBillsByDateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SumBillsByDateResponse
+     */
+    public function sumBillsByDateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->projectNames) {
+            @$body['projectNames'] = $request->projectNames;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->statsType) {
+            @$body['statsType'] = $request->statsType;
+        }
+
+        if (null !== $request->topN) {
+            @$body['topN'] = $request->topN;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SumBillsByDate',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/bills/sumByDate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SumBillsByDateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按实例统计或者按计费项逐日进行费用统计
+     *
+     * @param request - SumBillsByDateRequest
+     *
+     * @returns SumBillsByDateResponse
+     *
+     * @param SumBillsByDateRequest $request
+     *
+     * @return SumBillsByDateResponse
+     */
+    public function sumBillsByDate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sumBillsByDateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按项目或者实例统计计算用量.
+     *
+     * @param request - SumComputeMetricsByRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SumComputeMetricsByRecordResponse
+     *
+     * @param SumComputeMetricsByRecordRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SumComputeMetricsByRecordResponse
+     */
+    public function sumComputeMetricsByRecordWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->projectNames) {
+            @$body['projectNames'] = $request->projectNames;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SumComputeMetricsByRecord',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/computeMetrics/sumByRecord',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SumComputeMetricsByRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按项目或者实例统计计算用量.
+     *
+     * @param request - SumComputeMetricsByRecordRequest
+     *
+     * @returns SumComputeMetricsByRecordResponse
+     *
+     * @param SumComputeMetricsByRecordRequest $request
+     *
+     * @return SumComputeMetricsByRecordResponse
+     */
+    public function sumComputeMetricsByRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sumComputeMetricsByRecordWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 统计扫描量计算类的使用量或者CU时计算类使用量.
+     *
+     * @param request - SumComputeMetricsByUsageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SumComputeMetricsByUsageResponse
+     *
+     * @param SumComputeMetricsByUsageRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SumComputeMetricsByUsageResponse
+     */
+    public function sumComputeMetricsByUsageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->projectNames) {
+            @$body['projectNames'] = $request->projectNames;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->usageType) {
+            @$body['usageType'] = $request->usageType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SumComputeMetricsByUsage',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/computeMetrics/sumByUsage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SumComputeMetricsByUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 统计扫描量计算类的使用量或者CU时计算类使用量.
+     *
+     * @param request - SumComputeMetricsByUsageRequest
+     *
+     * @returns SumComputeMetricsByUsageResponse
+     *
+     * @param SumComputeMetricsByUsageRequest $request
+     *
+     * @return SumComputeMetricsByUsageResponse
+     */
+    public function sumComputeMetricsByUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sumComputeMetricsByUsageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按实例统或者按计费项统计的明细信息.
+     *
+     * @param request - SumDailyBillsByItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SumDailyBillsByItemResponse
+     *
+     * @param SumDailyBillsByItemRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SumDailyBillsByItemResponse
+     */
+    public function sumDailyBillsByItemWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectNames) {
+            @$body['projectNames'] = $request->projectNames;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->statsType) {
+            @$body['statsType'] = $request->statsType;
+        }
+
+        if (null !== $request->types) {
+            @$body['types'] = $request->types;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SumDailyBillsByItem',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/dailyBills/sumByItem',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SumDailyBillsByItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按实例统或者按计费项统计的明细信息.
+     *
+     * @param request - SumDailyBillsByItemRequest
+     *
+     * @returns SumDailyBillsByItemResponse
+     *
+     * @param SumDailyBillsByItemRequest $request
+     *
+     * @return SumDailyBillsByItemResponse
+     */
+    public function sumDailyBillsByItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sumDailyBillsByItemWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按照project或者存储类型按天统计存储用量.
+     *
      * @param request - SumStorageMetricsByDateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6448,20 +7161,12 @@ class MaxCompute extends OpenApiClient
             @$body['projectNames'] = $request->projectNames;
         }
 
-        if (null !== $request->region) {
-            @$body['region'] = $request->region;
-        }
-
         if (null !== $request->startDate) {
             @$body['startDate'] = $request->startDate;
         }
 
         if (null !== $request->statsType) {
             @$body['statsType'] = $request->statsType;
-        }
-
-        if (null !== $request->userId) {
-            @$body['userId'] = $request->userId;
         }
 
         $req = new OpenApiRequest([
@@ -6484,6 +7189,8 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
+     * 按照project或者存储类型按天统计存储用量.
+     *
      * @param request - SumStorageMetricsByDateRequest
      *
      * @returns SumStorageMetricsByDateResponse
@@ -6498,6 +7205,138 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->sumStorageMetricsByDateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按项目统计各种类型存储使用量统计
+     *
+     * @param request - SumStorageMetricsByTypeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SumStorageMetricsByTypeResponse
+     *
+     * @param SumStorageMetricsByTypeRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SumStorageMetricsByTypeResponse
+     */
+    public function sumStorageMetricsByTypeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
+        }
+
+        if (null !== $request->projectNames) {
+            @$body['projectNames'] = $request->projectNames;
+        }
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
+        }
+
+        if (null !== $request->statsType) {
+            @$body['statsType'] = $request->statsType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SumStorageMetricsByType',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/storageMetrics/sumByType',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SumStorageMetricsByTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按项目统计各种类型存储使用量统计
+     *
+     * @param request - SumStorageMetricsByTypeRequest
+     *
+     * @returns SumStorageMetricsByTypeResponse
+     *
+     * @param SumStorageMetricsByTypeRequest $request
+     *
+     * @return SumStorageMetricsByTypeResponse
+     */
+    public function sumStorageMetricsByType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sumStorageMetricsByTypeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * TriggerMmsTimer.
+     *
+     * @param request - TriggerMmsTimerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TriggerMmsTimerResponse
+     *
+     * @param string                 $sourceId
+     * @param string                 $timerId
+     * @param TriggerMmsTimerRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return TriggerMmsTimerResponse
+     */
+    public function triggerMmsTimerWithOptions($sourceId, $timerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'TriggerMmsTimer',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/timers/' . Url::percentEncode($timerId) . '/trigger',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TriggerMmsTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * TriggerMmsTimer.
+     *
+     * @param request - TriggerMmsTimerRequest
+     *
+     * @returns TriggerMmsTimerResponse
+     *
+     * @param string                 $sourceId
+     * @param string                 $timerId
+     * @param TriggerMmsTimerRequest $request
+     *
+     * @return TriggerMmsTimerResponse
+     */
+    public function triggerMmsTimer($sourceId, $timerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->triggerMmsTimerWithOptions($sourceId, $timerId, $request, $headers, $runtime);
     }
 
     /**
@@ -6783,6 +7622,312 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->updateMmsDataSourceWithOptions($sourceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 功能：.
+     *
+     * @param request - UpdateMmsDbRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmsDbResponse
+     *
+     * @param string             $sourceId
+     * @param string             $dbId
+     * @param UpdateMmsDbRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateMmsDbResponse
+     */
+    public function updateMmsDbWithOptions($sourceId, $dbId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dstName) {
+            @$body['dstName'] = $request->dstName;
+        }
+
+        if (null !== $request->dstProjectName) {
+            @$body['dstProjectName'] = $request->dstProjectName;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmsDb',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/dbs/' . Url::percentEncode($dbId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmsDbResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 功能：.
+     *
+     * @param request - UpdateMmsDbRequest
+     *
+     * @returns UpdateMmsDbResponse
+     *
+     * @param string             $sourceId
+     * @param string             $dbId
+     * @param UpdateMmsDbRequest $request
+     *
+     * @return UpdateMmsDbResponse
+     */
+    public function updateMmsDb($sourceId, $dbId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMmsDbWithOptions($sourceId, $dbId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新表元数据.
+     *
+     * @param request - UpdateMmsTableRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmsTableResponse
+     *
+     * @param string                $sourceId
+     * @param string                $tableId
+     * @param UpdateMmsTableRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateMmsTableResponse
+     */
+    public function updateMmsTableWithOptions($sourceId, $tableId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dstName) {
+            @$body['dstName'] = $request->dstName;
+        }
+
+        if (null !== $request->dstProjectName) {
+            @$body['dstProjectName'] = $request->dstProjectName;
+        }
+
+        if (null !== $request->dstSchemaName) {
+            @$body['dstSchemaName'] = $request->dstSchemaName;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmsTable',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/tables/' . Url::percentEncode($tableId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmsTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新表元数据.
+     *
+     * @param request - UpdateMmsTableRequest
+     *
+     * @returns UpdateMmsTableResponse
+     *
+     * @param string                $sourceId
+     * @param string                $tableId
+     * @param UpdateMmsTableRequest $request
+     *
+     * @return UpdateMmsTableResponse
+     */
+    public function updateMmsTable($sourceId, $tableId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMmsTableWithOptions($sourceId, $tableId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新表元数据.
+     *
+     * @param request - UpdateMmsTablesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmsTablesResponse
+     *
+     * @param string                 $sourceId
+     * @param UpdateMmsTablesRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateMmsTablesResponse
+     */
+    public function updateMmsTablesWithOptions($sourceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->dbName) {
+            @$body['dbName'] = $request->dbName;
+        }
+
+        if (null !== $request->dstProjectName) {
+            @$body['dstProjectName'] = $request->dstProjectName;
+        }
+
+        if (null !== $request->dstSchemaName) {
+            @$body['dstSchemaName'] = $request->dstSchemaName;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->tableNames) {
+            @$body['tableNames'] = $request->tableNames;
+        }
+
+        if (null !== $request->tables) {
+            @$body['tables'] = $request->tables;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmsTables',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/tables',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmsTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新表元数据.
+     *
+     * @param request - UpdateMmsTablesRequest
+     *
+     * @returns UpdateMmsTablesResponse
+     *
+     * @param string                 $sourceId
+     * @param UpdateMmsTablesRequest $request
+     *
+     * @return UpdateMmsTablesResponse
+     */
+    public function updateMmsTables($sourceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMmsTablesWithOptions($sourceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * UpdateMmsTimer.
+     *
+     * @param request - UpdateMmsTimerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMmsTimerResponse
+     *
+     * @param string                $sourceId
+     * @param string                $timerId
+     * @param UpdateMmsTimerRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateMmsTimerResponse
+     */
+    public function updateMmsTimerWithOptions($sourceId, $timerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->scheduleType) {
+            @$body['scheduleType'] = $request->scheduleType;
+        }
+
+        if (null !== $request->stopped) {
+            @$body['stopped'] = $request->stopped;
+        }
+
+        if (null !== $request->value) {
+            @$body['value'] = $request->value;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMmsTimer',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/timers/' . Url::percentEncode($timerId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMmsTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpdateMmsTimer.
+     *
+     * @param request - UpdateMmsTimerRequest
+     *
+     * @returns UpdateMmsTimerResponse
+     *
+     * @param string                $sourceId
+     * @param string                $timerId
+     * @param UpdateMmsTimerRequest $request
+     *
+     * @return UpdateMmsTimerResponse
+     */
+    public function updateMmsTimer($sourceId, $timerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMmsTimerWithOptions($sourceId, $timerId, $request, $headers, $runtime);
     }
 
     /**

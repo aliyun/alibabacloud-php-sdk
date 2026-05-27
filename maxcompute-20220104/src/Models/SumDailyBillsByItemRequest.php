@@ -6,22 +6,12 @@ namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListComputeMetricsByInstanceRequest extends Model
+class SumDailyBillsByItemRequest extends Model
 {
     /**
      * @var int
      */
     public $endDate;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $jobOwner;
 
     /**
      * @var int
@@ -39,19 +29,14 @@ class ListComputeMetricsByInstanceRequest extends Model
     public $projectNames;
 
     /**
-     * @var string
-     */
-    public $signature;
-
-    /**
-     * @var string[]
-     */
-    public $specCodes;
-
-    /**
      * @var int
      */
     public $startDate;
+
+    /**
+     * @var string
+     */
+    public $statsType;
 
     /**
      * @var string[]
@@ -59,14 +44,11 @@ class ListComputeMetricsByInstanceRequest extends Model
     public $types;
     protected $_name = [
         'endDate' => 'endDate',
-        'instanceId' => 'instanceId',
-        'jobOwner' => 'jobOwner',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'projectNames' => 'projectNames',
-        'signature' => 'signature',
-        'specCodes' => 'specCodes',
         'startDate' => 'startDate',
+        'statsType' => 'statsType',
         'types' => 'types',
     ];
 
@@ -74,9 +56,6 @@ class ListComputeMetricsByInstanceRequest extends Model
     {
         if (\is_array($this->projectNames)) {
             Model::validateArray($this->projectNames);
-        }
-        if (\is_array($this->specCodes)) {
-            Model::validateArray($this->specCodes);
         }
         if (\is_array($this->types)) {
             Model::validateArray($this->types);
@@ -89,14 +68,6 @@ class ListComputeMetricsByInstanceRequest extends Model
         $res = [];
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
-        }
-
-        if (null !== $this->instanceId) {
-            $res['instanceId'] = $this->instanceId;
-        }
-
-        if (null !== $this->jobOwner) {
-            $res['jobOwner'] = $this->jobOwner;
         }
 
         if (null !== $this->pageNumber) {
@@ -118,23 +89,12 @@ class ListComputeMetricsByInstanceRequest extends Model
             }
         }
 
-        if (null !== $this->signature) {
-            $res['signature'] = $this->signature;
-        }
-
-        if (null !== $this->specCodes) {
-            if (\is_array($this->specCodes)) {
-                $res['specCodes'] = [];
-                $n1 = 0;
-                foreach ($this->specCodes as $item1) {
-                    $res['specCodes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->startDate) {
             $res['startDate'] = $this->startDate;
+        }
+
+        if (null !== $this->statsType) {
+            $res['statsType'] = $this->statsType;
         }
 
         if (null !== $this->types) {
@@ -163,14 +123,6 @@ class ListComputeMetricsByInstanceRequest extends Model
             $model->endDate = $map['endDate'];
         }
 
-        if (isset($map['instanceId'])) {
-            $model->instanceId = $map['instanceId'];
-        }
-
-        if (isset($map['jobOwner'])) {
-            $model->jobOwner = $map['jobOwner'];
-        }
-
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
@@ -190,23 +142,12 @@ class ListComputeMetricsByInstanceRequest extends Model
             }
         }
 
-        if (isset($map['signature'])) {
-            $model->signature = $map['signature'];
-        }
-
-        if (isset($map['specCodes'])) {
-            if (!empty($map['specCodes'])) {
-                $model->specCodes = [];
-                $n1 = 0;
-                foreach ($map['specCodes'] as $item1) {
-                    $model->specCodes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['startDate'])) {
             $model->startDate = $map['startDate'];
+        }
+
+        if (isset($map['statsType'])) {
+            $model->statsType = $map['statsType'];
         }
 
         if (isset($map['types'])) {

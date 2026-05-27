@@ -14,6 +14,11 @@ class QueryTunnelMetricDetailRequest extends Model
     public $ascOrder;
 
     /**
+     * @var int[]
+     */
+    public $codeList;
+
+    /**
      * @var string[]
      */
     public $groupList;
@@ -59,6 +64,7 @@ class QueryTunnelMetricDetailRequest extends Model
     public $startTime;
     protected $_name = [
         'ascOrder' => 'ascOrder',
+        'codeList' => 'codeList',
         'groupList' => 'groupList',
         'limit' => 'limit',
         'operationList' => 'operationList',
@@ -72,6 +78,9 @@ class QueryTunnelMetricDetailRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->codeList)) {
+            Model::validateArray($this->codeList);
+        }
         if (\is_array($this->groupList)) {
             Model::validateArray($this->groupList);
         }
@@ -89,6 +98,17 @@ class QueryTunnelMetricDetailRequest extends Model
         $res = [];
         if (null !== $this->ascOrder) {
             $res['ascOrder'] = $this->ascOrder;
+        }
+
+        if (null !== $this->codeList) {
+            if (\is_array($this->codeList)) {
+                $res['codeList'] = [];
+                $n1 = 0;
+                foreach ($this->codeList as $item1) {
+                    $res['codeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->groupList) {
@@ -161,6 +181,17 @@ class QueryTunnelMetricDetailRequest extends Model
         $model = new self();
         if (isset($map['ascOrder'])) {
             $model->ascOrder = $map['ascOrder'];
+        }
+
+        if (isset($map['codeList'])) {
+            if (!empty($map['codeList'])) {
+                $model->codeList = [];
+                $n1 = 0;
+                foreach ($map['codeList'] as $item1) {
+                    $model->codeList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['groupList'])) {

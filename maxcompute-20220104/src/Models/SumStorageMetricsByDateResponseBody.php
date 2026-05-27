@@ -15,16 +15,6 @@ class SumStorageMetricsByDateResponseBody extends Model
     public $data;
 
     /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @var string
-     */
-    public $errorMsg;
-
-    /**
      * @var int
      */
     public $httpCode;
@@ -35,8 +25,6 @@ class SumStorageMetricsByDateResponseBody extends Model
     public $requestId;
     protected $_name = [
         'data' => 'data',
-        'errorCode' => 'errorCode',
-        'errorMsg' => 'errorMsg',
         'httpCode' => 'httpCode',
         'requestId' => 'requestId',
     ];
@@ -61,14 +49,6 @@ class SumStorageMetricsByDateResponseBody extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
-        }
-
-        if (null !== $this->errorMsg) {
-            $res['errorMsg'] = $this->errorMsg;
         }
 
         if (null !== $this->httpCode) {
@@ -99,14 +79,6 @@ class SumStorageMetricsByDateResponseBody extends Model
                     ++$n1;
                 }
             }
-        }
-
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
-        }
-
-        if (isset($map['errorMsg'])) {
-            $model->errorMsg = $map['errorMsg'];
         }
 
         if (isset($map['httpCode'])) {

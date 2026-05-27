@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeMetricsByInstanceResponseBody\data;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTimersResponseBody\data;
 
-class ListComputeMetricsByInstanceResponseBody extends Model
+class ListMmsTimersResponseBody extends Model
 {
     /**
      * @var data
@@ -15,17 +15,11 @@ class ListComputeMetricsByInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @var int
-     */
-    public $httpCode;
-
-    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'data' => 'data',
-        'httpCode' => 'httpCode',
         'requestId' => 'requestId',
     ];
 
@@ -42,10 +36,6 @@ class ListComputeMetricsByInstanceResponseBody extends Model
         $res = [];
         if (null !== $this->data) {
             $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
-        }
-
-        if (null !== $this->httpCode) {
-            $res['httpCode'] = $this->httpCode;
         }
 
         if (null !== $this->requestId) {
@@ -65,10 +55,6 @@ class ListComputeMetricsByInstanceResponseBody extends Model
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
-        }
-
-        if (isset($map['httpCode'])) {
-            $model->httpCode = $map['httpCode'];
         }
 
         if (isset($map['requestId'])) {

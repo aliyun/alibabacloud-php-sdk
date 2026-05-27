@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeMetricsByInstanceResponseBody\data;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeMetricsBySignatureResponseBody\data;
 
-class ListComputeMetricsByInstanceResponseBody extends Model
+class ListComputeMetricsBySignatureResponseBody extends Model
 {
     /**
      * @var data

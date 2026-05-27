@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListComputeMetricsByInstanceRequest extends Model
+class ListComputeMetricsBySignatureRequest extends Model
 {
     /**
      * @var int
@@ -44,11 +44,6 @@ class ListComputeMetricsByInstanceRequest extends Model
     public $signature;
 
     /**
-     * @var string[]
-     */
-    public $specCodes;
-
-    /**
      * @var int
      */
     public $startDate;
@@ -65,7 +60,6 @@ class ListComputeMetricsByInstanceRequest extends Model
         'pageSize' => 'pageSize',
         'projectNames' => 'projectNames',
         'signature' => 'signature',
-        'specCodes' => 'specCodes',
         'startDate' => 'startDate',
         'types' => 'types',
     ];
@@ -74,9 +68,6 @@ class ListComputeMetricsByInstanceRequest extends Model
     {
         if (\is_array($this->projectNames)) {
             Model::validateArray($this->projectNames);
-        }
-        if (\is_array($this->specCodes)) {
-            Model::validateArray($this->specCodes);
         }
         if (\is_array($this->types)) {
             Model::validateArray($this->types);
@@ -120,17 +111,6 @@ class ListComputeMetricsByInstanceRequest extends Model
 
         if (null !== $this->signature) {
             $res['signature'] = $this->signature;
-        }
-
-        if (null !== $this->specCodes) {
-            if (\is_array($this->specCodes)) {
-                $res['specCodes'] = [];
-                $n1 = 0;
-                foreach ($this->specCodes as $item1) {
-                    $res['specCodes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->startDate) {
@@ -192,17 +172,6 @@ class ListComputeMetricsByInstanceRequest extends Model
 
         if (isset($map['signature'])) {
             $model->signature = $map['signature'];
-        }
-
-        if (isset($map['specCodes'])) {
-            if (!empty($map['specCodes'])) {
-                $model->specCodes = [];
-                $n1 = 0;
-                foreach ($map['specCodes'] as $item1) {
-                    $model->specCodes[$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['startDate'])) {

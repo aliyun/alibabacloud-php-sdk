@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SumStorageMetricsByDateRequest extends Model
+class SumStorageMetricsByTypeRequest extends Model
 {
     /**
      * @var int
