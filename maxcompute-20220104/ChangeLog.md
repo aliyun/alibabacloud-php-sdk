@@ -1,3 +1,6 @@
+2026-05-27 Version: 5.0.1
+- Generated php 2022-01-04 for MaxCompute.
+
 2026-05-27 Version: 5.0.0
 - Support API ListComputeMetricsBySignature.
 - Support API ListInstances.
