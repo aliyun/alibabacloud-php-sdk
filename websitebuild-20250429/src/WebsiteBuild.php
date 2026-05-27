@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\EditPluginConfigResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAIStaffPreviewUrlRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAIStaffPreviewUrlResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForPartnerRequest;
@@ -1735,6 +1737,67 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->exportMaterialFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取AI员工站点预览地址
+     *
+     * @param request - GetAIStaffPreviewUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAIStaffPreviewUrlResponse
+     *
+     * @param GetAIStaffPreviewUrlRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAIStaffPreviewUrlResponse
+     */
+    public function getAIStaffPreviewUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->restart) {
+            @$body['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAIStaffPreviewUrl',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAIStaffPreviewUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取AI员工站点预览地址
+     *
+     * @param request - GetAIStaffPreviewUrlRequest
+     *
+     * @returns GetAIStaffPreviewUrlResponse
+     *
+     * @param GetAIStaffPreviewUrlRequest $request
+     *
+     * @return GetAIStaffPreviewUrlResponse
+     */
+    public function getAIStaffPreviewUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAIStaffPreviewUrlWithOptions($request, $runtime);
     }
 
     /**
