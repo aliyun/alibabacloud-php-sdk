@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ApproveOtaTaskRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ApproveOtaTaskResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AssignWuyingServerPrivateAddressesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AssignWuyingServerPrivateAddressesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupShrinkRequest;
@@ -149,6 +151,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StopWuyingServerRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\StopWuyingServerResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagCloudResourcesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\TagCloudResourcesResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnassignWuyingServerPrivateAddressesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnassignWuyingServerPrivateAddressesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UnbindResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\UntagCloudResourcesRequest;
@@ -272,6 +276,67 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->approveOtaTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为研发主机分配辅助私有IP.
+     *
+     * @param request - AssignWuyingServerPrivateAddressesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssignWuyingServerPrivateAddressesResponse
+     *
+     * @param AssignWuyingServerPrivateAddressesRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return AssignWuyingServerPrivateAddressesResponse
+     */
+    public function assignWuyingServerPrivateAddressesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->secondaryPrivateIpAddressCount) {
+            @$body['SecondaryPrivateIpAddressCount'] = $request->secondaryPrivateIpAddressCount;
+        }
+
+        if (null !== $request->wuyingServerId) {
+            @$body['WuyingServerId'] = $request->wuyingServerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AssignWuyingServerPrivateAddresses',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssignWuyingServerPrivateAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为研发主机分配辅助私有IP.
+     *
+     * @param request - AssignWuyingServerPrivateAddressesRequest
+     *
+     * @returns AssignWuyingServerPrivateAddressesResponse
+     *
+     * @param AssignWuyingServerPrivateAddressesRequest $request
+     *
+     * @return AssignWuyingServerPrivateAddressesResponse
+     */
+    public function assignWuyingServerPrivateAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->assignWuyingServerPrivateAddressesWithOptions($request, $runtime);
     }
 
     /**
@@ -5619,6 +5684,67 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->tagCloudResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 解绑研发主机的辅助私有IP.
+     *
+     * @param request - UnassignWuyingServerPrivateAddressesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnassignWuyingServerPrivateAddressesResponse
+     *
+     * @param UnassignWuyingServerPrivateAddressesRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return UnassignWuyingServerPrivateAddressesResponse
+     */
+    public function unassignWuyingServerPrivateAddressesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->privateIpAddresses) {
+            @$body['PrivateIpAddresses'] = $request->privateIpAddresses;
+        }
+
+        if (null !== $request->wuyingServerId) {
+            @$body['WuyingServerId'] = $request->wuyingServerId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UnassignWuyingServerPrivateAddresses',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnassignWuyingServerPrivateAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解绑研发主机的辅助私有IP.
+     *
+     * @param request - UnassignWuyingServerPrivateAddressesRequest
+     *
+     * @returns UnassignWuyingServerPrivateAddressesResponse
+     *
+     * @param UnassignWuyingServerPrivateAddressesRequest $request
+     *
+     * @return UnassignWuyingServerPrivateAddressesResponse
+     */
+    public function unassignWuyingServerPrivateAddresses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unassignWuyingServerPrivateAddressesWithOptions($request, $runtime);
     }
 
     /**

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResp
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\dataDisk;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\instanceInfoList;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\privateIpSets;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\serverInstanceTypeInfo;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListWuyingServerResponseBody\wuyingServerList\sessions;
 
@@ -46,6 +47,11 @@ class wuyingServerList extends Model
      * @var dataDisk[]
      */
     public $dataDisk;
+
+    /**
+     * @var int
+     */
+    public $eniPrivateIpAddressQuantity;
 
     /**
      * @var string
@@ -106,6 +112,11 @@ class wuyingServerList extends Model
      * @var string[]
      */
     public $policyGroupIdList;
+
+    /**
+     * @var privateIpSets[]
+     */
+    public $privateIpSets;
 
     /**
      * @var string
@@ -178,6 +189,16 @@ class wuyingServerList extends Model
     public $virtualNodePoolId;
 
     /**
+     * @var bool
+     */
+    public $vkUpgradeNeeded;
+
+    /**
+     * @var string
+     */
+    public $vkVersion;
+
+    /**
      * @var string
      */
     public $wuyingServerId;
@@ -194,6 +215,7 @@ class wuyingServerList extends Model
         'chargeType' => 'ChargeType',
         'createTime' => 'CreateTime',
         'dataDisk' => 'DataDisk',
+        'eniPrivateIpAddressQuantity' => 'EniPrivateIpAddressQuantity',
         'expiredTime' => 'ExpiredTime',
         'fotaVersion' => 'FotaVersion',
         'imageId' => 'ImageId',
@@ -206,6 +228,7 @@ class wuyingServerList extends Model
         'officeSiteType' => 'OfficeSiteType',
         'osType' => 'OsType',
         'policyGroupIdList' => 'PolicyGroupIdList',
+        'privateIpSets' => 'PrivateIpSets',
         'resourceSessionStatus' => 'ResourceSessionStatus',
         'securityGroupIds' => 'SecurityGroupIds',
         'serverInstanceTypeInfo' => 'ServerInstanceTypeInfo',
@@ -220,6 +243,8 @@ class wuyingServerList extends Model
         'users' => 'Users',
         'virtualKubeletIp' => 'VirtualKubeletIp',
         'virtualNodePoolId' => 'VirtualNodePoolId',
+        'vkUpgradeNeeded' => 'VkUpgradeNeeded',
+        'vkVersion' => 'VkVersion',
         'wuyingServerId' => 'WuyingServerId',
         'wuyingServerName' => 'WuyingServerName',
     ];
@@ -234,6 +259,9 @@ class wuyingServerList extends Model
         }
         if (\is_array($this->policyGroupIdList)) {
             Model::validateArray($this->policyGroupIdList);
+        }
+        if (\is_array($this->privateIpSets)) {
+            Model::validateArray($this->privateIpSets);
         }
         if (\is_array($this->securityGroupIds)) {
             Model::validateArray($this->securityGroupIds);
@@ -286,6 +314,10 @@ class wuyingServerList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->eniPrivateIpAddressQuantity) {
+            $res['EniPrivateIpAddressQuantity'] = $this->eniPrivateIpAddressQuantity;
         }
 
         if (null !== $this->expiredTime) {
@@ -345,6 +377,17 @@ class wuyingServerList extends Model
                 $n1 = 0;
                 foreach ($this->policyGroupIdList as $item1) {
                     $res['PolicyGroupIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->privateIpSets) {
+            if (\is_array($this->privateIpSets)) {
+                $res['PrivateIpSets'] = [];
+                $n1 = 0;
+                foreach ($this->privateIpSets as $item1) {
+                    $res['PrivateIpSets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -427,6 +470,14 @@ class wuyingServerList extends Model
             $res['VirtualNodePoolId'] = $this->virtualNodePoolId;
         }
 
+        if (null !== $this->vkUpgradeNeeded) {
+            $res['VkUpgradeNeeded'] = $this->vkUpgradeNeeded;
+        }
+
+        if (null !== $this->vkVersion) {
+            $res['VkVersion'] = $this->vkVersion;
+        }
+
         if (null !== $this->wuyingServerId) {
             $res['WuyingServerId'] = $this->wuyingServerId;
         }
@@ -479,6 +530,10 @@ class wuyingServerList extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EniPrivateIpAddressQuantity'])) {
+            $model->eniPrivateIpAddressQuantity = $map['EniPrivateIpAddressQuantity'];
         }
 
         if (isset($map['ExpiredTime'])) {
@@ -538,6 +593,17 @@ class wuyingServerList extends Model
                 $n1 = 0;
                 foreach ($map['PolicyGroupIdList'] as $item1) {
                     $model->policyGroupIdList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['PrivateIpSets'])) {
+            if (!empty($map['PrivateIpSets'])) {
+                $model->privateIpSets = [];
+                $n1 = 0;
+                foreach ($map['PrivateIpSets'] as $item1) {
+                    $model->privateIpSets[$n1] = privateIpSets::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -618,6 +684,14 @@ class wuyingServerList extends Model
 
         if (isset($map['VirtualNodePoolId'])) {
             $model->virtualNodePoolId = $map['VirtualNodePoolId'];
+        }
+
+        if (isset($map['VkUpgradeNeeded'])) {
+            $model->vkUpgradeNeeded = $map['VkUpgradeNeeded'];
+        }
+
+        if (isset($map['VkVersion'])) {
+            $model->vkVersion = $map['VkVersion'];
         }
 
         if (isset($map['WuyingServerId'])) {
