@@ -1,3 +1,7 @@
+2026-05-27 Version: 2.45.0
+- Support API BatchGetUserIdByOpenDingtalkId.
+
+
 2026-05-22 Version: 2.44.0
 - Support API GetUserIdByOpenDingtalkId.
 

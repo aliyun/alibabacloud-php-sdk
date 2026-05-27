@@ -79,6 +79,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetUserIdByOpenDingtalkIdHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetUserIdByOpenDingtalkIdRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetUserIdByOpenDingtalkIdResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetUserIdByOpenDingtalkIdShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetUserIdByOpenDingtalkIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchQueryGroupMemberHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchQueryGroupMemberRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchQueryGroupMemberResponse;
@@ -2819,6 +2824,96 @@ class Aliding extends OpenApiClient
         $headers = new BatchGetFormDataByIdListHeaders([]);
 
         return $this->batchGetFormDataByIdListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量根据操作人工号与 openDingtalkId 获取被查看用户工号，单次最多 50 个。
+     *
+     * @param tmpReq - BatchGetUserIdByOpenDingtalkIdRequest
+     * @param tmpHeader - BatchGetUserIdByOpenDingtalkIdHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetUserIdByOpenDingtalkIdResponse
+     *
+     * @param BatchGetUserIdByOpenDingtalkIdRequest $tmpReq
+     * @param BatchGetUserIdByOpenDingtalkIdHeaders $tmpHeader
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return BatchGetUserIdByOpenDingtalkIdResponse
+     */
+    public function batchGetUserIdByOpenDingtalkIdWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchGetUserIdByOpenDingtalkIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new BatchGetUserIdByOpenDingtalkIdShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        if (null !== $tmpReq->openDingtalkIds) {
+            $request->openDingtalkIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->openDingtalkIds, 'openDingtalkIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->openDingtalkIdsShrink) {
+            @$body['openDingtalkIds'] = $request->openDingtalkIdsShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchGetUserIdByOpenDingtalkId',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/batchGetUserIdByOpenDingtalkId',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchGetUserIdByOpenDingtalkIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量根据操作人工号与 openDingtalkId 获取被查看用户工号，单次最多 50 个。
+     *
+     * @param request - BatchGetUserIdByOpenDingtalkIdRequest
+     *
+     * @returns BatchGetUserIdByOpenDingtalkIdResponse
+     *
+     * @param BatchGetUserIdByOpenDingtalkIdRequest $request
+     *
+     * @return BatchGetUserIdByOpenDingtalkIdResponse
+     */
+    public function batchGetUserIdByOpenDingtalkId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new BatchGetUserIdByOpenDingtalkIdHeaders([]);
+
+        return $this->batchGetUserIdByOpenDingtalkIdWithOptions($request, $headers, $runtime);
     }
 
     /**
