@@ -12,7 +12,17 @@ class GetYikeAgentJobResponseBody extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $finishTime;
 
     /**
      * @var string
@@ -49,7 +59,9 @@ class GetYikeAgentJobResponseBody extends Model
      */
     public $userData;
     protected $_name = [
+        'createTime' => 'CreateTime',
         'errorCode' => 'ErrorCode',
+        'finishTime' => 'FinishTime',
         'jobId' => 'JobId',
         'jobParams' => 'JobParams',
         'jobResult' => 'JobResult',
@@ -70,8 +82,16 @@ class GetYikeAgentJobResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+
+        if (null !== $this->finishTime) {
+            $res['FinishTime'] = $this->finishTime;
         }
 
         if (null !== $this->jobId) {
@@ -120,8 +140,16 @@ class GetYikeAgentJobResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+
+        if (isset($map['FinishTime'])) {
+            $model->finishTime = $map['FinishTime'];
         }
 
         if (isset($map['JobId'])) {
