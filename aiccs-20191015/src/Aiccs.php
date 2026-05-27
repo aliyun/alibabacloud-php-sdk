@@ -8,6 +8,12 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddHotlineNumberRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddHotlineNumberResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddHotlineNumberShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddInboundNumberRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddInboundNumberResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddInboundNumberShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddLargeModelRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddLargeModelResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddLargeModelShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddOuterAccountRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddOuterAccountResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddSkillGroupRequest;
@@ -364,6 +370,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\SuspendOutboundTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\SuspendOutboundTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\TerminateAiOutboundTaskRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\TerminateAiOutboundTaskResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\TestLargeModelRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\TestLargeModelResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\TestLargeModelShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\TransferCallToSkillGroupRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\TransferCallToSkillGroupResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAgentRequest;
@@ -376,6 +385,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAiOutboundTaskResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateAiOutboundTaskShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateDepartmentRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateDepartmentResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateLargeModelRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateLargeModelResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateLargeModelShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateOuterAccountRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateOuterAccountResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateSkillGroupRequest;
@@ -520,6 +532,192 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addHotlineNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 添加呼入号码
+     *
+     * @param tmpReq - AddInboundNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddInboundNumberResponse
+     *
+     * @param AddInboundNumberRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddInboundNumberResponse
+     */
+    public function addInboundNumberWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddInboundNumberShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->inboundNumbers) {
+            $request->inboundNumbersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->inboundNumbers, 'InboundNumbers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationCode) {
+            @$query['ApplicationCode'] = $request->applicationCode;
+        }
+
+        if (null !== $request->inboundNumbersShrink) {
+            @$query['InboundNumbers'] = $request->inboundNumbersShrink;
+        }
+
+        if (null !== $request->inboundType) {
+            @$query['InboundType'] = $request->inboundType;
+        }
+
+        if (null !== $request->lineCode) {
+            @$query['LineCode'] = $request->lineCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddInboundNumber',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddInboundNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加呼入号码
+     *
+     * @param request - AddInboundNumberRequest
+     *
+     * @returns AddInboundNumberResponse
+     *
+     * @param AddInboundNumberRequest $request
+     *
+     * @return AddInboundNumberResponse
+     */
+    public function addInboundNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addInboundNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * AddLargeModel.
+     *
+     * @param tmpReq - AddLargeModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddLargeModelResponse
+     *
+     * @param AddLargeModelRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddLargeModelResponse
+     */
+    public function addLargeModelWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddLargeModelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->baseModel) {
+            $request->baseModelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->baseModel, 'BaseModel', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
+        }
+
+        if (null !== $request->baseModelShrink) {
+            @$query['BaseModel'] = $request->baseModelShrink;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelUrl) {
+            @$query['ModelUrl'] = $request->modelUrl;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->temperature) {
+            @$query['Temperature'] = $request->temperature;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        if (null !== $request->topP) {
+            @$query['TopP'] = $request->topP;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddLargeModel',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddLargeModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * AddLargeModel.
+     *
+     * @param request - AddLargeModelRequest
+     *
+     * @returns AddLargeModelResponse
+     *
+     * @param AddLargeModelRequest $request
+     *
+     * @return AddLargeModelResponse
+     */
+    public function addLargeModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addLargeModelWithOptions($request, $runtime);
     }
 
     /**
@@ -12184,6 +12382,89 @@ class Aiccs extends OpenApiClient
     }
 
     /**
+     * TestLargeModel.
+     *
+     * @param tmpReq - TestLargeModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TestLargeModelResponse
+     *
+     * @param TestLargeModelRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return TestLargeModelResponse
+     */
+    public function testLargeModelWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new TestLargeModelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->baseModel) {
+            $request->baseModelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->baseModel, 'BaseModel', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->baseModelShrink) {
+            @$query['BaseModel'] = $request->baseModelShrink;
+        }
+
+        if (null !== $request->modelCode) {
+            @$query['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->userDialogContent) {
+            @$query['UserDialogContent'] = $request->userDialogContent;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TestLargeModel',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TestLargeModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * TestLargeModel.
+     *
+     * @param request - TestLargeModelRequest
+     *
+     * @returns TestLargeModelResponse
+     *
+     * @param TestLargeModelRequest $request
+     *
+     * @return TestLargeModelResponse
+     */
+    public function testLargeModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->testLargeModelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - TransferCallToSkillGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12658,6 +12939,109 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDepartmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * UpdateLargeModel.
+     *
+     * @param tmpReq - UpdateLargeModelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLargeModelResponse
+     *
+     * @param UpdateLargeModelRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateLargeModelResponse
+     */
+    public function updateLargeModelWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateLargeModelShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->baseModel) {
+            $request->baseModelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->baseModel, 'BaseModel', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->authCode) {
+            @$query['AuthCode'] = $request->authCode;
+        }
+
+        if (null !== $request->baseModelShrink) {
+            @$query['BaseModel'] = $request->baseModelShrink;
+        }
+
+        if (null !== $request->modelCode) {
+            @$query['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelUrl) {
+            @$query['ModelUrl'] = $request->modelUrl;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->temperature) {
+            @$query['Temperature'] = $request->temperature;
+        }
+
+        if (null !== $request->topK) {
+            @$query['TopK'] = $request->topK;
+        }
+
+        if (null !== $request->topP) {
+            @$query['TopP'] = $request->topP;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLargeModel',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLargeModelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * UpdateLargeModel.
+     *
+     * @param request - UpdateLargeModelRequest
+     *
+     * @returns UpdateLargeModelResponse
+     *
+     * @param UpdateLargeModelRequest $request
+     *
+     * @return UpdateLargeModelResponse
+     */
+    public function updateLargeModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLargeModelWithOptions($request, $runtime);
     }
 
     /**
