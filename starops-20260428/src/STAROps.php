@@ -13,6 +13,8 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeSkillResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateMcpServiceRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateMcpServiceResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateThreadRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateThreadResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateTicketRequest;
@@ -21,14 +23,20 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteDigitalEmployeeSkillResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteMcpServiceRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteMcpServiceResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteThreadRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteThreadResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\FetchRemoteMcpToolsRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\FetchRemoteMcpToolsResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeSkillResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetMcpServiceRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetMcpServiceResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetThreadDataRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetThreadDataResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetThreadRequest;
@@ -42,6 +50,8 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\ListDigitalEmployeeSkillVersionsRe
 use AlibabaCloud\SDK\STAROps\V20260428\Models\ListDigitalEmployeesRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\ListDigitalEmployeesResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\ListDigitalEmployeesShrinkRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\ListMcpServicesRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\ListMcpServicesResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\ListThreadsRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\ListThreadsResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\ListThreadsShrinkRequest;
@@ -49,6 +59,8 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeSkillRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeSkillResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateMcpServiceRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateMcpServiceResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateThreadRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateThreadResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -415,6 +427,93 @@ class STAROps extends OpenApiClient
     }
 
     /**
+     * 创建 MCP 服务
+     *
+     * @param request - CreateMcpServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMcpServiceResponse
+     *
+     * @param string                  $name
+     * @param CreateMcpServiceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateMcpServiceResponse
+     */
+    public function createMcpServiceWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->connection) {
+            @$body['connection'] = $request->connection;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->mcpServiceName) {
+            @$body['mcpServiceName'] = $request->mcpServiceName;
+        }
+
+        if (null !== $request->network) {
+            @$body['network'] = $request->network;
+        }
+
+        if (null !== $request->tools) {
+            @$body['tools'] = $request->tools;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMcpService',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/mcpService',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMcpServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 MCP 服务
+     *
+     * @param request - CreateMcpServiceRequest
+     *
+     * @returns CreateMcpServiceResponse
+     *
+     * @param string                  $name
+     * @param CreateMcpServiceRequest $request
+     *
+     * @return CreateMcpServiceResponse
+     */
+    public function createMcpService($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMcpServiceWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
      * 创建会话.
      *
      * @param request - CreateThreadRequest
@@ -667,6 +766,65 @@ class STAROps extends OpenApiClient
     }
 
     /**
+     * 删除 MCP 服务
+     *
+     * @param request - DeleteMcpServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMcpServiceResponse
+     *
+     * @param string                  $name
+     * @param string                  $mcpServiceName
+     * @param DeleteMcpServiceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteMcpServiceResponse
+     */
+    public function deleteMcpServiceWithOptions($name, $mcpServiceName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMcpService',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/mcpService/' . Url::percentEncode($mcpServiceName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMcpServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 MCP 服务
+     *
+     * @param request - DeleteMcpServiceRequest
+     *
+     * @returns DeleteMcpServiceResponse
+     *
+     * @param string                  $name
+     * @param string                  $mcpServiceName
+     * @param DeleteMcpServiceRequest $request
+     *
+     * @return DeleteMcpServiceResponse
+     */
+    public function deleteMcpService($name, $mcpServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMcpServiceWithOptions($name, $mcpServiceName, $request, $headers, $runtime);
+    }
+
+    /**
      * 删除会话.
      *
      * @param request - DeleteThreadRequest
@@ -726,7 +884,72 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 下载产物文件.
+     * 预览远端 MCP 工具列表.
+     *
+     * @param request - FetchRemoteMcpToolsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchRemoteMcpToolsResponse
+     *
+     * @param FetchRemoteMcpToolsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FetchRemoteMcpToolsResponse
+     */
+    public function fetchRemoteMcpToolsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->connection) {
+            @$body['connection'] = $request->connection;
+        }
+
+        if (null !== $request->network) {
+            @$body['network'] = $request->network;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'FetchRemoteMcpTools',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/mcptools',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return FetchRemoteMcpToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预览远端 MCP 工具列表.
+     *
+     * @param request - FetchRemoteMcpToolsRequest
+     *
+     * @returns FetchRemoteMcpToolsResponse
+     *
+     * @param FetchRemoteMcpToolsRequest $request
+     *
+     * @return FetchRemoteMcpToolsResponse
+     */
+    public function fetchRemoteMcpTools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->fetchRemoteMcpToolsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 下载小型产物文件.
      *
      * @param request - GetArtifactRequest
      * @param headers - map
@@ -785,7 +1008,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 下载产物文件.
+     * 下载小型产物文件.
      *
      * @param request - GetArtifactRequest
      *
@@ -924,6 +1147,65 @@ class STAROps extends OpenApiClient
         $headers = [];
 
         return $this->getDigitalEmployeeSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询 MCP 服务
+     *
+     * @param request - GetMcpServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMcpServiceResponse
+     *
+     * @param string               $name
+     * @param string               $mcpServiceName
+     * @param GetMcpServiceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMcpServiceResponse
+     */
+    public function getMcpServiceWithOptions($name, $mcpServiceName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetMcpService',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/mcpService/' . Url::percentEncode($mcpServiceName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMcpServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 MCP 服务
+     *
+     * @param request - GetMcpServiceRequest
+     *
+     * @returns GetMcpServiceResponse
+     *
+     * @param string               $name
+     * @param string               $mcpServiceName
+     * @param GetMcpServiceRequest $request
+     *
+     * @return GetMcpServiceResponse
+     */
+    public function getMcpService($name, $mcpServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMcpServiceWithOptions($name, $mcpServiceName, $request, $headers, $runtime);
     }
 
     /**
@@ -1347,6 +1629,73 @@ class STAROps extends OpenApiClient
     }
 
     /**
+     * 查询数字员工下的 MCP 服务列表.
+     *
+     * @param request - ListMcpServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMcpServicesResponse
+     *
+     * @param string                 $name
+     * @param ListMcpServicesRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListMcpServicesResponse
+     */
+    public function listMcpServicesWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMcpServices',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/mcpServices',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMcpServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数字员工下的 MCP 服务列表.
+     *
+     * @param request - ListMcpServicesRequest
+     *
+     * @returns ListMcpServicesResponse
+     *
+     * @param string                 $name
+     * @param ListMcpServicesRequest $request
+     *
+     * @return ListMcpServicesResponse
+     */
+    public function listMcpServices($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMcpServicesWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
      * 列出会话.
      *
      * @param tmpReq - ListThreadsRequest
@@ -1597,6 +1946,91 @@ class STAROps extends OpenApiClient
         $headers = [];
 
         return $this->updateDigitalEmployeeSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新 MCP 服务
+     *
+     * @param request - UpdateMcpServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMcpServiceResponse
+     *
+     * @param string                  $name
+     * @param string                  $mcpServiceName
+     * @param UpdateMcpServiceRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateMcpServiceResponse
+     */
+    public function updateMcpServiceWithOptions($name, $mcpServiceName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->connection) {
+            @$body['connection'] = $request->connection;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->network) {
+            @$body['network'] = $request->network;
+        }
+
+        if (null !== $request->tools) {
+            @$body['tools'] = $request->tools;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMcpService',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/mcpService/' . Url::percentEncode($mcpServiceName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMcpServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 MCP 服务
+     *
+     * @param request - UpdateMcpServiceRequest
+     *
+     * @returns UpdateMcpServiceResponse
+     *
+     * @param string                  $name
+     * @param string                  $mcpServiceName
+     * @param UpdateMcpServiceRequest $request
+     *
+     * @return UpdateMcpServiceResponse
+     */
+    public function updateMcpService($name, $mcpServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMcpServiceWithOptions($name, $mcpServiceName, $request, $headers, $runtime);
     }
 
     /**
