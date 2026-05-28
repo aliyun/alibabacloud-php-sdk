@@ -14,6 +14,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddInboundNumberShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddLargeModelRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddLargeModelResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddLargeModelShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddModelApplicationRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddModelApplicationResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddModelApplicationShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddOuterAccountRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddOuterAccountResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddSkillGroupRequest;
@@ -388,6 +391,9 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateDepartmentResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateLargeModelRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateLargeModelResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateLargeModelShrinkRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateModelApplicationRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateModelApplicationResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateModelApplicationShrinkRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateOuterAccountRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateOuterAccountResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateSkillGroupRequest;
@@ -718,6 +724,157 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addLargeModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 新增模型应用.
+     *
+     * @param tmpReq - AddModelApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddModelApplicationResponse
+     *
+     * @param AddModelApplicationRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddModelApplicationResponse
+     */
+    public function addModelApplicationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddModelApplicationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ttsConfig) {
+            $request->ttsConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ttsConfig, 'TtsConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationCps) {
+            @$query['ApplicationCps'] = $request->applicationCps;
+        }
+
+        if (null !== $request->applicationName) {
+            @$query['ApplicationName'] = $request->applicationName;
+        }
+
+        if (null !== $request->callConnectedTriggerModel) {
+            @$query['CallConnectedTriggerModel'] = $request->callConnectedTriggerModel;
+        }
+
+        if (null !== $request->dyvmsSceneName) {
+            @$query['DyvmsSceneName'] = $request->dyvmsSceneName;
+        }
+
+        if (null !== $request->modelCode) {
+            @$query['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->modelVersion) {
+            @$query['ModelVersion'] = $request->modelVersion;
+        }
+
+        if (null !== $request->muteActive) {
+            @$query['MuteActive'] = $request->muteActive;
+        }
+
+        if (null !== $request->muteDuration) {
+            @$query['MuteDuration'] = $request->muteDuration;
+        }
+
+        if (null !== $request->muteHangupNum) {
+            @$query['MuteHangupNum'] = $request->muteHangupNum;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->qualificationId) {
+            @$query['QualificationId'] = $request->qualificationId;
+        }
+
+        if (null !== $request->qualificationName) {
+            @$query['QualificationName'] = $request->qualificationName;
+        }
+
+        if (null !== $request->recordingFile) {
+            @$query['RecordingFile'] = $request->recordingFile;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->speechContent) {
+            @$query['SpeechContent'] = $request->speechContent;
+        }
+
+        if (null !== $request->speechId) {
+            @$query['SpeechId'] = $request->speechId;
+        }
+
+        if (null !== $request->startWord) {
+            @$query['StartWord'] = $request->startWord;
+        }
+
+        if (null !== $request->startWordType) {
+            @$query['StartWordType'] = $request->startWordType;
+        }
+
+        if (null !== $request->ttsConfigShrink) {
+            @$query['TtsConfig'] = $request->ttsConfigShrink;
+        }
+
+        if (null !== $request->usageDesc) {
+            @$query['UsageDesc'] = $request->usageDesc;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddModelApplication',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddModelApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增模型应用.
+     *
+     * @param request - AddModelApplicationRequest
+     *
+     * @returns AddModelApplicationResponse
+     *
+     * @param AddModelApplicationRequest $request
+     *
+     * @return AddModelApplicationResponse
+     */
+    public function addModelApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addModelApplicationWithOptions($request, $runtime);
     }
 
     /**
@@ -13042,6 +13199,217 @@ class Aiccs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateLargeModelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改模型应用.
+     *
+     * @param tmpReq - UpdateModelApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateModelApplicationResponse
+     *
+     * @param UpdateModelApplicationRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateModelApplicationResponse
+     */
+    public function updateModelApplicationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateModelApplicationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->interruptConfig) {
+            $request->interruptConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->interruptConfig, 'InterruptConfig', 'json');
+        }
+
+        if (null !== $tmpReq->ttsConfig) {
+            $request->ttsConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ttsConfig, 'TtsConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationCode) {
+            @$query['ApplicationCode'] = $request->applicationCode;
+        }
+
+        if (null !== $request->applicationCps) {
+            @$query['ApplicationCps'] = $request->applicationCps;
+        }
+
+        if (null !== $request->applicationName) {
+            @$query['ApplicationName'] = $request->applicationName;
+        }
+
+        if (null !== $request->callAssistantHangup) {
+            @$query['CallAssistantHangup'] = $request->callAssistantHangup;
+        }
+
+        if (null !== $request->callAssistantRecognize) {
+            @$query['CallAssistantRecognize'] = $request->callAssistantRecognize;
+        }
+
+        if (null !== $request->callConnectedTriggerModel) {
+            @$query['CallConnectedTriggerModel'] = $request->callConnectedTriggerModel;
+        }
+
+        if (null !== $request->dtmfAllowedDigits) {
+            @$query['DtmfAllowedDigits'] = $request->dtmfAllowedDigits;
+        }
+
+        if (null !== $request->dtmfAutoValidateEnable) {
+            @$query['DtmfAutoValidateEnable'] = $request->dtmfAutoValidateEnable;
+        }
+
+        if (null !== $request->dtmfDigitCount) {
+            @$query['DtmfDigitCount'] = $request->dtmfDigitCount;
+        }
+
+        if (null !== $request->dtmfInputTimeout) {
+            @$query['DtmfInputTimeout'] = $request->dtmfInputTimeout;
+        }
+
+        if (null !== $request->dtmfOutOfRangeAction) {
+            @$query['DtmfOutOfRangeAction'] = $request->dtmfOutOfRangeAction;
+        }
+
+        if (null !== $request->dtmfRetryPlayTimes) {
+            @$query['DtmfRetryPlayTimes'] = $request->dtmfRetryPlayTimes;
+        }
+
+        if (null !== $request->dtmfRetryPromptText) {
+            @$query['DtmfRetryPromptText'] = $request->dtmfRetryPromptText;
+        }
+
+        if (null !== $request->dyvmsSceneName) {
+            @$query['DyvmsSceneName'] = $request->dyvmsSceneName;
+        }
+
+        if (null !== $request->enableDtmfReceive) {
+            @$query['EnableDtmfReceive'] = $request->enableDtmfReceive;
+        }
+
+        if (null !== $request->enableMorse) {
+            @$query['EnableMorse'] = $request->enableMorse;
+        }
+
+        if (null !== $request->interruptConfigShrink) {
+            @$query['InterruptConfig'] = $request->interruptConfigShrink;
+        }
+
+        if (null !== $request->modelCode) {
+            @$query['ModelCode'] = $request->modelCode;
+        }
+
+        if (null !== $request->modelVersion) {
+            @$query['ModelVersion'] = $request->modelVersion;
+        }
+
+        if (null !== $request->muteActive) {
+            @$query['MuteActive'] = $request->muteActive;
+        }
+
+        if (null !== $request->muteDuration) {
+            @$query['MuteDuration'] = $request->muteDuration;
+        }
+
+        if (null !== $request->muteHangupNum) {
+            @$query['MuteHangupNum'] = $request->muteHangupNum;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->qualificationId) {
+            @$query['QualificationId'] = $request->qualificationId;
+        }
+
+        if (null !== $request->qualificationName) {
+            @$query['QualificationName'] = $request->qualificationName;
+        }
+
+        if (null !== $request->recordingFile) {
+            @$query['RecordingFile'] = $request->recordingFile;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->sessionTimeout) {
+            @$query['SessionTimeout'] = $request->sessionTimeout;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->speechContent) {
+            @$query['SpeechContent'] = $request->speechContent;
+        }
+
+        if (null !== $request->speechId) {
+            @$query['SpeechId'] = $request->speechId;
+        }
+
+        if (null !== $request->startWord) {
+            @$query['StartWord'] = $request->startWord;
+        }
+
+        if (null !== $request->startWordType) {
+            @$query['StartWordType'] = $request->startWordType;
+        }
+
+        if (null !== $request->ttsConfigShrink) {
+            @$query['TtsConfig'] = $request->ttsConfigShrink;
+        }
+
+        if (null !== $request->usageDesc) {
+            @$query['UsageDesc'] = $request->usageDesc;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateModelApplication',
+            'version' => '2019-10-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateModelApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改模型应用.
+     *
+     * @param request - UpdateModelApplicationRequest
+     *
+     * @returns UpdateModelApplicationResponse
+     *
+     * @param UpdateModelApplicationRequest $request
+     *
+     * @return UpdateModelApplicationResponse
+     */
+    public function updateModelApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateModelApplicationWithOptions($request, $runtime);
     }
 
     /**
