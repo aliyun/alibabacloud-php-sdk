@@ -19,7 +19,7 @@ class ScanFileInfo extends Model
     public $height;
 
     /**
-     * @var int[]
+     * @var string
      */
     public $imageBase64;
 
