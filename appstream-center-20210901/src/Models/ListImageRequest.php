@@ -25,6 +25,11 @@ class ListImageRequest extends Model
     public $bizTypeList;
 
     /**
+     * @var string
+     */
+    public $distro;
+
+    /**
      * @var string[]
      */
     public $featureList;
@@ -117,6 +122,7 @@ class ListImageRequest extends Model
         'bizRegionIdList' => 'BizRegionIdList',
         'bizType' => 'BizType',
         'bizTypeList' => 'BizTypeList',
+        'distro' => 'Distro',
         'featureList' => 'FeatureList',
         'fotaVersion' => 'FotaVersion',
         'imageId' => 'ImageId',
@@ -187,6 +193,10 @@ class ListImageRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->distro) {
+            $res['Distro'] = $this->distro;
         }
 
         if (null !== $this->featureList) {
@@ -324,6 +334,10 @@ class ListImageRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Distro'])) {
+            $model->distro = $map['Distro'];
         }
 
         if (isset($map['FeatureList'])) {

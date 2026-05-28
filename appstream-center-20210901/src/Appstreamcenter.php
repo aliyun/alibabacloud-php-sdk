@@ -3226,6 +3226,10 @@ class Appstreamcenter extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->distro) {
+            @$query['Distro'] = $request->distro;
+        }
+
         if (null !== $request->tagList) {
             @$query['TagList'] = $request->tagList;
         }
