@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainByInstanceIdResponseBody
 class QueryDomainByInstanceIdResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $cnnicPrivacyServiceStatus;
+
+    /**
      * @var dnsList
      */
     public $dnsList;
@@ -190,6 +195,7 @@ class QueryDomainByInstanceIdResponseBody extends Model
      */
     public $zhRegistrantOrganization;
     protected $_name = [
+        'cnnicPrivacyServiceStatus' => 'CnnicPrivacyServiceStatus',
         'dnsList' => 'DnsList',
         'domainGroupId' => 'DomainGroupId',
         'domainGroupName' => 'DomainGroupName',
@@ -242,6 +248,10 @@ class QueryDomainByInstanceIdResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cnnicPrivacyServiceStatus) {
+            $res['CnnicPrivacyServiceStatus'] = $this->cnnicPrivacyServiceStatus;
+        }
+
         if (null !== $this->dnsList) {
             $res['DnsList'] = null !== $this->dnsList ? $this->dnsList->toArray($noStream) : $this->dnsList;
         }
@@ -397,6 +407,10 @@ class QueryDomainByInstanceIdResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CnnicPrivacyServiceStatus'])) {
+            $model->cnnicPrivacyServiceStatus = $map['CnnicPrivacyServiceStatus'];
+        }
+
         if (isset($map['DnsList'])) {
             $model->dnsList = dnsList::fromMap($map['DnsList']);
         }

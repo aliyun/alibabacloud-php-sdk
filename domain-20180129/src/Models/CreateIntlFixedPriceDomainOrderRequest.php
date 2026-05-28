@@ -27,11 +27,17 @@ class CreateIntlFixedPriceDomainOrderRequest extends Model
      * @var int
      */
     public $expectedPrice;
+
+    /**
+     * @var int
+     */
+    public $productType;
     protected $_name = [
         'autoPay' => 'AutoPay',
         'contactId' => 'ContactId',
         'domain' => 'Domain',
         'expectedPrice' => 'ExpectedPrice',
+        'productType' => 'ProductType',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class CreateIntlFixedPriceDomainOrderRequest extends Model
 
         if (null !== $this->expectedPrice) {
             $res['ExpectedPrice'] = $this->expectedPrice;
+        }
+
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class CreateIntlFixedPriceDomainOrderRequest extends Model
 
         if (isset($map['ExpectedPrice'])) {
             $model->expectedPrice = $map['ExpectedPrice'];
+        }
+
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
         }
 
         return $model;

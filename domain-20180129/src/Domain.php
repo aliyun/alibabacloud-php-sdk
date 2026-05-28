@@ -1253,6 +1253,10 @@ class Domain extends OpenApiClient
             @$query['ExpectedPrice'] = $request->expectedPrice;
         }
 
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5547,6 +5551,10 @@ class Domain extends OpenApiClient
 
         if (null !== $request->lang) {
             @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->serviceType) {
+            @$query['ServiceType'] = $request->serviceType;
         }
 
         if (null !== $request->status) {

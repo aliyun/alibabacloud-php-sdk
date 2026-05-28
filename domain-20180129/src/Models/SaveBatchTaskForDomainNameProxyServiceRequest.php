@@ -19,6 +19,11 @@ class SaveBatchTaskForDomainNameProxyServiceRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $serviceType;
+
+    /**
      * @var bool
      */
     public $status;
@@ -30,6 +35,7 @@ class SaveBatchTaskForDomainNameProxyServiceRequest extends Model
     protected $_name = [
         'domainName' => 'DomainName',
         'lang' => 'Lang',
+        'serviceType' => 'ServiceType',
         'status' => 'Status',
         'userClientIp' => 'UserClientIp',
     ];
@@ -58,6 +64,10 @@ class SaveBatchTaskForDomainNameProxyServiceRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->serviceType) {
+            $res['ServiceType'] = $this->serviceType;
         }
 
         if (null !== $this->status) {
@@ -92,6 +102,10 @@ class SaveBatchTaskForDomainNameProxyServiceRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['ServiceType'])) {
+            $model->serviceType = $map['ServiceType'];
         }
 
         if (isset($map['Status'])) {

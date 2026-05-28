@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\Domain\V20180129\Models\QueryDomainByDomainNameResponseBody
 class QueryDomainByDomainNameResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $cnnicPrivacyServiceStatus;
+
+    /**
      * @var dnsList
      */
     public $dnsList;
@@ -94,6 +99,11 @@ class QueryDomainByDomainNameResponseBody extends Model
      * @var bool
      */
     public $premium;
+
+    /**
+     * @var string
+     */
+    public $privacyServiceStatus;
 
     /**
      * @var string
@@ -185,6 +195,7 @@ class QueryDomainByDomainNameResponseBody extends Model
      */
     public $zhRegistrantOrganization;
     protected $_name = [
+        'cnnicPrivacyServiceStatus' => 'CnnicPrivacyServiceStatus',
         'dnsList' => 'DnsList',
         'domainGroupId' => 'DomainGroupId',
         'domainGroupName' => 'DomainGroupName',
@@ -202,6 +213,7 @@ class QueryDomainByDomainNameResponseBody extends Model
         'expirationDateStatus' => 'ExpirationDateStatus',
         'instanceId' => 'InstanceId',
         'premium' => 'Premium',
+        'privacyServiceStatus' => 'PrivacyServiceStatus',
         'realNameStatus' => 'RealNameStatus',
         'registrantName' => 'RegistrantName',
         'registrantOrganization' => 'RegistrantOrganization',
@@ -236,6 +248,10 @@ class QueryDomainByDomainNameResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cnnicPrivacyServiceStatus) {
+            $res['CnnicPrivacyServiceStatus'] = $this->cnnicPrivacyServiceStatus;
+        }
+
         if (null !== $this->dnsList) {
             $res['DnsList'] = null !== $this->dnsList ? $this->dnsList->toArray($noStream) : $this->dnsList;
         }
@@ -302,6 +318,10 @@ class QueryDomainByDomainNameResponseBody extends Model
 
         if (null !== $this->premium) {
             $res['Premium'] = $this->premium;
+        }
+
+        if (null !== $this->privacyServiceStatus) {
+            $res['PrivacyServiceStatus'] = $this->privacyServiceStatus;
         }
 
         if (null !== $this->realNameStatus) {
@@ -387,6 +407,10 @@ class QueryDomainByDomainNameResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CnnicPrivacyServiceStatus'])) {
+            $model->cnnicPrivacyServiceStatus = $map['CnnicPrivacyServiceStatus'];
+        }
+
         if (isset($map['DnsList'])) {
             $model->dnsList = dnsList::fromMap($map['DnsList']);
         }
@@ -453,6 +477,10 @@ class QueryDomainByDomainNameResponseBody extends Model
 
         if (isset($map['Premium'])) {
             $model->premium = $map['Premium'];
+        }
+
+        if (isset($map['PrivacyServiceStatus'])) {
+            $model->privacyServiceStatus = $map['PrivacyServiceStatus'];
         }
 
         if (isset($map['RealNameStatus'])) {
