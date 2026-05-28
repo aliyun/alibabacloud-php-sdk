@@ -1,3 +1,7 @@
+2026-05-28 Version: 1.9.0
+- Support API ScanFile.
+
+
 2026-05-14 Version: 1.8.1
 - Generated php 2024-11-11 for IQS.
 

@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageBasicResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageScrapeRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\ReadPageScrapeResponse;
+use AlibabaCloud\SDK\IQS\V20241111\Models\ScanFileRequest;
+use AlibabaCloud\SDK\IQS\V20241111\Models\ScanFileResponse;
 use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchRequest;
 use AlibabaCloud\SDK\IQS\V20241111\Models\UnifiedSearchResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -802,7 +804,7 @@ class IQS extends OpenApiClient
 
         foreach ($sseResp as $resp) {
             if (null !== $resp->event && null !== $resp->event->data) {
-                $data = json_decode($resp->event->data, true);
+                $data = $resp->event->data;
 
                 yield OmniAnswerResponse::fromMap([
                     'statusCode' => $resp->statusCode,
@@ -981,6 +983,62 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->readPageScrapeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 扫描文件.
+     *
+     * @param request - ScanFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ScanFileResponse
+     *
+     * @param ScanFileRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ScanFileResponse
+     */
+    public function scanFileWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'ScanFile',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/scan/file',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ScanFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 扫描文件.
+     *
+     * @param request - ScanFileRequest
+     *
+     * @returns ScanFileResponse
+     *
+     * @param ScanFileRequest $request
+     *
+     * @return ScanFileResponse
+     */
+    public function scanFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->scanFileWithOptions($request, $headers, $runtime);
     }
 
     /**
