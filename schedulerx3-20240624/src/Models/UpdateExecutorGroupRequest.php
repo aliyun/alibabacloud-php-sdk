@@ -19,9 +19,19 @@ class UpdateExecutorGroupRequest extends Model
     public $authType;
 
     /**
+     * @var bool
+     */
+    public $autoScale;
+
+    /**
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $cmsWorkspaceId;
 
     /**
      * @var string
@@ -32,6 +42,11 @@ class UpdateExecutorGroupRequest extends Model
      * @var string
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -52,16 +67,25 @@ class UpdateExecutorGroupRequest extends Model
      * @var string
      */
     public $workers;
+
+    /**
+     * @var string
+     */
+    public $XAttrs;
     protected $_name = [
         'apiKey' => 'ApiKey',
         'authType' => 'AuthType',
+        'autoScale' => 'AutoScale',
         'clusterId' => 'ClusterId',
+        'cmsWorkspaceId' => 'CmsWorkspaceId',
         'description' => 'Description',
         'id' => 'Id',
+        'name' => 'Name',
         'network' => 'Network',
         'protocol' => 'Protocol',
         'workerType' => 'WorkerType',
         'workers' => 'Workers',
+        'XAttrs' => 'XAttrs',
     ];
 
     public function validate()
@@ -80,8 +104,16 @@ class UpdateExecutorGroupRequest extends Model
             $res['AuthType'] = $this->authType;
         }
 
+        if (null !== $this->autoScale) {
+            $res['AutoScale'] = $this->autoScale;
+        }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+
+        if (null !== $this->cmsWorkspaceId) {
+            $res['CmsWorkspaceId'] = $this->cmsWorkspaceId;
         }
 
         if (null !== $this->description) {
@@ -90,6 +122,10 @@ class UpdateExecutorGroupRequest extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->network) {
@@ -106,6 +142,10 @@ class UpdateExecutorGroupRequest extends Model
 
         if (null !== $this->workers) {
             $res['Workers'] = $this->workers;
+        }
+
+        if (null !== $this->XAttrs) {
+            $res['XAttrs'] = $this->XAttrs;
         }
 
         return $res;
@@ -127,8 +167,16 @@ class UpdateExecutorGroupRequest extends Model
             $model->authType = $map['AuthType'];
         }
 
+        if (isset($map['AutoScale'])) {
+            $model->autoScale = $map['AutoScale'];
+        }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+
+        if (isset($map['CmsWorkspaceId'])) {
+            $model->cmsWorkspaceId = $map['CmsWorkspaceId'];
         }
 
         if (isset($map['Description'])) {
@@ -137,6 +185,10 @@ class UpdateExecutorGroupRequest extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['Network'])) {
@@ -153,6 +205,10 @@ class UpdateExecutorGroupRequest extends Model
 
         if (isset($map['Workers'])) {
             $model->workers = $map['Workers'];
+        }
+
+        if (isset($map['XAttrs'])) {
+            $model->XAttrs = $map['XAttrs'];
         }
 
         return $model;

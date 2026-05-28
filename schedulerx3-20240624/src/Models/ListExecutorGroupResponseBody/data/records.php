@@ -20,6 +20,11 @@ class records extends Model
     public $authType;
 
     /**
+     * @var bool
+     */
+    public $autoScale;
+
+    /**
      * @var citeList[]
      */
     public $citeList;
@@ -27,7 +32,17 @@ class records extends Model
     /**
      * @var string
      */
+    public $cmsWorkspaceId;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $integrationType;
 
     /**
      * @var string
@@ -45,6 +60,11 @@ class records extends Model
     public $protocol;
 
     /**
+     * @var string
+     */
+    public $resolvedWorkers;
+
+    /**
      * @var int
      */
     public $workerId;
@@ -58,17 +78,27 @@ class records extends Model
      * @var string
      */
     public $workers;
+
+    /**
+     * @var string
+     */
+    public $XAttrs;
     protected $_name = [
         'apiKey' => 'ApiKey',
         'authType' => 'AuthType',
+        'autoScale' => 'AutoScale',
         'citeList' => 'CiteList',
+        'cmsWorkspaceId' => 'CmsWorkspaceId',
         'description' => 'Description',
+        'integrationType' => 'IntegrationType',
         'name' => 'Name',
         'network' => 'Network',
         'protocol' => 'Protocol',
+        'resolvedWorkers' => 'ResolvedWorkers',
         'workerId' => 'WorkerId',
         'workerType' => 'WorkerType',
         'workers' => 'Workers',
+        'XAttrs' => 'XAttrs',
     ];
 
     public function validate()
@@ -90,6 +120,10 @@ class records extends Model
             $res['AuthType'] = $this->authType;
         }
 
+        if (null !== $this->autoScale) {
+            $res['AutoScale'] = $this->autoScale;
+        }
+
         if (null !== $this->citeList) {
             if (\is_array($this->citeList)) {
                 $res['CiteList'] = [];
@@ -101,8 +135,16 @@ class records extends Model
             }
         }
 
+        if (null !== $this->cmsWorkspaceId) {
+            $res['CmsWorkspaceId'] = $this->cmsWorkspaceId;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->integrationType) {
+            $res['IntegrationType'] = $this->integrationType;
         }
 
         if (null !== $this->name) {
@@ -117,6 +159,10 @@ class records extends Model
             $res['Protocol'] = $this->protocol;
         }
 
+        if (null !== $this->resolvedWorkers) {
+            $res['ResolvedWorkers'] = $this->resolvedWorkers;
+        }
+
         if (null !== $this->workerId) {
             $res['WorkerId'] = $this->workerId;
         }
@@ -127,6 +173,10 @@ class records extends Model
 
         if (null !== $this->workers) {
             $res['Workers'] = $this->workers;
+        }
+
+        if (null !== $this->XAttrs) {
+            $res['XAttrs'] = $this->XAttrs;
         }
 
         return $res;
@@ -148,6 +198,10 @@ class records extends Model
             $model->authType = $map['AuthType'];
         }
 
+        if (isset($map['AutoScale'])) {
+            $model->autoScale = $map['AutoScale'];
+        }
+
         if (isset($map['CiteList'])) {
             if (!empty($map['CiteList'])) {
                 $model->citeList = [];
@@ -159,8 +213,16 @@ class records extends Model
             }
         }
 
+        if (isset($map['CmsWorkspaceId'])) {
+            $model->cmsWorkspaceId = $map['CmsWorkspaceId'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['IntegrationType'])) {
+            $model->integrationType = $map['IntegrationType'];
         }
 
         if (isset($map['Name'])) {
@@ -175,6 +237,10 @@ class records extends Model
             $model->protocol = $map['Protocol'];
         }
 
+        if (isset($map['ResolvedWorkers'])) {
+            $model->resolvedWorkers = $map['ResolvedWorkers'];
+        }
+
         if (isset($map['WorkerId'])) {
             $model->workerId = $map['WorkerId'];
         }
@@ -185,6 +251,10 @@ class records extends Model
 
         if (isset($map['Workers'])) {
             $model->workers = $map['Workers'];
+        }
+
+        if (isset($map['XAttrs'])) {
+            $model->XAttrs = $map['XAttrs'];
         }
 
         return $model;

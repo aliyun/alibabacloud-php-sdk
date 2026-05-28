@@ -603,12 +603,24 @@ class SchedulerX3 extends OpenApiClient
             @$body['AuthType'] = $request->authType;
         }
 
+        if (null !== $request->autoScale) {
+            @$body['AutoScale'] = $request->autoScale;
+        }
+
         if (null !== $request->clusterId) {
             @$body['ClusterId'] = $request->clusterId;
         }
 
+        if (null !== $request->cmsWorkspaceId) {
+            @$body['CmsWorkspaceId'] = $request->cmsWorkspaceId;
+        }
+
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->integrationType) {
+            @$body['IntegrationType'] = $request->integrationType;
         }
 
         if (null !== $request->name) {
@@ -629,6 +641,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->workers) {
             @$body['Workers'] = $request->workers;
+        }
+
+        if (null !== $request->XAttrs) {
+            @$body['XAttrs'] = $request->XAttrs;
         }
 
         $req = new OpenApiRequest([
@@ -1279,6 +1295,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->id) {
             @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
 
         $req = new OpenApiRequest([
@@ -6169,8 +6189,16 @@ class SchedulerX3 extends OpenApiClient
             @$body['AuthType'] = $request->authType;
         }
 
+        if (null !== $request->autoScale) {
+            @$body['AutoScale'] = $request->autoScale;
+        }
+
         if (null !== $request->clusterId) {
             @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->cmsWorkspaceId) {
+            @$body['CmsWorkspaceId'] = $request->cmsWorkspaceId;
         }
 
         if (null !== $request->description) {
@@ -6179,6 +6207,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->id) {
             @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
 
         if (null !== $request->network) {
@@ -6195,6 +6227,10 @@ class SchedulerX3 extends OpenApiClient
 
         if (null !== $request->workers) {
             @$body['Workers'] = $request->workers;
+        }
+
+        if (null !== $request->XAttrs) {
+            @$body['XAttrs'] = $request->XAttrs;
         }
 
         $req = new OpenApiRequest([

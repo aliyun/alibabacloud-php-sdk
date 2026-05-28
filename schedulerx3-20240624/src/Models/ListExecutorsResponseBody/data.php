@@ -41,6 +41,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $version;
 
     /**
@@ -54,6 +59,7 @@ class data extends Model
         'label' => 'Label',
         'online' => 'Online',
         'port' => 'Port',
+        'status' => 'Status',
         'version' => 'Version',
         'weight' => 'Weight',
     ];
@@ -88,6 +94,10 @@ class data extends Model
 
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         if (null !== $this->version) {
@@ -131,6 +141,10 @@ class data extends Model
 
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         if (isset($map['Version'])) {

@@ -17,9 +17,15 @@ class DeleteExecutorGroupRequest extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $name;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'id' => 'Id',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class DeleteExecutorGroupRequest extends Model
 
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class DeleteExecutorGroupRequest extends Model
 
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

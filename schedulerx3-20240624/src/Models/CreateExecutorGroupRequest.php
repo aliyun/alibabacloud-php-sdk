@@ -19,6 +19,11 @@ class CreateExecutorGroupRequest extends Model
     public $authType;
 
     /**
+     * @var bool
+     */
+    public $autoScale;
+
+    /**
      * @var string
      */
     public $clusterId;
@@ -26,7 +31,17 @@ class CreateExecutorGroupRequest extends Model
     /**
      * @var string
      */
+    public $cmsWorkspaceId;
+
+    /**
+     * @var string
+     */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $integrationType;
 
     /**
      * @var string
@@ -52,16 +67,25 @@ class CreateExecutorGroupRequest extends Model
      * @var string
      */
     public $workers;
+
+    /**
+     * @var string
+     */
+    public $XAttrs;
     protected $_name = [
         'apiKey' => 'ApiKey',
         'authType' => 'AuthType',
+        'autoScale' => 'AutoScale',
         'clusterId' => 'ClusterId',
+        'cmsWorkspaceId' => 'CmsWorkspaceId',
         'description' => 'Description',
+        'integrationType' => 'IntegrationType',
         'name' => 'Name',
         'network' => 'Network',
         'protocol' => 'Protocol',
         'workerType' => 'WorkerType',
         'workers' => 'Workers',
+        'XAttrs' => 'XAttrs',
     ];
 
     public function validate()
@@ -80,12 +104,24 @@ class CreateExecutorGroupRequest extends Model
             $res['AuthType'] = $this->authType;
         }
 
+        if (null !== $this->autoScale) {
+            $res['AutoScale'] = $this->autoScale;
+        }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
 
+        if (null !== $this->cmsWorkspaceId) {
+            $res['CmsWorkspaceId'] = $this->cmsWorkspaceId;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->integrationType) {
+            $res['IntegrationType'] = $this->integrationType;
         }
 
         if (null !== $this->name) {
@@ -108,6 +144,10 @@ class CreateExecutorGroupRequest extends Model
             $res['Workers'] = $this->workers;
         }
 
+        if (null !== $this->XAttrs) {
+            $res['XAttrs'] = $this->XAttrs;
+        }
+
         return $res;
     }
 
@@ -127,12 +167,24 @@ class CreateExecutorGroupRequest extends Model
             $model->authType = $map['AuthType'];
         }
 
+        if (isset($map['AutoScale'])) {
+            $model->autoScale = $map['AutoScale'];
+        }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
 
+        if (isset($map['CmsWorkspaceId'])) {
+            $model->cmsWorkspaceId = $map['CmsWorkspaceId'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['IntegrationType'])) {
+            $model->integrationType = $map['IntegrationType'];
         }
 
         if (isset($map['Name'])) {
@@ -153,6 +205,10 @@ class CreateExecutorGroupRequest extends Model
 
         if (isset($map['Workers'])) {
             $model->workers = $map['Workers'];
+        }
+
+        if (isset($map['XAttrs'])) {
+            $model->XAttrs = $map['XAttrs'];
         }
 
         return $model;
