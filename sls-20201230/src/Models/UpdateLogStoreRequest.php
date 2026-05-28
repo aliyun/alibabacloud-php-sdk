@@ -59,6 +59,11 @@ class UpdateLogStoreRequest extends Model
     public $shardCount;
 
     /**
+     * @var ShardingPolicy
+     */
+    public $shardingPolicy;
+
+    /**
      * @var string
      */
     public $telemetryType;
@@ -78,6 +83,7 @@ class UpdateLogStoreRequest extends Model
         'maxSplitShard' => 'maxSplitShard',
         'mode' => 'mode',
         'shardCount' => 'shardCount',
+        'shardingPolicy' => 'shardingPolicy',
         'telemetryType' => 'telemetryType',
         'ttl' => 'ttl',
     ];
@@ -86,6 +92,9 @@ class UpdateLogStoreRequest extends Model
     {
         if (null !== $this->encryptConf) {
             $this->encryptConf->validate();
+        }
+        if (null !== $this->shardingPolicy) {
+            $this->shardingPolicy->validate();
         }
         parent::validate();
     }
@@ -131,6 +140,10 @@ class UpdateLogStoreRequest extends Model
 
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
+        }
+
+        if (null !== $this->shardingPolicy) {
+            $res['shardingPolicy'] = null !== $this->shardingPolicy ? $this->shardingPolicy->toArray($noStream) : $this->shardingPolicy;
         }
 
         if (null !== $this->telemetryType) {
@@ -190,6 +203,10 @@ class UpdateLogStoreRequest extends Model
 
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];
+        }
+
+        if (isset($map['shardingPolicy'])) {
+            $model->shardingPolicy = ShardingPolicy::fromMap($map['shardingPolicy']);
         }
 
         if (isset($map['telemetryType'])) {

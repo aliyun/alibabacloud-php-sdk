@@ -34,6 +34,11 @@ class ScheduledSQLConfiguration extends Model
     public $destRoleArn;
 
     /**
+     * @var bool
+     */
+    public $forceComplete;
+
+    /**
      * @var int
      */
     public $fromTime;
@@ -42,6 +47,11 @@ class ScheduledSQLConfiguration extends Model
      * @var string
      */
     public $fromTimeExpr;
+
+    /**
+     * @var int
+     */
+    public $maxConcurrency;
 
     /**
      * @var int
@@ -98,8 +108,10 @@ class ScheduledSQLConfiguration extends Model
         'destLogstore' => 'destLogstore',
         'destProject' => 'destProject',
         'destRoleArn' => 'destRoleArn',
+        'forceComplete' => 'forceComplete',
         'fromTime' => 'fromTime',
         'fromTimeExpr' => 'fromTimeExpr',
+        'maxConcurrency' => 'maxConcurrency',
         'maxRetries' => 'maxRetries',
         'maxRunTimeInSeconds' => 'maxRunTimeInSeconds',
         'parameters' => 'parameters',
@@ -143,12 +155,20 @@ class ScheduledSQLConfiguration extends Model
             $res['destRoleArn'] = $this->destRoleArn;
         }
 
+        if (null !== $this->forceComplete) {
+            $res['forceComplete'] = $this->forceComplete;
+        }
+
         if (null !== $this->fromTime) {
             $res['fromTime'] = $this->fromTime;
         }
 
         if (null !== $this->fromTimeExpr) {
             $res['fromTimeExpr'] = $this->fromTimeExpr;
+        }
+
+        if (null !== $this->maxConcurrency) {
+            $res['maxConcurrency'] = $this->maxConcurrency;
         }
 
         if (null !== $this->maxRetries) {
@@ -227,12 +247,20 @@ class ScheduledSQLConfiguration extends Model
             $model->destRoleArn = $map['destRoleArn'];
         }
 
+        if (isset($map['forceComplete'])) {
+            $model->forceComplete = $map['forceComplete'];
+        }
+
         if (isset($map['fromTime'])) {
             $model->fromTime = $map['fromTime'];
         }
 
         if (isset($map['fromTimeExpr'])) {
             $model->fromTimeExpr = $map['fromTimeExpr'];
+        }
+
+        if (isset($map['maxConcurrency'])) {
+            $model->maxConcurrency = $map['maxConcurrency'];
         }
 
         if (isset($map['maxRetries'])) {

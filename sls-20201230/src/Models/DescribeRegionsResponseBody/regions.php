@@ -16,6 +16,11 @@ class regions extends Model
     /**
      * @var string
      */
+    public $internalEndpoint;
+
+    /**
+     * @var string
+     */
     public $internetEndpoint;
 
     /**
@@ -34,6 +39,7 @@ class regions extends Model
     public $region;
     protected $_name = [
         'dataRedundancyType' => 'dataRedundancyType',
+        'internalEndpoint' => 'internalEndpoint',
         'internetEndpoint' => 'internetEndpoint',
         'intranetEndpoint' => 'intranetEndpoint',
         'localName' => 'localName',
@@ -60,6 +66,10 @@ class regions extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->internalEndpoint) {
+            $res['internalEndpoint'] = $this->internalEndpoint;
         }
 
         if (null !== $this->internetEndpoint) {
@@ -98,6 +108,10 @@ class regions extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['internalEndpoint'])) {
+            $model->internalEndpoint = $map['internalEndpoint'];
         }
 
         if (isset($map['internetEndpoint'])) {

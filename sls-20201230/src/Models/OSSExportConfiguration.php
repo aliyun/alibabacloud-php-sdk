@@ -30,6 +30,11 @@ class OSSExportConfiguration extends Model
     public $sink;
 
     /**
+     * @var bool
+     */
+    public $sourceSecureTransport;
+
+    /**
      * @var int
      */
     public $toTime;
@@ -38,6 +43,7 @@ class OSSExportConfiguration extends Model
         'logstore' => 'logstore',
         'roleArn' => 'roleArn',
         'sink' => 'sink',
+        'sourceSecureTransport' => 'sourceSecureTransport',
         'toTime' => 'toTime',
     ];
 
@@ -66,6 +72,10 @@ class OSSExportConfiguration extends Model
 
         if (null !== $this->sink) {
             $res['sink'] = null !== $this->sink ? $this->sink->toArray($noStream) : $this->sink;
+        }
+
+        if (null !== $this->sourceSecureTransport) {
+            $res['sourceSecureTransport'] = $this->sourceSecureTransport;
         }
 
         if (null !== $this->toTime) {
@@ -97,6 +107,10 @@ class OSSExportConfiguration extends Model
 
         if (isset($map['sink'])) {
             $model->sink = sink::fromMap($map['sink']);
+        }
+
+        if (isset($map['sourceSecureTransport'])) {
+            $model->sourceSecureTransport = $map['sourceSecureTransport'];
         }
 
         if (isset($map['toTime'])) {

@@ -11,6 +11,11 @@ class UpdateMetricStoreRequest extends Model
     /**
      * @var bool
      */
+    public $appendMeta;
+
+    /**
+     * @var bool
+     */
     public $autoSplit;
 
     /**
@@ -34,26 +39,40 @@ class UpdateMetricStoreRequest extends Model
     public $mode;
 
     /**
+     * @var ShardingPolicy
+     */
+    public $shardingPolicy;
+
+    /**
      * @var int
      */
     public $ttl;
     protected $_name = [
+        'appendMeta' => 'appendMeta',
         'autoSplit' => 'autoSplit',
         'hotTtl' => 'hot_ttl',
         'infrequentAccessTTL' => 'infrequentAccessTTL',
         'maxSplitShard' => 'maxSplitShard',
         'mode' => 'mode',
+        'shardingPolicy' => 'shardingPolicy',
         'ttl' => 'ttl',
     ];
 
     public function validate()
     {
+        if (null !== $this->shardingPolicy) {
+            $this->shardingPolicy->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appendMeta) {
+            $res['appendMeta'] = $this->appendMeta;
+        }
+
         if (null !== $this->autoSplit) {
             $res['autoSplit'] = $this->autoSplit;
         }
@@ -74,6 +93,10 @@ class UpdateMetricStoreRequest extends Model
             $res['mode'] = $this->mode;
         }
 
+        if (null !== $this->shardingPolicy) {
+            $res['shardingPolicy'] = null !== $this->shardingPolicy ? $this->shardingPolicy->toArray($noStream) : $this->shardingPolicy;
+        }
+
         if (null !== $this->ttl) {
             $res['ttl'] = $this->ttl;
         }
@@ -89,6 +112,10 @@ class UpdateMetricStoreRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appendMeta'])) {
+            $model->appendMeta = $map['appendMeta'];
+        }
+
         if (isset($map['autoSplit'])) {
             $model->autoSplit = $map['autoSplit'];
         }
@@ -107,6 +134,10 @@ class UpdateMetricStoreRequest extends Model
 
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
+        }
+
+        if (isset($map['shardingPolicy'])) {
+            $model->shardingPolicy = ShardingPolicy::fromMap($map['shardingPolicy']);
         }
 
         if (isset($map['ttl'])) {

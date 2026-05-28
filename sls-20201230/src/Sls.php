@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationDataSetRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationDataSetResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationLabelRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationLabelResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAzureBlobIngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAzureBlobIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupRequest;
@@ -32,8 +34,12 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDownloadJobRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDownloadJobResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateElasticsearchIngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateElasticsearchIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateETLRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateETLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateGCSIngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateGCSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLoggingRequest;
@@ -44,6 +50,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogtailPipelineConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMaterializedViewRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMaterializedViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMaxComputeExportRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMetricStoreRequest;
@@ -75,6 +83,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataSetResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationLabelResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAzureBlobIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteCollectionPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteCollectionPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConfigResponse;
@@ -83,6 +92,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDownloadJobResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteElasticsearchIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteETLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIngestProcessorResponse;
@@ -90,6 +100,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMaterializedViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMetricStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteOSSExportResponse;
@@ -117,6 +128,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationDataSetResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationLabelResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedConfigsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedMachineGroupsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAsyncSqlRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAsyncSqlResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAzureBlobIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCollectionPolicyRequest;
@@ -131,7 +145,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetDownloadJobResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetElasticsearchIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetETLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetGCSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetIndexResponse;
@@ -139,6 +155,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetIngestProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogStoreConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogStoreMeteringModeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Headers;
@@ -146,6 +163,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Request;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Response;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetMaterializedViewHeaders;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetMaterializedViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMetricStoreMeteringModeResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMetricStoreResponse;
@@ -176,6 +195,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataSetsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataSetsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationLabelsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationLabelsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAzureBlobIngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAzureBlobIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListCollectionPoliciesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigRequest;
@@ -190,8 +211,12 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDownloadJobsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDownloadJobsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListElasticsearchIngestionsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListElasticsearchIngestionsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListETLsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListGCSIngestionsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListGCSIngestionsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListIngestProcessorsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListIngestProcessorsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
@@ -202,6 +227,10 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachinesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachinesResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMaterializedViewRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMaterializedViewResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMaterializedViewsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListMaterializedViewsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMaxComputeExportsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMaxComputeExportsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMetricStoresRequest;
@@ -240,6 +269,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\PutIngestProcessorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutLogsHeaders;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutLogsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutLogStoreConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutLogStoreConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectTransferAccelerationRequest;
@@ -251,16 +282,25 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\RefreshTokenResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\RemoveConfigFromMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StartAzureBlobIngestionResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StartElasticsearchIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StartETLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StartGCSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StartMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StartOSSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StartOSSHDFSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StartOSSIngestionResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StopAzureBlobIngestionResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StopElasticsearchIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StopETLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\StopGCSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StopMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StopOSSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StopOSSHDFSExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\StopOSSIngestionResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\SubmitAsyncSqlHeaders;
+use AlibabaCloud\SDK\Sls\V20201230\Models\SubmitAsyncSqlRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\SubmitAsyncSqlResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesRequest;
@@ -274,14 +314,20 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationDataSetRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationDataSetResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationLabelRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationLabelResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAzureBlobIngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAzureBlobIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateDashboardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateDashboardResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateElasticsearchIngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateElasticsearchIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateETLRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateETLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateGCSIngestionRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateGCSIngestionResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingRequest;
@@ -300,6 +346,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMaterializedViewRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMaterializedViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMaxComputeExportRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMaxComputeExportResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMetricStoreMeteringModeRequest;
@@ -1021,6 +1069,88 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 创建Azure blob文件导入任务
+     *
+     * @param request - CreateAzureBlobIngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAzureBlobIngestionResponse
+     *
+     * @param string                          $project
+     * @param CreateAzureBlobIngestionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateAzureBlobIngestionResponse
+     */
+    public function createAzureBlobIngestionWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAzureBlobIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/azureblobingestions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return CreateAzureBlobIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Azure blob文件导入任务
+     *
+     * @param request - CreateAzureBlobIngestionRequest
+     *
+     * @returns CreateAzureBlobIngestionResponse
+     *
+     * @param string                          $project
+     * @param CreateAzureBlobIngestionRequest $request
+     *
+     * @return CreateAzureBlobIngestionResponse
+     */
+    public function createAzureBlobIngestion($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAzureBlobIngestionWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a Logtail configuration.
      *
      * @remarks
@@ -1351,7 +1481,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 创建下载任务
+     * Creates a log download task in a project.
      *
      * @param request - CreateDownloadJobRequest
      * @param headers - map
@@ -1409,7 +1539,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 创建下载任务
+     * Creates a log download task in a project.
      *
      * @param request - CreateDownloadJobRequest
      *
@@ -1504,6 +1634,166 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->createETLWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建ES导入任务
+     *
+     * @param request - CreateElasticsearchIngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateElasticsearchIngestionResponse
+     *
+     * @param string                              $project
+     * @param CreateElasticsearchIngestionRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateElasticsearchIngestionResponse
+     */
+    public function createElasticsearchIngestionWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateElasticsearchIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/elasticsearchingestions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return CreateElasticsearchIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建ES导入任务
+     *
+     * @param request - CreateElasticsearchIngestionRequest
+     *
+     * @returns CreateElasticsearchIngestionResponse
+     *
+     * @param string                              $project
+     * @param CreateElasticsearchIngestionRequest $request
+     *
+     * @return CreateElasticsearchIngestionResponse
+     */
+    public function createElasticsearchIngestion($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createElasticsearchIngestionWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * 创建GCP Cloud Storage文件导入任务
+     *
+     * @param request - CreateGCSIngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGCSIngestionResponse
+     *
+     * @param string                    $project
+     * @param CreateGCSIngestionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateGCSIngestionResponse
+     */
+    public function createGCSIngestionWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGCSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gcsingestions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'any',
+        ]);
+
+        return CreateGCSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建GCP Cloud Storage文件导入任务
+     *
+     * @param request - CreateGCSIngestionRequest
+     *
+     * @returns CreateGCSIngestionResponse
+     *
+     * @param string                    $project
+     * @param CreateGCSIngestionRequest $request
+     *
+     * @return CreateGCSIngestionResponse
+     */
+    public function createGCSIngestion($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createGCSIngestionWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -1651,8 +1941,16 @@ class Sls extends OpenApiClient
             @$body['processorId'] = $request->processorId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->shardCount) {
             @$body['shardCount'] = $request->shardCount;
+        }
+
+        if (null !== $request->shardingPolicy) {
+            @$body['shardingPolicy'] = $request->shardingPolicy;
         }
 
         if (null !== $request->telemetryType) {
@@ -1984,6 +2282,92 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 创建物化视图.
+     *
+     * @param request - CreateMaterializedViewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMaterializedViewResponse
+     *
+     * @param string                        $project
+     * @param CreateMaterializedViewRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateMaterializedViewResponse
+     */
+    public function createMaterializedViewWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->aggIntervalMins) {
+            @$body['aggIntervalMins'] = $request->aggIntervalMins;
+        }
+
+        if (null !== $request->logstore) {
+            @$body['logstore'] = $request->logstore;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->originalSql) {
+            @$body['originalSql'] = $request->originalSql;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->ttl) {
+            @$body['ttl'] = $request->ttl;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMaterializedView',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/materializedviews',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return CreateMaterializedViewResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建物化视图.
+     *
+     * @param request - CreateMaterializedViewRequest
+     *
+     * @returns CreateMaterializedViewResponse
+     *
+     * @param string                        $project
+     * @param CreateMaterializedViewRequest $request
+     *
+     * @return CreateMaterializedViewResponse
+     */
+    public function createMaterializedView($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createMaterializedViewWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a MaxCompute data shipping job.
      *
      * @remarks
@@ -2104,6 +2488,10 @@ class Sls extends OpenApiClient
         $hostMap = [];
         @$hostMap['project'] = $project;
         $body = [];
+        if (null !== $request->appendMeta) {
+            @$body['appendMeta'] = $request->appendMeta;
+        }
+
         if (null !== $request->autoSplit) {
             @$body['autoSplit'] = $request->autoSplit;
         }
@@ -2134,6 +2522,10 @@ class Sls extends OpenApiClient
 
         if (null !== $request->shardCount) {
             @$body['shardCount'] = $request->shardCount;
+        }
+
+        if (null !== $request->shardingPolicy) {
+            @$body['shardingPolicy'] = $request->shardingPolicy;
         }
 
         if (null !== $request->ttl) {
@@ -2853,7 +3245,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 创建StoreView.
+     * Creates a dataset.
      *
      * @param request - CreateStoreViewRequest
      * @param headers - map
@@ -2907,7 +3299,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 创建StoreView.
+     * Creates a dataset.
      *
      * @param request - CreateStoreViewRequest
      *
@@ -3284,6 +3676,62 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 创建Azure blob文件导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAzureBlobIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $azureBlobIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAzureBlobIngestionResponse
+     */
+    public function deleteAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAzureBlobIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/azureblobingestions/' . $azureBlobIngestionName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteAzureBlobIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Azure blob文件导入任务
+     *
+     * @returns DeleteAzureBlobIngestionResponse
+     *
+     * @param string $project
+     * @param string $azureBlobIngestionName
+     *
+     * @return DeleteAzureBlobIngestionResponse
+     */
+    public function deleteAzureBlobIngestion($project, $azureBlobIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $headers, $runtime);
+    }
+
+    /**
      * Deletes a log collection policy from a cloud service.
      *
      * @remarks
@@ -3431,7 +3879,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * DeleteConsumeProcessor.
+     * Deletes the consumption processor.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3469,7 +3917,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * DeleteConsumeProcessor.
+     * Deletes the consumption processor.
      *
      * @returns DeleteConsumeProcessorResponse
      *
@@ -3815,6 +4263,62 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 删除ES导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteElasticsearchIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $esIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteElasticsearchIngestionResponse
+     */
+    public function deleteElasticsearchIngestionWithOptions($project, $esIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteElasticsearchIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/elasticsearchingestions/' . $esIngestionName . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteElasticsearchIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除ES导入任务
+     *
+     * @returns DeleteElasticsearchIngestionResponse
+     *
+     * @param string $project
+     * @param string $esIngestionName
+     *
+     * @return DeleteElasticsearchIngestionResponse
+     */
+    public function deleteElasticsearchIngestion($project, $esIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteElasticsearchIngestionWithOptions($project, $esIngestionName, $headers, $runtime);
+    }
+
+    /**
      * Deletes an index of a Logstore.
      *
      * @remarks
@@ -3999,7 +4503,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 关闭项目的服务日志记录。
+     * Disables the service log feature for a project.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4036,7 +4540,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 关闭项目的服务日志记录。
+     * Disables the service log feature for a project.
      *
      * @returns DeleteLoggingResponse
      *
@@ -4176,6 +4680,62 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->deleteMachineGroupWithOptions($project, $machineGroup, $headers, $runtime);
+    }
+
+    /**
+     * 删除物化视图.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMaterializedViewResponse
+     *
+     * @param string         $project
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteMaterializedViewResponse
+     */
+    public function deleteMaterializedViewWithOptions($project, $name, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMaterializedView',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/materializedviews/' . $name . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return DeleteMaterializedViewResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除物化视图.
+     *
+     * @returns DeleteMaterializedViewResponse
+     *
+     * @param string $project
+     * @param string $name
+     *
+     * @return DeleteMaterializedViewResponse
+     */
+    public function deleteMaterializedView($project, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteMaterializedViewWithOptions($project, $name, $headers, $runtime);
     }
 
     /**
@@ -4379,7 +4939,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 删除OSSHDFS投递任务
+     * Deletes an OSS-HDFS data shipping job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4417,7 +4977,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 删除OSSHDFS投递任务
+     * Deletes an OSS-HDFS data shipping job.
      *
      * @returns DeleteOSSHDFSExportResponse
      *
@@ -5588,6 +6148,134 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 获取异步SQL的状态以及结果.
+     *
+     * @param request - GetAsyncSqlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAsyncSqlResponse
+     *
+     * @param string             $project
+     * @param string             $queryId
+     * @param GetAsyncSqlRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetAsyncSqlResponse
+     */
+    public function getAsyncSqlWithOptions($project, $queryId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->line) {
+            @$query['line'] = $request->line;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAsyncSql',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/asyncsql/' . $queryId . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAsyncSqlResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取异步SQL的状态以及结果.
+     *
+     * @param request - GetAsyncSqlRequest
+     *
+     * @returns GetAsyncSqlResponse
+     *
+     * @param string             $project
+     * @param string             $queryId
+     * @param GetAsyncSqlRequest $request
+     *
+     * @return GetAsyncSqlResponse
+     */
+    public function getAsyncSql($project, $queryId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAsyncSqlWithOptions($project, $queryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取Azure blob文件导入任务信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAzureBlobIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $azureBlobIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAzureBlobIngestionResponse
+     */
+    public function getAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetAzureBlobIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/azureblobingestions/' . $azureBlobIngestionName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAzureBlobIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Azure blob文件导入任务信息.
+     *
+     * @returns GetAzureBlobIngestionResponse
+     *
+     * @param string $project
+     * @param string $azureBlobIngestionName
+     *
+     * @return GetAzureBlobIngestionResponse
+     */
+    public function getAzureBlobIngestion($project, $azureBlobIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $headers, $runtime);
+    }
+
+    /**
      * Queries the checkpoints of a shard from which data is consumed by a consumer group.
      *
      * @remarks
@@ -5664,7 +6352,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 调用GetCollectionPolicy获取对应的规则.
+     * Queries the information about a log collection policy.
      *
      * @remarks
      * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
@@ -5714,7 +6402,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 调用GetCollectionPolicy获取对应的规则.
+     * Queries the information about a log collection policy.
      *
      * @remarks
      * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
@@ -6313,6 +7001,118 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 获取ElasticSearch导入任务信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetElasticsearchIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $esIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetElasticsearchIngestionResponse
+     */
+    public function getElasticsearchIngestionWithOptions($project, $esIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetElasticsearchIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/elasticsearchingestions/' . $esIngestionName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetElasticsearchIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取ElasticSearch导入任务信息.
+     *
+     * @returns GetElasticsearchIngestionResponse
+     *
+     * @param string $project
+     * @param string $esIngestionName
+     *
+     * @return GetElasticsearchIngestionResponse
+     */
+    public function getElasticsearchIngestion($project, $esIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getElasticsearchIngestionWithOptions($project, $esIngestionName, $headers, $runtime);
+    }
+
+    /**
+     * 获取GCP Cloud Storage文件导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGCSIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $gcsIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetGCSIngestionResponse
+     */
+    public function getGCSIngestionWithOptions($project, $gcsIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetGCSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gcsingestions/' . $gcsIngestionName . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGCSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取GCP Cloud Storage文件导入任务
+     *
+     * @returns GetGCSIngestionResponse
+     *
+     * @param string $project
+     * @param string $gcsIngestionName
+     *
+     * @return GetGCSIngestionResponse
+     */
+    public function getGCSIngestion($project, $gcsIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGCSIngestionWithOptions($project, $gcsIngestionName, $headers, $runtime);
+    }
+
+    /**
      * Queries the distribution of logs that meet the specified search conditions in a Logstore.
      *
      * @remarks
@@ -6598,6 +7398,62 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->getLogStoreWithOptions($project, $logstore, $headers, $runtime);
+    }
+
+    /**
+     * 获取日志库配置.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLogStoreConfigResponse
+     *
+     * @param string         $project
+     * @param string         $logstore
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLogStoreConfigResponse
+     */
+    public function getLogStoreConfigWithOptions($project, $logstore, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetLogStoreConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/config',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLogStoreConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取日志库配置.
+     *
+     * @returns GetLogStoreConfigResponse
+     *
+     * @param string $project
+     * @param string $logstore
+     *
+     * @return GetLogStoreConfigResponse
+     */
+    public function getLogStoreConfig($project, $logstore)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getLogStoreConfigWithOptions($project, $logstore, $headers, $runtime);
     }
 
     /**
@@ -6897,6 +7753,10 @@ class Sls extends OpenApiClient
 
         if (null !== $request->highlight) {
             @$body['highlight'] = $request->highlight;
+        }
+
+        if (null !== $request->isAccurate) {
+            @$body['isAccurate'] = $request->isAccurate;
         }
 
         if (null !== $request->line) {
@@ -7218,6 +8078,71 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 获取物化视图.
+     *
+     * @param headers - GetMaterializedViewHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMaterializedViewResponse
+     *
+     * @param string                     $project
+     * @param string                     $name
+     * @param GetMaterializedViewHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMaterializedViewResponse
+     */
+    public function getMaterializedViewWithOptions($project, $name, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->contentType) {
+            @$realHeaders['Content-Type'] = '' . $headers->contentType;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'GetMaterializedView',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/materializedviews/' . $name . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMaterializedViewResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取物化视图.
+     *
+     * @returns GetMaterializedViewResponse
+     *
+     * @param string $project
+     * @param string $name
+     *
+     * @return GetMaterializedViewResponse
+     */
+    public function getMaterializedView($project, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetMaterializedViewHeaders([]);
+
+        return $this->getMaterializedViewWithOptions($project, $name, $headers, $runtime);
+    }
+
+    /**
      * Queries a MaxCompute data shipping job.
      *
      * @remarks
@@ -7418,7 +8343,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 获取OSS投递任务
+     * Queries the information about an Object Storage Service (OSS) data shipping job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7456,7 +8381,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 获取OSS投递任务
+     * Queries the information about an Object Storage Service (OSS) data shipping job.
      *
      * @returns GetOSSExportResponse
      *
@@ -7474,7 +8399,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * Get OSSHDFS Exports.
+     * Queries the information about an OSS-HDFS data shipping job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7512,7 +8437,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * Get OSSHDFS Exports.
+     * Queries the information about an OSS-HDFS data shipping job.
      *
      * @returns GetOSSHDFSExportResponse
      *
@@ -8616,6 +9541,80 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 列出Azure blob文件导入任务
+     *
+     * @param request - ListAzureBlobIngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAzureBlobIngestionResponse
+     *
+     * @param string                        $project
+     * @param ListAzureBlobIngestionRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAzureBlobIngestionResponse
+     */
+    public function listAzureBlobIngestionWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAzureBlobIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/azureblobingestions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAzureBlobIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列出Azure blob文件导入任务
+     *
+     * @param request - ListAzureBlobIngestionRequest
+     *
+     * @returns ListAzureBlobIngestionResponse
+     *
+     * @param string                        $project
+     * @param ListAzureBlobIngestionRequest $request
+     *
+     * @return ListAzureBlobIngestionResponse
+     */
+    public function listAzureBlobIngestion($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAzureBlobIngestionWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of log collection policies for cloud services.
      *
      * @remarks
@@ -9289,6 +10288,154 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 创建ES导入任务
+     *
+     * @param request - ListElasticsearchIngestionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListElasticsearchIngestionsResponse
+     *
+     * @param string                             $project
+     * @param ListElasticsearchIngestionsRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListElasticsearchIngestionsResponse
+     */
+    public function listElasticsearchIngestionsWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListElasticsearchIngestions',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/elasticsearchingestions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListElasticsearchIngestionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建ES导入任务
+     *
+     * @param request - ListElasticsearchIngestionsRequest
+     *
+     * @returns ListElasticsearchIngestionsResponse
+     *
+     * @param string                             $project
+     * @param ListElasticsearchIngestionsRequest $request
+     *
+     * @return ListElasticsearchIngestionsResponse
+     */
+    public function listElasticsearchIngestions($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listElasticsearchIngestionsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列出GCP Cloud Storage文件导入任务
+     *
+     * @param request - ListGCSIngestionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGCSIngestionsResponse
+     *
+     * @param string                   $project
+     * @param ListGCSIngestionsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListGCSIngestionsResponse
+     */
+    public function listGCSIngestionsWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->logstore) {
+            @$query['logstore'] = $request->logstore;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGCSIngestions',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gcsingestions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGCSIngestionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列出GCP Cloud Storage文件导入任务
+     *
+     * @param request - ListGCSIngestionsRequest
+     *
+     * @returns ListGCSIngestionsResponse
+     *
+     * @param string                   $project
+     * @param ListGCSIngestionsRequest $request
+     *
+     * @return ListGCSIngestionsResponse
+     */
+    public function listGCSIngestions($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGCSIngestionsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of ingest processors that meet specific conditions.
      *
      * @param request - ListIngestProcessorsRequest
@@ -9719,6 +10866,154 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 列举物化视图.
+     *
+     * @param request - ListMaterializedViewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMaterializedViewResponse
+     *
+     * @param string                      $project
+     * @param ListMaterializedViewRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListMaterializedViewResponse
+     */
+    public function listMaterializedViewWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMaterializedView',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/materializedviews',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMaterializedViewResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列举物化视图.
+     *
+     * @param request - ListMaterializedViewRequest
+     *
+     * @returns ListMaterializedViewResponse
+     *
+     * @param string                      $project
+     * @param ListMaterializedViewRequest $request
+     *
+     * @return ListMaterializedViewResponse
+     */
+    public function listMaterializedView($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMaterializedViewWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * 列举物化视图.
+     *
+     * @param request - ListMaterializedViewsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMaterializedViewsResponse
+     *
+     * @param string                       $project
+     * @param ListMaterializedViewsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListMaterializedViewsResponse
+     */
+    public function listMaterializedViewsWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->size) {
+            @$query['size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMaterializedViews',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/materializedviews',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMaterializedViewsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列举物化视图.
+     *
+     * @param request - ListMaterializedViewsRequest
+     *
+     * @returns ListMaterializedViewsResponse
+     *
+     * @param string                       $project
+     * @param ListMaterializedViewsRequest $request
+     *
+     * @return ListMaterializedViewsResponse
+     */
+    public function listMaterializedViews($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMaterializedViewsWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of MaxCompute data shipping jobs.
      *
      * @remarks
@@ -9895,7 +11190,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 列出OSS投递任务
+     * Queries a list of Object Storage Service (OSS) data shipping jobs in a project.
      *
      * @param request - ListOSSExportsRequest
      * @param headers - map
@@ -9949,7 +11244,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 列出OSS投递任务
+     * Queries a list of Object Storage Service (OSS) data shipping jobs in a project.
      *
      * @param request - ListOSSExportsRequest
      *
@@ -9969,7 +11264,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 列举OSSHDFS投递任务
+     * Queries a list of OSS-HDFS data shipping jobs in a project.
      *
      * @param request - ListOSSHDFSExportsRequest
      * @param headers - map
@@ -10023,7 +11318,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 列举OSSHDFS投递任务
+     * Queries a list of OSS-HDFS data shipping jobs in a project.
      *
      * @param request - ListOSSHDFSExportsRequest
      *
@@ -10139,6 +11434,10 @@ class Sls extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->description) {
+            @$query['description'] = $request->description;
+        }
+
         if (null !== $request->fetchQuota) {
             @$query['fetchQuota'] = $request->fetchQuota;
         }
@@ -10667,7 +11966,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 合并两个相邻的readwrite状态的Shards。在参数中指定一个shardID，服务端自动找相邻的下一个Shard进行合并。
+     * Merges readwrite shards that are adjacent to each other.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10706,7 +12005,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 合并两个相邻的readwrite状态的Shards。在参数中指定一个shardID，服务端自动找相邻的下一个Shard进行合并。
+     * Merges readwrite shards that are adjacent to each other.
      *
      * @returns MergeShardResponse
      *
@@ -10800,6 +12099,8 @@ class Sls extends OpenApiClient
     public function pullLogsWithOptions($project, $logStore, $shardId, $request, $headers, $runtime)
     {
         $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
         $query = [];
         if (null !== $request->count) {
             @$query['count'] = $request->count;
@@ -10827,6 +12128,7 @@ class Sls extends OpenApiClient
         }
 
         $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
             'headers' => $realHeaders,
             'query' => Utils::query($query),
         ]);
@@ -11097,6 +12399,74 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->putIngestProcessorWithOptions($project, $processorName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改日志库的配置.
+     *
+     * @param request - PutLogStoreConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutLogStoreConfigResponse
+     *
+     * @param string                   $project
+     * @param string                   $logstore
+     * @param PutLogStoreConfigRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PutLogStoreConfigResponse
+     */
+    public function putLogStoreConfigWithOptions($project, $logstore, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->clientIpHeaders) {
+            @$body['clientIpHeaders'] = $request->clientIpHeaders;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PutLogStoreConfig',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/logstores/' . $logstore . '/config',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return PutLogStoreConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改日志库的配置.
+     *
+     * @param request - PutLogStoreConfigRequest
+     *
+     * @returns PutLogStoreConfigResponse
+     *
+     * @param string                   $project
+     * @param string                   $logstore
+     * @param PutLogStoreConfigRequest $request
+     *
+     * @return PutLogStoreConfigResponse
+     */
+    public function putLogStoreConfig($project, $logstore, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putLogStoreConfigWithOptions($project, $logstore, $request, $headers, $runtime);
     }
 
     /**
@@ -11437,7 +12807,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 刷新token.
+     * Refreshes an access token by using a ticket to access the Simple Log Service console.
      *
      * @param request - RefreshTokenRequest
      * @param headers - map
@@ -11483,7 +12853,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 刷新token.
+     * Refreshes an access token by using a ticket to access the Simple Log Service console.
      *
      * @param request - RefreshTokenRequest
      *
@@ -11503,9 +12873,6 @@ class Sls extends OpenApiClient
 
     /**
      * Removes a Logtail configuration from a machine group.
-     *
-     * @remarks
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11545,9 +12912,6 @@ class Sls extends OpenApiClient
 
     /**
      * Removes a Logtail configuration from a machine group.
-     *
-     * @remarks
-     * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
      *
      * @returns RemoveConfigFromMachineGroupResponse
      *
@@ -11650,6 +13014,62 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 启动Azure blob文件导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAzureBlobIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $azureBlobIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartAzureBlobIngestionResponse
+     */
+    public function startAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StartAzureBlobIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/azureblobingestions/' . $azureBlobIngestionName . '?action=START',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return StartAzureBlobIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 启动Azure blob文件导入任务
+     *
+     * @returns StartAzureBlobIngestionResponse
+     *
+     * @param string $project
+     * @param string $azureBlobIngestionName
+     *
+     * @return StartAzureBlobIngestionResponse
+     */
+    public function startAzureBlobIngestion($project, $azureBlobIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $headers, $runtime);
+    }
+
+    /**
      * Starts a data transformation job.
      *
      * @param headers - map
@@ -11703,6 +13123,118 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->startETLWithOptions($project, $etlName, $headers, $runtime);
+    }
+
+    /**
+     * 启动ES导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartElasticsearchIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $elasticsearchIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartElasticsearchIngestionResponse
+     */
+    public function startElasticsearchIngestionWithOptions($project, $elasticsearchIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StartElasticsearchIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/elasticsearchingestions/' . $elasticsearchIngestionName . '?action=START',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return StartElasticsearchIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 启动ES导入任务
+     *
+     * @returns StartElasticsearchIngestionResponse
+     *
+     * @param string $project
+     * @param string $elasticsearchIngestionName
+     *
+     * @return StartElasticsearchIngestionResponse
+     */
+    public function startElasticsearchIngestion($project, $elasticsearchIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startElasticsearchIngestionWithOptions($project, $elasticsearchIngestionName, $headers, $runtime);
+    }
+
+    /**
+     * 启动GCP Cloud Storage文件导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartGCSIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $gcsIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartGCSIngestionResponse
+     */
+    public function startGCSIngestionWithOptions($project, $gcsIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StartGCSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gcsingestions/' . $gcsIngestionName . '?action=START',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'any',
+        ]);
+
+        return StartGCSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 启动GCP Cloud Storage文件导入任务
+     *
+     * @returns StartGCSIngestionResponse
+     *
+     * @param string $project
+     * @param string $gcsIngestionName
+     *
+     * @return StartGCSIngestionResponse
+     */
+    public function startGCSIngestion($project, $gcsIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startGCSIngestionWithOptions($project, $gcsIngestionName, $headers, $runtime);
     }
 
     /**
@@ -11774,7 +13306,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 启动OSS投递任务
+     * Starts an Object Storage Service (OSS) data shipping job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11812,7 +13344,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 启动OSS投递任务
+     * Starts an Object Storage Service (OSS) data shipping job.
      *
      * @returns StartOSSExportResponse
      *
@@ -11830,7 +13362,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 启动OSSHDFS投递任务
+     * Starts an OSS-HDFS data shipping job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11868,7 +13400,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 启动OSSHDFS投递任务
+     * Starts an OSS-HDFS data shipping job.
      *
      * @returns StartOSSHDFSExportResponse
      *
@@ -11942,6 +13474,62 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 启动Azure blob文件导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAzureBlobIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $azureBlobIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopAzureBlobIngestionResponse
+     */
+    public function stopAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopAzureBlobIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/azureblobingestions/' . $azureBlobIngestionName . '?action=STOP',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return StopAzureBlobIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 启动Azure blob文件导入任务
+     *
+     * @returns StopAzureBlobIngestionResponse
+     *
+     * @param string $project
+     * @param string $azureBlobIngestionName
+     *
+     * @return StopAzureBlobIngestionResponse
+     */
+    public function stopAzureBlobIngestion($project, $azureBlobIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $headers, $runtime);
+    }
+
+    /**
      * Stops a data transformation job.
      *
      * @param headers - map
@@ -11995,6 +13583,169 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->stopETLWithOptions($project, $etlName, $headers, $runtime);
+    }
+
+    /**
+     * 停止ES导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopElasticsearchIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $elasticsearchIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopElasticsearchIngestionResponse
+     */
+    public function stopElasticsearchIngestionWithSSE($project, $elasticsearchIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopElasticsearchIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/elasticsearchingestions/' . $elasticsearchIngestionName . '?action=STOP',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield StopElasticsearchIngestionResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 停止ES导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopElasticsearchIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $elasticsearchIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopElasticsearchIngestionResponse
+     */
+    public function stopElasticsearchIngestionWithOptions($project, $elasticsearchIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopElasticsearchIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/elasticsearchingestions/' . $elasticsearchIngestionName . '?action=STOP',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return StopElasticsearchIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 停止ES导入任务
+     *
+     * @returns StopElasticsearchIngestionResponse
+     *
+     * @param string $project
+     * @param string $elasticsearchIngestionName
+     *
+     * @return StopElasticsearchIngestionResponse
+     */
+    public function stopElasticsearchIngestion($project, $elasticsearchIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopElasticsearchIngestionWithOptions($project, $elasticsearchIngestionName, $headers, $runtime);
+    }
+
+    /**
+     * 停止GCP Cloud Storage文件导入任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopGCSIngestionResponse
+     *
+     * @param string         $project
+     * @param string         $gcsIngestionName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopGCSIngestionResponse
+     */
+    public function stopGCSIngestionWithOptions($project, $gcsIngestionName, $headers, $runtime)
+    {
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopGCSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gcsingestions/' . $gcsIngestionName . '?action=STOP',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'any',
+        ]);
+
+        return StopGCSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 停止GCP Cloud Storage文件导入任务
+     *
+     * @returns StopGCSIngestionResponse
+     *
+     * @param string $project
+     * @param string $gcsIngestionName
+     *
+     * @return StopGCSIngestionResponse
+     */
+    public function stopGCSIngestion($project, $gcsIngestionName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopGCSIngestionWithOptions($project, $gcsIngestionName, $headers, $runtime);
     }
 
     /**
@@ -12066,7 +13817,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 停止OSS投递任务
+     * Stops an Object Storage Service (OSS) data shipping job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12104,7 +13855,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 停止OSS投递任务
+     * Stops an Object Storage Service (OSS) data shipping job.
      *
      * @returns StopOSSExportResponse
      *
@@ -12122,7 +13873,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 停止OSSHDFS投递任务
+     * Stops an OSS-HDFS data shipping job.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12160,7 +13911,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 停止OSSHDFS投递任务
+     * Stops an OSS-HDFS data shipping job.
      *
      * @returns StopOSSHDFSExportResponse
      *
@@ -12231,6 +13982,80 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->stopOSSIngestionWithOptions($project, $ossIngestionName, $headers, $runtime);
+    }
+
+    /**
+     * 提交异步SQL请求
+     *
+     * @param request - SubmitAsyncSqlRequest
+     * @param headers - SubmitAsyncSqlHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAsyncSqlResponse
+     *
+     * @param string                $project
+     * @param SubmitAsyncSqlRequest $request
+     * @param SubmitAsyncSqlHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubmitAsyncSqlResponse
+     */
+    public function submitAsyncSqlWithOptions($project, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accept) {
+            @$realHeaders['Accept'] = '' . $headers->accept;
+        }
+
+        if (null !== $headers->acceptEncoding) {
+            @$realHeaders['Accept-Encoding'] = '' . $headers->acceptEncoding;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAsyncSql',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/asyncsql',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'none',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAsyncSqlResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 提交异步SQL请求
+     *
+     * @param request - SubmitAsyncSqlRequest
+     *
+     * @returns SubmitAsyncSqlResponse
+     *
+     * @param string                $project
+     * @param SubmitAsyncSqlRequest $request
+     *
+     * @return SubmitAsyncSqlResponse
+     */
+    public function submitAsyncSql($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SubmitAsyncSqlHeaders([]);
+
+        return $this->submitAsyncSqlWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -12705,6 +14530,86 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 更新Azure blob文件导入任务
+     *
+     * @param request - UpdateAzureBlobIngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAzureBlobIngestionResponse
+     *
+     * @param string                          $project
+     * @param string                          $azureBlobIngestionName
+     * @param UpdateAzureBlobIngestionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateAzureBlobIngestionResponse
+     */
+    public function updateAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAzureBlobIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/azureblobingestions/' . $azureBlobIngestionName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return UpdateAzureBlobIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Azure blob文件导入任务
+     *
+     * @param request - UpdateAzureBlobIngestionRequest
+     *
+     * @returns UpdateAzureBlobIngestionResponse
+     *
+     * @param string                          $project
+     * @param string                          $azureBlobIngestionName
+     * @param UpdateAzureBlobIngestionRequest $request
+     *
+     * @return UpdateAzureBlobIngestionResponse
+     */
+    public function updateAzureBlobIngestion($project, $azureBlobIngestionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAzureBlobIngestionWithOptions($project, $azureBlobIngestionName, $request, $headers, $runtime);
+    }
+
+    /**
      * Modifies a Logtail configuration.
      *
      * @remarks
@@ -13052,6 +14957,162 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 更新ES导入任务
+     *
+     * @param request - UpdateElasticsearchIngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateElasticsearchIngestionResponse
+     *
+     * @param string                              $project
+     * @param string                              $elasticsearchIngestionName
+     * @param UpdateElasticsearchIngestionRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateElasticsearchIngestionResponse
+     */
+    public function updateElasticsearchIngestionWithOptions($project, $elasticsearchIngestionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->schedule) {
+            @$body['schedule'] = $request->schedule;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateElasticsearchIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/elasticsearchingestions/' . $elasticsearchIngestionName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return UpdateElasticsearchIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新ES导入任务
+     *
+     * @param request - UpdateElasticsearchIngestionRequest
+     *
+     * @returns UpdateElasticsearchIngestionResponse
+     *
+     * @param string                              $project
+     * @param string                              $elasticsearchIngestionName
+     * @param UpdateElasticsearchIngestionRequest $request
+     *
+     * @return UpdateElasticsearchIngestionResponse
+     */
+    public function updateElasticsearchIngestion($project, $elasticsearchIngestionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateElasticsearchIngestionWithOptions($project, $elasticsearchIngestionName, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新GCP Cloud Storage文件导入任务
+     *
+     * @param request - UpdateGCSIngestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGCSIngestionResponse
+     *
+     * @param string                    $project
+     * @param string                    $gcsIngestionName
+     * @param UpdateGCSIngestionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateGCSIngestionResponse
+     */
+    public function updateGCSIngestionWithOptions($project, $gcsIngestionName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->configuration) {
+            @$body['configuration'] = $request->configuration;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGCSIngestion',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/gcsingestions/' . $gcsIngestionName . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'any',
+        ]);
+
+        return UpdateGCSIngestionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新GCP Cloud Storage文件导入任务
+     *
+     * @param request - UpdateGCSIngestionRequest
+     *
+     * @returns UpdateGCSIngestionResponse
+     *
+     * @param string                    $project
+     * @param string                    $gcsIngestionName
+     * @param UpdateGCSIngestionRequest $request
+     *
+     * @return UpdateGCSIngestionResponse
+     */
+    public function updateGCSIngestion($project, $gcsIngestionName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGCSIngestionWithOptions($project, $gcsIngestionName, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates the indexes of a Logstore.
      *
      * @remarks
@@ -13188,6 +15249,10 @@ class Sls extends OpenApiClient
 
         if (null !== $request->shardCount) {
             @$body['shardCount'] = $request->shardCount;
+        }
+
+        if (null !== $request->shardingPolicy) {
+            @$body['shardingPolicy'] = $request->shardingPolicy;
         }
 
         if (null !== $request->telemetryType) {
@@ -13822,6 +15887,86 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * 更新物化视图.
+     *
+     * @param request - UpdateMaterializedViewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMaterializedViewResponse
+     *
+     * @param string                        $project
+     * @param string                        $name
+     * @param UpdateMaterializedViewRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateMaterializedViewResponse
+     */
+    public function updateMaterializedViewWithOptions($project, $name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $hostMap = [];
+        @$hostMap['project'] = $project;
+        $body = [];
+        if (null !== $request->aggIntervalMins) {
+            @$body['aggIntervalMins'] = $request->aggIntervalMins;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->originalSql) {
+            @$body['originalSql'] = $request->originalSql;
+        }
+
+        if (null !== $request->ttl) {
+            @$body['ttl'] = $request->ttl;
+        }
+
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMaterializedView',
+            'version' => '2020-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/materializedviews/' . $name . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return UpdateMaterializedViewResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新物化视图.
+     *
+     * @param request - UpdateMaterializedViewRequest
+     *
+     * @returns UpdateMaterializedViewResponse
+     *
+     * @param string                        $project
+     * @param string                        $name
+     * @param UpdateMaterializedViewRequest $request
+     *
+     * @return UpdateMaterializedViewResponse
+     */
+    public function updateMaterializedView($project, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateMaterializedViewWithOptions($project, $name, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates a MaxCompute data shipping job.
      *
      * @remarks
@@ -13942,6 +16087,10 @@ class Sls extends OpenApiClient
         $hostMap = [];
         @$hostMap['project'] = $project;
         $body = [];
+        if (null !== $request->appendMeta) {
+            @$body['appendMeta'] = $request->appendMeta;
+        }
+
         if (null !== $request->autoSplit) {
             @$body['autoSplit'] = $request->autoSplit;
         }
@@ -13960,6 +16109,10 @@ class Sls extends OpenApiClient
 
         if (null !== $request->mode) {
             @$body['mode'] = $request->mode;
+        }
+
+        if (null !== $request->shardingPolicy) {
+            @$body['shardingPolicy'] = $request->shardingPolicy;
         }
 
         if (null !== $request->ttl) {
@@ -14018,7 +16171,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 更新 MetricStore 计量模式.
+     * Updates the billing mode of a Metricstore.
      *
      * @param request - UpdateMetricStoreMeteringModeRequest
      * @param headers - map
@@ -14065,7 +16218,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 更新 MetricStore 计量模式.
+     * Updates the billing mode of a Metricstore.
      *
      * @param request - UpdateMetricStoreMeteringModeRequest
      *
@@ -14154,7 +16307,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 更新OSS投递任务
+     * Updates an Object Storage Service (OSS) data shipping job.
      *
      * @param request - UpdateOSSExportRequest
      * @param headers - map
@@ -14209,7 +16362,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 更新OSS投递任务
+     * Updates an Object Storage Service (OSS) data shipping job.
      *
      * @param request - UpdateOSSExportRequest
      *
@@ -14230,7 +16383,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 更新OSSHDFS投递任务
+     * Updates an OSS-HDFS data shipping job.
      *
      * @param request - UpdateOSSHDFSExportRequest
      * @param headers - map
@@ -14285,7 +16438,7 @@ class Sls extends OpenApiClient
     }
 
     /**
-     * 更新OSSHDFS投递任务
+     * Updates an OSS-HDFS data shipping job.
      *
      * @param request - UpdateOSSHDFSExportRequest
      *

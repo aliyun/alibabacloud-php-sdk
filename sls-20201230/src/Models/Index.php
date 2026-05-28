@@ -38,6 +38,11 @@ class Index extends Model
      * @var int
      */
     public $maxTextLen;
+
+    /**
+     * @var bool
+     */
+    public $scanIndex;
     protected $_name = [
         'keys' => 'keys',
         'line' => 'line',
@@ -45,6 +50,7 @@ class Index extends Model
         'logReduceBlackList' => 'log_reduce_black_list',
         'logReduceWhiteList' => 'log_reduce_white_list',
         'maxTextLen' => 'max_text_len',
+        'scanIndex' => 'scan_index',
     ];
 
     public function validate()
@@ -110,6 +116,10 @@ class Index extends Model
             $res['max_text_len'] = $this->maxTextLen;
         }
 
+        if (null !== $this->scanIndex) {
+            $res['scan_index'] = $this->scanIndex;
+        }
+
         return $res;
     }
 
@@ -162,6 +172,10 @@ class Index extends Model
 
         if (isset($map['max_text_len'])) {
             $model->maxTextLen = $map['max_text_len'];
+        }
+
+        if (isset($map['scan_index'])) {
+            $model->scanIndex = $map['scan_index'];
         }
 
         return $model;

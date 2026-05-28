@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class OSSIngestionConfigurationSource extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $advancedParameters;
+
+    /**
      * @var string
      */
     public $bucket;
@@ -52,6 +57,11 @@ class OSSIngestionConfigurationSource extends Model
      * @var string
      */
     public $prefix;
+
+    /**
+     * @var string
+     */
+    public $processorId;
 
     /**
      * @var bool
@@ -98,6 +108,7 @@ class OSSIngestionConfigurationSource extends Model
      */
     public $useMetaIndex;
     protected $_name = [
+        'advancedParameters' => 'advancedParameters',
         'bucket' => 'bucket',
         'compressionCodec' => 'compressionCodec',
         'encoding' => 'encoding',
@@ -107,6 +118,7 @@ class OSSIngestionConfigurationSource extends Model
         'interval' => 'interval',
         'pattern' => 'pattern',
         'prefix' => 'prefix',
+        'processorId' => 'processorId',
         'restoreObjectEnabled' => 'restoreObjectEnabled',
         'roleARN' => 'roleARN',
         'startTime' => 'startTime',
@@ -120,6 +132,9 @@ class OSSIngestionConfigurationSource extends Model
 
     public function validate()
     {
+        if (\is_array($this->advancedParameters)) {
+            Model::validateArray($this->advancedParameters);
+        }
         if (\is_array($this->format)) {
             Model::validateArray($this->format);
         }
@@ -129,6 +144,15 @@ class OSSIngestionConfigurationSource extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->advancedParameters) {
+            if (\is_array($this->advancedParameters)) {
+                $res['advancedParameters'] = [];
+                foreach ($this->advancedParameters as $key1 => $value1) {
+                    $res['advancedParameters'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->bucket) {
             $res['bucket'] = $this->bucket;
         }
@@ -168,6 +192,10 @@ class OSSIngestionConfigurationSource extends Model
 
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
+        }
+
+        if (null !== $this->processorId) {
+            $res['processorId'] = $this->processorId;
         }
 
         if (null !== $this->restoreObjectEnabled) {
@@ -217,6 +245,15 @@ class OSSIngestionConfigurationSource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['advancedParameters'])) {
+            if (!empty($map['advancedParameters'])) {
+                $model->advancedParameters = [];
+                foreach ($map['advancedParameters'] as $key1 => $value1) {
+                    $model->advancedParameters[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['bucket'])) {
             $model->bucket = $map['bucket'];
         }
@@ -256,6 +293,10 @@ class OSSIngestionConfigurationSource extends Model
 
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
+        }
+
+        if (isset($map['processorId'])) {
+            $model->processorId = $map['processorId'];
         }
 
         if (isset($map['restoreObjectEnabled'])) {

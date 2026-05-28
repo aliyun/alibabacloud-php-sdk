@@ -31,11 +31,6 @@ class Project extends Model
     /**
      * @var string
      */
-    public $location;
-
-    /**
-     * @var string
-     */
     public $owner;
 
     /**
@@ -72,7 +67,6 @@ class Project extends Model
         'dataRedundancyType' => 'dataRedundancyType',
         'description' => 'description',
         'lastModifyTime' => 'lastModifyTime',
-        'location' => 'location',
         'owner' => 'owner',
         'projectName' => 'projectName',
         'quota' => 'quota',
@@ -107,10 +101,6 @@ class Project extends Model
 
         if (null !== $this->lastModifyTime) {
             $res['lastModifyTime'] = $this->lastModifyTime;
-        }
-
-        if (null !== $this->location) {
-            $res['location'] = $this->location;
         }
 
         if (null !== $this->owner) {
@@ -171,10 +161,6 @@ class Project extends Model
 
         if (isset($map['lastModifyTime'])) {
             $model->lastModifyTime = $map['lastModifyTime'];
-        }
-
-        if (isset($map['location'])) {
-            $model->location = $map['location'];
         }
 
         if (isset($map['owner'])) {

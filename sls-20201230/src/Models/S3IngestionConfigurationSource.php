@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class S3IngestionConfigurationSource extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $advancedParameters;
+
+    /**
      * @var string
      */
     public $awsAccessKey;
@@ -41,6 +46,16 @@ class S3IngestionConfigurationSource extends Model
     /**
      * @var string
      */
+    public $cloudFrontEndpoint;
+
+    /**
+     * @var string
+     */
+    public $cloudFrontToken;
+
+    /**
+     * @var string
+     */
     public $compressionCodec;
 
     /**
@@ -52,6 +67,11 @@ class S3IngestionConfigurationSource extends Model
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $endpoint;
 
     /**
      * @var mixed[]
@@ -72,6 +92,11 @@ class S3IngestionConfigurationSource extends Model
      * @var string
      */
     public $prefix;
+
+    /**
+     * @var string
+     */
+    public $processorId;
 
     /**
      * @var int
@@ -107,20 +132,30 @@ class S3IngestionConfigurationSource extends Model
      * @var bool
      */
     public $useAwsSQSOnly;
+
+    /**
+     * @var bool
+     */
+    public $useCloudFront;
     protected $_name = [
+        'advancedParameters' => 'advancedParameters',
         'awsAccessKey' => 'awsAccessKey',
         'awsAccessKeySecret' => 'awsAccessKeySecret',
         'awsRegion' => 'awsRegion',
         'awsSQSQueueUrl' => 'awsSQSQueueUrl',
         'awsUseSQS' => 'awsUseSQS',
         'bucket' => 'bucket',
+        'cloudFrontEndpoint' => 'cloudFrontEndpoint',
+        'cloudFrontToken' => 'cloudFrontToken',
         'compressionCodec' => 'compressionCodec',
         'encoding' => 'encoding',
         'endTime' => 'endTime',
+        'endpoint' => 'endpoint',
         'format' => 'format',
         'interval' => 'interval',
         'pattern' => 'pattern',
         'prefix' => 'prefix',
+        'processorId' => 'processorId',
         'startTime' => 'startTime',
         'tagPackId' => 'tagPackId',
         'timeField' => 'timeField',
@@ -128,10 +163,14 @@ class S3IngestionConfigurationSource extends Model
         'timePattern' => 'timePattern',
         'timeZone' => 'timeZone',
         'useAwsSQSOnly' => 'useAwsSQSOnly',
+        'useCloudFront' => 'useCloudFront',
     ];
 
     public function validate()
     {
+        if (\is_array($this->advancedParameters)) {
+            Model::validateArray($this->advancedParameters);
+        }
         if (\is_array($this->format)) {
             Model::validateArray($this->format);
         }
@@ -141,6 +180,15 @@ class S3IngestionConfigurationSource extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->advancedParameters) {
+            if (\is_array($this->advancedParameters)) {
+                $res['advancedParameters'] = [];
+                foreach ($this->advancedParameters as $key1 => $value1) {
+                    $res['advancedParameters'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->awsAccessKey) {
             $res['awsAccessKey'] = $this->awsAccessKey;
         }
@@ -165,6 +213,14 @@ class S3IngestionConfigurationSource extends Model
             $res['bucket'] = $this->bucket;
         }
 
+        if (null !== $this->cloudFrontEndpoint) {
+            $res['cloudFrontEndpoint'] = $this->cloudFrontEndpoint;
+        }
+
+        if (null !== $this->cloudFrontToken) {
+            $res['cloudFrontToken'] = $this->cloudFrontToken;
+        }
+
         if (null !== $this->compressionCodec) {
             $res['compressionCodec'] = $this->compressionCodec;
         }
@@ -175,6 +231,10 @@ class S3IngestionConfigurationSource extends Model
 
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+
+        if (null !== $this->endpoint) {
+            $res['endpoint'] = $this->endpoint;
         }
 
         if (null !== $this->format) {
@@ -196,6 +256,10 @@ class S3IngestionConfigurationSource extends Model
 
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
+        }
+
+        if (null !== $this->processorId) {
+            $res['processorId'] = $this->processorId;
         }
 
         if (null !== $this->startTime) {
@@ -226,6 +290,10 @@ class S3IngestionConfigurationSource extends Model
             $res['useAwsSQSOnly'] = $this->useAwsSQSOnly;
         }
 
+        if (null !== $this->useCloudFront) {
+            $res['useCloudFront'] = $this->useCloudFront;
+        }
+
         return $res;
     }
 
@@ -237,6 +305,15 @@ class S3IngestionConfigurationSource extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['advancedParameters'])) {
+            if (!empty($map['advancedParameters'])) {
+                $model->advancedParameters = [];
+                foreach ($map['advancedParameters'] as $key1 => $value1) {
+                    $model->advancedParameters[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['awsAccessKey'])) {
             $model->awsAccessKey = $map['awsAccessKey'];
         }
@@ -261,6 +338,14 @@ class S3IngestionConfigurationSource extends Model
             $model->bucket = $map['bucket'];
         }
 
+        if (isset($map['cloudFrontEndpoint'])) {
+            $model->cloudFrontEndpoint = $map['cloudFrontEndpoint'];
+        }
+
+        if (isset($map['cloudFrontToken'])) {
+            $model->cloudFrontToken = $map['cloudFrontToken'];
+        }
+
         if (isset($map['compressionCodec'])) {
             $model->compressionCodec = $map['compressionCodec'];
         }
@@ -271,6 +356,10 @@ class S3IngestionConfigurationSource extends Model
 
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+
+        if (isset($map['endpoint'])) {
+            $model->endpoint = $map['endpoint'];
         }
 
         if (isset($map['format'])) {
@@ -292,6 +381,10 @@ class S3IngestionConfigurationSource extends Model
 
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
+        }
+
+        if (isset($map['processorId'])) {
+            $model->processorId = $map['processorId'];
         }
 
         if (isset($map['startTime'])) {
@@ -320,6 +413,10 @@ class S3IngestionConfigurationSource extends Model
 
         if (isset($map['useAwsSQSOnly'])) {
             $model->useAwsSQSOnly = $map['useAwsSQSOnly'];
+        }
+
+        if (isset($map['useCloudFront'])) {
+            $model->useCloudFront = $map['useCloudFront'];
         }
 
         return $model;

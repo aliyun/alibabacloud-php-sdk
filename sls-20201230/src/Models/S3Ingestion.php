@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class S3Ingestion extends Model
 {
     /**
-     * @var S3IngestionConfigurationSource
+     * @var S3IngestionConfiguration
      */
     public $configuration;
 
@@ -126,7 +126,7 @@ class S3Ingestion extends Model
     {
         $model = new self();
         if (isset($map['configuration'])) {
-            $model->configuration = S3IngestionConfigurationSource::fromMap($map['configuration']);
+            $model->configuration = S3IngestionConfiguration::fromMap($map['configuration']);
         }
 
         if (isset($map['createTime'])) {

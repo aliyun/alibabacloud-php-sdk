@@ -14,12 +14,12 @@ class ListS3IngestionsRequest extends Model
     public $logstore;
 
     /**
-     * @var string
+     * @var int
      */
     public $offset;
 
     /**
-     * @var string
+     * @var int
      */
     public $size;
     protected $_name = [

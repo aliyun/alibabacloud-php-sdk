@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListProjectRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var bool
      */
     public $fetchQuota;
@@ -33,6 +38,7 @@ class ListProjectRequest extends Model
      */
     public $size;
     protected $_name = [
+        'description' => 'description',
         'fetchQuota' => 'fetchQuota',
         'offset' => 'offset',
         'projectName' => 'projectName',
@@ -48,6 +54,10 @@ class ListProjectRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+
         if (null !== $this->fetchQuota) {
             $res['fetchQuota'] = $this->fetchQuota;
         }
@@ -79,6 +89,10 @@ class ListProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+
         if (isset($map['fetchQuota'])) {
             $model->fetchQuota = $map['fetchQuota'];
         }

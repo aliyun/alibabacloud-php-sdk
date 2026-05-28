@@ -11,6 +11,11 @@ class GetMetricStoreResponseBody extends Model
     /**
      * @var bool
      */
+    public $appendMeta;
+
+    /**
+     * @var bool
+     */
     public $autoSplit;
 
     /**
@@ -54,15 +59,26 @@ class GetMetricStoreResponseBody extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $processorId;
+
+    /**
      * @var int
      */
     public $shardCount;
+
+    /**
+     * @var ShardingPolicy
+     */
+    public $shardingPolicy;
 
     /**
      * @var int
      */
     public $ttl;
     protected $_name = [
+        'appendMeta' => 'appendMeta',
         'autoSplit' => 'autoSplit',
         'createTime' => 'createTime',
         'hotTtl' => 'hot_ttl',
@@ -72,18 +88,27 @@ class GetMetricStoreResponseBody extends Model
         'metricType' => 'metricType',
         'mode' => 'mode',
         'name' => 'name',
+        'processorId' => 'processorId',
         'shardCount' => 'shardCount',
+        'shardingPolicy' => 'shardingPolicy',
         'ttl' => 'ttl',
     ];
 
     public function validate()
     {
+        if (null !== $this->shardingPolicy) {
+            $this->shardingPolicy->validate();
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appendMeta) {
+            $res['appendMeta'] = $this->appendMeta;
+        }
+
         if (null !== $this->autoSplit) {
             $res['autoSplit'] = $this->autoSplit;
         }
@@ -120,8 +145,16 @@ class GetMetricStoreResponseBody extends Model
             $res['name'] = $this->name;
         }
 
+        if (null !== $this->processorId) {
+            $res['processorId'] = $this->processorId;
+        }
+
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
+        }
+
+        if (null !== $this->shardingPolicy) {
+            $res['shardingPolicy'] = null !== $this->shardingPolicy ? $this->shardingPolicy->toArray($noStream) : $this->shardingPolicy;
         }
 
         if (null !== $this->ttl) {
@@ -139,6 +172,10 @@ class GetMetricStoreResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['appendMeta'])) {
+            $model->appendMeta = $map['appendMeta'];
+        }
+
         if (isset($map['autoSplit'])) {
             $model->autoSplit = $map['autoSplit'];
         }
@@ -175,8 +212,16 @@ class GetMetricStoreResponseBody extends Model
             $model->name = $map['name'];
         }
 
+        if (isset($map['processorId'])) {
+            $model->processorId = $map['processorId'];
+        }
+
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];
+        }
+
+        if (isset($map['shardingPolicy'])) {
+            $model->shardingPolicy = ShardingPolicy::fromMap($map['shardingPolicy']);
         }
 
         if (isset($map['ttl'])) {

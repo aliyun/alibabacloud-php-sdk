@@ -24,6 +24,11 @@ class GetLogsV2Request extends Model
     public $highlight;
 
     /**
+     * @var bool
+     */
+    public $isAccurate;
+
+    /**
      * @var int
      */
     public $line;
@@ -66,6 +71,7 @@ class GetLogsV2Request extends Model
         'forward' => 'forward',
         'from' => 'from',
         'highlight' => 'highlight',
+        'isAccurate' => 'isAccurate',
         'line' => 'line',
         'offset' => 'offset',
         'powerSql' => 'powerSql',
@@ -94,6 +100,10 @@ class GetLogsV2Request extends Model
 
         if (null !== $this->highlight) {
             $res['highlight'] = $this->highlight;
+        }
+
+        if (null !== $this->isAccurate) {
+            $res['isAccurate'] = $this->isAccurate;
         }
 
         if (null !== $this->line) {
@@ -149,6 +159,10 @@ class GetLogsV2Request extends Model
 
         if (isset($map['highlight'])) {
             $model->highlight = $map['highlight'];
+        }
+
+        if (isset($map['isAccurate'])) {
+            $model->isAccurate = $map['isAccurate'];
         }
 
         if (isset($map['line'])) {

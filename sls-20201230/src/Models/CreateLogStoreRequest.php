@@ -59,9 +59,19 @@ class CreateLogStoreRequest extends Model
     public $processorId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $shardCount;
+
+    /**
+     * @var ShardingPolicy
+     */
+    public $shardingPolicy;
 
     /**
      * @var string
@@ -83,7 +93,9 @@ class CreateLogStoreRequest extends Model
         'maxSplitShard' => 'maxSplitShard',
         'mode' => 'mode',
         'processorId' => 'processorId',
+        'resourceGroupId' => 'resourceGroupId',
         'shardCount' => 'shardCount',
+        'shardingPolicy' => 'shardingPolicy',
         'telemetryType' => 'telemetryType',
         'ttl' => 'ttl',
     ];
@@ -92,6 +104,9 @@ class CreateLogStoreRequest extends Model
     {
         if (null !== $this->encryptConf) {
             $this->encryptConf->validate();
+        }
+        if (null !== $this->shardingPolicy) {
+            $this->shardingPolicy->validate();
         }
         parent::validate();
     }
@@ -139,8 +154,16 @@ class CreateLogStoreRequest extends Model
             $res['processorId'] = $this->processorId;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
+        }
+
+        if (null !== $this->shardingPolicy) {
+            $res['shardingPolicy'] = null !== $this->shardingPolicy ? $this->shardingPolicy->toArray($noStream) : $this->shardingPolicy;
         }
 
         if (null !== $this->telemetryType) {
@@ -202,8 +225,16 @@ class CreateLogStoreRequest extends Model
             $model->processorId = $map['processorId'];
         }
 
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];
+        }
+
+        if (isset($map['shardingPolicy'])) {
+            $model->shardingPolicy = ShardingPolicy::fromMap($map['shardingPolicy']);
         }
 
         if (isset($map['telemetryType'])) {

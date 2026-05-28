@@ -16,16 +16,6 @@ class ESIngestionConfigurationSource extends Model
     /**
      * @var string
      */
-    public $index;
-
-    /**
-     * @var int
-     */
-    public $minFragRangeSec;
-
-    /**
-     * @var string
-     */
     public $connectorMode;
 
     /**
@@ -34,9 +24,19 @@ class ESIngestionConfigurationSource extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $index;
+
+    /**
      * @var int
      */
     public $maxDataDelaySec;
+
+    /**
+     * @var int
+     */
+    public $minFragRangeSec;
 
     /**
      * @var string
@@ -79,19 +79,19 @@ class ESIngestionConfigurationSource extends Model
     public $vpcId;
     protected $_name = [
         'bootstrapServers' => 'BootstrapServers',
+        'connectorMode' => 'ConnectorMode',
+        'endTime' => 'EndTime',
         'index' => 'Index',
+        'maxDataDelaySec' => 'MaxDataDelaySec',
         'minFragRangeSec' => 'MinFragRangeSec',
-        'connectorMode' => 'connectorMode',
-        'endTime' => 'endTime',
-        'maxDataDelaySec' => 'maxDataDelaySec',
-        'password' => 'password',
-        'query' => 'query',
-        'startTime' => 'startTime',
-        'timeFieldName' => 'timeFieldName',
-        'timeFormat' => 'timeFormat',
-        'timeZone' => 'timeZone',
-        'username' => 'username',
-        'vpcId' => 'vpcId',
+        'password' => 'Password',
+        'query' => 'Query',
+        'startTime' => 'StartTime',
+        'timeFieldName' => 'TimeFieldName',
+        'timeFormat' => 'TimeFormat',
+        'timeZone' => 'TimeZone',
+        'username' => 'Username',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -106,56 +106,56 @@ class ESIngestionConfigurationSource extends Model
             $res['BootstrapServers'] = $this->bootstrapServers;
         }
 
+        if (null !== $this->connectorMode) {
+            $res['ConnectorMode'] = $this->connectorMode;
+        }
+
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
+        }
+
+        if (null !== $this->maxDataDelaySec) {
+            $res['MaxDataDelaySec'] = $this->maxDataDelaySec;
         }
 
         if (null !== $this->minFragRangeSec) {
             $res['MinFragRangeSec'] = $this->minFragRangeSec;
         }
 
-        if (null !== $this->connectorMode) {
-            $res['connectorMode'] = $this->connectorMode;
-        }
-
-        if (null !== $this->endTime) {
-            $res['endTime'] = $this->endTime;
-        }
-
-        if (null !== $this->maxDataDelaySec) {
-            $res['maxDataDelaySec'] = $this->maxDataDelaySec;
-        }
-
         if (null !== $this->password) {
-            $res['password'] = $this->password;
+            $res['Password'] = $this->password;
         }
 
         if (null !== $this->query) {
-            $res['query'] = $this->query;
+            $res['Query'] = $this->query;
         }
 
         if (null !== $this->startTime) {
-            $res['startTime'] = $this->startTime;
+            $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->timeFieldName) {
-            $res['timeFieldName'] = $this->timeFieldName;
+            $res['TimeFieldName'] = $this->timeFieldName;
         }
 
         if (null !== $this->timeFormat) {
-            $res['timeFormat'] = $this->timeFormat;
+            $res['TimeFormat'] = $this->timeFormat;
         }
 
         if (null !== $this->timeZone) {
-            $res['timeZone'] = $this->timeZone;
+            $res['TimeZone'] = $this->timeZone;
         }
 
         if (null !== $this->username) {
-            $res['username'] = $this->username;
+            $res['Username'] = $this->username;
         }
 
         if (null !== $this->vpcId) {
-            $res['vpcId'] = $this->vpcId;
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -173,56 +173,56 @@ class ESIngestionConfigurationSource extends Model
             $model->bootstrapServers = $map['BootstrapServers'];
         }
 
+        if (isset($map['ConnectorMode'])) {
+            $model->connectorMode = $map['ConnectorMode'];
+        }
+
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
+        }
+
+        if (isset($map['MaxDataDelaySec'])) {
+            $model->maxDataDelaySec = $map['MaxDataDelaySec'];
         }
 
         if (isset($map['MinFragRangeSec'])) {
             $model->minFragRangeSec = $map['MinFragRangeSec'];
         }
 
-        if (isset($map['connectorMode'])) {
-            $model->connectorMode = $map['connectorMode'];
+        if (isset($map['Password'])) {
+            $model->password = $map['Password'];
         }
 
-        if (isset($map['endTime'])) {
-            $model->endTime = $map['endTime'];
+        if (isset($map['Query'])) {
+            $model->query = $map['Query'];
         }
 
-        if (isset($map['maxDataDelaySec'])) {
-            $model->maxDataDelaySec = $map['maxDataDelaySec'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
-        if (isset($map['password'])) {
-            $model->password = $map['password'];
+        if (isset($map['TimeFieldName'])) {
+            $model->timeFieldName = $map['TimeFieldName'];
         }
 
-        if (isset($map['query'])) {
-            $model->query = $map['query'];
+        if (isset($map['TimeFormat'])) {
+            $model->timeFormat = $map['TimeFormat'];
         }
 
-        if (isset($map['startTime'])) {
-            $model->startTime = $map['startTime'];
+        if (isset($map['TimeZone'])) {
+            $model->timeZone = $map['TimeZone'];
         }
 
-        if (isset($map['timeFieldName'])) {
-            $model->timeFieldName = $map['timeFieldName'];
+        if (isset($map['Username'])) {
+            $model->username = $map['Username'];
         }
 
-        if (isset($map['timeFormat'])) {
-            $model->timeFormat = $map['timeFormat'];
-        }
-
-        if (isset($map['timeZone'])) {
-            $model->timeZone = $map['timeZone'];
-        }
-
-        if (isset($map['username'])) {
-            $model->username = $map['username'];
-        }
-
-        if (isset($map['vpcId'])) {
-            $model->vpcId = $map['vpcId'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

@@ -1,0 +1,96 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Sls\V20201230\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class UpdateAzureBlobIngestionRequest extends Model
+{
+    /**
+     * @var AzureBlobIngestionConfiguration
+     */
+    public $configuration;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
+     * @var Schedule
+     */
+    public $schedule;
+    protected $_name = [
+        'configuration' => 'configuration',
+        'description' => 'description',
+        'displayName' => 'displayName',
+        'schedule' => 'schedule',
+    ];
+
+    public function validate()
+    {
+        if (null !== $this->configuration) {
+            $this->configuration->validate();
+        }
+        if (null !== $this->schedule) {
+            $this->schedule->validate();
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->configuration) {
+            $res['configuration'] = null !== $this->configuration ? $this->configuration->toArray($noStream) : $this->configuration;
+        }
+
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+
+        if (null !== $this->displayName) {
+            $res['displayName'] = $this->displayName;
+        }
+
+        if (null !== $this->schedule) {
+            $res['schedule'] = null !== $this->schedule ? $this->schedule->toArray($noStream) : $this->schedule;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['configuration'])) {
+            $model->configuration = AzureBlobIngestionConfiguration::fromMap($map['configuration']);
+        }
+
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+
+        if (isset($map['displayName'])) {
+            $model->displayName = $map['displayName'];
+        }
+
+        if (isset($map['schedule'])) {
+            $model->schedule = Schedule::fromMap($map['schedule']);
+        }
+
+        return $model;
+    }
+}

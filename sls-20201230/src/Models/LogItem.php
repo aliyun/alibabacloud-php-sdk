@@ -17,9 +17,15 @@ class LogItem extends Model
      * @var int
      */
     public $time;
+
+    /**
+     * @var int
+     */
+    public $timeNs;
     protected $_name = [
         'contents' => 'Contents',
         'time' => 'Time',
+        'timeNs' => 'TimeNs',
     ];
 
     public function validate()
@@ -48,6 +54,10 @@ class LogItem extends Model
             $res['Time'] = $this->time;
         }
 
+        if (null !== $this->timeNs) {
+            $res['TimeNs'] = $this->timeNs;
+        }
+
         return $res;
     }
 
@@ -72,6 +82,10 @@ class LogItem extends Model
 
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
+        }
+
+        if (isset($map['TimeNs'])) {
+            $model->timeNs = $map['TimeNs'];
         }
 
         return $model;

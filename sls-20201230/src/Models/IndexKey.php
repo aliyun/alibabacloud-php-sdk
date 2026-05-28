@@ -29,6 +29,11 @@ class IndexKey extends Model
     public $docValue;
 
     /**
+     * @var string
+     */
+    public $embedding;
+
+    /**
      * @var bool
      */
     public $indexAll;
@@ -52,16 +57,23 @@ class IndexKey extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $vectorIndex;
     protected $_name = [
         'alias' => 'alias',
         'caseSensitive' => 'caseSensitive',
         'chn' => 'chn',
         'docValue' => 'doc_value',
+        'embedding' => 'embedding',
         'indexAll' => 'index_all',
         'jsonKeys' => 'json_keys',
         'maxDepth' => 'max_depth',
         'token' => 'token',
         'type' => 'type',
+        'vectorIndex' => 'vector_index',
     ];
 
     public function validate()
@@ -92,6 +104,10 @@ class IndexKey extends Model
 
         if (null !== $this->docValue) {
             $res['doc_value'] = $this->docValue;
+        }
+
+        if (null !== $this->embedding) {
+            $res['embedding'] = $this->embedding;
         }
 
         if (null !== $this->indexAll) {
@@ -126,6 +142,10 @@ class IndexKey extends Model
             $res['type'] = $this->type;
         }
 
+        if (null !== $this->vectorIndex) {
+            $res['vector_index'] = $this->vectorIndex;
+        }
+
         return $res;
     }
 
@@ -151,6 +171,10 @@ class IndexKey extends Model
 
         if (isset($map['doc_value'])) {
             $model->docValue = $map['doc_value'];
+        }
+
+        if (isset($map['embedding'])) {
+            $model->embedding = $map['embedding'];
         }
 
         if (isset($map['index_all'])) {
@@ -183,6 +207,10 @@ class IndexKey extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['vector_index'])) {
+            $model->vectorIndex = $map['vector_index'];
         }
 
         return $model;

@@ -79,6 +79,11 @@ class Logstore extends Model
     public $shardCount;
 
     /**
+     * @var ShardingPolicy
+     */
+    public $shardingPolicy;
+
+    /**
      * @var string
      */
     public $telemetryType;
@@ -102,6 +107,7 @@ class Logstore extends Model
         'processorId' => 'processorId',
         'productType' => 'productType',
         'shardCount' => 'shardCount',
+        'shardingPolicy' => 'shardingPolicy',
         'telemetryType' => 'telemetryType',
         'ttl' => 'ttl',
     ];
@@ -110,6 +116,9 @@ class Logstore extends Model
     {
         if (null !== $this->encryptConf) {
             $this->encryptConf->validate();
+        }
+        if (null !== $this->shardingPolicy) {
+            $this->shardingPolicy->validate();
         }
         parent::validate();
     }
@@ -171,6 +180,10 @@ class Logstore extends Model
 
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
+        }
+
+        if (null !== $this->shardingPolicy) {
+            $res['shardingPolicy'] = null !== $this->shardingPolicy ? $this->shardingPolicy->toArray($noStream) : $this->shardingPolicy;
         }
 
         if (null !== $this->telemetryType) {
@@ -246,6 +259,10 @@ class Logstore extends Model
 
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];
+        }
+
+        if (isset($map['shardingPolicy'])) {
+            $model->shardingPolicy = ShardingPolicy::fromMap($map['shardingPolicy']);
         }
 
         if (isset($map['telemetryType'])) {
