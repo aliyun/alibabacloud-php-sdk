@@ -14,6 +14,11 @@ class ModifyDesktopNameRequest extends Model
     public $desktopId;
 
     /**
+     * @var string[]
+     */
+    public $desktopIds;
+
+    /**
      * @var string
      */
     public $newDesktopName;
@@ -22,14 +27,24 @@ class ModifyDesktopNameRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $userAssignMode;
     protected $_name = [
         'desktopId' => 'DesktopId',
+        'desktopIds' => 'DesktopIds',
         'newDesktopName' => 'NewDesktopName',
         'regionId' => 'RegionId',
+        'userAssignMode' => 'UserAssignMode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->desktopIds)) {
+            Model::validateArray($this->desktopIds);
+        }
         parent::validate();
     }
 
@@ -40,12 +55,27 @@ class ModifyDesktopNameRequest extends Model
             $res['DesktopId'] = $this->desktopId;
         }
 
+        if (null !== $this->desktopIds) {
+            if (\is_array($this->desktopIds)) {
+                $res['DesktopIds'] = [];
+                $n1 = 0;
+                foreach ($this->desktopIds as $item1) {
+                    $res['DesktopIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->newDesktopName) {
             $res['NewDesktopName'] = $this->newDesktopName;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->userAssignMode) {
+            $res['UserAssignMode'] = $this->userAssignMode;
         }
 
         return $res;
@@ -63,12 +93,27 @@ class ModifyDesktopNameRequest extends Model
             $model->desktopId = $map['DesktopId'];
         }
 
+        if (isset($map['DesktopIds'])) {
+            if (!empty($map['DesktopIds'])) {
+                $model->desktopIds = [];
+                $n1 = 0;
+                foreach ($map['DesktopIds'] as $item1) {
+                    $model->desktopIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['NewDesktopName'])) {
             $model->newDesktopName = $map['NewDesktopName'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['UserAssignMode'])) {
+            $model->userAssignMode = $map['UserAssignMode'];
         }
 
         return $model;

@@ -12101,6 +12101,10 @@ class Ecd extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->businessChannel) {
+            @$query['BusinessChannel'] = $request->businessChannel;
+        }
+
         if (null !== $request->desktopId) {
             @$query['DesktopId'] = $request->desktopId;
         }
@@ -19867,6 +19871,10 @@ class Ecd extends OpenApiClient
             @$query['DesktopId'] = $request->desktopId;
         }
 
+        if (null !== $request->desktopIds) {
+            @$query['DesktopIds'] = $request->desktopIds;
+        }
+
         if (null !== $request->newHostName) {
             @$query['NewHostName'] = $request->newHostName;
         }
@@ -19935,12 +19943,20 @@ class Ecd extends OpenApiClient
             @$query['DesktopId'] = $request->desktopId;
         }
 
+        if (null !== $request->desktopIds) {
+            @$query['DesktopIds'] = $request->desktopIds;
+        }
+
         if (null !== $request->newDesktopName) {
             @$query['NewDesktopName'] = $request->newDesktopName;
         }
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->userAssignMode) {
+            @$query['UserAssignMode'] = $request->userAssignMode;
         }
 
         $req = new OpenApiRequest([
@@ -22733,7 +22749,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询桌面历史使用时长排行榜.
+     * Query and sort historical usage duration by user or desktop dimension.
      *
      * @param request - QueryHistoryUsageDurationRankRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22788,7 +22804,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * 查询桌面历史使用时长排行榜.
+     * Query and sort historical usage duration by user or desktop dimension.
      *
      * @param request - QueryHistoryUsageDurationRankRequest
      *

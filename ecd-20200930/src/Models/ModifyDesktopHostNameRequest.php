@@ -14,6 +14,11 @@ class ModifyDesktopHostNameRequest extends Model
     public $desktopId;
 
     /**
+     * @var string[]
+     */
+    public $desktopIds;
+
+    /**
      * @var string
      */
     public $newHostName;
@@ -24,12 +29,16 @@ class ModifyDesktopHostNameRequest extends Model
     public $regionId;
     protected $_name = [
         'desktopId' => 'DesktopId',
+        'desktopIds' => 'DesktopIds',
         'newHostName' => 'NewHostName',
         'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->desktopIds)) {
+            Model::validateArray($this->desktopIds);
+        }
         parent::validate();
     }
 
@@ -38,6 +47,17 @@ class ModifyDesktopHostNameRequest extends Model
         $res = [];
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
+        }
+
+        if (null !== $this->desktopIds) {
+            if (\is_array($this->desktopIds)) {
+                $res['DesktopIds'] = [];
+                $n1 = 0;
+                foreach ($this->desktopIds as $item1) {
+                    $res['DesktopIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->newHostName) {
@@ -61,6 +81,17 @@ class ModifyDesktopHostNameRequest extends Model
         $model = new self();
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
+        }
+
+        if (isset($map['DesktopIds'])) {
+            if (!empty($map['DesktopIds'])) {
+                $model->desktopIds = [];
+                $n1 = 0;
+                foreach ($map['DesktopIds'] as $item1) {
+                    $model->desktopIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['NewHostName'])) {
