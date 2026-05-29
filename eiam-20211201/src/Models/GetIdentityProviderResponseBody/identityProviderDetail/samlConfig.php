@@ -38,6 +38,16 @@ class samlConfig extends Model
      * @var bool
      */
     public $requireRequestSigned;
+
+    /**
+     * @var bool
+     */
+    public $wantAssertionsSigned;
+
+    /**
+     * @var bool
+     */
+    public $wantResponseSigned;
     protected $_name = [
         'bindingMethod' => 'BindingMethod',
         'certificates' => 'Certificates',
@@ -45,6 +55,8 @@ class samlConfig extends Model
         'idPSsoUrl' => 'IdPSsoUrl',
         'maxClockSkew' => 'MaxClockSkew',
         'requireRequestSigned' => 'RequireRequestSigned',
+        'wantAssertionsSigned' => 'WantAssertionsSigned',
+        'wantResponseSigned' => 'WantResponseSigned',
     ];
 
     public function validate()
@@ -89,6 +101,14 @@ class samlConfig extends Model
             $res['RequireRequestSigned'] = $this->requireRequestSigned;
         }
 
+        if (null !== $this->wantAssertionsSigned) {
+            $res['WantAssertionsSigned'] = $this->wantAssertionsSigned;
+        }
+
+        if (null !== $this->wantResponseSigned) {
+            $res['WantResponseSigned'] = $this->wantResponseSigned;
+        }
+
         return $res;
     }
 
@@ -129,6 +149,14 @@ class samlConfig extends Model
 
         if (isset($map['RequireRequestSigned'])) {
             $model->requireRequestSigned = $map['RequireRequestSigned'];
+        }
+
+        if (isset($map['WantAssertionsSigned'])) {
+            $model->wantAssertionsSigned = $map['WantAssertionsSigned'];
+        }
+
+        if (isset($map['WantResponseSigned'])) {
+            $model->wantResponseSigned = $map['WantResponseSigned'];
         }
 
         return $model;
