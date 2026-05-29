@@ -22,14 +22,23 @@ class DeleteLoadBalancerRequest extends Model
      * @var string
      */
     public $loadBalancerId;
+
+    /**
+     * @var string[]
+     */
+    public $retainResourceType;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'loadBalancerId' => 'LoadBalancerId',
+        'retainResourceType' => 'RetainResourceType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->retainResourceType)) {
+            Model::validateArray($this->retainResourceType);
+        }
         parent::validate();
     }
 
@@ -46,6 +55,17 @@ class DeleteLoadBalancerRequest extends Model
 
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
+
+        if (null !== $this->retainResourceType) {
+            if (\is_array($this->retainResourceType)) {
+                $res['RetainResourceType'] = [];
+                $n1 = 0;
+                foreach ($this->retainResourceType as $item1) {
+                    $res['RetainResourceType'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -69,6 +89,17 @@ class DeleteLoadBalancerRequest extends Model
 
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
+        }
+
+        if (isset($map['RetainResourceType'])) {
+            if (!empty($map['RetainResourceType'])) {
+                $model->retainResourceType = [];
+                $n1 = 0;
+                foreach ($map['RetainResourceType'] as $item1) {
+                    $model->retainResourceType[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

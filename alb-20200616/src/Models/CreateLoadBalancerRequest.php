@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateLoadBalancerRequest\loadBalancerBillingConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateLoadBalancerRequest\modificationProtectionConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateLoadBalancerRequest\securityGroupIds;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateLoadBalancerRequest\tag;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateLoadBalancerRequest\zoneMappings;
 
@@ -68,6 +69,11 @@ class CreateLoadBalancerRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var securityGroupIds[]
+     */
+    public $securityGroupIds;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -93,6 +99,7 @@ class CreateLoadBalancerRequest extends Model
         'loadBalancerName' => 'LoadBalancerName',
         'modificationProtectionConfig' => 'ModificationProtectionConfig',
         'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupIds' => 'SecurityGroupIds',
         'tag' => 'Tag',
         'vpcId' => 'VpcId',
         'zoneMappings' => 'ZoneMappings',
@@ -105,6 +112,9 @@ class CreateLoadBalancerRequest extends Model
         }
         if (null !== $this->modificationProtectionConfig) {
             $this->modificationProtectionConfig->validate();
+        }
+        if (\is_array($this->securityGroupIds)) {
+            Model::validateArray($this->securityGroupIds);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -160,6 +170,17 @@ class CreateLoadBalancerRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->securityGroupIds) {
+            if (\is_array($this->securityGroupIds)) {
+                $res['SecurityGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->securityGroupIds as $item1) {
+                    $res['SecurityGroupIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->tag) {
@@ -241,6 +262,17 @@ class CreateLoadBalancerRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = [];
+                $n1 = 0;
+                foreach ($map['SecurityGroupIds'] as $item1) {
+                    $model->securityGroupIds[$n1] = securityGroupIds::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Tag'])) {

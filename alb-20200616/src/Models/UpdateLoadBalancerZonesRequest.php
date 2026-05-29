@@ -25,6 +25,11 @@ class UpdateLoadBalancerZonesRequest extends Model
     public $loadBalancerId;
 
     /**
+     * @var string[]
+     */
+    public $retainResourceType;
+
+    /**
      * @var zoneMappings[]
      */
     public $zoneMappings;
@@ -32,11 +37,15 @@ class UpdateLoadBalancerZonesRequest extends Model
         'clientToken' => 'ClientToken',
         'dryRun' => 'DryRun',
         'loadBalancerId' => 'LoadBalancerId',
+        'retainResourceType' => 'RetainResourceType',
         'zoneMappings' => 'ZoneMappings',
     ];
 
     public function validate()
     {
+        if (\is_array($this->retainResourceType)) {
+            Model::validateArray($this->retainResourceType);
+        }
         if (\is_array($this->zoneMappings)) {
             Model::validateArray($this->zoneMappings);
         }
@@ -56,6 +65,17 @@ class UpdateLoadBalancerZonesRequest extends Model
 
         if (null !== $this->loadBalancerId) {
             $res['LoadBalancerId'] = $this->loadBalancerId;
+        }
+
+        if (null !== $this->retainResourceType) {
+            if (\is_array($this->retainResourceType)) {
+                $res['RetainResourceType'] = [];
+                $n1 = 0;
+                foreach ($this->retainResourceType as $item1) {
+                    $res['RetainResourceType'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->zoneMappings) {
@@ -90,6 +110,17 @@ class UpdateLoadBalancerZonesRequest extends Model
 
         if (isset($map['LoadBalancerId'])) {
             $model->loadBalancerId = $map['LoadBalancerId'];
+        }
+
+        if (isset($map['RetainResourceType'])) {
+            if (!empty($map['RetainResourceType'])) {
+                $model->retainResourceType = [];
+                $n1 = 0;
+                foreach ($map['RetainResourceType'] as $item1) {
+                    $model->retainResourceType[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ZoneMappings'])) {

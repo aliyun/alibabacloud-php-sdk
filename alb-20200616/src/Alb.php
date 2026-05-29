@@ -622,7 +622,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+     * Associates an Internet Shared Bandwidth instance with an Application Load Balancer (ALB) instance.
      *
      * @remarks
      * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
@@ -682,7 +682,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+     * Associates an Internet Shared Bandwidth instance with an Application Load Balancer (ALB) instance.
      *
      * @remarks
      * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
@@ -1269,6 +1269,10 @@ class Alb extends OpenApiClient
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
+        if (null !== $request->securityGroupIds) {
+            @$query['SecurityGroupIds'] = $request->securityGroupIds;
+        }
+
         if (null !== $request->tag) {
             @$query['Tag'] = $request->tag;
         }
@@ -1650,6 +1654,10 @@ class Alb extends OpenApiClient
 
         if (null !== $request->healthCheckConfig) {
             @$query['HealthCheckConfig'] = $request->healthCheckConfig;
+        }
+
+        if (null !== $request->ipVersionAffinityMode) {
+            @$query['IpVersionAffinityMode'] = $request->ipVersionAffinityMode;
         }
 
         if (null !== $request->ipv6Enabled) {
@@ -2067,6 +2075,10 @@ class Alb extends OpenApiClient
 
         if (null !== $request->loadBalancerId) {
             @$query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+
+        if (null !== $request->retainResourceType) {
+            @$query['RetainResourceType'] = $request->retainResourceType;
         }
 
         $req = new OpenApiRequest([
@@ -2572,7 +2584,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+     * Disassociates an Internet Shared Bandwidth instance from an Application Load Balancer (ALB) instance.
      *
      * @remarks
      * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
@@ -2632,7 +2644,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+     * Disassociates an Internet Shared Bandwidth instance from an Application Load Balancer (ALB) instance.
      *
      * @remarks
      * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
@@ -2720,7 +2732,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * Disables the access log feature for a Server Load Balancer (SLB) instance.
+     * Disables the access log feature for a Application Load Balancer (ALB) instance.
      *
      * @param request - DisableLoadBalancerAccessLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2767,7 +2779,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * Disables the access log feature for a Server Load Balancer (SLB) instance.
+     * Disables the access log feature for a Application Load Balancer (ALB) instance.
      *
      * @param request - DisableLoadBalancerAccessLogRequest
      *
@@ -4567,7 +4579,6 @@ class Alb extends OpenApiClient
     /**
      * Queries system security policies in a region.
      *
-     * @param request - ListSystemSecurityPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListSystemSecurityPoliciesResponse
@@ -6263,6 +6274,10 @@ class Alb extends OpenApiClient
             @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
 
+        if (null !== $request->retainResourceType) {
+            @$query['RetainResourceType'] = $request->retainResourceType;
+        }
+
         if (null !== $request->zoneMappings) {
             @$query['ZoneMappings'] = $request->zoneMappings;
         }
@@ -6509,6 +6524,10 @@ class Alb extends OpenApiClient
 
         if (null !== $request->loadBalancerId) {
             @$query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+
+        if (null !== $request->retainResourceType) {
+            @$query['RetainResourceType'] = $request->retainResourceType;
         }
 
         if (null !== $request->zoneMappings) {
@@ -6830,7 +6849,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+     * Modifies the configurations of a server group, such as health checks, session persistence, the server group name, the routing algorithm, and the protocol.
      *
      * @remarks
      * ## Description
@@ -6870,6 +6889,10 @@ class Alb extends OpenApiClient
 
         if (null !== $request->healthCheckConfig) {
             @$query['HealthCheckConfig'] = $request->healthCheckConfig;
+        }
+
+        if (null !== $request->ipVersionAffinityMode) {
+            @$query['IpVersionAffinityMode'] = $request->ipVersionAffinityMode;
         }
 
         if (null !== $request->scheduler) {
@@ -6923,7 +6946,7 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+     * Modifies the configurations of a server group, such as health checks, session persistence, the server group name, the routing algorithm, and the protocol.
      *
      * @remarks
      * ## Description
