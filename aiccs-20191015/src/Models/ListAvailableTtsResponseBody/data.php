@@ -32,12 +32,18 @@ class data extends Model
      * @var string
      */
     public $ttsVoiceName;
+
+    /**
+     * @var string
+     */
+    public $voiceType;
     protected $_name = [
         'ttsAuditionFileUrl' => 'TtsAuditionFileUrl',
         'ttsEngine' => 'TtsEngine',
         'ttsStyle' => 'TtsStyle',
         'ttsVoiceCode' => 'TtsVoiceCode',
         'ttsVoiceName' => 'TtsVoiceName',
+        'voiceType' => 'VoiceType',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class data extends Model
 
         if (null !== $this->ttsVoiceName) {
             $res['TtsVoiceName'] = $this->ttsVoiceName;
+        }
+
+        if (null !== $this->voiceType) {
+            $res['VoiceType'] = $this->voiceType;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class data extends Model
 
         if (isset($map['TtsVoiceName'])) {
             $model->ttsVoiceName = $map['TtsVoiceName'];
+        }
+
+        if (isset($map['VoiceType'])) {
+            $model->voiceType = $map['VoiceType'];
         }
 
         return $model;

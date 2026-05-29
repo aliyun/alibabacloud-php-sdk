@@ -8097,6 +8097,10 @@ class Aiccs extends OpenApiClient
             @$query['TtsVoiceCode'] = $request->ttsVoiceCode;
         }
 
+        if (null !== $request->voiceType) {
+            @$query['VoiceType'] = $request->voiceType;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

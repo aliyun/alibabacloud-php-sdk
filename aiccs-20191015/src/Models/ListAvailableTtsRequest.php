@@ -27,11 +27,17 @@ class ListAvailableTtsRequest extends Model
      * @var string
      */
     public $ttsVoiceCode;
+
+    /**
+     * @var string
+     */
+    public $voiceType;
     protected $_name = [
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'ttsVoiceCode' => 'TtsVoiceCode',
+        'voiceType' => 'VoiceType',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class ListAvailableTtsRequest extends Model
 
         if (null !== $this->ttsVoiceCode) {
             $res['TtsVoiceCode'] = $this->ttsVoiceCode;
+        }
+
+        if (null !== $this->voiceType) {
+            $res['VoiceType'] = $this->voiceType;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class ListAvailableTtsRequest extends Model
 
         if (isset($map['TtsVoiceCode'])) {
             $model->ttsVoiceCode = $map['TtsVoiceCode'];
+        }
+
+        if (isset($map['VoiceType'])) {
+            $model->voiceType = $map['VoiceType'];
         }
 
         return $model;
