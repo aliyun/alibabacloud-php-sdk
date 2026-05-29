@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Amqpopen\V20191212;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\AddInstanceWhiteListRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\AddInstanceWhiteListResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\AddInstanceWhiteListShrinkRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateBindingRequest;
@@ -44,6 +47,8 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListExchangeUpStreamBindingsReque
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListExchangeUpStreamBindingsResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstanceWhiteListRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstanceWhiteListResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueueConsumersRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueueConsumersResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueuesRequest;
@@ -52,6 +57,8 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueueUpStreamBindingsRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueueUpStreamBindingsResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListVirtualHostsRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListVirtualHostsResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\RemoveInstanceWhiteListRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\RemoveInstanceWhiteListResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceNameRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceNameResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceRequest;
@@ -93,6 +100,77 @@ class Amqpopen extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 增加实例白名单.
+     *
+     * @param tmpReq - AddInstanceWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddInstanceWhiteListResponse
+     *
+     * @param AddInstanceWhiteListRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AddInstanceWhiteListResponse
+     */
+    public function addInstanceWhiteListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddInstanceWhiteListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->whiteListItem) {
+            $request->whiteListItemShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->whiteListItem, 'WhiteListItem', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->whiteListItemShrink) {
+            @$query['WhiteListItem'] = $request->whiteListItemShrink;
+        }
+
+        if (null !== $request->whiteListType) {
+            @$query['WhiteListType'] = $request->whiteListType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddInstanceWhiteList',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddInstanceWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 增加实例白名单.
+     *
+     * @param request - AddInstanceWhiteListRequest
+     *
+     * @returns AddInstanceWhiteListResponse
+     *
+     * @param AddInstanceWhiteListRequest $request
+     *
+     * @return AddInstanceWhiteListResponse
+     */
+    public function addInstanceWhiteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addInstanceWhiteListWithOptions($request, $runtime);
     }
 
     /**
@@ -1414,6 +1492,67 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
+     * 查询实例ip/vpc白名单.
+     *
+     * @param request - ListInstanceWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceWhiteListResponse
+     *
+     * @param ListInstanceWhiteListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListInstanceWhiteListResponse
+     */
+    public function listInstanceWhiteListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->whiteListType) {
+            @$query['whiteListType'] = $request->whiteListType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstanceWhiteList',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstanceWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实例ip/vpc白名单.
+     *
+     * @param request - ListInstanceWhiteListRequest
+     *
+     * @returns ListInstanceWhiteListResponse
+     *
+     * @param ListInstanceWhiteListRequest $request
+     *
+     * @return ListInstanceWhiteListResponse
+     */
+    public function listInstanceWhiteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstanceWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
      *
      * @param request - ListInstancesRequest
@@ -1682,6 +1821,71 @@ class Amqpopen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listVirtualHostsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除实例ip/vpc白名单.
+     *
+     * @param request - RemoveInstanceWhiteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveInstanceWhiteListResponse
+     *
+     * @param RemoveInstanceWhiteListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RemoveInstanceWhiteListResponse
+     */
+    public function removeInstanceWhiteListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->whiteListItemId) {
+            @$query['whiteListItemId'] = $request->whiteListItemId;
+        }
+
+        if (null !== $request->whiteListType) {
+            @$query['whiteListType'] = $request->whiteListType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveInstanceWhiteList',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveInstanceWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除实例ip/vpc白名单.
+     *
+     * @param request - RemoveInstanceWhiteListRequest
+     *
+     * @returns RemoveInstanceWhiteListResponse
+     *
+     * @param RemoveInstanceWhiteListRequest $request
+     *
+     * @return RemoveInstanceWhiteListResponse
+     */
+    public function removeInstanceWhiteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeInstanceWhiteListWithOptions($request, $runtime);
     }
 
     /**
