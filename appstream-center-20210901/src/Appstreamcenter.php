@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListImageResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListLlmTemplatesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListLlmTemplatesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListLlmTemplatesShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelProviderEndpointsRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelProviderEndpointsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelProviderTemplatesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelProviderTemplatesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListModelProviderTemplatesShrinkRequest;
@@ -3433,6 +3435,75 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listLlmTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询模型提供商 Endpoint 列表.
+     *
+     * @param request - ListModelProviderEndpointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelProviderEndpointsResponse
+     *
+     * @param ListModelProviderEndpointsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListModelProviderEndpointsResponse
+     */
+    public function listModelProviderEndpointsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentPlatform) {
+            @$query['AgentPlatform'] = $request->agentPlatform;
+        }
+
+        if (null !== $request->agentProvider) {
+            @$query['AgentProvider'] = $request->agentProvider;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->providerName) {
+            @$query['ProviderName'] = $request->providerName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelProviderEndpoints',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelProviderEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询模型提供商 Endpoint 列表.
+     *
+     * @param request - ListModelProviderEndpointsRequest
+     *
+     * @returns ListModelProviderEndpointsResponse
+     *
+     * @param ListModelProviderEndpointsRequest $request
+     *
+     * @return ListModelProviderEndpointsResponse
+     */
+    public function listModelProviderEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listModelProviderEndpointsWithOptions($request, $runtime);
     }
 
     /**

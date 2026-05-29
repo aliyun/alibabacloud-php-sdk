@@ -65,6 +65,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $modelTemplateId;
+
+    /**
+     * @var string
+     */
+    public $modelTemplateName;
+
+    /**
+     * @var string
+     */
     public $osType;
 
     /**
@@ -76,6 +86,11 @@ class data extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $regionLocation;
 
     /**
      * @var resourceGroup
@@ -102,9 +117,12 @@ class data extends Model
         'desktopStatus' => 'DesktopStatus',
         'hasAuthUser' => 'HasAuthUser',
         'modelConfigure' => 'ModelConfigure',
+        'modelTemplateId' => 'ModelTemplateId',
+        'modelTemplateName' => 'ModelTemplateName',
         'osType' => 'OsType',
         'qrCodeConfiguringList' => 'QrCodeConfiguringList',
         'regionId' => 'RegionId',
+        'regionLocation' => 'RegionLocation',
         'resourceGroup' => 'ResourceGroup',
         'resourceId' => 'ResourceId',
         'riskInfo' => 'RiskInfo',
@@ -200,6 +218,14 @@ class data extends Model
             $res['ModelConfigure'] = $this->modelConfigure;
         }
 
+        if (null !== $this->modelTemplateId) {
+            $res['ModelTemplateId'] = $this->modelTemplateId;
+        }
+
+        if (null !== $this->modelTemplateName) {
+            $res['ModelTemplateName'] = $this->modelTemplateName;
+        }
+
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
@@ -217,6 +243,10 @@ class data extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->regionLocation) {
+            $res['RegionLocation'] = $this->regionLocation;
         }
 
         if (null !== $this->resourceGroup) {
@@ -303,6 +333,14 @@ class data extends Model
             $model->modelConfigure = $map['ModelConfigure'];
         }
 
+        if (isset($map['ModelTemplateId'])) {
+            $model->modelTemplateId = $map['ModelTemplateId'];
+        }
+
+        if (isset($map['ModelTemplateName'])) {
+            $model->modelTemplateName = $map['ModelTemplateName'];
+        }
+
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
@@ -320,6 +358,10 @@ class data extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['RegionLocation'])) {
+            $model->regionLocation = $map['RegionLocation'];
         }
 
         if (isset($map['ResourceGroup'])) {

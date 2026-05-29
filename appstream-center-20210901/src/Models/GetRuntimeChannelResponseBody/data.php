@@ -16,6 +16,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $channelType;
+
+    /**
+     * @var string
+     */
     public $code;
 
     /**
@@ -49,6 +54,7 @@ class data extends Model
     public $status;
     protected $_name = [
         'avatarUrl' => 'AvatarUrl',
+        'channelType' => 'ChannelType',
         'code' => 'Code',
         'config' => 'Config',
         'configMode' => 'ConfigMode',
@@ -68,6 +74,10 @@ class data extends Model
         $res = [];
         if (null !== $this->avatarUrl) {
             $res['AvatarUrl'] = $this->avatarUrl;
+        }
+
+        if (null !== $this->channelType) {
+            $res['ChannelType'] = $this->channelType;
         }
 
         if (null !== $this->code) {
@@ -111,6 +121,10 @@ class data extends Model
         $model = new self();
         if (isset($map['AvatarUrl'])) {
             $model->avatarUrl = $map['AvatarUrl'];
+        }
+
+        if (isset($map['ChannelType'])) {
+            $model->channelType = $map['ChannelType'];
         }
 
         if (isset($map['Code'])) {

@@ -28,11 +28,23 @@ class data extends Model
      * @var string
      */
     public $modelTemplateName;
+
+    /**
+     * @var string
+     */
+    public $modelTemplateRefType;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'defaultModel' => 'DefaultModel',
         'modelProviderList' => 'ModelProviderList',
         'modelTemplateId' => 'ModelTemplateId',
         'modelTemplateName' => 'ModelTemplateName',
+        'modelTemplateRefType' => 'ModelTemplateRefType',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -69,6 +81,14 @@ class data extends Model
             $res['ModelTemplateName'] = $this->modelTemplateName;
         }
 
+        if (null !== $this->modelTemplateRefType) {
+            $res['ModelTemplateRefType'] = $this->modelTemplateRefType;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         return $res;
     }
 
@@ -101,6 +121,14 @@ class data extends Model
 
         if (isset($map['ModelTemplateName'])) {
             $model->modelTemplateName = $map['ModelTemplateName'];
+        }
+
+        if (isset($map['ModelTemplateRefType'])) {
+            $model->modelTemplateRefType = $map['ModelTemplateRefType'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;
