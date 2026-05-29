@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Agency\V20221216;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Agency\V20221216\Models\AutomaticWriteOffRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\AutomaticWriteOffResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelCouponRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelCouponResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelSubscriptionBillRequest;
@@ -74,6 +76,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\ListTier2CouponApprovalRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ListTier2CouponApprovalResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ProcessApprovalRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\ProcessApprovalResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\QueryAutomaticWriteOffChangeRecordsRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\QueryAutomaticWriteOffChangeRecordsResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\QueryReversedDeductionHistoryRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\QueryReversedDeductionHistoryResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\QuotaListExportPagedRequest;
@@ -183,6 +187,75 @@ class Agency extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 设置自动销账.
+     *
+     * @param request - AutomaticWriteOffRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AutomaticWriteOffResponse
+     *
+     * @param AutomaticWriteOffRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AutomaticWriteOffResponse
+     */
+    public function automaticWriteOffWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->automaticWriteOffAmount) {
+            @$query['AutomaticWriteOffAmount'] = $request->automaticWriteOffAmount;
+        }
+
+        if (null !== $request->automaticWriteOffEnabled) {
+            @$query['AutomaticWriteOffEnabled'] = $request->automaticWriteOffEnabled;
+        }
+
+        if (null !== $request->customerUid) {
+            @$query['CustomerUid'] = $request->customerUid;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AutomaticWriteOff',
+            'version' => '2022-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AutomaticWriteOffResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设置自动销账.
+     *
+     * @param request - AutomaticWriteOffRequest
+     *
+     * @returns AutomaticWriteOffResponse
+     *
+     * @param AutomaticWriteOffRequest $request
+     *
+     * @return AutomaticWriteOffResponse
+     */
+    public function automaticWriteOff($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->automaticWriteOffWithOptions($request, $runtime);
     }
 
     /**
@@ -2449,6 +2522,83 @@ class Agency extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->processApprovalWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询自动销账变更记录.
+     *
+     * @param request - QueryAutomaticWriteOffChangeRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAutomaticWriteOffChangeRecordsResponse
+     *
+     * @param QueryAutomaticWriteOffChangeRecordsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return QueryAutomaticWriteOffChangeRecordsResponse
+     */
+    public function queryAutomaticWriteOffChangeRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customerUid) {
+            @$query['CustomerUid'] = $request->customerUid;
+        }
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAutomaticWriteOffChangeRecords',
+            'version' => '2022-12-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAutomaticWriteOffChangeRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自动销账变更记录.
+     *
+     * @param request - QueryAutomaticWriteOffChangeRecordsRequest
+     *
+     * @returns QueryAutomaticWriteOffChangeRecordsResponse
+     *
+     * @param QueryAutomaticWriteOffChangeRecordsRequest $request
+     *
+     * @return QueryAutomaticWriteOffChangeRecordsResponse
+     */
+    public function queryAutomaticWriteOffChangeRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAutomaticWriteOffChangeRecordsWithOptions($request, $runtime);
     }
 
     /**
