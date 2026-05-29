@@ -6601,6 +6601,10 @@ class Wafopenapi extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceDomain) {
+            @$query['ResourceDomain'] = $request->resourceDomain;
+        }
+
         if (null !== $request->resourceInstanceId) {
             @$query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
@@ -11538,6 +11542,10 @@ class Wafopenapi extends OpenApiClient
 
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceDomain) {
+            @$query['ResourceDomain'] = $request->resourceDomain;
         }
 
         if (null !== $request->resourceInstanceAccessStatus) {

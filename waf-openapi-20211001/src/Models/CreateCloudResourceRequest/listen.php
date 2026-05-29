@@ -25,6 +25,11 @@ class listen extends Model
     public $customCiphers;
 
     /**
+     * @var string
+     */
+    public $domain;
+
+    /**
      * @var bool
      */
     public $enableTLSv3;
@@ -67,6 +72,7 @@ class listen extends Model
         'certificates' => 'Certificates',
         'cipherSuite' => 'CipherSuite',
         'customCiphers' => 'CustomCiphers',
+        'domain' => 'Domain',
         'enableTLSv3' => 'EnableTLSv3',
         'http2Enabled' => 'Http2Enabled',
         'port' => 'Port',
@@ -115,6 +121,10 @@ class listen extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         if (null !== $this->enableTLSv3) {
@@ -184,6 +194,10 @@ class listen extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         if (isset($map['EnableTLSv3'])) {

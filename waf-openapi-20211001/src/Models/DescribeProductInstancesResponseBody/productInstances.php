@@ -33,6 +33,11 @@ class productInstances extends Model
     /**
      * @var string
      */
+    public $resourceDomain;
+
+    /**
+     * @var string
+     */
     public $resourceInstanceAccessStatus;
 
     /**
@@ -84,6 +89,7 @@ class productInstances extends Model
         'accessPortAndProtocols' => 'AccessPortAndProtocols',
         'accessPorts' => 'AccessPorts',
         'ownerUserId' => 'OwnerUserId',
+        'resourceDomain' => 'ResourceDomain',
         'resourceInstanceAccessStatus' => 'ResourceInstanceAccessStatus',
         'resourceInstanceEdition' => 'ResourceInstanceEdition',
         'resourceInstanceId' => 'ResourceInstanceId',
@@ -141,6 +147,10 @@ class productInstances extends Model
 
         if (null !== $this->ownerUserId) {
             $res['OwnerUserId'] = $this->ownerUserId;
+        }
+
+        if (null !== $this->resourceDomain) {
+            $res['ResourceDomain'] = $this->resourceDomain;
         }
 
         if (null !== $this->resourceInstanceAccessStatus) {
@@ -229,6 +239,10 @@ class productInstances extends Model
 
         if (isset($map['OwnerUserId'])) {
             $model->ownerUserId = $map['OwnerUserId'];
+        }
+
+        if (isset($map['ResourceDomain'])) {
+            $model->resourceDomain = $map['ResourceDomain'];
         }
 
         if (isset($map['ResourceInstanceAccessStatus'])) {

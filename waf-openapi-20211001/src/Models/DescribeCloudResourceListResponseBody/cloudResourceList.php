@@ -26,6 +26,11 @@ class cloudResourceList extends Model
     /**
      * @var string
      */
+    public $resourceDomain;
+
+    /**
+     * @var string
+     */
     public $resourceInstanceId;
 
     /**
@@ -46,6 +51,7 @@ class cloudResourceList extends Model
         'cloudResourceId' => 'CloudResourceId',
         'port' => 'Port',
         'protocol' => 'Protocol',
+        'resourceDomain' => 'ResourceDomain',
         'resourceInstanceId' => 'ResourceInstanceId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'resourceProduct' => 'ResourceProduct',
@@ -70,6 +76,10 @@ class cloudResourceList extends Model
 
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
+        }
+
+        if (null !== $this->resourceDomain) {
+            $res['ResourceDomain'] = $this->resourceDomain;
         }
 
         if (null !== $this->resourceInstanceId) {
@@ -109,6 +119,10 @@ class cloudResourceList extends Model
 
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+
+        if (isset($map['ResourceDomain'])) {
+            $model->resourceDomain = $map['ResourceDomain'];
         }
 
         if (isset($map['ResourceInstanceId'])) {

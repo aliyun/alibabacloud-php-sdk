@@ -46,6 +46,11 @@ class DescribeCloudResourceListRequest extends Model
     /**
      * @var string
      */
+    public $resourceDomain;
+
+    /**
+     * @var string
+     */
     public $resourceInstanceId;
 
     /**
@@ -65,6 +70,7 @@ class DescribeCloudResourceListRequest extends Model
         'ownerUserId' => 'OwnerUserId',
         'port' => 'Port',
         'regionId' => 'RegionId',
+        'resourceDomain' => 'ResourceDomain',
         'resourceInstanceId' => 'ResourceInstanceId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'resourceProduct' => 'ResourceProduct',
@@ -104,6 +110,10 @@ class DescribeCloudResourceListRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceDomain) {
+            $res['ResourceDomain'] = $this->resourceDomain;
         }
 
         if (null !== $this->resourceInstanceId) {
@@ -155,6 +165,10 @@ class DescribeCloudResourceListRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceDomain'])) {
+            $model->resourceDomain = $map['ResourceDomain'];
         }
 
         if (isset($map['ResourceInstanceId'])) {

@@ -36,6 +36,11 @@ class DescribeProductInstancesRequest extends Model
     /**
      * @var string
      */
+    public $resourceDomain;
+
+    /**
+     * @var string
+     */
     public $resourceInstanceAccessStatus;
 
     /**
@@ -83,6 +88,7 @@ class DescribeProductInstancesRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'resourceDomain' => 'ResourceDomain',
         'resourceInstanceAccessStatus' => 'ResourceInstanceAccessStatus',
         'resourceInstanceId' => 'ResourceInstanceId',
         'resourceInstanceIp' => 'ResourceInstanceIp',
@@ -120,6 +126,10 @@ class DescribeProductInstancesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceDomain) {
+            $res['ResourceDomain'] = $this->resourceDomain;
         }
 
         if (null !== $this->resourceInstanceAccessStatus) {
@@ -187,6 +197,10 @@ class DescribeProductInstancesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceDomain'])) {
+            $model->resourceDomain = $map['ResourceDomain'];
         }
 
         if (isset($map['ResourceInstanceAccessStatus'])) {

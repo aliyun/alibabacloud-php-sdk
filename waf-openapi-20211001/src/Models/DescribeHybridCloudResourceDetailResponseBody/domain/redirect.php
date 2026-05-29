@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourceDetailResponseBody\domain;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourceDetailResponseBody\domain\redirect\backendPorts;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudResourceDetailResponseBody\domain\redirect\requestHeaders;
 
 class redirect extends Model
 {
+    /**
+     * @var backendPorts[]
+     */
+    public $backendPorts;
+
     /**
      * @var string[]
      */
@@ -50,6 +56,11 @@ class redirect extends Model
     public $loadbalance;
 
     /**
+     * @var bool
+     */
+    public $proxyProtocol;
+
+    /**
      * @var int
      */
     public $readTimeout;
@@ -84,6 +95,7 @@ class redirect extends Model
      */
     public $writeTimeout;
     protected $_name = [
+        'backendPorts' => 'BackendPorts',
         'backends' => 'Backends',
         'cnameEnabled' => 'CnameEnabled',
         'connectTimeout' => 'ConnectTimeout',
@@ -92,6 +104,7 @@ class redirect extends Model
         'keepaliveRequests' => 'KeepaliveRequests',
         'keepaliveTimeout' => 'KeepaliveTimeout',
         'loadbalance' => 'Loadbalance',
+        'proxyProtocol' => 'ProxyProtocol',
         'readTimeout' => 'ReadTimeout',
         'requestHeaders' => 'RequestHeaders',
         'retry' => 'Retry',
@@ -103,6 +116,9 @@ class redirect extends Model
 
     public function validate()
     {
+        if (\is_array($this->backendPorts)) {
+            Model::validateArray($this->backendPorts);
+        }
         if (\is_array($this->backends)) {
             Model::validateArray($this->backends);
         }
@@ -115,6 +131,17 @@ class redirect extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backendPorts) {
+            if (\is_array($this->backendPorts)) {
+                $res['BackendPorts'] = [];
+                $n1 = 0;
+                foreach ($this->backendPorts as $item1) {
+                    $res['BackendPorts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->backends) {
             if (\is_array($this->backends)) {
                 $res['Backends'] = [];
@@ -152,6 +179,10 @@ class redirect extends Model
 
         if (null !== $this->loadbalance) {
             $res['Loadbalance'] = $this->loadbalance;
+        }
+
+        if (null !== $this->proxyProtocol) {
+            $res['ProxyProtocol'] = $this->proxyProtocol;
         }
 
         if (null !== $this->readTimeout) {
@@ -200,6 +231,17 @@ class redirect extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackendPorts'])) {
+            if (!empty($map['BackendPorts'])) {
+                $model->backendPorts = [];
+                $n1 = 0;
+                foreach ($map['BackendPorts'] as $item1) {
+                    $model->backendPorts[$n1] = backendPorts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Backends'])) {
             if (!empty($map['Backends'])) {
                 $model->backends = [];
@@ -237,6 +279,10 @@ class redirect extends Model
 
         if (isset($map['Loadbalance'])) {
             $model->loadbalance = $map['Loadbalance'];
+        }
+
+        if (isset($map['ProxyProtocol'])) {
+            $model->proxyProtocol = $map['ProxyProtocol'];
         }
 
         if (isset($map['ReadTimeout'])) {
