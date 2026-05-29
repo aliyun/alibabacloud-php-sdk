@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteQuotaPlanRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteQuotaPlanResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteRoleRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\DeleteRoleResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetComputeEffectivePlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetComputeQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetComputeQuotaScheduleRequest;
@@ -1511,6 +1513,61 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->deleteQuotaPlanWithOptions($nickname, $planName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param request - DeleteRoleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRoleResponse
+     *
+     * @param string            $projectName
+     * @param string            $roleName
+     * @param DeleteRoleRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRoleResponse
+     */
+    public function deleteRoleWithOptions($projectName, $roleName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRole',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/roles/' . Url::percentEncode($roleName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - DeleteRoleRequest
+     *
+     * @returns DeleteRoleResponse
+     *
+     * @param string            $projectName
+     * @param string            $roleName
+     * @param DeleteRoleRequest $request
+     *
+     * @return DeleteRoleResponse
+     */
+    public function deleteRole($projectName, $roleName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRoleWithOptions($projectName, $roleName, $request, $headers, $runtime);
     }
 
     /**
