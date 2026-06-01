@@ -51,6 +51,11 @@ class Template extends Model
     public $enableAgent;
 
     /**
+     * @var bool
+     */
+    public $enablePreStop;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -99,6 +104,11 @@ class Template extends Model
      * @var OssConfiguration[]
      */
     public $ossConfiguration;
+
+    /**
+     * @var int
+     */
+    public $preStopTimeoutInSeconds;
 
     /**
      * @var string
@@ -173,6 +183,7 @@ class Template extends Model
         'description' => 'description',
         'diskSize' => 'diskSize',
         'enableAgent' => 'enableAgent',
+        'enablePreStop' => 'enablePreStop',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
         'lastUpdatedAt' => 'lastUpdatedAt',
@@ -183,6 +194,7 @@ class Template extends Model
         'nasConfig' => 'nasConfig',
         'networkConfiguration' => 'networkConfiguration',
         'ossConfiguration' => 'ossConfiguration',
+        'preStopTimeoutInSeconds' => 'preStopTimeoutInSeconds',
         'resourceName' => 'resourceName',
         'sandboxIdleTimeoutInSeconds' => 'sandboxIdleTimeoutInSeconds',
         'sandboxTTLInSeconds' => 'sandboxTTLInSeconds',
@@ -271,6 +283,10 @@ class Template extends Model
             $res['enableAgent'] = $this->enableAgent;
         }
 
+        if (null !== $this->enablePreStop) {
+            $res['enablePreStop'] = $this->enablePreStop;
+        }
+
         if (null !== $this->environmentVariables) {
             if (\is_array($this->environmentVariables)) {
                 $res['environmentVariables'] = [];
@@ -321,6 +337,10 @@ class Template extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->preStopTimeoutInSeconds) {
+            $res['preStopTimeoutInSeconds'] = $this->preStopTimeoutInSeconds;
         }
 
         if (null !== $this->resourceName) {
@@ -423,6 +443,10 @@ class Template extends Model
             $model->enableAgent = $map['enableAgent'];
         }
 
+        if (isset($map['enablePreStop'])) {
+            $model->enablePreStop = $map['enablePreStop'];
+        }
+
         if (isset($map['environmentVariables'])) {
             if (!empty($map['environmentVariables'])) {
                 $model->environmentVariables = [];
@@ -473,6 +497,10 @@ class Template extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['preStopTimeoutInSeconds'])) {
+            $model->preStopTimeoutInSeconds = $map['preStopTimeoutInSeconds'];
         }
 
         if (isset($map['resourceName'])) {

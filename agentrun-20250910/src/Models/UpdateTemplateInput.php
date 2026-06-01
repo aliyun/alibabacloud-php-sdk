@@ -44,6 +44,11 @@ class UpdateTemplateInput extends Model
     public $enableAgent;
 
     /**
+     * @var bool
+     */
+    public $enablePreStop;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -81,6 +86,11 @@ class UpdateTemplateInput extends Model
     /**
      * @var int
      */
+    public $preStopTimeoutInSeconds;
+
+    /**
+     * @var int
+     */
     public $sandboxIdleTimeoutInSeconds;
 
     /**
@@ -110,6 +120,7 @@ class UpdateTemplateInput extends Model
         'credentialConfiguration' => 'credentialConfiguration',
         'description' => 'description',
         'enableAgent' => 'enableAgent',
+        'enablePreStop' => 'enablePreStop',
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
         'logConfiguration' => 'logConfiguration',
@@ -117,6 +128,7 @@ class UpdateTemplateInput extends Model
         'nasConfig' => 'nasConfig',
         'networkConfiguration' => 'networkConfiguration',
         'ossConfiguration' => 'ossConfiguration',
+        'preStopTimeoutInSeconds' => 'preStopTimeoutInSeconds',
         'sandboxIdleTimeoutInSeconds' => 'sandboxIdleTimeoutInSeconds',
         'sandboxTTLInSeconds' => 'sandboxTTLInSeconds',
         'scalingConfig' => 'scalingConfig',
@@ -190,6 +202,10 @@ class UpdateTemplateInput extends Model
             $res['enableAgent'] = $this->enableAgent;
         }
 
+        if (null !== $this->enablePreStop) {
+            $res['enablePreStop'] = $this->enablePreStop;
+        }
+
         if (null !== $this->environmentVariables) {
             if (\is_array($this->environmentVariables)) {
                 $res['environmentVariables'] = [];
@@ -228,6 +244,10 @@ class UpdateTemplateInput extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->preStopTimeoutInSeconds) {
+            $res['preStopTimeoutInSeconds'] = $this->preStopTimeoutInSeconds;
         }
 
         if (null !== $this->sandboxIdleTimeoutInSeconds) {
@@ -294,6 +314,10 @@ class UpdateTemplateInput extends Model
             $model->enableAgent = $map['enableAgent'];
         }
 
+        if (isset($map['enablePreStop'])) {
+            $model->enablePreStop = $map['enablePreStop'];
+        }
+
         if (isset($map['environmentVariables'])) {
             if (!empty($map['environmentVariables'])) {
                 $model->environmentVariables = [];
@@ -332,6 +356,10 @@ class UpdateTemplateInput extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['preStopTimeoutInSeconds'])) {
+            $model->preStopTimeoutInSeconds = $map['preStopTimeoutInSeconds'];
         }
 
         if (isset($map['sandboxIdleTimeoutInSeconds'])) {
