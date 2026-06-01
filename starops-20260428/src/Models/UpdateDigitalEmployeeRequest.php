@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\STAROps\V20260428\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeRequest\knowledges;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeRequest\toolPolicy;
 
 class UpdateDigitalEmployeeRequest extends Model
 {
@@ -38,6 +39,11 @@ class UpdateDigitalEmployeeRequest extends Model
      * @var string
      */
     public $roleArn;
+
+    /**
+     * @var toolPolicy
+     */
+    public $toolPolicy;
     protected $_name = [
         'attributes' => 'attributes',
         'defaultRule' => 'defaultRule',
@@ -45,6 +51,7 @@ class UpdateDigitalEmployeeRequest extends Model
         'displayName' => 'displayName',
         'knowledges' => 'knowledges',
         'roleArn' => 'roleArn',
+        'toolPolicy' => 'toolPolicy',
     ];
 
     public function validate()
@@ -54,6 +61,9 @@ class UpdateDigitalEmployeeRequest extends Model
         }
         if (null !== $this->knowledges) {
             $this->knowledges->validate();
+        }
+        if (null !== $this->toolPolicy) {
+            $this->toolPolicy->validate();
         }
         parent::validate();
     }
@@ -88,6 +98,10 @@ class UpdateDigitalEmployeeRequest extends Model
 
         if (null !== $this->roleArn) {
             $res['roleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->toolPolicy) {
+            $res['toolPolicy'] = null !== $this->toolPolicy ? $this->toolPolicy->toArray($noStream) : $this->toolPolicy;
         }
 
         return $res;
@@ -128,6 +142,10 @@ class UpdateDigitalEmployeeRequest extends Model
 
         if (isset($map['roleArn'])) {
             $model->roleArn = $map['roleArn'];
+        }
+
+        if (isset($map['toolPolicy'])) {
+            $model->toolPolicy = toolPolicy::fromMap($map['toolPolicy']);
         }
 
         return $model;

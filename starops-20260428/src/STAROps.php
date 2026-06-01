@@ -305,6 +305,10 @@ class STAROps extends OpenApiClient
             @$body['tags'] = $request->tags;
         }
 
+        if (null !== $request->toolPolicy) {
+            @$body['toolPolicy'] = $request->toolPolicy;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),
@@ -1826,6 +1830,10 @@ class STAROps extends OpenApiClient
 
         if (null !== $request->roleArn) {
             @$body['roleArn'] = $request->roleArn;
+        }
+
+        if (null !== $request->toolPolicy) {
+            @$body['toolPolicy'] = $request->toolPolicy;
         }
 
         $req = new OpenApiRequest([

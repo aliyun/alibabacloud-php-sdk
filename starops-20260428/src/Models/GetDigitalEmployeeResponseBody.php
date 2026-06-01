@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\STAROps\V20260428\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeResponseBody\knowledges;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeResponseBody\toolPolicy;
 
 class GetDigitalEmployeeResponseBody extends Model
 {
@@ -75,6 +76,11 @@ class GetDigitalEmployeeResponseBody extends Model
     public $tags;
 
     /**
+     * @var toolPolicy
+     */
+    public $toolPolicy;
+
+    /**
      * @var string
      */
     public $updateTime;
@@ -92,6 +98,7 @@ class GetDigitalEmployeeResponseBody extends Model
         'resourceGroupId' => 'resourceGroupId',
         'roleArn' => 'roleArn',
         'tags' => 'tags',
+        'toolPolicy' => 'toolPolicy',
         'updateTime' => 'updateTime',
     ];
 
@@ -105,6 +112,9 @@ class GetDigitalEmployeeResponseBody extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (null !== $this->toolPolicy) {
+            $this->toolPolicy->validate();
         }
         parent::validate();
     }
@@ -174,6 +184,10 @@ class GetDigitalEmployeeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->toolPolicy) {
+            $res['toolPolicy'] = null !== $this->toolPolicy ? $this->toolPolicy->toArray($noStream) : $this->toolPolicy;
         }
 
         if (null !== $this->updateTime) {
@@ -253,6 +267,10 @@ class GetDigitalEmployeeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['toolPolicy'])) {
+            $model->toolPolicy = toolPolicy::fromMap($map['toolPolicy']);
         }
 
         if (isset($map['updateTime'])) {

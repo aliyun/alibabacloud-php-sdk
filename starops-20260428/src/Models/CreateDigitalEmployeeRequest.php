@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\STAROps\V20260428\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeRequest\knowledges;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeRequest\toolPolicy;
 
 class CreateDigitalEmployeeRequest extends Model
 {
@@ -53,6 +54,11 @@ class CreateDigitalEmployeeRequest extends Model
      * @var Tag[]
      */
     public $tags;
+
+    /**
+     * @var toolPolicy
+     */
+    public $toolPolicy;
     protected $_name = [
         'attributes' => 'attributes',
         'defaultRule' => 'defaultRule',
@@ -63,6 +69,7 @@ class CreateDigitalEmployeeRequest extends Model
         'resourceGroupId' => 'resourceGroupId',
         'roleArn' => 'roleArn',
         'tags' => 'tags',
+        'toolPolicy' => 'toolPolicy',
     ];
 
     public function validate()
@@ -75,6 +82,9 @@ class CreateDigitalEmployeeRequest extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (null !== $this->toolPolicy) {
+            $this->toolPolicy->validate();
         }
         parent::validate();
     }
@@ -128,6 +138,10 @@ class CreateDigitalEmployeeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->toolPolicy) {
+            $res['toolPolicy'] = null !== $this->toolPolicy ? $this->toolPolicy->toArray($noStream) : $this->toolPolicy;
         }
 
         return $res;
@@ -187,6 +201,10 @@ class CreateDigitalEmployeeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['toolPolicy'])) {
+            $model->toolPolicy = toolPolicy::fromMap($map['toolPolicy']);
         }
 
         return $model;
