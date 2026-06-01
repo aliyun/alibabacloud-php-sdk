@@ -11,6 +11,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $analyzeDesc;
+
+    /**
+     * @var string
+     */
+    public $analyzeResult;
+
+    /**
+     * @var string
+     */
     public $cmdChain;
 
     /**
@@ -103,6 +113,8 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
+        'analyzeDesc' => 'AnalyzeDesc',
+        'analyzeResult' => 'AnalyzeResult',
         'cmdChain' => 'CmdChain',
         'cmdline' => 'Cmdline',
         'count' => 'Count',
@@ -132,6 +144,14 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->analyzeDesc) {
+            $res['AnalyzeDesc'] = $this->analyzeDesc;
+        }
+
+        if (null !== $this->analyzeResult) {
+            $res['AnalyzeResult'] = $this->analyzeResult;
+        }
+
         if (null !== $this->cmdChain) {
             $res['CmdChain'] = $this->cmdChain;
         }
@@ -219,6 +239,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnalyzeDesc'])) {
+            $model->analyzeDesc = $map['AnalyzeDesc'];
+        }
+
+        if (isset($map['AnalyzeResult'])) {
+            $model->analyzeResult = $map['AnalyzeResult'];
+        }
+
         if (isset($map['CmdChain'])) {
             $model->cmdChain = $map['CmdChain'];
         }

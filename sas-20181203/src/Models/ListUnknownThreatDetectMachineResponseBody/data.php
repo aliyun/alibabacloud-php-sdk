@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $effectDays;
+
+    /**
      * @var string
      */
     public $instanceName;
@@ -22,6 +27,11 @@ class data extends Model
      * @var string
      */
     public $intranetIp;
+
+    /**
+     * @var string
+     */
+    public $pluginStatus;
 
     /**
      * @var int
@@ -41,6 +51,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $studyRemainDays;
+
+    /**
+     * @var int
+     */
     public $studyStartTime;
 
     /**
@@ -48,12 +63,15 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
+        'effectDays' => 'EffectDays',
         'instanceName' => 'InstanceName',
         'internetIp' => 'InternetIp',
         'intranetIp' => 'IntranetIp',
+        'pluginStatus' => 'PluginStatus',
         'processCount' => 'ProcessCount',
         'status' => 'Status',
         'studyMode' => 'StudyMode',
+        'studyRemainDays' => 'StudyRemainDays',
         'studyStartTime' => 'StudyStartTime',
         'uuid' => 'Uuid',
     ];
@@ -66,6 +84,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->effectDays) {
+            $res['EffectDays'] = $this->effectDays;
+        }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -78,6 +100,10 @@ class data extends Model
             $res['IntranetIp'] = $this->intranetIp;
         }
 
+        if (null !== $this->pluginStatus) {
+            $res['PluginStatus'] = $this->pluginStatus;
+        }
+
         if (null !== $this->processCount) {
             $res['ProcessCount'] = $this->processCount;
         }
@@ -88,6 +114,10 @@ class data extends Model
 
         if (null !== $this->studyMode) {
             $res['StudyMode'] = $this->studyMode;
+        }
+
+        if (null !== $this->studyRemainDays) {
+            $res['StudyRemainDays'] = $this->studyRemainDays;
         }
 
         if (null !== $this->studyStartTime) {
@@ -109,6 +139,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EffectDays'])) {
+            $model->effectDays = $map['EffectDays'];
+        }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
@@ -121,6 +155,10 @@ class data extends Model
             $model->intranetIp = $map['IntranetIp'];
         }
 
+        if (isset($map['PluginStatus'])) {
+            $model->pluginStatus = $map['PluginStatus'];
+        }
+
         if (isset($map['ProcessCount'])) {
             $model->processCount = $map['ProcessCount'];
         }
@@ -131,6 +169,10 @@ class data extends Model
 
         if (isset($map['StudyMode'])) {
             $model->studyMode = $map['StudyMode'];
+        }
+
+        if (isset($map['StudyRemainDays'])) {
+            $model->studyRemainDays = $map['StudyRemainDays'];
         }
 
         if (isset($map['StudyStartTime'])) {

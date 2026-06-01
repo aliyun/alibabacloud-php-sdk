@@ -89,6 +89,11 @@ class AddClientUserDefineRuleRequest extends Model
     public $registryKey;
 
     /**
+     * @var string
+     */
+    public $targetDefault;
+
+    /**
      * @var int
      */
     public $type;
@@ -109,6 +114,7 @@ class AddClientUserDefineRuleRequest extends Model
         'procPath' => 'ProcPath',
         'registryContent' => 'RegistryContent',
         'registryKey' => 'RegistryKey',
+        'targetDefault' => 'TargetDefault',
         'type' => 'Type',
     ];
 
@@ -182,6 +188,10 @@ class AddClientUserDefineRuleRequest extends Model
 
         if (null !== $this->registryKey) {
             $res['RegistryKey'] = $this->registryKey;
+        }
+
+        if (null !== $this->targetDefault) {
+            $res['TargetDefault'] = $this->targetDefault;
         }
 
         if (null !== $this->type) {
@@ -261,6 +271,10 @@ class AddClientUserDefineRuleRequest extends Model
 
         if (isset($map['RegistryKey'])) {
             $model->registryKey = $map['RegistryKey'];
+        }
+
+        if (isset($map['TargetDefault'])) {
+            $model->targetDefault = $map['TargetDefault'];
         }
 
         if (isset($map['Type'])) {

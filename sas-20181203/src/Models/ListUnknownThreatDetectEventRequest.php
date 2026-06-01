@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListUnknownThreatDetectEventRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $analyzeResult;
+
+    /**
      * @var int
      */
     public $currentPage;
@@ -17,6 +22,11 @@ class ListUnknownThreatDetectEventRequest extends Model
      * @var string
      */
     public $hashKey;
+
+    /**
+     * @var string
+     */
+    public $lang;
 
     /**
      * @var int
@@ -48,8 +58,10 @@ class ListUnknownThreatDetectEventRequest extends Model
      */
     public $uuid;
     protected $_name = [
+        'analyzeResult' => 'AnalyzeResult',
         'currentPage' => 'CurrentPage',
         'hashKey' => 'HashKey',
+        'lang' => 'Lang',
         'pageSize' => 'PageSize',
         'parentProcessPath' => 'ParentProcessPath',
         'processPath' => 'ProcessPath',
@@ -66,12 +78,20 @@ class ListUnknownThreatDetectEventRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->analyzeResult) {
+            $res['AnalyzeResult'] = $this->analyzeResult;
+        }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
 
         if (null !== $this->hashKey) {
             $res['HashKey'] = $this->hashKey;
+        }
+
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         if (null !== $this->pageSize) {
@@ -109,12 +129,20 @@ class ListUnknownThreatDetectEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnalyzeResult'])) {
+            $model->analyzeResult = $map['AnalyzeResult'];
+        }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
 
         if (isset($map['HashKey'])) {
             $model->hashKey = $map['HashKey'];
+        }
+
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         if (isset($map['PageSize'])) {

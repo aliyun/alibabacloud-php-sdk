@@ -2320,6 +2320,10 @@ class Sas extends OpenApiClient
             @$query['RegistryKey'] = $request->registryKey;
         }
 
+        if (null !== $request->targetDefault) {
+            @$query['TargetDefault'] = $request->targetDefault;
+        }
+
         if (null !== $request->type) {
             @$query['Type'] = $request->type;
         }
@@ -52630,12 +52634,20 @@ class Sas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->analyzeResult) {
+            @$query['AnalyzeResult'] = $request->analyzeResult;
+        }
+
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
         }
 
         if (null !== $request->hashKey) {
             @$query['HashKey'] = $request->hashKey;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
 
         if (null !== $request->pageSize) {

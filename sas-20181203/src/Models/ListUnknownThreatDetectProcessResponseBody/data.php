@@ -14,6 +14,16 @@ class data extends Model
     public $analyzeResult;
 
     /**
+     * @var string
+     */
+    public $explanationEn;
+
+    /**
+     * @var string
+     */
+    public $explanationZh;
+
+    /**
      * @var int
      */
     public $firstTime;
@@ -44,6 +54,8 @@ class data extends Model
     public $sha256;
     protected $_name = [
         'analyzeResult' => 'AnalyzeResult',
+        'explanationEn' => 'ExplanationEn',
+        'explanationZh' => 'ExplanationZh',
         'firstTime' => 'FirstTime',
         'md5' => 'Md5',
         'processId' => 'ProcessId',
@@ -62,6 +74,14 @@ class data extends Model
         $res = [];
         if (null !== $this->analyzeResult) {
             $res['AnalyzeResult'] = $this->analyzeResult;
+        }
+
+        if (null !== $this->explanationEn) {
+            $res['ExplanationEn'] = $this->explanationEn;
+        }
+
+        if (null !== $this->explanationZh) {
+            $res['ExplanationZh'] = $this->explanationZh;
         }
 
         if (null !== $this->firstTime) {
@@ -101,6 +121,14 @@ class data extends Model
         $model = new self();
         if (isset($map['AnalyzeResult'])) {
             $model->analyzeResult = $map['AnalyzeResult'];
+        }
+
+        if (isset($map['ExplanationEn'])) {
+            $model->explanationEn = $map['ExplanationEn'];
+        }
+
+        if (isset($map['ExplanationZh'])) {
+            $model->explanationZh = $map['ExplanationZh'];
         }
 
         if (isset($map['FirstTime'])) {

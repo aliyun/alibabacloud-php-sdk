@@ -11,6 +11,11 @@ class data extends Model
     /**
      * @var int
      */
+    public $blockEventMachineCount;
+
+    /**
+     * @var int
+     */
     public $blockMachineCount;
 
     /**
@@ -33,6 +38,7 @@ class data extends Model
      */
     public $studyingMachineCount;
     protected $_name = [
+        'blockEventMachineCount' => 'BlockEventMachineCount',
         'blockMachineCount' => 'BlockMachineCount',
         'machineCount' => 'MachineCount',
         'monitorMachineCount' => 'MonitorMachineCount',
@@ -48,6 +54,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->blockEventMachineCount) {
+            $res['BlockEventMachineCount'] = $this->blockEventMachineCount;
+        }
+
         if (null !== $this->blockMachineCount) {
             $res['BlockMachineCount'] = $this->blockMachineCount;
         }
@@ -79,6 +89,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BlockEventMachineCount'])) {
+            $model->blockEventMachineCount = $map['BlockEventMachineCount'];
+        }
+
         if (isset($map['BlockMachineCount'])) {
             $model->blockMachineCount = $map['BlockMachineCount'];
         }
