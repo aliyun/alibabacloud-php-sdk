@@ -1,3 +1,11 @@
+2026-06-01 Version: 7.8.1
+- Update API CreateDeploymentSet: add request parameters Affinity.
+- Update API DescribeDeploymentSets: add response parameters Body.DeploymentSets.$.Affinity.
+- Update API ModifyDeploymentSetAttribute: add request parameters Affinity.
+- Update API ModifyInstanceAttribute: add request parameters CpuOptions.
+- Update API RunInstances: add request parameters CpuOptions.
+
+
 2026-05-13 Version: 7.8.0
 - Support API CreateVsc.
 - Support API DeleteVsc.

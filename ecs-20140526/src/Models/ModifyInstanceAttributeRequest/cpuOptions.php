@@ -22,10 +22,16 @@ class cpuOptions extends Model
      * @var string
      */
     public $topologyType;
+
+    /**
+     * @var string
+     */
+    public $nestedVirtualization;
     protected $_name = [
         'core' => 'Core',
         'threadsPerCore' => 'ThreadsPerCore',
         'topologyType' => 'TopologyType',
+        'nestedVirtualization' => 'NestedVirtualization',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class cpuOptions extends Model
 
         if (null !== $this->topologyType) {
             $res['TopologyType'] = $this->topologyType;
+        }
+
+        if (null !== $this->nestedVirtualization) {
+            $res['NestedVirtualization'] = $this->nestedVirtualization;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class cpuOptions extends Model
 
         if (isset($map['TopologyType'])) {
             $model->topologyType = $map['TopologyType'];
+        }
+
+        if (isset($map['NestedVirtualization'])) {
+            $model->nestedVirtualization = $map['NestedVirtualization'];
         }
 
         return $model;

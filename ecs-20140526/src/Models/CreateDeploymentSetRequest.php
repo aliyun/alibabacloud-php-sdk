@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateDeploymentSetRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $affinity;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -78,6 +83,7 @@ class CreateDeploymentSetRequest extends Model
      */
     public $type;
     protected $_name = [
+        'affinity' => 'Affinity',
         'clientToken' => 'ClientToken',
         'deploymentSetName' => 'DeploymentSetName',
         'description' => 'Description',
@@ -102,6 +108,10 @@ class CreateDeploymentSetRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->affinity) {
+            $res['Affinity'] = $this->affinity;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -169,6 +179,10 @@ class CreateDeploymentSetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Affinity'])) {
+            $model->affinity = $map['Affinity'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

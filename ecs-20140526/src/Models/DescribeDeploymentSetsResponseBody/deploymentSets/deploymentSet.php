@@ -16,6 +16,11 @@ class deploymentSet extends Model
     public $accountId;
 
     /**
+     * @var int
+     */
+    public $affinity;
+
+    /**
      * @var capacities
      */
     public $capacities;
@@ -81,6 +86,7 @@ class deploymentSet extends Model
     public $type;
     protected $_name = [
         'accountId' => 'AccountId',
+        'affinity' => 'Affinity',
         'capacities' => 'Capacities',
         'creationTime' => 'CreationTime',
         'deploymentSetDescription' => 'DeploymentSetDescription',
@@ -112,6 +118,10 @@ class deploymentSet extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+
+        if (null !== $this->affinity) {
+            $res['Affinity'] = $this->affinity;
         }
 
         if (null !== $this->capacities) {
@@ -179,6 +189,10 @@ class deploymentSet extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+
+        if (isset($map['Affinity'])) {
+            $model->affinity = $map['Affinity'];
         }
 
         if (isset($map['Capacities'])) {
