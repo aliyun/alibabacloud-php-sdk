@@ -10,11 +10,15 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobTemplateRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobTemplateResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateRayHistoryServerRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateRayHistoryServerResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobTemplateRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobTemplateResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteRayHistoryServerRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteRayHistoryServerResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetDashboardRequest;
@@ -35,6 +39,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayDashboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayDashboardResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayHistoryServerRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayHistoryServerResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardSharedUrlRequest;
@@ -52,13 +58,19 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsShrinkRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobTemplatesRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobTemplatesResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListRayHistoryServersRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListRayHistoryServersResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListTensorboardsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListTensorboardsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\SetJobTemplateDefaultVersionRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\SetJobTemplateDefaultVersionResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartRayHistoryServerRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartRayHistoryServerResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StartTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopJobResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopRayHistoryServerRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopRayHistoryServerResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\StopTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\UpdateJobRequest;
@@ -400,6 +412,91 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * 创建 RayHistoryServer.
+     *
+     * @param request - CreateRayHistoryServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRayHistoryServerResponse
+     *
+     * @param CreateRayHistoryServerRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateRayHistoryServerResponse
+     */
+    public function createRayHistoryServerWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->accessibility) {
+            @$body['Accessibility'] = $request->accessibility;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->ecsSpec) {
+            @$body['EcsSpec'] = $request->ecsSpec;
+        }
+
+        if (null !== $request->maxRuntimeMinutes) {
+            @$body['MaxRuntimeMinutes'] = $request->maxRuntimeMinutes;
+        }
+
+        if (null !== $request->resourceId) {
+            @$body['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->storagePath) {
+            @$body['StoragePath'] = $request->storagePath;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRayHistoryServer',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/rayhistoryservers',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRayHistoryServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 RayHistoryServer.
+     *
+     * @param request - CreateRayHistoryServerRequest
+     *
+     * @returns CreateRayHistoryServerResponse
+     *
+     * @param CreateRayHistoryServerRequest $request
+     *
+     * @return CreateRayHistoryServerResponse
+     */
+    public function createRayHistoryServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createRayHistoryServerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a TensorBoard by using a job or specifying a data source configuration.
      *
      * @param request - CreateTensorboardRequest
@@ -642,6 +739,63 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->deleteJobTemplateWithOptions($TemplateId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除RayHistoryServer.
+     *
+     * @param request - DeleteRayHistoryServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRayHistoryServerResponse
+     *
+     * @param string                        $RayHistoryServerId
+     * @param DeleteRayHistoryServerRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteRayHistoryServerResponse
+     */
+    public function deleteRayHistoryServerWithOptions($RayHistoryServerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRayHistoryServer',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/rayhistoryservers/' . Url::percentEncode($RayHistoryServerId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRayHistoryServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除RayHistoryServer.
+     *
+     * @param request - DeleteRayHistoryServerRequest
+     *
+     * @returns DeleteRayHistoryServerResponse
+     *
+     * @param string                        $RayHistoryServerId
+     * @param DeleteRayHistoryServerRequest $request
+     *
+     * @return DeleteRayHistoryServerResponse
+     */
+    public function deleteRayHistoryServer($RayHistoryServerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteRayHistoryServerWithOptions($RayHistoryServerId, $request, $headers, $runtime);
     }
 
     /**
@@ -1356,6 +1510,63 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->getRayDashboardWithOptions($jobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询 RayHistoryServer.
+     *
+     * @param request - GetRayHistoryServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRayHistoryServerResponse
+     *
+     * @param string                     $RayHistoryServerId
+     * @param GetRayHistoryServerRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetRayHistoryServerResponse
+     */
+    public function getRayHistoryServerWithOptions($RayHistoryServerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetRayHistoryServer',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/rayhistoryservers/' . Url::percentEncode($RayHistoryServerId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRayHistoryServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 RayHistoryServer.
+     *
+     * @param request - GetRayHistoryServerRequest
+     *
+     * @returns GetRayHistoryServerResponse
+     *
+     * @param string                     $RayHistoryServerId
+     * @param GetRayHistoryServerRequest $request
+     *
+     * @return GetRayHistoryServerResponse
+     */
+    public function getRayHistoryServer($RayHistoryServerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRayHistoryServerWithOptions($RayHistoryServerId, $request, $headers, $runtime);
     }
 
     /**
@@ -2075,6 +2286,127 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * 列出资源RayHistoryServer.
+     *
+     * @param request - ListRayHistoryServersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRayHistoryServersResponse
+     *
+     * @param ListRayHistoryServersRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListRayHistoryServersResponse
+     */
+    public function listRayHistoryServersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->idPrefix) {
+            @$query['IdPrefix'] = $request->idPrefix;
+        }
+
+        if (null !== $request->modifiedAfter) {
+            @$query['ModifiedAfter'] = $request->modifiedAfter;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->showOwn) {
+            @$query['ShowOwn'] = $request->showOwn;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->userIdForFilter) {
+            @$query['UserIdForFilter'] = $request->userIdForFilter;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRayHistoryServers',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/rayhistoryservers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRayHistoryServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出资源RayHistoryServer.
+     *
+     * @param request - ListRayHistoryServersRequest
+     *
+     * @returns ListRayHistoryServersResponse
+     *
+     * @param ListRayHistoryServersRequest $request
+     *
+     * @return ListRayHistoryServersResponse
+     */
+    public function listRayHistoryServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRayHistoryServersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries a list of TensorBoard instances.
      *
      * @param request - ListTensorboardsRequest
@@ -2275,6 +2607,63 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * 启动 Ray History Server.
+     *
+     * @param request - StartRayHistoryServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartRayHistoryServerResponse
+     *
+     * @param string                       $RayHistoryServerId
+     * @param StartRayHistoryServerRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StartRayHistoryServerResponse
+     */
+    public function startRayHistoryServerWithOptions($RayHistoryServerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StartRayHistoryServer',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/rayhistoryservers/' . Url::percentEncode($RayHistoryServerId) . '/start',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StartRayHistoryServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启动 Ray History Server.
+     *
+     * @param request - StartRayHistoryServerRequest
+     *
+     * @returns StartRayHistoryServerResponse
+     *
+     * @param string                       $RayHistoryServerId
+     * @param StartRayHistoryServerRequest $request
+     *
+     * @return StartRayHistoryServerResponse
+     */
+    public function startRayHistoryServer($RayHistoryServerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startRayHistoryServerWithOptions($RayHistoryServerId, $request, $headers, $runtime);
+    }
+
+    /**
      * Starts a TensorBoard instance.
      *
      * @param request - StartTensorboardRequest
@@ -2386,6 +2775,63 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->stopJobWithOptions($JobId, $headers, $runtime);
+    }
+
+    /**
+     * 停止 Ray History Server.
+     *
+     * @param request - StopRayHistoryServerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopRayHistoryServerResponse
+     *
+     * @param string                      $RayHistoryServerId
+     * @param StopRayHistoryServerRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StopRayHistoryServerResponse
+     */
+    public function stopRayHistoryServerWithOptions($RayHistoryServerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'StopRayHistoryServer',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/rayhistoryservers/' . Url::percentEncode($RayHistoryServerId) . '/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopRayHistoryServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止 Ray History Server.
+     *
+     * @param request - StopRayHistoryServerRequest
+     *
+     * @returns StopRayHistoryServerResponse
+     *
+     * @param string                      $RayHistoryServerId
+     * @param StopRayHistoryServerRequest $request
+     *
+     * @return StopRayHistoryServerResponse
+     */
+    public function stopRayHistoryServer($RayHistoryServerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopRayHistoryServerWithOptions($RayHistoryServerId, $request, $headers, $runtime);
     }
 
     /**
