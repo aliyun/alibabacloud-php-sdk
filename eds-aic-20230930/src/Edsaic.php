@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateMobileAgentPackageRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateMobileAgentPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupShrinkRequest;
@@ -91,6 +93,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricListRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricListResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricTopRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricTopResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMobileAgentPackageRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMobileAgentPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecRequest;
@@ -176,6 +180,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewAndroidInstanceGroupsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewAndroidInstanceGroupsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewCloudPhoneNodesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewCloudPhoneNodesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewMobileAgentPackageRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewMobileAgentPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResetAndroidInstancesInGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResetAndroidInstancesInGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResumeAgentTaskRequest;
@@ -1587,6 +1593,107 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createKeyPairWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建套餐包.
+     *
+     * @param request - CreateMobileAgentPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMobileAgentPackageResponse
+     *
+     * @param CreateMobileAgentPackageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateMobileAgentPackageResponse
+     */
+    public function createMobileAgentPackageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->creditAmount) {
+            @$query['CreditAmount'] = $request->creditAmount;
+        }
+
+        if (null !== $request->creditConfig) {
+            @$query['CreditConfig'] = $request->creditConfig;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->mobileAgentPackageSpec) {
+            @$query['MobileAgentPackageSpec'] = $request->mobileAgentPackageSpec;
+        }
+
+        if (null !== $request->paidCallbackUrl) {
+            @$query['PaidCallbackUrl'] = $request->paidCallbackUrl;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMobileAgentPackage',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMobileAgentPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建套餐包.
+     *
+     * @param request - CreateMobileAgentPackageRequest
+     *
+     * @returns CreateMobileAgentPackageResponse
+     *
+     * @param CreateMobileAgentPackageRequest $request
+     *
+     * @return CreateMobileAgentPackageResponse
+     */
+    public function createMobileAgentPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMobileAgentPackageWithOptions($request, $runtime);
     }
 
     /**
@@ -3603,6 +3710,83 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeMetricTopWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询节点套餐详细信息.
+     *
+     * @param request - DescribeMobileAgentPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMobileAgentPackageResponse
+     *
+     * @param DescribeMobileAgentPackageRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeMobileAgentPackageResponse
+     */
+    public function describeMobileAgentPackageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->packageIds) {
+            @$query['PackageIds'] = $request->packageIds;
+        }
+
+        if (null !== $request->packageSpec) {
+            @$query['PackageSpec'] = $request->packageSpec;
+        }
+
+        if (null !== $request->packageStatus) {
+            @$query['PackageStatus'] = $request->packageStatus;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMobileAgentPackage',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMobileAgentPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询节点套餐详细信息.
+     *
+     * @param request - DescribeMobileAgentPackageRequest
+     *
+     * @returns DescribeMobileAgentPackageResponse
+     *
+     * @param DescribeMobileAgentPackageRequest $request
+     *
+     * @return DescribeMobileAgentPackageResponse
+     */
+    public function describeMobileAgentPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMobileAgentPackageWithOptions($request, $runtime);
     }
 
     /**
@@ -6590,6 +6774,87 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renewCloudPhoneNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 续费MobileAgent套餐包.
+     *
+     * @param request - RenewMobileAgentPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewMobileAgentPackageResponse
+     *
+     * @param RenewMobileAgentPackageRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RenewMobileAgentPackageResponse
+     */
+    public function renewMobileAgentPackageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->mobileAgentPackageIds) {
+            @$query['MobileAgentPackageIds'] = $request->mobileAgentPackageIds;
+        }
+
+        if (null !== $request->paidCallbackUrl) {
+            @$query['PaidCallbackUrl'] = $request->paidCallbackUrl;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RenewMobileAgentPackage',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenewMobileAgentPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 续费MobileAgent套餐包.
+     *
+     * @param request - RenewMobileAgentPackageRequest
+     *
+     * @returns RenewMobileAgentPackageResponse
+     *
+     * @param RenewMobileAgentPackageRequest $request
+     *
+     * @return RenewMobileAgentPackageResponse
+     */
+    public function renewMobileAgentPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewMobileAgentPackageWithOptions($request, $runtime);
     }
 
     /**
