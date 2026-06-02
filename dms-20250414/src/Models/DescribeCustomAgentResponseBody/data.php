@@ -130,6 +130,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $relatedSessionId;
+
+    /**
+     * @var string
+     */
     public $releaseTime;
 
     /**
@@ -180,6 +185,7 @@ class data extends Model
         'nextRuntime' => 'NextRuntime',
         'offlineTime' => 'OfflineTime',
         'region' => 'Region',
+        'relatedSessionId' => 'RelatedSessionId',
         'releaseTime' => 'ReleaseTime',
         'scheduleTaskConfig' => 'ScheduleTaskConfig',
         'status' => 'Status',
@@ -305,6 +311,10 @@ class data extends Model
 
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+
+        if (null !== $this->relatedSessionId) {
+            $res['RelatedSessionId'] = $this->relatedSessionId;
         }
 
         if (null !== $this->releaseTime) {
@@ -439,6 +449,10 @@ class data extends Model
 
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['RelatedSessionId'])) {
+            $model->relatedSessionId = $map['RelatedSessionId'];
         }
 
         if (isset($map['ReleaseTime'])) {

@@ -58,6 +58,11 @@ class CreateCustomAgentRequest extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $relatedSessionId;
+
+    /**
      * @var scheduleTaskConfig
      */
     public $scheduleTaskConfig;
@@ -86,6 +91,7 @@ class CreateCustomAgentRequest extends Model
         'knowledge' => 'Knowledge',
         'knowledgeConfigList' => 'KnowledgeConfigList',
         'name' => 'Name',
+        'relatedSessionId' => 'RelatedSessionId',
         'scheduleTaskConfig' => 'ScheduleTaskConfig',
         'textReportConfig' => 'TextReportConfig',
         'webReportConfig' => 'WebReportConfig',
@@ -153,6 +159,10 @@ class CreateCustomAgentRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->relatedSessionId) {
+            $res['RelatedSessionId'] = $this->relatedSessionId;
         }
 
         if (null !== $this->scheduleTaskConfig) {
@@ -223,6 +233,10 @@ class CreateCustomAgentRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RelatedSessionId'])) {
+            $model->relatedSessionId = $map['RelatedSessionId'];
         }
 
         if (isset($map['ScheduleTaskConfig'])) {

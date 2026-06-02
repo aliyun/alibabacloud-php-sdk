@@ -61,6 +61,11 @@ class ModifyCustomAgentShrinkRequest extends Model
     /**
      * @var string
      */
+    public $relatedSessionId;
+
+    /**
+     * @var string
+     */
     public $scheduleTaskConfigShrink;
 
     /**
@@ -88,6 +93,7 @@ class ModifyCustomAgentShrinkRequest extends Model
         'knowledge' => 'Knowledge',
         'knowledgeConfigListShrink' => 'KnowledgeConfigList',
         'name' => 'Name',
+        'relatedSessionId' => 'RelatedSessionId',
         'scheduleTaskConfigShrink' => 'ScheduleTaskConfig',
         'textReportConfig' => 'TextReportConfig',
         'webReportConfig' => 'WebReportConfig',
@@ -140,6 +146,10 @@ class ModifyCustomAgentShrinkRequest extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->relatedSessionId) {
+            $res['RelatedSessionId'] = $this->relatedSessionId;
         }
 
         if (null !== $this->scheduleTaskConfigShrink) {
@@ -207,6 +217,10 @@ class ModifyCustomAgentShrinkRequest extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RelatedSessionId'])) {
+            $model->relatedSessionId = $map['RelatedSessionId'];
         }
 
         if (isset($map['ScheduleTaskConfig'])) {

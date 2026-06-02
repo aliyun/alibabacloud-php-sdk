@@ -69,6 +69,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDocumentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDocumentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteFileUploadRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteFileUploadResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteWorkspaceCodeRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionRequest;
@@ -108,6 +110,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodePublishSettingRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodePublishSettingResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodeRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceQuotaRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceQuotaResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowsRequest;
@@ -155,6 +159,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListFileUploadResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListKnowledgeBasesRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListKnowledgeBasesResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListWorkspaceCodeRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ModifyCustomAgentShrinkRequest;
@@ -164,6 +170,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\RedeployAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RedeployAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RemoveUserToDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\RemoveUserToDataAgentWorkspaceResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SaveWorkspaceCodeRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SaveWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageShrinkRequest;
@@ -908,6 +916,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->relatedSessionId) {
+            @$query['RelatedSessionId'] = $request->relatedSessionId;
         }
 
         if (null !== $request->scheduleTaskConfigShrink) {
@@ -2277,6 +2289,75 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 删除工作空间代码以及目录.
+     *
+     * @param request - DeleteWorkspaceCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWorkspaceCodeResponse
+     *
+     * @param DeleteWorkspaceCodeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteWorkspaceCodeResponse
+     */
+    public function deleteWorkspaceCodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->repo) {
+            @$query['Repo'] = $request->repo;
+        }
+
+        if (null !== $request->symlink) {
+            @$query['Symlink'] = $request->symlink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWorkspaceCode',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWorkspaceCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除工作空间代码以及目录.
+     *
+     * @param request - DeleteWorkspaceCodeRequest
+     *
+     * @returns DeleteWorkspaceCodeResponse
+     *
+     * @param DeleteWorkspaceCodeRequest $request
+     *
+     * @return DeleteWorkspaceCodeResponse
+     */
+    public function deleteWorkspaceCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteWorkspaceCodeWithOptions($request, $runtime);
+    }
+
+    /**
      * DescribeCustomAgent.
      *
      * @param request - DescribeCustomAgentRequest
@@ -3532,6 +3613,71 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNotebookTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 读取工作空间的代码文件内容.
+     *
+     * @param request - GetWorkspaceCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceCodeResponse
+     *
+     * @param GetWorkspaceCodeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetWorkspaceCodeResponse
+     */
+    public function getWorkspaceCodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->iac) {
+            @$query['Iac'] = $request->iac;
+        }
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspaceCode',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 读取工作空间的代码文件内容.
+     *
+     * @param request - GetWorkspaceCodeRequest
+     *
+     * @returns GetWorkspaceCodeResponse
+     *
+     * @param GetWorkspaceCodeRequest $request
+     *
+     * @return GetWorkspaceCodeResponse
+     */
+    public function getWorkspaceCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWorkspaceCodeWithOptions($request, $runtime);
     }
 
     /**
@@ -5441,6 +5587,67 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * 列出工作空间目录下的code文件.
+     *
+     * @param request - ListWorkspaceCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkspaceCodeResponse
+     *
+     * @param ListWorkspaceCodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListWorkspaceCodeResponse
+     */
+    public function listWorkspaceCodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkspaceCode',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkspaceCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出工作空间目录下的code文件.
+     *
+     * @param request - ListWorkspaceCodeRequest
+     *
+     * @returns ListWorkspaceCodeResponse
+     *
+     * @param ListWorkspaceCodeRequest $request
+     *
+     * @return ListWorkspaceCodeResponse
+     */
+    public function listWorkspaceCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listWorkspaceCodeWithOptions($request, $runtime);
+    }
+
+    /**
      * ModifyCustomAgent.
      *
      * @param tmpReq - ModifyCustomAgentRequest
@@ -5513,6 +5720,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->name) {
             @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->relatedSessionId) {
+            @$query['RelatedSessionId'] = $request->relatedSessionId;
         }
 
         if (null !== $request->scheduleTaskConfigShrink) {
@@ -5756,6 +5967,89 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeUserToDataAgentWorkspaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 保存工作空间代码，如果文件不存在则自动新建.
+     *
+     * @param request - SaveWorkspaceCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveWorkspaceCodeResponse
+     *
+     * @param SaveWorkspaceCodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SaveWorkspaceCodeResponse
+     */
+    public function saveWorkspaceCodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
+        }
+
+        if (null !== $request->iac) {
+            @$query['Iac'] = $request->iac;
+        }
+
+        if (null !== $request->mtime) {
+            @$query['Mtime'] = $request->mtime;
+        }
+
+        if (null !== $request->repo) {
+            @$query['Repo'] = $request->repo;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->path) {
+            @$body['Path'] = $request->path;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveWorkspaceCode',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveWorkspaceCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 保存工作空间代码，如果文件不存在则自动新建.
+     *
+     * @param request - SaveWorkspaceCodeRequest
+     *
+     * @returns SaveWorkspaceCodeResponse
+     *
+     * @param SaveWorkspaceCodeRequest $request
+     *
+     * @return SaveWorkspaceCodeResponse
+     */
+    public function saveWorkspaceCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveWorkspaceCodeWithOptions($request, $runtime);
     }
 
     /**
