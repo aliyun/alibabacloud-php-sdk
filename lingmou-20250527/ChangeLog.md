@@ -1,3 +1,7 @@
+2026-06-02 Version: 1.8.0
+- Support API DeleteBroadcastSticker.
+
+
 2026-06-02 Version: 1.7.0
 - Support API DeleteBroadcastSticker.
 
