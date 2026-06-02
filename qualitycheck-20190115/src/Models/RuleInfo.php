@@ -215,7 +215,7 @@ class RuleInfo extends Model
     public $scoreName;
 
     /**
-     * @var int
+     * @var float
      */
     public $scoreNum;
 
