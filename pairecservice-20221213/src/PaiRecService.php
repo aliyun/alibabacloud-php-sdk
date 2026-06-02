@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\BackflowFeatureConsistencyCh
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\BackflowFeatureConsistencyCheckJobDataResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ChangeRecallManagementServiceVersionRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ChangeRecallManagementServiceVersionResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ChatConversationRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ChatConversationResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckInstanceResourcesRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckInstanceResourcesResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\CheckTrafficControlTaskExpressionRequest;
@@ -647,6 +649,146 @@ class PaiRecService extends OpenApiClient
         $headers = [];
 
         return $this->changeRecallManagementServiceVersionWithOptions($RecallManagementServiceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 向智能体发送对话消息.
+     *
+     * @param request - ChatConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatConversationResponse
+     *
+     * @param ChatConversationRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ChatConversationResponse
+     */
+    public function chatConversationWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChatConversation',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ChatConversationResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 向智能体发送对话消息.
+     *
+     * @param request - ChatConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChatConversationResponse
+     *
+     * @param ChatConversationRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ChatConversationResponse
+     */
+    public function chatConversationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ChatConversation',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ChatConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 向智能体发送对话消息.
+     *
+     * @param request - ChatConversationRequest
+     *
+     * @returns ChatConversationResponse
+     *
+     * @param ChatConversationRequest $request
+     *
+     * @return ChatConversationResponse
+     */
+    public function chatConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->chatConversationWithOptions($request, $headers, $runtime);
     }
 
     /**
