@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAppShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeShrinkRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCreditPackageRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCreditPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairRequest;
@@ -77,6 +79,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBucketsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBucketsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCreditPackageRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCreditPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeDisplayConfigRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeDisplayConfigResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListRequest;
@@ -1459,6 +1463,79 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCloudPhoneNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建积分包.
+     *
+     * @param request - CreateCreditPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCreditPackageResponse
+     *
+     * @param CreateCreditPackageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateCreditPackageResponse
+     */
+    public function createCreditPackageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->creditAmount) {
+            @$query['CreditAmount'] = $request->creditAmount;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCreditPackage',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCreditPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建积分包.
+     *
+     * @param request - CreateCreditPackageRequest
+     *
+     * @returns CreateCreditPackageResponse
+     *
+     * @param CreateCreditPackageRequest $request
+     *
+     * @return CreateCreditPackageResponse
+     */
+    public function createCreditPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCreditPackageWithOptions($request, $runtime);
     }
 
     /**
@@ -3102,6 +3179,67 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudPhoneNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询积分包.
+     *
+     * @param request - DescribeCreditPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCreditPackageResponse
+     *
+     * @param DescribeCreditPackageRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeCreditPackageResponse
+     */
+    public function describeCreditPackageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->creditPackageId) {
+            @$query['CreditPackageId'] = $request->creditPackageId;
+        }
+
+        if (null !== $request->creditPackageStatus) {
+            @$query['CreditPackageStatus'] = $request->creditPackageStatus;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCreditPackage',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCreditPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询积分包.
+     *
+     * @param request - DescribeCreditPackageRequest
+     *
+     * @returns DescribeCreditPackageResponse
+     *
+     * @param DescribeCreditPackageRequest $request
+     *
+     * @return DescribeCreditPackageResponse
+     */
+    public function describeCreditPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCreditPackageWithOptions($request, $runtime);
     }
 
     /**

@@ -1,0 +1,104 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class CreateCreditPackageResponseBody extends Model
+{
+    /**
+     * @var string
+     */
+    public $creditPackageId;
+
+    /**
+     * @var string
+     */
+    public $effectiveTime;
+
+    /**
+     * @var string
+     */
+    public $expiredTime;
+
+    /**
+     * @var string
+     */
+    public $orderId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+    protected $_name = [
+        'creditPackageId' => 'CreditPackageId',
+        'effectiveTime' => 'EffectiveTime',
+        'expiredTime' => 'ExpiredTime',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->creditPackageId) {
+            $res['CreditPackageId'] = $this->creditPackageId;
+        }
+
+        if (null !== $this->effectiveTime) {
+            $res['EffectiveTime'] = $this->effectiveTime;
+        }
+
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
+        }
+
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['CreditPackageId'])) {
+            $model->creditPackageId = $map['CreditPackageId'];
+        }
+
+        if (isset($map['EffectiveTime'])) {
+            $model->effectiveTime = $map['EffectiveTime'];
+        }
+
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
+        }
+
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        return $model;
+    }
+}
