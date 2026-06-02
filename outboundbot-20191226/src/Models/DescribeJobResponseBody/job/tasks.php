@@ -114,6 +114,11 @@ class tasks extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var int
+     */
+    public $totalDuration;
     protected $_name = [
         'actualTime' => 'ActualTime',
         'brief' => 'Brief',
@@ -136,6 +141,7 @@ class tasks extends Model
         'sipDuration' => 'SipDuration',
         'status' => 'Status',
         'taskId' => 'TaskId',
+        'totalDuration' => 'TotalDuration',
     ];
 
     public function validate()
@@ -243,6 +249,10 @@ class tasks extends Model
             $res['TaskId'] = $this->taskId;
         }
 
+        if (null !== $this->totalDuration) {
+            $res['TotalDuration'] = $this->totalDuration;
+        }
+
         return $res;
     }
 
@@ -343,6 +353,10 @@ class tasks extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['TotalDuration'])) {
+            $model->totalDuration = $map['TotalDuration'];
         }
 
         return $model;

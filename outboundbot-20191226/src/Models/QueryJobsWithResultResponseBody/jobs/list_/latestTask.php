@@ -43,6 +43,11 @@ class latestTask extends Model
     public $extras;
 
     /**
+     * @var string
+     */
+    public $hangUpDirection;
+
+    /**
      * @var bool
      */
     public $hasAnswered;
@@ -88,6 +93,7 @@ class latestTask extends Model
         'contact' => 'Contact',
         'dialExceptionCodes' => 'DialExceptionCodes',
         'extras' => 'Extras',
+        'hangUpDirection' => 'HangUpDirection',
         'hasAnswered' => 'HasAnswered',
         'hasHangUpByRejection' => 'HasHangUpByRejection',
         'hasLastPlaybackCompleted' => 'HasLastPlaybackCompleted',
@@ -154,6 +160,10 @@ class latestTask extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->hangUpDirection) {
+            $res['HangUpDirection'] = $this->hangUpDirection;
         }
 
         if (null !== $this->hasAnswered) {
@@ -242,6 +252,10 @@ class latestTask extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['HangUpDirection'])) {
+            $model->hangUpDirection = $map['HangUpDirection'];
         }
 
         if (isset($map['HasAnswered'])) {

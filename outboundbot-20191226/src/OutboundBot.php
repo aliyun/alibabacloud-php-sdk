@@ -2325,7 +2325,6 @@ class OutboundBot extends OpenApiClient
     /**
      * 清空归属地号码库.
      *
-     * @param request - DeleteAllNumberDistrictInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteAllNumberDistrictInfoResponse
@@ -5213,7 +5212,6 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * @param request - GetConcurrentConversationQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetConcurrentConversationQuotaResponse
@@ -5641,7 +5639,6 @@ class OutboundBot extends OpenApiClient
     /**
      * 获取号码库模板下载链接.
      *
-     * @param request - GetNumberDistrictInfoTemplateDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetNumberDistrictInfoTemplateDownloadUrlResponse
@@ -5848,7 +5845,6 @@ class OutboundBot extends OpenApiClient
     /**
      * GetVersion.
      *
-     * @param request - GetVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetVersionResponse
@@ -6079,7 +6075,6 @@ class OutboundBot extends OpenApiClient
     /**
      * 租户绑定号码列表.
      *
-     * @param request - ListAllTenantBindNumberBindingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListAllTenantBindNumberBindingResponse
