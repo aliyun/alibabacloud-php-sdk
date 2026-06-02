@@ -5,11 +5,37 @@
 namespace AlibabaCloud\SDK\Appflow\V20230904;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\CreateFlowRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\CreateFlowResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\CreateUserAuthConfigRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\CreateUserAuthConfigResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\DeleteFlowRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\DeleteFlowResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\DeleteUserAuthConfigRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\DeleteUserAuthConfigResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\DisableFlowRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\DisableFlowResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\EnableFlowRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\EnableFlowResponse;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\GenerateUserSessionTokenRequest;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\GenerateUserSessionTokenResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\GetFlowRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\GetFlowResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\GetUserAuthConfigRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\GetUserAuthConfigResponse;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\InvokeActionRequest;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\InvokeActionResponse;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\InvokeActionShrinkRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\LaunchFlowRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\LaunchFlowResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\ListUserAuthConfigsRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\ListUserAuthConfigsResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\UpdateFlowRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\UpdateFlowResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\UpdateUserAuthConfigRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\UpdateUserAuthConfigResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\WithdrawFlowRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\WithdrawFlowResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -47,6 +73,412 @@ class Appflow extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 创建连接流
+     *
+     * @param request - CreateFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateFlowResponse
+     *
+     * @param CreateFlowRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateFlowResponse
+     */
+    public function createFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowDesc) {
+            @$query['FlowDesc'] = $request->flowDesc;
+        }
+
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->flowName) {
+            @$query['FlowName'] = $request->flowName;
+        }
+
+        if (null !== $request->flowTemplate) {
+            @$query['FlowTemplate'] = $request->flowTemplate;
+        }
+
+        if (null !== $request->launchStatus) {
+            @$query['LaunchStatus'] = $request->launchStatus;
+        }
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateFlow',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建连接流
+     *
+     * @param request - CreateFlowRequest
+     *
+     * @returns CreateFlowResponse
+     *
+     * @param CreateFlowRequest $request
+     *
+     * @return CreateFlowResponse
+     */
+    public function createFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建用户鉴权凭证
+     *
+     * @param request - CreateUserAuthConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserAuthConfigResponse
+     *
+     * @param CreateUserAuthConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateUserAuthConfigResponse
+     */
+    public function createUserAuthConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authConfig) {
+            @$query['AuthConfig'] = $request->authConfig;
+        }
+
+        if (null !== $request->authConfigName) {
+            @$query['AuthConfigName'] = $request->authConfigName;
+        }
+
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->connectorVersion) {
+            @$query['ConnectorVersion'] = $request->connectorVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUserAuthConfig',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUserAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建用户鉴权凭证
+     *
+     * @param request - CreateUserAuthConfigRequest
+     *
+     * @returns CreateUserAuthConfigResponse
+     *
+     * @param CreateUserAuthConfigRequest $request
+     *
+     * @return CreateUserAuthConfigResponse
+     */
+    public function createUserAuthConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUserAuthConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除连接流
+     *
+     * @param request - DeleteFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFlowResponse
+     *
+     * @param DeleteFlowRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteFlowResponse
+     */
+    public function deleteFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFlow',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除连接流
+     *
+     * @param request - DeleteFlowRequest
+     *
+     * @returns DeleteFlowResponse
+     *
+     * @param DeleteFlowRequest $request
+     *
+     * @return DeleteFlowResponse
+     */
+    public function deleteFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除用户鉴权凭证
+     *
+     * @param request - DeleteUserAuthConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserAuthConfigResponse
+     *
+     * @param DeleteUserAuthConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteUserAuthConfigResponse
+     */
+    public function deleteUserAuthConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authConfigId) {
+            @$query['AuthConfigId'] = $request->authConfigId;
+        }
+
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->connectorVersion) {
+            @$query['ConnectorVersion'] = $request->connectorVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteUserAuthConfig',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteUserAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除用户鉴权凭证
+     *
+     * @param request - DeleteUserAuthConfigRequest
+     *
+     * @returns DeleteUserAuthConfigResponse
+     *
+     * @param DeleteUserAuthConfigRequest $request
+     *
+     * @return DeleteUserAuthConfigResponse
+     */
+    public function deleteUserAuthConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteUserAuthConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 禁用连接流
+     *
+     * @param request - DisableFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableFlowResponse
+     *
+     * @param DisableFlowRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DisableFlowResponse
+     */
+    public function disableFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableFlow',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 禁用连接流
+     *
+     * @param request - DisableFlowRequest
+     *
+     * @returns DisableFlowResponse
+     *
+     * @param DisableFlowRequest $request
+     *
+     * @return DisableFlowResponse
+     */
+    public function disableFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用连接流
+     *
+     * @param request - EnableFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableFlowResponse
+     *
+     * @param EnableFlowRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return EnableFlowResponse
+     */
+    public function enableFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableFlow',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用连接流
+     *
+     * @param request - EnableFlowRequest
+     *
+     * @returns EnableFlowResponse
+     *
+     * @param EnableFlowRequest $request
+     *
+     * @return EnableFlowResponse
+     */
+    public function enableFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableFlowWithOptions($request, $runtime);
     }
 
     /**
@@ -128,6 +560,132 @@ class Appflow extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateUserSessionTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取连接流详情.
+     *
+     * @param request - GetFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetFlowResponse
+     *
+     * @param GetFlowRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetFlowResponse
+     */
+    public function getFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetFlow',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取连接流详情.
+     *
+     * @param request - GetFlowRequest
+     *
+     * @returns GetFlowResponse
+     *
+     * @param GetFlowRequest $request
+     *
+     * @return GetFlowResponse
+     */
+    public function getFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户鉴权凭证详情.
+     *
+     * @param request - GetUserAuthConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserAuthConfigResponse
+     *
+     * @param GetUserAuthConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetUserAuthConfigResponse
+     */
+    public function getUserAuthConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authConfigId) {
+            @$query['AuthConfigId'] = $request->authConfigId;
+        }
+
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->connectorVersion) {
+            @$query['ConnectorVersion'] = $request->connectorVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserAuthConfig',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户鉴权凭证详情.
+     *
+     * @param request - GetUserAuthConfigRequest
+     *
+     * @returns GetUserAuthConfigResponse
+     *
+     * @param GetUserAuthConfigRequest $request
+     *
+     * @return GetUserAuthConfigResponse
+     */
+    public function getUserAuthConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserAuthConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -353,5 +911,366 @@ class Appflow extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->invokeActionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 发布连接流
+     *
+     * @param request - LaunchFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns LaunchFlowResponse
+     *
+     * @param LaunchFlowRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return LaunchFlowResponse
+     */
+    public function launchFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowDesc) {
+            @$query['FlowDesc'] = $request->flowDesc;
+        }
+
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->flowName) {
+            @$query['FlowName'] = $request->flowName;
+        }
+
+        if (null !== $request->flowTemplate) {
+            @$query['FlowTemplate'] = $request->flowTemplate;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'LaunchFlow',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return LaunchFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发布连接流
+     *
+     * @param request - LaunchFlowRequest
+     *
+     * @returns LaunchFlowResponse
+     *
+     * @param LaunchFlowRequest $request
+     *
+     * @return LaunchFlowResponse
+     */
+    public function launchFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->launchFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户鉴权凭证列表.
+     *
+     * @param request - ListUserAuthConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserAuthConfigsResponse
+     *
+     * @param ListUserAuthConfigsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUserAuthConfigsResponse
+     */
+    public function listUserAuthConfigsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->connectorVersion) {
+            @$query['ConnectorVersion'] = $request->connectorVersion;
+        }
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserAuthConfigs',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserAuthConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户鉴权凭证列表.
+     *
+     * @param request - ListUserAuthConfigsRequest
+     *
+     * @returns ListUserAuthConfigsResponse
+     *
+     * @param ListUserAuthConfigsRequest $request
+     *
+     * @return ListUserAuthConfigsResponse
+     */
+    public function listUserAuthConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserAuthConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新连接流
+     *
+     * @param request - UpdateFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateFlowResponse
+     *
+     * @param UpdateFlowRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateFlowResponse
+     */
+    public function updateFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->flowDesc) {
+            @$query['FlowDesc'] = $request->flowDesc;
+        }
+
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->flowName) {
+            @$query['FlowName'] = $request->flowName;
+        }
+
+        if (null !== $request->flowTemplate) {
+            @$query['FlowTemplate'] = $request->flowTemplate;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateFlow',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新连接流
+     *
+     * @param request - UpdateFlowRequest
+     *
+     * @returns UpdateFlowResponse
+     *
+     * @param UpdateFlowRequest $request
+     *
+     * @return UpdateFlowResponse
+     */
+    public function updateFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * 编辑用户鉴权凭证
+     *
+     * @param request - UpdateUserAuthConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserAuthConfigResponse
+     *
+     * @param UpdateUserAuthConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateUserAuthConfigResponse
+     */
+    public function updateUserAuthConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authConfig) {
+            @$query['AuthConfig'] = $request->authConfig;
+        }
+
+        if (null !== $request->authConfigId) {
+            @$query['AuthConfigId'] = $request->authConfigId;
+        }
+
+        if (null !== $request->authConfigName) {
+            @$query['AuthConfigName'] = $request->authConfigName;
+        }
+
+        if (null !== $request->connectorId) {
+            @$query['ConnectorId'] = $request->connectorId;
+        }
+
+        if (null !== $request->connectorVersion) {
+            @$query['ConnectorVersion'] = $request->connectorVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUserAuthConfig',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUserAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑用户鉴权凭证
+     *
+     * @param request - UpdateUserAuthConfigRequest
+     *
+     * @returns UpdateUserAuthConfigResponse
+     *
+     * @param UpdateUserAuthConfigRequest $request
+     *
+     * @return UpdateUserAuthConfigResponse
+     */
+    public function updateUserAuthConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserAuthConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 下线连接流
+     *
+     * @param request - WithdrawFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns WithdrawFlowResponse
+     *
+     * @param WithdrawFlowRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return WithdrawFlowResponse
+     */
+    public function withdrawFlowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->flowVersion) {
+            @$query['FlowVersion'] = $request->flowVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'WithdrawFlow',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return WithdrawFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 下线连接流
+     *
+     * @param request - WithdrawFlowRequest
+     *
+     * @returns WithdrawFlowResponse
+     *
+     * @param WithdrawFlowRequest $request
+     *
+     * @return WithdrawFlowResponse
+     */
+    public function withdrawFlow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->withdrawFlowWithOptions($request, $runtime);
     }
 }
