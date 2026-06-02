@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeDeviceSeatsResponseBody\data;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeClientsResponseBody\data;
 
-class DescribeDeviceSeatsResponseBody extends Model
+class DescribeClientsResponseBody extends Model
 {
     /**
      * @var string
@@ -20,24 +20,29 @@ class DescribeDeviceSeatsResponseBody extends Model
     public $data;
 
     /**
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
      * @var string
      */
     public $message;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
+    public $nextToken;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
 
     /**
      * @var int
@@ -46,10 +51,11 @@ class DescribeDeviceSeatsResponseBody extends Model
     protected $_name = [
         'code' => 'Code',
         'data' => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
         'message' => 'Message',
-        'pageNumber' => 'PageNumber',
-        'pageSize' => 'PageSize',
+        'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 
@@ -79,20 +85,24 @@ class DescribeDeviceSeatsResponseBody extends Model
             }
         }
 
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
+        }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
 
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         if (null !== $this->totalCount) {
@@ -125,20 +135,24 @@ class DescribeDeviceSeatsResponseBody extends Model
             }
         }
 
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
+        }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
 
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         if (isset($map['TotalCount'])) {

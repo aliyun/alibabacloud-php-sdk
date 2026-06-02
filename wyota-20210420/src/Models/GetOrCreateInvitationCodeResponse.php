@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Wyota\V20210420\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeDeviceSeatsResponse extends Model
+class GetOrCreateInvitationCodeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeDeviceSeatsResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeDeviceSeatsResponseBody
+     * @var GetOrCreateInvitationCodeResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class DescribeDeviceSeatsResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = DescribeDeviceSeatsResponseBody::fromMap($map['body']);
+            $model->body = GetOrCreateInvitationCodeResponseBody::fromMap($map['body']);
         }
 
         return $model;

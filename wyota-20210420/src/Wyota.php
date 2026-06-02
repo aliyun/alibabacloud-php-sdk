@@ -13,17 +13,18 @@ use AlibabaCloud\SDK\Wyota\V20210420\Models\BindAccountLessLoginUserRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\BindAccountLessLoginUserResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\BindPasswordFreeLoginUserRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\BindPasswordFreeLoginUserResponse;
-use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeDeviceSeatsRequest;
-use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeDeviceSeatsResponse;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\DeleteClientsRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\DeleteClientsResponse;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeClientsRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\DescribeClientsResponse;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\GetOrCreateInvitationCodeRequest;
+use AlibabaCloud\SDK\Wyota\V20210420\Models\GetOrCreateInvitationCodeResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListTerminalRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\ListTerminalResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\SendOpsMessageToTerminalsRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\SendOpsMessageToTerminalsResponse;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindAccountLessLoginUserRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindAccountLessLoginUserResponse;
-use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindDeviceSeatsRequest;
-use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindDeviceSeatsResponse;
-use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindDeviceSeatsShrinkRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindPasswordFreeLoginUserRequest;
 use AlibabaCloud\SDK\Wyota\V20210420\Models\UnbindPasswordFreeLoginUserResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -341,80 +342,260 @@ class Wyota extends OpenApiClient
     }
 
     /**
-     * 查询设备座位.
+     * 解除桌面端、移动端纳管
      *
-     * @param request - DescribeDeviceSeatsRequest
+     * @param request - DeleteClientsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @returns DescribeDeviceSeatsResponse
+     * @returns DeleteClientsResponse
      *
-     * @param DescribeDeviceSeatsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param DeleteClientsRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DescribeDeviceSeatsResponse
+     * @return DeleteClientsResponse
      */
-    public function describeDeviceSeatsWithOptions($request, $runtime)
+    public function deleteClientsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callerAliUid) {
+            @$query['CallerAliUid'] = $request->callerAliUid;
+        }
+
+        $body = [];
+        if (null !== $request->inManage) {
+            @$body['InManage'] = $request->inManage;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->uuids) {
+            @$bodyFlat['Uuids'] = $request->uuids;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteClients',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteClientsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 解除桌面端、移动端纳管
+     *
+     * @param request - DeleteClientsRequest
+     *
+     * @returns DeleteClientsResponse
+     *
+     * @param DeleteClientsRequest $request
+     *
+     * @return DeleteClientsResponse
+     */
+    public function deleteClients($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClientsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询桌面端、移动端详细信息.
+     *
+     * @param request - DescribeClientsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeClientsResponse
+     *
+     * @param DescribeClientsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeClientsResponse
+     */
+    public function describeClientsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callerAliUid) {
+            @$query['CallerAliUid'] = $request->callerAliUid;
+        }
+
+        $body = [];
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
+        }
+
+        if (null !== $request->customResourceId) {
+            @$body['CustomResourceId'] = $request->customResourceId;
+        }
+
+        if (null !== $request->customResourceStatus) {
+            @$body['CustomResourceStatus'] = $request->customResourceStatus;
+        }
+
+        if (null !== $request->inManage) {
+            @$body['InManage'] = $request->inManage;
+        }
+
+        if (null !== $request->includeSubGroups) {
+            @$body['IncludeSubGroups'] = $request->includeSubGroups;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->onlineStatus) {
+            @$body['OnlineStatus'] = $request->onlineStatus;
+        }
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->searchKeyword) {
+            @$body['SearchKeyword'] = $request->searchKeyword;
+        }
+
+        if (null !== $request->terminalGroupId) {
+            @$body['TerminalGroupId'] = $request->terminalGroupId;
+        }
+
+        $bodyFlat = [];
+        if (null !== $request->uuids) {
+            @$bodyFlat['Uuids'] = $request->uuids;
+        }
+
+        if (null !== $request->withBindUser) {
+            @$body['WithBindUser'] = $request->withBindUser;
+        }
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeClients',
+            'version' => '2021-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeClientsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询桌面端、移动端详细信息.
+     *
+     * @param request - DescribeClientsRequest
+     *
+     * @returns DescribeClientsResponse
+     *
+     * @param DescribeClientsRequest $request
+     *
+     * @return DescribeClientsResponse
+     */
+    public function describeClients($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClientsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取桌面端纳管邀请码
+     *
+     * @param request - GetOrCreateInvitationCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOrCreateInvitationCodeResponse
+     *
+     * @param GetOrCreateInvitationCodeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetOrCreateInvitationCodeResponse
+     */
+    public function getOrCreateInvitationCodeWithOptions($request, $runtime)
     {
         $request->validate();
         $body = [];
-        if (null !== $request->pageNumber) {
-            @$body['PageNumber'] = $request->pageNumber;
+        if (null !== $request->expireDays) {
+            @$body['ExpireDays'] = $request->expireDays;
         }
 
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (null !== $request->expireMinutes) {
+            @$body['ExpireMinutes'] = $request->expireMinutes;
         }
 
-        if (null !== $request->serialNo) {
-            @$body['SerialNo'] = $request->serialNo;
+        if (null !== $request->terminalGroupId) {
+            @$body['TerminalGroupId'] = $request->terminalGroupId;
         }
 
-        if (null !== $request->serialNoList) {
-            @$body['SerialNoList'] = $request->serialNoList;
-        }
-
-        if (null !== $request->siteId) {
-            @$body['SiteId'] = $request->siteId;
-        }
-
-        if (null !== $request->tenantId) {
-            @$body['TenantId'] = $request->tenantId;
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
 
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action' => 'DescribeDeviceSeats',
+            'action' => 'GetOrCreateInvitationCode',
             'version' => '2021-04-20',
             'protocol' => 'HTTPS',
             'pathname' => '/',
             'method' => 'POST',
-            'authType' => 'Anonymous',
+            'authType' => 'AK',
             'style' => 'RPC',
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
 
-        return DescribeDeviceSeatsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+        return GetOrCreateInvitationCodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询设备座位.
+     * 获取桌面端纳管邀请码
      *
-     * @param request - DescribeDeviceSeatsRequest
+     * @param request - GetOrCreateInvitationCodeRequest
      *
-     * @returns DescribeDeviceSeatsResponse
+     * @returns GetOrCreateInvitationCodeResponse
      *
-     * @param DescribeDeviceSeatsRequest $request
+     * @param GetOrCreateInvitationCodeRequest $request
      *
-     * @return DescribeDeviceSeatsResponse
+     * @return GetOrCreateInvitationCodeResponse
      */
-    public function describeDeviceSeats($request)
+    public function getOrCreateInvitationCode($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeDeviceSeatsWithOptions($request, $runtime);
+        return $this->getOrCreateInvitationCodeWithOptions($request, $runtime);
     }
 
     /**
@@ -659,69 +840,6 @@ class Wyota extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unbindAccountLessLoginUserWithOptions($request, $runtime);
-    }
-
-    /**
-     * 解绑设备座位.
-     *
-     * @param tmpReq - UnbindDeviceSeatsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UnbindDeviceSeatsResponse
-     *
-     * @param UnbindDeviceSeatsRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UnbindDeviceSeatsResponse
-     */
-    public function unbindDeviceSeatsWithOptions($tmpReq, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new UnbindDeviceSeatsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->serialNoList) {
-            $request->serialNoListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serialNoList, 'SerialNoList', 'json');
-        }
-
-        $body = [];
-        if (null !== $request->serialNoListShrink) {
-            @$body['SerialNoList'] = $request->serialNoListShrink;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'UnbindDeviceSeats',
-            'version' => '2021-04-20',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return UnbindDeviceSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * 解绑设备座位.
-     *
-     * @param request - UnbindDeviceSeatsRequest
-     *
-     * @returns UnbindDeviceSeatsResponse
-     *
-     * @param UnbindDeviceSeatsRequest $request
-     *
-     * @return UnbindDeviceSeatsResponse
-     */
-    public function unbindDeviceSeats($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->unbindDeviceSeatsWithOptions($request, $runtime);
     }
 
     /**
