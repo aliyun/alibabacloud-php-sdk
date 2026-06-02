@@ -26,6 +26,11 @@ class GetUserResponseBody extends Model
     /**
      * @var string
      */
+    public $innerToken;
+
+    /**
+     * @var string
+     */
     public $message;
 
     /**
@@ -41,6 +46,7 @@ class GetUserResponseBody extends Model
         'appId' => 'AppId',
         'code' => 'Code',
         'host' => 'Host',
+        'innerToken' => 'InnerToken',
         'message' => 'Message',
         'requestId' => 'RequestId',
         'token' => 'Token',
@@ -64,6 +70,10 @@ class GetUserResponseBody extends Model
 
         if (null !== $this->host) {
             $res['Host'] = $this->host;
+        }
+
+        if (null !== $this->innerToken) {
+            $res['InnerToken'] = $this->innerToken;
         }
 
         if (null !== $this->message) {
@@ -99,6 +109,10 @@ class GetUserResponseBody extends Model
 
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
+        }
+
+        if (isset($map['InnerToken'])) {
+            $model->innerToken = $map['InnerToken'];
         }
 
         if (isset($map['Message'])) {

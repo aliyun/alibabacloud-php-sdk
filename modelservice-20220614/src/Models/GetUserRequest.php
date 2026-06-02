@@ -11,9 +11,15 @@ class GetUserRequest extends Model
     /**
      * @var string
      */
-    public $sceneType;
+    public $channel;
+
+    /**
+     * @var string
+     */
+    public $region;
     protected $_name = [
-        'sceneType' => 'scene_type',
+        'channel' => 'channel',
+        'region' => 'region',
     ];
 
     public function validate()
@@ -24,8 +30,12 @@ class GetUserRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->sceneType) {
-            $res['scene_type'] = $this->sceneType;
+        if (null !== $this->channel) {
+            $res['channel'] = $this->channel;
+        }
+
+        if (null !== $this->region) {
+            $res['region'] = $this->region;
         }
 
         return $res;
@@ -39,8 +49,12 @@ class GetUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['scene_type'])) {
-            $model->sceneType = $map['scene_type'];
+        if (isset($map['channel'])) {
+            $model->channel = $map['channel'];
+        }
+
+        if (isset($map['region'])) {
+            $model->region = $map['region'];
         }
 
         return $model;

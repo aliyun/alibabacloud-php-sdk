@@ -132,8 +132,12 @@ class ModelService extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->sceneType) {
-            @$query['scene_type'] = $request->sceneType;
+        if (null !== $request->channel) {
+            @$query['channel'] = $request->channel;
+        }
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
         }
 
         $req = new OpenApiRequest([
