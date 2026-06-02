@@ -24,6 +24,11 @@ class instanceList extends Model
     public $certIdentifier;
 
     /**
+     * @var string
+     */
+    public $certificateDomain;
+
+    /**
      * @var int
      */
     public $certificateId;
@@ -106,12 +111,22 @@ class instanceList extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $spec;
 
     /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var string[]
+     */
+    public $usingProductList;
 
     /**
      * @var int
@@ -121,6 +136,7 @@ class instanceList extends Model
         'autoReissue' => 'AutoReissue',
         'brand' => 'Brand',
         'certIdentifier' => 'CertIdentifier',
+        'certificateDomain' => 'CertificateDomain',
         'certificateId' => 'CertificateId',
         'certificateName' => 'CertificateName',
         'certificateNotAfter' => 'CertificateNotAfter',
@@ -137,13 +153,18 @@ class instanceList extends Model
         'orderEndTime' => 'OrderEndTime',
         'orderStartTime' => 'OrderStartTime',
         'pendingResult' => 'PendingResult',
+        'resourceGroupId' => 'ResourceGroupId',
         'spec' => 'Spec',
         'status' => 'Status',
+        'usingProductList' => 'UsingProductList',
         'wildcardDomainCount' => 'WildcardDomainCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->usingProductList)) {
+            Model::validateArray($this->usingProductList);
+        }
         parent::validate();
     }
 
@@ -160,6 +181,10 @@ class instanceList extends Model
 
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
+        }
+
+        if (null !== $this->certificateDomain) {
+            $res['CertificateDomain'] = $this->certificateDomain;
         }
 
         if (null !== $this->certificateId) {
@@ -226,12 +251,27 @@ class instanceList extends Model
             $res['PendingResult'] = $this->pendingResult;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->usingProductList) {
+            if (\is_array($this->usingProductList)) {
+                $res['UsingProductList'] = [];
+                $n1 = 0;
+                foreach ($this->usingProductList as $item1) {
+                    $res['UsingProductList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->wildcardDomainCount) {
@@ -259,6 +299,10 @@ class instanceList extends Model
 
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
+        }
+
+        if (isset($map['CertificateDomain'])) {
+            $model->certificateDomain = $map['CertificateDomain'];
         }
 
         if (isset($map['CertificateId'])) {
@@ -325,12 +369,27 @@ class instanceList extends Model
             $model->pendingResult = $map['PendingResult'];
         }
 
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['UsingProductList'])) {
+            if (!empty($map['UsingProductList'])) {
+                $model->usingProductList = [];
+                $n1 = 0;
+                foreach ($map['UsingProductList'] as $item1) {
+                    $model->usingProductList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['WildcardDomainCount'])) {

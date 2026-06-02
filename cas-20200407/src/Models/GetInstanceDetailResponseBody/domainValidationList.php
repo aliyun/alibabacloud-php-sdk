@@ -16,6 +16,11 @@ class domainValidationList extends Model
     /**
      * @var string
      */
+    public $cnameKey;
+
+    /**
+     * @var string
+     */
     public $domain;
 
     /**
@@ -39,6 +44,7 @@ class domainValidationList extends Model
     public $validationValue;
     protected $_name = [
         'cname' => 'Cname',
+        'cnameKey' => 'CnameKey',
         'domain' => 'Domain',
         'rootDomain' => 'RootDomain',
         'validationKey' => 'ValidationKey',
@@ -56,6 +62,10 @@ class domainValidationList extends Model
         $res = [];
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
+        }
+
+        if (null !== $this->cnameKey) {
+            $res['CnameKey'] = $this->cnameKey;
         }
 
         if (null !== $this->domain) {
@@ -91,6 +101,10 @@ class domainValidationList extends Model
         $model = new self();
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
+        }
+
+        if (isset($map['CnameKey'])) {
+            $model->cnameKey = $map['CnameKey'];
         }
 
         if (isset($map['Domain'])) {

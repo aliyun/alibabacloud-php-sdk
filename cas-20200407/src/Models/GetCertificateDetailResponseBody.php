@@ -63,6 +63,11 @@ class GetCertificateDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $csr;
+
+    /**
+     * @var string
+     */
     public $domain;
 
     /**
@@ -135,6 +140,7 @@ class GetCertificateDetailResponseBody extends Model
         'commonName' => 'CommonName',
         'companyId' => 'CompanyId',
         'contactId' => 'ContactId',
+        'csr' => 'Csr',
         'domain' => 'Domain',
         'existPrivateKey' => 'ExistPrivateKey',
         'fingerPrint' => 'FingerPrint',
@@ -215,6 +221,10 @@ class GetCertificateDetailResponseBody extends Model
 
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
+        }
+
+        if (null !== $this->csr) {
+            $res['Csr'] = $this->csr;
         }
 
         if (null !== $this->domain) {
@@ -346,6 +356,10 @@ class GetCertificateDetailResponseBody extends Model
 
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
+        }
+
+        if (isset($map['Csr'])) {
+            $model->csr = $map['Csr'];
         }
 
         if (isset($map['Domain'])) {

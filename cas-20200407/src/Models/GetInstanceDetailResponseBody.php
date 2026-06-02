@@ -184,6 +184,11 @@ class GetInstanceDetailResponseBody extends Model
     /**
      * @var string
      */
+    public $upgradeStatus;
+
+    /**
+     * @var string
+     */
     public $validationMethod;
 
     /**
@@ -225,6 +230,7 @@ class GetInstanceDetailResponseBody extends Model
         'spec' => 'Spec',
         'status' => 'Status',
         'tags' => 'Tags',
+        'upgradeStatus' => 'UpgradeStatus',
         'validationMethod' => 'ValidationMethod',
         'wildcardDomainCount' => 'WildcardDomainCount',
     ];
@@ -413,6 +419,10 @@ class GetInstanceDetailResponseBody extends Model
             }
         }
 
+        if (null !== $this->upgradeStatus) {
+            $res['UpgradeStatus'] = $this->upgradeStatus;
+        }
+
         if (null !== $this->validationMethod) {
             $res['ValidationMethod'] = $this->validationMethod;
         }
@@ -594,6 +604,10 @@ class GetInstanceDetailResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UpgradeStatus'])) {
+            $model->upgradeStatus = $map['UpgradeStatus'];
         }
 
         if (isset($map['ValidationMethod'])) {
