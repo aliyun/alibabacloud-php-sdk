@@ -32,12 +32,18 @@ class DebugBeginDialogueRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $shouldUseSandBox;
     protected $_name = [
         'calledNumber' => 'CalledNumber',
         'callingNumber' => 'CallingNumber',
         'conversationId' => 'ConversationId',
         'initialContext' => 'InitialContext',
         'instanceId' => 'InstanceId',
+        'shouldUseSandBox' => 'ShouldUseSandBox',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class DebugBeginDialogueRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->shouldUseSandBox) {
+            $res['ShouldUseSandBox'] = $this->shouldUseSandBox;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class DebugBeginDialogueRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['ShouldUseSandBox'])) {
+            $model->shouldUseSandBox = $map['ShouldUseSandBox'];
         }
 
         return $model;

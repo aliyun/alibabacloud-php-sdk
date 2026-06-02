@@ -563,6 +563,8 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
+     * 测试窗开启文本对话.
+     *
      * @param request - DebugBeginDialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -597,6 +599,10 @@ class VoiceNavigator extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->shouldUseSandBox) {
+            @$query['ShouldUseSandBox'] = $request->shouldUseSandBox;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -616,6 +622,8 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
+     * 测试窗开启文本对话.
+     *
      * @param request - DebugBeginDialogueRequest
      *
      * @returns DebugBeginDialogueResponse
