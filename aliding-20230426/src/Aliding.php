@@ -913,6 +913,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesTextHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesTextRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesTextResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesTextShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\MeetingFlashMinutesTextShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteAllHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteAllRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\MuteAllResponse;
@@ -20436,6 +20441,100 @@ class Aliding extends OpenApiClient
         $headers = new MeetingFlashMinutesHeaders([]);
 
         return $this->meetingFlashMinutesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 按会议 conferenceId 查询实时听记（闪记）全文转写，支持分页。
+     *
+     * @param tmpReq - MeetingFlashMinutesTextRequest
+     * @param tmpHeader - MeetingFlashMinutesTextHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MeetingFlashMinutesTextResponse
+     *
+     * @param MeetingFlashMinutesTextRequest $tmpReq
+     * @param MeetingFlashMinutesTextHeaders $tmpHeader
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return MeetingFlashMinutesTextResponse
+     */
+    public function meetingFlashMinutesTextWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MeetingFlashMinutesTextShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new MeetingFlashMinutesTextShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->conferenceId) {
+            @$body['conferenceId'] = $request->conferenceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MeetingFlashMinutesText',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/minutes/meetingFlashMinutesText',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MeetingFlashMinutesTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 按会议 conferenceId 查询实时听记（闪记）全文转写，支持分页。
+     *
+     * @param request - MeetingFlashMinutesTextRequest
+     *
+     * @returns MeetingFlashMinutesTextResponse
+     *
+     * @param MeetingFlashMinutesTextRequest $request
+     *
+     * @return MeetingFlashMinutesTextResponse
+     */
+    public function meetingFlashMinutesText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new MeetingFlashMinutesTextHeaders([]);
+
+        return $this->meetingFlashMinutesTextWithOptions($request, $headers, $runtime);
     }
 
     /**
