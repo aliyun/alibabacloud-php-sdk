@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTrainPicAvatarRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTrainPicAvatarResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTTSVoiceCustomRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\CreateTTSVoiceCustomResponse;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\DeleteBroadcastStickerRequest;
+use AlibabaCloud\SDK\LingMou\V20250527\Models\DeleteBroadcastStickerResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetBroadcastTemplateRequest;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetBroadcastTemplateResponse;
 use AlibabaCloud\SDK\LingMou\V20250527\Models\GetTrainPicAvatarStatusRequest;
@@ -951,6 +953,63 @@ class LingMou extends OpenApiClient
         $headers = [];
 
         return $this->createTrainPicAvatarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删除播报贴图.
+     *
+     * @param request - DeleteBroadcastStickerRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBroadcastStickerResponse
+     *
+     * @param string                        $stickerId
+     * @param DeleteBroadcastStickerRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteBroadcastStickerResponse
+     */
+    public function deleteBroadcastStickerWithOptions($stickerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBroadcastSticker',
+            'version' => '2025-05-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/broadcast/materials/stickers/' . Url::percentEncode($stickerId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBroadcastStickerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除播报贴图.
+     *
+     * @param request - DeleteBroadcastStickerRequest
+     *
+     * @returns DeleteBroadcastStickerResponse
+     *
+     * @param string                        $stickerId
+     * @param DeleteBroadcastStickerRequest $request
+     *
+     * @return DeleteBroadcastStickerResponse
+     */
+    public function deleteBroadcastSticker($stickerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteBroadcastStickerWithOptions($stickerId, $request, $headers, $runtime);
     }
 
     /**
