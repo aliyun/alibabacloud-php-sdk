@@ -44,6 +44,11 @@ class CustomDomain extends Model
     public $domainName;
 
     /**
+     * @var bool
+     */
+    public $isE2B;
+
+    /**
      * @var string
      */
     public $lastModifiedTime;
@@ -80,6 +85,7 @@ class CustomDomain extends Model
         'corsConfig' => 'corsConfig',
         'createdTime' => 'createdTime',
         'domainName' => 'domainName',
+        'isE2B' => 'isE2B',
         'lastModifiedTime' => 'lastModifiedTime',
         'protocol' => 'protocol',
         'routeConfig' => 'routeConfig',
@@ -140,6 +146,10 @@ class CustomDomain extends Model
 
         if (null !== $this->domainName) {
             $res['domainName'] = $this->domainName;
+        }
+
+        if (null !== $this->isE2B) {
+            $res['isE2B'] = $this->isE2B;
         }
 
         if (null !== $this->lastModifiedTime) {
@@ -203,6 +213,10 @@ class CustomDomain extends Model
 
         if (isset($map['domainName'])) {
             $model->domainName = $map['domainName'];
+        }
+
+        if (isset($map['isE2B'])) {
+            $model->isE2B = $map['isE2B'];
         }
 
         if (isset($map['lastModifiedTime'])) {

@@ -29,6 +29,11 @@ class CreateCustomDomainInput extends Model
     public $domainName;
 
     /**
+     * @var bool
+     */
+    public $isE2B;
+
+    /**
      * @var string
      */
     public $protocol;
@@ -52,6 +57,7 @@ class CreateCustomDomainInput extends Model
         'certConfig' => 'certConfig',
         'corsConfig' => 'corsConfig',
         'domainName' => 'domainName',
+        'isE2B' => 'isE2B',
         'protocol' => 'protocol',
         'routeConfig' => 'routeConfig',
         'tlsConfig' => 'tlsConfig',
@@ -100,6 +106,10 @@ class CreateCustomDomainInput extends Model
             $res['domainName'] = $this->domainName;
         }
 
+        if (null !== $this->isE2B) {
+            $res['isE2B'] = $this->isE2B;
+        }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
@@ -141,6 +151,10 @@ class CreateCustomDomainInput extends Model
 
         if (isset($map['domainName'])) {
             $model->domainName = $map['domainName'];
+        }
+
+        if (isset($map['isE2B'])) {
+            $model->isE2B = $map['isE2B'];
         }
 
         if (isset($map['protocol'])) {
