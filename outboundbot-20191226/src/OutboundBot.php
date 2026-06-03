@@ -58,6 +58,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTagRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTagResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTaskExportTaskRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTaskExportTaskResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTenantKeyRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\CreateTenantKeyResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAgentProfilesRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAgentProfilesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\DeleteAgentProfilesShrinkRequest;
@@ -168,6 +170,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetJobDataUploadParamsResponse
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetMaxAttemptsPerDayRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetMaxAttemptsPerDayResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetNumberDistrictInfoTemplateDownloadUrlResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetPublicKeyRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetPublicKeyResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetRealtimeConcurrencyReportRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetRealtimeConcurrencyReportResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\GetSummaryInfoRequest;
@@ -228,6 +232,8 @@ use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptRecordingRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptRecordingResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptsResponse;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptVariablesRequest;
+use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptVariablesResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptVoiceConfigsRequest;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListScriptVoiceConfigsResponse;
 use AlibabaCloud\SDK\OutboundBot\V20191226\Models\ListTagResourcesRequest;
@@ -2257,6 +2263,56 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTaskExportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建密钥.
+     *
+     * @param request - CreateTenantKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTenantKeyResponse
+     *
+     * @param CreateTenantKeyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateTenantKeyResponse
+     */
+    public function createTenantKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'CreateTenantKey',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTenantKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建密钥.
+     *
+     * @param request - CreateTenantKeyRequest
+     *
+     * @returns CreateTenantKeyResponse
+     *
+     * @param CreateTenantKeyRequest $request
+     *
+     * @return CreateTenantKeyResponse
+     */
+    public function createTenantKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTenantKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -5680,6 +5736,56 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * 获取非对称加密算法公钥.
+     *
+     * @param request - GetPublicKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPublicKeyResponse
+     *
+     * @param GetPublicKeyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetPublicKeyResponse
+     */
+    public function getPublicKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetPublicKey',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPublicKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取非对称加密算法公钥.
+     *
+     * @param request - GetPublicKeyRequest
+     *
+     * @returns GetPublicKeyResponse
+     *
+     * @param GetPublicKeyRequest $request
+     *
+     * @return GetPublicKeyResponse
+     */
+    public function getPublicKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPublicKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * GetRealtimeConcurrencyReport.
      *
      * @param request - GetRealtimeConcurrencyReportRequest
@@ -7615,6 +7721,71 @@ class OutboundBot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listScriptRecordingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取场景中当前使用的变量.
+     *
+     * @param request - ListScriptVariablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScriptVariablesResponse
+     *
+     * @param ListScriptVariablesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListScriptVariablesResponse
+     */
+    public function listScriptVariablesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->sandbox) {
+            @$query['Sandbox'] = $request->sandbox;
+        }
+
+        if (null !== $request->scriptId) {
+            @$query['ScriptId'] = $request->scriptId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListScriptVariables',
+            'version' => '2019-12-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListScriptVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取场景中当前使用的变量.
+     *
+     * @param request - ListScriptVariablesRequest
+     *
+     * @returns ListScriptVariablesResponse
+     *
+     * @param ListScriptVariablesRequest $request
+     *
+     * @return ListScriptVariablesResponse
+     */
+    public function listScriptVariables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listScriptVariablesWithOptions($request, $runtime);
     }
 
     /**
