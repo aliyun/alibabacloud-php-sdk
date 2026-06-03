@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteChunkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteChunkResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteChunkShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteConnectorRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteConnectorResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentRequest;
@@ -125,6 +127,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveShri
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateChunkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateChunkResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateConnectorRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateConnectorResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagShrinkRequest;
@@ -1684,6 +1688,65 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->deleteChunkWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除连接器.
+     *
+     * @param request - DeleteConnectorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConnectorResponse
+     *
+     * @param string                 $ConnectorId
+     * @param string                 $WorkspaceId
+     * @param DeleteConnectorRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteConnectorResponse
+     */
+    public function deleteConnectorWithOptions($ConnectorId, $WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConnector',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/connector/' . Url::percentEncode($ConnectorId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除连接器.
+     *
+     * @param request - DeleteConnectorRequest
+     *
+     * @returns DeleteConnectorResponse
+     *
+     * @param string                 $ConnectorId
+     * @param string                 $WorkspaceId
+     * @param DeleteConnectorRequest $request
+     *
+     * @return DeleteConnectorResponse
+     */
+    public function deleteConnector($ConnectorId, $WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConnectorWithOptions($ConnectorId, $WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4397,6 +4460,75 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->updateChunkWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 编辑连接器.
+     *
+     * @param request - UpdateConnectorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConnectorResponse
+     *
+     * @param string                 $WorkspaceId
+     * @param string                 $ConnectorId
+     * @param UpdateConnectorRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateConnectorResponse
+     */
+    public function updateConnectorWithOptions($WorkspaceId, $ConnectorId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->connectorName) {
+            @$body['ConnectorName'] = $request->connectorName;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConnector',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/connector/' . Url::percentEncode($ConnectorId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑连接器.
+     *
+     * @param request - UpdateConnectorRequest
+     *
+     * @returns UpdateConnectorResponse
+     *
+     * @param string                 $WorkspaceId
+     * @param string                 $ConnectorId
+     * @param UpdateConnectorRequest $request
+     *
+     * @return UpdateConnectorResponse
+     */
+    public function updateConnector($WorkspaceId, $ConnectorId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConnectorWithOptions($WorkspaceId, $ConnectorId, $request, $headers, $runtime);
     }
 
     /**

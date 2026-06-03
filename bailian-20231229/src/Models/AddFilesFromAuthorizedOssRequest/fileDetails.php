@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssRequest\fileDetails\parserConfig;
 
 class fileDetails extends Model
 {
@@ -17,13 +18,28 @@ class fileDetails extends Model
      * @var string
      */
     public $ossKey;
+
+    /**
+     * @var string
+     */
+    public $parser;
+
+    /**
+     * @var parserConfig
+     */
+    public $parserConfig;
     protected $_name = [
         'fileName' => 'FileName',
         'ossKey' => 'OssKey',
+        'parser' => 'Parser',
+        'parserConfig' => 'ParserConfig',
     ];
 
     public function validate()
     {
+        if (null !== $this->parserConfig) {
+            $this->parserConfig->validate();
+        }
         parent::validate();
     }
 
@@ -36,6 +52,14 @@ class fileDetails extends Model
 
         if (null !== $this->ossKey) {
             $res['OssKey'] = $this->ossKey;
+        }
+
+        if (null !== $this->parser) {
+            $res['Parser'] = $this->parser;
+        }
+
+        if (null !== $this->parserConfig) {
+            $res['ParserConfig'] = null !== $this->parserConfig ? $this->parserConfig->toArray($noStream) : $this->parserConfig;
         }
 
         return $res;
@@ -55,6 +79,14 @@ class fileDetails extends Model
 
         if (isset($map['OssKey'])) {
             $model->ossKey = $map['OssKey'];
+        }
+
+        if (isset($map['Parser'])) {
+            $model->parser = $map['Parser'];
+        }
+
+        if (isset($map['ParserConfig'])) {
+            $model->parserConfig = parserConfig::fromMap($map['ParserConfig']);
         }
 
         return $model;
