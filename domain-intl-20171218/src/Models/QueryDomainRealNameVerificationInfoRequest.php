@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryDomainRealNameVerificationInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $domainName;
@@ -30,28 +28,32 @@ class QueryDomainRealNameVerificationInfoRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'domainName'   => 'DomainName',
-        'fetchImage'   => 'FetchImage',
-        'lang'         => 'Lang',
+        'domainName' => 'DomainName',
+        'fetchImage' => 'FetchImage',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->fetchImage) {
             $res['FetchImage'] = $this->fetchImage;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -59,23 +61,26 @@ class QueryDomainRealNameVerificationInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDomainRealNameVerificationInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['FetchImage'])) {
             $model->fetchImage = $map['FetchImage'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

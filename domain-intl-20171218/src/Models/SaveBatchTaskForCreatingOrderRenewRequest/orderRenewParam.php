@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models\SaveBatchTaskForCreatingOrderRenewRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orderRenewParam extends Model
 {
@@ -24,23 +24,26 @@ class orderRenewParam extends Model
     public $subscriptionDuration;
     protected $_name = [
         'currentExpirationDate' => 'CurrentExpirationDate',
-        'domainName'            => 'DomainName',
-        'subscriptionDuration'  => 'SubscriptionDuration',
+        'domainName' => 'DomainName',
+        'subscriptionDuration' => 'SubscriptionDuration',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentExpirationDate) {
             $res['CurrentExpirationDate'] = $this->currentExpirationDate;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->subscriptionDuration) {
             $res['SubscriptionDuration'] = $this->subscriptionDuration;
         }
@@ -48,20 +51,22 @@ class orderRenewParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderRenewParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentExpirationDate'])) {
             $model->currentExpirationDate = $map['CurrentExpirationDate'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['SubscriptionDuration'])) {
             $model->subscriptionDuration = $map['SubscriptionDuration'];
         }

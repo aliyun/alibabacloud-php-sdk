@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domainintl\V20171218\Models\QueryDSRecordResponseBody\DSRecordList;
-use AlibabaCloud\Tea\Model;
 
 class QueryDSRecordResponseBody extends Model
 {
@@ -20,25 +20,31 @@ class QueryDSRecordResponseBody extends Model
     public $requestId;
     protected $_name = [
         'DSRecordList' => 'DSRecordList',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->DSRecordList)) {
+            Model::validateArray($this->DSRecordList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DSRecordList) {
-            $res['DSRecordList'] = [];
-            if (null !== $this->DSRecordList && \is_array($this->DSRecordList)) {
-                $n = 0;
-                foreach ($this->DSRecordList as $item) {
-                    $res['DSRecordList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DSRecordList)) {
+                $res['DSRecordList'] = [];
+                $n1 = 0;
+                foreach ($this->DSRecordList as $item1) {
+                    $res['DSRecordList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class QueryDSRecordResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDSRecordResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DSRecordList'])) {
             if (!empty($map['DSRecordList'])) {
                 $model->DSRecordList = [];
-                $n                   = 0;
-                foreach ($map['DSRecordList'] as $item) {
-                    $model->DSRecordList[$n++] = null !== $item ? DSRecordList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DSRecordList'] as $item1) {
+                    $model->DSRecordList[$n1] = DSRecordList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

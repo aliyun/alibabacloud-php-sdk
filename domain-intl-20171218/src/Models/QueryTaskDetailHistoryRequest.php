@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryTaskDetailHistoryRequest extends Model
 {
@@ -24,8 +24,6 @@ class QueryTaskDetailHistoryRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $pageSize;
@@ -36,8 +34,6 @@ class QueryTaskDetailHistoryRequest extends Model
     public $taskDetailNoCursor;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $taskNo;
@@ -52,44 +48,52 @@ class QueryTaskDetailHistoryRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'domainName'         => 'DomainName',
-        'domainNameCursor'   => 'DomainNameCursor',
-        'lang'               => 'Lang',
-        'pageSize'           => 'PageSize',
+        'domainName' => 'DomainName',
+        'domainNameCursor' => 'DomainNameCursor',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
         'taskDetailNoCursor' => 'TaskDetailNoCursor',
-        'taskNo'             => 'TaskNo',
-        'taskStatus'         => 'TaskStatus',
-        'userClientIp'       => 'UserClientIp',
+        'taskNo' => 'TaskNo',
+        'taskStatus' => 'TaskStatus',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->domainNameCursor) {
             $res['DomainNameCursor'] = $this->domainNameCursor;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->taskDetailNoCursor) {
             $res['TaskDetailNoCursor'] = $this->taskDetailNoCursor;
         }
+
         if (null !== $this->taskNo) {
             $res['TaskNo'] = $this->taskNo;
         }
+
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -97,35 +101,42 @@ class QueryTaskDetailHistoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryTaskDetailHistoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['DomainNameCursor'])) {
             $model->domainNameCursor = $map['DomainNameCursor'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TaskDetailNoCursor'])) {
             $model->taskDetailNoCursor = $map['TaskDetailNoCursor'];
         }
+
         if (isset($map['TaskNo'])) {
             $model->taskNo = $map['TaskNo'];
         }
+
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

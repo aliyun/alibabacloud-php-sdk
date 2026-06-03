@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveRegistrantProfileResponseBody extends Model
 {
     /**
-     * @example 12380891
-     *
      * @var int
      */
     public $registrantProfileId;
 
     /**
-     * @example A9C35C47-3366-482E-B872-8C9EA4733FE9
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'registrantProfileId' => 'RegistrantProfileId',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->registrantProfileId) {
             $res['RegistrantProfileId'] = $this->registrantProfileId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class SaveRegistrantProfileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveRegistrantProfileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegistrantProfileId'])) {
             $model->registrantProfileId = $map['RegistrantProfileId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

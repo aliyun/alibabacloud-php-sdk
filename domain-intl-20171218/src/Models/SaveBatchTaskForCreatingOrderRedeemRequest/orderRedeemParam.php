@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models\SaveBatchTaskForCreatingOrderRedeemRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orderRedeemParam extends Model
 {
@@ -19,19 +19,21 @@ class orderRedeemParam extends Model
     public $domainName;
     protected $_name = [
         'currentExpirationDate' => 'CurrentExpirationDate',
-        'domainName'            => 'DomainName',
+        'domainName' => 'DomainName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentExpirationDate) {
             $res['CurrentExpirationDate'] = $this->currentExpirationDate;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -39,17 +41,18 @@ class orderRedeemParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderRedeemParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentExpirationDate'])) {
             $model->currentExpirationDate = $map['CurrentExpirationDate'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }

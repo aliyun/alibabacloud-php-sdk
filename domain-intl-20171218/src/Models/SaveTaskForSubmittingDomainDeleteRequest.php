@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveTaskForSubmittingDomainDeleteRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceId;
@@ -25,24 +23,27 @@ class SaveTaskForSubmittingDomainDeleteRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'lang'         => 'Lang',
+        'instanceId' => 'InstanceId',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -50,20 +51,22 @@ class SaveTaskForSubmittingDomainDeleteRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveTaskForSubmittingDomainDeleteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

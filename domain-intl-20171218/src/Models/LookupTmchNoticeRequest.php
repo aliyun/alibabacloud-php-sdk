@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class LookupTmchNoticeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $claimKey;
@@ -25,24 +23,27 @@ class LookupTmchNoticeRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'claimKey'     => 'ClaimKey',
-        'lang'         => 'Lang',
+        'claimKey' => 'ClaimKey',
+        'lang' => 'Lang',
         'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->claimKey) {
             $res['ClaimKey'] = $this->claimKey;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -50,20 +51,22 @@ class LookupTmchNoticeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return LookupTmchNoticeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClaimKey'])) {
             $model->claimKey = $map['ClaimKey'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

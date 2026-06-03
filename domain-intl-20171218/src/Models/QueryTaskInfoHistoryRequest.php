@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryTaskInfoHistoryRequest extends Model
 {
@@ -29,8 +29,6 @@ class QueryTaskInfoHistoryRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $pageSize;
@@ -45,40 +43,47 @@ class QueryTaskInfoHistoryRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'beginCreateTime'  => 'BeginCreateTime',
+        'beginCreateTime' => 'BeginCreateTime',
         'createTimeCursor' => 'CreateTimeCursor',
-        'endCreateTime'    => 'EndCreateTime',
-        'lang'             => 'Lang',
-        'pageSize'         => 'PageSize',
-        'taskNoCursor'     => 'TaskNoCursor',
-        'userClientIp'     => 'UserClientIp',
+        'endCreateTime' => 'EndCreateTime',
+        'lang' => 'Lang',
+        'pageSize' => 'PageSize',
+        'taskNoCursor' => 'TaskNoCursor',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginCreateTime) {
             $res['BeginCreateTime'] = $this->beginCreateTime;
         }
+
         if (null !== $this->createTimeCursor) {
             $res['CreateTimeCursor'] = $this->createTimeCursor;
         }
+
         if (null !== $this->endCreateTime) {
             $res['EndCreateTime'] = $this->endCreateTime;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->taskNoCursor) {
             $res['TaskNoCursor'] = $this->taskNoCursor;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -86,32 +91,38 @@ class QueryTaskInfoHistoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryTaskInfoHistoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginCreateTime'])) {
             $model->beginCreateTime = $map['BeginCreateTime'];
         }
+
         if (isset($map['CreateTimeCursor'])) {
             $model->createTimeCursor = $map['CreateTimeCursor'];
         }
+
         if (isset($map['EndCreateTime'])) {
             $model->endCreateTime = $map['EndCreateTime'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TaskNoCursor'])) {
             $model->taskNoCursor = $map['TaskNoCursor'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

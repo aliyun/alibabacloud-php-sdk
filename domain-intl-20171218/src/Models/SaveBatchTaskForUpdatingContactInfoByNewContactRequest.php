@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
 {
@@ -19,8 +19,6 @@ class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
     public $city;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $contactType;
@@ -31,8 +29,6 @@ class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
     public $country;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $domainName;
@@ -92,76 +88,102 @@ class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'address'                => 'Address',
-        'city'                   => 'City',
-        'contactType'            => 'ContactType',
-        'country'                => 'Country',
-        'domainName'             => 'DomainName',
-        'email'                  => 'Email',
-        'lang'                   => 'Lang',
-        'postalCode'             => 'PostalCode',
-        'province'               => 'Province',
-        'registrantName'         => 'RegistrantName',
+        'address' => 'Address',
+        'city' => 'City',
+        'contactType' => 'ContactType',
+        'country' => 'Country',
+        'domainName' => 'DomainName',
+        'email' => 'Email',
+        'lang' => 'Lang',
+        'postalCode' => 'PostalCode',
+        'province' => 'Province',
+        'registrantName' => 'RegistrantName',
         'registrantOrganization' => 'RegistrantOrganization',
-        'telArea'                => 'TelArea',
-        'telExt'                 => 'TelExt',
-        'telephone'              => 'Telephone',
-        'transferOutProhibited'  => 'TransferOutProhibited',
-        'userClientIp'           => 'UserClientIp',
+        'telArea' => 'TelArea',
+        'telExt' => 'TelExt',
+        'telephone' => 'Telephone',
+        'transferOutProhibited' => 'TransferOutProhibited',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainName)) {
+            Model::validateArray($this->domainName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+
         if (null !== $this->city) {
             $res['City'] = $this->city;
         }
+
         if (null !== $this->contactType) {
             $res['ContactType'] = $this->contactType;
         }
+
         if (null !== $this->country) {
             $res['Country'] = $this->country;
         }
+
         if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+            if (\is_array($this->domainName)) {
+                $res['DomainName'] = [];
+                $n1 = 0;
+                foreach ($this->domainName as $item1) {
+                    $res['DomainName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->postalCode) {
             $res['PostalCode'] = $this->postalCode;
         }
+
         if (null !== $this->province) {
             $res['Province'] = $this->province;
         }
+
         if (null !== $this->registrantName) {
             $res['RegistrantName'] = $this->registrantName;
         }
+
         if (null !== $this->registrantOrganization) {
             $res['RegistrantOrganization'] = $this->registrantOrganization;
         }
+
         if (null !== $this->telArea) {
             $res['TelArea'] = $this->telArea;
         }
+
         if (null !== $this->telExt) {
             $res['TelExt'] = $this->telExt;
         }
+
         if (null !== $this->telephone) {
             $res['Telephone'] = $this->telephone;
         }
+
         if (null !== $this->transferOutProhibited) {
             $res['TransferOutProhibited'] = $this->transferOutProhibited;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -169,61 +191,81 @@ class SaveBatchTaskForUpdatingContactInfoByNewContactRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveBatchTaskForUpdatingContactInfoByNewContactRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+
         if (isset($map['City'])) {
             $model->city = $map['City'];
         }
+
         if (isset($map['ContactType'])) {
             $model->contactType = $map['ContactType'];
         }
+
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
         }
+
         if (isset($map['DomainName'])) {
             if (!empty($map['DomainName'])) {
-                $model->domainName = $map['DomainName'];
+                $model->domainName = [];
+                $n1 = 0;
+                foreach ($map['DomainName'] as $item1) {
+                    $model->domainName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PostalCode'])) {
             $model->postalCode = $map['PostalCode'];
         }
+
         if (isset($map['Province'])) {
             $model->province = $map['Province'];
         }
+
         if (isset($map['RegistrantName'])) {
             $model->registrantName = $map['RegistrantName'];
         }
+
         if (isset($map['RegistrantOrganization'])) {
             $model->registrantOrganization = $map['RegistrantOrganization'];
         }
+
         if (isset($map['TelArea'])) {
             $model->telArea = $map['TelArea'];
         }
+
         if (isset($map['TelExt'])) {
             $model->telExt = $map['TelExt'];
         }
+
         if (isset($map['Telephone'])) {
             $model->telephone = $map['Telephone'];
         }
+
         if (isset($map['TransferOutProhibited'])) {
             $model->transferOutProhibited = $map['TransferOutProhibited'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

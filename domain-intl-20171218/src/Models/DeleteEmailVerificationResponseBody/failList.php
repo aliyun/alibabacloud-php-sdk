@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models\DeleteEmailVerificationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failList extends Model
 {
@@ -23,24 +23,27 @@ class failList extends Model
      */
     public $message;
     protected $_name = [
-        'code'    => 'Code',
-        'email'   => 'Email',
+        'code' => 'Code',
+        'email' => 'Email',
         'message' => 'Message',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -48,20 +51,22 @@ class failList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domainintl\V20171218\Models\QueryRegistrantProfilesResponseBody\registrantProfiles;
-use AlibabaCloud\Tea\Model;
 
 class QueryRegistrantProfilesResponseBody extends Model
 {
@@ -49,44 +49,55 @@ class QueryRegistrantProfilesResponseBody extends Model
      */
     public $totalPageNum;
     protected $_name = [
-        'currentPageNum'     => 'CurrentPageNum',
-        'nextPage'           => 'NextPage',
-        'pageSize'           => 'PageSize',
-        'prePage'            => 'PrePage',
+        'currentPageNum' => 'CurrentPageNum',
+        'nextPage' => 'NextPage',
+        'pageSize' => 'PageSize',
+        'prePage' => 'PrePage',
         'registrantProfiles' => 'RegistrantProfiles',
-        'requestId'          => 'RequestId',
-        'totalItemNum'       => 'TotalItemNum',
-        'totalPageNum'       => 'TotalPageNum',
+        'requestId' => 'RequestId',
+        'totalItemNum' => 'TotalItemNum',
+        'totalPageNum' => 'TotalPageNum',
     ];
 
     public function validate()
     {
+        if (null !== $this->registrantProfiles) {
+            $this->registrantProfiles->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPageNum) {
             $res['CurrentPageNum'] = $this->currentPageNum;
         }
+
         if (null !== $this->nextPage) {
             $res['NextPage'] = $this->nextPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->prePage) {
             $res['PrePage'] = $this->prePage;
         }
+
         if (null !== $this->registrantProfiles) {
-            $res['RegistrantProfiles'] = null !== $this->registrantProfiles ? $this->registrantProfiles->toMap() : null;
+            $res['RegistrantProfiles'] = null !== $this->registrantProfiles ? $this->registrantProfiles->toArray($noStream) : $this->registrantProfiles;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalItemNum) {
             $res['TotalItemNum'] = $this->totalItemNum;
         }
+
         if (null !== $this->totalPageNum) {
             $res['TotalPageNum'] = $this->totalPageNum;
         }
@@ -94,35 +105,42 @@ class QueryRegistrantProfilesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryRegistrantProfilesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPageNum'])) {
             $model->currentPageNum = $map['CurrentPageNum'];
         }
+
         if (isset($map['NextPage'])) {
             $model->nextPage = $map['NextPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PrePage'])) {
             $model->prePage = $map['PrePage'];
         }
+
         if (isset($map['RegistrantProfiles'])) {
             $model->registrantProfiles = registrantProfiles::fromMap($map['RegistrantProfiles']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalItemNum'])) {
             $model->totalItemNum = $map['TotalItemNum'];
         }
+
         if (isset($map['TotalPageNum'])) {
             $model->totalPageNum = $map['TotalPageNum'];
         }

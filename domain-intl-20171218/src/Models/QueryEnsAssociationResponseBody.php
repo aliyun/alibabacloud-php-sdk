@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryEnsAssociationResponseBody extends Model
 {
     /**
-     * @example 0x0000000000000000000000000000000000000003
-     *
      * @var string
      */
     public $address;
 
     /**
-     * @example AF7D4DCE-0776-47F2-A9B2-6FB85A87AA60
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'address'   => 'Address',
+        'address' => 'Address',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class QueryEnsAssociationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryEnsAssociationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

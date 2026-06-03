@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domainintl\V20171218\Models\DeleteEmailVerificationResponseBody\failList;
 use AlibabaCloud\SDK\Domainintl\V20171218\Models\DeleteEmailVerificationResponseBody\successList;
-use AlibabaCloud\Tea\Model;
 
 class DeleteEmailVerificationResponseBody extends Model
 {
@@ -25,36 +25,47 @@ class DeleteEmailVerificationResponseBody extends Model
      */
     public $successList;
     protected $_name = [
-        'failList'    => 'FailList',
-        'requestId'   => 'RequestId',
+        'failList' => 'FailList',
+        'requestId' => 'RequestId',
         'successList' => 'SuccessList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->failList)) {
+            Model::validateArray($this->failList);
+        }
+        if (\is_array($this->successList)) {
+            Model::validateArray($this->successList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failList) {
-            $res['FailList'] = [];
-            if (null !== $this->failList && \is_array($this->failList)) {
-                $n = 0;
-                foreach ($this->failList as $item) {
-                    $res['FailList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failList)) {
+                $res['FailList'] = [];
+                $n1 = 0;
+                foreach ($this->failList as $item1) {
+                    $res['FailList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->successList) {
-            $res['SuccessList'] = [];
-            if (null !== $this->successList && \is_array($this->successList)) {
-                $n = 0;
-                foreach ($this->successList as $item) {
-                    $res['SuccessList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->successList)) {
+                $res['SuccessList'] = [];
+                $n1 = 0;
+                foreach ($this->successList as $item1) {
+                    $res['SuccessList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,32 +73,36 @@ class DeleteEmailVerificationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteEmailVerificationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailList'])) {
             if (!empty($map['FailList'])) {
                 $model->failList = [];
-                $n               = 0;
-                foreach ($map['FailList'] as $item) {
-                    $model->failList[$n++] = null !== $item ? failList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FailList'] as $item1) {
+                    $model->failList[$n1] = failList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SuccessList'])) {
             if (!empty($map['SuccessList'])) {
                 $model->successList = [];
-                $n                  = 0;
-                foreach ($map['SuccessList'] as $item) {
-                    $model->successList[$n++] = null !== $item ? successList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SuccessList'] as $item1) {
+                    $model->successList[$n1] = successList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

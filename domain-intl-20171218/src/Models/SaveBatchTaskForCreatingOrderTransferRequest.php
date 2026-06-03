@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Domainintl\V20171218\Models\SaveBatchTaskForCreatingOrderTransferRequest\orderTransferParam;
-use AlibabaCloud\Tea\Model;
 
 class SaveBatchTaskForCreatingOrderTransferRequest extends Model
 {
@@ -20,8 +20,6 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var orderTransferParam[]
      */
     public $orderTransferParam;
@@ -46,46 +44,57 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'couponNo'           => 'CouponNo',
-        'lang'               => 'Lang',
+        'couponNo' => 'CouponNo',
+        'lang' => 'Lang',
         'orderTransferParam' => 'OrderTransferParam',
-        'promotionNo'        => 'PromotionNo',
-        'useCoupon'          => 'UseCoupon',
-        'usePromotion'       => 'UsePromotion',
-        'userClientIp'       => 'UserClientIp',
+        'promotionNo' => 'PromotionNo',
+        'useCoupon' => 'UseCoupon',
+        'usePromotion' => 'UsePromotion',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        if (\is_array($this->orderTransferParam)) {
+            Model::validateArray($this->orderTransferParam);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->orderTransferParam) {
-            $res['OrderTransferParam'] = [];
-            if (null !== $this->orderTransferParam && \is_array($this->orderTransferParam)) {
-                $n = 0;
-                foreach ($this->orderTransferParam as $item) {
-                    $res['OrderTransferParam'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->orderTransferParam)) {
+                $res['OrderTransferParam'] = [];
+                $n1 = 0;
+                foreach ($this->orderTransferParam as $item1) {
+                    $res['OrderTransferParam'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->promotionNo) {
             $res['PromotionNo'] = $this->promotionNo;
         }
+
         if (null !== $this->useCoupon) {
             $res['UseCoupon'] = $this->useCoupon;
         }
+
         if (null !== $this->usePromotion) {
             $res['UsePromotion'] = $this->usePromotion;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -93,38 +102,45 @@ class SaveBatchTaskForCreatingOrderTransferRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveBatchTaskForCreatingOrderTransferRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['OrderTransferParam'])) {
             if (!empty($map['OrderTransferParam'])) {
                 $model->orderTransferParam = [];
-                $n                         = 0;
-                foreach ($map['OrderTransferParam'] as $item) {
-                    $model->orderTransferParam[$n++] = null !== $item ? orderTransferParam::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OrderTransferParam'] as $item1) {
+                    $model->orderTransferParam[$n1] = orderTransferParam::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PromotionNo'])) {
             $model->promotionNo = $map['PromotionNo'];
         }
+
         if (isset($map['UseCoupon'])) {
             $model->useCoupon = $map['UseCoupon'];
         }
+
         if (isset($map['UsePromotion'])) {
             $model->usePromotion = $map['UsePromotion'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }

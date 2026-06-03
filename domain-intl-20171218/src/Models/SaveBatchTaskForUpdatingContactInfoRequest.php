@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Domainintl\V20171218\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SaveBatchTaskForUpdatingContactInfoRequest extends Model
 {
@@ -14,15 +14,11 @@ class SaveBatchTaskForUpdatingContactInfoRequest extends Model
     public $addTransferLock;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $contactType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $domainName;
@@ -33,8 +29,6 @@ class SaveBatchTaskForUpdatingContactInfoRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $registrantProfileId;
@@ -44,36 +38,52 @@ class SaveBatchTaskForUpdatingContactInfoRequest extends Model
      */
     public $userClientIp;
     protected $_name = [
-        'addTransferLock'     => 'AddTransferLock',
-        'contactType'         => 'ContactType',
-        'domainName'          => 'DomainName',
-        'lang'                => 'Lang',
+        'addTransferLock' => 'AddTransferLock',
+        'contactType' => 'ContactType',
+        'domainName' => 'DomainName',
+        'lang' => 'Lang',
         'registrantProfileId' => 'RegistrantProfileId',
-        'userClientIp'        => 'UserClientIp',
+        'userClientIp' => 'UserClientIp',
     ];
 
     public function validate()
     {
+        if (\is_array($this->domainName)) {
+            Model::validateArray($this->domainName);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addTransferLock) {
             $res['AddTransferLock'] = $this->addTransferLock;
         }
+
         if (null !== $this->contactType) {
             $res['ContactType'] = $this->contactType;
         }
+
         if (null !== $this->domainName) {
-            $res['DomainName'] = $this->domainName;
+            if (\is_array($this->domainName)) {
+                $res['DomainName'] = [];
+                $n1 = 0;
+                foreach ($this->domainName as $item1) {
+                    $res['DomainName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->registrantProfileId) {
             $res['RegistrantProfileId'] = $this->registrantProfileId;
         }
+
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -81,31 +91,41 @@ class SaveBatchTaskForUpdatingContactInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SaveBatchTaskForUpdatingContactInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddTransferLock'])) {
             $model->addTransferLock = $map['AddTransferLock'];
         }
+
         if (isset($map['ContactType'])) {
             $model->contactType = $map['ContactType'];
         }
+
         if (isset($map['DomainName'])) {
             if (!empty($map['DomainName'])) {
-                $model->domainName = $map['DomainName'];
+                $model->domainName = [];
+                $n1 = 0;
+                foreach ($map['DomainName'] as $item1) {
+                    $model->domainName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['RegistrantProfileId'])) {
             $model->registrantProfileId = $map['RegistrantProfileId'];
         }
+
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }
