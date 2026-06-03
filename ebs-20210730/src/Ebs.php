@@ -46,10 +46,6 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersR
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiagnoseReportRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiagnoseReportResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskEventsRequest;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskEventsResponse;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskMonitorDataListRequest;
-use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskMonitorDataListResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskMonitorDataRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskMonitorDataResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaGroupsRequest;
@@ -266,7 +262,6 @@ class Ebs extends OpenApiClient
      * ## Usage notes
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *
-     * @param request - ApplyLensServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ApplyLensServiceResponse
@@ -387,7 +382,6 @@ class Ebs extends OpenApiClient
      * ## Usage notes
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *
-     * @param request - CancelLensServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CancelLensServiceResponse
@@ -1952,99 +1946,6 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
-     *
-     * @remarks
-     * ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *
-     * @param request - DescribeDiskEventsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDiskEventsResponse
-     *
-     * @param DescribeDiskEventsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeDiskEventsResponse
-     */
-    public function describeDiskEventsWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->diskCategory) {
-            @$query['DiskCategory'] = $request->diskCategory;
-        }
-
-        if (null !== $request->diskId) {
-            @$query['DiskId'] = $request->diskId;
-        }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
-        }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
-        }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
-        }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeDiskEvents',
-            'version' => '2021-07-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeDiskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
-     *
-     * @remarks
-     * ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *
-     * @param request - DescribeDiskEventsRequest
-     *
-     * @returns DescribeDiskEventsResponse
-     *
-     * @param DescribeDiskEventsRequest $request
-     *
-     * @return DescribeDiskEventsResponse
-     */
-    public function describeDiskEvents($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDiskEventsWithOptions($request, $runtime);
-    }
-
-    /**
      * Queries fine-grained monitoring data of a disk.
      *
      * @remarks
@@ -2131,95 +2032,6 @@ class Ebs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDiskMonitorDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
-     *
-     * @remarks
-     * ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *
-     * @param request - DescribeDiskMonitorDataListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDiskMonitorDataListResponse
-     *
-     * @param DescribeDiskMonitorDataListRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDiskMonitorDataListResponse
-     */
-    public function describeDiskMonitorDataListWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->diskIds) {
-            @$query['DiskIds'] = $request->diskIds;
-        }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
-        }
-
-        if (null !== $request->maxResults) {
-            @$query['MaxResults'] = $request->maxResults;
-        }
-
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
-        }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
-        }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
-        }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DescribeDiskMonitorDataList',
-            'version' => '2021-07-30',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DescribeDiskMonitorDataListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
-     *
-     * @remarks
-     * ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *
-     * @param request - DescribeDiskMonitorDataListRequest
-     *
-     * @returns DescribeDiskMonitorDataListResponse
-     *
-     * @param DescribeDiskMonitorDataListRequest $request
-     *
-     * @return DescribeDiskMonitorDataListResponse
-     */
-    public function describeDiskMonitorDataList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDiskMonitorDataListWithOptions($request, $runtime);
     }
 
     /**
@@ -2769,7 +2581,6 @@ class Ebs extends OpenApiClient
      * ## Usage notes
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      *
-     * @param request - DescribeLensServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeLensServiceStatusResponse
