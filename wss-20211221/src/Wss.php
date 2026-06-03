@@ -85,6 +85,10 @@ class Wss extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->channelCookie) {
+            @$query['ChannelCookie'] = $request->channelCookie;
+        }
+
         if (null !== $request->orderItems) {
             @$query['OrderItems'] = $request->orderItems;
         }

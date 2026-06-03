@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Wss\V20211221\Models\CreateMultiOrderShrinkRequest\orderIte
 class CreateMultiOrderShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $channelCookie;
+
+    /**
      * @var orderItems[]
      */
     public $orderItems;
@@ -29,6 +34,7 @@ class CreateMultiOrderShrinkRequest extends Model
      */
     public $resellerOwnerUid;
     protected $_name = [
+        'channelCookie' => 'ChannelCookie',
         'orderItems' => 'OrderItems',
         'orderType' => 'OrderType',
         'propertiesShrink' => 'Properties',
@@ -46,6 +52,10 @@ class CreateMultiOrderShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->channelCookie) {
+            $res['ChannelCookie'] = $this->channelCookie;
+        }
+
         if (null !== $this->orderItems) {
             if (\is_array($this->orderItems)) {
                 $res['OrderItems'] = [];
@@ -80,6 +90,10 @@ class CreateMultiOrderShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChannelCookie'])) {
+            $model->channelCookie = $map['ChannelCookie'];
+        }
+
         if (isset($map['OrderItems'])) {
             if (!empty($map['OrderItems'])) {
                 $model->orderItems = [];
