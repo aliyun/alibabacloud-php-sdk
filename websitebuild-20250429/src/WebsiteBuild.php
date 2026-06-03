@@ -889,8 +889,16 @@ class WebsiteBuild extends OpenApiClient
             @$query['ClientToken'] = $request->clientToken;
         }
 
+        if (null !== $request->createAction) {
+            @$query['CreateAction'] = $request->createAction;
+        }
+
         if (null !== $request->deployArea) {
             @$query['DeployArea'] = $request->deployArea;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
 
         if (null !== $request->duration) {
@@ -899,6 +907,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->extend) {
             @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
 
         if (null !== $request->paymentType) {
@@ -915,6 +927,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->siteVersion) {
             @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
         }
 
         $body = [];

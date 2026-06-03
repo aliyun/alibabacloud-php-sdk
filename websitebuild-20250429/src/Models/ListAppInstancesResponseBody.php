@@ -94,6 +94,11 @@ class ListAppInstancesResponseBody extends Model
     public $rootErrorMsg;
 
     /**
+     * @var string
+     */
+    public $startPosition;
+
+    /**
      * @var bool
      */
     public $synchro;
@@ -120,6 +125,7 @@ class ListAppInstancesResponseBody extends Model
         'resultLimit' => 'ResultLimit',
         'rootErrorCode' => 'RootErrorCode',
         'rootErrorMsg' => 'RootErrorMsg',
+        'startPosition' => 'StartPosition',
         'synchro' => 'Synchro',
         'totalPageNum' => 'TotalPageNum',
     ];
@@ -218,6 +224,10 @@ class ListAppInstancesResponseBody extends Model
 
         if (null !== $this->rootErrorMsg) {
             $res['RootErrorMsg'] = $this->rootErrorMsg;
+        }
+
+        if (null !== $this->startPosition) {
+            $res['StartPosition'] = $this->startPosition;
         }
 
         if (null !== $this->synchro) {
@@ -319,6 +329,10 @@ class ListAppInstancesResponseBody extends Model
 
         if (isset($map['RootErrorMsg'])) {
             $model->rootErrorMsg = $map['RootErrorMsg'];
+        }
+
+        if (isset($map['StartPosition'])) {
+            $model->startPosition = $map['StartPosition'];
         }
 
         if (isset($map['Synchro'])) {

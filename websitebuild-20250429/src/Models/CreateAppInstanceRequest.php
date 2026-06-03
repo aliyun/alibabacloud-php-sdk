@@ -27,7 +27,17 @@ class CreateAppInstanceRequest extends Model
     /**
      * @var string
      */
+    public $createAction;
+
+    /**
+     * @var string
+     */
     public $deployArea;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var int
@@ -38,6 +48,11 @@ class CreateAppInstanceRequest extends Model
      * @var string
      */
     public $extend;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var string
@@ -68,19 +83,28 @@ class CreateAppInstanceRequest extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'applicationType' => 'ApplicationType',
         'autoRenew' => 'AutoRenew',
         'clientToken' => 'ClientToken',
+        'createAction' => 'CreateAction',
         'deployArea' => 'DeployArea',
+        'description' => 'Description',
         'duration' => 'Duration',
         'extend' => 'Extend',
+        'name' => 'Name',
         'paymentType' => 'PaymentType',
         'pricingCycle' => 'PricingCycle',
         'quantity' => 'Quantity',
         'resourceGroupId' => 'ResourceGroupId',
         'siteVersion' => 'SiteVersion',
         'tags' => 'Tags',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -106,8 +130,16 @@ class CreateAppInstanceRequest extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
+        if (null !== $this->createAction) {
+            $res['CreateAction'] = $this->createAction;
+        }
+
         if (null !== $this->deployArea) {
             $res['DeployArea'] = $this->deployArea;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->duration) {
@@ -116,6 +148,10 @@ class CreateAppInstanceRequest extends Model
 
         if (null !== $this->extend) {
             $res['Extend'] = $this->extend;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->paymentType) {
@@ -149,6 +185,10 @@ class CreateAppInstanceRequest extends Model
             }
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -172,8 +212,16 @@ class CreateAppInstanceRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['CreateAction'])) {
+            $model->createAction = $map['CreateAction'];
+        }
+
         if (isset($map['DeployArea'])) {
             $model->deployArea = $map['DeployArea'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['Duration'])) {
@@ -182,6 +230,10 @@ class CreateAppInstanceRequest extends Model
 
         if (isset($map['Extend'])) {
             $model->extend = $map['Extend'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['PaymentType'])) {
@@ -213,6 +265,10 @@ class CreateAppInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

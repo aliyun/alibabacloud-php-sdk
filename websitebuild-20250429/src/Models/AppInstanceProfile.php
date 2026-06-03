@@ -61,6 +61,11 @@ class AppInstanceProfile extends Model
     /**
      * @var string
      */
+    public $previewUrl;
+
+    /**
+     * @var string
+     */
     public $seoSite;
 
     /**
@@ -98,6 +103,7 @@ class AppInstanceProfile extends Model
         'ordTime' => 'OrdTime',
         'orderId' => 'OrderId',
         'payTime' => 'PayTime',
+        'previewUrl' => 'PreviewUrl',
         'seoSite' => 'SeoSite',
         'siteVersion' => 'SiteVersion',
         'siteVersionText' => 'SiteVersionText',
@@ -152,6 +158,10 @@ class AppInstanceProfile extends Model
 
         if (null !== $this->payTime) {
             $res['PayTime'] = $this->payTime;
+        }
+
+        if (null !== $this->previewUrl) {
+            $res['PreviewUrl'] = $this->previewUrl;
         }
 
         if (null !== $this->seoSite) {
@@ -227,6 +237,10 @@ class AppInstanceProfile extends Model
 
         if (isset($map['PayTime'])) {
             $model->payTime = $map['PayTime'];
+        }
+
+        if (isset($map['PreviewUrl'])) {
+            $model->previewUrl = $map['PreviewUrl'];
         }
 
         if (isset($map['SeoSite'])) {
