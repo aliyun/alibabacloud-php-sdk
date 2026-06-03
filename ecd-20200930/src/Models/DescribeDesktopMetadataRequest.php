@@ -21,6 +21,11 @@ class DescribeDesktopMetadataRequest extends Model
     /**
      * @var string
      */
+    public $endUserId;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -75,6 +80,7 @@ class DescribeDesktopMetadataRequest extends Model
     protected $_name = [
         'creationTimeStart' => 'CreationTimeStart',
         'desktopIds' => 'DesktopIds',
+        'endUserId' => 'EndUserId',
         'groupId' => 'GroupId',
         'hostName' => 'HostName',
         'imageId' => 'ImageId',
@@ -112,6 +118,10 @@ class DescribeDesktopMetadataRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->endUserId) {
+            $res['EndUserId'] = $this->endUserId;
         }
 
         if (null !== $this->groupId) {
@@ -182,6 +192,10 @@ class DescribeDesktopMetadataRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EndUserId'])) {
+            $model->endUserId = $map['EndUserId'];
         }
 
         if (isset($map['GroupId'])) {

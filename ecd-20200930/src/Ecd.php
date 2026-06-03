@@ -10492,6 +10492,10 @@ class Ecd extends OpenApiClient
             @$query['DesktopIds'] = $request->desktopIds;
         }
 
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
+        }
+
         if (null !== $request->groupId) {
             @$query['GroupId'] = $request->groupId;
         }
