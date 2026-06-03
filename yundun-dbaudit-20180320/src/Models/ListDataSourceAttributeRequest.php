@@ -4,14 +4,14 @@
 
 namespace AlibabaCloud\SDK\Yundundbaudit\V20180320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDataSourceAttributeRequest extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $regionId;
+    public $dbIds;
 
     /**
      * @var string
@@ -19,53 +19,87 @@ class ListDataSourceAttributeRequest extends Model
     public $instanceId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $dbIds;
+    public $lang;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'dbIds' => 'DbIds',
         'instanceId' => 'InstanceId',
-        'dbIds'      => 'DbIds',
+        'lang' => 'Lang',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dbIds)) {
+            Model::validateArray($this->dbIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->dbIds) {
+            if (\is_array($this->dbIds)) {
+                $res['DbIds'] = [];
+                $n1 = 0;
+                foreach ($this->dbIds as $item1) {
+                    $res['DbIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->dbIds) {
-            $res['DbIds'] = $this->dbIds;
+
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataSourceAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['DbIds'])) {
+            if (!empty($map['DbIds'])) {
+                $model->dbIds = [];
+                $n1 = 0;
+                foreach ($map['DbIds'] as $item1) {
+                    $model->dbIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['DbIds'])) {
-            if (!empty($map['DbIds'])) {
-                $model->dbIds = $map['DbIds'];
-            }
+
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

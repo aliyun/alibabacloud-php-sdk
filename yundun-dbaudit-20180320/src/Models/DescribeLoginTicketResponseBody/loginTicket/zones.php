@@ -4,54 +4,57 @@
 
 namespace AlibabaCloud\SDK\Yundundbaudit\V20180320\Models\DescribeLoginTicketResponseBody\loginTicket;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zones extends Model
 {
     /**
      * @var string
      */
-    public $zoneId;
+    public $localName;
 
     /**
      * @var string
      */
-    public $localName;
+    public $zoneId;
     protected $_name = [
-        'zoneId'    => 'ZoneId',
         'localName' => 'LocalName',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

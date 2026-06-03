@@ -4,15 +4,10 @@
 
 namespace AlibabaCloud\SDK\Yundundbaudit\V20180320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceAttributeRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $instanceId;
-
     /**
      * @var string
      */
@@ -21,26 +16,34 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
         'description' => 'Description',
-        'regionId'    => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -48,20 +51,22 @@ class ModifyInstanceAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

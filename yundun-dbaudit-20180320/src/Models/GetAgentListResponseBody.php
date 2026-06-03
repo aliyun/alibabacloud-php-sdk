@@ -4,67 +4,75 @@
 
 namespace AlibabaCloud\SDK\Yundundbaudit\V20180320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundundbaudit\V20180320\Models\GetAgentListResponseBody\agentList;
-use AlibabaCloud\Tea\Model;
 
 class GetAgentListResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
      * @var agentList[]
      */
     public $agentList;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'agentList' => 'AgentList',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->agentList)) {
+            Model::validateArray($this->agentList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->agentList) {
-            $res['AgentList'] = [];
-            if (null !== $this->agentList && \is_array($this->agentList)) {
-                $n = 0;
-                foreach ($this->agentList as $item) {
-                    $res['AgentList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->agentList)) {
+                $res['AgentList'] = [];
+                $n1 = 0;
+                foreach ($this->agentList as $item1) {
+                    $res['AgentList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAgentListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['AgentList'])) {
             if (!empty($map['AgentList'])) {
                 $model->agentList = [];
-                $n                = 0;
-                foreach ($map['AgentList'] as $item) {
-                    $model->agentList[$n++] = null !== $item ? agentList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AgentList'] as $item1) {
+                    $model->agentList[$n1] = agentList::fromMap($item1);
+                    ++$n1;
                 }
             }
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

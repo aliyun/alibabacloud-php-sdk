@@ -4,54 +4,57 @@
 
 namespace AlibabaCloud\SDK\Yundundbaudit\V20180320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSyncInfoRequest extends Model
 {
     /**
      * @var string
      */
-    public $regionId;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $instanceId;
+    public $regionId;
     protected $_name = [
-        'regionId'   => 'RegionId',
         'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSyncInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;

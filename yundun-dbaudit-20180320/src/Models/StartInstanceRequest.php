@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yundundbaudit\V20180320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartInstanceRequest extends Model
 {
@@ -16,54 +16,59 @@ class StartInstanceRequest extends Model
     /**
      * @var string
      */
-    public $vswitchId;
+    public $regionId;
 
     /**
      * @var string
      */
-    public $regionId;
+    public $vswitchId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'vswitchId'  => 'VswitchId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
+        'vswitchId' => 'VswitchId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->vswitchId) {
-            $res['VswitchId'] = $this->vswitchId;
-        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['VswitchId'])) {
-            $model->vswitchId = $map['VswitchId'];
-        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
 
         return $model;

@@ -4,19 +4,29 @@
 
 namespace AlibabaCloud\SDK\Yundundbaudit\V20180320\Models\ListDataSourceAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dbList extends Model
 {
     /**
      * @var string
      */
-    public $resultAuditMode;
+    public $auditMode;
 
     /**
      * @var int
      */
     public $dbId;
+
+    /**
+     * @var string
+     */
+    public $freqAuditMode;
+
+    /**
+     * @var int
+     */
+    public $resultAuditMaxLine;
 
     /**
      * @var int
@@ -26,68 +36,81 @@ class dbList extends Model
     /**
      * @var string
      */
-    public $auditMode;
-
-    /**
-     * @var int
-     */
-    public $resultAuditMaxLine;
+    public $resultAuditMode;
     protected $_name = [
-        'resultAuditMode'    => 'ResultAuditMode',
-        'dbId'               => 'DbId',
-        'resultAuditMaxSize' => 'ResultAuditMaxSize',
-        'auditMode'          => 'AuditMode',
+        'auditMode' => 'AuditMode',
+        'dbId' => 'DbId',
+        'freqAuditMode' => 'FreqAuditMode',
         'resultAuditMaxLine' => 'ResultAuditMaxLine',
+        'resultAuditMaxSize' => 'ResultAuditMaxSize',
+        'resultAuditMode' => 'ResultAuditMode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->resultAuditMode) {
-            $res['ResultAuditMode'] = $this->resultAuditMode;
-        }
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
-        }
-        if (null !== $this->resultAuditMaxSize) {
-            $res['ResultAuditMaxSize'] = $this->resultAuditMaxSize;
-        }
         if (null !== $this->auditMode) {
             $res['AuditMode'] = $this->auditMode;
         }
+
+        if (null !== $this->dbId) {
+            $res['DbId'] = $this->dbId;
+        }
+
+        if (null !== $this->freqAuditMode) {
+            $res['FreqAuditMode'] = $this->freqAuditMode;
+        }
+
         if (null !== $this->resultAuditMaxLine) {
             $res['ResultAuditMaxLine'] = $this->resultAuditMaxLine;
+        }
+
+        if (null !== $this->resultAuditMaxSize) {
+            $res['ResultAuditMaxSize'] = $this->resultAuditMaxSize;
+        }
+
+        if (null !== $this->resultAuditMode) {
+            $res['ResultAuditMode'] = $this->resultAuditMode;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dbList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResultAuditMode'])) {
-            $model->resultAuditMode = $map['ResultAuditMode'];
-        }
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
-        }
-        if (isset($map['ResultAuditMaxSize'])) {
-            $model->resultAuditMaxSize = $map['ResultAuditMaxSize'];
-        }
         if (isset($map['AuditMode'])) {
             $model->auditMode = $map['AuditMode'];
         }
+
+        if (isset($map['DbId'])) {
+            $model->dbId = $map['DbId'];
+        }
+
+        if (isset($map['FreqAuditMode'])) {
+            $model->freqAuditMode = $map['FreqAuditMode'];
+        }
+
         if (isset($map['ResultAuditMaxLine'])) {
             $model->resultAuditMaxLine = $map['ResultAuditMaxLine'];
+        }
+
+        if (isset($map['ResultAuditMaxSize'])) {
+            $model->resultAuditMaxSize = $map['ResultAuditMaxSize'];
+        }
+
+        if (isset($map['ResultAuditMode'])) {
+            $model->resultAuditMode = $map['ResultAuditMode'];
         }
 
         return $model;
