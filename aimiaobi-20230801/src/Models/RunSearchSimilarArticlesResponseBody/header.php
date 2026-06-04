@@ -26,6 +26,11 @@ class header extends Model
     /**
      * @var string
      */
+    public $eventInfo;
+
+    /**
+     * @var string
+     */
     public $sessionId;
 
     /**
@@ -36,6 +41,7 @@ class header extends Model
         'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'event' => 'Event',
+        'eventInfo' => 'EventInfo',
         'sessionId' => 'SessionId',
         'taskId' => 'TaskId',
     ];
@@ -58,6 +64,10 @@ class header extends Model
 
         if (null !== $this->event) {
             $res['Event'] = $this->event;
+        }
+
+        if (null !== $this->eventInfo) {
+            $res['EventInfo'] = $this->eventInfo;
         }
 
         if (null !== $this->sessionId) {
@@ -89,6 +99,10 @@ class header extends Model
 
         if (isset($map['Event'])) {
             $model->event = $map['Event'];
+        }
+
+        if (isset($map['EventInfo'])) {
+            $model->eventInfo = $map['EventInfo'];
         }
 
         if (isset($map['SessionId'])) {

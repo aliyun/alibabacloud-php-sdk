@@ -127,6 +127,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImageTaskShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImportTermsTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchImportTermsTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchParseDocumentLayoutTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\FetchParseDocumentLayoutTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateExportWordTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateExportWordTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateFileUrlByKeyRequest;
@@ -474,6 +476,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitFactAuditUrlRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitFactAuditUrlResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitImportTermsTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitImportTermsTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitParseDocumentLayoutTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitParseDocumentLayoutTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditShrinkRequest;
@@ -4272,6 +4276,67 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fetchImportTermsTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取排版任务结果.
+     *
+     * @param request - FetchParseDocumentLayoutTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchParseDocumentLayoutTaskResponse
+     *
+     * @param FetchParseDocumentLayoutTaskRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return FetchParseDocumentLayoutTaskResponse
+     */
+    public function fetchParseDocumentLayoutTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'FetchParseDocumentLayoutTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FetchParseDocumentLayoutTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取排版任务结果.
+     *
+     * @param request - FetchParseDocumentLayoutTaskRequest
+     *
+     * @returns FetchParseDocumentLayoutTaskResponse
+     *
+     * @param FetchParseDocumentLayoutTaskRequest $request
+     *
+     * @return FetchParseDocumentLayoutTaskResponse
+     */
+    public function fetchParseDocumentLayoutTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->fetchParseDocumentLayoutTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -18786,6 +18851,69 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitImportTermsTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交版本任务
+     *
+     * @param request - SubmitParseDocumentLayoutTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitParseDocumentLayoutTaskResponse
+     *
+     * @param SubmitParseDocumentLayoutTaskRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SubmitParseDocumentLayoutTaskResponse
+     */
+    public function submitParseDocumentLayoutTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        $body = [];
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitParseDocumentLayoutTask',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitParseDocumentLayoutTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交版本任务
+     *
+     * @param request - SubmitParseDocumentLayoutTaskRequest
+     *
+     * @returns SubmitParseDocumentLayoutTaskResponse
+     *
+     * @param SubmitParseDocumentLayoutTaskRequest $request
+     *
+     * @return SubmitParseDocumentLayoutTaskResponse
+     */
+    public function submitParseDocumentLayoutTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitParseDocumentLayoutTaskWithOptions($request, $runtime);
     }
 
     /**
