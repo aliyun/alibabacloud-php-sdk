@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceTicketResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppLlmApiKeyForPartnerRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppLlmApiKeyForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
@@ -1339,6 +1341,75 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppInstanceTicketWithOptions($request, $runtime);
+    }
+
+    /**
+     * 应用实例创建 LLM 网关 API-KEY.
+     *
+     * @param request - CreateAppLlmApiKeyForPartnerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppLlmApiKeyForPartnerResponse
+     *
+     * @param CreateAppLlmApiKeyForPartnerRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateAppLlmApiKeyForPartnerResponse
+     */
+    public function createAppLlmApiKeyForPartnerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->ipWhiteList) {
+            @$body['IpWhiteList'] = $request->ipWhiteList;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppLlmApiKeyForPartner',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppLlmApiKeyForPartnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用实例创建 LLM 网关 API-KEY.
+     *
+     * @param request - CreateAppLlmApiKeyForPartnerRequest
+     *
+     * @returns CreateAppLlmApiKeyForPartnerResponse
+     *
+     * @param CreateAppLlmApiKeyForPartnerRequest $request
+     *
+     * @return CreateAppLlmApiKeyForPartnerResponse
+     */
+    public function createAppLlmApiKeyForPartner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppLlmApiKeyForPartnerWithOptions($request, $runtime);
     }
 
     /**
