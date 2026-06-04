@@ -92,6 +92,16 @@ class AppInstanceProfile extends Model
      * @var string
      */
     public $templateId;
+
+    /**
+     * @var string
+     */
+    public $chatbiTaskId;
+
+    /**
+     * @var string
+     */
+    public $chatbiTaskStatus;
     protected $_name = [
         'applicationType' => 'ApplicationType',
         'applicationTypeText' => 'ApplicationTypeText',
@@ -110,6 +120,8 @@ class AppInstanceProfile extends Model
         'source' => 'Source',
         'templateEtag' => 'TemplateEtag',
         'templateId' => 'TemplateId',
+        'chatbiTaskId' => 'chatbiTaskId',
+        'chatbiTaskStatus' => 'chatbiTaskStatus',
     ];
 
     public function validate()
@@ -186,6 +198,14 @@ class AppInstanceProfile extends Model
 
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+
+        if (null !== $this->chatbiTaskId) {
+            $res['chatbiTaskId'] = $this->chatbiTaskId;
+        }
+
+        if (null !== $this->chatbiTaskStatus) {
+            $res['chatbiTaskStatus'] = $this->chatbiTaskStatus;
         }
 
         return $res;
@@ -265,6 +285,14 @@ class AppInstanceProfile extends Model
 
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+
+        if (isset($map['chatbiTaskId'])) {
+            $model->chatbiTaskId = $map['chatbiTaskId'];
+        }
+
+        if (isset($map['chatbiTaskStatus'])) {
+            $model->chatbiTaskStatus = $map['chatbiTaskStatus'];
         }
 
         return $model;
