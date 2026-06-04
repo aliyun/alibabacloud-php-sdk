@@ -11,8 +11,14 @@ class mpaasUserGamecenterPaymentQuerystatusResponse extends Model
     /**
      * @var string
      */
+    public $cpExtra;
+
+    /**
+     * @var string
+     */
     public $orderStatus;
     protected $_name = [
+        'cpExtra' => 'CpExtra',
         'orderStatus' => 'OrderStatus',
     ];
 
@@ -24,6 +30,10 @@ class mpaasUserGamecenterPaymentQuerystatusResponse extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cpExtra) {
+            $res['CpExtra'] = $this->cpExtra;
+        }
+
         if (null !== $this->orderStatus) {
             $res['OrderStatus'] = $this->orderStatus;
         }
@@ -39,6 +49,10 @@ class mpaasUserGamecenterPaymentQuerystatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CpExtra'])) {
+            $model->cpExtra = $map['CpExtra'];
+        }
+
         if (isset($map['OrderStatus'])) {
             $model->orderStatus = $map['OrderStatus'];
         }

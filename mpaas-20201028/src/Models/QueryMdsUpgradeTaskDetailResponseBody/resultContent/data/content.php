@@ -216,6 +216,11 @@ class content extends Model
     public $releaseType;
 
     /**
+     * @var string
+     */
+    public $reminderPeriod;
+
+    /**
      * @var ruleJsonList[]
      */
     public $ruleJsonList;
@@ -306,6 +311,7 @@ class content extends Model
         'pushContent' => 'PushContent',
         'qrcodeUrl' => 'QrcodeUrl',
         'releaseType' => 'ReleaseType',
+        'reminderPeriod' => 'ReminderPeriod',
         'ruleJsonList' => 'RuleJsonList',
         'silentType' => 'SilentType',
         'syncMode' => 'SyncMode',
@@ -494,6 +500,10 @@ class content extends Model
 
         if (null !== $this->releaseType) {
             $res['ReleaseType'] = $this->releaseType;
+        }
+
+        if (null !== $this->reminderPeriod) {
+            $res['ReminderPeriod'] = $this->reminderPeriod;
         }
 
         if (null !== $this->ruleJsonList) {
@@ -723,6 +733,10 @@ class content extends Model
 
         if (isset($map['ReleaseType'])) {
             $model->releaseType = $map['ReleaseType'];
+        }
+
+        if (isset($map['ReminderPeriod'])) {
+            $model->reminderPeriod = $map['ReminderPeriod'];
         }
 
         if (isset($map['RuleJsonList'])) {
