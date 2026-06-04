@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeExpressConnectRouterAssociationResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeExpressConnectRouterAssociationResponseBody\associationList\tags;
 
 class associationList extends Model
 {
@@ -69,9 +70,19 @@ class associationList extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $transitRouterId;
+
+    /**
+     * @var string
+     */
+    public $transitRouterName;
 
     /**
      * @var int
@@ -82,6 +93,11 @@ class associationList extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vpcName;
 
     /**
      * @var int
@@ -100,9 +116,12 @@ class associationList extends Model
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
         'status' => 'Status',
+        'tags' => 'Tags',
         'transitRouterId' => 'TransitRouterId',
+        'transitRouterName' => 'TransitRouterName',
         'transitRouterOwnerId' => 'TransitRouterOwnerId',
         'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
         'vpcOwnerId' => 'VpcOwnerId',
     ];
 
@@ -110,6 +129,9 @@ class associationList extends Model
     {
         if (\is_array($this->allowedPrefixes)) {
             Model::validateArray($this->allowedPrefixes);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -172,8 +194,23 @@ class associationList extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
+        }
+
+        if (null !== $this->transitRouterName) {
+            $res['TransitRouterName'] = $this->transitRouterName;
         }
 
         if (null !== $this->transitRouterOwnerId) {
@@ -182,6 +219,10 @@ class associationList extends Model
 
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+
+        if (null !== $this->vpcName) {
+            $res['VpcName'] = $this->vpcName;
         }
 
         if (null !== $this->vpcOwnerId) {
@@ -254,8 +295,23 @@ class associationList extends Model
             $model->status = $map['Status'];
         }
 
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];
+        }
+
+        if (isset($map['TransitRouterName'])) {
+            $model->transitRouterName = $map['TransitRouterName'];
         }
 
         if (isset($map['TransitRouterOwnerId'])) {
@@ -264,6 +320,10 @@ class associationList extends Model
 
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+
+        if (isset($map['VpcName'])) {
+            $model->vpcName = $map['VpcName'];
         }
 
         if (isset($map['VpcOwnerId'])) {

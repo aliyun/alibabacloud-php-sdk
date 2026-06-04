@@ -19,6 +19,11 @@ class childInstanceList extends Model
     public $childInstanceId;
 
     /**
+     * @var string
+     */
+    public $childInstanceName;
+
+    /**
      * @var int
      */
     public $childInstanceOwnerId;
@@ -70,6 +75,7 @@ class childInstanceList extends Model
     protected $_name = [
         'associationId' => 'AssociationId',
         'childInstanceId' => 'ChildInstanceId',
+        'childInstanceName' => 'ChildInstanceName',
         'childInstanceOwnerId' => 'ChildInstanceOwnerId',
         'childInstanceRegionId' => 'ChildInstanceRegionId',
         'childInstanceType' => 'ChildInstanceType',
@@ -96,6 +102,10 @@ class childInstanceList extends Model
 
         if (null !== $this->childInstanceId) {
             $res['ChildInstanceId'] = $this->childInstanceId;
+        }
+
+        if (null !== $this->childInstanceName) {
+            $res['ChildInstanceName'] = $this->childInstanceName;
         }
 
         if (null !== $this->childInstanceOwnerId) {
@@ -155,6 +165,10 @@ class childInstanceList extends Model
 
         if (isset($map['ChildInstanceId'])) {
             $model->childInstanceId = $map['ChildInstanceId'];
+        }
+
+        if (isset($map['ChildInstanceName'])) {
+            $model->childInstanceName = $map['ChildInstanceName'];
         }
 
         if (isset($map['ChildInstanceOwnerId'])) {

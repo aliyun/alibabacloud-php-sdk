@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeExpressConnectRouterAssociationRequest\tag;
 
 class DescribeExpressConnectRouterAssociationRequest extends Model
 {
@@ -54,6 +55,11 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
     public $nextToken;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string
      */
     public $transitRouterId;
@@ -77,6 +83,7 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
         'ecrId' => 'EcrId',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
+        'tag' => 'Tag',
         'transitRouterId' => 'TransitRouterId',
         'version' => 'Version',
         'vpcId' => 'VpcId',
@@ -84,6 +91,9 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -124,6 +134,17 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->transitRouterId) {
@@ -183,6 +204,17 @@ class DescribeExpressConnectRouterAssociationRequest extends Model
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TransitRouterId'])) {

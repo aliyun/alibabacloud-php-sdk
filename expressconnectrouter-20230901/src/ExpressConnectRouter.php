@@ -477,6 +477,10 @@ class ExpressConnectRouter extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         if (null !== $request->version) {
             @$query['Version'] = $request->version;
         }
@@ -1266,6 +1270,10 @@ class ExpressConnectRouter extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         if (null !== $request->version) {
             @$query['Version'] = $request->version;
         }
