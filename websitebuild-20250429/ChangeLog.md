@@ -1,3 +1,6 @@
+2026-06-04 Version: 2.24.1
+- Generated php 2025-04-29 for WebsiteBuild.
+
 2026-06-04 Version: 2.24.0
 - Support API CopyAppPluginConfig.
 - Support API CreateAppChat.
