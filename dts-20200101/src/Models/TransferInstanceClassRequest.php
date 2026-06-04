@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class TransferInstanceClassRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $databaseCount;
+
+    /**
      * @var string
      */
     public $dtsJobId;
@@ -33,6 +38,7 @@ class TransferInstanceClassRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
+        'databaseCount' => 'DatabaseCount',
         'dtsJobId' => 'DtsJobId',
         'instanceClass' => 'InstanceClass',
         'orderType' => 'OrderType',
@@ -48,6 +54,10 @@ class TransferInstanceClassRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->databaseCount) {
+            $res['DatabaseCount'] = $this->databaseCount;
+        }
+
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
         }
@@ -79,6 +89,10 @@ class TransferInstanceClassRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DatabaseCount'])) {
+            $model->databaseCount = $map['DatabaseCount'];
+        }
+
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
         }

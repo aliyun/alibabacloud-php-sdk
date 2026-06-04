@@ -11476,6 +11476,10 @@ class Dts extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->databaseCount) {
+            @$query['DatabaseCount'] = $request->databaseCount;
+        }
+
         if (null !== $request->dtsJobId) {
             @$query['DtsJobId'] = $request->dtsJobId;
         }
