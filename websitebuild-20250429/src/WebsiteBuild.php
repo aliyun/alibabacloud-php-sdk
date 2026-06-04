@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckUserResourceMeasureRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckUserResourceMeasureResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CopyAppPluginConfigRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CopyAppPluginConfigResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAIStaffChatRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAIStaffChatResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAIStaffConversationRequest;
@@ -23,6 +25,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentReques
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentSsoLoginRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppAssistantAgentSsoLoginResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppChatRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppChatResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppInstanceShrinkRequest;
@@ -38,6 +42,10 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainCertificateReq
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainCertificateResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainRedirectRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainRedirectResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppInstanceFileRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppInstanceFileResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppSupabaseSecretsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppSupabaseSecretsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialDirectoryRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialDirectoryResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialTaskRequest;
@@ -54,17 +62,53 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ExportMaterialFileShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAIStaffPreviewUrlRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAIStaffPreviewUrlResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppCodeWorkspaceDetailRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppCodeWorkspaceDetailResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppConversationLockStatusRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppConversationLockStatusResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppConversationRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppConversationResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppDatabaseTableSchemasRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppDatabaseTableSchemasResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppFileContentRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppFileContentResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceEntitlementRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceEntitlementResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceTempShortUrlRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceTempShortUrlResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPublishStatusRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPublishStatusResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppRecommendedCommoditiesRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppRecommendedCommoditiesResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppRequirementRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppRequirementResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSandboxPreviewUrlRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSandboxPreviewUrlResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSeoStatusRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSeoStatusResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSeoTrendsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSeoTrendsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSitemapRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSitemapResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSupabaseAuthConfigRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSupabaseAuthConfigResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSupabaseInstanceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSupabaseInstanceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSupabaseSecretsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppSupabaseSecretsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppTemplateRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppTemplateResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppTokenServiceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppWorkspaceDirectoryRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppWorkspaceDirectoryResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetCreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetDomainInfoForPartnerRequest;
@@ -85,9 +129,15 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAIStaffChatMessagesReques
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAIStaffChatMessagesResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppAssistantAgentsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppAssistantAgentsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppChatMessagesRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppChatMessagesResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsV2ForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppCommoditySpecificationsV2ForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppConversationMessagesRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppConversationMessagesResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppConversationsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppConversationsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppDomainRedirectRecordsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsRequest;
@@ -95,6 +145,18 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsRespons
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginConfigsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginConfigsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPublishHistoryRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPublishHistoryResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppTemplateDictsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppTemplateDictsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppTemplatesRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppTemplatesResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListIsvPaymentPluginConfigsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListIsvPaymentPluginConfigsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyAppInstanceSpecRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyAppInstanceSpecResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ModifyMaterialDirectoryRequest;
@@ -113,8 +175,12 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppTemplateLikeRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppTemplateLikeResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateSupabaseForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateSupabaseForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\PublishAppInstanceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\PublishAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\PushResourceMeasureRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\PushResourceMeasureResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryInspirationAccountDetailsRequest;
@@ -143,24 +209,57 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseConfigsForAdminR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseConfigsForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseInstanceInfoForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseInstanceInfoForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ReconnectAppChatRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ReconnectAppChatResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefreshAppInstanceTicketResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefundAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RefundAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppSandboxRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppSandboxResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppCodeSnapshotRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppCodeSnapshotResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppInstancePublishRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppInstancePublishResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppRequirementRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppRequirementResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppSupabaseSecretsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppSupabaseSecretsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SetAppDomainCertificateRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SetAppDomainCertificateResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SubmitAppSeoIndexRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SubmitAppSeoIndexResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SubmitMaterialTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SubmitMaterialTaskResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SwitchAppConversationRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SwitchAppConversationResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UnbindAppDomainRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UnbindAppDomainResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppChatMessageRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppChatMessageResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppCodeRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppCodeResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppFileRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppFileResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppInstanceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppInstanceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppInstanceShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSeoStatusRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSeoStatusResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseAuthConfigRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseAuthConfigResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseSecretRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseSecretResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadAppSiteValidationFileRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadAppSiteValidationFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -592,6 +691,67 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 复制插件配置.
+     *
+     * @param request - CopyAppPluginConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CopyAppPluginConfigResponse
+     *
+     * @param CopyAppPluginConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CopyAppPluginConfigResponse
+     */
+    public function copyAppPluginConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->sourceBizId) {
+            @$query['SourceBizId'] = $request->sourceBizId;
+        }
+
+        if (null !== $request->targetBizId) {
+            @$query['TargetBizId'] = $request->targetBizId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CopyAppPluginConfig',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CopyAppPluginConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 复制插件配置.
+     *
+     * @param request - CopyAppPluginConfigRequest
+     *
+     * @returns CopyAppPluginConfigResponse
+     *
+     * @param CopyAppPluginConfigRequest $request
+     *
+     * @return CopyAppPluginConfigResponse
+     */
+    public function copyAppPluginConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->copyAppPluginConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * 异步发起AI员工对话.
      *
      * @param request - CreateAIStaffChatRequest
@@ -852,6 +1012,147 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppAssistantAgentSsoLoginWithOptions($request, $runtime);
+    }
+
+    /**
+     * 万小智发起AI对话.
+     *
+     * @param request - CreateAppChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppChatResponse
+     *
+     * @param CreateAppChatRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAppChatResponse
+     */
+    public function createAppChatWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->botId) {
+            @$query['BotId'] = $request->botId;
+        }
+
+        if (null !== $request->chatId) {
+            @$query['ChatId'] = $request->chatId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->messages) {
+            @$query['Messages'] = $request->messages;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppChat',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'string',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = $resp->event->data;
+
+                yield CreateAppChatResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 万小智发起AI对话.
+     *
+     * @param request - CreateAppChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppChatResponse
+     *
+     * @param CreateAppChatRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAppChatResponse
+     */
+    public function createAppChatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->botId) {
+            @$query['BotId'] = $request->botId;
+        }
+
+        if (null !== $request->chatId) {
+            @$query['ChatId'] = $request->chatId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->messages) {
+            @$query['Messages'] = $request->messages;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppChat',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'string',
+        ]);
+
+        return CreateAppChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 万小智发起AI对话.
+     *
+     * @param request - CreateAppChatRequest
+     *
+     * @returns CreateAppChatResponse
+     *
+     * @param CreateAppChatRequest $request
+     *
+     * @return CreateAppChatResponse
+     */
+    public function createAppChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppChatWithOptions($request, $runtime);
     }
 
     /**
@@ -1354,6 +1655,128 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 删除文件.
+     *
+     * @param request - DeleteAppInstanceFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppInstanceFileResponse
+     *
+     * @param DeleteAppInstanceFileRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteAppInstanceFileResponse
+     */
+    public function deleteAppInstanceFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAppInstanceFile',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppInstanceFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除文件.
+     *
+     * @param request - DeleteAppInstanceFileRequest
+     *
+     * @returns DeleteAppInstanceFileResponse
+     *
+     * @param DeleteAppInstanceFileRequest $request
+     *
+     * @return DeleteAppInstanceFileResponse
+     */
+    public function deleteAppInstanceFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppInstanceFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除Supabase密钥.
+     *
+     * @param request - DeleteAppSupabaseSecretsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppSupabaseSecretsResponse
+     *
+     * @param DeleteAppSupabaseSecretsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteAppSupabaseSecretsResponse
+     */
+    public function deleteAppSupabaseSecretsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->keysJson) {
+            @$query['KeysJson'] = $request->keysJson;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAppSupabaseSecrets',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppSupabaseSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Supabase密钥.
+     *
+     * @param request - DeleteAppSupabaseSecretsRequest
+     *
+     * @returns DeleteAppSupabaseSecretsResponse
+     *
+     * @param DeleteAppSupabaseSecretsRequest $request
+     *
+     * @return DeleteAppSupabaseSecretsResponse
+     */
+    public function deleteAppSupabaseSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppSupabaseSecretsWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除素材中心文件夹.
      *
      * @param request - DeleteMaterialDirectoryRequest
@@ -1817,6 +2240,303 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 获取代码工作区详情.
+     *
+     * @param request - GetAppCodeWorkspaceDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppCodeWorkspaceDetailResponse
+     *
+     * @param GetAppCodeWorkspaceDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetAppCodeWorkspaceDetailResponse
+     */
+    public function getAppCodeWorkspaceDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppCodeWorkspaceDetail',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppCodeWorkspaceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取代码工作区详情.
+     *
+     * @param request - GetAppCodeWorkspaceDetailRequest
+     *
+     * @returns GetAppCodeWorkspaceDetailResponse
+     *
+     * @param GetAppCodeWorkspaceDetailRequest $request
+     *
+     * @return GetAppCodeWorkspaceDetailResponse
+     */
+    public function getAppCodeWorkspaceDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppCodeWorkspaceDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取对话详情.
+     *
+     * @param request - GetAppConversationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppConversationResponse
+     *
+     * @param GetAppConversationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAppConversationResponse
+     */
+    public function getAppConversationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->botId) {
+            @$query['BotId'] = $request->botId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppConversation',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取对话详情.
+     *
+     * @param request - GetAppConversationRequest
+     *
+     * @returns GetAppConversationResponse
+     *
+     * @param GetAppConversationRequest $request
+     *
+     * @return GetAppConversationResponse
+     */
+    public function getAppConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppConversationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取会话锁定状态
+     *
+     * @param request - GetAppConversationLockStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppConversationLockStatusResponse
+     *
+     * @param GetAppConversationLockStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAppConversationLockStatusResponse
+     */
+    public function getAppConversationLockStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppConversationLockStatus',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppConversationLockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取会话锁定状态
+     *
+     * @param request - GetAppConversationLockStatusRequest
+     *
+     * @returns GetAppConversationLockStatusResponse
+     *
+     * @param GetAppConversationLockStatusRequest $request
+     *
+     * @return GetAppConversationLockStatusResponse
+     */
+    public function getAppConversationLockStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppConversationLockStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询数据库表结构.
+     *
+     * @param request - GetAppDatabaseTableSchemasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppDatabaseTableSchemasResponse
+     *
+     * @param GetAppDatabaseTableSchemasRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAppDatabaseTableSchemasResponse
+     */
+    public function getAppDatabaseTableSchemasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppDatabaseTableSchemas',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppDatabaseTableSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据库表结构.
+     *
+     * @param request - GetAppDatabaseTableSchemasRequest
+     *
+     * @returns GetAppDatabaseTableSchemasResponse
+     *
+     * @param GetAppDatabaseTableSchemasRequest $request
+     *
+     * @return GetAppDatabaseTableSchemasResponse
+     */
+    public function getAppDatabaseTableSchemas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppDatabaseTableSchemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 读取文件及修改时间.
+     *
+     * @param request - GetAppFileContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppFileContentResponse
+     *
+     * @param GetAppFileContentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetAppFileContentResponse
+     */
+    public function getAppFileContentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppFileContent',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppFileContentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 读取文件及修改时间.
+     *
+     * @param request - GetAppFileContentRequest
+     *
+     * @returns GetAppFileContentResponse
+     *
+     * @param GetAppFileContentRequest $request
+     *
+     * @return GetAppFileContentResponse
+     */
+    public function getAppFileContent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppFileContentWithOptions($request, $runtime);
+    }
+
+    /**
      * Query Application Instance Details.
      *
      * @param request - GetAppInstanceRequest
@@ -1871,6 +2591,63 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * GetAppInstanceEntitlement.
+     *
+     * @param request - GetAppInstanceEntitlementRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppInstanceEntitlementResponse
+     *
+     * @param GetAppInstanceEntitlementRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetAppInstanceEntitlementResponse
+     */
+    public function getAppInstanceEntitlementWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppInstanceEntitlement',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppInstanceEntitlementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * GetAppInstanceEntitlement.
+     *
+     * @param request - GetAppInstanceEntitlementRequest
+     *
+     * @returns GetAppInstanceEntitlementResponse
+     *
+     * @param GetAppInstanceEntitlementRequest $request
+     *
+     * @return GetAppInstanceEntitlementResponse
+     */
+    public function getAppInstanceEntitlement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppInstanceEntitlementWithOptions($request, $runtime);
     }
 
     /**
@@ -1992,6 +2769,63 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 获取应用临时短链.
+     *
+     * @param request - GetAppInstanceTempShortUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppInstanceTempShortUrlResponse
+     *
+     * @param GetAppInstanceTempShortUrlRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetAppInstanceTempShortUrlResponse
+     */
+    public function getAppInstanceTempShortUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->bizId) {
+            @$body['BizId'] = $request->bizId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppInstanceTempShortUrl',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppInstanceTempShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取应用临时短链.
+     *
+     * @param request - GetAppInstanceTempShortUrlRequest
+     *
+     * @returns GetAppInstanceTempShortUrlResponse
+     *
+     * @param GetAppInstanceTempShortUrlRequest $request
+     *
+     * @return GetAppInstanceTempShortUrlResponse
+     */
+    public function getAppInstanceTempShortUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppInstanceTempShortUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * 生码-获取插件配置信息.
      *
      * @param request - GetAppPluginConfigRequest
@@ -2050,6 +2884,71 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppPluginConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 发布状态查询.
+     *
+     * @param request - GetAppPublishStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppPublishStatusResponse
+     *
+     * @param GetAppPublishStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAppPublishStatusResponse
+     */
+    public function getAppPublishStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->deployOrderId) {
+            @$query['DeployOrderId'] = $request->deployOrderId;
+        }
+
+        if (null !== $request->websiteDomain) {
+            @$query['WebsiteDomain'] = $request->websiteDomain;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppPublishStatus',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppPublishStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发布状态查询.
+     *
+     * @param request - GetAppPublishStatusRequest
+     *
+     * @returns GetAppPublishStatusResponse
+     *
+     * @param GetAppPublishStatusRequest $request
+     *
+     * @return GetAppPublishStatusResponse
+     */
+    public function getAppPublishStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppPublishStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -2122,6 +3021,555 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 需求查询.
+     *
+     * @param request - GetAppRequirementRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppRequirementResponse
+     *
+     * @param GetAppRequirementRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetAppRequirementResponse
+     */
+    public function getAppRequirementWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppRequirement',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppRequirementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 需求查询.
+     *
+     * @param request - GetAppRequirementRequest
+     *
+     * @returns GetAppRequirementResponse
+     *
+     * @param GetAppRequirementRequest $request
+     *
+     * @return GetAppRequirementResponse
+     */
+    public function getAppRequirement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppRequirementWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取沙箱预览地址
+     *
+     * @param request - GetAppSandboxPreviewUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppSandboxPreviewUrlResponse
+     *
+     * @param GetAppSandboxPreviewUrlRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAppSandboxPreviewUrlResponse
+     */
+    public function getAppSandboxPreviewUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->restart) {
+            @$body['Restart'] = $request->restart;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppSandboxPreviewUrl',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppSandboxPreviewUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取沙箱预览地址
+     *
+     * @param request - GetAppSandboxPreviewUrlRequest
+     *
+     * @returns GetAppSandboxPreviewUrlResponse
+     *
+     * @param GetAppSandboxPreviewUrlRequest $request
+     *
+     * @return GetAppSandboxPreviewUrlResponse
+     */
+    public function getAppSandboxPreviewUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppSandboxPreviewUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询SEO索引状态
+     *
+     * @param request - GetAppSeoStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppSeoStatusResponse
+     *
+     * @param GetAppSeoStatusRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAppSeoStatusResponse
+     */
+    public function getAppSeoStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->seType) {
+            @$query['SeType'] = $request->seType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppSeoStatus',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppSeoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询SEO索引状态
+     *
+     * @param request - GetAppSeoStatusRequest
+     *
+     * @returns GetAppSeoStatusResponse
+     *
+     * @param GetAppSeoStatusRequest $request
+     *
+     * @return GetAppSeoStatusResponse
+     */
+    public function getAppSeoStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppSeoStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * SEO索引图表.
+     *
+     * @param request - GetAppSeoTrendsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppSeoTrendsResponse
+     *
+     * @param GetAppSeoTrendsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAppSeoTrendsResponse
+     */
+    public function getAppSeoTrendsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->seType) {
+            @$query['SeType'] = $request->seType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppSeoTrends',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppSeoTrendsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * SEO索引图表.
+     *
+     * @param request - GetAppSeoTrendsRequest
+     *
+     * @returns GetAppSeoTrendsResponse
+     *
+     * @param GetAppSeoTrendsRequest $request
+     *
+     * @return GetAppSeoTrendsResponse
+     */
+    public function getAppSeoTrends($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppSeoTrendsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取站点地图.
+     *
+     * @param request - GetAppSitemapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppSitemapResponse
+     *
+     * @param GetAppSitemapRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetAppSitemapResponse
+     */
+    public function getAppSitemapWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->seType) {
+            @$query['SeType'] = $request->seType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppSitemap',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppSitemapResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取站点地图.
+     *
+     * @param request - GetAppSitemapRequest
+     *
+     * @returns GetAppSitemapResponse
+     *
+     * @param GetAppSitemapRequest $request
+     *
+     * @return GetAppSitemapResponse
+     */
+    public function getAppSitemap($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppSitemapWithOptions($request, $runtime);
+    }
+
+    /**
+     * Supabase认证设置查询.
+     *
+     * @param request - GetAppSupabaseAuthConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppSupabaseAuthConfigResponse
+     *
+     * @param GetAppSupabaseAuthConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAppSupabaseAuthConfigResponse
+     */
+    public function getAppSupabaseAuthConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppSupabaseAuthConfig',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppSupabaseAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Supabase认证设置查询.
+     *
+     * @param request - GetAppSupabaseAuthConfigRequest
+     *
+     * @returns GetAppSupabaseAuthConfigResponse
+     *
+     * @param GetAppSupabaseAuthConfigRequest $request
+     *
+     * @return GetAppSupabaseAuthConfigResponse
+     */
+    public function getAppSupabaseAuthConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppSupabaseAuthConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Supabase实例信息.
+     *
+     * @param request - GetAppSupabaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppSupabaseInstanceResponse
+     *
+     * @param GetAppSupabaseInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetAppSupabaseInstanceResponse
+     */
+    public function getAppSupabaseInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppSupabaseInstance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppSupabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Supabase实例信息.
+     *
+     * @param request - GetAppSupabaseInstanceRequest
+     *
+     * @returns GetAppSupabaseInstanceResponse
+     *
+     * @param GetAppSupabaseInstanceRequest $request
+     *
+     * @return GetAppSupabaseInstanceResponse
+     */
+    public function getAppSupabaseInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppSupabaseInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Supabase密钥.
+     *
+     * @param request - GetAppSupabaseSecretsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppSupabaseSecretsResponse
+     *
+     * @param GetAppSupabaseSecretsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAppSupabaseSecretsResponse
+     */
+    public function getAppSupabaseSecretsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppSupabaseSecrets',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppSupabaseSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Supabase密钥.
+     *
+     * @param request - GetAppSupabaseSecretsRequest
+     *
+     * @returns GetAppSupabaseSecretsResponse
+     *
+     * @param GetAppSupabaseSecretsRequest $request
+     *
+     * @return GetAppSupabaseSecretsResponse
+     */
+    public function getAppSupabaseSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppSupabaseSecretsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 模板详情查询.
+     *
+     * @param request - GetAppTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppTemplateResponse
+     *
+     * @param GetAppTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAppTemplateResponse
+     */
+    public function getAppTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppTemplate',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模板详情查询.
+     *
+     * @param request - GetAppTemplateRequest
+     *
+     * @returns GetAppTemplateResponse
+     *
+     * @param GetAppTemplateRequest $request
+     *
+     * @return GetAppTemplateResponse
+     */
+    public function getAppTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询万小智灵感值服务
      *
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2162,6 +3610,71 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppTokenServiceWithOptions($runtime);
+    }
+
+    /**
+     * 获取工作区目录结构.
+     *
+     * @param request - GetAppWorkspaceDirectoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppWorkspaceDirectoryResponse
+     *
+     * @param GetAppWorkspaceDirectoryRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAppWorkspaceDirectoryResponse
+     */
+    public function getAppWorkspaceDirectoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->deep) {
+            @$body['Deep'] = $request->deep;
+        }
+
+        if (null !== $request->filePath) {
+            @$body['FilePath'] = $request->filePath;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppWorkspaceDirectory',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppWorkspaceDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取工作区目录结构.
+     *
+     * @param request - GetAppWorkspaceDirectoryRequest
+     *
+     * @returns GetAppWorkspaceDirectoryResponse
+     *
+     * @param GetAppWorkspaceDirectoryRequest $request
+     *
+     * @return GetAppWorkspaceDirectoryResponse
+     */
+    public function getAppWorkspaceDirectory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppWorkspaceDirectoryWithOptions($request, $runtime);
     }
 
     /**
@@ -2806,6 +4319,79 @@ class WebsiteBuild extends OpenApiClient
         return $this->listAppAssistantAgentsWithOptions($request, $runtime);
     }
 
+    /**
+     * 查询指定聊天的消息列表.
+     *
+     * @param request - ListAppChatMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppChatMessagesResponse
+     *
+     * @param ListAppChatMessagesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAppChatMessagesResponse
+     */
+    public function listAppChatMessagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->chatId) {
+            @$query['ChatId'] = $request->chatId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->sectionId) {
+            @$query['SectionId'] = $request->sectionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppChatMessages',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppChatMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询指定聊天的消息列表.
+     *
+     * @param request - ListAppChatMessagesRequest
+     *
+     * @returns ListAppChatMessagesResponse
+     *
+     * @param ListAppChatMessagesRequest $request
+     *
+     * @return ListAppChatMessagesResponse
+     */
+    public function listAppChatMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppChatMessagesWithOptions($request, $runtime);
+    }
+
     // Deprecated
     /**
      * 获取商品配置信息.
@@ -2914,6 +4500,168 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppCommoditySpecificationsV2ForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询对话消息列表.
+     *
+     * @param request - ListAppConversationMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppConversationMessagesResponse
+     *
+     * @param ListAppConversationMessagesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListAppConversationMessagesResponse
+     */
+    public function listAppConversationMessagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->startCreateTime) {
+            @$query['StartCreateTime'] = $request->startCreateTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppConversationMessages',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppConversationMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询对话消息列表.
+     *
+     * @param request - ListAppConversationMessagesRequest
+     *
+     * @returns ListAppConversationMessagesResponse
+     *
+     * @param ListAppConversationMessagesRequest $request
+     *
+     * @return ListAppConversationMessagesResponse
+     */
+    public function listAppConversationMessages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppConversationMessagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 搜索对话列表.
+     *
+     * @param request - ListAppConversationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppConversationsResponse
+     *
+     * @param ListAppConversationsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAppConversationsResponse
+     */
+    public function listAppConversationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->botId) {
+            @$query['BotId'] = $request->botId;
+        }
+
+        if (null !== $request->endModifyTime) {
+            @$query['EndModifyTime'] = $request->endModifyTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->startModifyTime) {
+            @$query['StartModifyTime'] = $request->startModifyTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppConversations',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppConversationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 搜索对话列表.
+     *
+     * @param request - ListAppConversationsRequest
+     *
+     * @returns ListAppConversationsResponse
+     *
+     * @param ListAppConversationsRequest $request
+     *
+     * @return ListAppConversationsResponse
+     */
+    public function listAppConversations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppConversationsWithOptions($request, $runtime);
     }
 
     /**
@@ -3171,6 +4919,456 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取码农插件配置列表.
+     *
+     * @param request - ListAppPluginConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppPluginConfigsResponse
+     *
+     * @param ListAppPluginConfigsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAppPluginConfigsResponse
+     */
+    public function listAppPluginConfigsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppPluginConfigs',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppPluginConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取码农插件配置列表.
+     *
+     * @param request - ListAppPluginConfigsRequest
+     *
+     * @returns ListAppPluginConfigsResponse
+     *
+     * @param ListAppPluginConfigsRequest $request
+     *
+     * @return ListAppPluginConfigsResponse
+     */
+    public function listAppPluginConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppPluginConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 应用插件列表.
+     *
+     * @param request - ListAppPluginsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppPluginsResponse
+     *
+     * @param ListAppPluginsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAppPluginsResponse
+     */
+    public function listAppPluginsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->phase) {
+            @$query['Phase'] = $request->phase;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppPlugins',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用插件列表.
+     *
+     * @param request - ListAppPluginsRequest
+     *
+     * @returns ListAppPluginsResponse
+     *
+     * @param ListAppPluginsRequest $request
+     *
+     * @return ListAppPluginsResponse
+     */
+    public function listAppPlugins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppPluginsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 发布历史查询.
+     *
+     * @param request - ListAppPublishHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppPublishHistoryResponse
+     *
+     * @param ListAppPublishHistoryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAppPublishHistoryResponse
+     */
+    public function listAppPublishHistoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sort) {
+            @$query['Sort'] = $request->sort;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->websiteDomain) {
+            @$query['WebsiteDomain'] = $request->websiteDomain;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppPublishHistory',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppPublishHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发布历史查询.
+     *
+     * @param request - ListAppPublishHistoryRequest
+     *
+     * @returns ListAppPublishHistoryResponse
+     *
+     * @param ListAppPublishHistoryRequest $request
+     *
+     * @return ListAppPublishHistoryResponse
+     */
+    public function listAppPublishHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppPublishHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 字典列表查询.
+     *
+     * @param request - ListAppTemplateDictsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppTemplateDictsResponse
+     *
+     * @param ListAppTemplateDictsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAppTemplateDictsResponse
+     */
+    public function listAppTemplateDictsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dictType) {
+            @$query['DictType'] = $request->dictType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppTemplateDicts',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppTemplateDictsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 字典列表查询.
+     *
+     * @param request - ListAppTemplateDictsRequest
+     *
+     * @returns ListAppTemplateDictsResponse
+     *
+     * @param ListAppTemplateDictsRequest $request
+     *
+     * @return ListAppTemplateDictsResponse
+     */
+    public function listAppTemplateDicts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppTemplateDictsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 模板列表查询.
+     *
+     * @param request - ListAppTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppTemplatesResponse
+     *
+     * @param ListAppTemplatesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAppTemplatesResponse
+     */
+    public function listAppTemplatesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
+        }
+
+        if (null !== $request->colorScheme) {
+            @$query['ColorScheme'] = $request->colorScheme;
+        }
+
+        if (null !== $request->industry) {
+            @$query['Industry'] = $request->industry;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productVersion) {
+            @$query['ProductVersion'] = $request->productVersion;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppTemplates',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 模板列表查询.
+     *
+     * @param request - ListAppTemplatesRequest
+     *
+     * @returns ListAppTemplatesResponse
+     *
+     * @param ListAppTemplatesRequest $request
+     *
+     * @return ListAppTemplatesResponse
+     */
+    public function listAppTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询支付宝ISV插件配置.
+     *
+     * @param request - ListIsvPaymentPluginConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListIsvPaymentPluginConfigsResponse
+     *
+     * @param ListIsvPaymentPluginConfigsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListIsvPaymentPluginConfigsResponse
+     */
+    public function listIsvPaymentPluginConfigsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIsvPaymentPluginConfigs',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIsvPaymentPluginConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询支付宝ISV插件配置.
+     *
+     * @param request - ListIsvPaymentPluginConfigsRequest
+     *
+     * @returns ListIsvPaymentPluginConfigsResponse
+     *
+     * @param ListIsvPaymentPluginConfigsRequest $request
+     *
+     * @return ListIsvPaymentPluginConfigsResponse
+     */
+    public function listIsvPaymentPluginConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIsvPaymentPluginConfigsWithOptions($request, $runtime);
     }
 
     /**
@@ -3726,6 +5924,67 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 切换模板点赞统计
+     *
+     * @param request - OperateAppTemplateLikeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateAppTemplateLikeResponse
+     *
+     * @param OperateAppTemplateLikeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return OperateAppTemplateLikeResponse
+     */
+    public function operateAppTemplateLikeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->liked) {
+            @$query['Liked'] = $request->liked;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OperateAppTemplateLike',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateAppTemplateLikeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 切换模板点赞统计
+     *
+     * @param request - OperateAppTemplateLikeRequest
+     *
+     * @returns OperateAppTemplateLikeResponse
+     *
+     * @param OperateAppTemplateLikeRequest $request
+     *
+     * @return OperateAppTemplateLikeResponse
+     */
+    public function operateAppTemplateLike($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateAppTemplateLikeWithOptions($request, $runtime);
+    }
+
+    /**
      * 通用Supabase操作.
      *
      * @param request - OperateSupabaseForAdminRequest
@@ -3824,6 +6083,83 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateSupabaseForAdminWithOptions($request, $runtime);
+    }
+
+    /**
+     * 发布应用实例.
+     *
+     * @param request - PublishAppInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishAppInstanceResponse
+     *
+     * @param PublishAppInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PublishAppInstanceResponse
+     */
+    public function publishAppInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->deployChannel) {
+            @$query['DeployChannel'] = $request->deployChannel;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->logicalNumber) {
+            @$query['LogicalNumber'] = $request->logicalNumber;
+        }
+
+        if (null !== $request->publishNumber) {
+            @$query['PublishNumber'] = $request->publishNumber;
+        }
+
+        if (null !== $request->weappAction) {
+            @$query['WeappAction'] = $request->weappAction;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PublishAppInstance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发布应用实例.
+     *
+     * @param request - PublishAppInstanceRequest
+     *
+     * @returns PublishAppInstanceResponse
+     *
+     * @param PublishAppInstanceRequest $request
+     *
+     * @return PublishAppInstanceResponse
+     */
+    public function publishAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishAppInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -4868,6 +7204,131 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 重新连接AI对话.
+     *
+     * @param request - ReconnectAppChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReconnectAppChatResponse
+     *
+     * @param ReconnectAppChatRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ReconnectAppChatResponse
+     */
+    public function reconnectAppChatWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->chatId) {
+            @$query['ChatId'] = $request->chatId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->lastEventId) {
+            @$query['LastEventId'] = $request->lastEventId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReconnectAppChat',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'string',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = $resp->event->data;
+
+                yield ReconnectAppChatResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 重新连接AI对话.
+     *
+     * @param request - ReconnectAppChatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReconnectAppChatResponse
+     *
+     * @param ReconnectAppChatRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ReconnectAppChatResponse
+     */
+    public function reconnectAppChatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->chatId) {
+            @$query['ChatId'] = $request->chatId;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->lastEventId) {
+            @$query['LastEventId'] = $request->lastEventId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReconnectAppChat',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'string',
+        ]);
+
+        return ReconnectAppChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重新连接AI对话.
+     *
+     * @param request - ReconnectAppChatRequest
+     *
+     * @returns ReconnectAppChatResponse
+     *
+     * @param ReconnectAppChatRequest $request
+     *
+     * @return ReconnectAppChatResponse
+     */
+    public function reconnectAppChat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reconnectAppChatWithOptions($request, $runtime);
+    }
+
+    /**
      * Refresh ticket.
      *
      * @param request - RefreshAppInstanceTicketRequest
@@ -5079,6 +7540,317 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 续期/刷新沙箱环境.
+     *
+     * @param request - RenewAppSandboxRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewAppSandboxResponse
+     *
+     * @param RenewAppSandboxRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RenewAppSandboxResponse
+     */
+    public function renewAppSandboxWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RenewAppSandbox',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenewAppSandboxResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 续期/刷新沙箱环境.
+     *
+     * @param request - RenewAppSandboxRequest
+     *
+     * @returns RenewAppSandboxResponse
+     *
+     * @param RenewAppSandboxRequest $request
+     *
+     * @return RenewAppSandboxResponse
+     */
+    public function renewAppSandbox($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewAppSandboxWithOptions($request, $runtime);
+    }
+
+    /**
+     * 代码快照回滚.
+     *
+     * @param request - RollbackAppCodeSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RollbackAppCodeSnapshotResponse
+     *
+     * @param RollbackAppCodeSnapshotRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RollbackAppCodeSnapshotResponse
+     */
+    public function rollbackAppCodeSnapshotWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->targetLogicalNumber) {
+            @$query['TargetLogicalNumber'] = $request->targetLogicalNumber;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RollbackAppCodeSnapshot',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RollbackAppCodeSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 代码快照回滚.
+     *
+     * @param request - RollbackAppCodeSnapshotRequest
+     *
+     * @returns RollbackAppCodeSnapshotResponse
+     *
+     * @param RollbackAppCodeSnapshotRequest $request
+     *
+     * @return RollbackAppCodeSnapshotResponse
+     */
+    public function rollbackAppCodeSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackAppCodeSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * 回滚应用实例发布.
+     *
+     * @param request - RollbackAppInstancePublishRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RollbackAppInstancePublishResponse
+     *
+     * @param RollbackAppInstancePublishRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RollbackAppInstancePublishResponse
+     */
+    public function rollbackAppInstancePublishWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->deployChannel) {
+            @$query['DeployChannel'] = $request->deployChannel;
+        }
+
+        if (null !== $request->publishNumber) {
+            @$query['PublishNumber'] = $request->publishNumber;
+        }
+
+        if (null !== $request->quickRollback) {
+            @$query['QuickRollback'] = $request->quickRollback;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RollbackAppInstancePublish',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RollbackAppInstancePublishResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 回滚应用实例发布.
+     *
+     * @param request - RollbackAppInstancePublishRequest
+     *
+     * @returns RollbackAppInstancePublishResponse
+     *
+     * @param RollbackAppInstancePublishRequest $request
+     *
+     * @return RollbackAppInstancePublishResponse
+     */
+    public function rollbackAppInstancePublish($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackAppInstancePublishWithOptions($request, $runtime);
+    }
+
+    /**
+     * 保存需求
+     *
+     * @param request - SaveAppRequirementRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveAppRequirementResponse
+     *
+     * @param SaveAppRequirementRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SaveAppRequirementResponse
+     */
+    public function saveAppRequirementWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        $body = [];
+        if (null !== $request->prd) {
+            @$body['Prd'] = $request->prd;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SaveAppRequirement',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveAppRequirementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 保存需求
+     *
+     * @param request - SaveAppRequirementRequest
+     *
+     * @returns SaveAppRequirementResponse
+     *
+     * @param SaveAppRequirementRequest $request
+     *
+     * @return SaveAppRequirementResponse
+     */
+    public function saveAppRequirement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveAppRequirementWithOptions($request, $runtime);
+    }
+
+    /**
+     * 保存Supabase密钥.
+     *
+     * @param request - SaveAppSupabaseSecretsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveAppSupabaseSecretsResponse
+     *
+     * @param SaveAppSupabaseSecretsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SaveAppSupabaseSecretsResponse
+     */
+    public function saveAppSupabaseSecretsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->secretsJson) {
+            @$query['SecretsJson'] = $request->secretsJson;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SaveAppSupabaseSecrets',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SaveAppSupabaseSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 保存Supabase密钥.
+     *
+     * @param request - SaveAppSupabaseSecretsRequest
+     *
+     * @returns SaveAppSupabaseSecretsResponse
+     *
+     * @param SaveAppSupabaseSecretsRequest $request
+     *
+     * @return SaveAppSupabaseSecretsResponse
+     */
+    public function saveAppSupabaseSecrets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveAppSupabaseSecretsWithOptions($request, $runtime);
+    }
+
+    /**
      * 图片检索.
      *
      * @param tmpReq - SearchImageRequest
@@ -5275,6 +8047,75 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 提交SEO索引.
+     *
+     * @param request - SubmitAppSeoIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAppSeoIndexResponse
+     *
+     * @param SubmitAppSeoIndexRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubmitAppSeoIndexResponse
+     */
+    public function submitAppSeoIndexWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->seType) {
+            @$query['SeType'] = $request->seType;
+        }
+
+        if (null !== $request->submitLater) {
+            @$query['SubmitLater'] = $request->submitLater;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAppSeoIndex',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAppSeoIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交SEO索引.
+     *
+     * @param request - SubmitAppSeoIndexRequest
+     *
+     * @returns SubmitAppSeoIndexResponse
+     *
+     * @param SubmitAppSeoIndexRequest $request
+     *
+     * @return SubmitAppSeoIndexResponse
+     */
+    public function submitAppSeoIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAppSeoIndexWithOptions($request, $runtime);
+    }
+
+    /**
      * 提交素材生产任务
      *
      * @param request - SubmitMaterialTaskRequest
@@ -5333,6 +8174,71 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitMaterialTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 切换到指定对话.
+     *
+     * @param request - SwitchAppConversationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SwitchAppConversationResponse
+     *
+     * @param SwitchAppConversationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SwitchAppConversationResponse
+     */
+    public function switchAppConversationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->botId) {
+            @$query['BotId'] = $request->botId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SwitchAppConversation',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SwitchAppConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 切换到指定对话.
+     *
+     * @param request - SwitchAppConversationRequest
+     *
+     * @returns SwitchAppConversationResponse
+     *
+     * @param SwitchAppConversationRequest $request
+     *
+     * @return SwitchAppConversationResponse
+     */
+    public function switchAppConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchAppConversationWithOptions($request, $runtime);
     }
 
     /**
@@ -5473,6 +8379,590 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unbindAppDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新消息内容.
+     *
+     * @param request - UpdateAppChatMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppChatMessageResponse
+     *
+     * @param UpdateAppChatMessageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateAppChatMessageResponse
+     */
+    public function updateAppChatMessageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addedMetaData) {
+            @$query['AddedMetaData'] = $request->addedMetaData;
+        }
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->messageId) {
+            @$query['MessageId'] = $request->messageId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppChatMessage',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppChatMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新消息内容.
+     *
+     * @param request - UpdateAppChatMessageRequest
+     *
+     * @returns UpdateAppChatMessageResponse
+     *
+     * @param UpdateAppChatMessageRequest $request
+     *
+     * @return UpdateAppChatMessageResponse
+     */
+    public function updateAppChatMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppChatMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 编辑JSX代码
+     *
+     * @param request - UpdateAppCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppCodeResponse
+     *
+     * @param UpdateAppCodeRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateAppCodeResponse
+     */
+    public function updateAppCodeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppCode',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑JSX代码
+     *
+     * @param request - UpdateAppCodeRequest
+     *
+     * @returns UpdateAppCodeResponse
+     *
+     * @param UpdateAppCodeRequest $request
+     *
+     * @return UpdateAppCodeResponse
+     */
+    public function updateAppCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新文件.
+     *
+     * @param request - UpdateAppFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppFileResponse
+     *
+     * @param UpdateAppFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateAppFileResponse
+     */
+    public function updateAppFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
+        }
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppFile',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新文件.
+     *
+     * @param request - UpdateAppFileRequest
+     *
+     * @returns UpdateAppFileResponse
+     *
+     * @param UpdateAppFileRequest $request
+     *
+     * @return UpdateAppFileResponse
+     */
+    public function updateAppFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * 建站实例变配.
+     *
+     * @param tmpReq - UpdateAppInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppInstanceResponse
+     *
+     * @param UpdateAppInstanceRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateAppInstanceResponse
+     */
+    public function updateAppInstanceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAppInstanceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deployArea) {
+            @$query['DeployArea'] = $request->deployArea;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->iconUrl) {
+            @$query['IconUrl'] = $request->iconUrl;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->thumbnailUrl) {
+            @$query['ThumbnailUrl'] = $request->thumbnailUrl;
+        }
+
+        $body = [];
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tagsShrink) {
+            @$body['Tags'] = $request->tagsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppInstance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 建站实例变配.
+     *
+     * @param request - UpdateAppInstanceRequest
+     *
+     * @returns UpdateAppInstanceResponse
+     *
+     * @param UpdateAppInstanceRequest $request
+     *
+     * @return UpdateAppInstanceResponse
+     */
+    public function updateAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新SEO索引状态
+     *
+     * @param request - UpdateAppSeoStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppSeoStatusResponse
+     *
+     * @param UpdateAppSeoStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateAppSeoStatusResponse
+     */
+    public function updateAppSeoStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->seType) {
+            @$query['SeType'] = $request->seType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppSeoStatus',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppSeoStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新SEO索引状态
+     *
+     * @param request - UpdateAppSeoStatusRequest
+     *
+     * @returns UpdateAppSeoStatusResponse
+     *
+     * @param UpdateAppSeoStatusRequest $request
+     *
+     * @return UpdateAppSeoStatusResponse
+     */
+    public function updateAppSeoStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppSeoStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Supabase认证配置更新.
+     *
+     * @param request - UpdateAppSupabaseAuthConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppSupabaseAuthConfigResponse
+     *
+     * @param UpdateAppSupabaseAuthConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateAppSupabaseAuthConfigResponse
+     */
+    public function updateAppSupabaseAuthConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->configsJson) {
+            @$query['ConfigsJson'] = $request->configsJson;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppSupabaseAuthConfig',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppSupabaseAuthConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Supabase认证配置更新.
+     *
+     * @param request - UpdateAppSupabaseAuthConfigRequest
+     *
+     * @returns UpdateAppSupabaseAuthConfigResponse
+     *
+     * @param UpdateAppSupabaseAuthConfigRequest $request
+     *
+     * @return UpdateAppSupabaseAuthConfigResponse
+     */
+    public function updateAppSupabaseAuthConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppSupabaseAuthConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新Supabase密钥.
+     *
+     * @param request - UpdateAppSupabaseSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppSupabaseSecretResponse
+     *
+     * @param UpdateAppSupabaseSecretRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAppSupabaseSecretResponse
+     */
+    public function updateAppSupabaseSecretWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->secretKey) {
+            @$query['SecretKey'] = $request->secretKey;
+        }
+
+        if (null !== $request->secretName) {
+            @$query['SecretName'] = $request->secretName;
+        }
+
+        if (null !== $request->secretType) {
+            @$query['SecretType'] = $request->secretType;
+        }
+
+        if (null !== $request->secretValue) {
+            @$query['SecretValue'] = $request->secretValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppSupabaseSecret',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppSupabaseSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Supabase密钥.
+     *
+     * @param request - UpdateAppSupabaseSecretRequest
+     *
+     * @returns UpdateAppSupabaseSecretResponse
+     *
+     * @param UpdateAppSupabaseSecretRequest $request
+     *
+     * @return UpdateAppSupabaseSecretResponse
+     */
+    public function updateAppSupabaseSecret($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppSupabaseSecretWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传到站点根目录.
+     *
+     * @param request - UploadAppSiteValidationFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadAppSiteValidationFileResponse
+     *
+     * @param UploadAppSiteValidationFileRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UploadAppSiteValidationFileResponse
+     */
+    public function uploadAppSiteValidationFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->file) {
+            @$query['File'] = $request->file;
+        }
+
+        if (null !== $request->fileContent) {
+            @$query['FileContent'] = $request->fileContent;
+        }
+
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
+        }
+
+        if (null !== $request->siteHost) {
+            @$query['SiteHost'] = $request->siteHost;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UploadAppSiteValidationFile',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadAppSiteValidationFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传到站点根目录.
+     *
+     * @param request - UploadAppSiteValidationFileRequest
+     *
+     * @returns UploadAppSiteValidationFileResponse
+     *
+     * @param UploadAppSiteValidationFileRequest $request
+     *
+     * @return UploadAppSiteValidationFileResponse
+     */
+    public function uploadAppSiteValidationFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadAppSiteValidationFileWithOptions($request, $runtime);
     }
 
     /**
