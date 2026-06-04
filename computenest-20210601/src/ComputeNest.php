@@ -80,8 +80,10 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagValuesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagValuesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RenewServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RenewServiceInstanceResourcesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RenewServiceInstanceResourcesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RenewServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RestartServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RestartServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\RollbackServiceInstanceRequest;
@@ -2062,7 +2064,6 @@ class ComputeNest extends OpenApiClient
     /**
      * Queries service categories.
      *
-     * @param request - ListServiceCategoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListServiceCategoriesResponse
@@ -2855,6 +2856,67 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagValuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 续费服务实例.
+     *
+     * @param request - RenewServiceInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewServiceInstanceResponse
+     *
+     * @param RenewServiceInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RenewServiceInstanceResponse
+     */
+    public function renewServiceInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->serviceInstanceId) {
+            @$query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RenewServiceInstance',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RenewServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 续费服务实例.
+     *
+     * @param request - RenewServiceInstanceRequest
+     *
+     * @returns RenewServiceInstanceResponse
+     *
+     * @param RenewServiceInstanceRequest $request
+     *
+     * @return RenewServiceInstanceResponse
+     */
+    public function renewServiceInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewServiceInstanceWithOptions($request, $runtime);
     }
 
     /**
