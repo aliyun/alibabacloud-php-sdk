@@ -41,12 +41,22 @@ class CreateMobileAgentPackageRequest extends Model
     /**
      * @var string
      */
+    public $imageId;
+
+    /**
+     * @var string
+     */
     public $instanceName;
 
     /**
      * @var string
      */
     public $mobileAgentPackageSpec;
+
+    /**
+     * @var int
+     */
+    public $packageSpecId;
 
     /**
      * @var string
@@ -74,8 +84,10 @@ class CreateMobileAgentPackageRequest extends Model
         'bizRegionId' => 'BizRegionId',
         'creditAmount' => 'CreditAmount',
         'creditConfig' => 'CreditConfig',
+        'imageId' => 'ImageId',
         'instanceName' => 'InstanceName',
         'mobileAgentPackageSpec' => 'MobileAgentPackageSpec',
+        'packageSpecId' => 'PackageSpecId',
         'paidCallbackUrl' => 'PaidCallbackUrl',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
@@ -114,12 +126,20 @@ class CreateMobileAgentPackageRequest extends Model
             $res['CreditConfig'] = $this->creditConfig;
         }
 
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->mobileAgentPackageSpec) {
             $res['MobileAgentPackageSpec'] = $this->mobileAgentPackageSpec;
+        }
+
+        if (null !== $this->packageSpecId) {
+            $res['PackageSpecId'] = $this->packageSpecId;
         }
 
         if (null !== $this->paidCallbackUrl) {
@@ -173,12 +193,20 @@ class CreateMobileAgentPackageRequest extends Model
             $model->creditConfig = $map['CreditConfig'];
         }
 
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['MobileAgentPackageSpec'])) {
             $model->mobileAgentPackageSpec = $map['MobileAgentPackageSpec'];
+        }
+
+        if (isset($map['PackageSpecId'])) {
+            $model->packageSpecId = $map['PackageSpecId'];
         }
 
         if (isset($map['PaidCallbackUrl'])) {

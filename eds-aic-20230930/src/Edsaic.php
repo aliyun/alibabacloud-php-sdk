@@ -1713,12 +1713,20 @@ class Edsaic extends OpenApiClient
             @$query['CreditConfig'] = $request->creditConfig;
         }
 
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
 
         if (null !== $request->mobileAgentPackageSpec) {
             @$query['MobileAgentPackageSpec'] = $request->mobileAgentPackageSpec;
+        }
+
+        if (null !== $request->packageSpecId) {
+            @$query['PackageSpecId'] = $request->packageSpecId;
         }
 
         if (null !== $request->paidCallbackUrl) {
@@ -7376,6 +7384,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->fileMd5) {
+            @$query['FileMd5'] = $request->fileMd5;
         }
 
         if (null !== $request->sourceFilePath) {

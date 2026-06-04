@@ -26,6 +26,11 @@ class SendFileRequest extends Model
     /**
      * @var string
      */
+    public $fileMd5;
+
+    /**
+     * @var string
+     */
     public $sourceFilePath;
 
     /**
@@ -51,6 +56,7 @@ class SendFileRequest extends Model
         'androidInstanceIdList' => 'AndroidInstanceIdList',
         'autoInstall' => 'AutoInstall',
         'clientToken' => 'ClientToken',
+        'fileMd5' => 'FileMd5',
         'sourceFilePath' => 'SourceFilePath',
         'targetFileName' => 'TargetFileName',
         'uploadEndpoint' => 'UploadEndpoint',
@@ -86,6 +92,10 @@ class SendFileRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->fileMd5) {
+            $res['FileMd5'] = $this->fileMd5;
         }
 
         if (null !== $this->sourceFilePath) {
@@ -136,6 +146,10 @@ class SendFileRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['FileMd5'])) {
+            $model->fileMd5 = $map['FileMd5'];
         }
 
         if (isset($map['SourceFilePath'])) {

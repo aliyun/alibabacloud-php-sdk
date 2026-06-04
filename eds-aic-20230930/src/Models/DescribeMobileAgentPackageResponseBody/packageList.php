@@ -36,6 +36,11 @@ class packageList extends Model
     /**
      * @var string
      */
+    public $packageSpecName;
+
+    /**
+     * @var string
+     */
     public $packageStatus;
 
     /**
@@ -48,6 +53,7 @@ class packageList extends Model
         'packageCredit' => 'PackageCredit',
         'packageId' => 'PackageId',
         'packageSpec' => 'PackageSpec',
+        'packageSpecName' => 'PackageSpecName',
         'packageStatus' => 'PackageStatus',
         'usedCredit' => 'UsedCredit',
     ];
@@ -88,6 +94,10 @@ class packageList extends Model
 
         if (null !== $this->packageSpec) {
             $res['PackageSpec'] = $this->packageSpec;
+        }
+
+        if (null !== $this->packageSpecName) {
+            $res['PackageSpecName'] = $this->packageSpecName;
         }
 
         if (null !== $this->packageStatus) {
@@ -134,6 +144,10 @@ class packageList extends Model
 
         if (isset($map['PackageSpec'])) {
             $model->packageSpec = $map['PackageSpec'];
+        }
+
+        if (isset($map['PackageSpecName'])) {
+            $model->packageSpecName = $map['PackageSpecName'];
         }
 
         if (isset($map['PackageStatus'])) {
