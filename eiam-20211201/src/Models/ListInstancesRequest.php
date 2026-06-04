@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $edition;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -28,6 +33,7 @@ class ListInstancesRequest extends Model
      */
     public $status;
     protected $_name = [
+        'edition' => 'Edition',
         'instanceIds' => 'InstanceIds',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -45,6 +51,10 @@ class ListInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->edition) {
+            $res['Edition'] = $this->edition;
+        }
+
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
@@ -79,6 +89,10 @@ class ListInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Edition'])) {
+            $model->edition = $map['Edition'];
+        }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];

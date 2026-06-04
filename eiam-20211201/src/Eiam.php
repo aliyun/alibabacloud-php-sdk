@@ -16411,6 +16411,10 @@ class Eiam extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
+        }
+
         if (null !== $request->instanceIds) {
             @$query['InstanceIds'] = $request->instanceIds;
         }

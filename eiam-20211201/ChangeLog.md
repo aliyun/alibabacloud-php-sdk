@@ -1,3 +1,7 @@
+2026-06-04 Version: 2.13.12
+- Update API ListInstances: add request parameters Edition.
+
+
 2026-05-29 Version: 2.13.11
 - Update API CreateIdentityProvider: add request parameters SamlConfig.WantAssertionsSigned.
 - Update API CreateIdentityProvider: add request parameters SamlConfig.WantResponseSigned.
