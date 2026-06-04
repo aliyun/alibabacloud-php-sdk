@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobSanityCheckResultRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobSanityCheckResultResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobTemplateRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobTemplateResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetMetricsRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetMetricsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsRequest;
@@ -412,7 +414,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 创建 RayHistoryServer.
+     * Create RayHistoryServer.
      *
      * @param request - CreateRayHistoryServerRequest
      * @param headers - map
@@ -478,7 +480,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 创建 RayHistoryServer.
+     * Create RayHistoryServer.
      *
      * @param request - CreateRayHistoryServerRequest
      *
@@ -742,7 +744,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 删除RayHistoryServer.
+     * Delete RayHistoryServer.
      *
      * @param request - DeleteRayHistoryServerRequest
      * @param headers - map
@@ -779,7 +781,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 删除RayHistoryServer.
+     * Delete RayHistoryServer.
      *
      * @param request - DeleteRayHistoryServerRequest
      *
@@ -1282,6 +1284,103 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * 获取metrics数据.
+     *
+     * @param request - GetMetricsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMetricsResponse
+     *
+     * @param GetMetricsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetMetricsResponse
+     */
+    public function getMetricsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
+        }
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMetrics',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/cms/metrics',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取metrics数据.
+     *
+     * @param request - GetMetricsRequest
+     *
+     * @returns GetMetricsResponse
+     *
+     * @param GetMetricsRequest $request
+     *
+     * @return GetMetricsResponse
+     */
+    public function getMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getMetricsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Obtains the system events of a specific node in a job to locate and troubleshoot issues.
      *
      * @param request - GetPodEventsRequest
@@ -1513,7 +1612,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 查询 RayHistoryServer.
+     * Query RayHistoryServer.
      *
      * @param request - GetRayHistoryServerRequest
      * @param headers - map
@@ -1550,7 +1649,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 查询 RayHistoryServer.
+     * Query RayHistoryServer.
      *
      * @param request - GetRayHistoryServerRequest
      *
@@ -2286,7 +2385,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 列出资源RayHistoryServer.
+     * List resource RayHistoryServer.
      *
      * @param request - ListRayHistoryServersRequest
      * @param headers - map
@@ -2388,7 +2487,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 列出资源RayHistoryServer.
+     * List resource RayHistoryServer.
      *
      * @param request - ListRayHistoryServersRequest
      *
@@ -2607,7 +2706,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 启动 Ray History Server.
+     * Start Ray History Server.
      *
      * @param request - StartRayHistoryServerRequest
      * @param headers - map
@@ -2644,7 +2743,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 启动 Ray History Server.
+     * Start Ray History Server.
      *
      * @param request - StartRayHistoryServerRequest
      *
@@ -2778,7 +2877,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 停止 Ray History Server.
+     * Stop Ray History Server.
      *
      * @param request - StopRayHistoryServerRequest
      * @param headers - map
@@ -2815,7 +2914,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 停止 Ray History Server.
+     * Stop Ray History Server.
      *
      * @param request - StopRayHistoryServerRequest
      *
