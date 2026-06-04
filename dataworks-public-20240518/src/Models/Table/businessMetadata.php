@@ -18,6 +18,11 @@ class businessMetadata extends Model
     public $categories;
 
     /**
+     * @var string[][]
+     */
+    public $customAttributes;
+
+    /**
      * @var extension
      */
     public $extension;
@@ -38,6 +43,7 @@ class businessMetadata extends Model
     public $upstreamTasks;
     protected $_name = [
         'categories' => 'Categories',
+        'customAttributes' => 'CustomAttributes',
         'extension' => 'Extension',
         'readme' => 'Readme',
         'tags' => 'Tags',
@@ -48,6 +54,9 @@ class businessMetadata extends Model
     {
         if (\is_array($this->categories)) {
             Model::validateArray($this->categories);
+        }
+        if (\is_array($this->customAttributes)) {
+            Model::validateArray($this->customAttributes);
         }
         if (null !== $this->extension) {
             $this->extension->validate();
@@ -78,6 +87,22 @@ class businessMetadata extends Model
                         }
                     }
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->customAttributes) {
+            if (\is_array($this->customAttributes)) {
+                $res['CustomAttributes'] = [];
+                foreach ($this->customAttributes as $key1 => $value1) {
+                    if (\is_array($value1)) {
+                        $res['CustomAttributes'][$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $res['CustomAttributes'][$key1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
                 }
             }
         }
@@ -137,6 +162,22 @@ class businessMetadata extends Model
                         }
                     }
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['CustomAttributes'])) {
+            if (!empty($map['CustomAttributes'])) {
+                $model->customAttributes = [];
+                foreach ($map['CustomAttributes'] as $key1 => $value1) {
+                    if (!empty($value1)) {
+                        $model->customAttributes[$key1] = [];
+                        $n2 = 0;
+                        foreach ($value1 as $item2) {
+                            $model->customAttributes[$key1][$n2] = $item2;
+                            ++$n2;
+                        }
+                    }
                 }
             }
         }

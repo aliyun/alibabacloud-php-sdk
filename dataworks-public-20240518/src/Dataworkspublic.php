@@ -25,6 +25,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResource
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchCreateMetaEntitiesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchCreateMetaEntitiesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchCreateMetaEntitiesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchDeleteMetaEntitiesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchDeleteMetaEntitiesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchDeleteMetaEntitiesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\BatchUpdateTasksShrinkRequest;
@@ -45,6 +51,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComponentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComputeResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateComputeResourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCustomAttributeRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCustomAttributeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateCustomAttributeShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagShrinkRequest;
@@ -101,6 +110,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipR
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaCollectionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaEntityDefRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaEntityDefResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaEntityDefShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateNodeRequest;
@@ -148,6 +160,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteComponentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteComputeResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteComputeResourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCustomAttributeRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCustomAttributeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagShrinkRequest;
@@ -185,6 +199,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipR
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMetaCollectionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMetaEntityDefRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMetaEntityDefResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeRequest;
@@ -247,6 +263,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComputeResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetComputeResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCustomAttributeRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCustomAttributeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatabaseRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatabaseResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityAlertRuleRequest;
@@ -297,6 +315,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaCollectionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaEntityDefRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaEntityDefResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaEntityRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaEntityResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNetworkResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetNodeRequest;
@@ -372,6 +394,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComputeResourcesReques
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComputeResourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComputeResourcesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrawlerTypesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAttributesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAttributesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsShrinkRequest;
@@ -451,6 +475,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineagesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineagesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaCollectionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaCollectionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntitiesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntitiesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntitiesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntityDefsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntityDefsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesRequest;
@@ -598,10 +627,14 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetadataShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComponentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComponentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComputeResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateComputeResourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCustomAttributeRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCustomAttributeResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateCustomAttributeShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagShrinkRequest;
@@ -645,6 +678,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateIDEEventResultRespon
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaEntityDefRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaEntityDefResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaEntityDefShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaEntityRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaEntityResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaEntityShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateParameterRequest;
@@ -664,6 +703,7 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTaskInstancesShrinkRequest;
@@ -1213,6 +1253,132 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachDataQualityRulesToEvaluationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量创建自定义实体.
+     *
+     * @param tmpReq - BatchCreateMetaEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCreateMetaEntitiesResponse
+     *
+     * @param BatchCreateMetaEntitiesRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchCreateMetaEntitiesResponse
+     */
+    public function batchCreateMetaEntitiesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchCreateMetaEntitiesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entities) {
+            $request->entitiesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entities, 'Entities', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->entitiesShrink) {
+            @$body['Entities'] = $request->entitiesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCreateMetaEntities',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCreateMetaEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量创建自定义实体.
+     *
+     * @param Request - BatchCreateMetaEntitiesRequest
+     *
+     * @returns BatchCreateMetaEntitiesResponse
+     *
+     * @param BatchCreateMetaEntitiesRequest $request
+     *
+     * @return BatchCreateMetaEntitiesResponse
+     */
+    public function batchCreateMetaEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateMetaEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量删除自定义实体.
+     *
+     * @param tmpReq - BatchDeleteMetaEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchDeleteMetaEntitiesResponse
+     *
+     * @param BatchDeleteMetaEntitiesRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return BatchDeleteMetaEntitiesResponse
+     */
+    public function batchDeleteMetaEntitiesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchDeleteMetaEntitiesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ids) {
+            $request->idsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'simple');
+        }
+
+        $body = [];
+        if (null !== $request->idsShrink) {
+            @$body['Ids'] = $request->idsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchDeleteMetaEntities',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchDeleteMetaEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除自定义实体.
+     *
+     * @param Request - BatchDeleteMetaEntitiesRequest
+     *
+     * @returns BatchDeleteMetaEntitiesResponse
+     *
+     * @param BatchDeleteMetaEntitiesRequest $request
+     *
+     * @return BatchDeleteMetaEntitiesResponse
+     */
+    public function batchDeleteMetaEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteMetaEntitiesWithOptions($request, $runtime);
     }
 
     /**
@@ -1801,6 +1967,101 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createComputeResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建自定义属性定义.
+     *
+     * @param tmpReq - CreateCustomAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomAttributeResponse
+     *
+     * @param CreateCustomAttributeRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateCustomAttributeResponse
+     */
+    public function createCustomAttributeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateCustomAttributeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entityTypes) {
+            $request->entityTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entityTypes, 'EntityTypes', 'simple');
+        }
+
+        if (null !== $tmpReq->valueEnums) {
+            $request->valueEnumsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->valueEnums, 'ValueEnums', 'simple');
+        }
+
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->displayEnabled) {
+            @$body['DisplayEnabled'] = $request->displayEnabled;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->entityTypesShrink) {
+            @$body['EntityTypes'] = $request->entityTypesShrink;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->searchFilterEnabled) {
+            @$body['SearchFilterEnabled'] = $request->searchFilterEnabled;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        if (null !== $request->valueEnumsShrink) {
+            @$body['ValueEnums'] = $request->valueEnumsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCustomAttribute',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCustomAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义属性定义.
+     *
+     * @param Request - CreateCustomAttributeRequest
+     *
+     * @returns CreateCustomAttributeResponse
+     *
+     * @param CreateCustomAttributeRequest $request
+     *
+     * @return CreateCustomAttributeResponse
+     */
+    public function createCustomAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -3759,6 +4020,85 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 创建自定义实体定义.
+     *
+     * @param tmpReq - CreateMetaEntityDefRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMetaEntityDefResponse
+     *
+     * @param CreateMetaEntityDefRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateMetaEntityDefResponse
+     */
+    public function createMetaEntityDefWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateMetaEntityDefShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributeDefs) {
+            $request->attributeDefsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributeDefs, 'AttributeDefs', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->attributeDefsShrink) {
+            @$body['AttributeDefs'] = $request->attributeDefsShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->extend) {
+            @$body['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMetaEntityDef',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMetaEntityDefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建自定义实体定义.
+     *
+     * @param Request - CreateMetaEntityDefRequest
+     *
+     * @returns CreateMetaEntityDefResponse
+     *
+     * @param CreateMetaEntityDefRequest $request
+     *
+     * @return CreateMetaEntityDefResponse
+     */
+    public function createMetaEntityDef($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMetaEntityDefWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a network and associates the network with a general resource group.
      *
      * @remarks
@@ -5486,6 +5826,63 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 删除自定义属性定义.
+     *
+     * @param Request - DeleteCustomAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomAttributeResponse
+     *
+     * @param DeleteCustomAttributeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCustomAttributeResponse
+     */
+    public function deleteCustomAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCustomAttribute',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCustomAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自定义属性定义.
+     *
+     * @param Request - DeleteCustomAttributeRequest
+     *
+     * @returns DeleteCustomAttributeResponse
+     *
+     * @param DeleteCustomAttributeRequest $request
+     *
+     * @return DeleteCustomAttributeResponse
+     */
+    public function deleteCustomAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an alert rule configured for a synchronization task.
      *
      * @param Request - DeleteDIAlarmRuleRequest
@@ -6611,6 +7008,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除自定义实体定义.
+     *
+     * @param Request - DeleteMetaEntityDefRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMetaEntityDefResponse
+     *
+     * @param DeleteMetaEntityDefRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteMetaEntityDefResponse
+     */
+    public function deleteMetaEntityDefWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->force) {
+            @$body['Force'] = $request->force;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMetaEntityDef',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMetaEntityDefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除自定义实体定义.
+     *
+     * @param Request - DeleteMetaEntityDefRequest
+     *
+     * @returns DeleteMetaEntityDefResponse
+     *
+     * @param DeleteMetaEntityDefRequest $request
+     *
+     * @return DeleteMetaEntityDefResponse
+     */
+    public function deleteMetaEntityDef($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMetaEntityDefWithOptions($request, $runtime);
     }
 
     /**
@@ -8522,6 +8980,63 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * Obtain custom property definition details.
+     *
+     * @param Request - GetCustomAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomAttributeResponse
+     *
+     * @param GetCustomAttributeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetCustomAttributeResponse
+     */
+    public function getCustomAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCustomAttribute',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCustomAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Obtain custom property definition details.
+     *
+     * @param Request - GetCustomAttributeRequest
+     *
+     * @returns GetCustomAttributeResponse
+     *
+     * @param GetCustomAttributeRequest $request
+     *
+     * @return GetCustomAttributeResponse
+     */
+    public function getCustomAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a synchronization task.
      *
      * @remarks
@@ -10036,6 +10551,120 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取自定义实体详情.
+     *
+     * @param Request - GetMetaEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMetaEntityResponse
+     *
+     * @param GetMetaEntityRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetMetaEntityResponse
+     */
+    public function getMetaEntityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMetaEntity',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMetaEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取自定义实体详情.
+     *
+     * @param Request - GetMetaEntityRequest
+     *
+     * @returns GetMetaEntityResponse
+     *
+     * @param GetMetaEntityRequest $request
+     *
+     * @return GetMetaEntityResponse
+     */
+    public function getMetaEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取自定义实体定义详情.
+     *
+     * @param Request - GetMetaEntityDefRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMetaEntityDefResponse
+     *
+     * @param GetMetaEntityDefRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMetaEntityDefResponse
+     */
+    public function getMetaEntityDefWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMetaEntityDef',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMetaEntityDefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取自定义实体定义详情.
+     *
+     * @param Request - GetMetaEntityDefRequest
+     *
+     * @returns GetMetaEntityDefResponse
+     *
+     * @param GetMetaEntityDefRequest $request
+     *
+     * @return GetMetaEntityDefResponse
+     */
+    public function getMetaEntityDef($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMetaEntityDefWithOptions($request, $runtime);
     }
 
     /**
@@ -12264,6 +12893,87 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCrawlerTypesWithOptions($runtime);
+    }
+
+    /**
+     * Querying a Custom Attribute Definition List.
+     *
+     * @param Request - ListCustomAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomAttributesResponse
+     *
+     * @param ListCustomAttributesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCustomAttributesResponse
+     */
+    public function listCustomAttributesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->entityTypes) {
+            @$query['EntityTypes'] = $request->entityTypes;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomAttributes',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Querying a Custom Attribute Definition List.
+     *
+     * @param Request - ListCustomAttributesRequest
+     *
+     * @returns ListCustomAttributesResponse
+     *
+     * @param ListCustomAttributesRequest $request
+     *
+     * @return ListCustomAttributesResponse
+     */
+    public function listCustomAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomAttributesWithOptions($request, $runtime);
     }
 
     /**
@@ -14801,6 +15511,186 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listMetaCollectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询自定义实体列表.
+     *
+     * @param tmpReq - ListMetaEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMetaEntitiesResponse
+     *
+     * @param ListMetaEntitiesRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMetaEntitiesResponse
+     */
+    public function listMetaEntitiesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListMetaEntitiesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributeFilters) {
+            $request->attributeFiltersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributeFilters, 'AttributeFilters', 'json');
+        }
+
+        if (null !== $tmpReq->customAttributeFilters) {
+            $request->customAttributeFiltersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customAttributeFilters, 'CustomAttributeFilters', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->attributeFiltersShrink) {
+            @$body['AttributeFilters'] = $request->attributeFiltersShrink;
+        }
+
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->customAttributeFiltersShrink) {
+            @$body['CustomAttributeFilters'] = $request->customAttributeFiltersShrink;
+        }
+
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMetaEntities',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMetaEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自定义实体列表.
+     *
+     * @param Request - ListMetaEntitiesRequest
+     *
+     * @returns ListMetaEntitiesResponse
+     *
+     * @param ListMetaEntitiesRequest $request
+     *
+     * @return ListMetaEntitiesResponse
+     */
+    public function listMetaEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMetaEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询自定义实体定义列表.
+     *
+     * @param Request - ListMetaEntityDefsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMetaEntityDefsResponse
+     *
+     * @param ListMetaEntityDefsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListMetaEntityDefsResponse
+     */
+    public function listMetaEntityDefsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->extend) {
+            @$body['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$body['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMetaEntityDefs',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMetaEntityDefsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询自定义实体定义列表.
+     *
+     * @param Request - ListMetaEntityDefsRequest
+     *
+     * @returns ListMetaEntityDefsResponse
+     *
+     * @param ListMetaEntityDefsRequest $request
+     *
+     * @return ListMetaEntityDefsResponse
+     */
+    public function listMetaEntityDefs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMetaEntityDefsWithOptions($request, $runtime);
     }
 
     /**
@@ -19255,20 +20145,30 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
      *
-     * @param Request - UpdateColumnBusinessMetadataRequest
+     * @param tmpReq - UpdateColumnBusinessMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateColumnBusinessMetadataResponse
      *
-     * @param UpdateColumnBusinessMetadataRequest $request
+     * @param UpdateColumnBusinessMetadataRequest $tmpReq
      * @param RuntimeOptions                      $runtime
      *
      * @return UpdateColumnBusinessMetadataResponse
      */
-    public function updateColumnBusinessMetadataWithOptions($request, $runtime)
+    public function updateColumnBusinessMetadataWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateColumnBusinessMetadataShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customAttributes) {
+            $request->customAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customAttributes, 'CustomAttributes', 'json');
+        }
+
         $body = [];
+        if (null !== $request->customAttributesShrink) {
+            @$body['CustomAttributes'] = $request->customAttributesShrink;
+        }
+
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
         }
@@ -19457,6 +20357,97 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateComputeResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新自定义属性定义.
+     *
+     * @param tmpReq - UpdateCustomAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomAttributeResponse
+     *
+     * @param UpdateCustomAttributeRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateCustomAttributeResponse
+     */
+    public function updateCustomAttributeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateCustomAttributeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entityTypes) {
+            $request->entityTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entityTypes, 'EntityTypes', 'simple');
+        }
+
+        if (null !== $tmpReq->valueEnums) {
+            $request->valueEnumsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->valueEnums, 'ValueEnums', 'simple');
+        }
+
+        $body = [];
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->displayEnabled) {
+            @$body['DisplayEnabled'] = $request->displayEnabled;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->entityTypesShrink) {
+            @$body['EntityTypes'] = $request->entityTypesShrink;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->searchFilterEnabled) {
+            @$body['SearchFilterEnabled'] = $request->searchFilterEnabled;
+        }
+
+        if (null !== $request->valueEnumsShrink) {
+            @$body['ValueEnums'] = $request->valueEnumsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCustomAttribute',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCustomAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自定义属性定义.
+     *
+     * @param Request - UpdateCustomAttributeRequest
+     *
+     * @returns UpdateCustomAttributeResponse
+     *
+     * @param UpdateCustomAttributeRequest $request
+     *
+     * @return UpdateCustomAttributeResponse
+     */
+    public function updateCustomAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -21028,6 +22019,168 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 更新自定义实体.
+     *
+     * @param tmpReq - UpdateMetaEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMetaEntityResponse
+     *
+     * @param UpdateMetaEntityRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateMetaEntityResponse
+     */
+    public function updateMetaEntityWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMetaEntityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->attributes) {
+            $request->attributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
+        }
+
+        if (null !== $tmpReq->customAttributes) {
+            $request->customAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customAttributes, 'CustomAttributes', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->attributesShrink) {
+            @$body['Attributes'] = $request->attributesShrink;
+        }
+
+        if (null !== $request->comment) {
+            @$body['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->customAttributesShrink) {
+            @$body['CustomAttributes'] = $request->customAttributesShrink;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMetaEntity',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMetaEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自定义实体.
+     *
+     * @param Request - UpdateMetaEntityRequest
+     *
+     * @returns UpdateMetaEntityResponse
+     *
+     * @param UpdateMetaEntityRequest $request
+     *
+     * @return UpdateMetaEntityResponse
+     */
+    public function updateMetaEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMetaEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新自定义实体定义.
+     *
+     * @param tmpReq - UpdateMetaEntityDefRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMetaEntityDefResponse
+     *
+     * @param UpdateMetaEntityDefRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateMetaEntityDefResponse
+     */
+    public function updateMetaEntityDefWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMetaEntityDefShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->newAttributeDefs) {
+            $request->newAttributeDefsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->newAttributeDefs, 'NewAttributeDefs', 'json');
+        }
+
+        if (null !== $tmpReq->updateAttributeDefs) {
+            $request->updateAttributeDefsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateAttributeDefs, 'UpdateAttributeDefs', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->newAttributeDefsShrink) {
+            @$body['NewAttributeDefs'] = $request->newAttributeDefsShrink;
+        }
+
+        if (null !== $request->updateAttributeDefsShrink) {
+            @$body['UpdateAttributeDefs'] = $request->updateAttributeDefsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMetaEntityDef',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMetaEntityDefResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新自定义实体定义.
+     *
+     * @param Request - UpdateMetaEntityDefRequest
+     *
+     * @returns UpdateMetaEntityDefResponse
+     *
+     * @param UpdateMetaEntityDefRequest $request
+     *
+     * @return UpdateMetaEntityDefResponse
+     */
+    public function updateMetaEntityDef($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMetaEntityDefWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
      *
      * @param Request - UpdateNodeRequest
@@ -21631,20 +22784,30 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Updates the business metadata of a table in Data Map. Currently, only the usage notes of a table can be updated.
      *
-     * @param Request - UpdateTableBusinessMetadataRequest
+     * @param tmpReq - UpdateTableBusinessMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateTableBusinessMetadataResponse
      *
-     * @param UpdateTableBusinessMetadataRequest $request
+     * @param UpdateTableBusinessMetadataRequest $tmpReq
      * @param RuntimeOptions                     $runtime
      *
      * @return UpdateTableBusinessMetadataResponse
      */
-    public function updateTableBusinessMetadataWithOptions($request, $runtime)
+    public function updateTableBusinessMetadataWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateTableBusinessMetadataShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customAttributes) {
+            $request->customAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customAttributes, 'CustomAttributes', 'json');
+        }
+
         $body = [];
+        if (null !== $request->customAttributesShrink) {
+            @$body['CustomAttributes'] = $request->customAttributesShrink;
+        }
+
         if (null !== $request->id) {
             @$body['Id'] = $request->id;
         }
