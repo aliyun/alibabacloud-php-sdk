@@ -39,9 +39,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelAgentSessionResponse
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CancelAgentSessionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleShrinkRequest;
@@ -150,6 +153,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionRe
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAgentRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAgentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteBusinessRequest;
@@ -197,6 +202,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteLineageRelationshipResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMcpServerRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMcpServerResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteMetaEntityDefRequest;
@@ -219,6 +226,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSkillRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSkillResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionRequest;
@@ -241,6 +250,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageRespon
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaShrinkRequest;
@@ -1256,7 +1267,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 批量创建自定义实体.
+     * Create multiple metadata entities at a time. The metadata entities in a batch must be of the same type. Only the pure custom type and the extended table type (corresponding to Database/Table) are supported.
      *
      * @param tmpReq - BatchCreateMetaEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1301,7 +1312,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 批量创建自定义实体.
+     * Create multiple metadata entities at a time. The metadata entities in a batch must be of the same type. Only the pure custom type and the extended table type (corresponding to Database/Table) are supported.
      *
      * @param Request - BatchCreateMetaEntitiesRequest
      *
@@ -1319,7 +1330,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 批量删除自定义实体.
+     * Deletes metadata entity objects in batches. You can delete custom entities and extended table type objects (Database/Table). You cannot delete columns separately. To delete associated column objects, delete the table.
      *
      * @param tmpReq - BatchDeleteMetaEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1364,7 +1375,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 批量删除自定义实体.
+     * Deletes metadata entity objects in batches. You can delete custom entities and extended table type objects (Database/Table). You cannot delete columns separately. To delete associated column objects, delete the table.
      *
      * @param Request - BatchDeleteMetaEntitiesRequest
      *
@@ -1594,6 +1605,129 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cloneDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建 Agent.
+     *
+     * @param tmpReq - CreateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->callableAgents) {
+            $request->callableAgentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->callableAgents, 'CallableAgents', 'json');
+        }
+
+        if (null !== $tmpReq->metadata) {
+            $request->metadataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'Metadata', 'json');
+        }
+
+        if (null !== $tmpReq->model) {
+            $request->modelShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->model, 'Model', 'json');
+        }
+
+        if (null !== $tmpReq->skills) {
+            $request->skillsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->skills, 'Skills', 'json');
+        }
+
+        if (null !== $tmpReq->tools) {
+            $request->toolsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tools, 'Tools', 'json');
+        }
+
+        if (null !== $tmpReq->visibilityScope) {
+            $request->visibilityScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->visibilityScope, 'VisibilityScope', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->callableAgentsShrink) {
+            @$body['CallableAgents'] = $request->callableAgentsShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->metadataShrink) {
+            @$body['Metadata'] = $request->metadataShrink;
+        }
+
+        if (null !== $request->modelShrink) {
+            @$body['Model'] = $request->modelShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->skillsShrink) {
+            @$body['Skills'] = $request->skillsShrink;
+        }
+
+        if (null !== $request->systemPrompt) {
+            @$body['SystemPrompt'] = $request->systemPrompt;
+        }
+
+        if (null !== $request->toolsShrink) {
+            @$body['Tools'] = $request->toolsShrink;
+        }
+
+        if (null !== $request->visibility) {
+            @$body['Visibility'] = $request->visibility;
+        }
+
+        if (null !== $request->visibilityScopeShrink) {
+            @$body['VisibilityScope'] = $request->visibilityScopeShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgent',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 Agent.
+     *
+     * @param Request - CreateAgentRequest
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $request
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -1970,7 +2104,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建自定义属性定义.
+     * Create a custom attribute.
      *
      * @param tmpReq - CreateCustomAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2047,7 +2181,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建自定义属性定义.
+     * Create a custom attribute.
      *
      * @param Request - CreateCustomAttributeRequest
      *
@@ -4020,7 +4154,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建自定义实体定义.
+     * Creates metadata entity definitions (including pure custom types and extended table types).
      *
      * @param tmpReq - CreateMetaEntityDefRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4081,7 +4215,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 创建自定义实体定义.
+     * Creates metadata entity definitions (including pure custom types and extended table types).
      *
      * @param Request - CreateMetaEntityDefRequest
      *
@@ -5497,6 +5631,63 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 删除 Agent.
+     *
+     * @param Request - DeleteAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteAgentResponse
+     */
+    public function deleteAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgent',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 Agent.
+     *
+     * @param Request - DeleteAgentRequest
+     *
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     *
+     * @return DeleteAgentResponse
+     */
+    public function deleteAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a custom monitoring alert rule.
      *
      * @param Request - DeleteAlertRuleRequest
@@ -5826,7 +6017,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除自定义属性定义.
+     * Delete Custom Attribute.
      *
      * @param Request - DeleteCustomAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5865,7 +6056,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除自定义属性定义.
+     * Delete Custom Attribute.
      *
      * @param Request - DeleteCustomAttributeRequest
      *
@@ -6954,6 +7145,63 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 删除 MCP Server.
+     *
+     * @param Request - DeleteMcpServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMcpServerResponse
+     *
+     * @param DeleteMcpServerRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteMcpServerResponse
+     */
+    public function deleteMcpServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteMcpServer',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 MCP Server.
+     *
+     * @param Request - DeleteMcpServerRequest
+     *
+     * @returns DeleteMcpServerResponse
+     *
+     * @param DeleteMcpServerRequest $request
+     *
+     * @return DeleteMcpServerResponse
+     */
+    public function deleteMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMcpServerWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
      *
      * @param Request - DeleteMetaCollectionRequest
@@ -7011,7 +7259,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除自定义实体定义.
+     * Delete metadata entity definitions (including pure custom types and extended table types).
      *
      * @param Request - DeleteMetaEntityDefRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7054,7 +7302,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 删除自定义实体定义.
+     * Delete metadata entity definitions (including pure custom types and extended table types).
      *
      * @param Request - DeleteMetaEntityDefRequest
      *
@@ -7642,6 +7890,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除 Skill.
+     *
+     * @param Request - DeleteSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSkillResponse
+     *
+     * @param DeleteSkillRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteSkillResponse
+     */
+    public function deleteSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSkill',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除 Skill.
+     *
+     * @param Request - DeleteSkillRequest
+     *
+     * @returns DeleteSkillResponse
+     *
+     * @param DeleteSkillRequest $request
+     *
+     * @return DeleteSkillResponse
+     */
+    public function deleteSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSkillWithOptions($request, $runtime);
     }
 
     /**
@@ -8363,6 +8668,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeAdhocWorkflowInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 读取 Agent 详情.
+     *
+     * @param Request - GetAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetAgentResponse
+     */
+    public function getAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgent',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 读取 Agent 详情.
+     *
+     * @param Request - GetAgentRequest
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     *
+     * @return GetAgentResponse
+     */
+    public function getAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -10554,7 +10916,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取自定义实体详情.
+     * Obtains the details of a metadata entity. Currently, only pure custom types are supported.
      *
      * @param Request - GetMetaEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10593,7 +10955,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取自定义实体详情.
+     * Obtains the details of a metadata entity. Currently, only pure custom types are supported.
      *
      * @param Request - GetMetaEntityRequest
      *
@@ -10611,7 +10973,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取自定义实体定义详情.
+     * Queries the details of a custom entity definition.
      *
      * @param Request - GetMetaEntityDefRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10650,7 +11012,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 获取自定义实体定义详情.
+     * Queries the details of a custom entity definition.
      *
      * @param Request - GetMetaEntityDefRequest
      *
@@ -15514,7 +15876,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询自定义实体列表.
+     * Queries the list of metadata entities. Currently, only custom types are supported.
      *
      * @param tmpReq - ListMetaEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15595,7 +15957,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询自定义实体列表.
+     * Queries the list of metadata entities. Currently, only custom types are supported.
      *
      * @param Request - ListMetaEntitiesRequest
      *
@@ -15613,7 +15975,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询自定义实体定义列表.
+     * Queries a list of custom entity definitions (including custom entity types and extended table types).
      *
      * @param Request - ListMetaEntityDefsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15676,7 +16038,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 查询自定义实体定义列表.
+     * Queries a list of custom entity definitions (including custom entity types and extended table types).
      *
      * @param Request - ListMetaEntityDefsRequest
      *
@@ -20360,7 +20722,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新自定义属性定义.
+     * Updates custom attribute definitions.
      *
      * @param tmpReq - UpdateCustomAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20433,7 +20795,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新自定义属性定义.
+     * Updates custom attribute definitions.
      *
      * @param Request - UpdateCustomAttributeRequest
      *
@@ -22019,7 +22381,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新自定义实体.
+     * Updates metadata entities. You can update custom objects or extended table objects (Database, Table, and Column).
      *
      * @param tmpReq - UpdateMetaEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22080,7 +22442,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新自定义实体.
+     * Updates metadata entities. You can update custom objects or extended table objects (Database, Table, and Column).
      *
      * @param Request - UpdateMetaEntityRequest
      *
@@ -22098,7 +22460,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新自定义实体定义.
+     * Updates metadata entity definitions (including pure custom types and extended table types).
      *
      * @param tmpReq - UpdateMetaEntityDefRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22163,7 +22525,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * 更新自定义实体定义.
+     * Updates metadata entity definitions (including pure custom types and extended table types).
      *
      * @param Request - UpdateMetaEntityDefRequest
      *
