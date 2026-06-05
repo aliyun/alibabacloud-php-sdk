@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DeleteApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DeleteWorkspaceRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DeleteWorkspaceResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DisableApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DisableApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\EnableApiKeyRequest;
@@ -248,6 +250,63 @@ class ModelStudio extends OpenApiClient
         $headers = [];
 
         return $this->deleteApiKeyWithOptions($apiKeyId, $headers, $runtime);
+    }
+
+    /**
+     * 删除业务空间.
+     *
+     * @param request - DeleteWorkspaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWorkspaceResponse
+     *
+     * @param string                 $workspaceId
+     * @param DeleteWorkspaceRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteWorkspaceResponse
+     */
+    public function deleteWorkspaceWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWorkspace',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/modelstudio/workspaces/' . Url::percentEncode($workspaceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除业务空间.
+     *
+     * @param request - DeleteWorkspaceRequest
+     *
+     * @returns DeleteWorkspaceResponse
+     *
+     * @param string                 $workspaceId
+     * @param DeleteWorkspaceRequest $request
+     *
+     * @return DeleteWorkspaceResponse
+     */
+    public function deleteWorkspace($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkspaceWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
