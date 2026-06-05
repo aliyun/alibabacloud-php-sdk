@@ -1041,29 +1041,29 @@ class WebsiteBuild extends OpenApiClient
     public function createAppChatWithSSE($request, $runtime)
     {
         $request->validate();
-        $query = [];
+        $body = [];
         if (null !== $request->botId) {
-            @$query['BotId'] = $request->botId;
+            @$body['BotId'] = $request->botId;
         }
 
         if (null !== $request->chatId) {
-            @$query['ChatId'] = $request->chatId;
+            @$body['ChatId'] = $request->chatId;
         }
 
         if (null !== $request->conversationId) {
-            @$query['ConversationId'] = $request->conversationId;
+            @$body['ConversationId'] = $request->conversationId;
         }
 
         if (null !== $request->messages) {
-            @$query['Messages'] = $request->messages;
+            @$body['Messages'] = $request->messages;
         }
 
         if (null !== $request->siteId) {
-            @$query['SiteId'] = $request->siteId;
+            @$body['SiteId'] = $request->siteId;
         }
 
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAppChat',
@@ -1109,29 +1109,29 @@ class WebsiteBuild extends OpenApiClient
     public function createAppChatWithOptions($request, $runtime)
     {
         $request->validate();
-        $query = [];
+        $body = [];
         if (null !== $request->botId) {
-            @$query['BotId'] = $request->botId;
+            @$body['BotId'] = $request->botId;
         }
 
         if (null !== $request->chatId) {
-            @$query['ChatId'] = $request->chatId;
+            @$body['ChatId'] = $request->chatId;
         }
 
         if (null !== $request->conversationId) {
-            @$query['ConversationId'] = $request->conversationId;
+            @$body['ConversationId'] = $request->conversationId;
         }
 
         if (null !== $request->messages) {
-            @$query['Messages'] = $request->messages;
+            @$body['Messages'] = $request->messages;
         }
 
         if (null !== $request->siteId) {
-            @$query['SiteId'] = $request->siteId;
+            @$body['SiteId'] = $request->siteId;
         }
 
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAppChat',
