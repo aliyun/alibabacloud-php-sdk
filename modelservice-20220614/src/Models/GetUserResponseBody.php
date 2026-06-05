@@ -11,6 +11,16 @@ class GetUserResponseBody extends Model
     /**
      * @var string
      */
+    public $anthropicHost;
+
+    /**
+     * @var mixed
+     */
+    public $apiKeys;
+
+    /**
+     * @var string
+     */
     public $appId;
 
     /**
@@ -43,6 +53,8 @@ class GetUserResponseBody extends Model
      */
     public $token;
     protected $_name = [
+        'anthropicHost' => 'AnthropicHost',
+        'apiKeys' => 'ApiKeys',
         'appId' => 'AppId',
         'code' => 'Code',
         'host' => 'Host',
@@ -60,6 +72,14 @@ class GetUserResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->anthropicHost) {
+            $res['AnthropicHost'] = $this->anthropicHost;
+        }
+
+        if (null !== $this->apiKeys) {
+            $res['ApiKeys'] = $this->apiKeys;
+        }
+
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -99,6 +119,14 @@ class GetUserResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnthropicHost'])) {
+            $model->anthropicHost = $map['AnthropicHost'];
+        }
+
+        if (isset($map['ApiKeys'])) {
+            $model->apiKeys = $map['ApiKeys'];
+        }
+
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
