@@ -1769,7 +1769,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 增加用户积分.
+     * Allocates points to a user.
      *
      * @param request - AddYikeUserCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1812,7 +1812,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 增加用户积分.
+     * Allocates points to a user.
      *
      * @param request - AddYikeUserCreditRequest
      *
@@ -2092,7 +2092,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 批量获取一刻AI应用生成任务
+     * Retrieves information about multiple AI application jobs in WonderClip.
      *
      * @param request - BatchGetYikeAIAppJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2131,7 +2131,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 批量获取一刻AI应用生成任务
+     * Retrieves information about multiple AI application jobs in WonderClip.
      *
      * @param request - BatchGetYikeAIAppJobRequest
      *
@@ -2149,7 +2149,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 批量获取媒资信息.
+     * Retrieves information about multiple media assets.
      *
      * @param request - BatchGetYikeAssetMediaInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2188,7 +2188,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 批量获取媒资信息.
+     * Retrieves information about multiple media assets.
      *
      * @param request - BatchGetYikeAssetMediaInfosRequest
      *
@@ -5296,7 +5296,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻媒资上传凭证
+     * Obtains the upload credential for a WonderClip media asset.
      *
      * @param request - CreateYikeAssetUploadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5339,7 +5339,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻媒资上传凭证
+     * Obtains the upload credential for a WonderClip media asset.
      *
      * @param request - CreateYikeAssetUploadRequest
      *
@@ -5357,7 +5357,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建一刻项目.
+     * Creates a WonderClip project.
      *
      * @param request - CreateYikeProductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5400,7 +5400,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建一刻项目.
+     * Creates a WonderClip project.
      *
      * @param request - CreateYikeProductionRequest
      *
@@ -5418,7 +5418,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建一刻子用户.
+     * Creates a sub-account in WonderClip.
      *
      * @param request - CreateYikeUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5473,7 +5473,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建一刻子用户.
+     * Creates a sub-account in WonderClip.
      *
      * @param request - CreateYikeUserRequest
      *
@@ -5491,7 +5491,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建工作室.
+     * Creates a workspace in WonderClip.
      *
      * @param request - CreateYikeWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5534,7 +5534,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建工作室.
+     * Creates a workspace in WonderClip.
      *
      * @param request - CreateYikeWorkspaceRequest
      *
@@ -8410,7 +8410,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除媒资信息.
+     * Deletes media asset information.
      *
      * @param request - DeleteYikeAssetMediaInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8453,7 +8453,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 删除媒资信息.
+     * Deletes media asset information.
      *
      * @param request - DeleteYikeAssetMediaInfosRequest
      *
@@ -9332,7 +9332,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 转呼通话到目标电话.
+     * Forwards an active call to a specified target phone number.
      *
      * @param request - ForwardAIAgentCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9387,7 +9387,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 转呼通话到目标电话.
+     * Forwards an active call to a specified target phone number.
      *
      * @param request - ForwardAIAgentCallRequest
      *
@@ -9626,7 +9626,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取智能体当前通话并发数.
+     * Gets the current active call parallelism for the specified agent. This operation is a lightweight query operation that returns the number of active instances. It does not return instance details or historical peaks.
      *
      * @param request - GetAIAgentConcurrencyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9665,7 +9665,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取智能体当前通话并发数.
+     * Gets the current active call parallelism for the specified agent. This operation is a lightweight query operation that returns the number of active instances. It does not return instance details or historical peaks.
      *
      * @param request - GetAIAgentConcurrencyRequest
      *
@@ -12431,7 +12431,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
+     * Retrieves details for an editing and composition job, such as its status, timeline, template, and data.
      *
      * @param request - GetMediaProducingJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12470,7 +12470,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
+     * Retrieves details for an editing and composition job, such as its status, timeline, template, and data.
      *
      * @param request - GetMediaProducingJobRequest
      *
@@ -13994,7 +13994,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻AI应用任务
+     * Retrieves information about an AI application job in WonderClip.
      *
      * @param request - GetYikeAIAppJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14033,7 +14033,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻AI应用任务
+     * Retrieves information about an AI application job in WonderClip.
      *
      * @param request - GetYikeAIAppJobRequest
      *
@@ -14051,7 +14051,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻媒资内容信息.
+     * Retrieves information about the media asset.
      *
      * @param request - GetYikeAssetMediaInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14090,7 +14090,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻媒资内容信息.
+     * Retrieves information about the media asset.
      *
      * @param request - GetYikeAssetMediaInfoRequest
      *
@@ -14108,7 +14108,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻AI应用任务
+     * Retrieves storyboard jobs in WonderClip.
      *
      * @param request - GetYikeStoryboardJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14147,7 +14147,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻AI应用任务
+     * Retrieves storyboard jobs in WonderClip.
      *
      * @param request - GetYikeStoryboardJobRequest
      *
@@ -14165,7 +14165,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻子用户信息.
+     * Retrieves information about a WonderClip sub-account.
      *
      * @param request - GetYikeUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14204,7 +14204,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻子用户信息.
+     * Retrieves information about a WonderClip sub-account.
      *
      * @param request - GetYikeUserRequest
      *
@@ -14222,7 +14222,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询一刻用户积分.
+     * Queries the point balance of a WonderClip user.
      *
      * @param request - GetYikeUserCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14261,7 +14261,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 查询一刻用户积分.
+     * Queries the point balance of a WonderClip user.
      *
      * @param request - GetYikeUserCreditRequest
      *
@@ -19051,7 +19051,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻文件夹列表.
+     * Retrieves a list of WonderClip folders.
      *
      * @param request - ListYikeAssetFoldersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19098,7 +19098,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻文件夹列表.
+     * Retrieves a list of WonderClip folders.
      *
      * @param request - ListYikeAssetFoldersRequest
      *
@@ -19116,7 +19116,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻项目列表.
+     * Retrieves a list of WonderClip projects.
      *
      * @param request - ListYikeProductionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19171,7 +19171,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 获取一刻项目列表.
+     * Retrieves a list of WonderClip projects.
      *
      * @param request - ListYikeProductionsRequest
      *
@@ -19254,7 +19254,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 检查应用参数是否合法.
+     * Validates the parameters of an AI application.
      *
      * @param request - PrecheckYikeAIAppJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19297,7 +19297,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 检查应用参数是否合法.
+     * Validates the parameters of an AI application.
      *
      * @param request - PrecheckYikeAIAppJobRequest
      *
@@ -20647,7 +20647,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 注册一刻媒资.
+     * Registers a media asset.
      *
      * @param request - RegisterYikeAssetMediaInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20698,7 +20698,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 注册一刻媒资.
+     * Registers a media asset.
      *
      * @param request - RegisterYikeAssetMediaInfoRequest
      *
@@ -20777,7 +20777,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 故事板任务恢复继续执行任务
+     * Resumes a storyboard job in WonderClip.
      *
      * @param request - ResumeYikeStoryboardJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20816,7 +20816,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 故事板任务恢复继续执行任务
+     * Resumes a storyboard job in WonderClip.
      *
      * @param request - ResumeYikeStoryboardJobRequest
      *
@@ -22469,7 +22469,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 设置用户角色.
+     * Sets the user role.
      *
      * @param request - SetYikeUserRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22512,7 +22512,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 设置用户角色.
+     * Sets the user role.
      *
      * @param request - SetYikeUserRoleRequest
      *
@@ -22635,7 +22635,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Initiates an outbound phone call for an AI agent.
+     * Initiates an outbound phone call from an AI agent. The agent calls the specified phone number using the caller number and returns the instance ID of the call.
      *
      * @param tmpReq - StartAIAgentOutboundCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22704,7 +22704,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Initiates an outbound phone call for an AI agent.
+     * Initiates an outbound phone call from an AI agent. The agent calls the specified phone number using the caller number and returns the instance ID of the call.
      *
      * @param request - StartAIAgentOutboundCallRequest
      *
@@ -23388,7 +23388,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 扣减用户积分.
+     * Reclaims points from a user.
      *
      * @param request - SubYikeUserCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23431,7 +23431,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 扣减用户积分.
+     * Reclaims points from a user.
      *
      * @param request - SubYikeUserCreditRequest
      *
@@ -23627,7 +23627,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Converts the provided text content into a high-quality audio file.
+     * Submits an audio production job that converts text into an audio file.
      *
      * @param request - SubmitAudioProduceJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23690,7 +23690,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Converts the provided text content into a high-quality audio file.
+     * Submits an audio production job that converts text into an audio file.
      *
      * @param request - SubmitAudioProduceJobRequest
      *
@@ -24117,7 +24117,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a basic voice cloning job.
+     * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *
      * @param request - SubmitCustomizedVoiceJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24160,7 +24160,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a basic voice cloning job.
+     * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *
      * @param request - SubmitCustomizedVoiceJobRequest
      *
@@ -26184,7 +26184,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a snapshot job.
+     * Submits a snapshot job. You can specify the ID or URL of a media file, as well as the time point and format of the snapshot. The system generates the snapshot based on these parameters and saves it to the specified position.
      *
      * @param tmpReq - SubmitSnapshotJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26261,7 +26261,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a snapshot job.
+     * Submits a snapshot job. You can specify the ID or URL of a media file, as well as the time point and format of the snapshot. The system generates the snapshot based on these parameters and saves it to the specified position.
      *
      * @param request - SubmitSnapshotJobRequest
      *
@@ -26846,7 +26846,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a transcoding job.
+     * Submits a transcoding job to IMS by specifying the source file, output format, and other related parameters.
      *
      * @param tmpReq - SubmitTranscodeJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26919,7 +26919,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Submits a transcoding job.
+     * Submits a transcoding job to IMS by specifying the source file, output format, and other related parameters.
      *
      * @param request - SubmitTranscodeJobRequest
      *
@@ -27127,7 +27127,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交一刻AI应用任务
+     * Submits a storyboard job in WonderClip.
      *
      * @param request - SubmitYikeAIAppJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27178,7 +27178,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交一刻AI应用任务
+     * Submits a storyboard job in WonderClip.
      *
      * @param request - SubmitYikeAIAppJobRequest
      *
@@ -27196,7 +27196,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交一刻AI应用任务
+     * Submits a storyboard job in WonderClip.
      *
      * @param request - SubmitYikeStoryboardJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27289,7 +27289,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 提交一刻AI应用任务
+     * Submits a storyboard job in WonderClip.
      *
      * @param request - SubmitYikeStoryboardJobRequest
      *
@@ -29946,7 +29946,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+     * Uploads audio or video files from source URLs. Batch upload is supported. This operation is ideal for uploading files from a public URL rather than from a local server or device.
      *
      * @remarks
      *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
@@ -30017,7 +30017,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * Uploads an audio or video file based on the URL of the source file. You can upload multiple media files at a time.
+     * Uploads audio or video files from source URLs. Batch upload is supported. This operation is ideal for uploading files from a public URL rather than from a local server or device.
      *
      * @remarks
      *   If a callback is configured, you will receive an UploadByURLComplete event notification after the file is uploaded. You can query the upload status by calling the GetURLUploadInfos operation.
