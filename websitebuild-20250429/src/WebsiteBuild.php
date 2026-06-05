@@ -8761,7 +8761,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 更新SEO索引状态
+     * Update SEO Index Status.
+     *
+     * @remarks
+     * WanXiaoZhi 2.0 AI Conversation
      *
      * @param request - UpdateAppSeoStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8808,7 +8811,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 更新SEO索引状态
+     * Update SEO Index Status.
+     *
+     * @remarks
+     * WanXiaoZhi 2.0 AI Conversation
      *
      * @param request - UpdateAppSeoStatusRequest
      *
