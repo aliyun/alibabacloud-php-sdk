@@ -15,6 +15,11 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRouteMatch;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $apiId;
+
+    /**
      * @var assembledSources[]
      */
     public $assembledSources;
@@ -124,6 +129,7 @@ class data extends Model
      */
     public $type;
     protected $_name = [
+        'apiId' => 'apiId',
         'assembledSources' => 'assembledSources',
         'backend' => 'backend',
         'createFromType' => 'createFromType',
@@ -177,6 +183,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->apiId) {
+            $res['apiId'] = $this->apiId;
+        }
+
         if (null !== $this->assembledSources) {
             if (\is_array($this->assembledSources)) {
                 $res['assembledSources'] = [];
@@ -304,6 +314,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apiId'])) {
+            $model->apiId = $map['apiId'];
+        }
+
         if (isset($map['assembledSources'])) {
             if (!empty($map['assembledSources'])) {
                 $model->assembledSources = [];

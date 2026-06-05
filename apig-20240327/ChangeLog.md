@@ -1,3 +1,7 @@
+2026-06-05 Version: 7.0.4
+- Update API GetMcpServer: add response parameters Body.data.apiId.
+
+
 2026-05-23 Version: 7.0.3
 - Generated php 2024-03-27 for APIG.
 
