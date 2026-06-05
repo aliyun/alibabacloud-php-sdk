@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\c
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\portMappings;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\renderingStatus;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\resourceAttributes;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\resourceStatus;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeRenderingInstanceResponseBody\systemInfo;
 
 class DescribeRenderingInstanceResponseBody extends Model
@@ -85,6 +86,11 @@ class DescribeRenderingInstanceResponseBody extends Model
     public $resourceAttributes;
 
     /**
+     * @var resourceStatus
+     */
+    public $resourceStatus;
+
+    /**
      * @var int
      */
     public $storageSize;
@@ -108,6 +114,7 @@ class DescribeRenderingInstanceResponseBody extends Model
         'renderingStatus' => 'RenderingStatus',
         'requestId' => 'RequestId',
         'resourceAttributes' => 'ResourceAttributes',
+        'resourceStatus' => 'ResourceStatus',
         'storageSize' => 'StorageSize',
         'systemInfo' => 'SystemInfo',
     ];
@@ -128,6 +135,9 @@ class DescribeRenderingInstanceResponseBody extends Model
         }
         if (null !== $this->resourceAttributes) {
             $this->resourceAttributes->validate();
+        }
+        if (null !== $this->resourceStatus) {
+            $this->resourceStatus->validate();
         }
         if (null !== $this->systemInfo) {
             $this->systemInfo->validate();
@@ -206,6 +216,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (null !== $this->resourceAttributes) {
             $res['ResourceAttributes'] = null !== $this->resourceAttributes ? $this->resourceAttributes->toArray($noStream) : $this->resourceAttributes;
+        }
+
+        if (null !== $this->resourceStatus) {
+            $res['ResourceStatus'] = null !== $this->resourceStatus ? $this->resourceStatus->toArray($noStream) : $this->resourceStatus;
         }
 
         if (null !== $this->storageSize) {
@@ -295,6 +309,10 @@ class DescribeRenderingInstanceResponseBody extends Model
 
         if (isset($map['ResourceAttributes'])) {
             $model->resourceAttributes = resourceAttributes::fromMap($map['ResourceAttributes']);
+        }
+
+        if (isset($map['ResourceStatus'])) {
+            $model->resourceStatus = resourceStatus::fromMap($map['ResourceStatus']);
         }
 
         if (isset($map['StorageSize'])) {

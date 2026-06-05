@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Vs\V20181212;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddHiveEdgeWorkersRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddHiveEdgeWorkersResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\AddHiveEdgeWorkersShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AddVsPullStreamInfoConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\AssociateRenderingProjectInstancesRequest;
@@ -56,10 +59,18 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\BindPurchasedDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BindPurchasedDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BindTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BindTemplateResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CancelComfyTaskRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CancelComfyTaskResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousAdjustRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousAdjustResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousMoveRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousMoveResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateComfyTaskRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateComfyTaskResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateComfyUserDataDirRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateComfyUserDataDirResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateComfyWorkflowRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateComfyWorkflowResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceRequest;
@@ -68,6 +79,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDirectoryRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDirectoryResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateHiveRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateHiveResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingDataPackageRequest;
@@ -86,6 +99,12 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteCloudAppRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteCloudAppResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteComfyProductionRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteComfyProductionResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteComfyUserDataRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteComfyUserDataResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteComfyWorkflowRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteComfyWorkflowResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDirectoryRequest;
@@ -94,6 +113,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteFileRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteFileResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteGroupResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteHiveRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteHiveResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteParentPlatformResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeletePresetRequest;
@@ -116,8 +137,25 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsPullStreamInfoConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsPullStreamInfoConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsStreamsNotifyUrlConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsStreamsNotifyUrlConfigResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DelHiveEdgeWorkersRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DelHiveEdgeWorkersResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DelHiveEdgeWorkersShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAccountStatRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAccountStatResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyProductionDownloadUrlRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyProductionDownloadUrlResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyProductionsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyProductionsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyTasksRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyTasksResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyUserDataDownloadUrlRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyUserDataDownloadUrlResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyUserDatasRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyUserDatasResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyUserDataUploadUrlRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyUserDataUploadUrlResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyWorkflowsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeComfyWorkflowsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceChannelsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceChannelsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceGatewayRequest;
@@ -246,10 +284,15 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppPatchesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppPatchesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListCloudAppsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListEdgeWorkersRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListEdgeWorkersResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListEdgeWorkersShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilePushStatusesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilePushStatusesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListHivesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListHivesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingDataPackagesRequest;
@@ -264,8 +307,12 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingProjectsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingProjectsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingSessionsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingSessionsResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListSpecificationsRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListSpecificationsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ManageLoginRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ManageLoginResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyComfyWorkflowRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyComfyWorkflowResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceAlarmRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceAlarmResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDeviceCaptureRequest;
@@ -278,6 +325,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDirectoryRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyDirectoryResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyGroupResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyHiveAttributeRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyHiveAttributeResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingChargeTypeRequest;
@@ -290,6 +339,9 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\MoveHiveEdgeWorkersRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\MoveHiveEdgeWorkersResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\MoveHiveEdgeWorkersShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\OpenVsServiceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileResponse;
@@ -429,6 +481,81 @@ class Vs extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 添加负载到集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param tmpReq - AddHiveEdgeWorkersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddHiveEdgeWorkersResponse
+     *
+     * @param AddHiveEdgeWorkersRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddHiveEdgeWorkersResponse
+     */
+    public function addHiveEdgeWorkersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new AddHiveEdgeWorkersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->hiveId) {
+            @$query['HiveId'] = $request->hiveId;
+        }
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddHiveEdgeWorkers',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddHiveEdgeWorkersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 添加负载到集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param request - AddHiveEdgeWorkersRequest
+     *
+     * @returns AddHiveEdgeWorkersResponse
+     *
+     * @param AddHiveEdgeWorkersRequest $request
+     *
+     * @return AddHiveEdgeWorkersResponse
+     */
+    public function addHiveEdgeWorkers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addHiveEdgeWorkersWithOptions($request, $runtime);
     }
 
     /**
@@ -2067,6 +2194,63 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * 上传用户数据文件.
+     *
+     * @param request - CancelComfyTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelComfyTaskResponse
+     *
+     * @param CancelComfyTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CancelComfyTaskResponse
+     */
+    public function cancelComfyTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelComfyTask',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelComfyTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传用户数据文件.
+     *
+     * @param request - CancelComfyTaskRequest
+     *
+     * @returns CancelComfyTaskResponse
+     *
+     * @param CancelComfyTaskRequest $request
+     *
+     * @return CancelComfyTaskResponse
+     */
+    public function cancelComfyTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelComfyTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - ContinuousAdjustRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2198,6 +2382,193 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->continuousMoveWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传用户数据文件.
+     *
+     * @param request - CreateComfyTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateComfyTaskResponse
+     *
+     * @param CreateComfyTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateComfyTaskResponse
+     */
+    public function createComfyTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hiveId) {
+            @$query['HiveId'] = $request->hiveId;
+        }
+
+        if (null !== $request->userParameters) {
+            @$query['UserParameters'] = $request->userParameters;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateComfyTask',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateComfyTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传用户数据文件.
+     *
+     * @param request - CreateComfyTaskRequest
+     *
+     * @returns CreateComfyTaskResponse
+     *
+     * @param CreateComfyTaskRequest $request
+     *
+     * @return CreateComfyTaskResponse
+     */
+    public function createComfyTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createComfyTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一个用户数据的目录.
+     *
+     * @param request - CreateComfyUserDataDirRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateComfyUserDataDirResponse
+     *
+     * @param CreateComfyUserDataDirRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateComfyUserDataDirResponse
+     */
+    public function createComfyUserDataDirWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateComfyUserDataDir',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateComfyUserDataDirResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个用户数据的目录.
+     *
+     * @param request - CreateComfyUserDataDirRequest
+     *
+     * @returns CreateComfyUserDataDirResponse
+     *
+     * @param CreateComfyUserDataDirRequest $request
+     *
+     * @return CreateComfyUserDataDirResponse
+     */
+    public function createComfyUserDataDir($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createComfyUserDataDirWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建Comfy工作流
+     *
+     * @param request - CreateComfyWorkflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateComfyWorkflowResponse
+     *
+     * @param CreateComfyWorkflowRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateComfyWorkflowResponse
+     */
+    public function createComfyWorkflowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->workflow) {
+            @$query['Workflow'] = $request->workflow;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateComfyWorkflow',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateComfyWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Comfy工作流
+     *
+     * @param request - CreateComfyWorkflowRequest
+     *
+     * @returns CreateComfyWorkflowResponse
+     *
+     * @param CreateComfyWorkflowRequest $request
+     *
+     * @return CreateComfyWorkflowResponse
+     */
+    public function createComfyWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createComfyWorkflowWithOptions($request, $runtime);
     }
 
     /**
@@ -2586,6 +2957,75 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param request - CreateHiveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHiveResponse
+     *
+     * @param CreateHiveRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateHiveResponse
+     */
+    public function createHiveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateHive',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateHiveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param request - CreateHiveRequest
+     *
+     * @returns CreateHiveResponse
+     *
+     * @param CreateHiveRequest $request
+     *
+     * @return CreateHiveResponse
+     */
+    public function createHive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createHiveWithOptions($request, $runtime);
     }
 
     /**
@@ -3180,6 +3620,81 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * 从集群删除负载.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param tmpReq - DelHiveEdgeWorkersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DelHiveEdgeWorkersResponse
+     *
+     * @param DelHiveEdgeWorkersRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DelHiveEdgeWorkersResponse
+     */
+    public function delHiveEdgeWorkersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DelHiveEdgeWorkersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->hiveId) {
+            @$query['HiveId'] = $request->hiveId;
+        }
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DelHiveEdgeWorkers',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DelHiveEdgeWorkersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 从集群删除负载.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param request - DelHiveEdgeWorkersRequest
+     *
+     * @returns DelHiveEdgeWorkersResponse
+     *
+     * @param DelHiveEdgeWorkersRequest $request
+     *
+     * @return DelHiveEdgeWorkersResponse
+     */
+    public function delHiveEdgeWorkers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->delHiveEdgeWorkersWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除云应用.
      *
      * @param request - DeleteCloudAppRequest
@@ -3234,6 +3749,177 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCloudAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除用户的生成结果.
+     *
+     * @param request - DeleteComfyProductionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteComfyProductionResponse
+     *
+     * @param DeleteComfyProductionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteComfyProductionResponse
+     */
+    public function deleteComfyProductionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteComfyProduction',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteComfyProductionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除用户的生成结果.
+     *
+     * @param request - DeleteComfyProductionRequest
+     *
+     * @returns DeleteComfyProductionResponse
+     *
+     * @param DeleteComfyProductionRequest $request
+     *
+     * @return DeleteComfyProductionResponse
+     */
+    public function deleteComfyProduction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteComfyProductionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除用户数据的中的文件或目录.
+     *
+     * @param request - DeleteComfyUserDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteComfyUserDataResponse
+     *
+     * @param DeleteComfyUserDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteComfyUserDataResponse
+     */
+    public function deleteComfyUserDataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteComfyUserData',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteComfyUserDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除用户数据的中的文件或目录.
+     *
+     * @param request - DeleteComfyUserDataRequest
+     *
+     * @returns DeleteComfyUserDataResponse
+     *
+     * @param DeleteComfyUserDataRequest $request
+     *
+     * @return DeleteComfyUserDataResponse
+     */
+    public function deleteComfyUserData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteComfyUserDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除Comfy工作流
+     *
+     * @param request - DeleteComfyWorkflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteComfyWorkflowResponse
+     *
+     * @param DeleteComfyWorkflowRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteComfyWorkflowResponse
+     */
+    public function deleteComfyWorkflowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteComfyWorkflow',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteComfyWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Comfy工作流
+     *
+     * @param request - DeleteComfyWorkflowRequest
+     *
+     * @returns DeleteComfyWorkflowResponse
+     *
+     * @param DeleteComfyWorkflowRequest $request
+     *
+     * @return DeleteComfyWorkflowResponse
+     */
+    public function deleteComfyWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteComfyWorkflowWithOptions($request, $runtime);
     }
 
     /**
@@ -3462,6 +4148,71 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param request - DeleteHiveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHiveResponse
+     *
+     * @param DeleteHiveRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteHiveResponse
+     */
+    public function deleteHiveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hiveId) {
+            @$query['HiveId'] = $request->hiveId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteHive',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteHiveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param request - DeleteHiveRequest
+     *
+     * @returns DeleteHiveResponse
+     *
+     * @param DeleteHiveRequest $request
+     *
+     * @return DeleteHiveResponse
+     */
+    public function deleteHive($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteHiveWithOptions($request, $runtime);
     }
 
     /**
@@ -4123,6 +4874,453 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAccountStatWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户生成结果的下载链接.
+     *
+     * @param request - DescribeComfyProductionDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComfyProductionDownloadUrlResponse
+     *
+     * @param DescribeComfyProductionDownloadUrlRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeComfyProductionDownloadUrlResponse
+     */
+    public function describeComfyProductionDownloadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->productionId) {
+            @$query['ProductionId'] = $request->productionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeComfyProductionDownloadUrl',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeComfyProductionDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户生成结果的下载链接.
+     *
+     * @param request - DescribeComfyProductionDownloadUrlRequest
+     *
+     * @returns DescribeComfyProductionDownloadUrlResponse
+     *
+     * @param DescribeComfyProductionDownloadUrlRequest $request
+     *
+     * @return DescribeComfyProductionDownloadUrlResponse
+     */
+    public function describeComfyProductionDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComfyProductionDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 本接口支持根据不同请求条件查询Comfy生成物列表.
+     *
+     * @param request - DescribeComfyProductionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComfyProductionsResponse
+     *
+     * @param DescribeComfyProductionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeComfyProductionsResponse
+     */
+    public function describeComfyProductionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeComfyProductions',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeComfyProductionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 本接口支持根据不同请求条件查询Comfy生成物列表.
+     *
+     * @param request - DescribeComfyProductionsRequest
+     *
+     * @returns DescribeComfyProductionsResponse
+     *
+     * @param DescribeComfyProductionsRequest $request
+     *
+     * @return DescribeComfyProductionsResponse
+     */
+    public function describeComfyProductions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComfyProductionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列举用户数据的中所有文件和目录的信息。
+     *
+     * @param request - DescribeComfyTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComfyTasksResponse
+     *
+     * @param DescribeComfyTasksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeComfyTasksResponse
+     */
+    public function describeComfyTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->taskState) {
+            @$query['TaskState'] = $request->taskState;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeComfyTasks',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeComfyTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举用户数据的中所有文件和目录的信息。
+     *
+     * @param request - DescribeComfyTasksRequest
+     *
+     * @returns DescribeComfyTasksResponse
+     *
+     * @param DescribeComfyTasksRequest $request
+     *
+     * @return DescribeComfyTasksResponse
+     */
+    public function describeComfyTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComfyTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 上传用户数据文件.
+     *
+     * @param request - DescribeComfyUserDataDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComfyUserDataDownloadUrlResponse
+     *
+     * @param DescribeComfyUserDataDownloadUrlRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeComfyUserDataDownloadUrlResponse
+     */
+    public function describeComfyUserDataDownloadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeComfyUserDataDownloadUrl',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeComfyUserDataDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 上传用户数据文件.
+     *
+     * @param request - DescribeComfyUserDataDownloadUrlRequest
+     *
+     * @returns DescribeComfyUserDataDownloadUrlResponse
+     *
+     * @param DescribeComfyUserDataDownloadUrlRequest $request
+     *
+     * @return DescribeComfyUserDataDownloadUrlResponse
+     */
+    public function describeComfyUserDataDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComfyUserDataDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户数据文件上传的URL，进行用户文件上传.
+     *
+     * @param request - DescribeComfyUserDataUploadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComfyUserDataUploadUrlResponse
+     *
+     * @param DescribeComfyUserDataUploadUrlRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeComfyUserDataUploadUrlResponse
+     */
+    public function describeComfyUserDataUploadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contentType) {
+            @$query['ContentType'] = $request->contentType;
+        }
+
+        if (null !== $request->fileMd5) {
+            @$query['FileMd5'] = $request->fileMd5;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->fileSizeBytes) {
+            @$query['FileSizeBytes'] = $request->fileSizeBytes;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeComfyUserDataUploadUrl',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeComfyUserDataUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户数据文件上传的URL，进行用户文件上传.
+     *
+     * @param request - DescribeComfyUserDataUploadUrlRequest
+     *
+     * @returns DescribeComfyUserDataUploadUrlResponse
+     *
+     * @param DescribeComfyUserDataUploadUrlRequest $request
+     *
+     * @return DescribeComfyUserDataUploadUrlResponse
+     */
+    public function describeComfyUserDataUploadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComfyUserDataUploadUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列举用户数据的中所有文件和目录的信息。
+     *
+     * @param request - DescribeComfyUserDatasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComfyUserDatasResponse
+     *
+     * @param DescribeComfyUserDatasRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeComfyUserDatasResponse
+     */
+    public function describeComfyUserDatasWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeComfyUserDatas',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeComfyUserDatasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列举用户数据的中所有文件和目录的信息。
+     *
+     * @param request - DescribeComfyUserDatasRequest
+     *
+     * @returns DescribeComfyUserDatasResponse
+     *
+     * @param DescribeComfyUserDatasRequest $request
+     *
+     * @return DescribeComfyUserDatasResponse
+     */
+    public function describeComfyUserDatas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComfyUserDatasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Comfy工作流列表.
+     *
+     * @param request - DescribeComfyWorkflowsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeComfyWorkflowsResponse
+     *
+     * @param DescribeComfyWorkflowsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeComfyWorkflowsResponse
+     */
+    public function describeComfyWorkflowsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeComfyWorkflows',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeComfyWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Comfy工作流列表.
+     *
+     * @param request - DescribeComfyWorkflowsRequest
+     *
+     * @returns DescribeComfyWorkflowsResponse
+     *
+     * @param DescribeComfyWorkflowsRequest $request
+     *
+     * @return DescribeComfyWorkflowsResponse
+     */
+    public function describeComfyWorkflows($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeComfyWorkflowsWithOptions($request, $runtime);
     }
 
     /**
@@ -8384,6 +9582,113 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * 查询所有负载信息，支持分页查询。
+     *
+     * @param tmpReq - ListEdgeWorkersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEdgeWorkersResponse
+     *
+     * @param ListEdgeWorkersRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListEdgeWorkersResponse
+     */
+    public function listEdgeWorkersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListEdgeWorkersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hiveIds) {
+            $request->hiveIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hiveIds, 'HiveIds', 'json');
+        }
+
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        if (null !== $tmpReq->planIds) {
+            $request->planIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->planIds, 'PlanIds', 'json');
+        }
+
+        if (null !== $tmpReq->statuses) {
+            $request->statusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->hiveIdsShrink) {
+            @$query['HiveIds'] = $request->hiveIdsShrink;
+        }
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->planIdsShrink) {
+            @$query['PlanIds'] = $request->planIdsShrink;
+        }
+
+        if (null !== $request->spec) {
+            @$query['Spec'] = $request->spec;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statusesShrink) {
+            @$query['Statuses'] = $request->statusesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEdgeWorkers',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEdgeWorkersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询所有负载信息，支持分页查询。
+     *
+     * @param request - ListEdgeWorkersRequest
+     *
+     * @returns ListEdgeWorkersResponse
+     *
+     * @param ListEdgeWorkersRequest $request
+     *
+     * @return ListEdgeWorkersResponse
+     */
+    public function listEdgeWorkers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEdgeWorkersWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询文件的实例推送状态信息列表。
      *
      * @param request - ListFilePushStatusesRequest
@@ -8487,6 +9792,83 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询所有集群信息，支持分页查询。
+     *
+     * @param request - ListHivesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHivesResponse
+     *
+     * @param ListHivesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListHivesResponse
+     */
+    public function listHivesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->hiveId) {
+            @$query['HiveId'] = $request->hiveId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListHives',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListHivesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询所有集群信息，支持分页查询。
+     *
+     * @param request - ListHivesRequest
+     *
+     * @returns ListHivesResponse
+     *
+     * @param ListHivesRequest $request
+     *
+     * @return ListHivesResponse
+     */
+    public function listHives($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listHivesWithOptions($request, $runtime);
     }
 
     /**
@@ -9041,6 +10423,71 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * 查询规格信息，支持分页查询。
+     *
+     * @param request - ListSpecificationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSpecificationsResponse
+     *
+     * @param ListSpecificationsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListSpecificationsResponse
+     */
+    public function listSpecificationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->specification) {
+            @$query['Specification'] = $request->specification;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSpecifications',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSpecificationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询规格信息，支持分页查询。
+     *
+     * @param request - ListSpecificationsRequest
+     *
+     * @returns ListSpecificationsResponse
+     *
+     * @param ListSpecificationsRequest $request
+     *
+     * @return ListSpecificationsResponse
+     */
+    public function listSpecifications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSpecificationsWithOptions($request, $runtime);
+    }
+
+    /**
      * 安全登陆管理.
      *
      * @param request - ManageLoginRequest
@@ -9107,6 +10554,71 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->manageLoginWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Comfy的工作流详细信息.
+     *
+     * @param request - ModifyComfyWorkflowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyComfyWorkflowResponse
+     *
+     * @param ModifyComfyWorkflowRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyComfyWorkflowResponse
+     */
+    public function modifyComfyWorkflowWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->workflowId) {
+            @$query['WorkflowId'] = $request->workflowId;
+        }
+
+        if (null !== $request->workflowName) {
+            @$query['WorkflowName'] = $request->workflowName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyComfyWorkflow',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyComfyWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Comfy的工作流详细信息.
+     *
+     * @param request - ModifyComfyWorkflowRequest
+     *
+     * @returns ModifyComfyWorkflowResponse
+     *
+     * @param ModifyComfyWorkflowRequest $request
+     *
+     * @return ModifyComfyWorkflowResponse
+     */
+    public function modifyComfyWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyComfyWorkflowWithOptions($request, $runtime);
     }
 
     /**
@@ -9616,6 +11128,79 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * 更新集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param request - ModifyHiveAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyHiveAttributeResponse
+     *
+     * @param ModifyHiveAttributeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyHiveAttributeResponse
+     */
+    public function modifyHiveAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->hiveId) {
+            @$query['HiveId'] = $request->hiveId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyHiveAttribute',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyHiveAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param request - ModifyHiveAttributeRequest
+     *
+     * @returns ModifyHiveAttributeResponse
+     *
+     * @param ModifyHiveAttributeRequest $request
+     *
+     * @return ModifyHiveAttributeResponse
+     */
+    public function modifyHiveAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHiveAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - ModifyParentPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10106,7 +11691,81 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param request - OpenVsServiceRequest
+     * 移动负载到集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param tmpReq - MoveHiveEdgeWorkersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MoveHiveEdgeWorkersResponse
+     *
+     * @param MoveHiveEdgeWorkersRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return MoveHiveEdgeWorkersResponse
+     */
+    public function moveHiveEdgeWorkersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new MoveHiveEdgeWorkersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->hiveId) {
+            @$query['HiveId'] = $request->hiveId;
+        }
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'MoveHiveEdgeWorkers',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MoveHiveEdgeWorkersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 移动负载到集群.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     *
+     * @param request - MoveHiveEdgeWorkersRequest
+     *
+     * @returns MoveHiveEdgeWorkersResponse
+     *
+     * @param MoveHiveEdgeWorkersRequest $request
+     *
+     * @return MoveHiveEdgeWorkersResponse
+     */
+    public function moveHiveEdgeWorkers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveHiveEdgeWorkersWithOptions($request, $runtime);
+    }
+
+    /**
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns OpenVsServiceResponse
