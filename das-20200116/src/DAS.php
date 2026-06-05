@@ -37,6 +37,8 @@ use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteSecurityIPGroupRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteSecurityIPGroupResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteStopGatewayRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DeleteStopGatewayResponse;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeAuditLogsRequest;
+use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeAuditLogsResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeAutoScalingConfigRequest;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeAutoScalingConfigResponse;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeAutoScalingHistoryRequest;
@@ -1707,6 +1709,163 @@ class DAS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteStopGatewayWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取审计告警日志.
+     *
+     * @param request - DescribeAuditLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAuditLogsResponse
+     *
+     * @param DescribeAuditLogsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeAuditLogsResponse
+     */
+    public function describeAuditLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->asyncRequestId) {
+            @$query['AsyncRequestId'] = $request->asyncRequestId;
+        }
+
+        if (null !== $request->clientIp) {
+            @$query['ClientIp'] = $request->clientIp;
+        }
+
+        if (null !== $request->clientUa) {
+            @$query['ClientUa'] = $request->clientUa;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->databaseName) {
+            @$query['DatabaseName'] = $request->databaseName;
+        }
+
+        if (null !== $request->effectRowRange) {
+            @$query['EffectRowRange'] = $request->effectRowRange;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->executeTimeRange) {
+            @$query['ExecuteTimeRange'] = $request->executeTimeRange;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->ipType) {
+            @$query['IpType'] = $request->ipType;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->loadWhiteList) {
+            @$query['LoadWhiteList'] = $request->loadWhiteList;
+        }
+
+        if (null !== $request->logSource) {
+            @$query['LogSource'] = $request->logSource;
+        }
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
+        }
+
+        if (null !== $request->ossObjectKey) {
+            @$query['OssObjectKey'] = $request->ossObjectKey;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
+        }
+
+        if (null !== $request->ruleAggQuery) {
+            @$query['RuleAggQuery'] = $request->ruleAggQuery;
+        }
+
+        if (null !== $request->ruleCategory) {
+            @$query['RuleCategory'] = $request->ruleCategory;
+        }
+
+        if (null !== $request->ruleID) {
+            @$query['RuleID'] = $request->ruleID;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->sqlText) {
+            @$query['SqlText'] = $request->sqlText;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAuditLogs',
+            'version' => '2020-01-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAuditLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取审计告警日志.
+     *
+     * @param request - DescribeAuditLogsRequest
+     *
+     * @returns DescribeAuditLogsResponse
+     *
+     * @param DescribeAuditLogsRequest $request
+     *
+     * @return DescribeAuditLogsResponse
+     */
+    public function describeAuditLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAuditLogsWithOptions($request, $runtime);
     }
 
     /**
