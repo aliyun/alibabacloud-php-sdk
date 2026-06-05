@@ -119,6 +119,13 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerReq
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetIcpFilingInfoForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetLlmProxyConfigForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetLlmProxyConfigForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppAuthUrlRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppAuthUrlResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppBindingForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppBindingForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppBindingRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppBindingResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppBindingShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerRequest;
@@ -260,6 +267,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseAuthConfigRe
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseAuthConfigResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseSecretRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseSecretResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateMiniAppBindingRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateMiniAppBindingResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadAppSiteValidationFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadAppSiteValidationFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileRequest;
@@ -3990,6 +3999,207 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLlmProxyConfigForAdminWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取小程序授权链接.
+     *
+     * @param request - GetMiniAppAuthUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMiniAppAuthUrlResponse
+     *
+     * @param GetMiniAppAuthUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetMiniAppAuthUrlResponse
+     */
+    public function getMiniAppAuthUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->redirectUri) {
+            @$query['RedirectUri'] = $request->redirectUri;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMiniAppAuthUrl',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMiniAppAuthUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取小程序授权链接.
+     *
+     * @param request - GetMiniAppAuthUrlRequest
+     *
+     * @returns GetMiniAppAuthUrlResponse
+     *
+     * @param GetMiniAppAuthUrlRequest $request
+     *
+     * @return GetMiniAppAuthUrlResponse
+     */
+    public function getMiniAppAuthUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMiniAppAuthUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询站点绑定的小程序.
+     *
+     * @param tmpReq - GetMiniAppBindingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMiniAppBindingResponse
+     *
+     * @param GetMiniAppBindingRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetMiniAppBindingResponse
+     */
+    public function getMiniAppBindingWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetMiniAppBindingShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->settingKeys) {
+            $request->settingKeysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->settingKeys, 'SettingKeys', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->settingKeysShrink) {
+            @$query['SettingKeys'] = $request->settingKeysShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMiniAppBinding',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMiniAppBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询站点绑定的小程序.
+     *
+     * @param request - GetMiniAppBindingRequest
+     *
+     * @returns GetMiniAppBindingResponse
+     *
+     * @param GetMiniAppBindingRequest $request
+     *
+     * @return GetMiniAppBindingResponse
+     */
+    public function getMiniAppBinding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMiniAppBindingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据条件查询应用实例绑定的小程序.
+     *
+     * @param request - GetMiniAppBindingForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMiniAppBindingForAdminResponse
+     *
+     * @param GetMiniAppBindingForAdminRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetMiniAppBindingForAdminResponse
+     */
+    public function getMiniAppBindingForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->platformAppid) {
+            @$query['PlatformAppid'] = $request->platformAppid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMiniAppBindingForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMiniAppBindingForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据条件查询应用实例绑定的小程序.
+     *
+     * @param request - GetMiniAppBindingForAdminRequest
+     *
+     * @returns GetMiniAppBindingForAdminResponse
+     *
+     * @param GetMiniAppBindingForAdminRequest $request
+     *
+     * @return GetMiniAppBindingForAdminResponse
+     */
+    public function getMiniAppBindingForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMiniAppBindingForAdminWithOptions($request, $runtime);
     }
 
     /**
@@ -8963,6 +9173,75 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAppSupabaseSecretWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新绑定小程序信息.
+     *
+     * @param request - UpdateMiniAppBindingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMiniAppBindingResponse
+     *
+     * @param UpdateMiniAppBindingRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateMiniAppBindingResponse
+     */
+    public function updateMiniAppBindingWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->channel) {
+            @$query['Channel'] = $request->channel;
+        }
+
+        if (null !== $request->settingKey) {
+            @$query['SettingKey'] = $request->settingKey;
+        }
+
+        if (null !== $request->settingValue) {
+            @$query['SettingValue'] = $request->settingValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMiniAppBinding',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMiniAppBindingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新绑定小程序信息.
+     *
+     * @param request - UpdateMiniAppBindingRequest
+     *
+     * @returns UpdateMiniAppBindingResponse
+     *
+     * @param UpdateMiniAppBindingRequest $request
+     *
+     * @return UpdateMiniAppBindingResponse
+     */
+    public function updateMiniAppBinding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMiniAppBindingWithOptions($request, $runtime);
     }
 
     /**
