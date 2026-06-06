@@ -1,3 +1,9 @@
+2026-06-06 Version: 2.10.0
+- Support API BatchCancelTasks.
+- Support API BatchQueryTaskStatus.
+- Support API GetTaskExecutionStatistics.
+
+
 2026-06-04 Version: 2.9.11
 - Generated php 2024-08-01 for QuanMiaoLightApp.
 

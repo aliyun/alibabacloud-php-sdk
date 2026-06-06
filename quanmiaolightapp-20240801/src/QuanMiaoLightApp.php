@@ -6,6 +6,12 @@ namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\BatchCancelTasksRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\BatchCancelTasksResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\BatchCancelTasksShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\BatchQueryTaskStatusRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\BatchQueryTaskStatusResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\BatchQueryTaskStatusShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\CancelAsyncTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\CancelAsyncTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ExportAnalysisTagDetailByTaskIdRequest;
@@ -24,6 +30,8 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetFileContentRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetFileContentResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTaskExecutionStatisticsRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTaskExecutionStatisticsResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisConfigResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponse;
@@ -142,6 +150,152 @@ class QuanMiaoLightApp extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 批量取消任务
+     *
+     * @param tmpReq - BatchCancelTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCancelTasksResponse
+     *
+     * @param string                  $workspaceId
+     * @param BatchCancelTasksRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BatchCancelTasksResponse
+     */
+    public function batchCancelTasksWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchCancelTasksShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'taskIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->taskCode) {
+            @$body['taskCode'] = $request->taskCode;
+        }
+
+        if (null !== $request->taskIdsShrink) {
+            @$body['taskIds'] = $request->taskIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCancelTasks',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/batchCancelTasks',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCancelTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量取消任务
+     *
+     * @param request - BatchCancelTasksRequest
+     *
+     * @returns BatchCancelTasksResponse
+     *
+     * @param string                  $workspaceId
+     * @param BatchCancelTasksRequest $request
+     *
+     * @return BatchCancelTasksResponse
+     */
+    public function batchCancelTasks($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchCancelTasksWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 批量查询任务状态
+     *
+     * @param tmpReq - BatchQueryTaskStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchQueryTaskStatusResponse
+     *
+     * @param string                      $workspaceId
+     * @param BatchQueryTaskStatusRequest $tmpReq
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return BatchQueryTaskStatusResponse
+     */
+    public function batchQueryTaskStatusWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchQueryTaskStatusShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIds) {
+            $request->taskIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'taskIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->taskCode) {
+            @$body['taskCode'] = $request->taskCode;
+        }
+
+        if (null !== $request->taskIdsShrink) {
+            @$body['taskIds'] = $request->taskIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchQueryTaskStatus',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/batchQueryTaskStatus',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchQueryTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询任务状态
+     *
+     * @param request - BatchQueryTaskStatusRequest
+     *
+     * @returns BatchQueryTaskStatusResponse
+     *
+     * @param string                      $workspaceId
+     * @param BatchQueryTaskStatusRequest $request
+     *
+     * @return BatchQueryTaskStatusResponse
+     */
+    public function batchQueryTaskStatus($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchQueryTaskStatusWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -682,6 +836,69 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->getTagMiningAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询任务执行情况统计
+     *
+     * @param request - GetTaskExecutionStatisticsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskExecutionStatisticsResponse
+     *
+     * @param string                            $workspaceId
+     * @param GetTaskExecutionStatisticsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetTaskExecutionStatisticsResponse
+     */
+    public function getTaskExecutionStatisticsWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->taskCode) {
+            @$query['taskCode'] = $request->taskCode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTaskExecutionStatistics',
+            'version' => '2024-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/quanmiao/lightapp/getTaskExecutionStatistics',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTaskExecutionStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询任务执行情况统计
+     *
+     * @param request - GetTaskExecutionStatisticsRequest
+     *
+     * @returns GetTaskExecutionStatisticsResponse
+     *
+     * @param string                            $workspaceId
+     * @param GetTaskExecutionStatisticsRequest $request
+     *
+     * @return GetTaskExecutionStatisticsResponse
+     */
+    public function getTaskExecutionStatistics($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTaskExecutionStatisticsWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
