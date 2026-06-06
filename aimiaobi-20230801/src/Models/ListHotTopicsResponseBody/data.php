@@ -17,7 +17,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $createUser;
+
+    /**
+     * @var string
+     */
+    public $customField;
 
     /**
      * @var int
@@ -67,10 +77,17 @@ class data extends Model
     /**
      * @var string
      */
+    public $topicUrl;
+
+    /**
+     * @var string
+     */
     public $version;
     protected $_name = [
         'asyncTaskId' => 'AsyncTaskId',
+        'createTime' => 'CreateTime',
         'createUser' => 'CreateUser',
+        'customField' => 'CustomField',
         'hotValue' => 'HotValue',
         'id' => 'Id',
         'status' => 'Status',
@@ -80,6 +97,7 @@ class data extends Model
         'taskStatus' => 'TaskStatus',
         'topic' => 'Topic',
         'topicSource' => 'TopicSource',
+        'topicUrl' => 'TopicUrl',
         'version' => 'Version',
     ];
 
@@ -98,8 +116,16 @@ class data extends Model
             $res['AsyncTaskId'] = $this->asyncTaskId;
         }
 
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
         if (null !== $this->createUser) {
             $res['CreateUser'] = $this->createUser;
+        }
+
+        if (null !== $this->customField) {
+            $res['CustomField'] = $this->customField;
         }
 
         if (null !== $this->hotValue) {
@@ -145,6 +171,10 @@ class data extends Model
             $res['TopicSource'] = $this->topicSource;
         }
 
+        if (null !== $this->topicUrl) {
+            $res['TopicUrl'] = $this->topicUrl;
+        }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -164,8 +194,16 @@ class data extends Model
             $model->asyncTaskId = $map['AsyncTaskId'];
         }
 
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
         if (isset($map['CreateUser'])) {
             $model->createUser = $map['CreateUser'];
+        }
+
+        if (isset($map['CustomField'])) {
+            $model->customField = $map['CustomField'];
         }
 
         if (isset($map['HotValue'])) {
@@ -209,6 +247,10 @@ class data extends Model
 
         if (isset($map['TopicSource'])) {
             $model->topicSource = $map['TopicSource'];
+        }
+
+        if (isset($map['TopicUrl'])) {
+            $model->topicUrl = $map['TopicUrl'];
         }
 
         if (isset($map['Version'])) {

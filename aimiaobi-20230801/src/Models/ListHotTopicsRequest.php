@@ -14,6 +14,21 @@ class ListHotTopicsRequest extends Model
     public $agentKey;
 
     /**
+     * @var string
+     */
+    public $createTimeEnd;
+
+    /**
+     * @var string
+     */
+    public $createTimeStart;
+
+    /**
+     * @var string
+     */
+    public $customField;
+
+    /**
      * @var int
      */
     public $maxResults;
@@ -54,6 +69,9 @@ class ListHotTopicsRequest extends Model
     public $withNews;
     protected $_name = [
         'agentKey' => 'AgentKey',
+        'createTimeEnd' => 'CreateTimeEnd',
+        'createTimeStart' => 'CreateTimeStart',
+        'customField' => 'CustomField',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'topicIds' => 'TopicIds',
@@ -80,6 +98,18 @@ class ListHotTopicsRequest extends Model
         $res = [];
         if (null !== $this->agentKey) {
             $res['AgentKey'] = $this->agentKey;
+        }
+
+        if (null !== $this->createTimeEnd) {
+            $res['CreateTimeEnd'] = $this->createTimeEnd;
+        }
+
+        if (null !== $this->createTimeStart) {
+            $res['CreateTimeStart'] = $this->createTimeStart;
+        }
+
+        if (null !== $this->customField) {
+            $res['CustomField'] = $this->customField;
         }
 
         if (null !== $this->maxResults) {
@@ -141,6 +171,18 @@ class ListHotTopicsRequest extends Model
         $model = new self();
         if (isset($map['AgentKey'])) {
             $model->agentKey = $map['AgentKey'];
+        }
+
+        if (isset($map['CreateTimeEnd'])) {
+            $model->createTimeEnd = $map['CreateTimeEnd'];
+        }
+
+        if (isset($map['CreateTimeStart'])) {
+            $model->createTimeStart = $map['CreateTimeStart'];
+        }
+
+        if (isset($map['CustomField'])) {
+            $model->customField = $map['CustomField'];
         }
 
         if (isset($map['MaxResults'])) {

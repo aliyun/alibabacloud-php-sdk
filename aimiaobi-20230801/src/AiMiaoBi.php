@@ -9612,6 +9612,18 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->createTimeEnd) {
+            @$body['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+
+        if (null !== $request->createTimeStart) {
+            @$body['CreateTimeStart'] = $request->createTimeStart;
+        }
+
+        if (null !== $request->customField) {
+            @$body['CustomField'] = $request->customField;
+        }
+
         if (null !== $request->maxResults) {
             @$body['MaxResults'] = $request->maxResults;
         }

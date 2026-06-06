@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\HottopicNews;
 class topics extends Model
 {
     /**
+     * @var string
+     */
+    public $customField;
+
+    /**
      * @var HottopicNews[]
      */
     public $news;
@@ -18,9 +23,16 @@ class topics extends Model
      * @var string
      */
     public $topic;
+
+    /**
+     * @var string
+     */
+    public $topicUrl;
     protected $_name = [
+        'customField' => 'CustomField',
         'news' => 'News',
         'topic' => 'Topic',
+        'topicUrl' => 'TopicUrl',
     ];
 
     public function validate()
@@ -34,6 +46,10 @@ class topics extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customField) {
+            $res['CustomField'] = $this->customField;
+        }
+
         if (null !== $this->news) {
             if (\is_array($this->news)) {
                 $res['News'] = [];
@@ -49,6 +65,10 @@ class topics extends Model
             $res['Topic'] = $this->topic;
         }
 
+        if (null !== $this->topicUrl) {
+            $res['TopicUrl'] = $this->topicUrl;
+        }
+
         return $res;
     }
 
@@ -60,6 +80,10 @@ class topics extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomField'])) {
+            $model->customField = $map['CustomField'];
+        }
+
         if (isset($map['News'])) {
             if (!empty($map['News'])) {
                 $model->news = [];
@@ -73,6 +97,10 @@ class topics extends Model
 
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
+        }
+
+        if (isset($map['TopicUrl'])) {
+            $model->topicUrl = $map['TopicUrl'];
         }
 
         return $model;
