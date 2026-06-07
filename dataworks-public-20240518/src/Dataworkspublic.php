@@ -111,6 +111,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateIdentifyCredentialSh
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateLineageRelationshipShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMcpServerRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMcpServerResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMcpServerShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateMetaEntityDefRequest;
@@ -146,6 +149,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSkillRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSkillResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSkillShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateUdfFileRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateUdfFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionRequest;
@@ -324,6 +330,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetJobStatusResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetLineageRelationshipResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMcpServerRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMcpServerResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetMetaEntityDefRequest;
@@ -356,6 +364,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSchemaRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSchemaResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSkillRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSkillResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTableRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTableResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskInstanceLogRequest;
@@ -405,6 +415,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComputeResourcesReques
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComputeResourcesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListComputeResourcesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCrawlerTypesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAgentsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAgentsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAgentsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAttributesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListCustomAttributesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsRequest;
@@ -484,6 +497,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsRe
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineageRelationshipsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineagesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListLineagesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMcpServersRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMcpServersResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMcpServersShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaCollectionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaCollectionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntitiesRequest;
@@ -531,6 +547,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSchemasRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSchemasResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSchemasShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSkillsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSkillsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSkillsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTablesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListTablesShrinkRequest;
@@ -686,6 +705,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateFunctionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateIDEEventResultRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateIDEEventResultResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMcpServerRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMcpServerResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMcpServerShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateMetaCollectionShrinkRequest;
@@ -4085,6 +4107,85 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 登记 MCP Server.
+     *
+     * @param tmpReq - CreateMcpServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMcpServerResponse
+     *
+     * @param CreateMcpServerRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateMcpServerResponse
+     */
+    public function createMcpServerWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateMcpServerShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->config) {
+            $request->configShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        }
+
+        if (null !== $tmpReq->visibilityScope) {
+            $request->visibilityScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->visibilityScope, 'VisibilityScope', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->configShrink) {
+            @$body['Config'] = $request->configShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->visibility) {
+            @$body['Visibility'] = $request->visibility;
+        }
+
+        if (null !== $request->visibilityScopeShrink) {
+            @$body['VisibilityScope'] = $request->visibilityScopeShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMcpServer',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 登记 MCP Server.
+     *
+     * @param Request - CreateMcpServerRequest
+     *
+     * @returns CreateMcpServerResponse
+     *
+     * @param CreateMcpServerRequest $request
+     *
+     * @return CreateMcpServerResponse
+     */
+    public function createMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMcpServerWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a collection in Data Map. Collections include categories, subcategories, data albums, and categories that are created in the data albums.
      *
      * @param Request - CreateMetaCollectionRequest
@@ -5337,6 +5438,101 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建 Skill.
+     *
+     * @param tmpReq - CreateSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSkillResponse
+     *
+     * @param CreateSkillRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateSkillResponse
+     */
+    public function createSkillWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateSkillShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'Extra', 'json');
+        }
+
+        if (null !== $tmpReq->visibilityScope) {
+            $request->visibilityScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->visibilityScope, 'VisibilityScope', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->bundleUrl) {
+            @$body['BundleUrl'] = $request->bundleUrl;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->extraShrink) {
+            @$body['Extra'] = $request->extraShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->skillMdOverride) {
+            @$body['SkillMdOverride'] = $request->skillMdOverride;
+        }
+
+        if (null !== $request->versionNote) {
+            @$body['VersionNote'] = $request->versionNote;
+        }
+
+        if (null !== $request->visibility) {
+            @$body['Visibility'] = $request->visibility;
+        }
+
+        if (null !== $request->visibilityScopeShrink) {
+            @$body['VisibilityScope'] = $request->visibilityScopeShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSkill',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 Skill.
+     *
+     * @param Request - CreateSkillRequest
+     *
+     * @returns CreateSkillResponse
+     *
+     * @param CreateSkillRequest $request
+     *
+     * @return CreateSkillResponse
+     */
+    public function createSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSkillWithOptions($request, $runtime);
     }
 
     /**
@@ -10863,6 +11059,63 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 读取 MCP Server 详情.
+     *
+     * @param Request - GetMcpServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMcpServerResponse
+     *
+     * @param GetMcpServerRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetMcpServerResponse
+     */
+    public function getMcpServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetMcpServer',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 读取 MCP Server 详情.
+     *
+     * @param Request - GetMcpServerRequest
+     *
+     * @returns GetMcpServerResponse
+     *
+     * @param GetMcpServerRequest $request
+     *
+     * @return GetMcpServerResponse
+     */
+    public function getMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMcpServerWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a collection in Data Map. Collections include categories and data albums.
      *
      * @param Request - GetMetaCollectionRequest
@@ -11792,6 +12045,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSchemaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 读取 Skill 详情.
+     *
+     * @param Request - GetSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSkillResponse
+     *
+     * @param GetSkillRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetSkillResponse
+     */
+    public function getSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetSkill',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 读取 Skill 详情.
+     *
+     * @param Request - GetSkillRequest
+     *
+     * @returns GetSkillResponse
+     *
+     * @param GetSkillRequest $request
+     *
+     * @return GetSkillResponse
+     */
+    public function getSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSkillWithOptions($request, $runtime);
     }
 
     /**
@@ -13255,6 +13565,83 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCrawlerTypesWithOptions($runtime);
+    }
+
+    /**
+     * 分页列出 自定义 Agent.
+     *
+     * @param tmpReq - ListCustomAgentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCustomAgentsResponse
+     *
+     * @param ListCustomAgentsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListCustomAgentsResponse
+     */
+    public function listCustomAgentsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListCustomAgentsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->visibility) {
+            $request->visibilityShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->visibility, 'Visibility', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $body = [];
+        if (null !== $request->q) {
+            @$body['Q'] = $request->q;
+        }
+
+        if (null !== $request->visibilityShrink) {
+            @$body['Visibility'] = $request->visibilityShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListCustomAgents',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCustomAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页列出 自定义 Agent.
+     *
+     * @param Request - ListCustomAgentsRequest
+     *
+     * @returns ListCustomAgentsResponse
+     *
+     * @param ListCustomAgentsRequest $request
+     *
+     * @return ListCustomAgentsResponse
+     */
+    public function listCustomAgents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomAgentsWithOptions($request, $runtime);
     }
 
     /**
@@ -15823,6 +16210,83 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 分页列出 MCP Server.
+     *
+     * @param tmpReq - ListMcpServersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMcpServersResponse
+     *
+     * @param ListMcpServersRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListMcpServersResponse
+     */
+    public function listMcpServersWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListMcpServersShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->visibility) {
+            $request->visibilityShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->visibility, 'Visibility', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $body = [];
+        if (null !== $request->q) {
+            @$body['Q'] = $request->q;
+        }
+
+        if (null !== $request->visibilityShrink) {
+            @$body['Visibility'] = $request->visibilityShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMcpServers',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMcpServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页列出 MCP Server.
+     *
+     * @param Request - ListMcpServersRequest
+     *
+     * @returns ListMcpServersResponse
+     *
+     * @param ListMcpServersRequest $request
+     *
+     * @return ListMcpServersResponse
+     */
+    public function listMcpServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMcpServersWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of collections in Data Map. Collections include categories and data albums.
      *
      * @param Request - ListMetaCollectionsRequest
@@ -17218,6 +17682,83 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSchemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页列出 Skill.
+     *
+     * @param tmpReq - ListSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillsResponse
+     *
+     * @param ListSkillsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListSkillsResponse
+     */
+    public function listSkillsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListSkillsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->visibility) {
+            $request->visibilityShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->visibility, 'Visibility', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $body = [];
+        if (null !== $request->q) {
+            @$body['Q'] = $request->q;
+        }
+
+        if (null !== $request->visibilityShrink) {
+            @$body['Visibility'] = $request->visibilityShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkills',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页列出 Skill.
+     *
+     * @param Request - ListSkillsRequest
+     *
+     * @returns ListSkillsResponse
+     *
+     * @param ListSkillsRequest $request
+     *
+     * @return ListSkillsResponse
+     */
+    public function listSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSkillsWithOptions($request, $runtime);
     }
 
     /**
@@ -22303,6 +22844,93 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIDEEventResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新 MCP Server.
+     *
+     * @param tmpReq - UpdateMcpServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMcpServerResponse
+     *
+     * @param UpdateMcpServerRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateMcpServerResponse
+     */
+    public function updateMcpServerWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateMcpServerShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customHeaders) {
+            $request->customHeadersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customHeaders, 'CustomHeaders', 'json');
+        }
+
+        if (null !== $tmpReq->visibilityScope) {
+            $request->visibilityScopeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->visibilityScope, 'VisibilityScope', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->customHeadersShrink) {
+            @$body['CustomHeaders'] = $request->customHeadersShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->transport) {
+            @$body['Transport'] = $request->transport;
+        }
+
+        if (null !== $request->url) {
+            @$body['Url'] = $request->url;
+        }
+
+        if (null !== $request->visibility) {
+            @$body['Visibility'] = $request->visibility;
+        }
+
+        if (null !== $request->visibilityScopeShrink) {
+            @$body['VisibilityScope'] = $request->visibilityScopeShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateMcpServer',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateMcpServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 MCP Server.
+     *
+     * @param Request - UpdateMcpServerRequest
+     *
+     * @returns UpdateMcpServerResponse
+     *
+     * @param UpdateMcpServerRequest $request
+     *
+     * @return UpdateMcpServerResponse
+     */
+    public function updateMcpServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMcpServerWithOptions($request, $runtime);
     }
 
     /**
