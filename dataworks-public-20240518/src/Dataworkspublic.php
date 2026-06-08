@@ -18,6 +18,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishPipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AddEntityIntoMetaCollectionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApplyResourceAccessPermissionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApplyResourceAccessPermissionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApplyResourceAccessPermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApproveProcessInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ApproveProcessInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToImageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupRequest;
@@ -129,6 +134,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateParameterShrinkReque
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreatePipelineRunRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreatePipelineRunResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreatePipelineRunShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProcessDefinitionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProcessDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProcessDefinitionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateProjectMemberShrinkRequest;
@@ -149,6 +157,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSecurityStrategyRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSecurityStrategyResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSecurityStrategyShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSkillRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSkillResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateSkillShrinkRequest;
@@ -220,6 +231,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteParameterRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteParameterResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProcessDefinitionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProcessDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectMemberRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteProjectRequest;
@@ -232,6 +245,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSecurityStrategyRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSecurityStrategyResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSkillRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteSkillResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskRequest;
@@ -245,10 +260,14 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeployFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DisableProcessDefinitionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DisableProcessDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromImageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromImageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EnableProcessDefinitionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EnableProcessDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EstablishRelationTableToBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\EstablishRelationTableToBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageRequest;
@@ -256,6 +275,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecPipelineRunStageRespon
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecuteAdhocWorkflowInstanceShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\FindBestMatchSecurityStrategyRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\FindBestMatchSecurityStrategyResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionArtifactMetaRequest;
@@ -266,6 +287,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionTokenUsageR
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAgentSessionTokenUsageShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetApplicationContentsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetApplicationContentsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBusinessRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCatalogRequest;
@@ -348,6 +371,10 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPartitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPartitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPipelineRunRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetPipelineRunResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProcessDefinitionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProcessDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProcessInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProcessInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectMemberRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectMemberResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetProjectRequest;
@@ -364,6 +391,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetRouteResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSchemaRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSchemaResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSecurityStrategyRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSecurityStrategyResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSkillRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetSkillResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTableRequest;
@@ -507,6 +536,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntitiesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntitiesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntityDefsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMetaEntityDefsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMyApplicationsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMyApplicationsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMyApplicationsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMyRelatedApprovalsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMyRelatedApprovalsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListMyRelatedApprovalsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNodeDependenciesRequest;
@@ -520,10 +555,15 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListParameterVersionsReque
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListParameterVersionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPartitionsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPendingApprovalsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPendingApprovalsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPendingApprovalsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunItemsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunItemsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListPipelineRunsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProcessDefinitionsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProcessDefinitionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListProjectMembersShrinkRequest;
@@ -547,6 +587,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSchemasRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSchemasResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSchemasShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSecurityStrategiesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSecurityStrategiesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSkillsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSkillsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListSkillsShrinkRequest;
@@ -629,6 +671,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartWorkflowInstancesResp
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StartWorkflowInstancesShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopDIJobResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopProcessInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopProcessInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\StopTaskInstancesShrinkRequest;
@@ -722,6 +766,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateParameterRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateParameterResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateParameterShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProcessDefinitionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProcessDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProcessDefinitionShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateProjectRoleRequest;
@@ -734,6 +781,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateResourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateRouteResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSecurityStrategyRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSecurityStrategyResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateSecurityStrategyShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateTableBusinessMetadataShrinkRequest;
@@ -1078,6 +1128,146 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addEntityIntoMetaCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 发起资源访问权限申请.
+     *
+     * @param tmpReq - ApplyResourceAccessPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyResourceAccessPermissionResponse
+     *
+     * @param ApplyResourceAccessPermissionRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ApplyResourceAccessPermissionResponse
+     */
+    public function applyResourceAccessPermissionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ApplyResourceAccessPermissionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->applyContents) {
+            $request->applyContentsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->applyContents, 'ApplyContents', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->applyContentsShrink) {
+            @$body['ApplyContents'] = $request->applyContentsShrink;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ApplyResourceAccessPermission',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ApplyResourceAccessPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发起资源访问权限申请.
+     *
+     * @param Request - ApplyResourceAccessPermissionRequest
+     *
+     * @returns ApplyResourceAccessPermissionResponse
+     *
+     * @param ApplyResourceAccessPermissionRequest $request
+     *
+     * @return ApplyResourceAccessPermissionResponse
+     */
+    public function applyResourceAccessPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyResourceAccessPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 审批权限申请流程实例.
+     *
+     * @param Request - ApproveProcessInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApproveProcessInstanceResponse
+     *
+     * @param ApproveProcessInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ApproveProcessInstanceResponse
+     */
+    public function approveProcessInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->approvalAction) {
+            @$body['ApprovalAction'] = $request->approvalAction;
+        }
+
+        if (null !== $request->approvalComment) {
+            @$body['ApprovalComment'] = $request->approvalComment;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->processInstanceId) {
+            @$body['ProcessInstanceId'] = $request->processInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ApproveProcessInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ApproveProcessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 审批权限申请流程实例.
+     *
+     * @param Request - ApproveProcessInstanceRequest
+     *
+     * @returns ApproveProcessInstanceResponse
+     *
+     * @param ApproveProcessInstanceRequest $request
+     *
+     * @return ApproveProcessInstanceResponse
+     */
+    public function approveProcessInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->approveProcessInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -4654,6 +4844,109 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 创建审批流程定义.
+     *
+     * @param tmpReq - CreateProcessDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateProcessDefinitionResponse
+     *
+     * @param CreateProcessDefinitionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateProcessDefinitionResponse
+     */
+    public function createProcessDefinitionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateProcessDefinitionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->approvalNodes) {
+            $request->approvalNodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->approvalNodes, 'ApprovalNodes', 'json');
+        }
+
+        if (null !== $tmpReq->notificationServices) {
+            $request->notificationServicesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notificationServices, 'NotificationServices', 'json');
+        }
+
+        if (null !== $tmpReq->ruleConditions) {
+            $request->ruleConditionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ruleConditions, 'RuleConditions', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->approvalNodesShrink) {
+            @$body['ApprovalNodes'] = $request->approvalNodesShrink;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->notificationServicesShrink) {
+            @$body['NotificationServices'] = $request->notificationServicesShrink;
+        }
+
+        if (null !== $request->ruleConditionsShrink) {
+            @$body['RuleConditions'] = $request->ruleConditionsShrink;
+        }
+
+        if (null !== $request->subType) {
+            @$body['SubType'] = $request->subType;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateProcessDefinition',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateProcessDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建审批流程定义.
+     *
+     * @param Request - CreateProcessDefinitionRequest
+     *
+     * @returns CreateProcessDefinitionResponse
+     *
+     * @param CreateProcessDefinitionRequest $request
+     *
+     * @return CreateProcessDefinitionResponse
+     */
+    public function createProcessDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProcessDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a workspace.
      *
      * @param tmpReq - CreateProjectRequest
@@ -5438,6 +5731,105 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建安全管控策略.
+     *
+     * @param tmpReq - CreateSecurityStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSecurityStrategyResponse
+     *
+     * @param CreateSecurityStrategyRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSecurityStrategyResponse
+     */
+    public function createSecurityStrategyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateSecurityStrategyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+
+        if (null !== $tmpReq->workspaces) {
+            $request->workspacesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workspaces, 'Workspaces', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->contentShrink) {
+            @$body['Content'] = $request->contentShrink;
+        }
+
+        if (null !== $request->controlDwScope) {
+            @$body['ControlDwScope'] = $request->controlDwScope;
+        }
+
+        if (null !== $request->controlModule) {
+            @$body['ControlModule'] = $request->controlModule;
+        }
+
+        if (null !== $request->controlSubModule) {
+            @$body['ControlSubModule'] = $request->controlSubModule;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->schemaName) {
+            @$body['SchemaName'] = $request->schemaName;
+        }
+
+        if (null !== $request->workspacesShrink) {
+            @$body['Workspaces'] = $request->workspacesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSecurityStrategy',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSecurityStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建安全管控策略.
+     *
+     * @param Request - CreateSecurityStrategyRequest
+     *
+     * @returns CreateSecurityStrategyResponse
+     *
+     * @param CreateSecurityStrategyRequest $request
+     *
+     * @return CreateSecurityStrategyResponse
+     */
+    public function createSecurityStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSecurityStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -7703,6 +8095,63 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 删除审批流程定义.
+     *
+     * @param Request - DeleteProcessDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProcessDefinitionResponse
+     *
+     * @param DeleteProcessDefinitionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteProcessDefinitionResponse
+     */
+    public function deleteProcessDefinitionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProcessDefinition',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProcessDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除审批流程定义.
+     *
+     * @param Request - DeleteProcessDefinitionRequest
+     *
+     * @returns DeleteProcessDefinitionResponse
+     *
+     * @param DeleteProcessDefinitionRequest $request
+     *
+     * @return DeleteProcessDefinitionResponse
+     */
+    public function deleteProcessDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProcessDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a DataWorks workspace.
      *
      * @remarks
@@ -8086,6 +8535,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除安全管控策略.
+     *
+     * @param Request - DeleteSecurityStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSecurityStrategyResponse
+     *
+     * @param DeleteSecurityStrategyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteSecurityStrategyResponse
+     */
+    public function deleteSecurityStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSecurityStrategy',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSecurityStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除安全管控策略.
+     *
+     * @param Request - DeleteSecurityStrategyRequest
+     *
+     * @returns DeleteSecurityStrategyResponse
+     *
+     * @param DeleteSecurityStrategyRequest $request
+     *
+     * @return DeleteSecurityStrategyResponse
+     */
+    public function deleteSecurityStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSecurityStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -8498,6 +9004,67 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 停用审批流程定义.
+     *
+     * @param Request - DisableProcessDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableProcessDefinitionResponse
+     *
+     * @param DisableProcessDefinitionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DisableProcessDefinitionResponse
+     */
+    public function disableProcessDefinitionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableProcessDefinition',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableProcessDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停用审批流程定义.
+     *
+     * @param Request - DisableProcessDefinitionRequest
+     *
+     * @returns DisableProcessDefinitionResponse
+     *
+     * @param DisableProcessDefinitionRequest $request
+     *
+     * @return DisableProcessDefinitionResponse
+     */
+    public function disableProcessDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableProcessDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
      * Disassociates an image from a workspace.
      *
      * @param Request - DissociateProjectFromImageRequest
@@ -8627,6 +9194,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->dissociateProjectFromResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 启用审批流程定义.
+     *
+     * @param Request - EnableProcessDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableProcessDefinitionResponse
+     *
+     * @param EnableProcessDefinitionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableProcessDefinitionResponse
+     */
+    public function enableProcessDefinitionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableProcessDefinition',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableProcessDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启用审批流程定义.
+     *
+     * @param Request - EnableProcessDefinitionRequest
+     *
+     * @returns EnableProcessDefinitionResponse
+     *
+     * @param EnableProcessDefinitionRequest $request
+     *
+     * @return EnableProcessDefinitionResponse
+     */
+    public function enableProcessDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableProcessDefinitionWithOptions($request, $runtime);
     }
 
     /**
@@ -8864,6 +9492,71 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeAdhocWorkflowInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 匹配最佳安全管控策略.
+     *
+     * @param Request - FindBestMatchSecurityStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FindBestMatchSecurityStrategyResponse
+     *
+     * @param FindBestMatchSecurityStrategyRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return FindBestMatchSecurityStrategyResponse
+     */
+    public function findBestMatchSecurityStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->controlModule) {
+            @$query['ControlModule'] = $request->controlModule;
+        }
+
+        if (null !== $request->controlSubModule) {
+            @$query['ControlSubModule'] = $request->controlSubModule;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'FindBestMatchSecurityStrategy',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return FindBestMatchSecurityStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 匹配最佳安全管控策略.
+     *
+     * @param Request - FindBestMatchSecurityStrategyRequest
+     *
+     * @returns FindBestMatchSecurityStrategyResponse
+     *
+     * @param FindBestMatchSecurityStrategyRequest $request
+     *
+     * @return FindBestMatchSecurityStrategyResponse
+     */
+    public function findBestMatchSecurityStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->findBestMatchSecurityStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -9116,6 +9809,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询数据访问权限申请单.
+     *
+     * @param Request - GetApplicationContentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApplicationContentsResponse
+     *
+     * @param GetApplicationContentsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetApplicationContentsResponse
+     */
+    public function getApplicationContentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->processInstanceId) {
+            @$query['ProcessInstanceId'] = $request->processInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApplicationContents',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApplicationContentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询数据访问权限申请单.
+     *
+     * @param Request - GetApplicationContentsRequest
+     *
+     * @returns GetApplicationContentsResponse
+     *
+     * @param GetApplicationContentsRequest $request
+     *
+     * @return GetApplicationContentsResponse
+     */
+    public function getApplicationContents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationContentsWithOptions($request, $runtime);
     }
 
     /**
@@ -11566,6 +12316,120 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 查询审批流程定义详情.
+     *
+     * @param Request - GetProcessDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProcessDefinitionResponse
+     *
+     * @param GetProcessDefinitionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetProcessDefinitionResponse
+     */
+    public function getProcessDefinitionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProcessDefinition',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProcessDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询审批流程定义详情.
+     *
+     * @param Request - GetProcessDefinitionRequest
+     *
+     * @returns GetProcessDefinitionResponse
+     *
+     * @param GetProcessDefinitionRequest $request
+     *
+     * @return GetProcessDefinitionResponse
+     */
+    public function getProcessDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProcessDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询审批流程实例详情.
+     *
+     * @param Request - GetProcessInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProcessInstanceResponse
+     *
+     * @param GetProcessInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetProcessInstanceResponse
+     */
+    public function getProcessInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->processInstanceId) {
+            @$query['ProcessInstanceId'] = $request->processInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetProcessInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetProcessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询审批流程实例详情.
+     *
+     * @param Request - GetProcessInstanceRequest
+     *
+     * @returns GetProcessInstanceResponse
+     *
+     * @param GetProcessInstanceRequest $request
+     *
+     * @return GetProcessInstanceResponse
+     */
+    public function getProcessInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProcessInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a DataWorks workspace.
      *
      * @remarks
@@ -12045,6 +12909,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSchemaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询安全管控策略详情.
+     *
+     * @param Request - GetSecurityStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityStrategyResponse
+     *
+     * @param GetSecurityStrategyRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSecurityStrategyResponse
+     */
+    public function getSecurityStrategyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSecurityStrategy',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecurityStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询安全管控策略详情.
+     *
+     * @param Request - GetSecurityStrategyRequest
+     *
+     * @returns GetSecurityStrategyResponse
+     *
+     * @param GetSecurityStrategyRequest $request
+     *
+     * @return GetSecurityStrategyResponse
+     */
+    public function getSecurityStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecurityStrategyWithOptions($request, $runtime);
     }
 
     /**
@@ -16520,6 +17441,220 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 查询我发起的权限申请单.
+     *
+     * @param tmpReq - ListMyApplicationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMyApplicationsResponse
+     *
+     * @param ListMyApplicationsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListMyApplicationsResponse
+     */
+    public function listMyApplicationsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListMyApplicationsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resource) {
+            $request->resourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resource, 'Resource', 'json');
+        }
+
+        if (null !== $tmpReq->resourceType) {
+            $request->resourceTypeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceType, 'ResourceType', 'json');
+        }
+
+        if (null !== $tmpReq->statuses) {
+            $request->statusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->defSchema) {
+            @$body['DefSchema'] = $request->defSchema;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceShrink) {
+            @$body['Resource'] = $request->resourceShrink;
+        }
+
+        if (null !== $request->resourceTypeShrink) {
+            @$body['ResourceType'] = $request->resourceTypeShrink;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statusesShrink) {
+            @$body['Statuses'] = $request->statusesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMyApplications',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMyApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询我发起的权限申请单.
+     *
+     * @param Request - ListMyApplicationsRequest
+     *
+     * @returns ListMyApplicationsResponse
+     *
+     * @param ListMyApplicationsRequest $request
+     *
+     * @return ListMyApplicationsResponse
+     */
+    public function listMyApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMyApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询与我相关的权限申请单.
+     *
+     * @param tmpReq - ListMyRelatedApprovalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMyRelatedApprovalsResponse
+     *
+     * @param ListMyRelatedApprovalsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListMyRelatedApprovalsResponse
+     */
+    public function listMyRelatedApprovalsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListMyRelatedApprovalsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accessTypes) {
+            $request->accessTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accessTypes, 'AccessTypes', 'json');
+        }
+
+        if (null !== $tmpReq->grantee) {
+            $request->granteeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->grantee, 'Grantee', 'json');
+        }
+
+        if (null !== $tmpReq->resource) {
+            $request->resourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resource, 'Resource', 'json');
+        }
+
+        if (null !== $tmpReq->resourceType) {
+            $request->resourceTypeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceType, 'ResourceType', 'json');
+        }
+
+        if (null !== $tmpReq->statuses) {
+            $request->statusesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accessTypesShrink) {
+            @$body['AccessTypes'] = $request->accessTypesShrink;
+        }
+
+        if (null !== $request->defSchema) {
+            @$body['DefSchema'] = $request->defSchema;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granteeShrink) {
+            @$body['Grantee'] = $request->granteeShrink;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceShrink) {
+            @$body['Resource'] = $request->resourceShrink;
+        }
+
+        if (null !== $request->resourceTypeShrink) {
+            @$body['ResourceType'] = $request->resourceTypeShrink;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->statusesShrink) {
+            @$body['Statuses'] = $request->statusesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListMyRelatedApprovals',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMyRelatedApprovalsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询与我相关的权限申请单.
+     *
+     * @param Request - ListMyRelatedApprovalsRequest
+     *
+     * @returns ListMyRelatedApprovalsResponse
+     *
+     * @param ListMyRelatedApprovalsRequest $request
+     *
+     * @return ListMyRelatedApprovalsResponse
+     */
+    public function listMyRelatedApprovals($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMyRelatedApprovalsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of network resources of a serverless resource group.
      *
      * @remarks
@@ -16906,6 +18041,113 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 查询待我审批的权限申请单.
+     *
+     * @param tmpReq - ListPendingApprovalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPendingApprovalsResponse
+     *
+     * @param ListPendingApprovalsRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPendingApprovalsResponse
+     */
+    public function listPendingApprovalsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListPendingApprovalsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accessTypes) {
+            $request->accessTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accessTypes, 'AccessTypes', 'json');
+        }
+
+        if (null !== $tmpReq->grantee) {
+            $request->granteeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->grantee, 'Grantee', 'json');
+        }
+
+        if (null !== $tmpReq->resource) {
+            $request->resourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resource, 'Resource', 'json');
+        }
+
+        if (null !== $tmpReq->resourceType) {
+            $request->resourceTypeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceType, 'ResourceType', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->accessTypesShrink) {
+            @$body['AccessTypes'] = $request->accessTypesShrink;
+        }
+
+        if (null !== $request->defSchema) {
+            @$body['DefSchema'] = $request->defSchema;
+        }
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granteeShrink) {
+            @$body['Grantee'] = $request->granteeShrink;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->resourceShrink) {
+            @$body['Resource'] = $request->resourceShrink;
+        }
+
+        if (null !== $request->resourceTypeShrink) {
+            @$body['ResourceType'] = $request->resourceTypeShrink;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPendingApprovals',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPendingApprovalsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询待我审批的权限申请单.
+     *
+     * @param Request - ListPendingApprovalsRequest
+     *
+     * @returns ListPendingApprovalsResponse
+     *
+     * @param ListPendingApprovalsRequest $request
+     *
+     * @return ListPendingApprovalsResponse
+     */
+    public function listPendingApprovals($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPendingApprovalsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about deployment objects by deployment process ID.
      *
      * @param Request - ListPipelineRunItemsRequest
@@ -17009,6 +18251,63 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPipelineRunsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询审批流程定义列表.
+     *
+     * @param Request - ListProcessDefinitionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListProcessDefinitionsResponse
+     *
+     * @param ListProcessDefinitionsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListProcessDefinitionsResponse
+     */
+    public function listProcessDefinitionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListProcessDefinitions',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListProcessDefinitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询审批流程定义列表.
+     *
+     * @param Request - ListProcessDefinitionsRequest
+     *
+     * @returns ListProcessDefinitionsResponse
+     *
+     * @param ListProcessDefinitionsRequest $request
+     *
+     * @return ListProcessDefinitionsResponse
+     */
+    public function listProcessDefinitions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProcessDefinitionsWithOptions($request, $runtime);
     }
 
     /**
@@ -17682,6 +18981,75 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSchemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页检索安全管控策略.
+     *
+     * @param Request - ListSecurityStrategiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSecurityStrategiesResponse
+     *
+     * @param ListSecurityStrategiesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListSecurityStrategiesResponse
+     */
+    public function listSecurityStrategiesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->controlModule) {
+            @$body['ControlModule'] = $request->controlModule;
+        }
+
+        if (null !== $request->controlSubModule) {
+            @$body['ControlSubModule'] = $request->controlSubModule;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListSecurityStrategies',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSecurityStrategiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页检索安全管控策略.
+     *
+     * @param Request - ListSecurityStrategiesRequest
+     *
+     * @returns ListSecurityStrategiesResponse
+     *
+     * @param ListSecurityStrategiesRequest $request
+     *
+     * @return ListSecurityStrategiesResponse
+     */
+    public function listSecurityStrategies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSecurityStrategiesWithOptions($request, $runtime);
     }
 
     /**
@@ -20259,6 +21627,67 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopDIJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 撤回审批流程实例.
+     *
+     * @param Request - StopProcessInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopProcessInstanceResponse
+     *
+     * @param StopProcessInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StopProcessInstanceResponse
+     */
+    public function stopProcessInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->processInstanceId) {
+            @$body['ProcessInstanceId'] = $request->processInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StopProcessInstance',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopProcessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 撤回审批流程实例.
+     *
+     * @param Request - StopProcessInstanceRequest
+     *
+     * @returns StopProcessInstanceResponse
+     *
+     * @param StopProcessInstanceRequest $request
+     *
+     * @return StopProcessInstanceResponse
+     */
+    public function stopProcessInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopProcessInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -23311,6 +24740,101 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * 更新审批流程定义.
+     *
+     * @param tmpReq - UpdateProcessDefinitionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateProcessDefinitionResponse
+     *
+     * @param UpdateProcessDefinitionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateProcessDefinitionResponse
+     */
+    public function updateProcessDefinitionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateProcessDefinitionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->approvalNodes) {
+            $request->approvalNodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->approvalNodes, 'ApprovalNodes', 'json');
+        }
+
+        if (null !== $tmpReq->notificationServices) {
+            $request->notificationServicesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->notificationServices, 'NotificationServices', 'json');
+        }
+
+        if (null !== $tmpReq->ruleConditions) {
+            $request->ruleConditionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ruleConditions, 'RuleConditions', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->approvalNodesShrink) {
+            @$body['ApprovalNodes'] = $request->approvalNodesShrink;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->notificationServicesShrink) {
+            @$body['NotificationServices'] = $request->notificationServicesShrink;
+        }
+
+        if (null !== $request->ruleConditionsShrink) {
+            @$body['RuleConditions'] = $request->ruleConditionsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateProcessDefinition',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateProcessDefinitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新审批流程定义.
+     *
+     * @param Request - UpdateProcessDefinitionRequest
+     *
+     * @returns UpdateProcessDefinitionResponse
+     *
+     * @param UpdateProcessDefinitionRequest $request
+     *
+     * @return UpdateProcessDefinitionResponse
+     */
+    public function updateProcessDefinition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateProcessDefinitionWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates a DataWorks workspace.
      *
      * @param Request - UpdateProjectRequest
@@ -23769,6 +25293,93 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * 变更安全管控策略.
+     *
+     * @param tmpReq - UpdateSecurityStrategyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSecurityStrategyResponse
+     *
+     * @param UpdateSecurityStrategyRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateSecurityStrategyResponse
+     */
+    public function updateSecurityStrategyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateSecurityStrategyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->content) {
+            $request->contentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+
+        if (null !== $tmpReq->workspaces) {
+            $request->workspacesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->workspaces, 'Workspaces', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->contentShrink) {
+            @$body['Content'] = $request->contentShrink;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->workspacesShrink) {
+            @$body['Workspaces'] = $request->workspacesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSecurityStrategy',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSecurityStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 变更安全管控策略.
+     *
+     * @param Request - UpdateSecurityStrategyRequest
+     *
+     * @returns UpdateSecurityStrategyResponse
+     *
+     * @param UpdateSecurityStrategyRequest $request
+     *
+     * @return UpdateSecurityStrategyResponse
+     */
+    public function updateSecurityStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecurityStrategyWithOptions($request, $runtime);
     }
 
     /**
