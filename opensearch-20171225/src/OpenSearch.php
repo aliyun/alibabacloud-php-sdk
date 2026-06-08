@@ -193,6 +193,8 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateABTestGroupRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateABTestGroupResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateABTestSceneRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateABTestSceneResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateAppGroupDeleteProtectionRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateAppGroupDeleteProtectionResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateFetchFieldsRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateFetchFieldsResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\UpdateFunctionDefaultInstanceRequest;
@@ -2682,6 +2684,8 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries the query analysis rule for a version of an OpenSearch application.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2716,6 +2720,8 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Queries the query analysis rule for a version of an OpenSearch application.
+     *
      * @returns DescribeQueryProcessorResponse
      *
      * @param string $appGroupIdentity
@@ -7909,6 +7915,69 @@ class OpenSearch extends OpenApiClient
         $headers = [];
 
         return $this->updateABTestSceneWithOptions($appGroupIdentity, $sceneId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 应用删除保护.
+     *
+     * @param request - UpdateAppGroupDeleteProtectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppGroupDeleteProtectionResponse
+     *
+     * @param string                                $appGroupIdentity
+     * @param UpdateAppGroupDeleteProtectionRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateAppGroupDeleteProtectionResponse
+     */
+    public function updateAppGroupDeleteProtectionWithOptions($appGroupIdentity, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->body) {
+            @$body['body'] = $request->body;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppGroupDeleteProtection',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/delete-protection',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppGroupDeleteProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用删除保护.
+     *
+     * @param request - UpdateAppGroupDeleteProtectionRequest
+     *
+     * @returns UpdateAppGroupDeleteProtectionResponse
+     *
+     * @param string                                $appGroupIdentity
+     * @param UpdateAppGroupDeleteProtectionRequest $request
+     *
+     * @return UpdateAppGroupDeleteProtectionResponse
+     */
+    public function updateAppGroupDeleteProtection($appGroupIdentity, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAppGroupDeleteProtectionWithOptions($appGroupIdentity, $request, $headers, $runtime);
     }
 
     /**
