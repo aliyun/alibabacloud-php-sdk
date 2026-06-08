@@ -71,6 +71,8 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListSystemLogsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListSystemLogsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListTempFilesRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListTempFilesResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\QueryAutoShutdownPoliciesRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\QueryAutoShutdownPoliciesResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\StopInstanceResponse;
@@ -2860,6 +2862,77 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->listTempFilesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取指定的运行中实例列表的自动关机策略。
+     *
+     * @param request - QueryAutoShutdownPoliciesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAutoShutdownPoliciesResponse
+     *
+     * @param QueryAutoShutdownPoliciesRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryAutoShutdownPoliciesResponse
+     */
+    public function queryAutoShutdownPoliciesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $body = [];
+        if (null !== $request->instanceIds) {
+            @$body['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAutoShutdownPolicies',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/batch/autoshutdownpolicies/query',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAutoShutdownPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定的运行中实例列表的自动关机策略。
+     *
+     * @param request - QueryAutoShutdownPoliciesRequest
+     *
+     * @returns QueryAutoShutdownPoliciesResponse
+     *
+     * @param QueryAutoShutdownPoliciesRequest $request
+     *
+     * @return QueryAutoShutdownPoliciesResponse
+     */
+    public function queryAutoShutdownPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryAutoShutdownPoliciesWithOptions($request, $headers, $runtime);
     }
 
     /**
