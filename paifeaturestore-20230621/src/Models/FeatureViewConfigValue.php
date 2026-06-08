@@ -38,6 +38,11 @@ class FeatureViewConfigValue extends Model
      * @var string
      */
     public $secondJoinKey;
+
+    /**
+     * @var bool
+     */
+    public $joinWithLabel;
     protected $_name = [
         'partitions' => 'Partitions',
         'eventTime' => 'EventTime',
@@ -45,6 +50,7 @@ class FeatureViewConfigValue extends Model
         'useMock' => 'UseMock',
         'snapshot' => 'Snapshot',
         'secondJoinKey' => 'SecondJoinKey',
+        'joinWithLabel' => 'JoinWithLabel',
     ];
 
     public function validate()
@@ -90,6 +96,10 @@ class FeatureViewConfigValue extends Model
             $res['SecondJoinKey'] = $this->secondJoinKey;
         }
 
+        if (null !== $this->joinWithLabel) {
+            $res['JoinWithLabel'] = $this->joinWithLabel;
+        }
+
         return $res;
     }
 
@@ -128,6 +138,10 @@ class FeatureViewConfigValue extends Model
 
         if (isset($map['SecondJoinKey'])) {
             $model->secondJoinKey = $map['SecondJoinKey'];
+        }
+
+        if (isset($map['JoinWithLabel'])) {
+            $model->joinWithLabel = $map['JoinWithLabel'];
         }
 
         return $model;

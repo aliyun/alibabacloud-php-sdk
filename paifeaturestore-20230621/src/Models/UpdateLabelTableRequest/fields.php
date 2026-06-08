@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class fields extends Model
 {
     /**
+     * @var string
+     */
+    public $alignedEntityName;
+
+    /**
      * @var string[]
      */
     public $attributes;
@@ -23,6 +28,7 @@ class fields extends Model
      */
     public $type;
     protected $_name = [
+        'alignedEntityName' => 'AlignedEntityName',
         'attributes' => 'Attributes',
         'name' => 'Name',
         'type' => 'Type',
@@ -39,6 +45,10 @@ class fields extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alignedEntityName) {
+            $res['AlignedEntityName'] = $this->alignedEntityName;
+        }
+
         if (null !== $this->attributes) {
             if (\is_array($this->attributes)) {
                 $res['Attributes'] = [];
@@ -69,6 +79,10 @@ class fields extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlignedEntityName'])) {
+            $model->alignedEntityName = $map['AlignedEntityName'];
+        }
+
         if (isset($map['Attributes'])) {
             if (!empty($map['Attributes'])) {
                 $model->attributes = [];
