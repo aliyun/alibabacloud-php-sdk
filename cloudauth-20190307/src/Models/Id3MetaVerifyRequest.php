@@ -21,6 +21,11 @@ class Id3MetaVerifyRequest extends Model
     /**
      * @var string
      */
+    public $facePicture;
+
+    /**
+     * @var string
+     */
     public $faceUrl;
 
     /**
@@ -40,6 +45,7 @@ class Id3MetaVerifyRequest extends Model
     protected $_name = [
         'crop' => 'Crop',
         'faceFile' => 'FaceFile',
+        'facePicture' => 'FacePicture',
         'faceUrl' => 'FaceUrl',
         'identifyNum' => 'IdentifyNum',
         'paramType' => 'ParamType',
@@ -60,6 +66,10 @@ class Id3MetaVerifyRequest extends Model
 
         if (null !== $this->faceFile) {
             $res['FaceFile'] = $this->faceFile;
+        }
+
+        if (null !== $this->facePicture) {
+            $res['FacePicture'] = $this->facePicture;
         }
 
         if (null !== $this->faceUrl) {
@@ -95,6 +105,10 @@ class Id3MetaVerifyRequest extends Model
 
         if (isset($map['FaceFile'])) {
             $model->faceFile = $map['FaceFile'];
+        }
+
+        if (isset($map['FacePicture'])) {
+            $model->facePicture = $map['FacePicture'];
         }
 
         if (isset($map['FaceUrl'])) {

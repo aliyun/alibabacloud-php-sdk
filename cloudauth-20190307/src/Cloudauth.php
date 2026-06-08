@@ -5886,6 +5886,10 @@ class Cloudauth extends OpenApiClient
             @$body['FaceFile'] = $request->faceFile;
         }
 
+        if (null !== $request->facePicture) {
+            @$body['FacePicture'] = $request->facePicture;
+        }
+
         if (null !== $request->faceUrl) {
             @$body['FaceUrl'] = $request->faceUrl;
         }
@@ -6486,6 +6490,10 @@ class Cloudauth extends OpenApiClient
 
         if (null !== $request->certifyUrlType) {
             @$query['CertifyUrlType'] = $request->certifyUrlType;
+        }
+
+        if (null !== $request->enableBeauty) {
+            @$query['EnableBeauty'] = $request->enableBeauty;
         }
 
         if (null !== $request->encryptType) {
