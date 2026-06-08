@@ -494,6 +494,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsForResourceSer
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListRegionsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListResourceServerScopesRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListResourceServerScopesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListResourceServersForUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListResourceServersForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsRequest;
@@ -17119,6 +17121,99 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRegionsWithOptions($runtime);
+    }
+
+    /**
+     * 获取指定ResourceServer下Scope列表。
+     *
+     * @param request - ListResourceServerScopesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceServerScopesResponse
+     *
+     * @param ListResourceServerScopesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListResourceServerScopesResponse
+     */
+    public function listResourceServerScopesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->authorizationType) {
+            @$query['AuthorizationType'] = $request->authorizationType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->previousToken) {
+            @$query['PreviousToken'] = $request->previousToken;
+        }
+
+        if (null !== $request->resourceServerScopeIds) {
+            @$query['ResourceServerScopeIds'] = $request->resourceServerScopeIds;
+        }
+
+        if (null !== $request->resourceServerScopeName) {
+            @$query['ResourceServerScopeName'] = $request->resourceServerScopeName;
+        }
+
+        if (null !== $request->resourceServerScopeType) {
+            @$query['ResourceServerScopeType'] = $request->resourceServerScopeType;
+        }
+
+        if (null !== $request->resourceServerScopeValue) {
+            @$query['ResourceServerScopeValue'] = $request->resourceServerScopeValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListResourceServerScopes',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListResourceServerScopesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定ResourceServer下Scope列表。
+     *
+     * @param request - ListResourceServerScopesRequest
+     *
+     * @returns ListResourceServerScopesResponse
+     *
+     * @param ListResourceServerScopesRequest $request
+     *
+     * @return ListResourceServerScopesResponse
+     */
+    public function listResourceServerScopes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceServerScopesWithOptions($request, $runtime);
     }
 
     /**
