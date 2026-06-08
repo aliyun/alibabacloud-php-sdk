@@ -2156,7 +2156,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to detect drift on a stack.
+     * Performs drift detection on resources in a stack to check whether the resources have drifted from the expected template configurations.
      *
      * @param request - DetectStackDriftRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2207,7 +2207,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to detect drift on a stack.
+     * Performs drift detection on resources in a stack to check whether the resources have drifted from the expected template configurations.
      *
      * @param request - DetectStackDriftRequest
      *
@@ -2225,7 +2225,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 对资源栈组进行偏差检测.
+     * Performs drift detection on stack groups to check whether the stack groups have drifted from the expected template configurations.
      *
      * @param tmpReq - DetectStackGroupDriftRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2282,7 +2282,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 对资源栈组进行偏差检测.
+     * Performs drift detection on stack groups to check whether the stack groups have drifted from the expected template configurations.
      *
      * @param request - DetectStackGroupDriftRequest
      *
@@ -2371,7 +2371,6 @@ class ROS extends OpenApiClient
     /**
      * 开启可信服务访问.
      *
-     * @param request - EnableServiceAccessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns EnableServiceAccessResponse
@@ -2648,8 +2647,16 @@ class ROS extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->generateOptions) {
+            @$query['GenerateOptions'] = $request->generateOptions;
+        }
+
         if (null !== $request->operationTypes) {
             @$query['OperationTypes'] = $request->operationTypes;
+        }
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
 
         if (null !== $request->templateBody) {
@@ -2969,7 +2976,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+     * This topic provides an example on how to query the details of \\`ALIYUN::ROS::WaitConditionHandle\\`.
      *
      * @remarks
      * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
@@ -3015,7 +3022,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
+     * This topic provides an example on how to query the details of \\`ALIYUN::ROS::WaitConditionHandle\\`.
      *
      * @remarks
      * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
@@ -3097,9 +3104,8 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 查询可信服务
+     * Queries a trusted service.
      *
-     * @param request - GetServiceAccessRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetServiceAccessResponse
@@ -3127,7 +3133,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 查询可信服务
+     * Queries a trusted service.
      *
      * @returns GetServiceAccessResponse
      *
@@ -3384,7 +3390,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     * In this example, the information about a stack group named \\\\`MyStackGroup\\\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
      *
      * @remarks
      * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
@@ -3434,7 +3440,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     * In this example, the information about a stack group named \\\\`MyStackGroup\\\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
      *
      * @remarks
      * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
@@ -3601,7 +3607,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query information about a stack policy.
+     * Queries the information about a stack policy in an Alibaba Cloud region.
      *
      * @remarks
      * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
@@ -3647,7 +3653,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query information about a stack policy.
+     * Queries the information about a stack policy in an Alibaba Cloud region.
      *
      * @remarks
      * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
@@ -4164,7 +4170,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 推荐参数.
+     * Queries recommended parameters.
      *
      * @param request - GetTemplateRecommendParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4227,7 +4233,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 推荐参数.
+     * Queries recommended parameters.
      *
      * @param request - GetTemplateRecommendParametersRequest
      *
@@ -5574,7 +5580,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+     * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is \\`4a6c9851-3b0f-4f5f-b4ca-a14bf691\\*\\*\\*\\*\\` in the China (Hangzhou) region are queried.
      *
      * @remarks
      * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
@@ -5620,7 +5626,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
+     * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is \\`4a6c9851-3b0f-4f5f-b4ca-a14bf691\\*\\*\\*\\*\\` in the China (Hangzhou) region are queried.
      *
      * @remarks
      * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
@@ -5754,7 +5760,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 查询总览.
+     * Queries summaries.
      *
      * @param request - ListSummariesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5793,7 +5799,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 查询总览.
+     * Queries summaries.
      *
      * @param request - ListSummariesRequest
      *
@@ -6582,7 +6588,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 修改资源栈的删除保护属性.
+     * Modifies the deletion protection setting for a stack.
      *
      * @param request - SetDeletionProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6629,7 +6635,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * 修改资源栈的删除保护属性.
+     * Modifies the deletion protection setting for a stack.
      *
      * @param request - SetDeletionProtectionRequest
      *
@@ -6716,7 +6722,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to configure a stack policy.
+     * Configures a stack policy for a stack.
      *
      * @remarks
      * In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
@@ -6770,7 +6776,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * You can call this operation to configure a stack policy.
+     * Configures a stack policy for a stack.
      *
      * @remarks
      * In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
@@ -6949,7 +6955,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Stops a stack group operation.
+     * Stops an ongoing operation in a stack group.
      *
      * @remarks
      * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
@@ -6995,7 +7001,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Stops a stack group operation.
+     * Stops an ongoing operation in a stack group.
      *
      * @remarks
      * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
@@ -7329,7 +7335,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
+     * Update an already created stack group.
      *
      * @remarks
      * The name of the stack group. The name must be unique within a region.
@@ -7472,7 +7478,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
+     * Update an already created stack group.
      *
      * @remarks
      * The name of the stack group. The name must be unique within a region.
@@ -7611,7 +7617,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Corrects a template to eliminate stack drift.
+     * Eliminates stack drifts by performing drift detection.
      *
      * @remarks
      * Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
@@ -7674,7 +7680,7 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Corrects a template to eliminate stack drift.
+     * Eliminates stack drifts by performing drift detection.
      *
      * @remarks
      * Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.

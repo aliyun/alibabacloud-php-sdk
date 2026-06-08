@@ -5,13 +5,24 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyRequest\parameters;
 
 class GenerateTemplatePolicyRequest extends Model
 {
     /**
      * @var string[]
      */
+    public $generateOptions;
+
+    /**
+     * @var string[]
+     */
     public $operationTypes;
+
+    /**
+     * @var parameters[]
+     */
+    public $parameters;
 
     /**
      * @var string
@@ -33,7 +44,9 @@ class GenerateTemplatePolicyRequest extends Model
      */
     public $templateVersion;
     protected $_name = [
+        'generateOptions' => 'GenerateOptions',
         'operationTypes' => 'OperationTypes',
+        'parameters' => 'Parameters',
         'templateBody' => 'TemplateBody',
         'templateId' => 'TemplateId',
         'templateURL' => 'TemplateURL',
@@ -42,8 +55,14 @@ class GenerateTemplatePolicyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->generateOptions)) {
+            Model::validateArray($this->generateOptions);
+        }
         if (\is_array($this->operationTypes)) {
             Model::validateArray($this->operationTypes);
+        }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
         }
         parent::validate();
     }
@@ -51,12 +70,34 @@ class GenerateTemplatePolicyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->generateOptions) {
+            if (\is_array($this->generateOptions)) {
+                $res['GenerateOptions'] = [];
+                $n1 = 0;
+                foreach ($this->generateOptions as $item1) {
+                    $res['GenerateOptions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->operationTypes) {
             if (\is_array($this->operationTypes)) {
                 $res['OperationTypes'] = [];
                 $n1 = 0;
                 foreach ($this->operationTypes as $item1) {
                     $res['OperationTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->parameters) {
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                $n1 = 0;
+                foreach ($this->parameters as $item1) {
+                    $res['Parameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -89,12 +130,34 @@ class GenerateTemplatePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GenerateOptions'])) {
+            if (!empty($map['GenerateOptions'])) {
+                $model->generateOptions = [];
+                $n1 = 0;
+                foreach ($map['GenerateOptions'] as $item1) {
+                    $model->generateOptions[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['OperationTypes'])) {
             if (!empty($map['OperationTypes'])) {
                 $model->operationTypes = [];
                 $n1 = 0;
                 foreach ($map['OperationTypes'] as $item1) {
                     $model->operationTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                $n1 = 0;
+                foreach ($map['Parameters'] as $item1) {
+                    $model->parameters[$n1] = parameters::fromMap($item1);
                     ++$n1;
                 }
             }
