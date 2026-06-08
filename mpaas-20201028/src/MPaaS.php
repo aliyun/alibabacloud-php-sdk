@@ -9674,6 +9674,14 @@ class MPaaS extends OpenApiClient
             @$body['BizOrderStatus'] = $request->bizOrderStatus;
         }
 
+        if (null !== $request->clientType) {
+            @$body['ClientType'] = $request->clientType;
+        }
+
+        if (null !== $request->cpExtra) {
+            @$body['CpExtra'] = $request->cpExtra;
+        }
+
         if (null !== $request->customId) {
             @$body['CustomId'] = $request->customId;
         }
