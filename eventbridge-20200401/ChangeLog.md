@@ -1,3 +1,14 @@
+2026-06-08 Version: 6.1.0
+- Support API AskLuma.
+- Support API CreateAgent.
+- Support API DeleteAgent.
+- Support API GetAgent.
+- Support API ListAgents.
+- Support API PollAskResult.
+- Support API QueryAskLumaLog.
+- Support API UpdateAgent.
+
+
 2026-05-08 Version: 6.0.9
 - Update API CreateEventStreaming: add request parameters Sink.SinkApacheKafkaParameters.DynamicTopic.
 - Update API CreateEventStreaming: add request parameters Sink.SinkApacheKafkaParameters.SslKeyPassword.

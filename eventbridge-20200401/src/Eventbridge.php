@@ -5,8 +5,13 @@
 namespace AlibabaCloud\SDK\Eventbridge\V20200401;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\AskLumaRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\AskLumaResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CheckServiceLinkedRoleForProductRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CheckServiceLinkedRoleForProductResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateAgentRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateAgentResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateAgentShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateApiDestinationResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateApiDestinationShrinkRequest;
@@ -26,6 +31,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateRuleShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateServiceLinkedRoleForProductRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateServiceLinkedRoleForProductResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteAgentRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteAgentResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteApiDestinationResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteConnectionRequest;
@@ -51,6 +58,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EnableRuleResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetAgentRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetAgentResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetApiDestinationResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionRequest;
@@ -61,6 +70,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListAgentsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListAgentsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListAliyunOfficialEventSourcesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListApiDestinationsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListApiDestinationsResponse;
@@ -78,9 +89,13 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesReq
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PauseEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PauseEventStreamingResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PollAskResultRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PollAskResultResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutTargetsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutTargetsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutTargetsShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryAskLumaLogRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryAskLumaLogResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventTracesRequest;
@@ -96,6 +111,9 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventPatternResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventSourceConfigRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventSourceConfigResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventSourceConfigShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateAgentRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateAgentResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateAgentShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateApiDestinationResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateApiDestinationShrinkRequest;
@@ -154,6 +172,75 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 用自然语言查询事件数据。输入问题后系统自动生成SQL并执行，返回结构化结果；若问题含糊则返回澄清提示。支持通过ConversationId进行多轮追问。
+     *
+     * @param request - AskLumaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AskLumaResponse
+     *
+     * @param AskLumaRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return AskLumaResponse
+     */
+    public function askLumaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->maxRows) {
+            @$body['MaxRows'] = $request->maxRows;
+        }
+
+        if (null !== $request->question) {
+            @$body['Question'] = $request->question;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AskLuma',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AskLumaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 用自然语言查询事件数据。输入问题后系统自动生成SQL并执行，返回结构化结果；若问题含糊则返回澄清提示。支持通过ConversationId进行多轮追问。
+     *
+     * @param request - AskLumaRequest
+     *
+     * @returns AskLumaResponse
+     *
+     * @param AskLumaRequest $request
+     *
+     * @return AskLumaResponse
+     */
+    public function askLuma($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->askLumaWithOptions($request, $runtime);
+    }
+
+    /**
      * Checks whether a service-linked role is created for an Alibaba Cloud account.
      *
      * @param request - CheckServiceLinkedRoleForProductRequest
@@ -208,6 +295,81 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkServiceLinkedRoleForProductWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询历史会话.
+     *
+     * @param tmpReq - CreateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->metadata) {
+            $request->metadataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'Metadata', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->metadataShrink) {
+            @$body['Metadata'] = $request->metadataShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgent',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询历史会话.
+     *
+     * @param request - CreateAgentRequest
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $request
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -855,6 +1017,63 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createServiceLinkedRoleForProductWithOptions($request, $runtime);
+    }
+
+    /**
+     * DeleteAgent.
+     *
+     * @param request - DeleteAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteAgentResponse
+     */
+    public function deleteAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgent',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeleteAgent.
+     *
+     * @param request - DeleteAgentRequest
+     *
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     *
+     * @return DeleteAgentResponse
+     */
+    public function deleteAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -1595,6 +1814,63 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 获取当前Agent的基本信息，包括名称、描述和已绑定的数据目录列表。用于了解当前接入点的能力范围。
+     *
+     * @param request - GetAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetAgentResponse
+     */
+    public function getAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgent',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取当前Agent的基本信息，包括名称、描述和已绑定的数据目录列表。用于了解当前接入点的能力范围。
+     *
+     * @param request - GetAgentRequest
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     *
+     * @return GetAgentResponse
+     */
+    public function getAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about an API destination.
      *
      * @remarks
@@ -1911,6 +2187,71 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询 Agent 列表.
+     *
+     * @param request - ListAgentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentsResponse
+     *
+     * @param ListAgentsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAgentsResponse
+     */
+    public function listAgentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->after) {
+            @$body['After'] = $request->after;
+        }
+
+        if (null !== $request->limit) {
+            @$body['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->order) {
+            @$body['Order'] = $request->order;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgents',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 Agent 列表.
+     *
+     * @param request - ListAgentsRequest
+     *
+     * @returns ListAgentsResponse
+     *
+     * @param ListAgentsRequest $request
+     *
+     * @return ListAgentsResponse
+     */
+    public function listAgents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentsWithOptions($request, $runtime);
     }
 
     /**
@@ -2549,6 +2890,67 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 轮询AskLuma的异步查询结果。传入AskLuma返回的MessageId，获取执行状态和最终结果；状态为RUNNING时应立即重试，无需退避。
+     *
+     * @param request - PollAskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PollAskResultResponse
+     *
+     * @param PollAskResultRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PollAskResultResponse
+     */
+    public function pollAskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->messageId) {
+            @$body['MessageId'] = $request->messageId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PollAskResult',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PollAskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 轮询AskLuma的异步查询结果。传入AskLuma返回的MessageId，获取执行状态和最终结果；状态为RUNNING时应立即重试，无需退避。
+     *
+     * @param request - PollAskResultRequest
+     *
+     * @returns PollAskResultResponse
+     *
+     * @param PollAskResultRequest $request
+     *
+     * @return PollAskResultResponse
+     */
+    public function pollAskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pollAskResultWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates or updates event targets under a rule.
      *
      * @remarks
@@ -2623,6 +3025,71 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->putTargetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询历史会话.
+     *
+     * @param request - QueryAskLumaLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAskLumaLogResponse
+     *
+     * @param QueryAskLumaLogRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryAskLumaLogResponse
+     */
+    public function queryAskLumaLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->after) {
+            @$body['After'] = $request->after;
+        }
+
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->limit) {
+            @$body['Limit'] = $request->limit;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAskLumaLog',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAskLumaLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询历史会话.
+     *
+     * @param request - QueryAskLumaLogRequest
+     *
+     * @returns QueryAskLumaLogResponse
+     *
+     * @param QueryAskLumaLogRequest $request
+     *
+     * @return QueryAskLumaLogResponse
+     */
+    public function queryAskLumaLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAskLumaLogWithOptions($request, $runtime);
     }
 
     /**
@@ -3126,6 +3593,85 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->testEventSourceConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询历史会话.
+     *
+     * @param tmpReq - UpdateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgentWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAgentShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->metadata) {
+            $request->metadataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'Metadata', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->metadataShrink) {
+            @$body['Metadata'] = $request->metadataShrink;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgent',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询历史会话.
+     *
+     * @param request - UpdateAgentRequest
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $request
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAgentWithOptions($request, $runtime);
     }
 
     /**
