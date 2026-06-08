@@ -265,6 +265,14 @@ class Appstreamcenter extends OpenApiClient
             @$query['Channel'] = $request->channel;
         }
 
+        if (null !== $request->cipherEndUserId) {
+            @$query['CipherEndUserId'] = $request->cipherEndUserId;
+        }
+
+        if (null !== $request->cipherPassword) {
+            @$query['CipherPassword'] = $request->cipherPassword;
+        }
+
         if (null !== $request->clientId) {
             @$query['ClientId'] = $request->clientId;
         }

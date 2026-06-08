@@ -14,6 +14,11 @@ class tenantAliasInfo extends Model
     public $accessType;
 
     /**
+     * @var string
+     */
+    public $isLoginByCipherParam;
+
+    /**
      * @var bool
      */
     public $preferVpcAccess;
@@ -29,6 +34,7 @@ class tenantAliasInfo extends Model
     public $vpcAccessAddress;
     protected $_name = [
         'accessType' => 'AccessType',
+        'isLoginByCipherParam' => 'IsLoginByCipherParam',
         'preferVpcAccess' => 'PreferVpcAccess',
         'tenantAlias' => 'TenantAlias',
         'vpcAccessAddress' => 'VpcAccessAddress',
@@ -44,6 +50,10 @@ class tenantAliasInfo extends Model
         $res = [];
         if (null !== $this->accessType) {
             $res['AccessType'] = $this->accessType;
+        }
+
+        if (null !== $this->isLoginByCipherParam) {
+            $res['IsLoginByCipherParam'] = $this->isLoginByCipherParam;
         }
 
         if (null !== $this->preferVpcAccess) {
@@ -71,6 +81,10 @@ class tenantAliasInfo extends Model
         $model = new self();
         if (isset($map['AccessType'])) {
             $model->accessType = $map['AccessType'];
+        }
+
+        if (isset($map['IsLoginByCipherParam'])) {
+            $model->isLoginByCipherParam = $map['IsLoginByCipherParam'];
         }
 
         if (isset($map['PreferVpcAccess'])) {

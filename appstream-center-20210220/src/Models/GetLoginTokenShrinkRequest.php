@@ -31,6 +31,16 @@ class GetLoginTokenShrinkRequest extends Model
     /**
      * @var string
      */
+    public $cipherEndUserId;
+
+    /**
+     * @var string
+     */
+    public $cipherPassword;
+
+    /**
+     * @var string
+     */
     public $clientId;
 
     /**
@@ -202,6 +212,8 @@ class GetLoginTokenShrinkRequest extends Model
         'authenticationCode' => 'AuthenticationCode',
         'availableFeaturesShrink' => 'AvailableFeatures',
         'channel' => 'Channel',
+        'cipherEndUserId' => 'CipherEndUserId',
+        'cipherPassword' => 'CipherPassword',
         'clientId' => 'ClientId',
         'clientName' => 'ClientName',
         'clientOS' => 'ClientOS',
@@ -260,6 +272,14 @@ class GetLoginTokenShrinkRequest extends Model
 
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
+        }
+
+        if (null !== $this->cipherEndUserId) {
+            $res['CipherEndUserId'] = $this->cipherEndUserId;
+        }
+
+        if (null !== $this->cipherPassword) {
+            $res['CipherPassword'] = $this->cipherPassword;
         }
 
         if (null !== $this->clientId) {
@@ -423,6 +443,14 @@ class GetLoginTokenShrinkRequest extends Model
 
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
+        }
+
+        if (isset($map['CipherEndUserId'])) {
+            $model->cipherEndUserId = $map['CipherEndUserId'];
+        }
+
+        if (isset($map['CipherPassword'])) {
+            $model->cipherPassword = $map['CipherPassword'];
         }
 
         if (isset($map['ClientId'])) {
