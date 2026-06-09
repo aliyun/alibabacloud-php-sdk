@@ -281,6 +281,16 @@ class PushShrinkRequest extends Model
     /**
      * @var string
      */
+    public $androidXiaomiFocusParam;
+
+    /**
+     * @var string
+     */
+    public $androidXiaomiFocusPics;
+
+    /**
+     * @var string
+     */
     public $androidXiaomiImageUrl;
 
     /**
@@ -647,6 +657,8 @@ class PushShrinkRequest extends Model
         'androidXiaoMiNotifyBody' => 'AndroidXiaoMiNotifyBody',
         'androidXiaoMiNotifyTitle' => 'AndroidXiaoMiNotifyTitle',
         'androidXiaomiBigPictureUrl' => 'AndroidXiaomiBigPictureUrl',
+        'androidXiaomiFocusParam' => 'AndroidXiaomiFocusParam',
+        'androidXiaomiFocusPics' => 'AndroidXiaomiFocusPics',
         'androidXiaomiImageUrl' => 'AndroidXiaomiImageUrl',
         'appKey' => 'AppKey',
         'body' => 'Body',
@@ -934,6 +946,14 @@ class PushShrinkRequest extends Model
 
         if (null !== $this->androidXiaomiBigPictureUrl) {
             $res['AndroidXiaomiBigPictureUrl'] = $this->androidXiaomiBigPictureUrl;
+        }
+
+        if (null !== $this->androidXiaomiFocusParam) {
+            $res['AndroidXiaomiFocusParam'] = $this->androidXiaomiFocusParam;
+        }
+
+        if (null !== $this->androidXiaomiFocusPics) {
+            $res['AndroidXiaomiFocusPics'] = $this->androidXiaomiFocusPics;
         }
 
         if (null !== $this->androidXiaomiImageUrl) {
@@ -1413,6 +1433,14 @@ class PushShrinkRequest extends Model
 
         if (isset($map['AndroidXiaomiBigPictureUrl'])) {
             $model->androidXiaomiBigPictureUrl = $map['AndroidXiaomiBigPictureUrl'];
+        }
+
+        if (isset($map['AndroidXiaomiFocusParam'])) {
+            $model->androidXiaomiFocusParam = $map['AndroidXiaomiFocusParam'];
+        }
+
+        if (isset($map['AndroidXiaomiFocusPics'])) {
+            $model->androidXiaomiFocusPics = $map['AndroidXiaomiFocusPics'];
         }
 
         if (isset($map['AndroidXiaomiImageUrl'])) {

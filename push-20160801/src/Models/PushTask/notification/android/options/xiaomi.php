@@ -12,8 +12,20 @@ class xiaomi extends Model
      * @var string
      */
     public $channel;
+
+    /**
+     * @var string
+     */
+    public $focusParam;
+
+    /**
+     * @var string
+     */
+    public $focusPics;
     protected $_name = [
         'channel' => 'Channel',
+        'focusParam' => 'FocusParam',
+        'focusPics' => 'FocusPics',
     ];
 
     public function validate()
@@ -26,6 +38,14 @@ class xiaomi extends Model
         $res = [];
         if (null !== $this->channel) {
             $res['Channel'] = $this->channel;
+        }
+
+        if (null !== $this->focusParam) {
+            $res['FocusParam'] = $this->focusParam;
+        }
+
+        if (null !== $this->focusPics) {
+            $res['FocusPics'] = $this->focusPics;
         }
 
         return $res;
@@ -41,6 +61,14 @@ class xiaomi extends Model
         $model = new self();
         if (isset($map['Channel'])) {
             $model->channel = $map['Channel'];
+        }
+
+        if (isset($map['FocusParam'])) {
+            $model->focusParam = $map['FocusParam'];
+        }
+
+        if (isset($map['FocusPics'])) {
+            $model->focusPics = $map['FocusPics'];
         }
 
         return $model;

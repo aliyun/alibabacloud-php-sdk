@@ -281,6 +281,16 @@ class pushTask extends Model
     /**
      * @var string
      */
+    public $androidXiaomiFocusParam;
+
+    /**
+     * @var string
+     */
+    public $androidXiaomiFocusPics;
+
+    /**
+     * @var string
+     */
     public $androidXiaomiImageUrl;
 
     /**
@@ -612,6 +622,8 @@ class pushTask extends Model
         'androidXiaoMiNotifyBody' => 'AndroidXiaoMiNotifyBody',
         'androidXiaoMiNotifyTitle' => 'AndroidXiaoMiNotifyTitle',
         'androidXiaomiBigPictureUrl' => 'AndroidXiaomiBigPictureUrl',
+        'androidXiaomiFocusParam' => 'AndroidXiaomiFocusParam',
+        'androidXiaomiFocusPics' => 'AndroidXiaomiFocusPics',
         'androidXiaomiImageUrl' => 'AndroidXiaomiImageUrl',
         'body' => 'Body',
         'deviceType' => 'DeviceType',
@@ -908,6 +920,14 @@ class pushTask extends Model
 
         if (null !== $this->androidXiaomiBigPictureUrl) {
             $res['AndroidXiaomiBigPictureUrl'] = $this->androidXiaomiBigPictureUrl;
+        }
+
+        if (null !== $this->androidXiaomiFocusParam) {
+            $res['AndroidXiaomiFocusParam'] = $this->androidXiaomiFocusParam;
+        }
+
+        if (null !== $this->androidXiaomiFocusPics) {
+            $res['AndroidXiaomiFocusPics'] = $this->androidXiaomiFocusPics;
         }
 
         if (null !== $this->androidXiaomiImageUrl) {
@@ -1369,6 +1389,14 @@ class pushTask extends Model
 
         if (isset($map['AndroidXiaomiBigPictureUrl'])) {
             $model->androidXiaomiBigPictureUrl = $map['AndroidXiaomiBigPictureUrl'];
+        }
+
+        if (isset($map['AndroidXiaomiFocusParam'])) {
+            $model->androidXiaomiFocusParam = $map['AndroidXiaomiFocusParam'];
+        }
+
+        if (isset($map['AndroidXiaomiFocusPics'])) {
+            $model->androidXiaomiFocusPics = $map['AndroidXiaomiFocusPics'];
         }
 
         if (isset($map['AndroidXiaomiImageUrl'])) {

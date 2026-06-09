@@ -1225,6 +1225,14 @@ class Push extends OpenApiClient
             @$query['AndroidXiaomiBigPictureUrl'] = $request->androidXiaomiBigPictureUrl;
         }
 
+        if (null !== $request->androidXiaomiFocusParam) {
+            @$query['AndroidXiaomiFocusParam'] = $request->androidXiaomiFocusParam;
+        }
+
+        if (null !== $request->androidXiaomiFocusPics) {
+            @$query['AndroidXiaomiFocusPics'] = $request->androidXiaomiFocusPics;
+        }
+
         if (null !== $request->androidXiaomiImageUrl) {
             @$query['AndroidXiaomiImageUrl'] = $request->androidXiaomiImageUrl;
         }
@@ -2234,6 +2242,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * 获取推送历史记录.
+     *
      * @param request - QueryPushRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2307,6 +2317,8 @@ class Push extends OpenApiClient
     }
 
     /**
+     * 获取推送历史记录.
+     *
      * @param request - QueryPushRecordsRequest
      *
      * @returns QueryPushRecordsResponse
