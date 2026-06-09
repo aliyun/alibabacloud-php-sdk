@@ -22,10 +22,16 @@ class metadataOptions extends Model
      * @var string
      */
     public $httpTokens;
+
+    /**
+     * @var string
+     */
+    public $instanceMetadataTags;
     protected $_name = [
         'httpEndpoint' => 'HttpEndpoint',
         'httpPutResponseHopLimit' => 'HttpPutResponseHopLimit',
         'httpTokens' => 'HttpTokens',
+        'instanceMetadataTags' => 'InstanceMetadataTags',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class metadataOptions extends Model
 
         if (null !== $this->httpTokens) {
             $res['HttpTokens'] = $this->httpTokens;
+        }
+
+        if (null !== $this->instanceMetadataTags) {
+            $res['InstanceMetadataTags'] = $this->instanceMetadataTags;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class metadataOptions extends Model
 
         if (isset($map['HttpTokens'])) {
             $model->httpTokens = $map['HttpTokens'];
+        }
+
+        if (isset($map['InstanceMetadataTags'])) {
+            $model->instanceMetadataTags = $map['InstanceMetadataTags'];
         }
 
         return $model;

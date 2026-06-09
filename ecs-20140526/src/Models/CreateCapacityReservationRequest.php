@@ -43,6 +43,11 @@ class CreateCapacityReservationRequest extends Model
     /**
      * @var string
      */
+    public $instanceChargeType;
+
+    /**
+     * @var string
+     */
     public $instanceType;
 
     /**
@@ -101,6 +106,7 @@ class CreateCapacityReservationRequest extends Model
         'endTime' => 'EndTime',
         'endTimeType' => 'EndTimeType',
         'instanceAmount' => 'InstanceAmount',
+        'instanceChargeType' => 'InstanceChargeType',
         'instanceType' => 'InstanceType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -153,6 +159,10 @@ class CreateCapacityReservationRequest extends Model
 
         if (null !== $this->instanceAmount) {
             $res['InstanceAmount'] = $this->instanceAmount;
+        }
+
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
 
         if (null !== $this->instanceType) {
@@ -246,6 +256,10 @@ class CreateCapacityReservationRequest extends Model
 
         if (isset($map['InstanceAmount'])) {
             $model->instanceAmount = $map['InstanceAmount'];
+        }
+
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
         }
 
         if (isset($map['InstanceType'])) {

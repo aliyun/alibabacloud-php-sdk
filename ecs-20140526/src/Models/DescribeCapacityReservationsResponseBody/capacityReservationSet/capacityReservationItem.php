@@ -23,6 +23,11 @@ class capacityReservationItem extends Model
     /**
      * @var string
      */
+    public $deliveryTime;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -104,9 +109,15 @@ class capacityReservationItem extends Model
      * @var string
      */
     public $timeSlot;
+
+    /**
+     * @var string
+     */
+    public $unlockedTime;
     protected $_name = [
         'allocatedResources' => 'AllocatedResources',
         'capacityReservationOwnerId' => 'CapacityReservationOwnerId',
+        'deliveryTime' => 'DeliveryTime',
         'description' => 'Description',
         'endTime' => 'EndTime',
         'endTimeType' => 'EndTimeType',
@@ -124,6 +135,7 @@ class capacityReservationItem extends Model
         'status' => 'Status',
         'tags' => 'Tags',
         'timeSlot' => 'TimeSlot',
+        'unlockedTime' => 'UnlockedTime',
     ];
 
     public function validate()
@@ -146,6 +158,10 @@ class capacityReservationItem extends Model
 
         if (null !== $this->capacityReservationOwnerId) {
             $res['CapacityReservationOwnerId'] = $this->capacityReservationOwnerId;
+        }
+
+        if (null !== $this->deliveryTime) {
+            $res['DeliveryTime'] = $this->deliveryTime;
         }
 
         if (null !== $this->description) {
@@ -216,6 +232,10 @@ class capacityReservationItem extends Model
             $res['TimeSlot'] = $this->timeSlot;
         }
 
+        if (null !== $this->unlockedTime) {
+            $res['UnlockedTime'] = $this->unlockedTime;
+        }
+
         return $res;
     }
 
@@ -233,6 +253,10 @@ class capacityReservationItem extends Model
 
         if (isset($map['CapacityReservationOwnerId'])) {
             $model->capacityReservationOwnerId = $map['CapacityReservationOwnerId'];
+        }
+
+        if (isset($map['DeliveryTime'])) {
+            $model->deliveryTime = $map['DeliveryTime'];
         }
 
         if (isset($map['Description'])) {
@@ -301,6 +325,10 @@ class capacityReservationItem extends Model
 
         if (isset($map['TimeSlot'])) {
             $model->timeSlot = $map['TimeSlot'];
+        }
+
+        if (isset($map['UnlockedTime'])) {
+            $model->unlockedTime = $map['UnlockedTime'];
         }
 
         return $model;

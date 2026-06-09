@@ -4715,6 +4715,10 @@ class Ecs extends OpenApiClient
             @$query['InstanceAmount'] = $request->instanceAmount;
         }
 
+        if (null !== $request->instanceChargeType) {
+            @$query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+
         if (null !== $request->instanceType) {
             @$query['InstanceType'] = $request->instanceType;
         }
@@ -22548,7 +22552,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Queries the renewal prices of Elastic Compute Service (ECS) resources. Renewal prices of only subscription resources can be queried.
+     * Queries the renewal prices of Elastic Computing Service (ECS) resources. Only the renewal prices of subscription resources can be queried.
      *
      * @remarks
      *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
@@ -22629,7 +22633,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * Queries the renewal prices of Elastic Compute Service (ECS) resources. Renewal prices of only subscription resources can be queried.
+     * Queries the renewal prices of Elastic Computing Service (ECS) resources. Only the renewal prices of subscription resources can be queried.
      *
      * @remarks
      *   You can call this operation to query the price for renewing a subscription instance for a specific period of time or to a synchronized expiration date.
