@@ -169,6 +169,11 @@ class AppInstanceAggregate extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'aiStaffList' => 'AiStaffList',
         'appOperationAddress' => 'AppOperationAddress',
@@ -202,6 +207,7 @@ class AppInstanceAggregate extends Model
         'tags' => 'Tags',
         'thumbnailUrl' => 'ThumbnailUrl',
         'userId' => 'UserId',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -379,6 +385,10 @@ class AppInstanceAggregate extends Model
             $res['UserId'] = $this->userId;
         }
 
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
+        }
+
         return $res;
     }
 
@@ -537,6 +547,10 @@ class AppInstanceAggregate extends Model
 
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

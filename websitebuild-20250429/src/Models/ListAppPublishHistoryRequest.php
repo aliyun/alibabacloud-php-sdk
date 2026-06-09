@@ -16,6 +16,11 @@ class ListAppPublishHistoryRequest extends Model
     /**
      * @var string
      */
+    public $deployChannel;
+
+    /**
+     * @var string
+     */
     public $keyword;
 
     /**
@@ -54,6 +59,7 @@ class ListAppPublishHistoryRequest extends Model
     public $websiteDomain;
     protected $_name = [
         'bizId' => 'BizId',
+        'deployChannel' => 'DeployChannel',
         'keyword' => 'Keyword',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -74,6 +80,10 @@ class ListAppPublishHistoryRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->deployChannel) {
+            $res['DeployChannel'] = $this->deployChannel;
         }
 
         if (null !== $this->keyword) {
@@ -121,6 +131,10 @@ class ListAppPublishHistoryRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['DeployChannel'])) {
+            $model->deployChannel = $map['DeployChannel'];
         }
 
         if (isset($map['Keyword'])) {

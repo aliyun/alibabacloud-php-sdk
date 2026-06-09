@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckResourceMeasureResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckUserResourceMeasureRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CheckUserResourceMeasureResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ConfirmAppInstanceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ConfirmAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CopyAppPluginConfigRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CopyAppPluginConfigResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAIStaffChatRequest;
@@ -44,6 +46,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainCertificateReq
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainCertificateResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainRedirectRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainRedirectResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppFileRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppInstanceFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppInstanceFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppSupabaseSecretsRequest;
@@ -126,6 +130,10 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppBindingForAdminResp
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppBindingRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppBindingResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetMiniAppBindingShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetOssUploadPolicyRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetOssUploadPolicyResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetTempDownloadUrlRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetTempDownloadUrlResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserAccessTokenForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerRequest;
@@ -699,6 +707,107 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkUserResourceMeasureWithOptions($request, $runtime);
+    }
+
+    /**
+     * 试用转正.
+     *
+     * @param request - ConfirmAppInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfirmAppInstanceResponse
+     *
+     * @param ConfirmAppInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ConfirmAppInstanceResponse
+     */
+    public function confirmAppInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deployArea) {
+            @$query['DeployArea'] = $request->deployArea;
+        }
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->quantity) {
+            @$query['Quantity'] = $request->quantity;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->trialBizId) {
+            @$query['TrialBizId'] = $request->trialBizId;
+        }
+
+        if (null !== $request->version) {
+            @$query['Version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfirmAppInstance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfirmAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 试用转正.
+     *
+     * @param request - ConfirmAppInstanceRequest
+     *
+     * @returns ConfirmAppInstanceResponse
+     *
+     * @param ConfirmAppInstanceRequest $request
+     *
+     * @return ConfirmAppInstanceResponse
+     */
+    public function confirmAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmAppInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1732,6 +1841,67 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAppDomainRedirectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除文件.
+     *
+     * @param request - DeleteAppFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppFileResponse
+     *
+     * @param DeleteAppFileRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAppFileResponse
+     */
+    public function deleteAppFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->filePath) {
+            @$body['FilePath'] = $request->filePath;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAppFile',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除文件.
+     *
+     * @param request - DeleteAppFileRequest
+     *
+     * @returns DeleteAppFileResponse
+     *
+     * @param DeleteAppFileRequest $request
+     *
+     * @return DeleteAppFileResponse
+     */
+    public function deleteAppFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppFileWithOptions($request, $runtime);
     }
 
     /**
@@ -4203,6 +4373,120 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 生成文件上传策略.
+     *
+     * @param request - GetOssUploadPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOssUploadPolicyResponse
+     *
+     * @param GetOssUploadPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetOssUploadPolicyResponse
+     */
+    public function getOssUploadPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->scenario) {
+            @$body['Scenario'] = $request->scenario;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetOssUploadPolicy',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOssUploadPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 生成文件上传策略.
+     *
+     * @param request - GetOssUploadPolicyRequest
+     *
+     * @returns GetOssUploadPolicyResponse
+     *
+     * @param GetOssUploadPolicyRequest $request
+     *
+     * @return GetOssUploadPolicyResponse
+     */
+    public function getOssUploadPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOssUploadPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取临时下载地址
+     *
+     * @param request - GetTempDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTempDownloadUrlResponse
+     *
+     * @param GetTempDownloadUrlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTempDownloadUrlResponse
+     */
+    public function getTempDownloadUrlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->ossKey) {
+            @$body['OssKey'] = $request->ossKey;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTempDownloadUrl',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTempDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取临时下载地址
+     *
+     * @param request - GetTempDownloadUrlRequest
+     *
+     * @returns GetTempDownloadUrlResponse
+     *
+     * @param GetTempDownloadUrlRequest $request
+     *
+     * @return GetTempDownloadUrlResponse
+     */
+    public function getTempDownloadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTempDownloadUrlWithOptions($request, $runtime);
+    }
+
+    /**
      * 通过授权码得到accessToken.
      *
      * @param request - GetUserAccessTokenForPartnerRequest
@@ -5359,6 +5643,10 @@ class WebsiteBuild extends OpenApiClient
         $query = [];
         if (null !== $request->bizId) {
             @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->deployChannel) {
+            @$query['DeployChannel'] = $request->deployChannel;
         }
 
         if (null !== $request->keyword) {
@@ -8996,6 +9284,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->domain) {
             @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->seAuthInfo) {
+            @$query['SeAuthInfo'] = $request->seAuthInfo;
         }
 
         if (null !== $request->seType) {

@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models;
+namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ConfirmAppInstanceResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateAppSeoStatusRequest extends Model
+class module extends Model
 {
     /**
      * @var string
@@ -16,22 +16,22 @@ class UpdateAppSeoStatusRequest extends Model
     /**
      * @var string
      */
-    public $domain;
+    public $instanceId;
 
     /**
      * @var string
      */
-    public $seAuthInfo;
+    public $orderId;
 
     /**
      * @var string
      */
-    public $seType;
+    public $siteHost;
     protected $_name = [
         'bizId' => 'BizId',
-        'domain' => 'Domain',
-        'seAuthInfo' => 'SeAuthInfo',
-        'seType' => 'SeType',
+        'instanceId' => 'InstanceId',
+        'orderId' => 'OrderId',
+        'siteHost' => 'SiteHost',
     ];
 
     public function validate()
@@ -46,16 +46,16 @@ class UpdateAppSeoStatusRequest extends Model
             $res['BizId'] = $this->bizId;
         }
 
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->seAuthInfo) {
-            $res['SeAuthInfo'] = $this->seAuthInfo;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
-        if (null !== $this->seType) {
-            $res['SeType'] = $this->seType;
+        if (null !== $this->siteHost) {
+            $res['SiteHost'] = $this->siteHost;
         }
 
         return $res;
@@ -73,16 +73,16 @@ class UpdateAppSeoStatusRequest extends Model
             $model->bizId = $map['BizId'];
         }
 
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
-        if (isset($map['SeAuthInfo'])) {
-            $model->seAuthInfo = $map['SeAuthInfo'];
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
-        if (isset($map['SeType'])) {
-            $model->seType = $map['SeType'];
+        if (isset($map['SiteHost'])) {
+            $model->siteHost = $map['SiteHost'];
         }
 
         return $model;
