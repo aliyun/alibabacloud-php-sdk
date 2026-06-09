@@ -3736,6 +3736,10 @@ class Polardbx extends OpenApiClient
             @$query['DBInstanceName'] = $request->DBInstanceName;
         }
 
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }

@@ -16,9 +16,15 @@ class DescribeCdcVersionListRequest extends Model
     /**
      * @var string
      */
+    public $instanceName;
+
+    /**
+     * @var string
+     */
     public $regionId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
+        'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
     ];
 
@@ -32,6 +38,10 @@ class DescribeCdcVersionListRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
         if (null !== $this->regionId) {
@@ -51,6 +61,10 @@ class DescribeCdcVersionListRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
+        }
+
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
         if (isset($map['RegionId'])) {
