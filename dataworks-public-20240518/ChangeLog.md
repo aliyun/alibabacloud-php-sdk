@@ -1,3 +1,6 @@
+2026-06-09 Version: 7.8.1
+- Generated php 2024-05-18 for dataworks-public.
+
 2026-06-08 Version: 7.8.0
 - Support API ApplyResourceAccessPermission.
 - Support API ApproveProcessInstance.
