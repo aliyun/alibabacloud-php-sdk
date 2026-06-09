@@ -208,6 +208,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $outsideNumberDestinationNumber;
+
+    /**
+     * @var string
+     */
     public $outsideNumberReleaseReason;
 
     /**
@@ -349,6 +354,7 @@ class list_ extends Model
         'offsiteAgentDestinationNumbers' => 'OffsiteAgentDestinationNumbers',
         'offsiteAgentOriginatorNumbers' => 'OffsiteAgentOriginatorNumbers',
         'offsiteAgentReleaseReason' => 'OffsiteAgentReleaseReason',
+        'outsideNumberDestinationNumber' => 'OutsideNumberDestinationNumber',
         'outsideNumberReleaseReason' => 'OutsideNumberReleaseReason',
         'queueTime' => 'QueueTime',
         'recordingDuration' => 'RecordingDuration',
@@ -540,6 +546,10 @@ class list_ extends Model
 
         if (null !== $this->offsiteAgentReleaseReason) {
             $res['OffsiteAgentReleaseReason'] = $this->offsiteAgentReleaseReason;
+        }
+
+        if (null !== $this->outsideNumberDestinationNumber) {
+            $res['OutsideNumberDestinationNumber'] = $this->outsideNumberDestinationNumber;
         }
 
         if (null !== $this->outsideNumberReleaseReason) {
@@ -791,6 +801,10 @@ class list_ extends Model
 
         if (isset($map['OffsiteAgentReleaseReason'])) {
             $model->offsiteAgentReleaseReason = $map['OffsiteAgentReleaseReason'];
+        }
+
+        if (isset($map['OutsideNumberDestinationNumber'])) {
+            $model->outsideNumberDestinationNumber = $map['OutsideNumberDestinationNumber'];
         }
 
         if (isset($map['OutsideNumberReleaseReason'])) {
