@@ -10650,6 +10650,10 @@ class Elasticsearch extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->hpAlbZoneDrained) {
+            @$query['hpAlbZoneDrained'] = $request->hpAlbZoneDrained;
+        }
+
         if (null !== $request->zone) {
             @$query['zone'] = $request->zone;
         }
@@ -10713,6 +10717,10 @@ class Elasticsearch extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->hpAlbZoneDrained) {
+            @$query['hpAlbZoneDrained'] = $request->hpAlbZoneDrained;
+        }
+
         if (null !== $request->zone) {
             @$query['zone'] = $request->zone;
         }

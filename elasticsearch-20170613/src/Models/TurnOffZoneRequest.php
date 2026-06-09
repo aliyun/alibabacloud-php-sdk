@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class TurnOffZoneRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $hpAlbZoneDrained;
+
+    /**
      * @var string
      */
     public $zone;
     protected $_name = [
+        'hpAlbZoneDrained' => 'hpAlbZoneDrained',
         'zone' => 'zone',
     ];
 
@@ -24,6 +30,10 @@ class TurnOffZoneRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->hpAlbZoneDrained) {
+            $res['hpAlbZoneDrained'] = $this->hpAlbZoneDrained;
+        }
+
         if (null !== $this->zone) {
             $res['zone'] = $this->zone;
         }
@@ -39,6 +49,10 @@ class TurnOffZoneRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['hpAlbZoneDrained'])) {
+            $model->hpAlbZoneDrained = $map['hpAlbZoneDrained'];
+        }
+
         if (isset($map['zone'])) {
             $model->zone = $map['zone'];
         }
