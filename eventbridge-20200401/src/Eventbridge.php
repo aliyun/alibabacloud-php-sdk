@@ -26,11 +26,16 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceShrinkRequest
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateNamespaceRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateRuleResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateRuleShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateServiceLinkedRoleForProductRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateServiceLinkedRoleForProductResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateTableRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateTableResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateTableShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteAgentRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteAgentResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteApiDestinationRequest;
@@ -43,8 +48,12 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventSourceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventSourceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventStreamingResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteNamespaceRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteNamespaceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteRuleResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteTableRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteTableResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteTargetsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteTargetsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteTargetsShrinkRequest;
@@ -62,27 +71,39 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetAgentRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetAgentResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetApiDestinationResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetCatalogRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetCatalogResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventBusRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventBusResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetNamespaceRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetNamespaceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetTableRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetTableResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListAgentsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListAgentsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListAliyunOfficialEventSourcesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListApiDestinationsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListApiDestinationsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListCatalogsRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListCatalogsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventBusesRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventBusesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListNamespacesRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListNamespacesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListRulesRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListRulesResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListTablesRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListTablesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListTargetsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListTargetsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesRequest;
@@ -96,6 +117,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutTargetsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\PutTargetsShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryAskLumaLogRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryAskLumaLogResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventHouseRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventHouseResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\QueryEventTracesRequest;
@@ -130,8 +153,13 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingBusinessOp
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateNamespaceRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateNamespaceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateRuleResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateTableRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateTableResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateTableShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -482,6 +510,10 @@ class Eventbridge extends OpenApiClient
             $request->networkParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networkParameters, 'NetworkParameters', 'json');
         }
 
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+
         $query = [];
         if (null !== $request->authParametersShrink) {
             @$query['AuthParameters'] = $request->authParametersShrink;
@@ -497,6 +529,14 @@ class Eventbridge extends OpenApiClient
 
         if (null !== $request->networkParametersShrink) {
             @$query['NetworkParameters'] = $request->networkParametersShrink;
+        }
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
 
         $req = new OpenApiRequest([
@@ -868,6 +908,77 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 创建命名空间.
+     *
+     * @param request - CreateNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNamespaceResponse
+     *
+     * @param CreateNamespaceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateNamespaceResponse
+     */
+    public function createNamespaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNamespace',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建命名空间.
+     *
+     * @param request - CreateNamespaceRequest
+     *
+     * @returns CreateNamespaceResponse
+     *
+     * @param CreateNamespaceRequest $request
+     *
+     * @return CreateNamespaceResponse
+     */
+    public function createNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an event rule.
      *
      * @remarks
@@ -1017,6 +1128,97 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createServiceLinkedRoleForProductWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建表.
+     *
+     * @param tmpReq - CreateTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTableResponse
+     *
+     * @param CreateTableRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateTableResponse
+     */
+    public function createTableWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateTableShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->columns) {
+            $request->columnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->columns, 'Columns', 'json');
+        }
+
+        if (null !== $tmpReq->retentionPolicy) {
+            $request->retentionPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->retentionPolicy, 'RetentionPolicy', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->columnsShrink) {
+            @$query['Columns'] = $request->columnsShrink;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->retentionPolicyShrink) {
+            @$query['RetentionPolicy'] = $request->retentionPolicyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTable',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建表.
+     *
+     * @param request - CreateTableRequest
+     *
+     * @returns CreateTableResponse
+     *
+     * @param CreateTableRequest $request
+     *
+     * @return CreateTableResponse
+     */
+    public function createTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTableWithOptions($request, $runtime);
     }
 
     /**
@@ -1396,6 +1598,73 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 删除命名空间.
+     *
+     * @param request - DeleteNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNamespaceResponse
+     *
+     * @param DeleteNamespaceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteNamespaceResponse
+     */
+    public function deleteNamespaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNamespace',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除命名空间.
+     *
+     * @param request - DeleteNamespaceRequest
+     *
+     * @returns DeleteNamespaceResponse
+     *
+     * @param DeleteNamespaceRequest $request
+     *
+     * @return DeleteNamespaceResponse
+     */
+    public function deleteNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an event rule.
      *
      * @remarks
@@ -1460,6 +1729,77 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除表.
+     *
+     * @param request - DeleteTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTableResponse
+     *
+     * @param DeleteTableRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteTableResponse
+     */
+    public function deleteTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTable',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除表.
+     *
+     * @param request - DeleteTableRequest
+     *
+     * @returns DeleteTableResponse
+     *
+     * @param DeleteTableRequest $request
+     *
+     * @return DeleteTableResponse
+     */
+    public function deleteTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTableWithOptions($request, $runtime);
     }
 
     /**
@@ -1934,6 +2274,69 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 获取指定数据目录的详细信息，包括目录名称和描述。传入Name即可查询。
+     *
+     * @param request - GetCatalogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCatalogResponse
+     *
+     * @param GetCatalogRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetCatalogResponse
+     */
+    public function getCatalogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetCatalog',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定数据目录的详细信息，包括目录名称和描述。传入Name即可查询。
+     *
+     * @param request - GetCatalogRequest
+     *
+     * @returns GetCatalogResponse
+     *
+     * @param GetCatalogRequest $request
+     *
+     * @return GetCatalogResponse
+     */
+    public function getCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCatalogWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the configurations of a connection.
      *
      * @remarks
@@ -2123,6 +2526,73 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 获取指定命名空间的详细信息。需传入Catalog和Name。
+     *
+     * @param request - GetNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNamespaceResponse
+     *
+     * @param GetNamespaceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetNamespaceResponse
+     */
+    public function getNamespaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetNamespace',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定命名空间的详细信息。需传入Catalog和Name。
+     *
+     * @param request - GetNamespaceRequest
+     *
+     * @returns GetNamespaceResponse
+     *
+     * @param GetNamespaceRequest $request
+     *
+     * @return GetNamespaceResponse
+     */
+    public function getNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of an event rule.
      *
      * @remarks
@@ -2187,6 +2657,77 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取指定数据表的完整结构，包括所有列的名称、类型和描述。在编写查询前调用此工具了解表结构。
+     *
+     * @param request - GetTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTableResponse
+     *
+     * @param GetTableRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTableResponse
+     */
+    public function getTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetTable',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定数据表的完整结构，包括所有列的名称、类型和描述。在编写查询前调用此工具了解表结构。
+     *
+     * @param request - GetTableRequest
+     *
+     * @returns GetTableResponse
+     *
+     * @param GetTableRequest $request
+     *
+     * @return GetTableResponse
+     */
+    public function getTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTableWithOptions($request, $runtime);
     }
 
     /**
@@ -2379,6 +2920,67 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 列出当前Agent可访问的所有数据目录。每个Catalog是一个独立的数据源，内含多个命名空间和表。支持分页。
+     *
+     * @param request - ListCatalogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCatalogsResponse
+     *
+     * @param ListCatalogsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListCatalogsResponse
+     */
+    public function listCatalogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCatalogs',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCatalogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出当前Agent可访问的所有数据目录。每个Catalog是一个独立的数据源，内含多个命名空间和表。支持分页。
+     *
+     * @param request - ListCatalogsRequest
+     *
+     * @returns ListCatalogsResponse
+     *
+     * @param ListCatalogsRequest $request
+     *
+     * @return ListCatalogsResponse
+     */
+    public function listCatalogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCatalogsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries connections.
      *
      * @remarks
@@ -2408,6 +3010,10 @@ class Eventbridge extends OpenApiClient
 
         if (null !== $request->nextToken) {
             @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
 
         $req = new OpenApiRequest([
@@ -2604,6 +3210,71 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 列出指定数据目录下的所有命名空间。命名空间用于组织同一目录内的表，类似数据库中的schema。支持分页。
+     *
+     * @param request - ListNamespacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNamespacesResponse
+     *
+     * @param ListNamespacesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListNamespacesResponse
+     */
+    public function listNamespacesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNamespaces',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出指定数据目录下的所有命名空间。命名空间用于组织同一目录内的表，类似数据库中的schema。支持分页。
+     *
+     * @param request - ListNamespacesRequest
+     *
+     * @returns ListNamespacesResponse
+     *
+     * @param ListNamespacesRequest $request
+     *
+     * @return ListNamespacesResponse
+     */
+    public function listNamespaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNamespacesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries all rules of an event bus.
      *
      * @remarks
@@ -2676,6 +3347,75 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列出指定命名空间下的数据表，支持按表名模糊搜索。返回表名和描述列表，支持分页。
+     *
+     * @param request - ListTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTablesResponse
+     *
+     * @param ListTablesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListTablesResponse
+     */
+    public function listTablesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTables',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出指定命名空间下的数据表，支持按表名模糊搜索。返回表名和描述列表，支持分页。
+     *
+     * @param request - ListTablesRequest
+     *
+     * @returns ListTablesResponse
+     *
+     * @param ListTablesRequest $request
+     *
+     * @return ListTablesResponse
+     */
+    public function listTables($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTablesWithOptions($request, $runtime);
     }
 
     /**
@@ -3161,6 +3901,67 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * 直接执行SQL语句查询事件仓数据。适用于已知确切SQL的场景，无需自然语言转换，无对话上下文。返回结构化结果集。
+     *
+     * @param request - QueryEventHouseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryEventHouseResponse
+     *
+     * @param QueryEventHouseRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryEventHouseResponse
+     */
+    public function queryEventHouseWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryEventHouse',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryEventHouseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 直接执行SQL语句查询事件仓数据。适用于已知确切SQL的场景，无需自然语言转换，无对话上下文。返回结构化结果集。
+     *
+     * @param request - QueryEventHouseRequest
+     *
+     * @returns QueryEventHouseResponse
+     *
+     * @param QueryEventHouseRequest $request
+     *
+     * @return QueryEventHouseResponse
+     */
+    public function queryEventHouse($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryEventHouseWithOptions($request, $runtime);
     }
 
     /**
@@ -3784,6 +4585,10 @@ class Eventbridge extends OpenApiClient
             $request->networkParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networkParameters, 'NetworkParameters', 'json');
         }
 
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+
         $query = [];
         if (null !== $request->authParametersShrink) {
             @$query['AuthParameters'] = $request->authParametersShrink;
@@ -3799,6 +4604,14 @@ class Eventbridge extends OpenApiClient
 
         if (null !== $request->networkParametersShrink) {
             @$query['NetworkParameters'] = $request->networkParametersShrink;
+        }
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
 
         $req = new OpenApiRequest([
@@ -4235,6 +5048,77 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * 修改命名空间.
+     *
+     * @param request - UpdateNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNamespaceResponse
+     *
+     * @param UpdateNamespaceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateNamespaceResponse
+     */
+    public function updateNamespaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNamespace',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改命名空间.
+     *
+     * @param request - UpdateNamespaceRequest
+     *
+     * @returns UpdateNamespaceResponse
+     *
+     * @param UpdateNamespaceRequest $request
+     *
+     * @return UpdateNamespaceResponse
+     */
+    public function updateNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the configurations of an event rule.
      *
      * @remarks
@@ -4311,5 +5195,128 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改表.
+     *
+     * @param tmpReq - UpdateTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTableResponse
+     *
+     * @param UpdateTableRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateTableResponse
+     */
+    public function updateTableWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateTableShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addColumn) {
+            $request->addColumnShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addColumn, 'AddColumn', 'json');
+        }
+
+        if (null !== $tmpReq->deleteColumn) {
+            $request->deleteColumnShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deleteColumn, 'DeleteColumn', 'json');
+        }
+
+        if (null !== $tmpReq->renameColumn) {
+            $request->renameColumnShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->renameColumn, 'RenameColumn', 'json');
+        }
+
+        if (null !== $tmpReq->updateColumnComment) {
+            $request->updateColumnCommentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateColumnComment, 'UpdateColumnComment', 'json');
+        }
+
+        if (null !== $tmpReq->updateColumnType) {
+            $request->updateColumnTypeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateColumnType, 'UpdateColumnType', 'json');
+        }
+
+        if (null !== $tmpReq->updateRetentionPolicy) {
+            $request->updateRetentionPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateRetentionPolicy, 'UpdateRetentionPolicy', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->addColumnShrink) {
+            @$query['AddColumn'] = $request->addColumnShrink;
+        }
+
+        if (null !== $request->catalog) {
+            @$query['Catalog'] = $request->catalog;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deleteColumnShrink) {
+            @$query['DeleteColumn'] = $request->deleteColumnShrink;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
+        }
+
+        if (null !== $request->renameColumnShrink) {
+            @$query['RenameColumn'] = $request->renameColumnShrink;
+        }
+
+        if (null !== $request->updateColumnCommentShrink) {
+            @$query['UpdateColumnComment'] = $request->updateColumnCommentShrink;
+        }
+
+        if (null !== $request->updateColumnTypeShrink) {
+            @$query['UpdateColumnType'] = $request->updateColumnTypeShrink;
+        }
+
+        if (null !== $request->updateComment) {
+            @$query['UpdateComment'] = $request->updateComment;
+        }
+
+        if (null !== $request->updateRetentionPolicyShrink) {
+            @$query['UpdateRetentionPolicy'] = $request->updateRetentionPolicyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTable',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改表.
+     *
+     * @param request - UpdateTableRequest
+     *
+     * @returns UpdateTableResponse
+     *
+     * @param UpdateTableRequest $request
+     *
+     * @return UpdateTableResponse
+     */
+    public function updateTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTableWithOptions($request, $runtime);
     }
 }

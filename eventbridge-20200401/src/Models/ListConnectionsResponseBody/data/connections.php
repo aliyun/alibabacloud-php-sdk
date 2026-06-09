@@ -39,6 +39,16 @@ class connections extends Model
      * @var networkParameters
      */
     public $networkParameters;
+
+    /**
+     * @var mixed
+     */
+    public $parameters;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'authParameters' => 'AuthParameters',
         'connectionName' => 'ConnectionName',
@@ -46,6 +56,8 @@ class connections extends Model
         'gmtCreate' => 'GmtCreate',
         'id' => 'Id',
         'networkParameters' => 'NetworkParameters',
+        'parameters' => 'Parameters',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -86,6 +98,14 @@ class connections extends Model
             $res['NetworkParameters'] = null !== $this->networkParameters ? $this->networkParameters->toArray($noStream) : $this->networkParameters;
         }
 
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -119,6 +139,14 @@ class connections extends Model
 
         if (isset($map['NetworkParameters'])) {
             $model->networkParameters = networkParameters::fromMap($map['NetworkParameters']);
+        }
+
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

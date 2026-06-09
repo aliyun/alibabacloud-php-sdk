@@ -6,32 +6,26 @@ namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListConnectionsRequest extends Model
+class ListNamespacesRequest extends Model
 {
     /**
      * @var string
      */
-    public $connectionNamePrefix;
+    public $catalog;
 
     /**
      * @var int
      */
-    public $maxResults;
+    public $limit;
 
     /**
      * @var string
      */
     public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $type;
     protected $_name = [
-        'connectionNamePrefix' => 'ConnectionNamePrefix',
-        'maxResults' => 'MaxResults',
+        'catalog' => 'Catalog',
+        'limit' => 'Limit',
         'nextToken' => 'NextToken',
-        'type' => 'Type',
     ];
 
     public function validate()
@@ -42,20 +36,16 @@ class ListConnectionsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->connectionNamePrefix) {
-            $res['ConnectionNamePrefix'] = $this->connectionNamePrefix;
+        if (null !== $this->catalog) {
+            $res['Catalog'] = $this->catalog;
         }
 
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
         }
 
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -69,20 +59,16 @@ class ListConnectionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConnectionNamePrefix'])) {
-            $model->connectionNamePrefix = $map['ConnectionNamePrefix'];
+        if (isset($map['Catalog'])) {
+            $model->catalog = $map['Catalog'];
         }
 
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
         }
 
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
         }
 
         return $model;

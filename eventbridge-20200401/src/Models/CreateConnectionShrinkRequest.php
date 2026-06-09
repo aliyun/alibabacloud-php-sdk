@@ -27,11 +27,23 @@ class CreateConnectionShrinkRequest extends Model
      * @var string
      */
     public $networkParametersShrink;
+
+    /**
+     * @var string
+     */
+    public $parametersShrink;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'authParametersShrink' => 'AuthParameters',
         'connectionName' => 'ConnectionName',
         'description' => 'Description',
         'networkParametersShrink' => 'NetworkParameters',
+        'parametersShrink' => 'Parameters',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -56,6 +68,14 @@ class CreateConnectionShrinkRequest extends Model
 
         if (null !== $this->networkParametersShrink) {
             $res['NetworkParameters'] = $this->networkParametersShrink;
+        }
+
+        if (null !== $this->parametersShrink) {
+            $res['Parameters'] = $this->parametersShrink;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,6 +103,14 @@ class CreateConnectionShrinkRequest extends Model
 
         if (isset($map['NetworkParameters'])) {
             $model->networkParametersShrink = $map['NetworkParameters'];
+        }
+
+        if (isset($map['Parameters'])) {
+            $model->parametersShrink = $map['Parameters'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

@@ -29,11 +29,23 @@ class UpdateConnectionRequest extends Model
      * @var networkParameters
      */
     public $networkParameters;
+
+    /**
+     * @var mixed
+     */
+    public $parameters;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'authParameters' => 'AuthParameters',
         'connectionName' => 'ConnectionName',
         'description' => 'Description',
         'networkParameters' => 'NetworkParameters',
+        'parameters' => 'Parameters',
+        'type' => 'Type',
     ];
 
     public function validate()
@@ -66,6 +78,14 @@ class UpdateConnectionRequest extends Model
             $res['NetworkParameters'] = null !== $this->networkParameters ? $this->networkParameters->toArray($noStream) : $this->networkParameters;
         }
 
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
+        }
+
         return $res;
     }
 
@@ -91,6 +111,14 @@ class UpdateConnectionRequest extends Model
 
         if (isset($map['NetworkParameters'])) {
             $model->networkParameters = networkParameters::fromMap($map['NetworkParameters']);
+        }
+
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

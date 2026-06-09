@@ -16,6 +16,11 @@ class Catalog extends Model
     /**
      * @var string
      */
+    public $connectionName;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -34,6 +39,7 @@ class Catalog extends Model
     public $type;
     protected $_name = [
         'comment' => 'Comment',
+        'connectionName' => 'ConnectionName',
         'name' => 'Name',
         'properties' => 'Properties',
         'provider' => 'Provider',
@@ -53,6 +59,10 @@ class Catalog extends Model
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+
+        if (null !== $this->connectionName) {
+            $res['ConnectionName'] = $this->connectionName;
         }
 
         if (null !== $this->name) {
@@ -89,6 +99,10 @@ class Catalog extends Model
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+
+        if (isset($map['ConnectionName'])) {
+            $model->connectionName = $map['ConnectionName'];
         }
 
         if (isset($map['Name'])) {
