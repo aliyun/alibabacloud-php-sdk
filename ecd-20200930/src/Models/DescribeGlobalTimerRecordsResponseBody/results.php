@@ -54,6 +54,11 @@ class results extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceParentId;
+
+    /**
      * @var bool
      */
     public $retryable;
@@ -87,6 +92,7 @@ class results extends Model
         'displayResultName' => 'DisplayResultName',
         'finishTime' => 'FinishTime',
         'regionId' => 'RegionId',
+        'resourceParentId' => 'ResourceParentId',
         'retryable' => 'Retryable',
         'timerGroupId' => 'TimerGroupId',
         'timerRecordId' => 'TimerRecordId',
@@ -136,6 +142,10 @@ class results extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceParentId) {
+            $res['ResourceParentId'] = $this->resourceParentId;
         }
 
         if (null !== $this->retryable) {
@@ -203,6 +213,10 @@ class results extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceParentId'])) {
+            $model->resourceParentId = $map['ResourceParentId'];
         }
 
         if (isset($map['Retryable'])) {

@@ -29,6 +29,11 @@ class DescribeGlobalTimerBatchesRequest extends Model
     public $regionId;
 
     /**
+     * @var string[]
+     */
+    public $resourceTypes;
+
+    /**
      * @var string
      */
     public $searchRegionId;
@@ -42,12 +47,16 @@ class DescribeGlobalTimerBatchesRequest extends Model
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'regionId' => 'RegionId',
+        'resourceTypes' => 'ResourceTypes',
         'searchRegionId' => 'SearchRegionId',
         'timerType' => 'TimerType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceTypes)) {
+            Model::validateArray($this->resourceTypes);
+        }
         parent::validate();
     }
 
@@ -68,6 +77,17 @@ class DescribeGlobalTimerBatchesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceTypes) {
+            if (\is_array($this->resourceTypes)) {
+                $res['ResourceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->resourceTypes as $item1) {
+                    $res['ResourceTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->searchRegionId) {
@@ -103,6 +123,17 @@ class DescribeGlobalTimerBatchesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceTypes'])) {
+            if (!empty($map['ResourceTypes'])) {
+                $model->resourceTypes = [];
+                $n1 = 0;
+                foreach ($map['ResourceTypes'] as $item1) {
+                    $model->resourceTypes[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['SearchRegionId'])) {

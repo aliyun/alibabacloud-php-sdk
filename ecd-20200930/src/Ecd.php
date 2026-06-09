@@ -12252,6 +12252,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
+        }
+
         if (null !== $request->searchRegionId) {
             @$query['SearchRegionId'] = $request->searchRegionId;
         }
@@ -12341,6 +12345,10 @@ class Ecd extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceTypes) {
+            @$query['ResourceTypes'] = $request->resourceTypes;
+        }
+
         if (null !== $request->resultCategory) {
             @$query['ResultCategory'] = $request->resultCategory;
         }
@@ -12359,6 +12367,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->timerTypes) {
             @$query['TimerTypes'] = $request->timerTypes;
+        }
+
+        if (null !== $request->wuyingServerIds) {
+            @$query['WuyingServerIds'] = $request->wuyingServerIds;
         }
 
         $req = new OpenApiRequest([
