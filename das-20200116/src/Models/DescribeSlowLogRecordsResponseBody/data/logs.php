@@ -67,6 +67,11 @@ class logs extends Model
     /**
      * @var string
      */
+    public $extText;
+
+    /**
+     * @var string
+     */
     public $fail;
 
     /**
@@ -295,6 +300,7 @@ class logs extends Model
         'dbId' => 'DbId',
         'dbInstanceName' => 'DbInstanceName',
         'docsExamined' => 'DocsExamined',
+        'extText' => 'ExtText',
         'fail' => 'Fail',
         'frows' => 'Frows',
         'hostAddress' => 'HostAddress',
@@ -394,6 +400,10 @@ class logs extends Model
 
         if (null !== $this->docsExamined) {
             $res['DocsExamined'] = $this->docsExamined;
+        }
+
+        if (null !== $this->extText) {
+            $res['ExtText'] = $this->extText;
         }
 
         if (null !== $this->fail) {
@@ -625,6 +635,10 @@ class logs extends Model
 
         if (isset($map['DocsExamined'])) {
             $model->docsExamined = $map['DocsExamined'];
+        }
+
+        if (isset($map['ExtText'])) {
+            $model->extText = $map['ExtText'];
         }
 
         if (isset($map['Fail'])) {
