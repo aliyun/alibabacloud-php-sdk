@@ -21,6 +21,11 @@ class CreateInstanceInspectionRequest extends Model
     /**
      * @var string
      */
+    public $metricSource;
+
+    /**
+     * @var string
+     */
     public $region;
 
     /**
@@ -30,6 +35,7 @@ class CreateInstanceInspectionRequest extends Model
     protected $_name = [
         'instance' => 'instance',
         'items' => 'items',
+        'metricSource' => 'metricSource',
         'region' => 'region',
         'source' => 'source',
     ];
@@ -58,6 +64,10 @@ class CreateInstanceInspectionRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->metricSource) {
+            $res['metricSource'] = $this->metricSource;
         }
 
         if (null !== $this->region) {
@@ -92,6 +102,10 @@ class CreateInstanceInspectionRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['metricSource'])) {
+            $model->metricSource = $map['metricSource'];
         }
 
         if (isset($map['region'])) {
