@@ -216,6 +216,10 @@ class BailianModelOnChip extends OpenApiClient
             @$body['signature'] = $request->signature;
         }
 
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => Utils::parseToMap($body),

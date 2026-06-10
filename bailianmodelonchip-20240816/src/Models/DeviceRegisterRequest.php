@@ -27,11 +27,17 @@ class DeviceRegisterRequest extends Model
      * @var string
      */
     public $signature;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'appId' => 'appId',
         'nonce' => 'nonce',
         'requestTime' => 'requestTime',
         'signature' => 'signature',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class DeviceRegisterRequest extends Model
 
         if (null !== $this->signature) {
             $res['signature'] = $this->signature;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class DeviceRegisterRequest extends Model
 
         if (isset($map['signature'])) {
             $model->signature = $map['signature'];
+        }
+
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;
