@@ -22,10 +22,16 @@ class AutoscalingMetricSpec extends Model
      * @var int
      */
     public $targetValue;
+
+    /**
+     * @var string
+     */
+    public $tolerance;
     protected $_name = [
         'metricName' => 'MetricName',
         'stabilizationWindowSeconds' => 'StabilizationWindowSeconds',
         'targetValue' => 'TargetValue',
+        'tolerance' => 'Tolerance',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class AutoscalingMetricSpec extends Model
 
         if (null !== $this->targetValue) {
             $res['TargetValue'] = $this->targetValue;
+        }
+
+        if (null !== $this->tolerance) {
+            $res['Tolerance'] = $this->tolerance;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class AutoscalingMetricSpec extends Model
 
         if (isset($map['TargetValue'])) {
             $model->targetValue = $map['TargetValue'];
+        }
+
+        if (isset($map['Tolerance'])) {
+            $model->tolerance = $map['Tolerance'];
         }
 
         return $model;

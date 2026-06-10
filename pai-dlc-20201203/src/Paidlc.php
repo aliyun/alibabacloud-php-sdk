@@ -1284,7 +1284,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 获取metrics数据.
+     * Queries metrics data.
      *
      * @param request - GetMetricsRequest
      * @param headers - map
@@ -1362,7 +1362,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * 获取metrics数据.
+     * Queries metrics data.
      *
      * @param request - GetMetricsRequest
      *

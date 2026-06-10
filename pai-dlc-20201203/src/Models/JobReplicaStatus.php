@@ -14,6 +14,11 @@ class JobReplicaStatus extends Model
     public $active;
 
     /**
+     * @var string
+     */
+    public $currentSpotInstanceType;
+
+    /**
      * @var int
      */
     public $dequeued;
@@ -44,6 +49,7 @@ class JobReplicaStatus extends Model
     public $type;
     protected $_name = [
         'active' => 'Active',
+        'currentSpotInstanceType' => 'CurrentSpotInstanceType',
         'dequeued' => 'Dequeued',
         'estimatedAutoScalingSpec' => 'EstimatedAutoScalingSpec',
         'estimatedPodCount' => 'EstimatedPodCount',
@@ -68,6 +74,10 @@ class JobReplicaStatus extends Model
         $res = [];
         if (null !== $this->active) {
             $res['Active'] = $this->active;
+        }
+
+        if (null !== $this->currentSpotInstanceType) {
+            $res['CurrentSpotInstanceType'] = $this->currentSpotInstanceType;
         }
 
         if (null !== $this->dequeued) {
@@ -107,6 +117,10 @@ class JobReplicaStatus extends Model
         $model = new self();
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
+        }
+
+        if (isset($map['CurrentSpotInstanceType'])) {
+            $model->currentSpotInstanceType = $map['CurrentSpotInstanceType'];
         }
 
         if (isset($map['Dequeued'])) {

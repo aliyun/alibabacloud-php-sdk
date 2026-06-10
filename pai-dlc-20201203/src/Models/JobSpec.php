@@ -29,6 +29,11 @@ class JobSpec extends Model
     public $ecsSpec;
 
     /**
+     * @var ElasticSpotSpec[]
+     */
+    public $elasticSpotSpecs;
+
+    /**
      * @var ExtraPodSpec
      */
     public $extraPodSpec;
@@ -112,6 +117,7 @@ class JobSpec extends Model
         'autoScalingSpec' => 'AutoScalingSpec',
         'considerInSuccessPolicy' => 'ConsiderInSuccessPolicy',
         'ecsSpec' => 'EcsSpec',
+        'elasticSpotSpecs' => 'ElasticSpotSpecs',
         'extraPodSpec' => 'ExtraPodSpec',
         'image' => 'Image',
         'imageConfig' => 'ImageConfig',
@@ -137,6 +143,9 @@ class JobSpec extends Model
         }
         if (null !== $this->autoScalingSpec) {
             $this->autoScalingSpec->validate();
+        }
+        if (\is_array($this->elasticSpotSpecs)) {
+            Model::validateArray($this->elasticSpotSpecs);
         }
         if (null !== $this->extraPodSpec) {
             $this->extraPodSpec->validate();
@@ -182,6 +191,17 @@ class JobSpec extends Model
 
         if (null !== $this->ecsSpec) {
             $res['EcsSpec'] = $this->ecsSpec;
+        }
+
+        if (null !== $this->elasticSpotSpecs) {
+            if (\is_array($this->elasticSpotSpecs)) {
+                $res['ElasticSpotSpecs'] = [];
+                $n1 = 0;
+                foreach ($this->elasticSpotSpecs as $item1) {
+                    $res['ElasticSpotSpecs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->extraPodSpec) {
@@ -287,6 +307,17 @@ class JobSpec extends Model
 
         if (isset($map['EcsSpec'])) {
             $model->ecsSpec = $map['EcsSpec'];
+        }
+
+        if (isset($map['ElasticSpotSpecs'])) {
+            if (!empty($map['ElasticSpotSpecs'])) {
+                $model->elasticSpotSpecs = [];
+                $n1 = 0;
+                foreach ($map['ElasticSpotSpecs'] as $item1) {
+                    $model->elasticSpotSpecs[$n1] = ElasticSpotSpec::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ExtraPodSpec'])) {
