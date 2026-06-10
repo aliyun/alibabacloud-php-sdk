@@ -16,6 +16,11 @@ class history extends Model
     /**
      * @var string
      */
+    public $commitHash;
+
+    /**
+     * @var string
+     */
     public $currentStep;
 
     /**
@@ -77,8 +82,14 @@ class history extends Model
      * @var string[]
      */
     public $steps;
+
+    /**
+     * @var string
+     */
+    public $subchannel;
     protected $_name = [
         'canQuickRevert' => 'CanQuickRevert',
+        'commitHash' => 'CommitHash',
         'currentStep' => 'CurrentStep',
         'deployChannel' => 'DeployChannel',
         'description' => 'Description',
@@ -92,6 +103,7 @@ class history extends Model
         'publishOrderId' => 'PublishOrderId',
         'publishTime' => 'PublishTime',
         'steps' => 'Steps',
+        'subchannel' => 'Subchannel',
     ];
 
     public function validate()
@@ -107,6 +119,10 @@ class history extends Model
         $res = [];
         if (null !== $this->canQuickRevert) {
             $res['CanQuickRevert'] = $this->canQuickRevert;
+        }
+
+        if (null !== $this->commitHash) {
+            $res['CommitHash'] = $this->commitHash;
         }
 
         if (null !== $this->currentStep) {
@@ -168,6 +184,10 @@ class history extends Model
             }
         }
 
+        if (null !== $this->subchannel) {
+            $res['Subchannel'] = $this->subchannel;
+        }
+
         return $res;
     }
 
@@ -181,6 +201,10 @@ class history extends Model
         $model = new self();
         if (isset($map['CanQuickRevert'])) {
             $model->canQuickRevert = $map['CanQuickRevert'];
+        }
+
+        if (isset($map['CommitHash'])) {
+            $model->commitHash = $map['CommitHash'];
         }
 
         if (isset($map['CurrentStep'])) {
@@ -240,6 +264,10 @@ class history extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Subchannel'])) {
+            $model->subchannel = $map['Subchannel'];
         }
 
         return $model;

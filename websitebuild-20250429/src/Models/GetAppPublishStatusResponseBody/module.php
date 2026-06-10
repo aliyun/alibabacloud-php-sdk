@@ -82,6 +82,11 @@ class module extends Model
      * @var string[]
      */
     public $steps;
+
+    /**
+     * @var string
+     */
+    public $subchannel;
     protected $_name = [
         'canQuickRevert' => 'CanQuickRevert',
         'currentStep' => 'CurrentStep',
@@ -98,6 +103,7 @@ class module extends Model
         'publishTime' => 'PublishTime',
         'siteId' => 'SiteId',
         'steps' => 'Steps',
+        'subchannel' => 'Subchannel',
     ];
 
     public function validate()
@@ -178,6 +184,10 @@ class module extends Model
             }
         }
 
+        if (null !== $this->subchannel) {
+            $res['Subchannel'] = $this->subchannel;
+        }
+
         return $res;
     }
 
@@ -254,6 +264,10 @@ class module extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Subchannel'])) {
+            $model->subchannel = $map['Subchannel'];
         }
 
         return $model;

@@ -16,7 +16,17 @@ class next extends Model
     /**
      * @var string
      */
+    public $amountStr;
+
+    /**
+     * @var string
+     */
     public $consumeTime;
+
+    /**
+     * @var string
+     */
+    public $consumeType;
 
     /**
      * @var string
@@ -29,7 +39,9 @@ class next extends Model
     public $sceneName;
     protected $_name = [
         'amount' => 'Amount',
+        'amountStr' => 'AmountStr',
         'consumeTime' => 'ConsumeTime',
+        'consumeType' => 'ConsumeType',
         'metaData' => 'MetaData',
         'sceneName' => 'SceneName',
     ];
@@ -46,8 +58,16 @@ class next extends Model
             $res['Amount'] = $this->amount;
         }
 
+        if (null !== $this->amountStr) {
+            $res['AmountStr'] = $this->amountStr;
+        }
+
         if (null !== $this->consumeTime) {
             $res['ConsumeTime'] = $this->consumeTime;
+        }
+
+        if (null !== $this->consumeType) {
+            $res['ConsumeType'] = $this->consumeType;
         }
 
         if (null !== $this->metaData) {
@@ -73,8 +93,16 @@ class next extends Model
             $model->amount = $map['Amount'];
         }
 
+        if (isset($map['AmountStr'])) {
+            $model->amountStr = $map['AmountStr'];
+        }
+
         if (isset($map['ConsumeTime'])) {
             $model->consumeTime = $map['ConsumeTime'];
+        }
+
+        if (isset($map['ConsumeType'])) {
+            $model->consumeType = $map['ConsumeType'];
         }
 
         if (isset($map['MetaData'])) {

@@ -21,6 +21,11 @@ class next extends Model
     /**
      * @var string
      */
+    public $balanceStr;
+
+    /**
+     * @var string
+     */
     public $endDate;
 
     /**
@@ -36,6 +41,11 @@ class next extends Model
     /**
      * @var string
      */
+    public $initQuotaStr;
+
+    /**
+     * @var string
+     */
     public $sourceType;
 
     /**
@@ -45,9 +55,11 @@ class next extends Model
     protected $_name = [
         'acquisitionTime' => 'AcquisitionTime',
         'balance' => 'Balance',
+        'balanceStr' => 'BalanceStr',
         'endDate' => 'EndDate',
         'expired' => 'Expired',
         'initQuota' => 'InitQuota',
+        'initQuotaStr' => 'InitQuotaStr',
         'sourceType' => 'SourceType',
         'sourceTypeName' => 'SourceTypeName',
     ];
@@ -68,6 +80,10 @@ class next extends Model
             $res['Balance'] = $this->balance;
         }
 
+        if (null !== $this->balanceStr) {
+            $res['BalanceStr'] = $this->balanceStr;
+        }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
@@ -78,6 +94,10 @@ class next extends Model
 
         if (null !== $this->initQuota) {
             $res['InitQuota'] = $this->initQuota;
+        }
+
+        if (null !== $this->initQuotaStr) {
+            $res['InitQuotaStr'] = $this->initQuotaStr;
         }
 
         if (null !== $this->sourceType) {
@@ -107,6 +127,10 @@ class next extends Model
             $model->balance = $map['Balance'];
         }
 
+        if (isset($map['BalanceStr'])) {
+            $model->balanceStr = $map['BalanceStr'];
+        }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
@@ -117,6 +141,10 @@ class next extends Model
 
         if (isset($map['InitQuota'])) {
             $model->initQuota = $map['InitQuota'];
+        }
+
+        if (isset($map['InitQuotaStr'])) {
+            $model->initQuotaStr = $map['InitQuotaStr'];
         }
 
         if (isset($map['SourceType'])) {

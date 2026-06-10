@@ -15,6 +15,11 @@ class module extends Model
     public $activeLogicalNumber;
 
     /**
+     * @var string
+     */
+    public $commitHash;
+
+    /**
      * @var bool
      */
     public $isDirty;
@@ -35,6 +40,7 @@ class module extends Model
     public $snapshots;
     protected $_name = [
         'activeLogicalNumber' => 'ActiveLogicalNumber',
+        'commitHash' => 'CommitHash',
         'isDirty' => 'IsDirty',
         'maxLogicalNumber' => 'MaxLogicalNumber',
         'siteId' => 'SiteId',
@@ -54,6 +60,10 @@ class module extends Model
         $res = [];
         if (null !== $this->activeLogicalNumber) {
             $res['ActiveLogicalNumber'] = $this->activeLogicalNumber;
+        }
+
+        if (null !== $this->commitHash) {
+            $res['CommitHash'] = $this->commitHash;
         }
 
         if (null !== $this->isDirty) {
@@ -92,6 +102,10 @@ class module extends Model
         $model = new self();
         if (isset($map['ActiveLogicalNumber'])) {
             $model->activeLogicalNumber = $map['ActiveLogicalNumber'];
+        }
+
+        if (isset($map['CommitHash'])) {
+            $model->commitHash = $map['CommitHash'];
         }
 
         if (isset($map['IsDirty'])) {

@@ -46,12 +46,22 @@ class ListAppPublishHistoryRequest extends Model
     /**
      * @var string
      */
+    public $publishEnv;
+
+    /**
+     * @var string
+     */
     public $sort;
 
     /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $subchannel;
 
     /**
      * @var string
@@ -65,8 +75,10 @@ class ListAppPublishHistoryRequest extends Model
         'nextToken' => 'NextToken',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
+        'publishEnv' => 'PublishEnv',
         'sort' => 'Sort',
         'status' => 'Status',
+        'subchannel' => 'Subchannel',
         'websiteDomain' => 'WebsiteDomain',
     ];
 
@@ -106,12 +118,20 @@ class ListAppPublishHistoryRequest extends Model
             $res['PageSize'] = $this->pageSize;
         }
 
+        if (null !== $this->publishEnv) {
+            $res['PublishEnv'] = $this->publishEnv;
+        }
+
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
         }
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->subchannel) {
+            $res['Subchannel'] = $this->subchannel;
         }
 
         if (null !== $this->websiteDomain) {
@@ -157,12 +177,20 @@ class ListAppPublishHistoryRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
 
+        if (isset($map['PublishEnv'])) {
+            $model->publishEnv = $map['PublishEnv'];
+        }
+
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
         }
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Subchannel'])) {
+            $model->subchannel = $map['Subchannel'];
         }
 
         if (isset($map['WebsiteDomain'])) {
