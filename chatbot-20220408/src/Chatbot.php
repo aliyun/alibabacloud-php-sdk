@@ -256,7 +256,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Apply for Streaming Gateway AccessToken.
+     * Obtain the Connection information for stream invocation.
      *
      * @param request - ApplyForStreamAccessTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -295,7 +295,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Apply for Streaming Gateway AccessToken.
+     * Obtain the Connection information for stream invocation.
      *
      * @param request - ApplyForStreamAccessTokenRequest
      *
@@ -313,7 +313,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 会话-联想API.
+     * Suggests FAQs from the knowledge base based on a user\\"s utterance.
      *
      * @param tmpReq - AssociateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -378,7 +378,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 会话-联想API.
+     * Suggests FAQs from the knowledge base based on a user\\"s utterance.
      *
      * @param request - AssociateRequest
      *
@@ -396,7 +396,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取欢迎语.
+     * Initiates a session and retrieves a welcome message.
      *
      * @param request - BeginSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -453,7 +453,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取欢迎语.
+     * Initiates a session and retrieves a welcome message.
      *
      * @param request - BeginSessionRequest
      *
@@ -471,7 +471,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 取消对应对话.
+     * Cancels or interrupts an ongoing chat.
+     *
+     * @remarks
+     * This operation supports only the new version of chatbots. You can query data only from the last 90 days.
      *
      * @param request - CancelChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -530,7 +533,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 取消对应对话.
+     * Cancels or interrupts an ongoing chat.
+     *
+     * @remarks
+     * This operation supports only the new version of chatbots. You can query data only from the last 90 days.
      *
      * @param request - CancelChatRequest
      *
@@ -548,7 +554,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 取消机器人发布.
+     * Cancels a publishing task for a chatbot.
      *
      * @param request - CancelInstancePublishTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -595,7 +601,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 取消机器人发布.
+     * Cancels a publishing task for a chatbot.
      *
      * @param request - CancelInstancePublishTaskRequest
      *
@@ -613,7 +619,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Cancel Publishing Task.
+     * Cancels a publish task that is in progress.
      *
      * @param request - CancelPublishTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -656,7 +662,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Cancel Publishing Task.
+     * Cancels a publish task that is in progress.
      *
      * @param request - CancelPublishTaskRequest
      *
@@ -674,7 +680,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 会话API.
+     * Starts a conversation with a bot by specifying its Bot ID. This applies only to Chatbot (Legacy).
      *
      * @param tmpReq - ChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -759,7 +765,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 会话API.
+     * Starts a conversation with a bot by specifying its Bot ID. This applies only to Chatbot (Legacy).
      *
      * @param request - ChatRequest
      *
@@ -777,7 +783,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 继续机器人发布.
+     * Ignores an alarm and continues a chatbot publish task.
      *
      * @param request - ContinueInstancePublishTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -824,7 +830,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 继续机器人发布.
+     * Ignores an alarm and continues a chatbot publish task.
      *
      * @param request - ContinueInstancePublishTaskRequest
      *
@@ -842,7 +848,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create Category.
+     * Creates a category.
      *
      * @param request - CreateCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -899,7 +905,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create Category.
+     * Creates a category.
      *
      * @param request - CreateCategoryRequest
      *
@@ -917,7 +923,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create FAQ Connection Question.
+     * Creates a connected question for a knowledge item.
      *
      * @param request - CreateConnQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -966,7 +972,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create FAQ Connection Question.
+     * Creates a connected question for a knowledge item.
      *
      * @param request - CreateConnQuestionRequest
      *
@@ -984,7 +990,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-创建.
+     * Creates an `entity` and its metadata, such as the `entity name` and `entity type`.
      *
      * @param request - CreateDSEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1035,7 +1041,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-创建.
+     * Creates an `entity` and its metadata, such as the `entity name` and `entity type`.
      *
      * @param request - CreateDSEntityRequest
      *
@@ -1053,7 +1059,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体成员-创建.
+     * Adds an entity member to a specified entity. An entity member includes an entity value and a synonym list. All entity values and synonyms must be unique within the same entity.
      *
      * @param tmpReq - CreateDSEntityValueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1116,7 +1122,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体成员-创建.
+     * Adds an entity member to a specified entity. An entity member includes an entity value and a synonym list. All entity values and synonyms must be unique within the same entity.
      *
      * @param request - CreateDSEntityValueRequest
      *
@@ -1134,7 +1140,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create Document.
+     * Creates a document.
      *
      * @param tmpReq - CreateDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1223,7 +1229,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create Document.
+     * Creates a document.
      *
      * @param request - CreateDocRequest
      *
@@ -1241,7 +1247,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * New FAQ.
+     * Creates a knowledge item.
      *
      * @param tmpReq - CreateFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1316,7 +1322,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * New FAQ.
+     * Creates a knowledge item.
      *
      * @param request - CreateFaqRequest
      *
@@ -1334,7 +1340,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-创建.
+     * Creates a robot in the sandbox environment.
      *
      * @param request - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1389,7 +1395,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-创建.
+     * Creates a robot in the sandbox environment.
      *
      * @param request - CreateInstanceRequest
      *
@@ -1407,7 +1413,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 创建机器人发布任务
+     * Publishes a sandbox robot to the production environment.
      *
      * @param request - CreateInstancePublishTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1450,7 +1456,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 创建机器人发布任务
+     * Publishes a sandbox robot to the production environment.
      *
      * @param request - CreateInstancePublishTaskRequest
      *
@@ -1468,7 +1474,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-创建.
+     * Creates an intent. This operation defines an intent\\"s metadata, such as its name, alias, and associated slots. It does not include utterances or LGF.
      *
      * @param tmpReq - CreateIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1521,7 +1527,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-创建.
+     * Creates an intent. This operation defines an intent\\"s metadata, such as its name, alias, and associated slots. It does not include utterances or LGF.
      *
      * @param request - CreateIntentRequest
      *
@@ -1539,7 +1545,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-LGF-创建.
+     * Creates an advanced semantic configuration (LGF) for a specified intent.
      *
      * @param tmpReq - CreateLgfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1592,7 +1598,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-LGF-创建.
+     * Creates an advanced semantic configuration (LGF) for a specified intent.
      *
      * @param request - CreateLgfRequest
      *
@@ -1610,7 +1616,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-创建.
+     * Creates a perspective.
      *
      * @param request - CreatePerspectiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1657,7 +1663,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-创建.
+     * Creates a perspective.
      *
      * @param request - CreatePerspectiveRequest
      *
@@ -1675,7 +1681,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create Publishing Task.
+     * Creates a publish task in the publishing center.
      *
      * @param tmpReq - CreatePublishTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1728,7 +1734,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create Publishing Task.
+     * Creates a publish task in the publishing center.
      *
      * @param request - CreatePublishTaskRequest
      *
@@ -1746,7 +1752,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create FAQ Similar Question.
+     * Creates a similar question.
      *
      * @param request - CreateSimQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1795,7 +1801,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create FAQ Similar Question.
+     * Creates a similar question.
      *
      * @param request - CreateSimQuestionRequest
      *
@@ -1813,7 +1819,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create New FAQ Answer.
+     * Creates a knowledge answer.
      *
      * @param tmpReq - CreateSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1880,7 +1886,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Create New FAQ Answer.
+     * Creates a knowledge answer.
      *
      * @param request - CreateSolutionRequest
      *
@@ -2036,7 +2042,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-话术-创建.
+     * Adds a user say to a specified intent.
      *
      * @param tmpReq - CreateUserSayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2089,7 +2095,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-话术-创建.
+     * Adds a user say to a specified intent.
      *
      * @param request - CreateUserSayRequest
      *
@@ -2107,7 +2113,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete Category.
+     * Deletes a category. A published category is marked as deleted and unpublished, while an unpublished category is deleted permanently.
      *
      * @param request - DeleteCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2152,7 +2158,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete Category.
+     * Deletes a category. A published category is marked as deleted and unpublished, while an unpublished category is deleted permanently.
      *
      * @param request - DeleteCategoryRequest
      *
@@ -2170,7 +2176,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete FAQ Connection Question.
+     * Deletes a knowledge association.
      *
      * @param request - DeleteConnQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2215,7 +2221,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete FAQ Connection Question.
+     * Deletes a knowledge association.
      *
      * @param request - DeleteConnQuestionRequest
      *
@@ -2233,7 +2239,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-删除.
+     * Deletes an entity. This operation also cascade-deletes all associated entity members, synonyms, and regular expressions.
      *
      * @param request - DeleteDSEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2280,7 +2286,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-删除.
+     * Deletes an entity. This operation also cascade-deletes all associated entity members, synonyms, and regular expressions.
      *
      * @param request - DeleteDSEntityRequest
      *
@@ -2298,7 +2304,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体成员-删除.
+     * Deletes a specific entity value from an entity. If the entity is a standard entity, its synonyms (if any) are also deleted.
      *
      * @param request - DeleteDSEntityValueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2349,7 +2355,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体成员-删除.
+     * Deletes a specific entity value from an entity. If the entity is a standard entity, its synonyms (if any) are also deleted.
      *
      * @param request - DeleteDSEntityValueRequest
      *
@@ -2367,7 +2373,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Deletion.
+     * Deletes a document.
      *
      * @param request - DeleteDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2410,7 +2416,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Deletion.
+     * Deletes a document.
      *
      * @param request - DeleteDocRequest
      *
@@ -2428,7 +2434,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
+     * Deletes a knowledge item.
      *
      * @param request - DeleteFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2473,7 +2479,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete FAQ. If it is published knowledge, after deletion, it becomes deleted but not published, and requires publishing to be truly deleted.
+     * Deletes a knowledge item.
      *
      * @param request - DeleteFaqRequest
      *
@@ -2491,7 +2497,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-删除.
+     * Deletes an instance from the sandbox and online environments.
      *
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2534,7 +2540,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-删除.
+     * Deletes an instance from the sandbox and online environments.
      *
      * @param request - DeleteInstanceRequest
      *
@@ -2552,7 +2558,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-删除.
+     * Deletes a specified intent and its associated user utterances and advanced semantic configurations (LGF).
      *
      * @param request - DeleteIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2599,7 +2605,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-删除.
+     * Deletes a specified intent and its associated user utterances and advanced semantic configurations (LGF).
      *
      * @param request - DeleteIntentRequest
      *
@@ -2617,7 +2623,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-LGF-删除.
+     * Deletes the specified LGF configuration.
      *
      * @param request - DeleteLgfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2668,7 +2674,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-LGF-删除.
+     * Deletes the specified LGF configuration.
      *
      * @param request - DeleteLgfRequest
      *
@@ -2686,7 +2692,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-删除.
+     * Deletes a perspective.
      *
      * @param request - DeletePerspectiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2729,7 +2735,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-删除.
+     * Deletes a perspective.
      *
      * @param request - DeletePerspectiveRequest
      *
@@ -2747,7 +2753,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete FAQ Similar Question.
+     * Deletes a similar question.
      *
      * @param request - DeleteSimQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2792,7 +2798,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete FAQ Similar Question.
+     * Deletes a similar question.
      *
      * @param request - DeleteSimQuestionRequest
      *
@@ -2810,7 +2816,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete FAQ Solution.
+     * Deletes the specified solution.
      *
      * @param request - DeleteSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2855,7 +2861,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Delete FAQ Solution.
+     * Deletes the specified solution.
      *
      * @param request - DeleteSolutionRequest
      *
@@ -3011,7 +3017,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-用户话术-删除.
+     * Deletes a user say from a specified intent.
      *
      * @param request - DeleteUserSayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3062,7 +3068,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-用户话术-删除.
+     * Deletes a user say from a specified intent.
      *
      * @param request - DeleteUserSayRequest
      *
@@ -3080,7 +3086,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * View Single Category Information.
+     * Gets information about a specific category.
      *
      * @param request - DescribeCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3125,7 +3131,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * View Single Category Information.
+     * Gets information about a specific category.
      *
      * @param request - DescribeCategoryRequest
      *
@@ -3143,7 +3149,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-详情.
+     * Retrieves metadata for a specified entity associated with a robot, such as the entity type, entity name, creation time, and modification time.
      *
      * @param request - DescribeDSEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3190,7 +3196,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-详情.
+     * Retrieves metadata for a specified entity associated with a robot, such as the entity type, entity name, creation time, and modification time.
      *
      * @param request - DescribeDSEntityRequest
      *
@@ -3208,7 +3214,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Details.
+     * Document details.
      *
      * @param request - DescribeDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3255,7 +3261,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Details.
+     * Document details.
      *
      * @param request - DescribeDocRequest
      *
@@ -3273,7 +3279,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Knowledge Details.
+     * Retrieves knowledge details.
      *
      * @param request - DescribeFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3318,7 +3324,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Knowledge Details.
+     * Retrieves knowledge details.
      *
      * @param request - DescribeFaqRequest
      *
@@ -3336,7 +3342,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-详情.
+     * Queries the details of a robot.
      *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3379,7 +3385,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-详情.
+     * Queries the details of a robot.
      *
      * @param request - DescribeInstanceRequest
      *
@@ -3397,7 +3403,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-详情.
+     * Returns metadata for a specified intent, including its type, name, creation time, and modification time.
      *
      * @param request - DescribeIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3446,7 +3452,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-详情.
+     * Returns metadata for a specified intent, including its type, name, creation time, and modification time.
      *
      * @param request - DescribeIntentRequest
      *
@@ -3464,7 +3470,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-详情.
+     * Retrieves the details of a specified perspective.
      *
      * @param request - DescribePerspectiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3507,7 +3513,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-详情.
+     * Retrieves the details of a specified perspective.
      *
      * @param request - DescribePerspectiveRequest
      *
@@ -3663,7 +3669,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 问答点赞、点踩API.
+     * Saves user feedback on chatbot responses.
      *
      * @param request - FeedbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3722,7 +3728,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 问答点赞、点踩API.
+     * Saves user feedback on chatbot responses.
      *
      * @param request - FeedbackRequest
      *
@@ -3740,7 +3746,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 生成用户免登Token.
+     * Generates a user access token to enable single sign-on for a chat window. The token associates the user with their corporate identity.
+     *
+     * @remarks
+     * For security, each generated token is single-use and must be used before it expires. If a user signs in from multiple browsers, you must call this operation for each session to get a unique token.
      *
      * @param request - GenerateUserAccessTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3805,7 +3814,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 生成用户免登Token.
+     * Generates a user access token to enable single sign-on for a chat window. The token associates the user with their corporate identity.
+     *
+     * @remarks
+     * For security, each generated token is single-use and must be used before it expires. If a user signs in from multiple browsers, you must call this operation for each session to get a unique token.
      *
      * @param request - GenerateUserAccessTokenRequest
      *
@@ -3823,7 +3835,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取业务空间信息.
+     * Retrieves details for a specified agent.
      *
      * @param request - GetAgentInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3862,7 +3874,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取业务空间信息.
+     * Retrieves details for a specified agent.
      *
      * @param request - GetAgentInfoRequest
      *
@@ -3880,7 +3892,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取异步函数执行结果接口.
+     * Retrieves the execution result of an asynchronous service. This API is used in conjunction with the Chat API.
+     *
+     * @remarks
+     * Retrieves the execution result of an asynchronous service.
      *
      * @param request - GetAsyncResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3923,7 +3938,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取异步函数执行结果接口.
+     * Retrieves the execution result of an asynchronous service. This API is used in conjunction with the Chat API.
+     *
+     * @remarks
+     * Retrieves the execution result of an asynchronous service.
      *
      * @param request - GetAsyncResultRequest
      *
@@ -3941,7 +3959,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询机器人接待人次和对话轮次
+     * Retrieves overview metrics for a bot.
+     *
+     * @remarks
+     * This operation retrieves data for the previous day (T-1) only. Data for the current day is not available.
      *
      * @param request - GetBotSessionDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3992,7 +4013,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询机器人接待人次和对话轮次
+     * Retrieves overview metrics for a bot.
+     *
+     * @remarks
+     * This operation retrieves data for the previous day (T-1) only. Data for the current day is not available.
      *
      * @param request - GetBotSessionDataRequest
      *
@@ -4010,7 +4034,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询机器人发布进度.
+     * Checks the status of a bot publishing task.
      *
      * @param request - GetInstancePublishTaskStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4057,7 +4081,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询机器人发布进度.
+     * Checks the status of a bot publishing task.
      *
      * @param request - GetInstancePublishTaskStateRequest
      *
@@ -4075,7 +4099,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Query Publishing Progress.
+     * Gets the progress of a publish task.
      *
      * @param request - GetPublishTaskStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4118,7 +4142,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Query Publishing Progress.
+     * Gets the progress of a publish task.
      *
      * @param request - GetPublishTaskStateRequest
      *
@@ -4136,7 +4160,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 初始化im连接信息.
+     * Initializes the Instant Messaging (IM) connection using the `From` value configured in the channel console. This operation lets you pass a user authentication token during initialization.
      *
      * @param request - InitIMConnectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4185,7 +4209,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 初始化im连接信息.
+     * Initializes the Instant Messaging (IM) connection using the `From` value configured in the channel console. This operation lets you pass a user authentication token during initialization.
      *
      * @param request - InitIMConnectRequest
      *
@@ -4203,7 +4227,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-绑定类目.
+     * Links knowledge categories to a chatbot.
      *
      * @param request - LinkInstanceCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4256,7 +4280,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-绑定类目.
+     * Links knowledge categories to a chatbot.
      *
      * @param request - LinkInstanceCategoryRequest
      *
@@ -4274,7 +4298,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取业务空间列表.
+     * Lists the business spaces for your Alibaba Cloud account.
      *
      * @param request - ListAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4325,7 +4349,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取业务空间列表.
+     * Lists the business spaces for your Alibaba Cloud account.
      *
      * @param request - ListAgentRequest
      *
@@ -4343,7 +4367,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Category List.
+     * Lists categories.
      *
      * @param request - ListCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4392,7 +4416,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Category List.
+     * Lists categories.
      *
      * @param request - ListCategoryRequest
      *
@@ -4410,7 +4434,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Query FAQ Connection Questions List.
+     * Lists the connected questions for a knowledge item.
      *
      * @param request - ListConnQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4455,7 +4479,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Query FAQ Connection Questions List.
+     * Lists the connected questions for a knowledge item.
      *
      * @param request - ListConnQuestionRequest
      *
@@ -4473,7 +4497,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-列表.
+     * Lists the entities for a specified robot. This operation returns only entity metadata, such as the entity type, name, creation time, and update time.
      *
      * @param request - ListDSEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4532,7 +4556,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-列表.
+     * Lists the entities for a specified robot. This operation returns only entity metadata, such as the entity type, name, creation time, and update time.
      *
      * @param request - ListDSEntityRequest
      *
@@ -4550,7 +4574,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体成员-列表.
+     * Retrieves the list of entity values for a specified entity. You can filter by keyword using a `contains` match. The search covers both entity values and their synonyms.
      *
      * @param request - ListDSEntityValueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4615,7 +4639,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体成员-列表.
+     * Retrieves the list of entity values for a specified entity. You can filter by keyword using a `contains` match. The search covers both entity values and their synonyms.
      *
      * @param request - ListDSEntityValueRequest
      *
@@ -4633,7 +4657,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-修改.
+     * Queries a list of instances.
      *
      * @param request - ListInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4692,7 +4716,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-修改.
+     * Queries a list of instances.
      *
      * @param request - ListInstanceRequest
      *
@@ -4710,7 +4734,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-列表.
+     * Retrieves metadata for all intents in a specified bot, including the intent type, intent name, creation time, and modification time.
      *
      * @param request - ListIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4765,7 +4789,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-列表.
+     * Retrieves metadata for all intents in a specified bot, including the intent type, intent name, creation time, and modification time.
      *
      * @param request - ListIntentRequest
      *
@@ -4783,7 +4807,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-LGF-列表.
+     * Queries the advanced semantic configurations (LGF) for a specified intent.
      *
      * @param request - ListLgfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4842,7 +4866,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-LGF-列表.
+     * Queries the advanced semantic configurations (LGF) for a specified intent.
      *
      * @param request - ListLgfRequest
      *
@@ -4860,7 +4884,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取业务空间下可集成的SaaS信息列表.
+     * Lists SaaS integration information.
      *
      * @param request - ListSaasInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4907,7 +4931,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取业务空间下可集成的SaaS信息列表.
+     * Lists SaaS integration information.
      *
      * @param request - ListSaasInfoRequest
      *
@@ -4925,7 +4949,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取业务空间下可集成的权限组信息.
+     * Lists the permission groups for integrated SaaS applications. Use these groups to grant permissions to users.
      *
      * @param request - ListSaasPermissionGroupInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4964,7 +4988,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 获取业务空间下可集成的权限组信息.
+     * Lists the permission groups for integrated SaaS applications. Use these groups to grant permissions to users.
      *
      * @param request - ListSaasPermissionGroupInfosRequest
      *
@@ -4982,7 +5006,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * FAQ Similar Questions List.
+     * Queries the list of similar questions for a knowledge entry.
      *
      * @param request - ListSimQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5027,7 +5051,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * FAQ Similar Questions List.
+     * Queries the list of similar questions for a knowledge entry.
      *
      * @param request - ListSimQuestionRequest
      *
@@ -5045,7 +5069,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * FAQ Solution List.
+     * Lists the solutions for a knowledge entry.
      *
      * @param request - ListSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5090,7 +5114,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * FAQ Solution List.
+     * Lists the solutions for a knowledge entry.
      *
      * @param request - ListSolutionRequest
      *
@@ -5262,7 +5286,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Tongyi对话明细查询接口.
+     * Retrieves chat history details.
      *
      * @param request - ListTongyiChatHistorysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5317,7 +5341,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Tongyi对话明细查询接口.
+     * Retrieves chat history details.
      *
      * @param request - ListTongyiChatHistorysRequest
      *
@@ -5335,7 +5359,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询通义晓蜜的单个会话对话记录.
+     * Retrieves the conversation logs for a single session of a Tongyi chatbot.
+     *
+     * @remarks
+     * This operation retrieves conversation logs generated within the past two hours.
      *
      * @param request - ListTongyiConversationLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5382,7 +5409,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 查询通义晓蜜的单个会话对话记录.
+     * Retrieves the conversation logs for a single session of a Tongyi chatbot.
+     *
+     * @remarks
+     * This operation retrieves conversation logs generated within the past two hours.
      *
      * @param request - ListTongyiConversationLogsRequest
      *
@@ -5400,7 +5430,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 话术-列表.
+     * Queries the user says and their associated slot information for a specified intent. You can filter the results by keywords.
      *
      * @param request - ListUserSayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5459,7 +5489,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 话术-列表.
+     * Queries the user says and their associated slot information for a specified intent. You can filter the results by keywords.
      *
      * @param request - ListUserSayRequest
      *
@@ -5477,7 +5507,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 统一NLU接口.
+     * Returns the natural language understanding (NLU) results for a user query. Currently, this feature only supports NLU from Conversation Factory and Central Control. Support for other engines will be added as needed.
      *
      * @param request - NluRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5524,7 +5554,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 统一NLU接口.
+     * Returns the natural language understanding (NLU) results for a user query. Currently, this feature only supports NLU from Conversation Factory and Central Control. Support for other engines will be added as needed.
      *
      * @param request - NluRequest
      *
@@ -5542,7 +5572,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-列表.
+     * Queries a list of perspectives.
      *
      * @param request - QueryPerspectivesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5581,7 +5611,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-列表.
+     * Queries a list of perspectives.
      *
      * @param request - QueryPerspectivesRequest
      *
@@ -5599,7 +5629,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Retry.
+     * Retries a document processing task.
      *
      * @param request - RetryDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5642,7 +5672,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Retry.
+     * Retries a document processing task.
      *
      * @param request - RetryDocRequest
      *
@@ -5660,7 +5690,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Search.
+     * Search the documentation.
      *
      * @param tmpReq - SearchDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5781,7 +5811,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Search.
+     * Search the documentation.
      *
      * @param request - SearchDocRequest
      *
@@ -5799,7 +5829,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Knowledge Search.
+     * Search the knowledge base.
      *
      * @param tmpReq - SearchFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5910,7 +5940,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Knowledge Search.
+     * Search the knowledge base.
      *
      * @param request - SearchFaqRequest
      *
@@ -5928,7 +5958,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 大模型问答调试信息.
+     * This operation returns debugging information for the large language model (LLM) Q&A process.
+     *
+     * @remarks
+     * This operation supports only the latest version of chatbots and can query data from only the last 90 days.
      *
      * @param request - TongyiChatDebugInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5975,7 +6008,10 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 大模型问答调试信息.
+     * This operation returns debugging information for the large language model (LLM) Q&A process.
+     *
+     * @remarks
+     * This operation supports only the latest version of chatbots and can query data from only the last 90 days.
      *
      * @param request - TongyiChatDebugInfoRequest
      *
@@ -5993,7 +6029,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Edit Category.
+     * Updates a category.
      *
      * @param request - UpdateCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6046,7 +6082,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Edit Category.
+     * Updates a category.
      *
      * @param request - UpdateCategoryRequest
      *
@@ -6064,7 +6100,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Update FAQ Connection Question.
+     * Updates a connection.
      *
      * @param request - UpdateConnQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6113,7 +6149,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Update FAQ Connection Question.
+     * Updates a connection.
      *
      * @param request - UpdateConnQuestionRequest
      *
@@ -6131,7 +6167,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-更新.
+     * Updates the metadata of an entity. You can modify the entity name, but not the entity type.
      *
      * @param request - UpdateDSEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6186,7 +6222,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体-更新.
+     * Updates the metadata of an entity. You can modify the entity name, but not the entity type.
      *
      * @param request - UpdateDSEntityRequest
      *
@@ -6204,7 +6240,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体成员-更新.
+     * Modifies an entity value. This applies to entity values that use synonyms or regular expressions. Note: You cannot add a regular expression to a standard entity, and vice versa.
      *
      * @param tmpReq - UpdateDSEntityValueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6271,7 +6307,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 实体成员-更新.
+     * Modifies an entity value. This applies to entity values that use synonyms or regular expressions. Note: You cannot add a regular expression to a standard entity, and vice versa.
      *
      * @param request - UpdateDSEntityValueRequest
      *
@@ -6289,7 +6325,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Update.
+     * Updates a document.
      *
      * @param tmpReq - UpdateDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6382,7 +6418,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Document Update.
+     * Updates a document.
      *
      * @param request - UpdateDocRequest
      *
@@ -6400,7 +6436,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Update FAQ.
+     * Updates an existing knowledge entry.
      *
      * @param tmpReq - UpdateFaqRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6471,7 +6507,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Update FAQ.
+     * Updates an existing knowledge entry.
      *
      * @param request - UpdateFaqRequest
      *
@@ -6489,7 +6525,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-修改.
+     * Updates a chatbot\\"s name and description.
      *
      * @param request - UpdateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6540,7 +6576,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 机器人-修改.
+     * Updates a chatbot\\"s name and description.
      *
      * @param request - UpdateInstanceRequest
      *
@@ -6558,7 +6594,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-更新.
+     * Updates the metadata of a specified intent, including the intent name, alias name, and associated slots. This operation does not modify the intent\\"s utterances or LGF.
      *
      * @param tmpReq - UpdateIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6615,7 +6651,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-更新.
+     * Updates the metadata of a specified intent, including the intent name, alias name, and associated slots. This operation does not modify the intent\\"s utterances or LGF.
      *
      * @param request - UpdateIntentRequest
      *
@@ -6633,7 +6669,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-LGF-更新.
+     * Updates the advanced semantic feature (LGF) for a specified intent.
      *
      * @param tmpReq - UpdateLgfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6690,7 +6726,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-LGF-更新.
+     * Updates the advanced semantic feature (LGF) for a specified intent.
      *
      * @param request - UpdateLgfRequest
      *
@@ -6708,7 +6744,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-修改.
+     * Updates a perspective\\"s name and description.
      *
      * @param request - UpdatePerspectiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6755,7 +6791,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 视角-修改.
+     * Updates a perspective\\"s name and description.
      *
      * @param request - UpdatePerspectiveRequest
      *
@@ -6773,7 +6809,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Update FAQ Similar Questions.
+     * Updates a similar question.
      *
      * @param request - UpdateSimQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6822,7 +6858,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Update FAQ Similar Questions.
+     * Updates a similar question.
      *
      * @param request - UpdateSimQuestionRequest
      *
@@ -6840,7 +6876,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Update FAQ Answer.
+     * Updates a solution.
      *
      * @param tmpReq - UpdateSolutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6907,7 +6943,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * Update FAQ Answer.
+     * Updates a solution.
      *
      * @param request - UpdateSolutionRequest
      *
@@ -7071,7 +7107,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-话术-更新.
+     * Modifies an existing user say.
      *
      * @param tmpReq - UpdateUserSayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7128,7 +7164,7 @@ class Chatbot extends OpenApiClient
     }
 
     /**
-     * 意图-话术-更新.
+     * Modifies an existing user say.
      *
      * @param request - UpdateUserSayRequest
      *

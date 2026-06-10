@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Chatbot\V20220408\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\TongyiChatDebugInfoResponseBody\answerInfo;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\TongyiChatDebugInfoResponseBody\pipeline;
 
 class TongyiChatDebugInfoResponseBody extends Model
 {
+    /**
+     * @var answerInfo
+     */
+    public $answerInfo;
+
     /**
      * @var string
      */
@@ -24,6 +30,7 @@ class TongyiChatDebugInfoResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'answerInfo' => 'AnswerInfo',
         'messageId' => 'MessageId',
         'pipeline' => 'Pipeline',
         'requestId' => 'RequestId',
@@ -31,6 +38,9 @@ class TongyiChatDebugInfoResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->answerInfo) {
+            $this->answerInfo->validate();
+        }
         if (\is_array($this->pipeline)) {
             Model::validateArray($this->pipeline);
         }
@@ -40,6 +50,10 @@ class TongyiChatDebugInfoResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->answerInfo) {
+            $res['AnswerInfo'] = null !== $this->answerInfo ? $this->answerInfo->toArray($noStream) : $this->answerInfo;
+        }
+
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
@@ -70,6 +84,10 @@ class TongyiChatDebugInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AnswerInfo'])) {
+            $model->answerInfo = answerInfo::fromMap($map['AnswerInfo']);
+        }
+
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
