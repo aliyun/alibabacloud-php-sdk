@@ -40,6 +40,8 @@ use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TermQueryShrinkRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateRequest;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateResponse;
 use AlibabaCloud\SDK\AnyTrans\V20250707\Models\TextTranslateShrinkRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\UsageQueryRequest;
+use AlibabaCloud\SDK\AnyTrans\V20250707\Models\UsageQueryResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -1168,5 +1170,74 @@ class AnyTrans extends OpenApiClient
         $headers = [];
 
         return $this->textTranslateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 通义多模态文档翻译查询Usage.
+     *
+     * @param request - UsageQueryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UsageQueryResponse
+     *
+     * @param UsageQueryRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UsageQueryResponse
+     */
+    public function usageQueryWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UsageQuery',
+            'version' => '2025-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/anytrans/translate/doc/usage/query',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UsageQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通义多模态文档翻译查询Usage.
+     *
+     * @param request - UsageQueryRequest
+     *
+     * @returns UsageQueryResponse
+     *
+     * @param UsageQueryRequest $request
+     *
+     * @return UsageQueryResponse
+     */
+    public function usageQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->usageQueryWithOptions($request, $headers, $runtime);
     }
 }
