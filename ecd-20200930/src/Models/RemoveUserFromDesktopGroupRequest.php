@@ -26,6 +26,11 @@ class RemoveUserFromDesktopGroupRequest extends Model
     /**
      * @var string
      */
+    public $orgId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -46,6 +51,7 @@ class RemoveUserFromDesktopGroupRequest extends Model
         'desktopGroupId' => 'DesktopGroupId',
         'desktopGroupIds' => 'DesktopGroupIds',
         'endUserIds' => 'EndUserIds',
+        'orgId' => 'OrgId',
         'regionId' => 'RegionId',
         'simpleUserGroupId' => 'SimpleUserGroupId',
         'userGroupName' => 'UserGroupName',
@@ -90,6 +96,10 @@ class RemoveUserFromDesktopGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
         }
 
         if (null !== $this->regionId) {
@@ -143,6 +153,10 @@ class RemoveUserFromDesktopGroupRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
         }
 
         if (isset($map['RegionId'])) {

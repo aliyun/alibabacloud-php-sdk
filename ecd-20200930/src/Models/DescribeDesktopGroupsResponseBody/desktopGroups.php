@@ -188,6 +188,11 @@ class desktopGroups extends Model
     /**
      * @var string
      */
+    public $orgId;
+
+    /**
+     * @var string
+     */
     public $osType;
 
     /**
@@ -345,6 +350,7 @@ class desktopGroups extends Model
         'officeSiteId' => 'OfficeSiteId',
         'officeSiteName' => 'OfficeSiteName',
         'officeSiteType' => 'OfficeSiteType',
+        'orgId' => 'OrgId',
         'osType' => 'OsType',
         'ownBundleId' => 'OwnBundleId',
         'ownBundleName' => 'OwnBundleName',
@@ -547,6 +553,10 @@ class desktopGroups extends Model
 
         if (null !== $this->officeSiteType) {
             $res['OfficeSiteType'] = $this->officeSiteType;
+        }
+
+        if (null !== $this->orgId) {
+            $res['OrgId'] = $this->orgId;
         }
 
         if (null !== $this->osType) {
@@ -833,6 +843,10 @@ class desktopGroups extends Model
 
         if (isset($map['OfficeSiteType'])) {
             $model->officeSiteType = $map['OfficeSiteType'];
+        }
+
+        if (isset($map['OrgId'])) {
+            $model->orgId = $map['OrgId'];
         }
 
         if (isset($map['OsType'])) {

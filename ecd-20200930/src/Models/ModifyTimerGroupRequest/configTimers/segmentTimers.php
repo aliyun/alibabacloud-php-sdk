@@ -34,6 +34,11 @@ class segmentTimers extends Model
     public $interval;
 
     /**
+     * @var string[]
+     */
+    public $ipSegments;
+
+    /**
      * @var int
      */
     public $lockScreenTime;
@@ -93,6 +98,7 @@ class segmentTimers extends Model
         'enforce' => 'Enforce',
         'imageId' => 'ImageId',
         'interval' => 'Interval',
+        'ipSegments' => 'IpSegments',
         'lockScreenTime' => 'LockScreenTime',
         'notificationTime' => 'NotificationTime',
         'operationType' => 'OperationType',
@@ -108,6 +114,9 @@ class segmentTimers extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipSegments)) {
+            Model::validateArray($this->ipSegments);
+        }
         if (\is_array($this->processWhitelist)) {
             Model::validateArray($this->processWhitelist);
         }
@@ -135,6 +144,17 @@ class segmentTimers extends Model
 
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+
+        if (null !== $this->ipSegments) {
+            if (\is_array($this->ipSegments)) {
+                $res['IpSegments'] = [];
+                $n1 = 0;
+                foreach ($this->ipSegments as $item1) {
+                    $res['IpSegments'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->lockScreenTime) {
@@ -217,6 +237,17 @@ class segmentTimers extends Model
 
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+
+        if (isset($map['IpSegments'])) {
+            if (!empty($map['IpSegments'])) {
+                $model->ipSegments = [];
+                $n1 = 0;
+                foreach ($map['IpSegments'] as $item1) {
+                    $model->ipSegments[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['LockScreenTime'])) {
