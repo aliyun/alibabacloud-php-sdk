@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ModelService\V20220614\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ModelService\V20220614\Models\GetUserResponseBody\apiKeys;
 
 class GetUserResponseBody extends Model
 {
@@ -14,7 +15,7 @@ class GetUserResponseBody extends Model
     public $anthropicHost;
 
     /**
-     * @var mixed
+     * @var apiKeys[]
      */
     public $apiKeys;
 
@@ -66,6 +67,9 @@ class GetUserResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->apiKeys)) {
+            Model::validateArray($this->apiKeys);
+        }
         parent::validate();
     }
 
@@ -77,7 +81,14 @@ class GetUserResponseBody extends Model
         }
 
         if (null !== $this->apiKeys) {
-            $res['ApiKeys'] = $this->apiKeys;
+            if (\is_array($this->apiKeys)) {
+                $res['ApiKeys'] = [];
+                $n1 = 0;
+                foreach ($this->apiKeys as $item1) {
+                    $res['ApiKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->appId) {
@@ -124,7 +135,14 @@ class GetUserResponseBody extends Model
         }
 
         if (isset($map['ApiKeys'])) {
-            $model->apiKeys = $map['ApiKeys'];
+            if (!empty($map['ApiKeys'])) {
+                $model->apiKeys = [];
+                $n1 = 0;
+                foreach ($map['ApiKeys'] as $item1) {
+                    $model->apiKeys[$n1] = apiKeys::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['AppId'])) {
