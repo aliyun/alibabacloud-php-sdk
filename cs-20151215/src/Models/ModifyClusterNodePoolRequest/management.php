@@ -15,6 +15,11 @@ class management extends Model
     /**
      * @var bool
      */
+    public $autoFaultDiagnosis;
+
+    /**
+     * @var bool
+     */
     public $autoRepair;
 
     /**
@@ -52,6 +57,7 @@ class management extends Model
      */
     public $upgradeConfig;
     protected $_name = [
+        'autoFaultDiagnosis' => 'auto_fault_diagnosis',
         'autoRepair' => 'auto_repair',
         'autoRepairPolicy' => 'auto_repair_policy',
         'autoUpgrade' => 'auto_upgrade',
@@ -82,6 +88,10 @@ class management extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoFaultDiagnosis) {
+            $res['auto_fault_diagnosis'] = $this->autoFaultDiagnosis;
+        }
+
         if (null !== $this->autoRepair) {
             $res['auto_repair'] = $this->autoRepair;
         }
@@ -125,6 +135,10 @@ class management extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['auto_fault_diagnosis'])) {
+            $model->autoFaultDiagnosis = $map['auto_fault_diagnosis'];
+        }
+
         if (isset($map['auto_repair'])) {
             $model->autoRepair = $map['auto_repair'];
         }
