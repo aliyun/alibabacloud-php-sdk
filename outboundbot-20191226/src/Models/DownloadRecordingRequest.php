@@ -19,12 +19,18 @@ class DownloadRecordingRequest extends Model
     public $needVoiceSliceRecording;
 
     /**
+     * @var bool
+     */
+    public $swapChannels;
+
+    /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'needVoiceSliceRecording' => 'NeedVoiceSliceRecording',
+        'swapChannels' => 'SwapChannels',
         'taskId' => 'TaskId',
     ];
 
@@ -42,6 +48,10 @@ class DownloadRecordingRequest extends Model
 
         if (null !== $this->needVoiceSliceRecording) {
             $res['NeedVoiceSliceRecording'] = $this->needVoiceSliceRecording;
+        }
+
+        if (null !== $this->swapChannels) {
+            $res['SwapChannels'] = $this->swapChannels;
         }
 
         if (null !== $this->taskId) {
@@ -65,6 +75,10 @@ class DownloadRecordingRequest extends Model
 
         if (isset($map['NeedVoiceSliceRecording'])) {
             $model->needVoiceSliceRecording = $map['NeedVoiceSliceRecording'];
+        }
+
+        if (isset($map['SwapChannels'])) {
+            $model->swapChannels = $map['SwapChannels'];
         }
 
         if (isset($map['TaskId'])) {

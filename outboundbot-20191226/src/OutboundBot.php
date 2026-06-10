@@ -380,7 +380,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建外呼任务
+     * Creates outbound call jobs in batches.
      *
      * @param request - AssignJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -447,7 +447,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建外呼任务
+     * Creates outbound call jobs in batches.
      *
      * @param request - AssignJobsRequest
      *
@@ -465,7 +465,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 异步创建外呼任务
+     * Asynchronously creates outbound jobs.
      *
      * @param tmpReq - AssignJobsAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -530,7 +530,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 异步创建外呼任务
+     * Asynchronously creates outbound jobs.
      *
      * @param request - AssignJobsAsyncRequest
      *
@@ -548,6 +548,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Cancels jobs that are pending or in progress. This operation cannot cancel jobs that are already in a call.
+     *
      * @param request - CancelJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -605,6 +607,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Cancels jobs that are pending or in progress. This operation cannot cancel jobs that are already in a call.
+     *
      * @param request - CancelJobsRequest
      *
      * @returns CancelJobsResponse
@@ -621,6 +625,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Changes the resource group of a resource.
+     *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -662,6 +668,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Changes the resource group of a resource.
+     *
      * @param request - ChangeResourceGroupRequest
      *
      * @returns ChangeResourceGroupResponse
@@ -678,6 +686,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can create an intelligent configuration.
+     *
      * @param request - CreateAgentProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -767,6 +777,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can create an intelligent configuration.
+     *
      * @param request - CreateAgentProfileRequest
      *
      * @returns CreateAgentProfileResponse
@@ -783,7 +795,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建标注任务
+     * Creates an annotation task.
      *
      * @param tmpReq - CreateAnnotationMissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -896,7 +908,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建标注任务
+     * Creates an annotation task.
      *
      * @param request - CreateAnnotationMissionRequest
      *
@@ -914,7 +926,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建任务
+     * Deprecated. Do not use this operation to batch-create outbound calling jobs.
      *
      * @param request - CreateBatchJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -985,7 +997,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建任务
+     * Deprecated. Do not use this operation to batch-create outbound calling jobs.
      *
      * @param request - CreateBatchJobsRequest
      *
@@ -1003,7 +1015,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CreateBatchRepeatJob.
+     * Copy an existing task group to reinitiate an outbound task.
      *
      * @param request - CreateBatchRepeatJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1094,7 +1106,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CreateBatchRepeatJob.
+     * Copy an existing task group to reinitiate an outbound task.
      *
      * @param request - CreateBatchRepeatJobRequest
      *
@@ -1112,7 +1124,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CreateBeebotIntent.
+     * Creates an intent for a small-model scenario.
      *
      * @param tmpReq - CreateBeebotIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1165,7 +1177,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CreateBeebotIntent.
+     * Creates an intent for a small-model scenario.
      *
      * @param request - CreateBeebotIntentRequest
      *
@@ -1183,7 +1195,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CreateBeebotIntentLgf.
+     * Creates a user utterance template for an intent in a small model scenario.
      *
      * @param tmpReq - CreateBeebotIntentLgfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1236,7 +1248,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CreateBeebotIntentLgf.
+     * Creates a user utterance template for an intent in a small model scenario.
      *
      * @param request - CreateBeebotIntentLgfRequest
      *
@@ -1254,7 +1266,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CreateBeebotIntentUserSay.
+     * Creates a user utterance for an intent in a small model scenario.
      *
      * @param tmpReq - CreateBeebotIntentUserSayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1307,7 +1319,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * CreateBeebotIntentUserSay.
+     * Creates a user utterance for an intent in a small model scenario.
      *
      * @param request - CreateBeebotIntentUserSayRequest
      *
@@ -1325,6 +1337,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * This legacy canvas API creates a dialogue flow.
+     *
      * @param request - CreateDialogueFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1374,6 +1388,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * This legacy canvas API creates a dialogue flow.
+     *
      * @param request - CreateDialogueFlowRequest
      *
      * @returns CreateDialogueFlowResponse
@@ -1390,6 +1406,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a URL for a Download Hub task.
+     *
      * @param request - CreateDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1423,6 +1441,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a URL for a Download Hub task.
+     *
      * @param request - CreateDownloadUrlRequest
      *
      * @returns CreateDownloadUrlResponse
@@ -1439,6 +1459,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a global question in a legacy canvas.
+     *
      * @param request - CreateGlobalQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1496,6 +1518,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a global question in a legacy canvas.
+     *
      * @param request - CreateGlobalQuestionRequest
      *
      * @returns CreateGlobalQuestionResponse
@@ -1512,6 +1536,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates an outbound call instance.
+     *
      * @param request - CreateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1569,6 +1595,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates an outbound call instance.
+     *
      * @param request - CreateInstanceRequest
      *
      * @returns CreateInstanceResponse
@@ -1585,7 +1613,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建实例绑定号码
+     * Binds a number to a business instance.
      *
      * @param request - CreateInstanceBindNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1628,7 +1656,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建实例绑定号码
+     * Binds a number to a business instance.
      *
      * @param request - CreateInstanceBindNumberRequest
      *
@@ -1646,6 +1674,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates an intent in a legacy canvas script.
+     *
      * @param request - CreateIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1703,6 +1733,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates an intent in a legacy canvas script.
+     *
      * @param request - CreateIntentRequest
      *
      * @returns CreateIntentResponse
@@ -1719,6 +1751,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a job data parsing task.
+     *
      * @param request - CreateJobDataParsingTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1760,6 +1794,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a job data parsing task.
+     *
      * @param request - CreateJobDataParsingTaskRequest
      *
      * @returns CreateJobDataParsingTaskResponse
@@ -1776,7 +1812,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建任务组.
+     * Create a job group.
      *
      * @param request - CreateJobGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1863,7 +1899,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建任务组.
+     * Create a job group.
      *
      * @param request - CreateJobGroupRequest
      *
@@ -1881,7 +1917,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建任务组到处任务
+     * Creates an export task for an outbound job group.
      *
      * @param request - CreateJobGroupExportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1928,7 +1964,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建任务组到处任务
+     * Creates an export task for an outbound job group.
      *
      * @param request - CreateJobGroupExportTaskRequest
      *
@@ -1946,7 +1982,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 新建场景.
+     * Create a scenario.
      *
      * @param request - CreateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2061,7 +2097,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 新建场景.
+     * Create a scenario.
      *
      * @param request - CreateScriptRequest
      *
@@ -2079,6 +2115,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a recording for the broadcast script.
+     *
+     * @remarks
+     *
      * @param request - CreateScriptWaveformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2132,6 +2172,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a recording for the broadcast script.
+     *
+     * @remarks
+     *
      * @param request - CreateScriptWaveformRequest
      *
      * @returns CreateScriptWaveformResponse
@@ -2148,6 +2192,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a tag for use in the legacy canvas.
+     *
      * @param request - CreateTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2197,6 +2243,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Creates a tag for use in the legacy canvas.
+     *
      * @param request - CreateTagRequest
      *
      * @returns CreateTagResponse
@@ -2213,7 +2261,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 外呼历史导出.
+     * Create an asynchronous task to export outbound call history.
      *
      * @param request - CreateTaskExportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2248,7 +2296,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 外呼历史导出.
+     * Create an asynchronous task to export outbound call history.
      *
      * @param request - CreateTaskExportTaskRequest
      *
@@ -2266,7 +2314,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建密钥.
+     * Creates a key.
      *
      * @param request - CreateTenantKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2298,7 +2346,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 创建密钥.
+     * Creates a key.
      *
      * @param request - CreateTenantKeyRequest
      *
@@ -2316,6 +2364,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes Large Language Model (LLM) agents.
+     *
      * @param tmpReq - DeleteAgentProfilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2363,6 +2413,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes Large Language Model (LLM) agents.
+     *
      * @param request - DeleteAgentProfilesRequest
      *
      * @returns DeleteAgentProfilesResponse
@@ -2379,7 +2431,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 清空归属地号码库.
+     * Deletes all entries from the number district database. This operation is deprecated.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2408,7 +2460,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 清空归属地号码库.
+     * Deletes all entries from the number district database. This operation is deprecated.
      *
      * @returns DeleteAllNumberDistrictInfoResponse
      *
@@ -2422,7 +2474,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DeleteBeebotIntent.
+     * Delete an intent in a small-model scenario.
      *
      * @param request - DeleteBeebotIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2469,7 +2521,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DeleteBeebotIntent.
+     * Delete an intent in a small-model scenario.
      *
      * @param request - DeleteBeebotIntentRequest
      *
@@ -2487,7 +2539,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DeleteBeebotIntentLgf.
+     * Deletes utterance templates for intents in small model scenarios.
      *
      * @param request - DeleteBeebotIntentLgfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2538,7 +2590,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DeleteBeebotIntentLgf.
+     * Deletes utterance templates for intents in small model scenarios.
      *
      * @param request - DeleteBeebotIntentLgfRequest
      *
@@ -2556,7 +2608,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DeleteBeebotIntentUserSay.
+     * Delete user queries for intents in the small-model scenario.
      *
      * @param request - DeleteBeebotIntentUserSayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2607,7 +2659,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DeleteBeebotIntentUserSay.
+     * Delete user queries for intents in the small-model scenario.
      *
      * @param request - DeleteBeebotIntentUserSayRequest
      *
@@ -2625,6 +2677,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can delete a do-not-call list.
+     *
      * @param request - DeleteContactBlockListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2670,6 +2724,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can delete a do-not-call list.
+     *
      * @param request - DeleteContactBlockListRequest
      *
      * @returns DeleteContactBlockListResponse
@@ -2686,6 +2742,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes the global outbound calling policy whitelist.
+     *
      * @param request - DeleteContactWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2731,6 +2789,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes the global outbound calling policy whitelist.
+     *
      * @param request - DeleteContactWhiteListRequest
      *
      * @returns DeleteContactWhiteListResponse
@@ -2747,6 +2807,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes a dialogue flow. This is a legacy canvas API.
+     *
      * @param request - DeleteDialogueFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2792,6 +2854,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes a dialogue flow. This is a legacy canvas API.
+     *
      * @param request - DeleteDialogueFlowRequest
      *
      * @returns DeleteDialogueFlowResponse
@@ -2808,6 +2872,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes a global question from a legacy canvas script.
+     *
      * @param request - DeleteGlobalQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2853,6 +2919,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes a global question from a legacy canvas script.
+     *
      * @param request - DeleteGlobalQuestionRequest
      *
      * @returns DeleteGlobalQuestionResponse
@@ -2869,6 +2937,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes an Intelligent Outbound Calling instance.
+     *
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2906,6 +2976,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes an Intelligent Outbound Calling instance.
+     *
      * @param request - DeleteInstanceRequest
      *
      * @returns DeleteInstanceResponse
@@ -2922,6 +2994,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes an intent. This is a legacy API.
+     *
      * @param request - DeleteIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2967,6 +3041,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes an intent. This is a legacy API.
+     *
      * @param request - DeleteIntentRequest
      *
      * @returns DeleteIntentResponse
@@ -2983,6 +3059,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes a job group.
+     *
      * @param request - DeleteJobGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3024,6 +3102,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes a job group.
+     *
      * @param request - DeleteJobGroupRequest
      *
      * @returns DeleteJobGroupResponse
@@ -3040,6 +3120,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes an outbound call number. This API is deprecated.
+     *
      * @param request - DeleteOutboundCallNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3081,6 +3163,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes an outbound call number. This API is deprecated.
+     *
      * @param request - DeleteOutboundCallNumberRequest
      *
      * @returns DeleteOutboundCallNumberResponse
@@ -3097,6 +3181,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes a specified script.
+     *
      * @param request - DeleteScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3138,6 +3224,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes a specified script.
+     *
      * @param request - DeleteScriptRequest
      *
      * @returns DeleteScriptResponse
@@ -3154,6 +3242,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes uploaded recordings for a small-model scenario.
+     *
      * @param request - DeleteScriptRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3199,6 +3289,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Deletes uploaded recordings for a small-model scenario.
+     *
      * @param request - DeleteScriptRecordingRequest
      *
      * @returns DeleteScriptRecordingResponse
@@ -3215,6 +3307,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Delete a script recording.
+     *
      * @param request - DeleteScriptWaveformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3260,6 +3354,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Delete a script recording.
+     *
      * @param request - DeleteScriptWaveformRequest
      *
      * @returns DeleteScriptWaveformResponse
@@ -3276,7 +3372,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeBeebotIntent.
+     * Retrieves the intent in the small model scenario.
      *
      * @remarks
      *
@@ -3325,7 +3421,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeBeebotIntent.
+     * Retrieves the intent in the small model scenario.
      *
      * @remarks
      *
@@ -3345,6 +3441,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves performance statistics for task labels.
+     *
      * @param request - DescribeDialogueNodeStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3390,6 +3488,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves performance statistics for task labels.
+     *
      * @param request - DescribeDialogueNodeStatisticsRequest
      *
      * @returns DescribeDialogueNodeStatisticsResponse
@@ -3406,7 +3506,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeDsReports.
+     * Describes DS reports.
      *
      * @param request - DescribeDsReportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3449,7 +3549,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeDsReports.
+     * Describes DS reports.
      *
      * @param request - DescribeDsReportsRequest
      *
@@ -3467,6 +3567,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a global question in a legacy canvas script.
+     *
+     * @remarks
+     *
      * @param request - DescribeGlobalQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3512,6 +3616,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a global question in a legacy canvas script.
+     *
+     * @remarks
+     *
      * @param request - DescribeGlobalQuestionRequest
      *
      * @returns DescribeGlobalQuestionResponse
@@ -3528,7 +3636,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 任务组数据统计
+     * Returns the execution status of tasks in a task group.
      *
      * @param request - DescribeGroupExecutingInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3571,7 +3679,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 任务组数据统计
+     * Returns the execution status of tasks in a task group.
      *
      * @param request - DescribeGroupExecutingInfoRequest
      *
@@ -3589,7 +3697,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeInstance.
+     * Queries the details of an Outbound Calling instance.
      *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3628,7 +3736,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeInstance.
+     * Queries the details of an Outbound Calling instance.
      *
      * @param request - DescribeInstanceRequest
      *
@@ -3646,6 +3754,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of an intent. This is a legacy Canvas API.
+     *
      * @param request - DescribeIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3691,6 +3801,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of an intent. This is a legacy Canvas API.
+     *
      * @param request - DescribeIntentRequest
      *
      * @returns DescribeIntentResponse
@@ -3707,7 +3819,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeIntentStatistics.
+     * Queries the performance statistics of intents for a task group.
      *
      * @param request - DescribeIntentStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3754,7 +3866,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeIntentStatistics.
+     * Queries the performance statistics of intents for a task group.
      *
      * @param request - DescribeIntentStatisticsRequest
      *
@@ -3772,7 +3884,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取job信息.
+     * Retrieves the conversation data for a specific job.
      *
      * @param request - DescribeJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3819,7 +3931,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取job信息.
+     * Retrieves the conversation data for a specific job.
      *
      * @param request - DescribeJobRequest
      *
@@ -3837,6 +3949,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieve the parsing progress of an uploaded job file.
+     *
      * @param request - DescribeJobDataParsingTaskProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3878,6 +3992,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieve the parsing progress of an uploaded job file.
+     *
      * @param request - DescribeJobDataParsingTaskProgressRequest
      *
      * @returns DescribeJobDataParsingTaskProgressResponse
@@ -3894,7 +4010,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeJobGroup.
+     * Retrieves data for intelligent outbound call job groups.
      *
      * @param request - DescribeJobGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3941,7 +4057,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DescribeJobGroup.
+     * Retrieves data for intelligent outbound call job groups.
      *
      * @param request - DescribeJobGroupRequest
      *
@@ -3959,6 +4075,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the progress of a task group export task. This operation is deprecated. Use ListDownloadTasks instead.
+     *
      * @param request - DescribeJobGroupExportTaskProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4000,6 +4118,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the progress of a task group export task. This operation is deprecated. Use ListDownloadTasks instead.
+     *
      * @param request - DescribeJobGroupExportTaskProgressRequest
      *
      * @returns DescribeJobGroupExportTaskProgressResponse
@@ -4016,7 +4136,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取场景信息.
+     * Returns information about a script.
      *
      * @param request - DescribeScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4059,7 +4179,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取场景信息.
+     * Returns information about a script.
      *
      * @param request - DescribeScriptRequest
      *
@@ -4077,6 +4197,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Describes the voice configuration of a script created in the legacy canvas.
+     *
      * @param request - DescribeScriptVoiceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4122,6 +4244,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Describes the voice configuration of a script created in the legacy canvas.
+     *
      * @param request - DescribeScriptVoiceConfigRequest
      *
      * @returns DescribeScriptVoiceConfigResponse
@@ -4138,6 +4262,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Query the text-to-speech (TTS) configuration information.
+     *
      * @param request - DescribeTTSConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4179,6 +4305,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Query the text-to-speech (TTS) configuration information.
+     *
      * @param request - DescribeTTSConfigRequest
      *
      * @returns DescribeTTSConfigResponse
@@ -4195,6 +4323,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Preview text-to-speech (TTS) audio.
+     *
      * @param request - DescribeTTSDemoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4280,6 +4410,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Preview text-to-speech (TTS) audio.
+     *
      * @param request - DescribeTTSDemoRequest
      *
      * @returns DescribeTTSDemoResponse
@@ -4296,6 +4428,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries statistics about tag hits. This is a legacy canvas API.
+     *
      * @param request - DescribeTagHitsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4337,6 +4471,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries statistics about tag hits. This is a legacy canvas API.
+     *
      * @param request - DescribeTagHitsSummaryRequest
      *
      * @returns DescribeTagHitsSummaryResponse
@@ -4353,7 +4489,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 号码绑定实例列表.
+     * Lists the instances to which a phone number is bound in a tenant.
      *
      * @param request - DescribeTenantBindNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4392,7 +4528,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 号码绑定实例列表.
+     * Lists the instances to which a phone number is bound in a tenant.
      *
      * @param request - DescribeTenantBindNumberRequest
      *
@@ -4410,6 +4546,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * This robot dialogue interface handles CC callback outbound calls. (Deprecated).
+     *
      * @param request - DialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4487,6 +4625,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * This robot dialogue interface handles CC callback outbound calls. (Deprecated).
+     *
      * @param request - DialogueRequest
      *
      * @returns DialogueResponse
@@ -4503,7 +4643,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DownloadRecording.
+     * Downloads a call recording.
      *
      * @param request - DownloadRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4525,6 +4665,10 @@ class OutboundBot extends OpenApiClient
 
         if (null !== $request->needVoiceSliceRecording) {
             @$query['NeedVoiceSliceRecording'] = $request->needVoiceSliceRecording;
+        }
+
+        if (null !== $request->swapChannels) {
+            @$query['SwapChannels'] = $request->swapChannels;
         }
 
         if (null !== $request->taskId) {
@@ -4550,7 +4694,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * DownloadRecording.
+     * Downloads a call recording.
      *
      * @param request - DownloadRecordingRequest
      *
@@ -4568,6 +4712,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Download script recordings by retrieving their URLs. This operation is intended for small model scenarios.
+     *
      * @param request - DownloadScriptRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4613,6 +4759,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Download script recordings by retrieving their URLs. This operation is intended for small model scenarios.
+     *
      * @param request - DownloadScriptRecordingRequest
      *
      * @returns DownloadScriptRecordingResponse
@@ -4629,6 +4777,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Duplicates an existing script. This operation applies only to the legacy canvas.
+     *
      * @param request - DuplicateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4674,6 +4824,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Duplicates an existing script. This operation applies only to the legacy canvas.
+     *
      * @param request - DuplicateScriptRequest
      *
      * @returns DuplicateScriptResponse
@@ -4690,6 +4842,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Exports a scenario.
+     *
      * @param request - ExportScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4731,6 +4885,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Exports a scenario.
+     *
      * @param request - ExportScriptRequest
      *
      * @returns ExportScriptResponse
@@ -4747,6 +4903,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Upload a hotword list file.
+     *
      * @param request - GenerateUploadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4788,6 +4946,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Upload a hotword list file.
+     *
      * @param request - GenerateUploadUrlRequest
      *
      * @returns GenerateUploadUrlResponse
@@ -4804,6 +4964,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieve the delay before audio playback begins after a call is answered.
+     *
      * @param request - GetAfterAnswerDelayPlaybackRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4845,6 +5007,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieve the delay before audio playback begins after a call is answered.
+     *
      * @param request - GetAfterAnswerDelayPlaybackRequest
      *
      * @returns GetAfterAnswerDelayPlaybackResponse
@@ -4861,6 +5025,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the configuration of an agent.
+     *
      * @param request - GetAgentProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4906,6 +5072,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the configuration of an agent.
+     *
      * @param request - GetAgentProfileRequest
      *
      * @returns GetAgentProfileResponse
@@ -4922,6 +5090,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves an agent profile template.
+     *
      * @param request - GetAgentProfileTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4963,6 +5133,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves an agent profile template.
+     *
      * @param request - GetAgentProfileTemplateRequest
      *
      * @returns GetAgentProfileTemplateResponse
@@ -4979,6 +5151,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * null.
+     *
      * @param request - GetAnnotationMissionSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5016,6 +5190,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * null.
+     *
      * @param request - GetAnnotationMissionSummaryRequest
      *
      * @returns GetAnnotationMissionSummaryResponse
@@ -5093,6 +5269,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves information such as the Automatic Speech Recognition (ASR) model list and hotword list. This operation is deprecated.
+     *
      * @param request - GetAsrServerInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5134,6 +5312,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves information such as the Automatic Speech Recognition (ASR) model list and hotword list. This operation is deprecated.
+     *
      * @param request - GetAsrServerInfoRequest
      *
      * @returns GetAsrServerInfoResponse
@@ -5150,7 +5330,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取异步外呼任务上传结果.
+     * Retrieves the result of an asynchronous outbound call task upload.
      *
      * @param request - GetAssignJobsAsyncResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5189,7 +5369,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取异步外呼任务上传结果.
+     * Retrieves the result of an asynchronous outbound call task upload.
      *
      * @param request - GetAssignJobsAsyncResultRequest
      *
@@ -5207,7 +5387,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取系统策略配置.
+     * Retrieve the global outbound time periods for the outbound calling system.
      *
      * @param request - GetBaseStrategyPeriodRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5250,7 +5430,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取系统策略配置.
+     * Retrieve the global outbound time periods for the outbound calling system.
      *
      * @param request - GetBaseStrategyPeriodRequest
      *
@@ -5268,6 +5448,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the remaining concurrency for the caller\\"s account.
+     *
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GetConcurrentConversationQuotaResponse
@@ -5295,6 +5477,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the remaining concurrency for the caller\\"s account.
+     *
      * @returns GetConcurrentConversationQuotaResponse
      *
      * @return GetConcurrentConversationQuotaResponse
@@ -5307,7 +5491,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetContactBlockList.
+     * Retrieves the list of contacts blocked for outbound calls.
      *
      * @param request - GetContactBlockListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5358,7 +5542,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetContactBlockList.
+     * Retrieves the list of contacts blocked for outbound calls.
      *
      * @param request - GetContactBlockListRequest
      *
@@ -5376,7 +5560,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetContactWhiteList.
+     * Retrieves the global outbound call policy whitelist.
      *
      * @param request - GetContactWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5427,7 +5611,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetContactWhiteList.
+     * Retrieves the global outbound call policy whitelist.
      *
      * @param request - GetContactWhiteListRequest
      *
@@ -5445,6 +5629,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the current concurrency of an instance.
+     *
      * @param request - GetCurrentConcurrencyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5482,6 +5668,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the current concurrency of an instance.
+     *
      * @param request - GetCurrentConcurrencyRequest
      *
      * @returns GetCurrentConcurrencyResponse
@@ -5498,7 +5686,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetEmptyNumberNoMoreCallsInfo.
+     * A query-based feature toggle that disables outbound calls to nonexistent numbers in the global dimension.
      *
      * @param request - GetEmptyNumberNoMoreCallsInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5541,7 +5729,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetEmptyNumberNoMoreCallsInfo.
+     * A query-based feature toggle that disables outbound calls to nonexistent numbers in the global dimension.
      *
      * @param request - GetEmptyNumberNoMoreCallsInfoRequest
      *
@@ -5559,7 +5747,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取上传信息.
+     * Retrieves the parameters for uploading job data.
      *
      * @param request - GetJobDataUploadParamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5614,7 +5802,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取上传信息.
+     * Retrieves the parameters for uploading job data.
      *
      * @param request - GetJobDataUploadParamsRequest
      *
@@ -5632,7 +5820,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetMaxAttemptsPerDay.
+     * Retrieves the maximum number of daily call attempts allowed for a specified called number.
      *
      * @param request - GetMaxAttemptsPerDayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5675,7 +5863,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetMaxAttemptsPerDay.
+     * Retrieves the maximum number of daily call attempts allowed for a specified called number.
      *
      * @param request - GetMaxAttemptsPerDayRequest
      *
@@ -5693,7 +5881,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取号码库模板下载链接.
+     * Retrieves the download URL for the number library template. This API is deprecated.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5722,7 +5910,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取号码库模板下载链接.
+     * Retrieves the download URL for the number library template. This API is deprecated.
      *
      * @returns GetNumberDistrictInfoTemplateDownloadUrlResponse
      *
@@ -5736,7 +5924,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取非对称加密算法公钥.
+     * Retrieves the public key for an asymmetric encryption algorithm.
      *
      * @param request - GetPublicKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5768,7 +5956,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取非对称加密算法公钥.
+     * Retrieves the public key for an asymmetric encryption algorithm.
      *
      * @param request - GetPublicKeyRequest
      *
@@ -5786,7 +5974,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetRealtimeConcurrencyReport.
+     * Queries the current concurrency list.
      *
      * @param request - GetRealtimeConcurrencyReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5821,7 +6009,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetRealtimeConcurrencyReport.
+     * Queries the current concurrency list.
      *
      * @param request - GetRealtimeConcurrencyReportRequest
      *
@@ -5839,7 +6027,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetSummaryInfo.
+     * Summary information for outbound call instances.
      *
      * @param request - GetSummaryInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5878,7 +6066,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetSummaryInfo.
+     * Summary information for outbound call instances.
      *
      * @param request - GetSummaryInfoRequest
      *
@@ -5896,7 +6084,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 根据TaskId获取Task信息.
+     * Retrieve a task by its UUID.
      *
      * @param request - GetTaskByUuidRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5931,7 +6119,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 根据TaskId获取Task信息.
+     * Retrieve a task by its UUID.
      *
      * @param request - GetTaskByUuidRequest
      *
@@ -5949,7 +6137,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetVersion.
+     * Retrieve the application version information.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5978,7 +6166,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * GetVersion.
+     * Retrieve the application version information.
      *
      * @returns GetVersionResponse
      *
@@ -5992,6 +6180,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Import a scenario.
+     *
      * @param request - ImportScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6037,6 +6227,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Import a scenario.
+     *
      * @param request - ImportScriptRequest
      *
      * @returns ImportScriptResponse
@@ -6118,6 +6310,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the publication history of an agent configuration in a Large Language Model (LLM) scenario.
+     *
      * @param request - ListAgentProfilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6163,6 +6357,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the publication history of an agent configuration in a Large Language Model (LLM) scenario.
+     *
      * @param request - ListAgentProfilesRequest
      *
      * @returns ListAgentProfilesResponse
@@ -6179,7 +6375,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 租户绑定号码列表.
+     * Lists the phone numbers bound to the tenant.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6208,7 +6404,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 租户绑定号码列表.
+     * Lists the phone numbers bound to the tenant.
      *
      * @returns ListAllTenantBindNumberBindingResponse
      *
@@ -6222,7 +6418,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 标注中心.
+     * Lists annotation missions.
      *
      * @param request - ListAnnotationMissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6293,7 +6489,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 标注中心.
+     * Lists annotation missions.
      *
      * @param request - ListAnnotationMissionRequest
      *
@@ -6388,6 +6584,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists API plugins.
+     *
      * @param request - ListApiPluginsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6437,6 +6635,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists API plugins.
+     *
      * @param request - ListApiPluginsRequest
      *
      * @returns ListApiPluginsResponse
@@ -6453,7 +6653,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListBeebotIntent.
+     * Lists intents for small-model scenarios.
      *
      * @param request - ListBeebotIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6508,7 +6708,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListBeebotIntent.
+     * Lists intents for small-model scenarios.
      *
      * @param request - ListBeebotIntentRequest
      *
@@ -6526,7 +6726,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListBeebotIntentLgf.
+     * Lists the utterance templates for a specified intent in a scenario.
      *
      * @param request - ListBeebotIntentLgfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6585,7 +6785,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListBeebotIntentLgf.
+     * Lists the utterance templates for a specified intent in a scenario.
      *
      * @param request - ListBeebotIntentLgfRequest
      *
@@ -6603,7 +6803,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListBeebotIntentUserSay.
+     * Lists user utterances for intents in small model scenarios.
      *
      * @param request - ListBeebotIntentUserSayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6662,7 +6862,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListBeebotIntentUserSay.
+     * Lists user utterances for intents in small model scenarios.
      *
      * @param request - ListBeebotIntentUserSayRequest
      *
@@ -6680,6 +6880,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+     *
      * @param request - ListChatbotInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6725,6 +6927,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+     *
      * @param request - ListChatbotInstancesRequest
      *
      * @returns ListChatbotInstancesResponse
@@ -6741,6 +6945,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the dialogue flows of a script in the legacy canvas.
+     *
      * @param request - ListDialogueFlowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6782,6 +6988,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the dialogue flows of a script in the legacy canvas.
+     *
      * @param request - ListDialogueFlowsRequest
      *
      * @returns ListDialogueFlowsResponse
@@ -6798,6 +7006,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the list of download tasks in Download Hub.
+     *
      * @param request - ListDownloadTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6831,6 +7041,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the list of download tasks in Download Hub.
+     *
      * @param request - ListDownloadTasksRequest
      *
      * @returns ListDownloadTasksResponse
@@ -6847,6 +7059,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can call the ListFlashSmsTemplates operation to query flash SMS templates.
+     *
      * @param request - ListFlashSmsTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6880,6 +7094,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can call the ListFlashSmsTemplates operation to query flash SMS templates.
+     *
      * @param request - ListFlashSmsTemplatesRequest
      *
      * @returns ListFlashSmsTemplatesResponse
@@ -6896,6 +7112,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the list of key questions. This is a legacy canvas interface.
+     *
      * @param request - ListGlobalQuestionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6945,6 +7163,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the list of key questions. This is a legacy canvas interface.
+     *
      * @param request - ListGlobalQuestionsRequest
      *
      * @returns ListGlobalQuestionsResponse
@@ -6961,6 +7181,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists Outbound Calling Bot service instances.
+     *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7014,6 +7236,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists Outbound Calling Bot service instances.
+     *
      * @param request - ListInstancesRequest
      *
      * @returns ListInstancesResponse
@@ -7030,7 +7254,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 意图列表.
+     * Query intent for the Annotation Center list.
      *
      * @param request - ListIntentionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7101,7 +7325,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 意图列表.
+     * Query intent for the Annotation Center list.
      *
      * @param request - ListIntentionsRequest
      *
@@ -7119,6 +7343,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves intents from the legacy canvas interface.
+     *
      * @param request - ListIntentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7172,6 +7398,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves intents from the legacy canvas interface.
+     *
      * @param request - ListIntentsRequest
      *
      * @returns ListIntentsResponse
@@ -7188,6 +7416,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of outbound call task groups.
+     *
      * @param request - ListJobGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7257,6 +7487,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of outbound call task groups.
+     *
      * @param request - ListJobGroupsRequest
      *
      * @returns ListJobGroupsResponse
@@ -7273,6 +7505,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+     *
      * @param request - ListJobGroupsAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7306,6 +7540,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+     *
      * @param request - ListJobGroupsAsyncRequest
      *
      * @returns ListJobGroupsAsyncResponse
@@ -7322,7 +7558,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListJobs.
+     * Query multiple jobs.
      *
      * @param request - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7365,7 +7601,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ListJobs.
+     * Query multiple jobs.
      *
      * @param request - ListJobsRequest
      *
@@ -7383,6 +7619,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists jobs by job group.
+     *
      * @param request - ListJobsByGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7440,6 +7678,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists jobs by job group.
+     *
      * @param request - ListJobsByGroupRequest
      *
      * @returns ListJobsByGroupResponse
@@ -7456,6 +7696,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * List outbound call numbers.
+     *
      * @param request - ListOutboundCallNumbersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7501,6 +7743,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * List outbound call numbers.
+     *
      * @param request - ListOutboundCallNumbersRequest
      *
      * @returns ListOutboundCallNumbersResponse
@@ -7517,6 +7761,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists tags for business resources.
+     *
      * @param request - ListResourceTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7562,6 +7808,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists tags for business resources.
+     *
      * @param request - ListResourceTagsRequest
      *
      * @returns ListResourceTagsResponse
@@ -7578,6 +7826,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the publication history of the small model for outbound calls.
+     *
      * @param request - ListScriptPublishHistoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7627,6 +7877,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Retrieves the publication history of the small model for outbound calls.
+     *
      * @param request - ListScriptPublishHistoriesRequest
      *
      * @returns ListScriptPublishHistoriesResponse
@@ -7643,6 +7895,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Query the list of recording files. Use this operation in small model scenarios.
+     *
      * @param request - ListScriptRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7708,6 +7962,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Query the list of recording files. Use this operation in small model scenarios.
+     *
      * @param request - ListScriptRecordingRequest
      *
      * @returns ListScriptRecordingResponse
@@ -7724,7 +7980,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取场景中当前使用的变量.
+     * Queries the variables used in a script.
      *
      * @param request - ListScriptVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7771,7 +8027,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取场景中当前使用的变量.
+     * Queries the variables used in a script.
      *
      * @param request - ListScriptVariablesRequest
      *
@@ -7789,6 +8045,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists the audio in a legacy canvas scene.
+     *
+     * @remarks
+     *
      * @param request - ListScriptVoiceConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7838,6 +8098,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Lists the audio in a legacy canvas scene.
+     *
+     * @remarks
+     *
      * @param request - ListScriptVoiceConfigsRequest
      *
      * @returns ListScriptVoiceConfigsResponse
@@ -7854,7 +8118,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * -.
+     * View the script list.
      *
      * @param request - ListScriptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7909,7 +8173,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * -.
+     * View the script list.
      *
      * @param request - ListScriptsRequest
      *
@@ -7927,6 +8191,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Query the tag relationships for resources.
+     *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7980,6 +8246,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Query the tag relationships for resources.
+     *
      * @param request - ListTagResourcesRequest
      *
      * @returns ListTagResourcesResponse
@@ -7996,6 +8264,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the tags of a script. This is a legacy canvas API.
+     *
      * @param request - ListTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8037,6 +8307,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries the tags of a script. This is a legacy canvas API.
+     *
      * @param request - ListTagsRequest
      *
      * @returns ListTagsResponse
@@ -8053,6 +8325,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modify the agent configuration.
+     *
      * @param tmpReq - ModifyAgentProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8144,6 +8418,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modify the agent configuration.
+     *
      * @param request - ModifyAgentProfileRequest
      *
      * @returns ModifyAgentProfileResponse
@@ -8160,6 +8436,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Updates the status and name of an annotation task.
+     *
      * @param request - ModifyAnnotationMissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8209,6 +8487,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Updates the status and name of an annotation task.
+     *
      * @param request - ModifyAnnotationMissionRequest
      *
      * @returns ModifyAnnotationMissionResponse
@@ -8225,6 +8505,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies batch jobs. This operation is deprecated.
+     *
      * @param request - ModifyBatchJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8298,6 +8580,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies batch jobs. This operation is deprecated.
+     *
      * @param request - ModifyBatchJobsRequest
      *
      * @returns ModifyBatchJobsResponse
@@ -8314,7 +8598,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ModifyBeebotIntent.
+     * Modify the intent for a small-model scenario.
      *
      * @param tmpReq - ModifyBeebotIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8371,7 +8655,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ModifyBeebotIntent.
+     * Modify the intent for a small-model scenario.
      *
      * @param request - ModifyBeebotIntentRequest
      *
@@ -8389,7 +8673,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ModifyBeebotIntentLgf.
+     * Modifies the intent utterance template for a small model scenario.
      *
      * @param tmpReq - ModifyBeebotIntentLgfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8446,7 +8730,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ModifyBeebotIntentLgf.
+     * Modifies the intent utterance template for a small model scenario.
      *
      * @param request - ModifyBeebotIntentLgfRequest
      *
@@ -8464,7 +8748,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ModifyBeebotIntentUserSay.
+     * Modifies a user utterance for an intent in a Beebot scenario.
      *
      * @param tmpReq - ModifyBeebotIntentUserSayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8521,7 +8805,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ModifyBeebotIntentUserSay.
+     * Modifies a user utterance for an intent in a Beebot scenario.
      *
      * @param request - ModifyBeebotIntentUserSayRequest
      *
@@ -8539,6 +8823,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies a dialogue flow. This is a legacy API for the canvas.
+     *
      * @param request - ModifyDialogueFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8592,6 +8878,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies a dialogue flow. This is a legacy API for the canvas.
+     *
      * @param request - ModifyDialogueFlowRequest
      *
      * @returns ModifyDialogueFlowResponse
@@ -8608,6 +8896,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Enables or disables the global no-call feature for nonexistent numbers.
+     *
      * @param request - ModifyEmptyNumberNoMoreCallsInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8653,6 +8943,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Enables or disables the global no-call feature for nonexistent numbers.
+     *
      * @param request - ModifyEmptyNumberNoMoreCallsInfoRequest
      *
      * @returns ModifyEmptyNumberNoMoreCallsInfoResponse
@@ -8669,6 +8961,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies a global question in the legacy canvas.
+     *
      * @param request - ModifyGlobalQuestionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8730,6 +9024,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies a global question in the legacy canvas.
+     *
      * @param request - ModifyGlobalQuestionRequest
      *
      * @returns ModifyGlobalQuestionResponse
@@ -8746,6 +9042,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies an Outbound Bot instance.
+     *
      * @param request - ModifyInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8799,6 +9097,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies an Outbound Bot instance.
+     *
      * @param request - ModifyInstanceRequest
      *
      * @returns ModifyInstanceResponse
@@ -8815,6 +9115,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies an intent in the legacy canvas. This is a legacy API.
+     *
      * @param request - ModifyIntentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8876,6 +9178,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies an intent in the legacy canvas. This is a legacy API.
+     *
      * @param request - ModifyIntentRequest
      *
      * @returns ModifyIntentResponse
@@ -8892,7 +9196,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 修改任务组.
+     * Modify an intelligent outbound call task group.
      *
      * @param request - ModifyJobGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8987,7 +9291,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 修改任务组.
+     * Modify an intelligent outbound call task group.
      *
      * @param request - ModifyJobGroupRequest
      *
@@ -9005,7 +9309,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ModifyOutboundCallNumber.
+     * Modifies an outbound call number. This API is deprecated.
      *
      * @param request - ModifyOutboundCallNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9060,7 +9364,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * ModifyOutboundCallNumber.
+     * Modifies an outbound call number. This API is deprecated.
      *
      * @param request - ModifyOutboundCallNumberRequest
      *
@@ -9078,7 +9382,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 修改场景.
+     * Modify script information.
      *
      * @param request - ModifyScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9209,7 +9513,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 修改场景.
+     * Modify script information.
      *
      * @param request - ModifyScriptRequest
      *
@@ -9227,6 +9531,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies the voice configuration of a script in a legacy canvas.
+     *
+     * @remarks
+     *
      * @param request - ModifyScriptVoiceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9280,6 +9588,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies the voice configuration of a script in a legacy canvas.
+     *
+     * @remarks
+     *
      * @param request - ModifyScriptVoiceConfigRequest
      *
      * @returns ModifyScriptVoiceConfigResponse
@@ -9296,6 +9608,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Update the text-to-speech (TTS) configuration for an existing canvas scenario.
+     *
      * @param request - ModifyTTSConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9361,6 +9675,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Update the text-to-speech (TTS) configuration for an existing canvas scenario.
+     *
      * @param request - ModifyTTSConfigRequest
      *
      * @returns ModifyTTSConfigResponse
@@ -9377,6 +9693,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies tag groups for the legacy canvas interface.
+     *
      * @param request - ModifyTagGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9426,6 +9744,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Modifies tag groups for the legacy canvas interface.
+     *
      * @param request - ModifyTagGroupsRequest
      *
      * @returns ModifyTagGroupsResponse
@@ -9442,6 +9762,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Publishing a scenario.
+     *
      * @param request - PublishScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9487,6 +9809,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Publishing a scenario.
+     *
      * @param request - PublishScriptRequest
      *
      * @returns PublishScriptResponse
@@ -9503,6 +9827,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Publishes the debug version of a script.
+     *
      * @param request - PublishScriptForDebugRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9544,6 +9870,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Publishes the debug version of a script.
+     *
      * @param request - PublishScriptForDebugRequest
      *
      * @returns PublishScriptForDebugResponse
@@ -9560,7 +9888,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * QueryJobs.
+     * You can query the list of jobs.
      *
      * @param request - QueryJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9635,7 +9963,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * QueryJobs.
+     * You can query the list of jobs.
      *
      * @param request - QueryJobsRequest
      *
@@ -9653,7 +9981,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取外呼任务结果信息.
+     * Find tasks by result.
      *
      * @param request - QueryJobsWithResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9744,7 +10072,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 获取外呼任务结果信息.
+     * Find tasks by result.
      *
      * @param request - QueryJobsWithResultRequest
      *
@@ -9762,6 +10090,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * This legacy canvas interface retrieves the list of recorded speech transcripts.
+     *
      * @param request - QueryScriptWaveformsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9807,6 +10137,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * This legacy canvas interface retrieves the list of recorded speech transcripts.
+     *
      * @param request - QueryScriptWaveformsRequest
      *
      * @returns QueryScriptWaveformsResponse
@@ -9823,6 +10155,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries scenario information by status.
+     *
      * @param request - QueryScriptsByStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9872,6 +10206,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Queries scenario information by status.
+     *
      * @param request - QueryScriptsByStatusRequest
      *
      * @returns QueryScriptsByStatusResponse
@@ -9888,6 +10224,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+     *
      * @param request - RecordFailureRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9953,6 +10291,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+     *
      * @param request - RecordFailureRequest
      *
      * @returns RecordFailureResponse
@@ -9969,6 +10309,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Resumes paused jobs.
+     *
      * @param request - ResumeJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10026,6 +10368,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Resumes paused jobs.
+     *
      * @param request - ResumeJobsRequest
      *
      * @returns ResumeJobsResponse
@@ -10042,6 +10386,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Roll back a published small model scenario.
+     *
      * @param request - RollbackScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10087,6 +10433,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Roll back a published small model scenario.
+     *
      * @param request - RollbackScriptRequest
      *
      * @returns RollbackScriptResponse
@@ -10103,7 +10451,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 保存接听后延迟播报时间.
+     * Sets the delay before playback starts after the call is answered.
      *
      * @param request - SaveAfterAnswerDelayPlaybackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10150,7 +10498,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 保存接听后延迟播报时间.
+     * Sets the delay before playback starts after the call is answered.
      *
      * @param request - SaveAfterAnswerDelayPlaybackRequest
      *
@@ -10168,6 +10516,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can save a list of annotation chat instances.
+     *
      * @param request - SaveAnnotationMissionSessionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10229,6 +10579,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can save a list of annotation chat instances.
+     *
      * @param request - SaveAnnotationMissionSessionListRequest
      *
      * @returns SaveAnnotationMissionSessionListResponse
@@ -10245,6 +10597,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Saves instance tags in a batch.
+     *
      * @param request - SaveAnnotationMissionTagInfoListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10294,6 +10648,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Saves instance tags in a batch.
+     *
      * @param request - SaveAnnotationMissionTagInfoListRequest
      *
      * @returns SaveAnnotationMissionTagInfoListResponse
@@ -10310,7 +10666,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 编辑基础策略有效时间窗口.
+     * Modifies the global outbound call time window in system administration.
      *
      * @param request - SaveBaseStrategyPeriodRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10369,7 +10725,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 编辑基础策略有效时间窗口.
+     * Modifies the global outbound call time window in system administration.
      *
      * @param request - SaveBaseStrategyPeriodRequest
      *
@@ -10387,7 +10743,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 保存外呼黑名单列表.
+     * Adds contacts to the instance\\"s blocklist.
      *
      * @param request - SaveContactBlockListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10434,7 +10790,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 保存外呼黑名单列表.
+     * Adds contacts to the instance\\"s blocklist.
      *
      * @param request - SaveContactBlockListRequest
      *
@@ -10452,7 +10808,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 保存外呼白名单.
+     * Saves an outbound call whitelist.
      *
      * @param request - SaveContactWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10499,7 +10855,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 保存外呼白名单.
+     * Saves an outbound call whitelist.
      *
      * @param request - SaveContactWhiteListRequest
      *
@@ -10517,6 +10873,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Saves the validity period of a basic policy. This operation is deprecated.
+     *
      * @param request - SaveEffectiveDaysRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10562,6 +10920,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Saves the validity period of a basic policy. This operation is deprecated.
+     *
      * @param request - SaveEffectiveDaysRequest
      *
      * @returns SaveEffectiveDaysResponse
@@ -10578,7 +10938,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 保存每日最大外呼量.
+     * Sets the maximum number of daily outbound call attempts to a specific number.
      *
      * @param request - SaveMaxAttemptsPerDayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10625,7 +10985,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 保存每日最大外呼量.
+     * Sets the maximum number of daily outbound call attempts to a specific number.
      *
      * @param request - SaveMaxAttemptsPerDayRequest
      *
@@ -10643,7 +11003,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 外呼历史查询.
+     * Search for tasks.
      *
      * @param request - SearchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10678,7 +11038,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 外呼历史查询.
+     * Search for tasks.
      *
      * @param request - SearchTaskRequest
      *
@@ -10696,7 +11056,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 开启一个任务
+     * This API initiates a call directly, bypassing the outbound call scheduling system. It is available only to users on the whitelist.
      *
      * @param request - StartJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10755,7 +11115,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 开启一个任务
+     * This API initiates a call directly, bypassing the outbound call scheduling system. It is available only to users on the whitelist.
      *
      * @param request - StartJobRequest
      *
@@ -10773,6 +11133,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Submits a draft job group. This operation is deprecated.
+     *
      * @param request - SubmitBatchJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10814,6 +11176,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Submits a draft job group. This operation is deprecated.
+     *
      * @param request - SubmitBatchJobsRequest
      *
      * @returns SubmitBatchJobsResponse
@@ -10830,6 +11194,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Submits a recording of an outbound call. This operation is deprecated.
+     *
      * @param request - SubmitRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10879,6 +11245,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Submits a recording of an outbound call. This operation is deprecated.
+     *
      * @param request - SubmitRecordingRequest
      *
      * @returns SubmitRecordingResponse
@@ -10895,6 +11263,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Submit the scenario for release review.
+     *
      * @param request - SubmitScriptReviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10944,6 +11314,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Submit the scenario for release review.
+     *
      * @param request - SubmitScriptReviewRequest
      *
      * @returns SubmitScriptReviewResponse
@@ -10960,7 +11332,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 止呼
+     * Suspends outbound calls for a list of phone numbers.
      *
      * @param request - SuspendCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11007,7 +11379,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * 止呼
+     * Suspends outbound calls for a list of phone numbers.
      *
      * @param request - SuspendCallRequest
      *
@@ -11025,7 +11397,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * SuspendCallWithFile.
+     * Suspends outbound calls using data from a file.
      *
      * @param request - SuspendCallWithFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11072,7 +11444,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * SuspendCallWithFile.
+     * Suspends outbound calls using data from a file.
      *
      * @param request - SuspendCallWithFileRequest
      *
@@ -11090,6 +11462,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can pause the job.
+     *
      * @param request - SuspendJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11147,6 +11521,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * You can pause the job.
+     *
      * @param request - SuspendJobsRequest
      *
      * @returns SuspendJobsResponse
@@ -11163,7 +11539,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Adds tags to instance resources.
+     *
      * @remarks
+     * \\*\\*
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11214,7 +11593,10 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Adds tags to instance resources.
+     *
      * @remarks
+     * \\*\\*
      *
      * @param request - TagResourcesRequest
      *
@@ -11232,7 +11614,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * TaskPreparing.
+     * Prepares a task for execution.
      *
      * @param request - TaskPreparingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11279,7 +11661,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * TaskPreparing.
+     * Prepares a task for execution.
      *
      * @param request - TaskPreparingRequest
      *
@@ -11297,6 +11679,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Terminates a call during an active session.
+     *
      * @param request - TerminateCallRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11338,6 +11722,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Terminates a call during an active session.
+     *
      * @param request - TerminateCallRequest
      *
      * @returns TerminateCallResponse
@@ -11354,6 +11740,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Remove tags from resources.
+     *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11407,6 +11795,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Remove tags from resources.
+     *
      * @param request - UntagResourcesRequest
      *
      * @returns UntagResourcesResponse
@@ -11423,6 +11813,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Upload recording files.
+     *
      * @param request - UploadScriptRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11476,6 +11868,8 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
+     * Upload recording files.
+     *
      * @param request - UploadScriptRecordingRequest
      *
      * @returns UploadScriptRecordingResponse
@@ -11492,7 +11886,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * WithdrawScriptReview.
+     * Revoke script review.
      *
      * @remarks
      *
@@ -11537,7 +11931,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * WithdrawScriptReview.
+     * Revoke script review.
      *
      * @remarks
      *
