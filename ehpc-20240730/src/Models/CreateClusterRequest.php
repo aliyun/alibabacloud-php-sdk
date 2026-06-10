@@ -75,6 +75,16 @@ class CreateClusterRequest extends Model
     public $deletionProtection;
 
     /**
+     * @var int
+     */
+    public $growInterval;
+
+    /**
+     * @var int
+     */
+    public $idleInterval;
+
+    /**
      * @var bool
      */
     public $isEnterpriseSecurityGroup;
@@ -131,6 +141,8 @@ class CreateClusterRequest extends Model
         'clusterVSwitchId' => 'ClusterVSwitchId',
         'clusterVpcId' => 'ClusterVpcId',
         'deletionProtection' => 'DeletionProtection',
+        'growInterval' => 'GrowInterval',
+        'idleInterval' => 'IdleInterval',
         'isEnterpriseSecurityGroup' => 'IsEnterpriseSecurityGroup',
         'manager' => 'Manager',
         'maxCoreCount' => 'MaxCoreCount',
@@ -234,6 +246,14 @@ class CreateClusterRequest extends Model
 
         if (null !== $this->deletionProtection) {
             $res['DeletionProtection'] = $this->deletionProtection;
+        }
+
+        if (null !== $this->growInterval) {
+            $res['GrowInterval'] = $this->growInterval;
+        }
+
+        if (null !== $this->idleInterval) {
+            $res['IdleInterval'] = $this->idleInterval;
         }
 
         if (null !== $this->isEnterpriseSecurityGroup) {
@@ -364,6 +384,14 @@ class CreateClusterRequest extends Model
 
         if (isset($map['DeletionProtection'])) {
             $model->deletionProtection = $map['DeletionProtection'];
+        }
+
+        if (isset($map['GrowInterval'])) {
+            $model->growInterval = $map['GrowInterval'];
+        }
+
+        if (isset($map['IdleInterval'])) {
+            $model->idleInterval = $map['IdleInterval'];
         }
 
         if (isset($map['IsEnterpriseSecurityGroup'])) {
