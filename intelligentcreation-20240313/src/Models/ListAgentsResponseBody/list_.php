@@ -11,6 +11,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $agentIconUrl;
+
+    /**
+     * @var string
+     */
     public $agentId;
 
     /**
@@ -22,6 +27,16 @@ class list_ extends Model
      * @var string
      */
     public $agentScene;
+
+    /**
+     * @var string
+     */
+    public $characterAgeStage;
+
+    /**
+     * @var string
+     */
+    public $characterName;
 
     /**
      * @var string
@@ -68,9 +83,12 @@ class list_ extends Model
      */
     public $viewer;
     protected $_name = [
+        'agentIconUrl' => 'agentIconUrl',
         'agentId' => 'agentId',
         'agentName' => 'agentName',
         'agentScene' => 'agentScene',
+        'characterAgeStage' => 'characterAgeStage',
+        'characterName' => 'characterName',
         'charactersDescription' => 'charactersDescription',
         'enableInteraction' => 'enableInteraction',
         'industry' => 'industry',
@@ -90,6 +108,10 @@ class list_ extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentIconUrl) {
+            $res['agentIconUrl'] = $this->agentIconUrl;
+        }
+
         if (null !== $this->agentId) {
             $res['agentId'] = $this->agentId;
         }
@@ -100,6 +122,14 @@ class list_ extends Model
 
         if (null !== $this->agentScene) {
             $res['agentScene'] = $this->agentScene;
+        }
+
+        if (null !== $this->characterAgeStage) {
+            $res['characterAgeStage'] = $this->characterAgeStage;
+        }
+
+        if (null !== $this->characterName) {
+            $res['characterName'] = $this->characterName;
         }
 
         if (null !== $this->charactersDescription) {
@@ -149,6 +179,10 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['agentIconUrl'])) {
+            $model->agentIconUrl = $map['agentIconUrl'];
+        }
+
         if (isset($map['agentId'])) {
             $model->agentId = $map['agentId'];
         }
@@ -159,6 +193,14 @@ class list_ extends Model
 
         if (isset($map['agentScene'])) {
             $model->agentScene = $map['agentScene'];
+        }
+
+        if (isset($map['characterAgeStage'])) {
+            $model->characterAgeStage = $map['characterAgeStage'];
+        }
+
+        if (isset($map['characterName'])) {
+            $model->characterName = $map['characterName'];
         }
 
         if (isset($map['charactersDescription'])) {
