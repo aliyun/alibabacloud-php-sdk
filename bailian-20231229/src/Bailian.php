@@ -53,6 +53,9 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteConnectorRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteConnectorResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFileResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFilesRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFilesResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteFilesShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentShrinkRequest;
@@ -1806,6 +1809,75 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->deleteFileWithOptions($FileId, $WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 批量删除文档.
+     *
+     * @param tmpReq - DeleteFilesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFilesResponse
+     *
+     * @param string             $WorkspaceId
+     * @param DeleteFilesRequest $tmpReq
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteFilesResponse
+     */
+    public function deleteFilesWithOptions($WorkspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteFilesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->fileIds) {
+            $request->fileIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->fileIds, 'FileIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->fileIdsShrink) {
+            @$body['FileIds'] = $request->fileIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFiles',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($WorkspaceId) . '/datacenter/file/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量删除文档.
+     *
+     * @param request - DeleteFilesRequest
+     *
+     * @returns DeleteFilesResponse
+     *
+     * @param string             $WorkspaceId
+     * @param DeleteFilesRequest $request
+     *
+     * @return DeleteFilesResponse
+     */
+    public function deleteFiles($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteFilesWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
