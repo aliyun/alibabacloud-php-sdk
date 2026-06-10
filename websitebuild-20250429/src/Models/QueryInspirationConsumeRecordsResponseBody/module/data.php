@@ -36,6 +36,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $recordKey;
+
+    /**
+     * @var string
+     */
     public $sceneName;
     protected $_name = [
         'amount' => 'Amount',
@@ -43,6 +48,7 @@ class data extends Model
         'consumeTime' => 'ConsumeTime',
         'consumeType' => 'ConsumeType',
         'metaData' => 'MetaData',
+        'recordKey' => 'RecordKey',
         'sceneName' => 'SceneName',
     ];
 
@@ -72,6 +78,10 @@ class data extends Model
 
         if (null !== $this->metaData) {
             $res['MetaData'] = $this->metaData;
+        }
+
+        if (null !== $this->recordKey) {
+            $res['RecordKey'] = $this->recordKey;
         }
 
         if (null !== $this->sceneName) {
@@ -107,6 +117,10 @@ class data extends Model
 
         if (isset($map['MetaData'])) {
             $model->metaData = $map['MetaData'];
+        }
+
+        if (isset($map['RecordKey'])) {
+            $model->recordKey = $map['RecordKey'];
         }
 
         if (isset($map['SceneName'])) {

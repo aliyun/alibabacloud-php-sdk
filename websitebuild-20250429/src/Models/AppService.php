@@ -49,6 +49,11 @@ class AppService extends Model
     public $name;
 
     /**
+     * @var TreeNode[]
+     */
+    public $nodeList;
+
+    /**
      * @var AppServiceProfile
      */
     public $profile;
@@ -91,6 +96,7 @@ class AppService extends Model
         'gmtModified' => 'GmtModified',
         'instanceBizId' => 'InstanceBizId',
         'name' => 'Name',
+        'nodeList' => 'NodeList',
         'profile' => 'Profile',
         'serviceType' => 'ServiceType',
         'serviceTypeText' => 'ServiceTypeText',
@@ -102,6 +108,9 @@ class AppService extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodeList)) {
+            Model::validateArray($this->nodeList);
+        }
         if (null !== $this->profile) {
             $this->profile->validate();
         }
@@ -141,6 +150,17 @@ class AppService extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->nodeList) {
+            if (\is_array($this->nodeList)) {
+                $res['NodeList'] = [];
+                $n1 = 0;
+                foreach ($this->nodeList as $item1) {
+                    $res['NodeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->profile) {
@@ -212,6 +232,17 @@ class AppService extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['NodeList'])) {
+            if (!empty($map['NodeList'])) {
+                $model->nodeList = [];
+                $n1 = 0;
+                foreach ($map['NodeList'] as $item1) {
+                    $model->nodeList[$n1] = TreeNode::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Profile'])) {

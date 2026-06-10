@@ -39,6 +39,11 @@ class AppServiceAggregate extends Model
     public $gmtModified;
 
     /**
+     * @var AppServiceGroup
+     */
+    public $group;
+
+    /**
      * @var string
      */
     public $instanceBizId;
@@ -47,6 +52,11 @@ class AppServiceAggregate extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var TreeNode[]
+     */
+    public $nodeList;
 
     /**
      * @var AppOperationAddress
@@ -94,8 +104,10 @@ class AppServiceAggregate extends Model
         'espBizId' => 'EspBizId',
         'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
+        'group' => 'Group',
         'instanceBizId' => 'InstanceBizId',
         'name' => 'Name',
+        'nodeList' => 'NodeList',
         'operationAddress' => 'OperationAddress',
         'profile' => 'Profile',
         'serviceType' => 'ServiceType',
@@ -108,6 +120,12 @@ class AppServiceAggregate extends Model
 
     public function validate()
     {
+        if (null !== $this->group) {
+            $this->group->validate();
+        }
+        if (\is_array($this->nodeList)) {
+            Model::validateArray($this->nodeList);
+        }
         if (null !== $this->operationAddress) {
             $this->operationAddress->validate();
         }
@@ -144,12 +162,27 @@ class AppServiceAggregate extends Model
             $res['GmtModified'] = $this->gmtModified;
         }
 
+        if (null !== $this->group) {
+            $res['Group'] = null !== $this->group ? $this->group->toArray($noStream) : $this->group;
+        }
+
         if (null !== $this->instanceBizId) {
             $res['InstanceBizId'] = $this->instanceBizId;
         }
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->nodeList) {
+            if (\is_array($this->nodeList)) {
+                $res['NodeList'] = [];
+                $n1 = 0;
+                foreach ($this->nodeList as $item1) {
+                    $res['NodeList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->operationAddress) {
@@ -219,12 +252,27 @@ class AppServiceAggregate extends Model
             $model->gmtModified = $map['GmtModified'];
         }
 
+        if (isset($map['Group'])) {
+            $model->group = AppServiceGroup::fromMap($map['Group']);
+        }
+
         if (isset($map['InstanceBizId'])) {
             $model->instanceBizId = $map['InstanceBizId'];
         }
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['NodeList'])) {
+            if (!empty($map['NodeList'])) {
+                $model->nodeList = [];
+                $n1 = 0;
+                foreach ($map['NodeList'] as $item1) {
+                    $model->nodeList[$n1] = TreeNode::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['OperationAddress'])) {
