@@ -23,10 +23,22 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceInstanceShrinkReq
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceUsageRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateServiceUsageShrinkRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateSkillFileDetectRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateSkillFileDetectResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateSkillHubConfigRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateSkillHubConfigResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateSkillRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateSkillResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateSkillSpaceRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\CreateSkillSpaceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteSkillRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteSkillResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteSkillSpaceRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeleteSkillSpaceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeployServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DeployServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DescribeRegionsRequest;
@@ -51,12 +63,22 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetSkillFileDetectResultRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetSkillFileDetectResultResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetSkillHubConfigRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetSkillHubConfigResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetSkillRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetSkillResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetSkillSpaceRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetSkillSpaceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetUserInformationRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetUserInformationResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListBackupsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListBackupsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListPoliciesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListPoliciesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListPublicSkillsRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListPublicSkillsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListRestoreTasksRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListRestoreTasksResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceCategoriesResponse;
@@ -74,6 +96,12 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceUsagesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceUsagesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListSkillFilesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListSkillFilesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListSkillSpacesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListSkillSpacesResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListSkillsRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListSkillsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagKeysRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagResourcesRequest;
@@ -104,6 +132,8 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecShrin
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceUsageRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceUsageResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceUsageShrinkRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateSkillRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateSkillResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateUserInformationRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateUserInformationResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpgradeServiceInstanceRequest;
@@ -805,6 +835,294 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * 创建Skill.
+     *
+     * @param request - CreateSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSkillResponse
+     *
+     * @param CreateSkillRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateSkillResponse
+     */
+    public function createSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ossUrl) {
+            @$query['OssUrl'] = $request->ossUrl;
+        }
+
+        if (null !== $request->skillDescription) {
+            @$query['SkillDescription'] = $request->skillDescription;
+        }
+
+        if (null !== $request->skillLabels) {
+            @$query['SkillLabels'] = $request->skillLabels;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->skillSpaceId) {
+            @$query['SkillSpaceId'] = $request->skillSpaceId;
+        }
+
+        if (null !== $request->sourceSkillId) {
+            @$query['SourceSkillId'] = $request->sourceSkillId;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSkill',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Skill.
+     *
+     * @param request - CreateSkillRequest
+     *
+     * @returns CreateSkillResponse
+     *
+     * @param CreateSkillRequest $request
+     *
+     * @return CreateSkillResponse
+     */
+    public function createSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建Skill文件检测任务
+     *
+     * @param request - CreateSkillFileDetectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSkillFileDetectResponse
+     *
+     * @param CreateSkillFileDetectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateSkillFileDetectResponse
+     */
+    public function createSkillFileDetectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ossUrl) {
+            @$query['OssUrl'] = $request->ossUrl;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSkillFileDetect',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSkillFileDetectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Skill文件检测任务
+     *
+     * @param request - CreateSkillFileDetectRequest
+     *
+     * @returns CreateSkillFileDetectResponse
+     *
+     * @param CreateSkillFileDetectRequest $request
+     *
+     * @return CreateSkillFileDetectResponse
+     */
+    public function createSkillFileDetect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSkillFileDetectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建SkillHub配置.
+     *
+     * @param request - CreateSkillHubConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSkillHubConfigResponse
+     *
+     * @param CreateSkillHubConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSkillHubConfigResponse
+     */
+    public function createSkillHubConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ossBucketName) {
+            @$query['OssBucketName'] = $request->ossBucketName;
+        }
+
+        if (null !== $request->ossRegionId) {
+            @$query['OssRegionId'] = $request->ossRegionId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSkillHubConfig',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSkillHubConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建SkillHub配置.
+     *
+     * @param request - CreateSkillHubConfigRequest
+     *
+     * @returns CreateSkillHubConfigResponse
+     *
+     * @param CreateSkillHubConfigRequest $request
+     *
+     * @return CreateSkillHubConfigResponse
+     */
+    public function createSkillHubConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSkillHubConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建SkillSpace.
+     *
+     * @param request - CreateSkillSpaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSkillSpaceResponse
+     *
+     * @param CreateSkillSpaceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSkillSpaceResponse
+     */
+    public function createSkillSpaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->skillSpaceDescription) {
+            @$query['SkillSpaceDescription'] = $request->skillSpaceDescription;
+        }
+
+        if (null !== $request->skillSpaceName) {
+            @$query['SkillSpaceName'] = $request->skillSpaceName;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSkillSpace',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSkillSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建SkillSpace.
+     *
+     * @param request - CreateSkillSpaceRequest
+     *
+     * @returns CreateSkillSpaceResponse
+     *
+     * @param CreateSkillSpaceRequest $request
+     *
+     * @return CreateSkillSpaceResponse
+     */
+    public function createSkillSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSkillSpaceWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete Compute Nest instance backups.
      *
      * @remarks
@@ -932,6 +1250,132 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteServiceInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除Skill.
+     *
+     * @param request - DeleteSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSkillResponse
+     *
+     * @param DeleteSkillRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteSkillResponse
+     */
+    public function deleteSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSkill',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Skill.
+     *
+     * @param request - DeleteSkillRequest
+     *
+     * @returns DeleteSkillResponse
+     *
+     * @param DeleteSkillRequest $request
+     *
+     * @return DeleteSkillResponse
+     */
+    public function deleteSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除SkillSpace.
+     *
+     * @param request - DeleteSkillSpaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSkillSpaceResponse
+     *
+     * @param DeleteSkillSpaceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteSkillSpaceResponse
+     */
+    public function deleteSkillSpaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->skillSpaceId) {
+            @$query['SkillSpaceId'] = $request->skillSpaceId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSkillSpace',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSkillSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除SkillSpace.
+     *
+     * @param request - DeleteSkillSpaceRequest
+     *
+     * @returns DeleteSkillSpaceResponse
+     *
+     * @param DeleteSkillSpaceRequest $request
+     *
+     * @return DeleteSkillSpaceResponse
+     */
+    public function deleteSkillSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSkillSpaceWithOptions($request, $runtime);
     }
 
     /**
@@ -1794,6 +2238,231 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
+     * 查询Skill详情.
+     *
+     * @param request - GetSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSkillResponse
+     *
+     * @param GetSkillRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetSkillResponse
+     */
+    public function getSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSkill',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Skill详情.
+     *
+     * @param request - GetSkillRequest
+     *
+     * @returns GetSkillResponse
+     *
+     * @param GetSkillRequest $request
+     *
+     * @return GetSkillResponse
+     */
+    public function getSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Skill文件检测结果.
+     *
+     * @param request - GetSkillFileDetectResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSkillFileDetectResultResponse
+     *
+     * @param GetSkillFileDetectResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetSkillFileDetectResultResponse
+     */
+    public function getSkillFileDetectResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hashKey) {
+            @$query['HashKey'] = $request->hashKey;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSkillFileDetectResult',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSkillFileDetectResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Skill文件检测结果.
+     *
+     * @param request - GetSkillFileDetectResultRequest
+     *
+     * @returns GetSkillFileDetectResultResponse
+     *
+     * @param GetSkillFileDetectResultRequest $request
+     *
+     * @return GetSkillFileDetectResultResponse
+     */
+    public function getSkillFileDetectResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSkillFileDetectResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询SkillHub配置.
+     *
+     * @param request - GetSkillHubConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSkillHubConfigResponse
+     *
+     * @param GetSkillHubConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetSkillHubConfigResponse
+     */
+    public function getSkillHubConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetSkillHubConfig',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSkillHubConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询SkillHub配置.
+     *
+     * @param request - GetSkillHubConfigRequest
+     *
+     * @returns GetSkillHubConfigResponse
+     *
+     * @param GetSkillHubConfigRequest $request
+     *
+     * @return GetSkillHubConfigResponse
+     */
+    public function getSkillHubConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSkillHubConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询SkillSpace详情.
+     *
+     * @param request - GetSkillSpaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSkillSpaceResponse
+     *
+     * @param GetSkillSpaceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetSkillSpaceResponse
+     */
+    public function getSkillSpaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->skillSpaceId) {
+            @$query['SkillSpaceId'] = $request->skillSpaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSkillSpace',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSkillSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询SkillSpace详情.
+     *
+     * @param request - GetSkillSpaceRequest
+     *
+     * @returns GetSkillSpaceResponse
+     *
+     * @param GetSkillSpaceRequest $request
+     *
+     * @return GetSkillSpaceResponse
+     */
+    public function getSkillSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSkillSpaceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a customer.
      *
      * @param request - GetUserInformationRequest
@@ -1986,6 +2655,75 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询公开 Skill 列表.
+     *
+     * @param request - ListPublicSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPublicSkillsResponse
+     *
+     * @param ListPublicSkillsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPublicSkillsResponse
+     */
+    public function listPublicSkillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->needDownloadUrl) {
+            @$query['NeedDownloadUrl'] = $request->needDownloadUrl;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPublicSkills',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPublicSkillsResponse::fromMap($this->doRPCRequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->bodyType, $req, $runtime));
+    }
+
+    /**
+     * 查询公开 Skill 列表.
+     *
+     * @param request - ListPublicSkillsRequest
+     *
+     * @returns ListPublicSkillsResponse
+     *
+     * @param ListPublicSkillsRequest $request
+     *
+     * @return ListPublicSkillsResponse
+     */
+    public function listPublicSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPublicSkillsWithOptions($request, $runtime);
     }
 
     /**
@@ -2649,6 +3387,209 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listServicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取Skill文件列表.
+     *
+     * @param request - ListSkillFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillFilesResponse
+     *
+     * @param ListSkillFilesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListSkillFilesResponse
+     */
+    public function listSkillFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkillFiles',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSkillFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Skill文件列表.
+     *
+     * @param request - ListSkillFilesRequest
+     *
+     * @returns ListSkillFilesResponse
+     *
+     * @param ListSkillFilesRequest $request
+     *
+     * @return ListSkillFilesResponse
+     */
+    public function listSkillFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSkillFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询SkillSpace列表.
+     *
+     * @param request - ListSkillSpacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillSpacesResponse
+     *
+     * @param ListSkillSpacesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListSkillSpacesResponse
+     */
+    public function listSkillSpacesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkillSpaces',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSkillSpacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询SkillSpace列表.
+     *
+     * @param request - ListSkillSpacesRequest
+     *
+     * @returns ListSkillSpacesResponse
+     *
+     * @param ListSkillSpacesRequest $request
+     *
+     * @return ListSkillSpacesResponse
+     */
+    public function listSkillSpaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSkillSpacesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Skill列表.
+     *
+     * @param request - ListSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSkillsResponse
+     *
+     * @param ListSkillsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListSkillsResponse
+     */
+    public function listSkillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->needDownloadUrl) {
+            @$query['NeedDownloadUrl'] = $request->needDownloadUrl;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSkills',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Skill列表.
+     *
+     * @param request - ListSkillsRequest
+     *
+     * @returns ListSkillsResponse
+     *
+     * @param ListSkillsRequest $request
+     *
+     * @return ListSkillsResponse
+     */
+    public function listSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSkillsWithOptions($request, $runtime);
     }
 
     /**
@@ -3639,6 +4580,93 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateServiceUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新Skill.
+     *
+     * @param request - UpdateSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSkillResponse
+     *
+     * @param UpdateSkillRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateSkillResponse
+     */
+    public function updateSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ossUrl) {
+            @$query['OssUrl'] = $request->ossUrl;
+        }
+
+        if (null !== $request->skillDescription) {
+            @$query['SkillDescription'] = $request->skillDescription;
+        }
+
+        if (null !== $request->skillId) {
+            @$query['SkillId'] = $request->skillId;
+        }
+
+        if (null !== $request->skillLabels) {
+            @$query['SkillLabels'] = $request->skillLabels;
+        }
+
+        if (null !== $request->skillName) {
+            @$query['SkillName'] = $request->skillName;
+        }
+
+        if (null !== $request->sourceSkillId) {
+            @$query['SourceSkillId'] = $request->sourceSkillId;
+        }
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSkill',
+            'version' => '2021-06-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新Skill.
+     *
+     * @param request - UpdateSkillRequest
+     *
+     * @returns UpdateSkillResponse
+     *
+     * @param UpdateSkillRequest $request
+     *
+     * @return UpdateSkillResponse
+     */
+    public function updateSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSkillWithOptions($request, $runtime);
     }
 
     /**
