@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\APIG\V20240327;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewayQuotaRuleRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewayQuotaRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleRequest;
@@ -52,6 +54,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerAuthorizationRuleRespon
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteEnvironmentResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayQuotaRuleRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayQuotaRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewaySecurityGroupRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewaySecurityGroupRuleResponse;
@@ -80,6 +84,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleSubjectUsageResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiResponse;
@@ -111,6 +119,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListExternalServicesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListExternalServicesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayFeaturesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayQuotaRulesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayQuotaRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysShrinkRequest;
@@ -144,6 +154,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RemoveConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ResetGatewayQuotaRuleRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ResetGatewayQuotaRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RestartGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersResponse;
@@ -165,6 +177,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayFeatureRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayFeatureResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayNameRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayNameResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayQuotaRuleRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayQuotaRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayQuotaRuleStatusRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayQuotaRuleStatusResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiOperationRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRequest;
@@ -222,6 +238,131 @@ class APIG extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 新增网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+     * >
+     * >  推荐调用逻辑：
+     * > - 一、先 dryRun 预检检验是否存在规则冲突
+     * > - - 传dryRun=true
+     * > - - 返回含conflictHash的冲突预览
+     * > - 二、确认后正式提交
+     * > - - 无冲突：dryRun=false,overwrite=false
+     * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+     *
+     * @param request - AddGatewayQuotaRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddGatewayQuotaRuleResponse
+     *
+     * @param string                     $gatewayId
+     * @param AddGatewayQuotaRuleRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddGatewayQuotaRuleResponse
+     */
+    public function addGatewayQuotaRuleWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conflictHash) {
+            @$body['conflictHash'] = $request->conflictHash;
+        }
+
+        if (null !== $request->consumerGroupIds) {
+            @$body['consumerGroupIds'] = $request->consumerGroupIds;
+        }
+
+        if (null !== $request->consumerIds) {
+            @$body['consumerIds'] = $request->consumerIds;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['dryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->overwrite) {
+            @$body['overwrite'] = $request->overwrite;
+        }
+
+        if (null !== $request->periodType) {
+            @$body['periodType'] = $request->periodType;
+        }
+
+        if (null !== $request->quotaDimension) {
+            @$body['quotaDimension'] = $request->quotaDimension;
+        }
+
+        if (null !== $request->quotaLimit) {
+            @$body['quotaLimit'] = $request->quotaLimit;
+        }
+
+        if (null !== $request->ruleName) {
+            @$body['ruleName'] = $request->ruleName;
+        }
+
+        if (null !== $request->timezone) {
+            @$body['timezone'] = $request->timezone;
+        }
+
+        if (null !== $request->windowAlignment) {
+            @$body['windowAlignment'] = $request->windowAlignment;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AddGatewayQuotaRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AddGatewayQuotaRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新增网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+     * >
+     * >  推荐调用逻辑：
+     * > - 一、先 dryRun 预检检验是否存在规则冲突
+     * > - - 传dryRun=true
+     * > - - 返回含conflictHash的冲突预览
+     * > - 二、确认后正式提交
+     * > - - 无冲突：dryRun=false,overwrite=false
+     * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+     *
+     * @param request - AddGatewayQuotaRuleRequest
+     *
+     * @returns AddGatewayQuotaRuleResponse
+     *
+     * @param string                     $gatewayId
+     * @param AddGatewayQuotaRuleRequest $request
+     *
+     * @return AddGatewayQuotaRuleResponse
+     */
+    public function addGatewayQuotaRule($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addGatewayQuotaRuleWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -941,7 +1082,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a cloud-native gateway.
+     * The zone information.
      *
      * @param request - CreateGatewayRequest
      * @param headers - map
@@ -1023,7 +1164,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a cloud-native gateway.
+     * The zone information.
      *
      * @param request - CreateGatewayRequest
      *
@@ -1042,7 +1183,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an HTTP API.
+     * $.parameters[0].schema.properties.ingressConfig.example.
      *
      * @param request - CreateHttpApiRequest
      * @param headers - map
@@ -1156,7 +1297,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an HTTP API.
+     * $.parameters[0].schema.properties.ingressConfig.example.
      *
      * @param request - CreateHttpApiRequest
      *
@@ -1914,7 +2055,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a service source.
+     * Create a source.
      *
      * @param request - CreateSourceRequest
      * @param headers - map
@@ -1972,7 +2113,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a service source.
+     * Create a source.
      *
      * @param request - CreateSourceRequest
      *
@@ -2250,6 +2391,71 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->deleteGatewayWithOptions($gatewayId, $headers, $runtime);
+    }
+
+    /**
+     * 删除网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+     *
+     * @param request - DeleteGatewayQuotaRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayQuotaRuleResponse
+     *
+     * @param string                        $gatewayId
+     * @param string                        $ruleId
+     * @param DeleteGatewayQuotaRuleRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteGatewayQuotaRuleResponse
+     */
+    public function deleteGatewayQuotaRuleWithOptions($gatewayId, $ruleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteGatewayQuotaRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules/' . Url::percentEncode($ruleId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteGatewayQuotaRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+     *
+     * @param request - DeleteGatewayQuotaRuleRequest
+     *
+     * @returns DeleteGatewayQuotaRuleResponse
+     *
+     * @param string                        $gatewayId
+     * @param string                        $ruleId
+     * @param DeleteGatewayQuotaRuleRequest $request
+     *
+     * @return DeleteGatewayQuotaRuleResponse
+     */
+    public function deleteGatewayQuotaRule($gatewayId, $ruleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteGatewayQuotaRuleWithOptions($gatewayId, $ruleId, $request, $headers, $runtime);
     }
 
     /**
@@ -2681,6 +2887,9 @@ class APIG extends OpenApiClient
     /**
      * Deletes a key value.
      *
+     * @remarks
+     * 接口支持创建多个服务。
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2714,6 +2923,9 @@ class APIG extends OpenApiClient
 
     /**
      * Deletes a key value.
+     *
+     * @remarks
+     * 接口支持创建多个服务。
      *
      * @returns DeleteSecretResponse
      *
@@ -2834,7 +3046,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a service source.
+     * Delete a service source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2868,7 +3080,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a service source.
+     * Delete a service source.
      *
      * @returns DeleteSourceResponse
      *
@@ -2885,7 +3097,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deploy HttpApi.
+     * Deploy an HTTP API, including REST and HTTP API routes.
      *
      * @param request - DeployHttpApiRequest
      * @param headers - map
@@ -2936,7 +3148,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deploy HttpApi.
+     * Deploy an HTTP API, including REST and HTTP API routes.
      *
      * @param request - DeployHttpApiRequest
      *
@@ -3007,7 +3219,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Exports an HTTP API.
+     * Exports the specified HTTP API.
      *
      * @param request - ExportHttpApiRequest
      * @param headers - map
@@ -3058,7 +3270,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Exports an HTTP API.
+     * Exports the specified HTTP API.
      *
      * @param request - ExportHttpApiRequest
      *
@@ -3469,6 +3681,162 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 查询网关配额限流规则详情.
+     *
+     * @remarks
+     * 该接口用于查询 AI 网关上某条消费者配额规则。
+     *
+     * @param request - GetGatewayQuotaRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGatewayQuotaRuleResponse
+     *
+     * @param string                     $gatewayId
+     * @param string                     $ruleId
+     * @param GetGatewayQuotaRuleRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetGatewayQuotaRuleResponse
+     */
+    public function getGatewayQuotaRuleWithOptions($gatewayId, $ruleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->consumerPageNumber) {
+            @$query['consumerPageNumber'] = $request->consumerPageNumber;
+        }
+
+        if (null !== $request->consumerPageSize) {
+            @$query['consumerPageSize'] = $request->consumerPageSize;
+        }
+
+        if (null !== $request->withConsumers) {
+            @$query['withConsumers'] = $request->withConsumers;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetGatewayQuotaRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules/' . Url::percentEncode($ruleId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGatewayQuotaRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关配额限流规则详情.
+     *
+     * @remarks
+     * 该接口用于查询 AI 网关上某条消费者配额规则。
+     *
+     * @param request - GetGatewayQuotaRuleRequest
+     *
+     * @returns GetGatewayQuotaRuleResponse
+     *
+     * @param string                     $gatewayId
+     * @param string                     $ruleId
+     * @param GetGatewayQuotaRuleRequest $request
+     *
+     * @return GetGatewayQuotaRuleResponse
+     */
+    public function getGatewayQuotaRule($gatewayId, $ruleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGatewayQuotaRuleWithOptions($gatewayId, $ruleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询网关配额限流规则主体用量详情.
+     *
+     * @remarks
+     * 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+     *
+     * @param request - GetGatewayQuotaRuleSubjectUsageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGatewayQuotaRuleSubjectUsageResponse
+     *
+     * @param string                                 $gatewayId
+     * @param string                                 $ruleId
+     * @param string                                 $subjectId
+     * @param GetGatewayQuotaRuleSubjectUsageRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetGatewayQuotaRuleSubjectUsageResponse
+     */
+    public function getGatewayQuotaRuleSubjectUsageWithOptions($gatewayId, $ruleId, $subjectId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetGatewayQuotaRuleSubjectUsage',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules/' . Url::percentEncode($ruleId) . '/subjects/' . Url::percentEncode($subjectId) . '/usage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetGatewayQuotaRuleSubjectUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关配额限流规则主体用量详情.
+     *
+     * @remarks
+     * 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+     *
+     * @param request - GetGatewayQuotaRuleSubjectUsageRequest
+     *
+     * @returns GetGatewayQuotaRuleSubjectUsageResponse
+     *
+     * @param string                                 $gatewayId
+     * @param string                                 $ruleId
+     * @param string                                 $subjectId
+     * @param GetGatewayQuotaRuleSubjectUsageRequest $request
+     *
+     * @return GetGatewayQuotaRuleSubjectUsageResponse
+     */
+    public function getGatewayQuotaRuleSubjectUsage($gatewayId, $ruleId, $subjectId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getGatewayQuotaRuleSubjectUsageWithOptions($gatewayId, $ruleId, $subjectId, $request, $headers, $runtime);
+    }
+
+    /**
      * Read HttpApi.
      *
      * @param headers - map
@@ -3626,10 +3994,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information of an MCP server.
+     * Get the MCP server.
      *
      * @remarks
-     * You can call this operation to create multiple services at a time.
+     * This API supports creating multiple services.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3663,10 +4031,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information of an MCP server.
+     * Get the MCP server.
      *
      * @remarks
-     * You can call this operation to create multiple services at a time.
+     * This API supports creating multiple services.
      *
      * @returns GetMcpServerResponse
      *
@@ -3956,6 +4324,9 @@ class APIG extends OpenApiClient
     /**
      * Gets the key value.
      *
+     * @remarks
+     * 接口支持创建多个服务。
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3989,6 +4360,9 @@ class APIG extends OpenApiClient
 
     /**
      * Gets the key value.
+     *
+     * @remarks
+     * 接口支持创建多个服务。
      *
      * @returns GetSecretValueResponse
      *
@@ -4170,7 +4544,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
+     * Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
      *
      * @param request - ImportHttpApiRequest
      * @param headers - map
@@ -4260,7 +4634,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
+     * Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
      *
      * @param request - ImportHttpApiRequest
      *
@@ -4665,6 +5039,9 @@ class APIG extends OpenApiClient
     /**
      * 获取网关外的服务信息.
      *
+     * @remarks
+     * 接口支持创建多个服务。
+     *
      * @param request - ListExternalServicesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4723,6 +5100,9 @@ class APIG extends OpenApiClient
 
     /**
      * 获取网关外的服务信息.
+     *
+     * @remarks
+     * 接口支持创建多个服务。
      *
      * @param request - ListExternalServicesRequest
      *
@@ -4790,6 +5170,91 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listGatewayFeaturesWithOptions($gatewayId, $headers, $runtime);
+    }
+
+    /**
+     * 查询网关周期配额规则列表.
+     *
+     * @remarks
+     * 该接口用于查询网关上绑定的消费者配额规则列表
+     *
+     * @param request - ListGatewayQuotaRulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewayQuotaRulesResponse
+     *
+     * @param string                       $gatewayId
+     * @param ListGatewayQuotaRulesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListGatewayQuotaRulesResponse
+     */
+    public function listGatewayQuotaRulesWithOptions($gatewayId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListGatewayQuotaRules',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListGatewayQuotaRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询网关周期配额规则列表.
+     *
+     * @remarks
+     * 该接口用于查询网关上绑定的消费者配额规则列表
+     *
+     * @param request - ListGatewayQuotaRulesRequest
+     *
+     * @returns ListGatewayQuotaRulesResponse
+     *
+     * @param string                       $gatewayId
+     * @param ListGatewayQuotaRulesRequest $request
+     *
+     * @return ListGatewayQuotaRulesResponse
+     */
+    public function listGatewayQuotaRules($gatewayId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayQuotaRulesWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -4999,7 +5464,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the routes of an HTTP API.
+     * Gets the route list for an HTTP API.
      *
      * @param request - ListHttpApiRoutesRequest
      * @param headers - map
@@ -5098,7 +5563,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the routes of an HTTP API.
+     * Gets the route list for an HTTP API.
      *
      * @param request - ListHttpApiRoutesRequest
      *
@@ -5870,7 +6335,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询密钥列表.
+     * List keys.
+     *
+     * @remarks
+     * The API supports creating multiple services.
      *
      * @param request - ListSecretsRequest
      * @param headers - map
@@ -5924,7 +6392,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * 查询密钥列表.
+     * List keys.
+     *
+     * @remarks
+     * The API supports creating multiple services.
      *
      * @param request - ListSecretsRequest
      *
@@ -6298,6 +6769,113 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->removeConsumerAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $headers, $runtime);
+    }
+
+    /**
+     * 重置网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+     * >
+     * >  推荐调用逻辑：
+     * > - 一、先 dryRun 预检检验是否存在规则冲突
+     * > - - 传dryRun=true
+     * > - - 返回含conflictHash的冲突预览
+     * > - 二、确认后正式提交
+     * > - - 无冲突：dryRun=false,overwrite=false
+     * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+     *
+     * @param request - ResetGatewayQuotaRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetGatewayQuotaRuleResponse
+     *
+     * @param string                       $gatewayId
+     * @param string                       $ruleId
+     * @param ResetGatewayQuotaRuleRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ResetGatewayQuotaRuleResponse
+     */
+    public function resetGatewayQuotaRuleWithOptions($gatewayId, $ruleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conflictHash) {
+            @$body['conflictHash'] = $request->conflictHash;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['dryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->overwrite) {
+            @$body['overwrite'] = $request->overwrite;
+        }
+
+        if (null !== $request->periodType) {
+            @$body['periodType'] = $request->periodType;
+        }
+
+        if (null !== $request->quotaLimit) {
+            @$body['quotaLimit'] = $request->quotaLimit;
+        }
+
+        if (null !== $request->timezone) {
+            @$body['timezone'] = $request->timezone;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ResetGatewayQuotaRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules/' . Url::percentEncode($ruleId) . '/reset',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetGatewayQuotaRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+     * >
+     * >  推荐调用逻辑：
+     * > - 一、先 dryRun 预检检验是否存在规则冲突
+     * > - - 传dryRun=true
+     * > - - 返回含conflictHash的冲突预览
+     * > - 二、确认后正式提交
+     * > - - 无冲突：dryRun=false,overwrite=false
+     * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+     *
+     * @param request - ResetGatewayQuotaRuleRequest
+     *
+     * @returns ResetGatewayQuotaRuleResponse
+     *
+     * @param string                       $gatewayId
+     * @param string                       $ruleId
+     * @param ResetGatewayQuotaRuleRequest $request
+     *
+     * @return ResetGatewayQuotaRuleResponse
+     */
+    public function resetGatewayQuotaRule($gatewayId, $ruleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resetGatewayQuotaRuleWithOptions($gatewayId, $ruleId, $request, $headers, $runtime);
     }
 
     /**
@@ -6950,7 +7528,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Modifies an environment.
+     * UpdateEnvironment.
      *
      * @deprecated OpenAPI UpdateEnvironment is deprecated
      *
@@ -7000,7 +7578,7 @@ class APIG extends OpenApiClient
 
     // Deprecated
     /**
-     * Modifies an environment.
+     * UpdateEnvironment.
      *
      * @deprecated OpenAPI UpdateEnvironment is deprecated
      *
@@ -7087,7 +7665,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Changes the name of a Cloud-native API Gateway instance.
+     * The response message returned.
      *
      * @param request - UpdateGatewayNameRequest
      * @param headers - map
@@ -7130,7 +7708,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Changes the name of a Cloud-native API Gateway instance.
+     * The response message returned.
      *
      * @param request - UpdateGatewayNameRequest
      *
@@ -7147,6 +7725,194 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updateGatewayNameWithOptions($gatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
+     * >  推荐调用逻辑：
+     * > - 一、先 dryRun 预检检验是否存在规则冲突
+     * > - - 传dryRun=true
+     * > - - 返回含conflictHash的冲突预览
+     * > - 二、确认后正式提交
+     * > - - 无冲突：dryRun=false,overwrite=false
+     * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+     *
+     * @param request - UpdateGatewayQuotaRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayQuotaRuleResponse
+     *
+     * @param string                        $gatewayId
+     * @param string                        $ruleId
+     * @param UpdateGatewayQuotaRuleRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateGatewayQuotaRuleResponse
+     */
+    public function updateGatewayQuotaRuleWithOptions($gatewayId, $ruleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->addIds) {
+            @$body['addIds'] = $request->addIds;
+        }
+
+        if (null !== $request->conflictHash) {
+            @$body['conflictHash'] = $request->conflictHash;
+        }
+
+        if (null !== $request->consumerGroupIds) {
+            @$body['consumerGroupIds'] = $request->consumerGroupIds;
+        }
+
+        if (null !== $request->dryRun) {
+            @$body['dryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->overwrite) {
+            @$body['overwrite'] = $request->overwrite;
+        }
+
+        if (null !== $request->quotaLimit) {
+            @$body['quotaLimit'] = $request->quotaLimit;
+        }
+
+        if (null !== $request->removeIds) {
+            @$body['removeIds'] = $request->removeIds;
+        }
+
+        if (null !== $request->ruleName) {
+            @$body['ruleName'] = $request->ruleName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGatewayQuotaRule',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules/' . Url::percentEncode($ruleId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayQuotaRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
+     * >  推荐调用逻辑：
+     * > - 一、先 dryRun 预检检验是否存在规则冲突
+     * > - - 传dryRun=true
+     * > - - 返回含conflictHash的冲突预览
+     * > - 二、确认后正式提交
+     * > - - 无冲突：dryRun=false,overwrite=false
+     * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+     *
+     * @param request - UpdateGatewayQuotaRuleRequest
+     *
+     * @returns UpdateGatewayQuotaRuleResponse
+     *
+     * @param string                        $gatewayId
+     * @param string                        $ruleId
+     * @param UpdateGatewayQuotaRuleRequest $request
+     *
+     * @return UpdateGatewayQuotaRuleResponse
+     */
+    public function updateGatewayQuotaRule($gatewayId, $ruleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGatewayQuotaRuleWithOptions($gatewayId, $ruleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 启/停用网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+     *
+     * @param request - UpdateGatewayQuotaRuleStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayQuotaRuleStatusResponse
+     *
+     * @param string                              $gatewayId
+     * @param string                              $ruleId
+     * @param UpdateGatewayQuotaRuleStatusRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateGatewayQuotaRuleStatusResponse
+     */
+    public function updateGatewayQuotaRuleStatusWithOptions($gatewayId, $ruleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->clearHistory) {
+            @$body['clearHistory'] = $request->clearHistory;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateGatewayQuotaRuleStatus',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/quota-rules/' . Url::percentEncode($ruleId) . '/status',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateGatewayQuotaRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 启/停用网关配额限流规则.
+     *
+     * @remarks
+     * 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+     *
+     * @param request - UpdateGatewayQuotaRuleStatusRequest
+     *
+     * @returns UpdateGatewayQuotaRuleStatusResponse
+     *
+     * @param string                              $gatewayId
+     * @param string                              $ruleId
+     * @param UpdateGatewayQuotaRuleStatusRequest $request
+     *
+     * @return UpdateGatewayQuotaRuleStatusResponse
+     */
+    public function updateGatewayQuotaRuleStatus($gatewayId, $ruleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateGatewayQuotaRuleStatusWithOptions($gatewayId, $ruleId, $request, $headers, $runtime);
     }
 
     /**
@@ -7326,7 +8092,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the route of an HTTP API.
+     * Updates a route of an HTTP API.
      *
      * @param request - UpdateHttpApiRouteRequest
      * @param headers - map
@@ -7394,7 +8160,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates the route of an HTTP API.
+     * Updates a route of an HTTP API.
      *
      * @param request - UpdateHttpApiRouteRequest
      *
@@ -7739,7 +8505,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
+     * Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
      *
      * @param request - UpdateServiceRequest
      * @param headers - map
@@ -7814,7 +8580,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
+     * Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
      *
      * @param request - UpdateServiceRequest
      *
