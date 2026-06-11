@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class DescribeZonesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $crossRegion;
+
+    /**
+     * @var string
+     */
+    public $crossRegionSide;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -18,6 +28,8 @@ class DescribeZonesRequest extends Model
      */
     public $serviceResourceType;
     protected $_name = [
+        'crossRegion' => 'CrossRegion',
+        'crossRegionSide' => 'CrossRegionSide',
         'regionId' => 'RegionId',
         'serviceResourceType' => 'ServiceResourceType',
     ];
@@ -30,6 +42,14 @@ class DescribeZonesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->crossRegion) {
+            $res['CrossRegion'] = $this->crossRegion;
+        }
+
+        if (null !== $this->crossRegionSide) {
+            $res['CrossRegionSide'] = $this->crossRegionSide;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,6 +69,14 @@ class DescribeZonesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CrossRegion'])) {
+            $model->crossRegion = $map['CrossRegion'];
+        }
+
+        if (isset($map['CrossRegionSide'])) {
+            $model->crossRegionSide = $map['CrossRegionSide'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
