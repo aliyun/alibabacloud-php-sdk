@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\AISC\V20260101;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AISC\V20260101\Models\CreateSkillFileCheckRequest;
 use AlibabaCloud\SDK\AISC\V20260101\Models\CreateSkillFileCheckResponse;
+use AlibabaCloud\SDK\AISC\V20260101\Models\ListSubTasksRequest;
+use AlibabaCloud\SDK\AISC\V20260101\Models\ListSubTasksResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -101,5 +103,74 @@ class AISC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSkillFileCheckWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取子任务信息.
+     *
+     * @param request - ListSubTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubTasksResponse
+     *
+     * @param ListSubTasksRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListSubTasksResponse
+     */
+    public function listSubTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->rootTaskId) {
+            @$query['RootTaskId'] = $request->rootTaskId;
+        }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSubTasks',
+            'version' => '2026-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSubTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取子任务信息.
+     *
+     * @param request - ListSubTasksRequest
+     *
+     * @returns ListSubTasksResponse
+     *
+     * @param ListSubTasksRequest $request
+     *
+     * @return ListSubTasksResponse
+     */
+    public function listSubTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSubTasksWithOptions($request, $runtime);
     }
 }
