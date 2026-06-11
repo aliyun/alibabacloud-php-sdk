@@ -85,7 +85,8 @@ class GetSubPartnerListResponseBody extends Model
                 $res['SubPartnerList'] = [];
                 $n1 = 0;
                 foreach ($this->subPartnerList as $item1) {
-                    $res['SubPartnerList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubPartnerList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -130,7 +131,8 @@ class GetSubPartnerListResponseBody extends Model
                 $model->subPartnerList = [];
                 $n1 = 0;
                 foreach ($map['SubPartnerList'] as $item1) {
-                    $model->subPartnerList[$n1++] = subPartnerList::fromMap($item1);
+                    $model->subPartnerList[$n1] = subPartnerList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

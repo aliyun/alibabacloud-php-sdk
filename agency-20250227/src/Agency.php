@@ -117,7 +117,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询账单导出文件.
+     * Query bill export files.
      *
      * @param request - GetBillDetailFileListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -180,7 +180,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询账单导出文件.
+     * Query bill export files.
      *
      * @param request - GetBillDetailFileListRequest
      *
@@ -198,7 +198,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询伙伴佣金明细.
+     * Query partner commission details.
      *
      * @param request - GetCommissionDetailFileListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -261,7 +261,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询伙伴佣金明细.
+     * Query partner commission details.
      *
      * @param request - GetCommissionDetailFileListRequest
      *
@@ -279,7 +279,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询伙伴拓客订单.
+     * Query partner customer acquisition orders.
      *
      * @param tmpReq - GetCustomerOrderListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -392,7 +392,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询伙伴拓客订单.
+     * Query partner customer acquisition orders.
      *
      * @param request - GetCustomerOrderListRequest
      *
@@ -410,7 +410,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询伙伴续费率.
+     * Query partner renewal rate.
      *
      * @param request - GetRenewalRateListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -449,7 +449,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询伙伴续费率.
+     * Query partner renewal rate.
      *
      * @param request - GetRenewalRateListRequest
      *
@@ -467,7 +467,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询二级分销商列表.
+     * Query the list of second-tier distributors.
      *
      * @param request - GetSubPartnerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -518,7 +518,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询二级分销商列表.
+     * Query the list of second-tier distributors.
      *
      * @param request - GetSubPartnerListRequest
      *
@@ -536,7 +536,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询拓渠订单.
+     * Query channel expansion orders.
      *
      * @param tmpReq - GetSubPartnerOrderListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -645,7 +645,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * 查询拓渠订单.
+     * Query channel expansion orders.
      *
      * @param request - GetSubPartnerOrderListRequest
      *

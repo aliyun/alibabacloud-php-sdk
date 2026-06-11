@@ -152,7 +152,8 @@ class GetSubPartnerOrderListRequest extends Model
                 $res['OrderTypeList'] = [];
                 $n1 = 0;
                 foreach ($this->orderTypeList as $item1) {
-                    $res['OrderTypeList'][$n1++] = $item1;
+                    $res['OrderTypeList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -237,7 +238,8 @@ class GetSubPartnerOrderListRequest extends Model
                 $model->orderTypeList = [];
                 $n1 = 0;
                 foreach ($map['OrderTypeList'] as $item1) {
-                    $model->orderTypeList[$n1++] = $item1;
+                    $model->orderTypeList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

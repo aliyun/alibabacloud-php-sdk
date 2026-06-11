@@ -202,7 +202,8 @@ class data extends Model
                 $res['RamAccountForCustomerManagers'] = [];
                 $n1 = 0;
                 foreach ($this->ramAccountForCustomerManagers as $item1) {
-                    $res['RamAccountForCustomerManagers'][$n1++] = $item1;
+                    $res['RamAccountForCustomerManagers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +292,8 @@ class data extends Model
                 $model->ramAccountForCustomerManagers = [];
                 $n1 = 0;
                 foreach ($map['RamAccountForCustomerManagers'] as $item1) {
-                    $model->ramAccountForCustomerManagers[$n1++] = $item1;
+                    $model->ramAccountForCustomerManagers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
