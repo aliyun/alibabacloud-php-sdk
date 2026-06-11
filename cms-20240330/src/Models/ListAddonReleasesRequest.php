@@ -16,9 +16,21 @@ class ListAddonReleasesRequest extends Model
     /**
      * @var string
      */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @var string
+     */
     public $parentAddonReleaseId;
     protected $_name = [
         'addonName' => 'addonName',
+        'maxResults' => 'maxResults',
+        'nextToken' => 'nextToken',
         'parentAddonReleaseId' => 'parentAddonReleaseId',
     ];
 
@@ -32,6 +44,14 @@ class ListAddonReleasesRequest extends Model
         $res = [];
         if (null !== $this->addonName) {
             $res['addonName'] = $this->addonName;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['nextToken'] = $this->nextToken;
         }
 
         if (null !== $this->parentAddonReleaseId) {
@@ -51,6 +71,14 @@ class ListAddonReleasesRequest extends Model
         $model = new self();
         if (isset($map['addonName'])) {
             $model->addonName = $map['addonName'];
+        }
+
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
+        }
+
+        if (isset($map['nextToken'])) {
+            $model->nextToken = $map['nextToken'];
         }
 
         if (isset($map['parentAddonReleaseId'])) {

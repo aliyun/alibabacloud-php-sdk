@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class QueryAlertRulesFilter extends Model
 {
     /**
+     * @var string
+     */
+    public $datasourceType;
+
+    /**
      * @var DisplayNameFilter
      */
     public $displayName;
@@ -24,6 +29,26 @@ class QueryAlertRulesFilter extends Model
     public $labels;
 
     /**
+     * @var bool
+     */
+    public $observeResourceGlobalScope;
+
+    /**
+     * @var string
+     */
+    public $observeResourceInstanceId;
+
+    /**
+     * @var string
+     */
+    public $observeResourceType;
+
+    /**
+     * @var string
+     */
+    public $severityLevels;
+
+    /**
      * @var StatusFilter
      */
     public $status;
@@ -33,9 +58,14 @@ class QueryAlertRulesFilter extends Model
      */
     public $uuid;
     protected $_name = [
+        'datasourceType' => 'datasourceType',
         'displayName' => 'displayName',
         'enabled' => 'enabled',
         'labels' => 'labels',
+        'observeResourceGlobalScope' => 'observeResourceGlobalScope',
+        'observeResourceInstanceId' => 'observeResourceInstanceId',
+        'observeResourceType' => 'observeResourceType',
+        'severityLevels' => 'severityLevels',
         'status' => 'status',
         'uuid' => 'uuid',
     ];
@@ -63,6 +93,10 @@ class QueryAlertRulesFilter extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->datasourceType) {
+            $res['datasourceType'] = $this->datasourceType;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = null !== $this->displayName ? $this->displayName->toArray($noStream) : $this->displayName;
         }
@@ -73,6 +107,22 @@ class QueryAlertRulesFilter extends Model
 
         if (null !== $this->labels) {
             $res['labels'] = null !== $this->labels ? $this->labels->toArray($noStream) : $this->labels;
+        }
+
+        if (null !== $this->observeResourceGlobalScope) {
+            $res['observeResourceGlobalScope'] = $this->observeResourceGlobalScope;
+        }
+
+        if (null !== $this->observeResourceInstanceId) {
+            $res['observeResourceInstanceId'] = $this->observeResourceInstanceId;
+        }
+
+        if (null !== $this->observeResourceType) {
+            $res['observeResourceType'] = $this->observeResourceType;
+        }
+
+        if (null !== $this->severityLevels) {
+            $res['severityLevels'] = $this->severityLevels;
         }
 
         if (null !== $this->status) {
@@ -94,6 +144,10 @@ class QueryAlertRulesFilter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['datasourceType'])) {
+            $model->datasourceType = $map['datasourceType'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = DisplayNameFilter::fromMap($map['displayName']);
         }
@@ -104,6 +158,22 @@ class QueryAlertRulesFilter extends Model
 
         if (isset($map['labels'])) {
             $model->labels = LabelsFilter::fromMap($map['labels']);
+        }
+
+        if (isset($map['observeResourceGlobalScope'])) {
+            $model->observeResourceGlobalScope = $map['observeResourceGlobalScope'];
+        }
+
+        if (isset($map['observeResourceInstanceId'])) {
+            $model->observeResourceInstanceId = $map['observeResourceInstanceId'];
+        }
+
+        if (isset($map['observeResourceType'])) {
+            $model->observeResourceType = $map['observeResourceType'];
+        }
+
+        if (isset($map['severityLevels'])) {
+            $model->severityLevels = $map['severityLevels'];
         }
 
         if (isset($map['status'])) {

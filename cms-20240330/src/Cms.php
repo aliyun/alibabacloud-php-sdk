@@ -246,6 +246,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListWorkspacesShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ManageAlertRulesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ManageAlertRulesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ManageAlertRulesShrinkRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\OpenCmsServiceRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\OpenCmsServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\PutWorkspaceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\QueryAlertRulesRequest;
@@ -344,7 +346,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 写入上下文.
+     * Write to the context.
      *
      * @param request - AddContextsRequest
      * @param headers - map
@@ -396,7 +398,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 写入上下文.
+     * Write to the context.
      *
      * @param request - AddContextsRequest
      *
@@ -417,7 +419,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 添加记忆.
+     * Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
      *
      * @param request - AddMemoriesRequest
      * @param headers - map
@@ -497,7 +499,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 添加记忆.
+     * Add new facts, messages, or metadata to a user’s memory store. The AddMemories endpoint accepts raw text or conversation turns and commits them asynchronously, preparing the memories for subsequent search, retrieval, and graph queries.
      *
      * @param request - AddMemoriesRequest
      *
@@ -518,7 +520,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改资源所属资源组.
+     * Changes the resource group of a resource.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -568,7 +570,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改资源所属资源组.
+     * Changes the resource group of a resource.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -587,10 +589,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Install the access component, representing a single access attempt.
+     * Installs an add-on.
      *
      * @remarks
-     * Used to create a site monitoring task
+     * Creates a release for an add-on.
      *
      * @param request - CreateAddonReleaseRequest
      * @param headers - map
@@ -669,10 +671,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Install the access component, representing a single access attempt.
+     * Installs an add-on.
      *
      * @remarks
-     * Used to create a site monitoring task
+     * Creates a release for an add-on.
      *
      * @param request - CreateAddonReleaseRequest
      *
@@ -692,7 +694,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Aggregation Task Group.
+     * Creates an aggregation task group.
      *
      * @param request - CreateAggTaskGroupRequest
      * @param headers - map
@@ -801,7 +803,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Aggregation Task Group.
+     * Creates an aggregation task group.
      *
      * @param request - CreateAggTaskGroupRequest
      *
@@ -821,7 +823,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建Webhook.
+     * Create a webhook.
+     *
+     * @remarks
+     * Creates an alert webhook to use as a notification recipient.
      *
      * @param request - CreateAlertWebhookRequest
      * @param headers - map
@@ -891,7 +896,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建Webhook.
+     * Create a webhook.
+     *
+     * @remarks
+     * Creates an alert webhook to use as a notification recipient.
      *
      * @param request - CreateAlertWebhookRequest
      *
@@ -910,7 +918,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建业务链路.
+     * Creates a business trace.
      *
      * @param request - CreateBizTraceRequest
      * @param headers - map
@@ -968,7 +976,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建业务链路.
+     * Creates a business trace.
      *
      * @param request - CreateBizTraceRequest
      *
@@ -987,7 +995,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建云资源中心.
+     * Creates a cloud resource.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1020,7 +1028,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建云资源中心.
+     * Creates a cloud resource.
      *
      * @returns CreateCloudResourceResponse
      *
@@ -1035,7 +1043,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建上下文库.
+     * Creates a context store.
      *
      * @param request - CreateContextStoreRequest
      * @param headers - map
@@ -1094,7 +1102,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建上下文库.
+     * Creates a context store.
      *
      * @param request - CreateContextStoreRequest
      *
@@ -1114,7 +1122,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建 API Key.
+     * Creates an API key for a context store.
      *
      * @param request - CreateContextStoreAPIKeyRequest
      * @param headers - map
@@ -1158,7 +1166,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建 API Key.
+     * Creates an API key for a context store.
      *
      * @param request - CreateContextStoreAPIKeyRequest
      *
@@ -1179,7 +1187,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset.
      *
      * @param request - CreateDatasetRequest
      * @param headers - map
@@ -1230,7 +1238,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset.
      *
      * @param request - CreateDatasetRequest
      *
@@ -1250,7 +1258,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建数据投递任务
+     * Create a data delivery task to deliver metric data from a data source to a storage destination or message queue. This task supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can also use tags to filter which metrics are delivered and attach custom tags to them.
      *
      * @param request - CreateDeliveryTaskRequest
      * @param headers - map
@@ -1324,7 +1332,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建数据投递任务
+     * Create a data delivery task to deliver metric data from a data source to a storage destination or message queue. This task supports three delivery types: Prometheus Remote Write, Kafka, and MaxCompute. You can also use tags to filter which metrics are delivered and attach custom tags to them.
      *
      * @param request - CreateDeliveryTaskRequest
      *
@@ -1343,7 +1351,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create storage related to EntityStore.
+     * Creates storage for an EntityStore.
      *
      * @param request - CreateEntityStoreRequest
      * @param headers - map
@@ -1380,7 +1388,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create storage related to EntityStore.
+     * Creates storage for an EntityStore.
      *
      * @param request - CreateEntityStoreRequest
      *
@@ -1400,10 +1408,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Access Center Policy.
+     * Creates an Integration Center policy.
      *
      * @remarks
-     * This interface is used to support users in creating event integration.
+     * This operation creates an event integration.
      *
      * @param request - CreateIntegrationPolicyRequest
      * @param headers - map
@@ -1465,10 +1473,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Access Center Policy.
+     * Creates an Integration Center policy.
      *
      * @remarks
-     * This interface is used to support users in creating event integration.
+     * This operation creates an event integration.
      *
      * @param request - CreateIntegrationPolicyRequest
      *
@@ -1487,7 +1495,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建记忆库.
+     * Creates a MemoryStore.
      *
      * @param request - CreateMemoryStoreRequest
      * @param headers - map
@@ -1554,7 +1562,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建记忆库.
+     * Creates a MemoryStore.
      *
      * @param request - CreateMemoryStoreRequest
      *
@@ -1574,7 +1582,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建流水线
+     * Create a pipeline.
      *
      * @param request - CreatePipelineRequest
      * @param headers - map
@@ -1637,7 +1645,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建流水线
+     * Create a pipeline.
      *
      * @param request - CreatePipelineRequest
      *
@@ -1657,7 +1665,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create a Prometheus monitoring instance.
+     * Creates a Prometheus instance for monitoring.
      *
      * @param request - CreatePrometheusInstanceRequest
      * @param headers - map
@@ -1743,7 +1751,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create a Prometheus monitoring instance.
+     * Creates a Prometheus instance for monitoring.
      *
      * @param request - CreatePrometheusInstanceRequest
      *
@@ -1762,10 +1770,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Prometheus View.
+     * Creates a Prometheus view.
      *
      * @remarks
-     * Used to create a site monitoring task
+     * 用于创建一个站点监控任务
      *
      * @param request - CreatePrometheusViewRequest
      * @param headers - map
@@ -1843,10 +1851,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Prometheus View.
+     * Creates a Prometheus view.
      *
      * @remarks
-     * Used to create a site monitoring task
+     * 用于创建一个站点监控任务
      *
      * @param request - CreatePrometheusViewRequest
      *
@@ -1865,10 +1873,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Prometheus Monitoring Instance.
+     * Creates a virtual instance for Prometheus monitoring.
      *
      * @remarks
-     * Create a Prometheus monitoring virtual instance.
+     * Creates a virtual instance for Prometheus monitoring.
      *
      * @param request - CreatePrometheusVirtualInstanceRequest
      * @param headers - map
@@ -1914,10 +1922,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Prometheus Monitoring Instance.
+     * Creates a virtual instance for Prometheus monitoring.
      *
      * @remarks
-     * Create a Prometheus monitoring virtual instance.
+     * Creates a virtual instance for Prometheus monitoring.
      *
      * @param request - CreatePrometheusVirtualInstanceRequest
      *
@@ -1936,7 +1944,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Service.
+     * Creates a service for application observability.
      *
      * @param request - CreateServiceRequest
      * @param headers - map
@@ -2011,7 +2019,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Service.
+     * Creates a service for application observability.
      *
      * @param request - CreateServiceRequest
      *
@@ -2031,7 +2039,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建应用可观测实例.
+     * Creates application observability and prepares the prerequisite resources required for integration.
      *
      * @param request - CreateServiceObservabilityRequest
      * @param headers - map
@@ -2069,7 +2077,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 创建应用可观测实例.
+     * Creates application observability and prepares the prerequisite resources required for integration.
      *
      * @param request - CreateServiceObservabilityRequest
      *
@@ -2090,7 +2098,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Ticket.
+     * To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
      *
      * @param request - CreateTicketRequest
      * @param headers - map
@@ -2136,7 +2144,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Ticket.
+     * To share a console page or embed it into a third-party system without requiring a password, you can call the CreateTicket operation to generate a ticket. You can then use the ticket to create a password-free link.
      *
      * @param request - CreateTicketRequest
      *
@@ -2155,10 +2163,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Umodel configuration.
+     * Creates a Umodel configuration.
      *
      * @remarks
-     * Create Umodel configuration in the specified workspace
+     * Creates a Umodel configuration in a specified workspace.
      *
      * @param request - CreateUmodelRequest
      * @param headers - map
@@ -2201,10 +2209,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Umodel configuration.
+     * Creates a Umodel configuration.
      *
      * @remarks
-     * Create Umodel configuration in the specified workspace
+     * Creates a Umodel configuration in a specified workspace.
      *
      * @param request - CreateUmodelRequest
      *
@@ -2224,7 +2232,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete addon release information.
+     * Deletes add-on release information.
      *
      * @param request - DeleteAddonReleaseRequest
      * @param headers - map
@@ -2275,7 +2283,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete addon release information.
+     * Deletes add-on release information.
      *
      * @param request - DeleteAddonReleaseRequest
      *
@@ -2295,7 +2303,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Aggregation Task Group.
+     * Deletes an aggregation task group.
      *
      * @param request - DeleteAggTaskGroupRequest
      * @param headers - map
@@ -2333,7 +2341,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Aggregation Task Group.
+     * Deletes an aggregation task group.
      *
      * @param request - DeleteAggTaskGroupRequest
      *
@@ -2354,7 +2362,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除Webhook.
+     * Deletes one or more alert webhooks.
      *
      * @param tmpReq - DeleteAlertWebhooksRequest
      * @param headers - map
@@ -2402,7 +2410,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除Webhook.
+     * Deletes one or more alert webhooks.
      *
      * @param request - DeleteAlertWebhooksRequest
      *
@@ -2421,7 +2429,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除业务链路.
+     * Deletes a business trace.
      *
      * @param request - DeleteBizTraceRequest
      * @param headers - map
@@ -2458,7 +2466,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除业务链路.
+     * Deletes a business trace.
      *
      * @param request - DeleteBizTraceRequest
      *
@@ -2478,7 +2486,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除云资源中心.
+     * Deletes a cloud resource.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2511,7 +2519,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除云资源中心.
+     * Deletes a cloud resource.
      *
      * @returns DeleteCloudResourceResponse
      *
@@ -2526,7 +2534,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除上下文.
+     * Deletes a context.
      *
      * @param request - DeleteContextRequest
      * @param headers - map
@@ -2565,7 +2573,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除上下文.
+     * Deletes a context.
      *
      * @param request - DeleteContextRequest
      *
@@ -2587,7 +2595,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除上下文库.
+     * Deletes a context store.
      *
      * @param request - DeleteContextStoreRequest
      * @param headers - map
@@ -2625,7 +2633,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除上下文库.
+     * Deletes a context store.
      *
      * @param request - DeleteContextStoreRequest
      *
@@ -2646,7 +2654,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除 API Key.
+     * Deletes an API key.
      *
      * @param request - DeleteContextStoreAPIKeyRequest
      * @param headers - map
@@ -2685,7 +2693,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除 API Key.
+     * Deletes an API key.
      *
      * @param request - DeleteContextStoreAPIKeyRequest
      *
@@ -2707,7 +2715,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 批量删除上下文.
+     * Deletes contexts in bulk.
      *
      * @param request - DeleteContextsRequest
      * @param headers - map
@@ -2755,7 +2763,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 批量删除上下文.
+     * Deletes contexts in bulk.
      *
      * @param request - DeleteContextsRequest
      *
@@ -2776,7 +2784,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Deletes a dataset.
      *
      * @param request - DeleteDatasetRequest
      * @param headers - map
@@ -2814,7 +2822,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Deletes a dataset.
      *
      * @param request - DeleteDatasetRequest
      *
@@ -2835,7 +2843,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除数据投递任务
+     * Deletes a delivery task.
      *
      * @param request - DeleteDeliveryTaskRequest
      * @param headers - map
@@ -2872,7 +2880,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除数据投递任务
+     * Deletes a delivery task.
      *
      * @param request - DeleteDeliveryTaskRequest
      *
@@ -2892,7 +2900,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete EntityStore related storage.
+     * Deletes an EntityStore.
      *
      * @param request - DeleteEntityStoreRequest
      * @param headers - map
@@ -2929,7 +2937,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete EntityStore related storage.
+     * Deletes an EntityStore.
      *
      * @param request - DeleteEntityStoreRequest
      *
@@ -2949,7 +2957,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Access Center Policy.
+     * Deletes an Integration Center policy.
      *
      * @param request - DeleteIntegrationPolicyRequest
      * @param headers - map
@@ -2992,7 +3000,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Access Center Policy.
+     * Deletes an Integration Center policy.
      *
      * @param request - DeleteIntegrationPolicyRequest
      *
@@ -3012,7 +3020,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 批量删除记忆.
+     * Deletes memories based on filter properties. You must set at least one filter property. If no filter properties are set, a validation error is returned.
      *
      * @param request - DeleteMemoriesRequest
      * @param headers - map
@@ -3068,7 +3076,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 批量删除记忆.
+     * Deletes memories based on filter properties. You must set at least one filter property. If no filter properties are set, a validation error is returned.
      *
      * @param request - DeleteMemoriesRequest
      *
@@ -3089,7 +3097,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除记忆.
+     * Deletes a memory.
      *
      * @param request - DeleteMemoryRequest
      * @param headers - map
@@ -3128,7 +3136,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除记忆.
+     * Deletes a memory.
      *
      * @param request - DeleteMemoryRequest
      *
@@ -3150,7 +3158,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除记忆库.
+     * Deletes a Memory Store.
      *
      * @param request - DeleteMemoryStoreRequest
      * @param headers - map
@@ -3188,7 +3196,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除记忆库.
+     * Deletes a Memory Store.
      *
      * @param request - DeleteMemoryStoreRequest
      *
@@ -3209,7 +3217,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除流水线
+     * Deletes a pipeline.
      *
      * @param request - DeletePipelineRequest
      * @param headers - map
@@ -3247,7 +3255,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除流水线
+     * Deletes a pipeline.
      *
      * @param request - DeletePipelineRequest
      *
@@ -3268,10 +3276,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete prom instance.
+     * Deletes a Prometheus instance.
      *
      * @remarks
-     * Delete a Prometheus instance.
+     * Deletes a Prometheus instance.
      *
      * @param request - DeletePrometheusInstanceRequest
      * @param headers - map
@@ -3308,10 +3316,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete prom instance.
+     * Deletes a Prometheus instance.
      *
      * @remarks
-     * Delete a Prometheus instance.
+     * Deletes a Prometheus instance.
      *
      * @param request - DeletePrometheusInstanceRequest
      *
@@ -3331,10 +3339,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete prometheus view instance.
+     * Deletes a Prometheus view instance.
      *
      * @remarks
-     * Delete prometheus view instance.
+     * Deletes a Prometheus view instance.
      *
      * @param request - DeletePrometheusViewRequest
      * @param headers - map
@@ -3371,10 +3379,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete prometheus view instance.
+     * Deletes a Prometheus view instance.
      *
      * @remarks
-     * Delete prometheus view instance.
+     * Deletes a Prometheus view instance.
      *
      * @param request - DeletePrometheusViewRequest
      *
@@ -3394,7 +3402,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除 Prometheus 虚拟实例.
+     * Deletes a Prometheus virtual instance by its ID.
      *
      * @param request - DeletePrometheusVirtualInstanceRequest
      * @param headers - map
@@ -3431,7 +3439,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除 Prometheus 虚拟实例.
+     * Deletes a Prometheus virtual instance by its ID.
      *
      * @param request - DeletePrometheusVirtualInstanceRequest
      *
@@ -3451,7 +3459,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Service.
+     * Deletes an Application Monitoring service.
      *
      * @param request - DeleteServiceRequest
      * @param headers - map
@@ -3489,7 +3497,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Service.
+     * Deletes an Application Monitoring service.
      *
      * @param request - DeleteServiceRequest
      *
@@ -3510,10 +3518,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Umodel configuration information.
+     * Deletes a Umodel configuration.
      *
      * @remarks
-     * Delete the Umodel under the specified workspace
+     * Deletes a Umodel from a specified workspace.
      *
      * @param request - DeleteUmodelRequest
      * @param headers - map
@@ -3550,10 +3558,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Umodel configuration information.
+     * Deletes a Umodel configuration.
      *
      * @remarks
-     * Delete the Umodel under the specified workspace
+     * Deletes a Umodel from a specified workspace.
      *
      * @param request - DeleteUmodelRequest
      *
@@ -3573,7 +3581,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除Umodel配置信息.
+     * Deletes a public Umodel schema reference.
      *
      * @param request - DeleteUmodelCommonSchemaRefRequest
      * @param headers - map
@@ -3616,7 +3624,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删除Umodel配置信息.
+     * Deletes a public Umodel schema reference.
      *
      * @param request - DeleteUmodelCommonSchemaRefRequest
      *
@@ -3636,10 +3644,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Umodel Elements.
+     * Deletes Umodel elements.
      *
      * @remarks
-     * Delete the Umodel Data under a specified workspace
+     * Deletes Umodel data from a specified workspace.
      *
      * @param request - DeleteUmodelDataRequest
      * @param headers - map
@@ -3690,10 +3698,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Umodel Elements.
+     * Deletes Umodel elements.
      *
      * @remarks
-     * Delete the Umodel Data under a specified workspace
+     * Deletes Umodel data from a specified workspace.
      *
      * @param request - DeleteUmodelDataRequest
      *
@@ -3713,7 +3721,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Workspace.
+     * Deletes a workspace.
      *
      * @param request - DeleteWorkspaceRequest
      * @param headers - map
@@ -3750,7 +3758,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Delete Workspace.
+     * Deletes a workspace.
      *
      * @param request - DeleteWorkspaceRequest
      *
@@ -3770,7 +3778,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询元数据meta.
+     * Query metadata.
+     *
+     * @remarks
+     * Queries the details of CloudMonitor metric metadata.
      *
      * @param tmpReq - DescribeMetricMetaListRequest
      * @param headers - map
@@ -3842,7 +3853,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询元数据meta.
+     * Query metadata.
+     *
+     * @remarks
+     * Queries the details of CloudMonitor metric metadata.
      *
      * @param request - DescribeMetricMetaListRequest
      *
@@ -3861,7 +3875,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询地域信息列表.
+     * Retrieves a list of regions.
      *
      * @param request - DescribeRegionsRequest
      * @param headers - map
@@ -3903,7 +3917,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询地域信息列表.
+     * Retrieves a list of regions.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -3922,7 +3936,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 执行查询语句.
+     * Executes SQL and SPL queries.
      *
      * @param request - ExecuteQueryRequest
      * @param headers - map
@@ -3970,7 +3984,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 执行查询语句.
+     * Executes SQL and SPL queries.
      *
      * @param request - ExecuteQueryRequest
      *
@@ -3991,7 +4005,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 插件详情(Addon).
+     * Retrieves the details of an add-on.
+     *
+     * @remarks
+     * Retrieves the details of an add-on.
      *
      * @param request - GetAddonRequest
      * @param headers - map
@@ -4038,7 +4055,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 插件详情(Addon).
+     * Retrieves the details of an add-on.
+     *
+     * @remarks
+     * Retrieves the details of an add-on.
      *
      * @param request - GetAddonRequest
      *
@@ -4058,7 +4078,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 插件schema详情(Addon).
+     * Details of an add-on schema.
+     *
+     * @remarks
+     * This topic provides an example of how to modify version `1` of alert template `123456`. In this example, the alert level is set to `Critical`, the statistical method is set to `Average`, the comparison operator for the alert threshold is set to `GreaterThanOrEqualToThreshold`, the alert threshold is set to `90`, and the number of retries is set to `3`. The response indicates that the alert template was successfully modified.
      *
      * @param request - GetAddonCodeTemplateRequest
      * @param headers - map
@@ -4109,7 +4132,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 插件schema详情(Addon).
+     * Details of an add-on schema.
+     *
+     * @remarks
+     * This topic provides an example of how to modify version `1` of alert template `123456`. In this example, the alert level is set to `Critical`, the statistical method is set to `Average`, the comparison operator for the alert threshold is set to `GreaterThanOrEqualToThreshold`, the alert threshold is set to `90`, and the number of retries is set to `3`. The response indicates that the alert template was successfully modified.
      *
      * @param request - GetAddonCodeTemplateRequest
      *
@@ -4129,7 +4155,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Check addon release (view connection status).
+     * Queries the details and accessed state of an add-on release.
      *
      * @param request - GetAddonReleaseRequest
      * @param headers - map
@@ -4167,7 +4193,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Check addon release (view connection status).
+     * Queries the details and accessed state of an add-on release.
      *
      * @param request - GetAddonReleaseRequest
      *
@@ -4188,7 +4214,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 插件schema详情(Addon).
+     * The details of an add-on schema.
+     *
+     * @remarks
+     * Retrieves the schema of an add-on.
      *
      * @param request - GetAddonSchemaRequest
      * @param headers - map
@@ -4239,7 +4268,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 插件schema详情(Addon).
+     * The details of an add-on schema.
+     *
+     * @remarks
+     * Retrieves the schema of an add-on.
      *
      * @param request - GetAddonSchemaRequest
      *
@@ -4259,7 +4291,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Describes the aggregation task group.
+     * Queries an aggregation task group.
      *
      * @param request - GetAggTaskGroupRequest
      * @param headers - map
@@ -4297,7 +4329,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Describes the aggregation task group.
+     * Queries an aggregation task group.
      *
      * @param request - GetAggTaskGroupRequest
      *
@@ -4318,7 +4350,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询业务链路.
+     * Queries a business trace.
      *
      * @param request - GetBizTraceRequest
      * @param headers - map
@@ -4355,7 +4387,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询业务链路.
+     * Queries a business trace.
      *
      * @param request - GetBizTraceRequest
      *
@@ -4375,7 +4407,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询云资源中心.
+     * Retrieves information about cloud resources.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4408,7 +4440,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询云资源中心.
+     * Retrieves information about cloud resources.
      *
      * @returns GetCloudResourceResponse
      *
@@ -4423,7 +4455,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询云资源中心数据.
+     * Queries data from the Cloud Resource Center.
      *
      * @param request - GetCloudResourceDataRequest
      * @param headers - map
@@ -4473,7 +4505,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询云资源中心数据.
+     * Queries data from the Cloud Resource Center.
      *
      * @param request - GetCloudResourceDataRequest
      *
@@ -4492,7 +4524,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取云监控开通状态
+     * Checks whether a Prometheus service or product is activated.
+     *
+     * @remarks
+     * The product and service request parameters cannot be specified in the same request.
      *
      * @param request - GetCmsServiceRequest
      * @param headers - map
@@ -4538,7 +4573,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取云监控开通状态
+     * Checks whether a Prometheus service or product is activated.
+     *
+     * @remarks
+     * The product and service request parameters cannot be specified in the same request.
      *
      * @param request - GetCmsServiceRequest
      *
@@ -4557,7 +4595,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询单条上下文.
+     * Retrieves a single context.
      *
      * @param request - GetContextRequest
      * @param headers - map
@@ -4602,7 +4640,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询单条上下文.
+     * Retrieves a single context.
      *
      * @param request - GetContextRequest
      *
@@ -4624,7 +4662,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询上下文库.
+     * Retrieves the details of a specified context store.
      *
      * @param request - GetContextStoreRequest
      * @param headers - map
@@ -4662,7 +4700,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询上下文库.
+     * Retrieves the details of a specified context store.
      *
      * @param request - GetContextStoreRequest
      *
@@ -4683,7 +4721,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询数据集.
+     * Retrieves the details of a specified dataset.
      *
      * @param request - GetDatasetRequest
      * @param headers - map
@@ -4721,7 +4759,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询数据集.
+     * Retrieves the details of a specified dataset.
      *
      * @param request - GetDatasetRequest
      *
@@ -4742,7 +4780,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取数据投递任务详情.
+     * View data delivery task details.
      *
      * @param request - GetDeliveryTaskRequest
      * @param headers - map
@@ -4779,7 +4817,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取数据投递任务详情.
+     * View data delivery task details.
      *
      * @param request - GetDeliveryTaskRequest
      *
@@ -4799,7 +4837,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get EntityStore related storage information.
+     * Retrieves the storage information of an EntityStore.
      *
      * @param request - GetEntityStoreRequest
      * @param headers - map
@@ -4836,7 +4874,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get EntityStore related storage information.
+     * Retrieves the storage information of an EntityStore.
      *
      * @param request - GetEntityStoreRequest
      *
@@ -4856,7 +4894,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query the entity and relationship data under a specified Workspace, returning the entity data within a certain time range (the returned result is transmitted after compression).
+     * Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
      *
      * @param request - GetEntityStoreDataRequest
      * @param headers - GetEntityStoreDataHeaders
@@ -4916,7 +4954,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query the entity and relationship data under a specified Workspace, returning the entity data within a certain time range (the returned result is transmitted after compression).
+     * Queries the entity and relational data in a specified workspace to retrieve entity data for a specific time range.
      *
      * @param request - GetEntityStoreDataRequest
      *
@@ -4936,7 +4974,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query the list of access center policies.
+     * Retrieves the details of an Integration Center policy.
      *
      * @param request - GetIntegrationPolicyRequest
      * @param headers - map
@@ -4973,7 +5011,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query the list of access center policies.
+     * Retrieves the details of an Integration Center policy.
      *
      * @param request - GetIntegrationPolicyRequest
      *
@@ -4993,7 +5031,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询接入中心在CS的版本.
+     * Queries the Integration Center version for a container cluster.
+     *
+     * @remarks
+     * This operation is not available in the API Explorer.
      *
      * @param request - GetIntegrationVersionForCSRequest
      * @param headers - map
@@ -5039,7 +5080,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询接入中心在CS的版本.
+     * Queries the Integration Center version for a container cluster.
+     *
+     * @remarks
+     * This operation is not available in the API Explorer.
      *
      * @param request - GetIntegrationVersionForCSRequest
      *
@@ -5058,7 +5102,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询全部记忆.
+     * Retrieves all memories.
      *
      * @param request - GetMemoriesRequest
      * @param headers - map
@@ -5126,7 +5170,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询全部记忆.
+     * Retrieves all memories.
      *
      * @param request - GetMemoriesRequest
      *
@@ -5147,7 +5191,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询记忆.
+     * Retrieves a single memory.
      *
      * @param request - GetMemoryRequest
      * @param headers - map
@@ -5186,7 +5230,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询记忆.
+     * Retrieves a single memory.
      *
      * @param request - GetMemoryRequest
      *
@@ -5208,7 +5252,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询记忆历史记录.
+     * Retrieve memory history.
      *
      * @param request - GetMemoryHistoryRequest
      * @param headers - map
@@ -5247,7 +5291,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询记忆历史记录.
+     * Retrieve memory history.
      *
      * @param request - GetMemoryHistoryRequest
      *
@@ -5269,7 +5313,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询记忆库.
+     * Query a memory store.
      *
      * @param request - GetMemoryStoreRequest
      * @param headers - map
@@ -5307,7 +5351,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询记忆库.
+     * Query a memory store.
      *
      * @param request - GetMemoryStoreRequest
      *
@@ -5328,7 +5372,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询流水线
+     * Query pipeline.
      *
      * @param request - GetPipelineRequest
      * @param headers - map
@@ -5366,7 +5410,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询流水线
+     * Query pipeline.
      *
      * @param request - GetPipelineRequest
      *
@@ -5387,10 +5431,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query the instance in a specified environment.
+     * Retrieves the details of a specific Prometheus instance.
      *
      * @remarks
-     * Retrieve details of a Prometheus instance.
+     * Gets the details of a Prometheus instance.
      *
      * @param request - GetPrometheusInstanceRequest
      * @param headers - map
@@ -5437,10 +5481,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query the instance in a specified environment.
+     * Retrieves the details of a specific Prometheus instance.
      *
      * @remarks
-     * Retrieve details of a Prometheus instance.
+     * Gets the details of a Prometheus instance.
      *
      * @param request - GetPrometheusInstanceRequest
      *
@@ -5460,7 +5504,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询指定环境实例.
+     * Retrieves the user settings for Prometheus.
      *
      * @param request - GetPrometheusUserSettingRequest
      * @param headers - map
@@ -5502,7 +5546,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询指定环境实例.
+     * Retrieves the user settings for Prometheus.
      *
      * @param request - GetPrometheusUserSettingRequest
      *
@@ -5521,10 +5565,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query a specified Prometheus view instance.
+     * Retrieves the details of a specified Prometheus view instance.
      *
      * @remarks
-     * Query a specified Prometheus view instance.
+     * Retrieves the details of a specified Prometheus view instance.
      *
      * @param request - GetPrometheusViewRequest
      * @param headers - map
@@ -5571,10 +5615,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query a specified Prometheus view instance.
+     * Retrieves the details of a specified Prometheus view instance.
      *
      * @remarks
-     * Query a specified Prometheus view instance.
+     * Retrieves the details of a specified Prometheus view instance.
      *
      * @param request - GetPrometheusViewRequest
      *
@@ -5594,7 +5638,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query Service.
+     * Retrieves the details of an Application Monitoring service.
      *
      * @param request - GetServiceRequest
      * @param headers - map
@@ -5632,7 +5676,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query Service.
+     * Retrieves the details of an Application Monitoring service.
      *
      * @param request - GetServiceRequest
      *
@@ -5653,7 +5697,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Application Observability Instance.
+     * Retrieves an application observability instance.
      *
      * @param request - GetServiceObservabilityRequest
      * @param headers - map
@@ -5691,7 +5735,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Application Observability Instance.
+     * Retrieves an application observability instance.
      *
      * @param request - GetServiceObservabilityRequest
      *
@@ -5712,10 +5756,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Umodel configuration information.
+     * Retrieves the configuration of a Umodel.
      *
      * @remarks
-     * Get Umodel configuration information
+     * Retrieves the configuration of a Umodel.
      *
      * @param request - GetUmodelRequest
      * @param headers - map
@@ -5752,10 +5796,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Umodel configuration information.
+     * Retrieves the configuration of a Umodel.
      *
      * @remarks
-     * Get Umodel configuration information
+     * Retrieves the configuration of a Umodel.
      *
      * @param request - GetUmodelRequest
      *
@@ -5775,7 +5819,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取Umodel配置信息.
+     * Retrieves the referenced common Umodel schema.
      *
      * @param request - GetUmodelCommonSchemaRefRequest
      * @param headers - map
@@ -5812,7 +5856,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取Umodel配置信息.
+     * Retrieves the referenced common Umodel schema.
      *
      * @param request - GetUmodelCommonSchemaRefRequest
      *
@@ -5832,10 +5876,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieve associated Umodel graph data.
+     * Retrieves graph data associated with a Umodel.
      *
      * @remarks
-     * Find Umodel
+     * This operation retrieves the graph data associated with a Umodel.
      *
      * @param request - GetUmodelDataRequest
      * @param headers - map
@@ -5884,10 +5928,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieve associated Umodel graph data.
+     * Retrieves graph data associated with a Umodel.
      *
      * @remarks
-     * Find Umodel
+     * This operation retrieves the graph data associated with a Umodel.
      *
      * @param request - GetUmodelDataRequest
      *
@@ -5907,7 +5951,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Workspace.
+     * Retrieves a workspace.
      *
      * @param request - GetWorkspaceRequest
      * @param headers - map
@@ -5944,7 +5988,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Workspace.
+     * Retrieves a workspace.
      *
      * @param request - GetWorkspaceRequest
      *
@@ -5964,10 +6008,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * List of addon releases.
+     * Lists the releases for an add-on.
      *
      * @remarks
-     * Query the list of access configurations
+     * This operation retrieves a list of integration configurations.
      *
      * @param request - ListAddonReleasesRequest
      * @param headers - map
@@ -5988,6 +6032,14 @@ class Cms extends OpenApiClient
         $query = [];
         if (null !== $request->addonName) {
             @$query['addonName'] = $request->addonName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
 
         if (null !== $request->parentAddonReleaseId) {
@@ -6014,10 +6066,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * List of addon releases.
+     * Lists the releases for an add-on.
      *
      * @remarks
-     * Query the list of access configurations
+     * This operation retrieves a list of integration configurations.
      *
      * @param request - ListAddonReleasesRequest
      *
@@ -6037,7 +6089,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 新版接入中心产品列表(分组).
+     * Lists the products in the new Integration Center by group.
+     *
+     * @remarks
+     * Creates a site monitoring job.
      *
      * @param request - ListAddonsRequest
      * @param headers - map
@@ -6091,7 +6146,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 新版接入中心产品列表(分组).
+     * Lists the products in the new Integration Center by group.
+     *
+     * @remarks
+     * Creates a site monitoring job.
      *
      * @param request - ListAddonsRequest
      *
@@ -6110,7 +6168,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * List Aggregation Task Groups.
+     * Queries a list of aggregation task groups.
      *
      * @param tmpReq - ListAggTaskGroupsRequest
      * @param headers - map
@@ -6187,7 +6245,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * List Aggregation Task Groups.
+     * Queries a list of aggregation task groups.
      *
      * @param request - ListAggTaskGroupsRequest
      *
@@ -6207,7 +6265,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query Alert Actions.
+     * Queries alert action integrations.
      *
      * @param tmpReq - ListAlertActionsRequest
      * @param headers - map
@@ -6271,7 +6329,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query Alert Actions.
+     * Queries alert action integrations.
      *
      * @param request - ListAlertActionsRequest
      *
@@ -6290,7 +6348,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询机器人.
+     * Queries a list of alert webhooks.
      *
      * @param tmpReq - ListAlertRobotsRequest
      * @param headers - map
@@ -6362,7 +6420,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询机器人.
+     * Queries a list of alert webhooks.
      *
      * @param request - ListAlertRobotsRequest
      *
@@ -6381,7 +6439,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询Webhook.
+     * Query webhooks.
      *
      * @param tmpReq - ListAlertWebhooksRequest
      * @param headers - map
@@ -6445,7 +6503,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询Webhook.
+     * Query webhooks.
      *
      * @param request - ListAlertWebhooksRequest
      *
@@ -6464,7 +6522,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 业务链路列表.
+     * Lists business traces.
      *
      * @param request - ListBizTracesRequest
      * @param headers - map
@@ -6514,7 +6572,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 业务链路列表.
+     * Lists business traces.
      *
      * @param request - ListBizTracesRequest
      *
@@ -6533,7 +6591,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询联系人组.
+     * Queries contact groups.
      *
      * @param tmpReq - ListContactGroupsRequest
      * @param headers - map
@@ -6597,7 +6655,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询联系人组.
+     * Queries contact groups.
      *
      * @param request - ListContactGroupsRequest
      *
@@ -6616,7 +6674,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询联系人.
+     * Query contacts.
      *
      * @param tmpReq - ListContactsRequest
      * @param headers - map
@@ -6696,7 +6754,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询联系人.
+     * Query contacts.
      *
      * @param request - ListContactsRequest
      *
@@ -6715,7 +6773,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取 API Key 列表.
+     * Lists API keys.
      *
      * @param request - ListContextStoreAPIKeysRequest
      * @param headers - map
@@ -6763,7 +6821,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取 API Key 列表.
+     * Lists API keys.
      *
      * @param request - ListContextStoreAPIKeysRequest
      *
@@ -6784,7 +6842,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询上下文库列表.
+     * Retrieves a list of context stores.
      *
      * @param request - ListContextStoresRequest
      * @param headers - map
@@ -6839,7 +6897,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询上下文库列表.
+     * Retrieves a list of context stores.
      *
      * @param request - ListContextStoresRequest
      *
@@ -6859,7 +6917,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询数据集列表.
+     * Retrieves a list of datasets in a specified workspace.
      *
      * @param request - ListDatasetsRequest
      * @param headers - map
@@ -6910,7 +6968,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询数据集列表.
+     * Retrieves a list of datasets in a specified workspace.
      *
      * @param request - ListDatasetsRequest
      *
@@ -6930,7 +6988,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取数据投递任务列表.
+     * Retrieves a list of data delivery tasks.
      *
      * @param tmpReq - ListDeliveryTasksRequest
      * @param headers - map
@@ -6994,7 +7052,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取数据投递任务列表.
+     * Retrieves a list of data delivery tasks.
      *
      * @param request - ListDeliveryTasksRequest
      *
@@ -7013,10 +7071,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query Access Center Policy List Information.
+     * Queries a list of policies in the Integration Center.
      *
      * @remarks
-     * Query integration list
+     * Queries a list of integrations.
      *
      * @param tmpReq - ListIntegrationPoliciesRequest
      * @param headers - map
@@ -7116,10 +7174,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query Access Center Policy List Information.
+     * Queries a list of policies in the Integration Center.
      *
      * @remarks
-     * Query integration list
+     * Queries a list of integrations.
      *
      * @param request - ListIntegrationPoliciesRequest
      *
@@ -7138,7 +7196,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 策略addon列表.
+     * Lists the add-ons that are installed for a specified policy.
+     *
+     * @remarks
+     * Lists the add-ons that are installed for a specified policy.
      *
      * @param request - ListIntegrationPolicyAddonsRequest
      * @param headers - map
@@ -7175,7 +7236,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 策略addon列表.
+     * Lists the add-ons that are installed for a specified policy.
+     *
+     * @remarks
+     * Lists the add-ons that are installed for a specified policy.
      *
      * @param request - ListIntegrationPolicyAddonsRequest
      *
@@ -7195,7 +7259,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取接入中心策略的存储要求信息.
+     * Returns information about collectors for an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyCollectorsRequest
      * @param headers - map
@@ -7246,7 +7310,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取接入中心策略的存储要求信息.
+     * Returns information about collectors for an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyCollectorsRequest
      *
@@ -7266,7 +7330,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get storage requirement information for the access center policy.
+     * Lists the custom service discovery rules for an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
      * @param headers - map
@@ -7317,7 +7381,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get storage requirement information for the access center policy.
+     * Lists the custom service discovery rules for an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyCustomScrapeJobRulesRequest
      *
@@ -7337,10 +7401,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Policy Dashboard List.
+     * Queries a list of integration policy dashboards.
      *
      * @remarks
-     * This article provides an example of querying the alarm template list. The result shows that there are 2 alarm templates in the list, which are `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of how to query a list of integration policy dashboards.
      *
      * @param request - ListIntegrationPolicyDashboardsRequest
      * @param headers - map
@@ -7391,10 +7455,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Policy Dashboard List.
+     * Queries a list of integration policy dashboards.
      *
      * @remarks
-     * This article provides an example of querying the alarm template list. The result shows that there are 2 alarm templates in the list, which are `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of how to query a list of integration policy dashboards.
      *
      * @param request - ListIntegrationPolicyDashboardsRequest
      *
@@ -7414,10 +7478,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get PodMonitor Resources of Access Center Policy.
+     * Lists the PodMonitor resources for an Integration Center policy.
      *
      * @remarks
-     * This article provides an example to query the alarm template list. The result shows that there are 2 alarm templates in the alarm template list, which are `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyPodMonitorsRequest
      * @param headers - map
@@ -7468,10 +7532,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get PodMonitor Resources of Access Center Policy.
+     * Lists the PodMonitor resources for an Integration Center policy.
      *
      * @remarks
-     * This article provides an example to query the alarm template list. The result shows that there are 2 alarm templates in the alarm template list, which are `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of how to list the PodMonitor resources for an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyPodMonitorsRequest
      *
@@ -7491,7 +7555,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取接入中心策略的存储要求信息.
+     * Retrieves the ServiceMonitor information for an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyServiceMonitorsRequest
      * @param headers - map
@@ -7542,7 +7606,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 获取接入中心策略的存储要求信息.
+     * Retrieves the ServiceMonitor information for an Integration Center policy.
      *
      * @param request - ListIntegrationPolicyServiceMonitorsRequest
      *
@@ -7562,12 +7626,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Storage Requirements Information for Access Center Policy.
+     * Lists the storage requirements for an Integration Center policy.
      *
      * @remarks
-     * During the effective period of the policy, all alarms within the application group will no longer send notifications.
-     *
-     * This article provides an example of creating a pause alarm notification policy `PauseNotify` for the application group `7301****`. This application group will pause alarms from `1622949300000` to `1623208500000` (Beijing Time `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
+     * When a policy is active, alert notifications are not sent for alerts that occur in the application group.
+     * This topic provides an example of creating a policy named `PauseNotify`. This policy pauses alert notifications for application group `7301****` from `1622949300000` to `1623208500000` (from `2021-06-06 11:15:00` to `2021-06-09 11:15:00` UTC+8).
      *
      * @param request - ListIntegrationPolicyStorageRequirementsRequest
      * @param headers - map
@@ -7618,12 +7681,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Storage Requirements Information for Access Center Policy.
+     * Lists the storage requirements for an Integration Center policy.
      *
      * @remarks
-     * During the effective period of the policy, all alarms within the application group will no longer send notifications.
-     *
-     * This article provides an example of creating a pause alarm notification policy `PauseNotify` for the application group `7301****`. This application group will pause alarms from `1622949300000` to `1623208500000` (Beijing Time `2021-06-06 11:15:00` to `2021-06-09 11:15:00`).
+     * When a policy is active, alert notifications are not sent for alerts that occur in the application group.
+     * This topic provides an example of creating a policy named `PauseNotify`. This policy pauses alert notifications for application group `7301****` from `1622949300000` to `1623208500000` (from `2021-06-06 11:15:00` to `2021-06-09 11:15:00` UTC+8).
      *
      * @param request - ListIntegrationPolicyStorageRequirementsRequest
      *
@@ -7643,7 +7705,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询记忆库列表.
+     * Retrieves a list of memory stores.
      *
      * @param request - ListMemoryStoresRequest
      * @param headers - map
@@ -7694,7 +7756,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询记忆库列表.
+     * Retrieves a list of memory stores.
      *
      * @param request - ListMemoryStoresRequest
      *
@@ -7714,7 +7776,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询流水线列表.
+     * Queries a list of pipelines in a workspace.
      *
      * @param request - ListPipelinesRequest
      * @param headers - map
@@ -7765,7 +7827,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询流水线列表.
+     * Queries a list of pipelines in a workspace.
      *
      * @param request - ListPipelinesRequest
      *
@@ -7785,10 +7847,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Prometheus Instance Dashboard List.
+     * Retrieves a list of dashboards for a Prometheus instance.
      *
      * @remarks
-     * Get the list of Prometheus instance dashboards.
+     * Retrieves a list of dashboards for a Prometheus instance.
      *
      * @param request - ListPrometheusDashboardsRequest
      * @param headers - map
@@ -7835,10 +7897,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Prometheus Instance Dashboard List.
+     * Retrieves a list of dashboards for a Prometheus instance.
      *
      * @remarks
-     * Get the list of Prometheus instance dashboards.
+     * Retrieves a list of dashboards for a Prometheus instance.
      *
      * @param request - ListPrometheusDashboardsRequest
      *
@@ -7858,10 +7920,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get the list of Prometheus instance information.
+     * Lists Prometheus instances.
      *
      * @remarks
-     * Get the list of Prometheus instances.
+     * Lists Prometheus instances.
      *
      * @param tmpReq - ListPrometheusInstancesRequest
      * @param headers - map
@@ -7945,10 +8007,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get the list of Prometheus instance information.
+     * Lists Prometheus instances.
      *
      * @remarks
-     * Get the list of Prometheus instances.
+     * Lists Prometheus instances.
      *
      * @param request - ListPrometheusInstancesRequest
      *
@@ -7967,10 +8029,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieve a list of Prometheus view instance information.
+     * Lists the Prometheus view instances.
      *
      * @remarks
-     * Retrieve a list of Prometheus view instance information.
+     * Lists the Prometheus view instances.
      *
      * @param tmpReq - ListPrometheusViewsRequest
      * @param headers - map
@@ -8054,10 +8116,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieve a list of Prometheus view instance information.
+     * Lists the Prometheus view instances.
      *
      * @remarks
-     * Retrieve a list of Prometheus view instance information.
+     * Lists the Prometheus view instances.
      *
      * @param request - ListPrometheusViewsRequest
      *
@@ -8076,10 +8138,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Prometheus Virtual Instance.
-     *
-     * @remarks
-     * Used for creating a site monitoring task
+     * Retrieves Prometheus virtual instances.
      *
      * @param request - ListPrometheusVirtualInstancesRequest
      * @param headers - map
@@ -8133,10 +8192,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Prometheus Virtual Instance.
-     *
-     * @remarks
-     * Used for creating a site monitoring task
+     * Retrieves Prometheus virtual instances.
      *
      * @param request - ListPrometheusVirtualInstancesRequest
      *
@@ -8155,7 +8211,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * List Resource Services.
+     * Queries a list of application observability services.
      *
      * @param tmpReq - ListServicesRequest
      * @param headers - map
@@ -8224,7 +8280,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * List Resource Services.
+     * Queries a list of application observability services.
      *
      * @param request - ListServicesRequest
      *
@@ -8244,7 +8300,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查标签接口.
+     * Queries the tags attached to resources.
      *
      * @param tmpReq - ListTagResourcesRequest
      * @param headers - map
@@ -8312,7 +8368,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查标签接口.
+     * Queries the tags attached to resources.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -8331,7 +8387,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Workspace List.
+     * Retrieves a list of workspaces.
      *
      * @param tmpReq - ListWorkspacesRequest
      * @param headers - map
@@ -8395,7 +8451,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Get Workspace List.
+     * Retrieves a list of workspaces.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -8414,7 +8470,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 管理告警规则.
+     * Manages alert rules.
      *
      * @param tmpReq - ManageAlertRulesRequest
      * @param headers - map
@@ -8462,7 +8518,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 管理告警规则.
+     * Manages alert rules.
      *
      * @param request - ManageAlertRulesRequest
      *
@@ -8481,7 +8537,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Workspace.
+     * This operation enables monitoring services, including CloudMonitor Enterprise, Managed Service for Prometheus, and Log Service.
+     *
+     * @param request - OpenCmsServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OpenCmsServiceResponse
+     *
+     * @param OpenCmsServiceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return OpenCmsServiceResponse
+     */
+    public function openCmsServiceWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'OpenCmsService',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/cmsservice',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return OpenCmsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * This operation enables monitoring services, including CloudMonitor Enterprise, Managed Service for Prometheus, and Log Service.
+     *
+     * @param request - OpenCmsServiceRequest
+     *
+     * @returns OpenCmsServiceResponse
+     *
+     * @param OpenCmsServiceRequest $request
+     *
+     * @return OpenCmsServiceResponse
+     */
+    public function openCmsService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->openCmsServiceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a workspace.
      *
      * @param request - PutWorkspaceRequest
      * @param headers - map
@@ -8532,7 +8643,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Create Workspace.
+     * Creates a workspace.
      *
      * @param request - PutWorkspaceRequest
      *
@@ -8552,7 +8663,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询告警规则.
+     * Retrieves a list of alert rules.
+     *
+     * @remarks
+     * This topic provides an example of how to retrieve a list of alert rules. In this example, a successful response returns two alert rules: `ECS_Template1` and `ECS_Template2`.
      *
      * @param tmpReq - QueryAlertRulesRequest
      * @param headers - map
@@ -8614,7 +8728,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 查询告警规则.
+     * Retrieves a list of alert rules.
+     *
+     * @remarks
+     * This topic provides an example of how to retrieve a list of alert rules. In this example, a successful response returns two alert rules: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - QueryAlertRulesRequest
      *
@@ -8633,7 +8750,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 搜索上下文.
+     * Search context.
      *
      * @param request - SearchContextRequest
      * @param headers - map
@@ -8697,7 +8814,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 搜索上下文.
+     * Search context.
      *
      * @param request - SearchContextRequest
      *
@@ -8718,7 +8835,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 搜索记忆.
+     * Search memories using query conditions and filters.
      *
      * @param request - SearchMemoriesRequest
      * @param headers - map
@@ -8802,7 +8919,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 搜索记忆.
+     * Search memories using query conditions and filters.
      *
      * @param request - SearchMemoriesRequest
      *
@@ -8823,7 +8940,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 打标签接口.
+     * Adds tags to one or more resources.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -8873,7 +8990,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 打标签接口.
+     * Adds tags to one or more resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -8892,7 +9009,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删标签接口.
+     * Deletes a tag.
      *
      * @param tmpReq - UntagResourcesRequest
      * @param headers - map
@@ -8956,7 +9073,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 删标签接口.
+     * Deletes a tag.
      *
      * @param request - UntagResourcesRequest
      *
@@ -8975,7 +9092,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Upgrade Access Component.
+     * Upgrades an add-on component.
      *
      * @param request - UpdateAddonReleaseRequest
      * @param headers - map
@@ -9031,7 +9148,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Upgrade Access Component.
+     * Upgrades an add-on component.
      *
      * @param request - UpdateAddonReleaseRequest
      *
@@ -9052,7 +9169,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Apply Aggregation Task Group.
+     * Updates an aggregation task group.
      *
      * @param request - UpdateAggTaskGroupRequest
      * @param headers - map
@@ -9156,7 +9273,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Apply Aggregation Task Group.
+     * Updates an aggregation task group.
      *
      * @param request - UpdateAggTaskGroupRequest
      *
@@ -9177,7 +9294,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Aggregation Task Group Status.
+     * Updates the status of an aggregation task group.
      *
      * @param request - UpdateAggTaskGroupStatusRequest
      * @param headers - map
@@ -9221,7 +9338,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Aggregation Task Group Status.
+     * Updates the status of an aggregation task group.
      *
      * @param request - UpdateAggTaskGroupStatusRequest
      *
@@ -9242,7 +9359,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的告警 Webhook 通知配置。
+     * Updates a webhook.
      *
      * @param request - UpdateAlertWebhookRequest
      * @param headers - map
@@ -9305,7 +9422,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的告警 Webhook 通知配置。
+     * Updates a webhook.
      *
      * @param request - UpdateAlertWebhookRequest
      *
@@ -9325,7 +9442,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改业务链路.
+     * Modifies a business trace.
      *
      * @param request - UpdateBizTraceRequest
      * @param headers - map
@@ -9380,7 +9497,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改业务链路.
+     * Modifies a business trace.
      *
      * @param request - UpdateBizTraceRequest
      *
@@ -9400,7 +9517,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改上下文.
+     * Updates a context.
      *
      * @param request - UpdateContextRequest
      * @param headers - map
@@ -9461,7 +9578,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改上下文.
+     * Updates a context.
      *
      * @param request - UpdateContextRequest
      *
@@ -9483,7 +9600,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改上下文库配置.
+     * Updates the configuration of a context store.
      *
      * @param request - UpdateContextStoreRequest
      * @param headers - map
@@ -9539,7 +9656,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改上下文库配置.
+     * Updates the configuration of a context store.
      *
      * @param request - UpdateContextStoreRequest
      *
@@ -9560,7 +9677,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Updates a dataset.
      *
      * @param request - UpdateDatasetRequest
      * @param headers - map
@@ -9604,7 +9721,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Updates a dataset.
      *
      * @param request - UpdateDatasetRequest
      *
@@ -9625,7 +9742,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新数据投递任务
+     * Updates a delivery task. This operation uses PATCH semantics, meaning unspecified fields in the request body remain unchanged.
      *
      * @param request - UpdateDeliveryTaskRequest
      * @param headers - map
@@ -9700,7 +9817,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新数据投递任务
+     * Updates a delivery task. This operation uses PATCH semantics, meaning unspecified fields in the request body remain unchanged.
      *
      * @param request - UpdateDeliveryTaskRequest
      *
@@ -9720,7 +9837,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update the specified policy.
+     * Updates the specified policy.
      *
      * @param request - UpdateIntegrationPolicyRequest
      * @param headers - map
@@ -9775,7 +9892,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update the specified policy.
+     * Updates the specified policy.
      *
      * @param request - UpdateIntegrationPolicyRequest
      *
@@ -9795,7 +9912,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改记忆.
+     * Updates a specific Memory.
      *
      * @param request - UpdateMemoryRequest
      * @param headers - map
@@ -9844,7 +9961,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改记忆.
+     * Updates a specific Memory.
      *
      * @param request - UpdateMemoryRequest
      *
@@ -9866,7 +9983,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改记忆库配置.
+     * Modify a memory store.
      *
      * @param request - UpdateMemoryStoreRequest
      * @param headers - map
@@ -9922,7 +10039,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改记忆库配置.
+     * Modify a memory store.
      *
      * @param request - UpdateMemoryStoreRequest
      *
@@ -9943,7 +10060,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的告警通知策略.
+     * Updates a notification policy.
      *
      * @param request - UpdateNotifyStrategyRequest
      * @param headers - map
@@ -9987,7 +10104,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 修改已存在的告警通知策略.
+     * Updates a notification policy.
      *
      * @param request - UpdateNotifyStrategyRequest
      *
@@ -10007,7 +10124,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新流水线
+     * Update pipeline.
      *
      * @param request - UpdatePipelineRequest
      * @param headers - map
@@ -10067,7 +10184,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新流水线
+     * Update pipeline.
      *
      * @param request - UpdatePipelineRequest
      *
@@ -10088,10 +10205,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Prometheus instance information.
+     * Updates the information of a Prometheus instance.
      *
      * @remarks
-     * Update Prometheus instance information.
+     * This topic describes how to update a Prometheus instance.
      *
      * @param request - UpdatePrometheusInstanceRequest
      * @param headers - map
@@ -10174,10 +10291,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Prometheus instance information.
+     * Updates the information of a Prometheus instance.
      *
      * @remarks
-     * Update Prometheus instance information.
+     * This topic describes how to update a Prometheus instance.
      *
      * @param request - UpdatePrometheusInstanceRequest
      *
@@ -10197,7 +10314,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新Prom实例信息.
+     * Updates the user settings for Prometheus. Note: If you set `settingKey` to `financeUsageRegion`, Prometheus usage data is sent to Simple Log Service (SLS) in the specified region. Historical usage data will no longer be available in the Prometheus console.
      *
      * @param request - UpdatePrometheusUserSettingRequest
      * @param headers - map
@@ -10240,7 +10357,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新Prom实例信息.
+     * Updates the user settings for Prometheus. Note: If you set `settingKey` to `financeUsageRegion`, Prometheus usage data is sent to Simple Log Service (SLS) in the specified region. Historical usage data will no longer be available in the Prometheus console.
      *
      * @param request - UpdatePrometheusUserSettingRequest
      *
@@ -10260,10 +10377,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Prometheus view instance information.
+     * Updates the information about a Prometheus view instance.
      *
      * @remarks
-     * Update Prometheus view instance information.
+     * Updates the information about a Prometheus view instance.
      *
      * @param request - UpdatePrometheusViewRequest
      * @param headers - map
@@ -10330,10 +10447,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Prometheus view instance information.
+     * Updates the information about a Prometheus view instance.
      *
      * @remarks
-     * Update Prometheus view instance information.
+     * Updates the information about a Prometheus view instance.
      *
      * @param request - UpdatePrometheusViewRequest
      *
@@ -10353,7 +10470,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Service.
+     * Updates an application observability service.
      *
      * @param request - UpdateServiceRequest
      * @param headers - map
@@ -10409,7 +10526,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Service.
+     * Updates an application observability service.
      *
      * @param request - UpdateServiceRequest
      *
@@ -10430,7 +10547,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新一个已存在的订阅配置.
+     * Updates a subscription.
      *
      * @param request - UpdateSubscriptionRequest
      * @param headers - map
@@ -10474,7 +10591,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新一个已存在的订阅配置.
+     * Updates a subscription.
      *
      * @param request - UpdateSubscriptionRequest
      *
@@ -10494,10 +10611,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Umodel configuration information.
+     * Updates the configuration of a Umodel.
      *
      * @remarks
-     * Update Umodel configuration information
+     * Updates the configuration of a Umodel.
      *
      * @param request - UpdateUmodelRequest
      * @param headers - map
@@ -10540,10 +10657,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Update Umodel configuration information.
+     * Updates the configuration of a Umodel.
      *
      * @remarks
-     * Update Umodel configuration information
+     * Updates the configuration of a Umodel.
      *
      * @param request - UpdateUmodelRequest
      *
@@ -10563,7 +10680,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新Umodel配置信息.
+     * Upserts a common Umodel schema reference.
      *
      * @param request - UpsertUmodelCommonSchemaRefRequest
      * @param headers - map
@@ -10610,7 +10727,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * 更新Umodel配置信息.
+     * Upserts a common Umodel schema reference.
      *
      * @param request - UpsertUmodelCommonSchemaRefRequest
      *
@@ -10630,7 +10747,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Write Umodel Elements.
+     * Inserts or updates Umodel elements.
      *
      * @param request - UpsertUmodelDataRequest
      * @param headers - map
@@ -10679,7 +10796,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Write Umodel Elements.
+     * Inserts or updates Umodel elements.
      *
      * @param request - UpsertUmodelDataRequest
      *

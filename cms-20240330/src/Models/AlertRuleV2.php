@@ -36,12 +36,22 @@ class AlertRuleV2 extends Model
     /**
      * @var string
      */
+    public $coveredSeverityLevels;
+
+    /**
+     * @var string
+     */
     public $createdAt;
 
     /**
      * @var DatasourceConfigUnified
      */
     public $datasourceConfig;
+
+    /**
+     * @var string
+     */
+    public $datasourceType;
 
     /**
      * @var string
@@ -62,6 +72,21 @@ class AlertRuleV2 extends Model
      * @var NotifyConfigUnified
      */
     public $notifyConfig;
+
+    /**
+     * @var bool
+     */
+    public $observeResourceGlobalScope;
+
+    /**
+     * @var string
+     */
+    public $observeResourceList;
+
+    /**
+     * @var string
+     */
+    public $observeResourceType;
 
     /**
      * @var QueryConfigUnified
@@ -98,12 +123,17 @@ class AlertRuleV2 extends Model
         'armsIntegrationConfig' => 'armsIntegrationConfig',
         'conditionConfig' => 'conditionConfig',
         'contentTemplate' => 'contentTemplate',
+        'coveredSeverityLevels' => 'coveredSeverityLevels',
         'createdAt' => 'createdAt',
         'datasourceConfig' => 'datasourceConfig',
+        'datasourceType' => 'datasourceType',
         'displayName' => 'displayName',
         'enabled' => 'enabled',
         'labels' => 'labels',
         'notifyConfig' => 'notifyConfig',
+        'observeResourceGlobalScope' => 'observeResourceGlobalScope',
+        'observeResourceList' => 'observeResourceList',
+        'observeResourceType' => 'observeResourceType',
         'queryConfig' => 'queryConfig',
         'scheduleConfig' => 'scheduleConfig',
         'status' => 'status',
@@ -172,12 +202,20 @@ class AlertRuleV2 extends Model
             $res['contentTemplate'] = $this->contentTemplate;
         }
 
+        if (null !== $this->coveredSeverityLevels) {
+            $res['coveredSeverityLevels'] = $this->coveredSeverityLevels;
+        }
+
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
 
         if (null !== $this->datasourceConfig) {
             $res['datasourceConfig'] = null !== $this->datasourceConfig ? $this->datasourceConfig->toArray($noStream) : $this->datasourceConfig;
+        }
+
+        if (null !== $this->datasourceType) {
+            $res['datasourceType'] = $this->datasourceType;
         }
 
         if (null !== $this->displayName) {
@@ -199,6 +237,18 @@ class AlertRuleV2 extends Model
 
         if (null !== $this->notifyConfig) {
             $res['notifyConfig'] = null !== $this->notifyConfig ? $this->notifyConfig->toArray($noStream) : $this->notifyConfig;
+        }
+
+        if (null !== $this->observeResourceGlobalScope) {
+            $res['observeResourceGlobalScope'] = $this->observeResourceGlobalScope;
+        }
+
+        if (null !== $this->observeResourceList) {
+            $res['observeResourceList'] = $this->observeResourceList;
+        }
+
+        if (null !== $this->observeResourceType) {
+            $res['observeResourceType'] = $this->observeResourceType;
         }
 
         if (null !== $this->queryConfig) {
@@ -261,12 +311,20 @@ class AlertRuleV2 extends Model
             $model->contentTemplate = $map['contentTemplate'];
         }
 
+        if (isset($map['coveredSeverityLevels'])) {
+            $model->coveredSeverityLevels = $map['coveredSeverityLevels'];
+        }
+
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
 
         if (isset($map['datasourceConfig'])) {
             $model->datasourceConfig = DatasourceConfigUnified::fromMap($map['datasourceConfig']);
+        }
+
+        if (isset($map['datasourceType'])) {
+            $model->datasourceType = $map['datasourceType'];
         }
 
         if (isset($map['displayName'])) {
@@ -288,6 +346,18 @@ class AlertRuleV2 extends Model
 
         if (isset($map['notifyConfig'])) {
             $model->notifyConfig = NotifyConfigUnified::fromMap($map['notifyConfig']);
+        }
+
+        if (isset($map['observeResourceGlobalScope'])) {
+            $model->observeResourceGlobalScope = $map['observeResourceGlobalScope'];
+        }
+
+        if (isset($map['observeResourceList'])) {
+            $model->observeResourceList = $map['observeResourceList'];
+        }
+
+        if (isset($map['observeResourceType'])) {
+            $model->observeResourceType = $map['observeResourceType'];
         }
 
         if (isset($map['queryConfig'])) {

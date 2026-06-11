@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListAddonReleasesResponseBody\releases
 class ListAddonReleasesResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var releases[]
      */
     public $releases;
@@ -24,6 +29,7 @@ class ListAddonReleasesResponseBody extends Model
      */
     public $total;
     protected $_name = [
+        'nextToken' => 'nextToken',
         'releases' => 'releases',
         'requestId' => 'requestId',
         'total' => 'total',
@@ -40,6 +46,10 @@ class ListAddonReleasesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->nextToken) {
+            $res['nextToken'] = $this->nextToken;
+        }
+
         if (null !== $this->releases) {
             if (\is_array($this->releases)) {
                 $res['releases'] = [];
@@ -70,6 +80,10 @@ class ListAddonReleasesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['nextToken'])) {
+            $model->nextToken = $map['nextToken'];
+        }
+
         if (isset($map['releases'])) {
             if (!empty($map['releases'])) {
                 $model->releases = [];
