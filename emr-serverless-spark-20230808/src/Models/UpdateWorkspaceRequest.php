@@ -25,6 +25,11 @@ class UpdateWorkspaceRequest extends Model
     public $gpuSpec;
 
     /**
+     * @var string[]
+     */
+    public $ipWhiteList;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
@@ -52,6 +57,7 @@ class UpdateWorkspaceRequest extends Model
         'cu' => 'cu',
         'gpu' => 'gpu',
         'gpuSpec' => 'gpuSpec',
+        'ipWhiteList' => 'ipWhiteList',
         'resourceGroupId' => 'resourceGroupId',
         'subscription' => 'subscription',
         'workspaceId' => 'workspaceId',
@@ -63,6 +69,9 @@ class UpdateWorkspaceRequest extends Model
     {
         if (\is_array($this->gpuSpec)) {
             Model::validateArray($this->gpuSpec);
+        }
+        if (\is_array($this->ipWhiteList)) {
+            Model::validateArray($this->ipWhiteList);
         }
         if (null !== $this->subscription) {
             $this->subscription->validate();
@@ -87,6 +96,17 @@ class UpdateWorkspaceRequest extends Model
                 $n1 = 0;
                 foreach ($this->gpuSpec as $item1) {
                     $res['gpuSpec'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->ipWhiteList) {
+            if (\is_array($this->ipWhiteList)) {
+                $res['ipWhiteList'] = [];
+                $n1 = 0;
+                foreach ($this->ipWhiteList as $item1) {
+                    $res['ipWhiteList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -137,6 +157,17 @@ class UpdateWorkspaceRequest extends Model
                 $n1 = 0;
                 foreach ($map['gpuSpec'] as $item1) {
                     $model->gpuSpec[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ipWhiteList'])) {
+            if (!empty($map['ipWhiteList'])) {
+                $model->ipWhiteList = [];
+                $n1 = 0;
+                foreach ($map['ipWhiteList'] as $item1) {
+                    $model->ipWhiteList[$n1] = $item1;
                     ++$n1;
                 }
             }

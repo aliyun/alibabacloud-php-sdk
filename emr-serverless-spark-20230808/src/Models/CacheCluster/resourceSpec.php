@@ -14,11 +14,17 @@ class resourceSpec extends Model
     public $bandWidth;
 
     /**
+     * @var bool
+     */
+    public $ha;
+
+    /**
      * @var int
      */
     public $storage;
     protected $_name = [
         'bandWidth' => 'bandWidth',
+        'ha' => 'ha',
         'storage' => 'storage',
     ];
 
@@ -32,6 +38,10 @@ class resourceSpec extends Model
         $res = [];
         if (null !== $this->bandWidth) {
             $res['bandWidth'] = $this->bandWidth;
+        }
+
+        if (null !== $this->ha) {
+            $res['ha'] = $this->ha;
         }
 
         if (null !== $this->storage) {
@@ -51,6 +61,10 @@ class resourceSpec extends Model
         $model = new self();
         if (isset($map['bandWidth'])) {
             $model->bandWidth = $map['bandWidth'];
+        }
+
+        if (isset($map['ha'])) {
+            $model->ha = $map['ha'];
         }
 
         if (isset($map['storage'])) {

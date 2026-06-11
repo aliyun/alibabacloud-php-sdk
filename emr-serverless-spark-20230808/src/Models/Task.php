@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\Task\credential;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\Task\rayHeadSpec;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\Task\rayWorkerSpec;
 
 class Task extends Model
 {
@@ -155,6 +157,101 @@ class Task extends Model
     public $pyFiles;
 
     /**
+     * @var int
+     */
+    public $rayActiveDeadlineSeconds;
+
+    /**
+     * @var int
+     */
+    public $rayBackoffLimit;
+
+    /**
+     * @var string
+     */
+    public $rayEntrypoint;
+
+    /**
+     * @var string
+     */
+    public $rayEntrypointMemory;
+
+    /**
+     * @var string
+     */
+    public $rayEntrypointNumCpus;
+
+    /**
+     * @var string
+     */
+    public $rayEntrypointNumGpus;
+
+    /**
+     * @var string
+     */
+    public $rayEntrypointResources;
+
+    /**
+     * @var string
+     */
+    public $rayExtraParam;
+
+    /**
+     * @var rayHeadSpec
+     */
+    public $rayHeadSpec;
+
+    /**
+     * @var string
+     */
+    public $rayMetadataJson;
+
+    /**
+     * @var string
+     */
+    public $rayNetworkServiceName;
+
+    /**
+     * @var string
+     */
+    public $rayRuntimeEnvJson;
+
+    /**
+     * @var bool
+     */
+    public $rayShutdownAfterJobFinishes;
+
+    /**
+     * @var string
+     */
+    public $raySubmissionMode;
+
+    /**
+     * @var int
+     */
+    public $rayTtlSecondsAfterFinished;
+
+    /**
+     * @var string
+     */
+    public $rayVersion;
+
+    /**
+     * @var string[]
+     */
+    public $rayVolumeIds;
+
+    /**
+     * @var rayWorkerSpec[]
+     */
+    public $rayWorkerSpec;
+
+    /**
+     * @var string
+     */
+    public $rayWorkingDir;
+
+    /**
      * @var string
      */
     public $sessionClusterId;
@@ -258,6 +355,25 @@ class Task extends Model
         'name' => 'name',
         'params' => 'params',
         'pyFiles' => 'pyFiles',
+        'rayActiveDeadlineSeconds' => 'rayActiveDeadlineSeconds',
+        'rayBackoffLimit' => 'rayBackoffLimit',
+        'rayEntrypoint' => 'rayEntrypoint',
+        'rayEntrypointMemory' => 'rayEntrypointMemory',
+        'rayEntrypointNumCpus' => 'rayEntrypointNumCpus',
+        'rayEntrypointNumGpus' => 'rayEntrypointNumGpus',
+        'rayEntrypointResources' => 'rayEntrypointResources',
+        'rayExtraParam' => 'rayExtraParam',
+        'rayHeadSpec' => 'rayHeadSpec',
+        'rayMetadataJson' => 'rayMetadataJson',
+        'rayNetworkServiceName' => 'rayNetworkServiceName',
+        'rayRuntimeEnvJson' => 'rayRuntimeEnvJson',
+        'rayShutdownAfterJobFinishes' => 'rayShutdownAfterJobFinishes',
+        'raySubmissionMode' => 'raySubmissionMode',
+        'rayTtlSecondsAfterFinished' => 'rayTtlSecondsAfterFinished',
+        'rayVersion' => 'rayVersion',
+        'rayVolumeIds' => 'rayVolumeIds',
+        'rayWorkerSpec' => 'rayWorkerSpec',
+        'rayWorkingDir' => 'rayWorkingDir',
         'sessionClusterId' => 'sessionClusterId',
         'sparkArgs' => 'sparkArgs',
         'sparkConf' => 'sparkConf',
@@ -297,6 +413,15 @@ class Task extends Model
         }
         if (\is_array($this->pyFiles)) {
             Model::validateArray($this->pyFiles);
+        }
+        if (null !== $this->rayHeadSpec) {
+            $this->rayHeadSpec->validate();
+        }
+        if (\is_array($this->rayVolumeIds)) {
+            Model::validateArray($this->rayVolumeIds);
+        }
+        if (\is_array($this->rayWorkerSpec)) {
+            Model::validateArray($this->rayWorkerSpec);
         }
         if (\is_array($this->sparkConf)) {
             Model::validateArray($this->sparkConf);
@@ -464,6 +589,96 @@ class Task extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->rayActiveDeadlineSeconds) {
+            $res['rayActiveDeadlineSeconds'] = $this->rayActiveDeadlineSeconds;
+        }
+
+        if (null !== $this->rayBackoffLimit) {
+            $res['rayBackoffLimit'] = $this->rayBackoffLimit;
+        }
+
+        if (null !== $this->rayEntrypoint) {
+            $res['rayEntrypoint'] = $this->rayEntrypoint;
+        }
+
+        if (null !== $this->rayEntrypointMemory) {
+            $res['rayEntrypointMemory'] = $this->rayEntrypointMemory;
+        }
+
+        if (null !== $this->rayEntrypointNumCpus) {
+            $res['rayEntrypointNumCpus'] = $this->rayEntrypointNumCpus;
+        }
+
+        if (null !== $this->rayEntrypointNumGpus) {
+            $res['rayEntrypointNumGpus'] = $this->rayEntrypointNumGpus;
+        }
+
+        if (null !== $this->rayEntrypointResources) {
+            $res['rayEntrypointResources'] = $this->rayEntrypointResources;
+        }
+
+        if (null !== $this->rayExtraParam) {
+            $res['rayExtraParam'] = $this->rayExtraParam;
+        }
+
+        if (null !== $this->rayHeadSpec) {
+            $res['rayHeadSpec'] = null !== $this->rayHeadSpec ? $this->rayHeadSpec->toArray($noStream) : $this->rayHeadSpec;
+        }
+
+        if (null !== $this->rayMetadataJson) {
+            $res['rayMetadataJson'] = $this->rayMetadataJson;
+        }
+
+        if (null !== $this->rayNetworkServiceName) {
+            $res['rayNetworkServiceName'] = $this->rayNetworkServiceName;
+        }
+
+        if (null !== $this->rayRuntimeEnvJson) {
+            $res['rayRuntimeEnvJson'] = $this->rayRuntimeEnvJson;
+        }
+
+        if (null !== $this->rayShutdownAfterJobFinishes) {
+            $res['rayShutdownAfterJobFinishes'] = $this->rayShutdownAfterJobFinishes;
+        }
+
+        if (null !== $this->raySubmissionMode) {
+            $res['raySubmissionMode'] = $this->raySubmissionMode;
+        }
+
+        if (null !== $this->rayTtlSecondsAfterFinished) {
+            $res['rayTtlSecondsAfterFinished'] = $this->rayTtlSecondsAfterFinished;
+        }
+
+        if (null !== $this->rayVersion) {
+            $res['rayVersion'] = $this->rayVersion;
+        }
+
+        if (null !== $this->rayVolumeIds) {
+            if (\is_array($this->rayVolumeIds)) {
+                $res['rayVolumeIds'] = [];
+                $n1 = 0;
+                foreach ($this->rayVolumeIds as $item1) {
+                    $res['rayVolumeIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->rayWorkerSpec) {
+            if (\is_array($this->rayWorkerSpec)) {
+                $res['rayWorkerSpec'] = [];
+                $n1 = 0;
+                foreach ($this->rayWorkerSpec as $item1) {
+                    $res['rayWorkerSpec'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->rayWorkingDir) {
+            $res['rayWorkingDir'] = $this->rayWorkingDir;
         }
 
         if (null !== $this->sessionClusterId) {
@@ -703,6 +918,96 @@ class Task extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['rayActiveDeadlineSeconds'])) {
+            $model->rayActiveDeadlineSeconds = $map['rayActiveDeadlineSeconds'];
+        }
+
+        if (isset($map['rayBackoffLimit'])) {
+            $model->rayBackoffLimit = $map['rayBackoffLimit'];
+        }
+
+        if (isset($map['rayEntrypoint'])) {
+            $model->rayEntrypoint = $map['rayEntrypoint'];
+        }
+
+        if (isset($map['rayEntrypointMemory'])) {
+            $model->rayEntrypointMemory = $map['rayEntrypointMemory'];
+        }
+
+        if (isset($map['rayEntrypointNumCpus'])) {
+            $model->rayEntrypointNumCpus = $map['rayEntrypointNumCpus'];
+        }
+
+        if (isset($map['rayEntrypointNumGpus'])) {
+            $model->rayEntrypointNumGpus = $map['rayEntrypointNumGpus'];
+        }
+
+        if (isset($map['rayEntrypointResources'])) {
+            $model->rayEntrypointResources = $map['rayEntrypointResources'];
+        }
+
+        if (isset($map['rayExtraParam'])) {
+            $model->rayExtraParam = $map['rayExtraParam'];
+        }
+
+        if (isset($map['rayHeadSpec'])) {
+            $model->rayHeadSpec = rayHeadSpec::fromMap($map['rayHeadSpec']);
+        }
+
+        if (isset($map['rayMetadataJson'])) {
+            $model->rayMetadataJson = $map['rayMetadataJson'];
+        }
+
+        if (isset($map['rayNetworkServiceName'])) {
+            $model->rayNetworkServiceName = $map['rayNetworkServiceName'];
+        }
+
+        if (isset($map['rayRuntimeEnvJson'])) {
+            $model->rayRuntimeEnvJson = $map['rayRuntimeEnvJson'];
+        }
+
+        if (isset($map['rayShutdownAfterJobFinishes'])) {
+            $model->rayShutdownAfterJobFinishes = $map['rayShutdownAfterJobFinishes'];
+        }
+
+        if (isset($map['raySubmissionMode'])) {
+            $model->raySubmissionMode = $map['raySubmissionMode'];
+        }
+
+        if (isset($map['rayTtlSecondsAfterFinished'])) {
+            $model->rayTtlSecondsAfterFinished = $map['rayTtlSecondsAfterFinished'];
+        }
+
+        if (isset($map['rayVersion'])) {
+            $model->rayVersion = $map['rayVersion'];
+        }
+
+        if (isset($map['rayVolumeIds'])) {
+            if (!empty($map['rayVolumeIds'])) {
+                $model->rayVolumeIds = [];
+                $n1 = 0;
+                foreach ($map['rayVolumeIds'] as $item1) {
+                    $model->rayVolumeIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['rayWorkerSpec'])) {
+            if (!empty($map['rayWorkerSpec'])) {
+                $model->rayWorkerSpec = [];
+                $n1 = 0;
+                foreach ($map['rayWorkerSpec'] as $item1) {
+                    $model->rayWorkerSpec[$n1] = rayWorkerSpec::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['rayWorkingDir'])) {
+            $model->rayWorkingDir = $map['rayWorkingDir'];
         }
 
         if (isset($map['sessionClusterId'])) {

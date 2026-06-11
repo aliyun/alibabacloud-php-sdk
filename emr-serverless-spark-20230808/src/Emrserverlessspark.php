@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelKyuubiSparkApplicationRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelKyuubiSparkApplicationResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelRayJobRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelRayJobResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateKyuubiServiceRequest;
@@ -65,6 +67,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRayClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRayJobRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRayJobResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRunConfigurationRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRunConfigurationResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterRequest;
@@ -104,6 +108,9 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListNetworkServicesRequ
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListNetworkServicesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayJobRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayJobResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayJobShrinkRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersRequest;
@@ -137,6 +144,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopRayClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\SubmitRayJobRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\SubmitRayJobResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateKyuubiServiceRequest;
@@ -192,7 +201,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 激活AI中心.
+     * Activates the AI center.
      *
      * @param request - ActivateAICenterRequest
      * @param headers - map
@@ -229,7 +238,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 激活AI中心.
+     * Activates the AI center.
      *
      * @param request - ActivateAICenterRequest
      *
@@ -249,7 +258,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Adds a RAM user or RAM role to a workspace as a member.
+     * Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
      *
      * @param request - AddMembersRequest
      * @param headers - map
@@ -301,7 +310,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Adds a RAM user or RAM role to a workspace as a member.
+     * Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
      *
      * @param request - AddMembersRequest
      *
@@ -385,7 +394,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * CancelKyuubiSparkApplication.
+     * Cancels a Kyuubi Spark application.
      *
      * @param request - CancelKyuubiSparkApplicationRequest
      * @param headers - map
@@ -430,7 +439,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * CancelKyuubiSparkApplication.
+     * Cancels a Kyuubi Spark application.
      *
      * @param request - CancelKyuubiSparkApplicationRequest
      *
@@ -452,7 +461,66 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * 停止RayJob.
+     *
+     * @param request - CancelRayJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelRayJobResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $submissionId
+     * @param CancelRayJobRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CancelRayJobResponse
+     */
+    public function cancelRayJobWithOptions($workspaceId, $submissionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'CancelRayJob',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayJob/' . Url::percentEncode($submissionId) . '/cancel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelRayJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停止RayJob.
+     *
+     * @param request - CancelRayJobRequest
+     *
+     * @returns CancelRayJobResponse
+     *
+     * @param string              $workspaceId
+     * @param string              $submissionId
+     * @param CancelRayJobRequest $request
+     *
+     * @return CancelRayJobResponse
+     */
+    public function cancelRayJob($workspaceId, $submissionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelRayJobWithOptions($workspaceId, $submissionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Moves an instance to a different resource group.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -506,7 +574,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * Moves an instance to a different resource group.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -525,7 +593,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * CreateKyuubiService.
+     * Creates a Kyuubi gateway.
      *
      * @param request - CreateKyuubiServiceRequest
      * @param headers - map
@@ -600,7 +668,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * CreateKyuubiService.
+     * Creates a Kyuubi gateway.
      *
      * @param request - CreateKyuubiServiceRequest
      *
@@ -620,7 +688,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建kyuubi的token.
+     * Creates a Kyuubi Gateway authentication token.
      *
      * @param request - CreateKyuubiTokenRequest
      * @param headers - map
@@ -686,7 +754,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建kyuubi的token.
+     * Creates a Kyuubi Gateway authentication token.
      *
      * @param request - CreateKyuubiTokenRequest
      *
@@ -707,7 +775,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建Livy compute.
+     * Creates a Livy compute.
      *
      * @param request - CreateLivyComputeRequest
      * @param headers - map
@@ -812,7 +880,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建Livy compute.
+     * Creates a Livy compute.
      *
      * @param request - CreateLivyComputeRequest
      *
@@ -832,7 +900,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建Livy Compute的token.
+     * Creates a token for a Livy Gateway.
      *
      * @param request - CreateLivyComputeTokenRequest
      * @param headers - map
@@ -890,7 +958,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建Livy Compute的token.
+     * Creates a token for a Livy Gateway.
      *
      * @param request - CreateLivyComputeTokenRequest
      *
@@ -911,7 +979,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建网络服务
+     * Creates a network service.
      *
      * @param request - CreateNetworkServiceRequest
      * @param headers - map
@@ -980,7 +1048,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建网络服务
+     * Creates a network service.
      *
      * @param request - CreateNetworkServiceRequest
      *
@@ -1000,7 +1068,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates a workflow.
+     * Creates a workflow definition.
      *
      * @param tmpReq - CreateProcessDefinitionWithScheduleRequest
      * @param headers - map
@@ -1129,7 +1197,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates a workflow.
+     * Creates a workflow definition.
      *
      * @param request - CreateProcessDefinitionWithScheduleRequest
      *
@@ -1149,7 +1217,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建Ray集群.
+     * Creates a Ray cluster.
      *
      * @param request - CreateRayClusterRequest
      * @param headers - map
@@ -1220,7 +1288,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 创建Ray集群.
+     * Creates a Ray cluster.
      *
      * @param request - CreateRayClusterRequest
      *
@@ -1240,7 +1308,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates a session.
+     * Creates a session cluster.
      *
      * @param request - CreateSessionClusterRequest
      * @param headers - map
@@ -1333,7 +1401,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates a session.
+     * Creates a session cluster.
      *
      * @param request - CreateSessionClusterRequest
      *
@@ -1353,7 +1421,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates an SQL query task.
+     * Creates an SQL statement.
      *
      * @param request - CreateSqlStatementRequest
      * @param headers - map
@@ -1422,7 +1490,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Creates an SQL query task.
+     * Creates an SQL statement.
      *
      * @param request - CreateSqlStatementRequest
      *
@@ -1577,7 +1645,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * DeleteKyuubiService.
+     * Deletes a Kyuubi gateway.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1612,7 +1680,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * DeleteKyuubiService.
+     * Deletes a Kyuubi gateway.
      *
      * @returns DeleteKyuubiServiceResponse
      *
@@ -1630,7 +1698,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 删除compute的token.
+     * Deletes a Kyuubi Gateway authentication token.
      *
      * @param request - DeleteKyuubiTokenRequest
      * @param headers - map
@@ -1675,7 +1743,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 删除compute的token.
+     * Deletes a Kyuubi Gateway authentication token.
      *
      * @param request - DeleteKyuubiTokenRequest
      *
@@ -1697,7 +1765,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 删除livy compute.
+     * Deletes a Livy gateway.
      *
      * @param request - DeleteLivyComputeRequest
      * @param headers - map
@@ -1741,7 +1809,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 删除livy compute.
+     * Deletes a Livy gateway.
      *
      * @param request - DeleteLivyComputeRequest
      *
@@ -1762,7 +1830,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 删除Livy Compute的token.
+     * Deletes a token for a Livy Gateway.
      *
      * @param request - DeleteLivyComputeTokenRequest
      * @param headers - map
@@ -1807,7 +1875,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 删除Livy Compute的token.
+     * Deletes a token for a Livy Gateway.
      *
      * @param request - DeleteLivyComputeTokenRequest
      *
@@ -1829,7 +1897,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 删除Ray集群.
+     * Deletes a Ray cluster.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1864,7 +1932,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 删除Ray集群.
+     * Deletes a Ray cluster.
      *
      * @returns DeleteRayClusterResponse
      *
@@ -1882,7 +1950,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Modifies the queue of a workspace.
+     * Updates a Workspace Queue.
      *
      * @param request - EditWorkspaceQueueRequest
      * @param headers - map
@@ -1946,7 +2014,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Modifies the queue of a workspace.
+     * Updates a Workspace Queue.
      *
      * @param request - EditWorkspaceQueueRequest
      *
@@ -1965,7 +2033,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 上线工作流及其调度.
+     * Publishes a workflow and its scheduling configuration.
      *
      * @param request - GenerateTaskCodesRequest
      * @param headers - map
@@ -2016,7 +2084,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 上线工作流及其调度.
+     * Publishes a workflow and its scheduling configuration.
      *
      * @param request - GenerateTaskCodesRequest
      *
@@ -2036,7 +2104,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取AI中心状态
+     * Gets the state of an AI center.
      *
      * @param request - GetAICenterStateRequest
      * @param headers - map
@@ -2073,7 +2141,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取AI中心状态
+     * Gets the state of an AI center.
      *
      * @param request - GetAICenterStateRequest
      *
@@ -2235,7 +2303,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Obtain the job details.
+     * Get the details of a job.
      *
      * @param request - GetJobRunRequest
      * @param headers - map
@@ -2279,7 +2347,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Obtain the job details.
+     * Get the details of a job.
      *
      * @param request - GetJobRunRequest
      *
@@ -2300,7 +2368,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * GetKyuubiService.
+     * Retrieves the details of a Kyuubi Gateway.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2335,7 +2403,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * GetKyuubiService.
+     * Retrieves the details of a Kyuubi Gateway.
      *
      * @returns GetKyuubiServiceResponse
      *
@@ -2353,7 +2421,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取compute的token.
+     * Obtains an authentication token for Kyuubi Gateway.
      *
      * @param request - GetKyuubiTokenRequest
      * @param headers - map
@@ -2398,7 +2466,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取compute的token.
+     * Obtains an authentication token for Kyuubi Gateway.
      *
      * @param request - GetKyuubiTokenRequest
      *
@@ -2420,7 +2488,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取livy compute.
+     * Retrieves information about a Livy Gateway.
      *
      * @param request - GetLivyComputeRequest
      * @param headers - map
@@ -2464,7 +2532,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取livy compute.
+     * Retrieves information about a Livy Gateway.
      *
      * @param request - GetLivyComputeRequest
      *
@@ -2485,7 +2553,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取livy compute token.
+     * Retrieves a token for a Livy Gateway.
      *
      * @param request - GetLivyComputeTokenRequest
      * @param headers - map
@@ -2530,7 +2598,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取livy compute token.
+     * Retrieves a token for a Livy Gateway.
      *
      * @param request - GetLivyComputeTokenRequest
      *
@@ -2552,7 +2620,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取Ray集群.
+     * Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2587,7 +2655,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取Ray集群.
+     * Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
      *
      * @returns GetRayClusterResponse
      *
@@ -2605,7 +2673,66 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取任务配置.
+     * 获取Ray集群.
+     *
+     * @param request - GetRayJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRayJobResponse
+     *
+     * @param string           $workspaceId
+     * @param string           $submissionId
+     * @param GetRayJobRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetRayJobResponse
+     */
+    public function getRayJobWithOptions($workspaceId, $submissionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetRayJob',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayJob/' . Url::percentEncode($submissionId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRayJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取Ray集群.
+     *
+     * @param request - GetRayJobRequest
+     *
+     * @returns GetRayJobResponse
+     *
+     * @param string           $workspaceId
+     * @param string           $submissionId
+     * @param GetRayJobRequest $request
+     *
+     * @return GetRayJobResponse
+     */
+    public function getRayJob($workspaceId, $submissionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRayJobWithOptions($workspaceId, $submissionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the configuration of a Spark job.
      *
      * @param request - GetRunConfigurationRequest
      * @param headers - map
@@ -2649,7 +2776,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取任务配置.
+     * Retrieves the configuration of a Spark job.
      *
      * @param request - GetRunConfigurationRequest
      *
@@ -2670,7 +2797,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the information about a session.
+     * Retrieves session details.
      *
      * @param request - GetSessionClusterRequest
      * @param headers - map
@@ -2714,7 +2841,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the information about a session.
+     * Retrieves session details.
      *
      * @param request - GetSessionClusterRequest
      *
@@ -2735,7 +2862,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the status of an SQL query task.
+     * Retrieves the details of an SQL query.
      *
      * @param request - GetSqlStatementRequest
      * @param headers - map
@@ -2779,7 +2906,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the status of an SQL query task.
+     * Retrieves the details of an SQL query.
      *
      * @param request - GetSqlStatementRequest
      *
@@ -2800,7 +2927,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries task templates.
+     * Retrieves a task template.
      *
      * @param request - GetTemplateRequest
      * @param headers - map
@@ -2851,7 +2978,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries task templates.
+     * Retrieves a task template.
      *
      * @param request - GetTemplateRequest
      *
@@ -2942,7 +3069,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 查看数据目录列表.
+     * View the list of data catalogs.
      *
      * @param request - ListCatalogsRequest
      * @param headers - map
@@ -2989,7 +3116,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 查看数据目录列表.
+     * View the list of data catalogs.
      *
      * @param request - ListCatalogsRequest
      *
@@ -3009,7 +3136,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出作业executor的日志文件列表.
+     * Lists the log files for a job executor.
      *
      * @param request - ListExecutorLogsRequest
      * @param headers - map
@@ -3066,7 +3193,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出作业executor的日志文件列表.
+     * Lists the log files for a job executor.
      *
      * @param request - ListExecutorLogsRequest
      *
@@ -3088,7 +3215,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出作业的executors.
+     * Lists the executors of a job.
      *
      * @param request - ListJobExecutorsRequest
      * @param headers - map
@@ -3148,7 +3275,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出作业的executors.
+     * Lists the executors of a job.
      *
      * @param request - ListJobExecutorsRequest
      *
@@ -3169,7 +3296,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries a list of Spark jobs.
+     * Call the ListJobRuns operation to retrieve a list of Spark jobs.
      *
      * @param tmpReq - ListJobRunsRequest
      * @param headers - map
@@ -3290,7 +3417,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries a list of Spark jobs.
+     * Call the ListJobRuns operation to retrieve a list of Spark jobs.
      *
      * @param request - ListJobRunsRequest
      *
@@ -3310,7 +3437,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Gets the list of KyuubiServers.
+     * Lists Kyuubi Gateways.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3344,7 +3471,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Gets the list of KyuubiServers.
+     * Lists Kyuubi Gateways.
      *
      * @returns ListKyuubiServicesResponse
      *
@@ -3361,7 +3488,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the applications that are submitted by using a Kyuubi gateway.
+     * Lists Kyuubi Spark applications.
      *
      * @param tmpReq - ListKyuubiSparkApplicationsRequest
      * @param headers - map
@@ -3463,7 +3590,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the applications that are submitted by using a Kyuubi gateway.
+     * Lists Kyuubi Spark applications.
      *
      * @param request - ListKyuubiSparkApplicationsRequest
      *
@@ -3484,7 +3611,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出compute的token.
+     * Lists KyuubiServer authentication tokens.
      *
      * @param request - ListKyuubiTokenRequest
      * @param headers - map
@@ -3528,7 +3655,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出compute的token.
+     * Lists KyuubiServer authentication tokens.
      *
      * @param request - ListKyuubiTokenRequest
      *
@@ -3549,7 +3676,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * List the Livy Gateway.
+     * Lists Livy Gateways.
      *
      * @param request - ListLivyComputeRequest
      * @param headers - map
@@ -3596,7 +3723,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * List the Livy Gateway.
+     * Lists Livy Gateways.
      *
      * @param request - ListLivyComputeRequest
      *
@@ -3616,7 +3743,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取livy gateway历史session.
+     * Lists the historical sessions for a Livy Gateway.
      *
      * @param request - ListLivyComputeSessionsRequest
      * @param headers - map
@@ -3668,7 +3795,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取livy gateway历史session.
+     * Lists the historical sessions for a Livy Gateway.
      *
      * @param request - ListLivyComputeSessionsRequest
      *
@@ -3689,7 +3816,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出livy compute token.
+     * Lists Livy Gateway tokens.
      *
      * @param request - ListLivyComputeTokenRequest
      * @param headers - map
@@ -3733,7 +3860,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出livy compute token.
+     * Lists Livy Gateway tokens.
      *
      * @param request - ListLivyComputeTokenRequest
      *
@@ -3829,7 +3956,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 查询用户列表.
+     * Retrieves the list of members in the workspace.
      *
      * @param request - ListMembersRequest
      * @param headers - map
@@ -3880,7 +4007,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 查询用户列表.
+     * Retrieves the list of members in the workspace.
      *
      * @param request - ListMembersRequest
      *
@@ -3900,7 +4027,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 查看网络服务列表.
+     * Lists network connections.
      *
      * @param request - ListNetworkServicesRequest
      * @param headers - map
@@ -3943,7 +4070,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 查看网络服务列表.
+     * Lists network connections.
      *
      * @param request - ListNetworkServicesRequest
      *
@@ -3963,7 +4090,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出Ray集群.
+     * Lists Ray clusters.
      *
      * @param request - ListRayClusterRequest
      * @param headers - map
@@ -4010,7 +4137,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 列出Ray集群.
+     * Lists Ray clusters.
      *
      * @param request - ListRayClusterRequest
      *
@@ -4030,7 +4157,96 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
+     * 列出RayJob.
+     *
+     * @param tmpReq - ListRayJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRayJobResponse
+     *
+     * @param string            $workspaceId
+     * @param ListRayJobRequest $tmpReq
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListRayJobResponse
+     */
+    public function listRayJobWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListRayJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->submitTime) {
+            $request->submitTimeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->submitTime, 'submitTime', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['pageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->submissionId) {
+            @$query['submissionId'] = $request->submissionId;
+        }
+
+        if (null !== $request->submitTimeShrink) {
+            @$query['submitTime'] = $request->submitTimeShrink;
+        }
+
+        if (null !== $request->taskBizId) {
+            @$query['taskBizId'] = $request->taskBizId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRayJob',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayJob',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRayJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出RayJob.
+     *
+     * @param request - ListRayJobRequest
+     *
+     * @returns ListRayJobResponse
+     *
+     * @param string            $workspaceId
+     * @param ListRayJobRequest $request
+     *
+     * @return ListRayJobResponse
+     */
+    public function listRayJob($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRayJobWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves a list of release versions.
      *
      * @param request - ListReleaseVersionsRequest
      * @param headers - map
@@ -4092,7 +4308,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the list of published versions of E-MapReduce (EMR) Serverless Spark.
+     * Retrieves a list of release versions.
      *
      * @param request - ListReleaseVersionsRequest
      *
@@ -4111,7 +4327,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the list of sessions.
+     * Retrieves a list of session clusters.
      *
      * @param request - ListSessionClustersRequest
      * @param headers - map
@@ -4174,7 +4390,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the list of sessions.
+     * Retrieves a list of session clusters.
      *
      * @param request - ListSessionClustersRequest
      *
@@ -4194,7 +4410,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取sql statement内容.
+     * Retrieves the execution results of an SQL statement.
      *
      * @param request - ListSqlStatementContentsRequest
      * @param headers - map
@@ -4245,7 +4461,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取sql statement内容.
+     * Retrieves the execution results of an SQL statement.
      *
      * @param request - ListSqlStatementContentsRequest
      *
@@ -4265,7 +4481,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取任务模板列表.
+     * Lists job templates.
      *
      * @param request - ListTemplateRequest
      * @param headers - map
@@ -4308,7 +4524,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取任务模板列表.
+     * Lists job templates.
      *
      * @param request - ListTemplateRequest
      *
@@ -4328,7 +4544,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the list of queues in a Spark workspace.
+     * Lists the queues in a workspace.
      *
      * @param request - ListWorkspaceQueuesRequest
      * @param headers - map
@@ -4375,7 +4591,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries the list of queues in a Spark workspace.
+     * Lists the queues in a workspace.
      *
      * @param request - ListWorkspaceQueuesRequest
      *
@@ -4395,7 +4611,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries a list of workspaces.
+     * Call `ListWorkspaces` to get a list of workspaces.
      *
      * @param tmpReq - ListWorkspacesRequest
      * @param headers - map
@@ -4467,7 +4683,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Queries a list of workspaces.
+     * Call `ListWorkspaces` to get a list of workspaces.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -4486,7 +4702,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新Livy Compute的token.
+     * Refreshes the token for a Livy Gateway.
      *
      * @param request - RefreshLivyComputeTokenRequest
      * @param headers - map
@@ -4545,7 +4761,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新Livy Compute的token.
+     * Refreshes the token for a Livy Gateway.
      *
      * @param request - RefreshLivyComputeTokenRequest
      *
@@ -4567,7 +4783,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Starts a Spark job.
+     * Starts a Spark Job.
      *
      * @param request - StartJobRunRequest
      * @param headers - map
@@ -4660,7 +4876,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Starts a Spark job.
+     * Starts a Spark Job.
      *
      * @param request - StartJobRunRequest
      *
@@ -4680,7 +4896,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * StartKyuubiService.
+     * Starts the Kyuubi Gateway.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4715,7 +4931,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * StartKyuubiService.
+     * Starts the Kyuubi Gateway.
      *
      * @returns StartKyuubiServiceResponse
      *
@@ -4733,7 +4949,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 启动livy compute.
+     * Starts a Livy gateway.
      *
      * @param request - StartLivyComputeRequest
      * @param headers - map
@@ -4777,7 +4993,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 启动livy compute.
+     * Starts a Livy gateway.
      *
      * @param request - StartLivyComputeRequest
      *
@@ -4798,7 +5014,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Manually runs a workflow.
+     * Starts a workflow manually.
      *
      * @param request - StartProcessInstanceRequest
      * @param headers - map
@@ -4881,7 +5097,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Manually runs a workflow.
+     * Starts a workflow manually.
      *
      * @param request - StartProcessInstanceRequest
      *
@@ -4901,7 +5117,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 启动Ray集群.
+     * Starts a Ray cluster.
      *
      * @param request - StartRayClusterRequest
      * @param headers - map
@@ -4945,7 +5161,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 启动Ray集群.
+     * Starts a Ray cluster.
      *
      * @param request - StartRayClusterRequest
      *
@@ -4966,7 +5182,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Starts a session.
+     * Starts a session cluster.
      *
      * @param request - StartSessionClusterRequest
      * @param headers - map
@@ -5019,7 +5235,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Starts a session.
+     * Starts a session cluster.
      *
      * @param request - StartSessionClusterRequest
      *
@@ -5039,7 +5255,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * StopKyuubiService.
+     * Stops a Kyuubi Gateway.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5074,7 +5290,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * StopKyuubiService.
+     * Stops a Kyuubi Gateway.
      *
      * @returns StopKyuubiServiceResponse
      *
@@ -5092,7 +5308,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 停止livy compute.
+     * Stops a Livy Gateway.
      *
      * @param request - StopLivyComputeRequest
      * @param headers - map
@@ -5136,7 +5352,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 停止livy compute.
+     * Stops a Livy Gateway.
      *
      * @param request - StopLivyComputeRequest
      *
@@ -5157,7 +5373,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 停止Ray集群.
+     * Stops a Ray cluster.
      *
      * @param request - StopRayClusterRequest
      * @param headers - map
@@ -5201,7 +5417,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 停止Ray集群.
+     * Stops a Ray cluster.
      *
      * @param request - StopRayClusterRequest
      *
@@ -5295,6 +5511,145 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * 提交Ray Job.
+     *
+     * @param request - SubmitRayJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitRayJobResponse
+     *
+     * @param string              $workspaceId
+     * @param SubmitRayJobRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SubmitRayJobResponse
+     */
+    public function submitRayJobWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->activeDeadlineSeconds) {
+            @$body['activeDeadlineSeconds'] = $request->activeDeadlineSeconds;
+        }
+
+        if (null !== $request->displayReleaseVersion) {
+            @$body['displayReleaseVersion'] = $request->displayReleaseVersion;
+        }
+
+        if (null !== $request->entrypoint) {
+            @$body['entrypoint'] = $request->entrypoint;
+        }
+
+        if (null !== $request->entrypointMemory) {
+            @$body['entrypointMemory'] = $request->entrypointMemory;
+        }
+
+        if (null !== $request->entrypointNumCpus) {
+            @$body['entrypointNumCpus'] = $request->entrypointNumCpus;
+        }
+
+        if (null !== $request->entrypointNumGpus) {
+            @$body['entrypointNumGpus'] = $request->entrypointNumGpus;
+        }
+
+        if (null !== $request->entrypointResources) {
+            @$body['entrypointResources'] = $request->entrypointResources;
+        }
+
+        if (null !== $request->extraParam) {
+            @$body['extraParam'] = $request->extraParam;
+        }
+
+        if (null !== $request->headSpec) {
+            @$body['headSpec'] = $request->headSpec;
+        }
+
+        if (null !== $request->metadataJson) {
+            @$body['metadataJson'] = $request->metadataJson;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->networkServiceName) {
+            @$body['networkServiceName'] = $request->networkServiceName;
+        }
+
+        if (null !== $request->runtimeEnvJson) {
+            @$body['runtimeEnvJson'] = $request->runtimeEnvJson;
+        }
+
+        if (null !== $request->shutdownAfterJobFinishes) {
+            @$body['shutdownAfterJobFinishes'] = $request->shutdownAfterJobFinishes;
+        }
+
+        if (null !== $request->submissionMode) {
+            @$body['submissionMode'] = $request->submissionMode;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
+        }
+
+        if (null !== $request->ttlSecondsAfterFinished) {
+            @$body['ttlSecondsAfterFinished'] = $request->ttlSecondsAfterFinished;
+        }
+
+        if (null !== $request->volumeIds) {
+            @$body['volumeIds'] = $request->volumeIds;
+        }
+
+        if (null !== $request->workerSpec) {
+            @$body['workerSpec'] = $request->workerSpec;
+        }
+
+        if (null !== $request->workingDir) {
+            @$body['workingDir'] = $request->workingDir;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitRayJob',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($workspaceId) . '/rayJob',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitRayJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交Ray Job.
+     *
+     * @param request - SubmitRayJobRequest
+     *
+     * @returns SubmitRayJobResponse
+     *
+     * @param string              $workspaceId
+     * @param SubmitRayJobRequest $request
+     *
+     * @return SubmitRayJobResponse
+     */
+    public function submitRayJob($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitRayJobWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Terminates an SQL query task.
      *
      * @param request - TerminateSqlStatementRequest
@@ -5360,7 +5715,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * UpdateKyuubiService.
+     * Updates a Kyuubi Gateway.
      *
      * @param request - UpdateKyuubiServiceRequest
      * @param headers - map
@@ -5440,7 +5795,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * UpdateKyuubiService.
+     * Updates a Kyuubi Gateway.
      *
      * @param request - UpdateKyuubiServiceRequest
      *
@@ -5461,7 +5816,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新kyuubi的token.
+     * Updates a Kyuubi Gateway authentication token.
      *
      * @param request - UpdateKyuubiTokenRequest
      * @param headers - map
@@ -5528,7 +5883,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新kyuubi的token.
+     * Updates a Kyuubi Gateway authentication token.
      *
      * @param request - UpdateKyuubiTokenRequest
      *
@@ -5550,7 +5905,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新livy compute.
+     * Updates a Livy Gateway.
      *
      * @param request - UpdateLivyComputeRequest
      * @param headers - map
@@ -5656,7 +6011,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新livy compute.
+     * Updates a Livy Gateway.
      *
      * @param request - UpdateLivyComputeRequest
      *
@@ -5677,7 +6032,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Updates the workflow and time-based scheduling configurations.
+     * Updates a workflow definition and its timed scheduling.
      *
      * @param tmpReq - UpdateProcessDefinitionWithScheduleRequest
      * @param headers - map
@@ -5811,7 +6166,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * Updates the workflow and time-based scheduling configurations.
+     * Updates a workflow definition and its timed scheduling.
      *
      * @param request - UpdateProcessDefinitionWithScheduleRequest
      *
@@ -5832,7 +6187,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新Ray集群.
+     * Updates a Ray cluster.
      *
      * @param request - UpdateRayClusterRequest
      * @param headers - map
@@ -5904,7 +6259,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新Ray集群.
+     * Updates a Ray cluster.
      *
      * @param request - UpdateRayClusterRequest
      *
@@ -5925,7 +6280,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新workspace属性.
+     * Update workspace properties.
      *
      * @param request - UpdateWorkspaceRequest
      * @param headers - map
@@ -5958,6 +6313,10 @@ class Emrserverlessspark extends OpenApiClient
 
         if (null !== $request->gpuSpec) {
             @$body['gpuSpec'] = $request->gpuSpec;
+        }
+
+        if (null !== $request->ipWhiteList) {
+            @$body['ipWhiteList'] = $request->ipWhiteList;
         }
 
         if (null !== $request->resourceGroupId) {
@@ -5997,7 +6356,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 更新workspace属性.
+     * Update workspace properties.
      *
      * @param request - UpdateWorkspaceRequest
      *

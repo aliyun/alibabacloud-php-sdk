@@ -62,6 +62,11 @@ class workspaces extends Model
     public $gpuSpec;
 
     /**
+     * @var string[]
+     */
+    public $ipWhiteList;
+
+    /**
      * @var string
      */
     public $paymentDurationUnit;
@@ -141,6 +146,7 @@ class workspaces extends Model
         'endTime' => 'endTime',
         'failReason' => 'failReason',
         'gpuSpec' => 'gpuSpec',
+        'ipWhiteList' => 'ipWhiteList',
         'paymentDurationUnit' => 'paymentDurationUnit',
         'paymentStatus' => 'paymentStatus',
         'paymentType' => 'paymentType',
@@ -161,6 +167,9 @@ class workspaces extends Model
     {
         if (\is_array($this->gpuSpec)) {
             Model::validateArray($this->gpuSpec);
+        }
+        if (\is_array($this->ipWhiteList)) {
+            Model::validateArray($this->ipWhiteList);
         }
         if (null !== $this->prePaidQuota) {
             $this->prePaidQuota->validate();
@@ -219,6 +228,17 @@ class workspaces extends Model
                 $n1 = 0;
                 foreach ($this->gpuSpec as $item1) {
                     $res['gpuSpec'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->ipWhiteList) {
+            if (\is_array($this->ipWhiteList)) {
+                $res['ipWhiteList'] = [];
+                $n1 = 0;
+                foreach ($this->ipWhiteList as $item1) {
+                    $res['ipWhiteList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -340,6 +360,17 @@ class workspaces extends Model
                 $n1 = 0;
                 foreach ($map['gpuSpec'] as $item1) {
                     $model->gpuSpec[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ipWhiteList'])) {
+            if (!empty($map['ipWhiteList'])) {
+                $model->ipWhiteList = [];
+                $n1 = 0;
+                foreach ($map['ipWhiteList'] as $item1) {
+                    $model->ipWhiteList[$n1] = $item1;
                     ++$n1;
                 }
             }

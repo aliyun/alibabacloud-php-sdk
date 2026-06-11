@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CacheCluster\cachesets;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CacheCluster\configurations;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CacheCluster\resourceSpec;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CacheCluster\tables;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CacheCluster\tags;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CacheCluster\usedResourceSpec;
 
 class CacheCluster extends Model
@@ -16,6 +18,16 @@ class CacheCluster extends Model
      * @var string[]
      */
     public $bindedWorkspaces;
+
+    /**
+     * @var string
+     */
+    public $cacheClusterId;
+
+    /**
+     * @var string
+     */
+    public $cacheClusterName;
 
     /**
      * @var cachesets[]
@@ -36,6 +48,11 @@ class CacheCluster extends Model
      * @var configurations[]
      */
     public $configurations;
+
+    /**
+     * @var string
+     */
+    public $createTime;
 
     /**
      * @var string
@@ -73,6 +90,11 @@ class CacheCluster extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var resourceSpec
      */
     public $resourceSpec;
@@ -83,15 +105,33 @@ class CacheCluster extends Model
     public $state;
 
     /**
+     * @var tables[]
+     */
+    public $tables;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var usedResourceSpec
      */
     public $usedResourceSpec;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'bindedWorkspaces' => 'bindedWorkspaces',
+        'cacheClusterId' => 'cacheClusterId',
+        'cacheClusterName' => 'cacheClusterName',
         'cachesets' => 'cachesets',
         'clusterId' => 'clusterId',
         'configuration' => 'configuration',
         'configurations' => 'configurations',
+        'createTime' => 'createTime',
         'creator' => 'creator',
         'gmtCreated' => 'gmtCreated',
         'gmtModified' => 'gmtModified',
@@ -99,9 +139,13 @@ class CacheCluster extends Model
         'name' => 'name',
         'paymentType' => 'paymentType',
         'regionId' => 'regionId',
+        'resourceGroupId' => 'resourceGroupId',
         'resourceSpec' => 'resourceSpec',
         'state' => 'state',
+        'tables' => 'tables',
+        'tags' => 'tags',
         'usedResourceSpec' => 'usedResourceSpec',
+        'version' => 'version',
     ];
 
     public function validate()
@@ -117,6 +161,12 @@ class CacheCluster extends Model
         }
         if (null !== $this->resourceSpec) {
             $this->resourceSpec->validate();
+        }
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         if (null !== $this->usedResourceSpec) {
             $this->usedResourceSpec->validate();
@@ -136,6 +186,14 @@ class CacheCluster extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->cacheClusterId) {
+            $res['cacheClusterId'] = $this->cacheClusterId;
+        }
+
+        if (null !== $this->cacheClusterName) {
+            $res['cacheClusterName'] = $this->cacheClusterName;
         }
 
         if (null !== $this->cachesets) {
@@ -168,6 +226,10 @@ class CacheCluster extends Model
             }
         }
 
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
+        }
+
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
         }
@@ -196,6 +258,10 @@ class CacheCluster extends Model
             $res['regionId'] = $this->regionId;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->resourceSpec) {
             $res['resourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toArray($noStream) : $this->resourceSpec;
         }
@@ -204,8 +270,34 @@ class CacheCluster extends Model
             $res['state'] = $this->state;
         }
 
+        if (null !== $this->tables) {
+            if (\is_array($this->tables)) {
+                $res['tables'] = [];
+                $n1 = 0;
+                foreach ($this->tables as $item1) {
+                    $res['tables'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->usedResourceSpec) {
             $res['usedResourceSpec'] = null !== $this->usedResourceSpec ? $this->usedResourceSpec->toArray($noStream) : $this->usedResourceSpec;
+        }
+
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -228,6 +320,14 @@ class CacheCluster extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['cacheClusterId'])) {
+            $model->cacheClusterId = $map['cacheClusterId'];
+        }
+
+        if (isset($map['cacheClusterName'])) {
+            $model->cacheClusterName = $map['cacheClusterName'];
         }
 
         if (isset($map['cachesets'])) {
@@ -260,6 +360,10 @@ class CacheCluster extends Model
             }
         }
 
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
+        }
+
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
@@ -288,6 +392,10 @@ class CacheCluster extends Model
             $model->regionId = $map['regionId'];
         }
 
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
         if (isset($map['resourceSpec'])) {
             $model->resourceSpec = resourceSpec::fromMap($map['resourceSpec']);
         }
@@ -296,8 +404,34 @@ class CacheCluster extends Model
             $model->state = $map['state'];
         }
 
+        if (isset($map['tables'])) {
+            if (!empty($map['tables'])) {
+                $model->tables = [];
+                $n1 = 0;
+                foreach ($map['tables'] as $item1) {
+                    $model->tables[$n1] = tables::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['usedResourceSpec'])) {
             $model->usedResourceSpec = usedResourceSpec::fromMap($map['usedResourceSpec']);
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;
