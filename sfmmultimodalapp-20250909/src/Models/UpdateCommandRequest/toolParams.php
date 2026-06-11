@@ -22,10 +22,22 @@ class toolParams extends Model
      * @var string
      */
     public $paramName;
+
+    /**
+     * @var string
+     */
+    public $paramType;
+
+    /**
+     * @var bool
+     */
+    public $required;
     protected $_name = [
         'paramDesc' => 'ParamDesc',
         'paramExample' => 'ParamExample',
         'paramName' => 'ParamName',
+        'paramType' => 'ParamType',
+        'required' => 'Required',
     ];
 
     public function validate()
@@ -46,6 +58,14 @@ class toolParams extends Model
 
         if (null !== $this->paramName) {
             $res['ParamName'] = $this->paramName;
+        }
+
+        if (null !== $this->paramType) {
+            $res['ParamType'] = $this->paramType;
+        }
+
+        if (null !== $this->required) {
+            $res['Required'] = $this->required;
         }
 
         return $res;
@@ -69,6 +89,14 @@ class toolParams extends Model
 
         if (isset($map['ParamName'])) {
             $model->paramName = $map['ParamName'];
+        }
+
+        if (isset($map['ParamType'])) {
+            $model->paramType = $map['ParamType'];
+        }
+
+        if (isset($map['Required'])) {
+            $model->required = $map['Required'];
         }
 
         return $model;

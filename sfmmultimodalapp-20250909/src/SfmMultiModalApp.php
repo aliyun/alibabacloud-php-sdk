@@ -29,6 +29,10 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeCommandRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeCommandResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DescribeMmAppResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DevicePageRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DevicePageResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeviceUpdateRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeviceUpdateResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListCommandRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListCommandResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppRequest;
@@ -45,6 +49,8 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PatchMemoryConfigRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PatchMemoryConfigResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PublishMmAppRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\PublishMmAppResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryAppQuotaRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryAppQuotaResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryMemoryConfigRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryMemoryConfigResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\QueryMemoryListRequest;
@@ -152,6 +158,10 @@ class SfmMultiModalApp extends OpenApiClient
 
         if (null !== $request->domainName) {
             @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->replyMode) {
+            @$query['ReplyMode'] = $request->replyMode;
         }
 
         if (null !== $request->toolDescription) {
@@ -878,6 +888,144 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 设备信息查询.
+     *
+     * @param request - DevicePageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DevicePageResponse
+     *
+     * @param DevicePageRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DevicePageResponse
+     */
+    public function devicePageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->deviceName) {
+            @$query['DeviceName'] = $request->deviceName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DevicePage',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DevicePageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 设备信息查询.
+     *
+     * @param request - DevicePageRequest
+     *
+     * @returns DevicePageResponse
+     *
+     * @param DevicePageRequest $request
+     *
+     * @return DevicePageResponse
+     */
+    public function devicePage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->devicePageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改设备状态
+     *
+     * @param request - DeviceUpdateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeviceUpdateResponse
+     *
+     * @param DeviceUpdateRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeviceUpdateResponse
+     */
+    public function deviceUpdateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->deviceName) {
+            @$query['DeviceName'] = $request->deviceName;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeviceUpdate',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeviceUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改设备状态
+     *
+     * @param request - DeviceUpdateRequest
+     *
+     * @returns DeviceUpdateResponse
+     *
+     * @param DeviceUpdateRequest $request
+     *
+     * @return DeviceUpdateResponse
+     */
+    public function deviceUpdate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deviceUpdateWithOptions($request, $runtime);
+    }
+
+    /**
      * 指令列表.
      *
      * @param request - ListCommandRequest
@@ -1389,6 +1537,67 @@ class SfmMultiModalApp extends OpenApiClient
     }
 
     /**
+     * 额度使用量查询.
+     *
+     * @param request - QueryAppQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAppQuotaResponse
+     *
+     * @param QueryAppQuotaRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryAppQuotaResponse
+     */
+    public function queryAppQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAppQuota',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAppQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 额度使用量查询.
+     *
+     * @param request - QueryAppQuotaRequest
+     *
+     * @returns QueryAppQuotaResponse
+     *
+     * @param QueryAppQuotaRequest $request
+     *
+     * @return QueryAppQuotaResponse
+     */
+    public function queryAppQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAppQuotaWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询用户记忆配置.
      *
      * @param request - QueryMemoryConfigRequest
@@ -1697,6 +1906,10 @@ class SfmMultiModalApp extends OpenApiClient
 
         if (null !== $request->domainName) {
             @$query['DomainName'] = $request->domainName;
+        }
+
+        if (null !== $request->replyMode) {
+            @$query['ReplyMode'] = $request->replyMode;
         }
 
         if (null !== $request->toolDescription) {

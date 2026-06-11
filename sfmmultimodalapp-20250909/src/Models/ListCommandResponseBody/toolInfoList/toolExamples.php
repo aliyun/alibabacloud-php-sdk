@@ -9,21 +9,39 @@ use AlibabaCloud\Dara\Model;
 class toolExamples extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $parameters;
+
+    /**
      * @var string
      */
     public $query;
     protected $_name = [
+        'parameters' => 'Parameters',
         'query' => 'Query',
     ];
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->parameters) {
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['Parameters'][$key1] = $value1;
+                }
+            }
+        }
+
         if (null !== $this->query) {
             $res['Query'] = $this->query;
         }
@@ -39,6 +57,15 @@ class toolExamples extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Parameters'])) {
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                foreach ($map['Parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
+        }
+
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
         }

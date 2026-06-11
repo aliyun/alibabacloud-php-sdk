@@ -28,6 +28,11 @@ class UpdateCommandRequest extends Model
     /**
      * @var string
      */
+    public $replyMode;
+
+    /**
+     * @var string
+     */
     public $toolDescription;
 
     /**
@@ -58,6 +63,7 @@ class UpdateCommandRequest extends Model
         'appId' => 'AppId',
         'domainCode' => 'DomainCode',
         'domainName' => 'DomainName',
+        'replyMode' => 'ReplyMode',
         'toolDescription' => 'ToolDescription',
         'toolExamples' => 'ToolExamples',
         'toolId' => 'ToolId',
@@ -90,6 +96,10 @@ class UpdateCommandRequest extends Model
 
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->replyMode) {
+            $res['ReplyMode'] = $this->replyMode;
         }
 
         if (null !== $this->toolDescription) {
@@ -151,6 +161,10 @@ class UpdateCommandRequest extends Model
 
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['ReplyMode'])) {
+            $model->replyMode = $map['ReplyMode'];
         }
 
         if (isset($map['ToolDescription'])) {

@@ -26,6 +26,11 @@ class CreateCommandShrinkRequest extends Model
     /**
      * @var string
      */
+    public $replyMode;
+
+    /**
+     * @var string
+     */
     public $toolDescription;
 
     /**
@@ -51,6 +56,7 @@ class CreateCommandShrinkRequest extends Model
         'appId' => 'AppId',
         'domainCode' => 'DomainCode',
         'domainName' => 'DomainName',
+        'replyMode' => 'ReplyMode',
         'toolDescription' => 'ToolDescription',
         'toolExamplesShrink' => 'ToolExamples',
         'toolName' => 'ToolName',
@@ -76,6 +82,10 @@ class CreateCommandShrinkRequest extends Model
 
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->replyMode) {
+            $res['ReplyMode'] = $this->replyMode;
         }
 
         if (null !== $this->toolDescription) {
@@ -119,6 +129,10 @@ class CreateCommandShrinkRequest extends Model
 
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['ReplyMode'])) {
+            $model->replyMode = $map['ReplyMode'];
         }
 
         if (isset($map['ToolDescription'])) {

@@ -61,6 +61,11 @@ class toolInfoList extends Model
     public $modifyUserName;
 
     /**
+     * @var string
+     */
+    public $replyMode;
+
+    /**
      * @var toolExamples[]
      */
     public $toolExamples;
@@ -90,6 +95,7 @@ class toolInfoList extends Model
         'gmtModified' => 'GmtModified',
         'modifyUserId' => 'ModifyUserId',
         'modifyUserName' => 'ModifyUserName',
+        'replyMode' => 'ReplyMode',
         'toolExamples' => 'ToolExamples',
         'toolId' => 'ToolId',
         'toolName' => 'ToolName',
@@ -148,6 +154,10 @@ class toolInfoList extends Model
 
         if (null !== $this->modifyUserName) {
             $res['ModifyUserName'] = $this->modifyUserName;
+        }
+
+        if (null !== $this->replyMode) {
+            $res['ReplyMode'] = $this->replyMode;
         }
 
         if (null !== $this->toolExamples) {
@@ -229,6 +239,10 @@ class toolInfoList extends Model
 
         if (isset($map['ModifyUserName'])) {
             $model->modifyUserName = $map['ModifyUserName'];
+        }
+
+        if (isset($map['ReplyMode'])) {
+            $model->replyMode = $map['ReplyMode'];
         }
 
         if (isset($map['ToolExamples'])) {

@@ -63,6 +63,11 @@ class DescribeCommandResponseBody extends Model
     /**
      * @var string
      */
+    public $replyMode;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -95,6 +100,7 @@ class DescribeCommandResponseBody extends Model
         'gmtModified' => 'GmtModified',
         'modifyUserId' => 'ModifyUserId',
         'modifyUserName' => 'ModifyUserName',
+        'replyMode' => 'ReplyMode',
         'requestId' => 'RequestId',
         'toolExamples' => 'ToolExamples',
         'toolId' => 'ToolId',
@@ -154,6 +160,10 @@ class DescribeCommandResponseBody extends Model
 
         if (null !== $this->modifyUserName) {
             $res['ModifyUserName'] = $this->modifyUserName;
+        }
+
+        if (null !== $this->replyMode) {
+            $res['ReplyMode'] = $this->replyMode;
         }
 
         if (null !== $this->requestId) {
@@ -239,6 +249,10 @@ class DescribeCommandResponseBody extends Model
 
         if (isset($map['ModifyUserName'])) {
             $model->modifyUserName = $map['ModifyUserName'];
+        }
+
+        if (isset($map['ReplyMode'])) {
+            $model->replyMode = $map['ReplyMode'];
         }
 
         if (isset($map['RequestId'])) {
