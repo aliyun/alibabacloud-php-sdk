@@ -7,10 +7,14 @@ namespace AlibabaCloud\SDK\Datahub\V20240620;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateProjectResponse;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateSubscriptionRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateSubscriptionResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateTopicRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\CreateTopicResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteSubscriptionRequest;
+use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteSubscriptionResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteTopicRequest;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\DeleteTopicResponse;
 use AlibabaCloud\SDK\Datahub\V20240620\Models\GetConnectorRequest;
@@ -86,7 +90,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 创建Project资源.
+     * Creates a project.
+     *
+     * @remarks
+     * Creates a project.
      *
      * @param request - CreateProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -129,7 +136,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 创建Project资源.
+     * Creates a project.
+     *
+     * @remarks
+     * Creates a project.
      *
      * @param request - CreateProjectRequest
      *
@@ -147,7 +157,89 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 创建Topic资源.
+     * 创建Subscription资源.
+     *
+     * @remarks
+     * 创建订阅信息
+     *
+     * @param request - CreateSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSubscriptionResponse
+     *
+     * @param CreateSubscriptionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateSubscriptionResponse
+     */
+    public function createSubscriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->application) {
+            @$query['Application'] = $request->application;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->subscriptionId) {
+            @$query['SubscriptionId'] = $request->subscriptionId;
+        }
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSubscription',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建Subscription资源.
+     *
+     * @remarks
+     * 创建订阅信息
+     *
+     * @param request - CreateSubscriptionRequest
+     *
+     * @returns CreateSubscriptionResponse
+     *
+     * @param CreateSubscriptionRequest $request
+     *
+     * @return CreateSubscriptionResponse
+     */
+    public function createSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * A topic is the smallest unit for DataHub subscription and publishing. You can use a topic to represent a type or category of streaming data.
+     *
+     * @remarks
+     * Creates a topic resource.
      *
      * @param request - CreateTopicRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -218,7 +310,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 创建Topic资源.
+     * A topic is the smallest unit for DataHub subscription and publishing. You can use a topic to represent a type or category of streaming data.
+     *
+     * @remarks
+     * Creates a topic resource.
      *
      * @param request - CreateTopicRequest
      *
@@ -236,7 +331,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 删除Project资源.
+     * Deletes a project. Before deleting a project, delete all resources under the project, including topics, synchronization tasks, and subscription tasks.
+     *
+     * @remarks
+     * Deletes a project.
      *
      * @param request - DeleteProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -275,7 +373,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 删除Project资源.
+     * Deletes a project. Before deleting a project, delete all resources under the project, including topics, synchronization tasks, and subscription tasks.
+     *
+     * @remarks
+     * Deletes a project.
      *
      * @param request - DeleteProjectRequest
      *
@@ -293,7 +394,81 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 删除Topic资源.
+     * 删除Subscription资源.
+     *
+     * @remarks
+     * 删除订阅任务
+     *
+     * @param request - DeleteSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSubscriptionResponse
+     *
+     * @param DeleteSubscriptionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteSubscriptionResponse
+     */
+    public function deleteSubscriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->subscriptionId) {
+            @$query['SubscriptionId'] = $request->subscriptionId;
+        }
+
+        if (null !== $request->topicName) {
+            @$query['TopicName'] = $request->topicName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSubscription',
+            'version' => '2024-06-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除Subscription资源.
+     *
+     * @remarks
+     * 删除订阅任务
+     *
+     * @param request - DeleteSubscriptionRequest
+     *
+     * @returns DeleteSubscriptionResponse
+     *
+     * @param DeleteSubscriptionRequest $request
+     *
+     * @return DeleteSubscriptionResponse
+     */
+    public function deleteSubscription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSubscriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a topic resource. Before deleting a topic resource, delete all subscriptions and sync tasks under the topic.
+     *
+     * @remarks
+     * Deletes a topic resource.
      *
      * @param request - DeleteTopicRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -336,7 +511,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 删除Topic资源.
+     * Deletes a topic resource. Before deleting a topic resource, delete all subscriptions and sync tasks under the topic.
+     *
+     * @remarks
+     * Deletes a topic resource.
      *
      * @param request - DeleteTopicRequest
      *
@@ -354,7 +532,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Connector信息.
+     * Queries the information about a synchronization task.
+     *
+     * @remarks
+     * Queries the information about a synchronization task.
      *
      * @param request - GetConnectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -401,7 +582,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Connector信息.
+     * Queries the information about a synchronization task.
+     *
+     * @remarks
+     * Queries the information about a synchronization task.
      *
      * @param request - GetConnectorRequest
      *
@@ -419,7 +603,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Group信息.
+     * Queries the information about a consumer group.
+     *
+     * @remarks
+     * Queries the information about a consumer group.
      *
      * @param request - GetGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -462,7 +649,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Group信息.
+     * Queries the information about a consumer group.
+     *
+     * @remarks
+     * Queries the information about a consumer group.
      *
      * @param request - GetGroupRequest
      *
@@ -480,7 +670,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Project资源详细信息.
+     * Queries project information.
+     *
+     * @remarks
+     * Queries project information.
      *
      * @param request - GetProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -519,7 +712,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Project资源详细信息.
+     * Queries project information.
+     *
+     * @remarks
+     * Queries project information.
      *
      * @param request - GetProjectRequest
      *
@@ -537,7 +733,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 读取Topic数据.
+     * Reads data from a specified topic. This operation is primarily used for debugging. For high-volume data reading, refer to the SDK documentation.
+     *
+     * @remarks
+     * This operation is intended for debugging purposes. Do not use this operation to read large amounts of data.
      *
      * @param request - GetRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -588,7 +787,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 读取Topic数据.
+     * Reads data from a specified topic. This operation is primarily used for debugging. For high-volume data reading, refer to the SDK documentation.
+     *
+     * @remarks
+     * This operation is intended for debugging purposes. Do not use this operation to read large amounts of data.
      *
      * @param request - GetRecordsRequest
      *
@@ -606,7 +808,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Schema信息.
+     * Queries schema information.
+     *
+     * @remarks
+     * Queries schema information.
      *
      * @param request - GetSchemaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -653,7 +858,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Schema信息.
+     * Queries schema information.
+     *
+     * @remarks
+     * Queries schema information.
      *
      * @param request - GetSchemaRequest
      *
@@ -671,7 +879,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Subscription信息.
+     * Queries subscription information.
+     *
+     * @remarks
+     * Queries subscription information.
      *
      * @param request - GetSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -718,7 +929,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Subscription信息.
+     * Queries subscription information.
+     *
+     * @remarks
+     * Queries subscription information.
      *
      * @param request - GetSubscriptionRequest
      *
@@ -736,7 +950,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Topic信息.
+     * Queries topic information.
+     *
+     * @remarks
+     * Queries topic information.
      *
      * @param request - GetTopicRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -779,7 +996,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Topic信息.
+     * Queries topic information.
+     *
+     * @remarks
+     * Queries topic information.
      *
      * @param request - GetTopicRequest
      *
@@ -797,7 +1017,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Connector列表信息.
+     * Retrieves a list of synchronization tasks.
+     *
+     * @remarks
+     * Queries the list of synchronization tasks.
      *
      * @param request - ListConnectorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -860,7 +1083,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Connector列表信息.
+     * Retrieves a list of synchronization tasks.
+     *
+     * @remarks
+     * Queries the list of synchronization tasks.
      *
      * @param request - ListConnectorsRequest
      *
@@ -878,7 +1104,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Group列表信息.
+     * Retrieves a list of consumer groups.
+     *
+     * @remarks
+     * Queries the list of consumer groups.
      *
      * @param request - ListGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -937,7 +1166,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Group列表信息.
+     * Retrieves a list of consumer groups.
+     *
+     * @remarks
+     * Queries the list of consumer groups.
      *
      * @param request - ListGroupsRequest
      *
@@ -955,7 +1187,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Project列表信息.
+     * Retrieves a list of projects.
+     *
+     * @remarks
+     * Queries the list of projects.
      *
      * @param request - ListProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1010,7 +1245,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Project列表信息.
+     * Retrieves a list of projects.
+     *
+     * @remarks
+     * Queries the list of projects.
      *
      * @param request - ListProjectsRequest
      *
@@ -1028,7 +1266,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Schema列表信息.
+     * Lists schemas.
+     *
+     * @remarks
+     * Queries schema list information.
      *
      * @param request - ListSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1083,7 +1324,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Schema列表信息.
+     * Lists schemas.
+     *
+     * @remarks
+     * Queries schema list information.
      *
      * @param request - ListSchemasRequest
      *
@@ -1101,7 +1345,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Subscription列表信息.
+     * Retrieves a list of subscriptions.
+     *
+     * @remarks
+     * Queries subscription list information.
      *
      * @param request - ListSubscriptionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1160,7 +1407,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Subscription列表信息.
+     * Retrieves a list of subscriptions.
+     *
+     * @remarks
+     * Queries subscription list information.
      *
      * @param request - ListSubscriptionsRequest
      *
@@ -1178,7 +1428,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Topic列表信息.
+     * Retrieves a list of topics.
+     *
+     * @remarks
+     * Queries the list of topics.
      *
      * @param request - ListTopicsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1237,7 +1490,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 查询Topic列表信息.
+     * Retrieves a list of topics.
+     *
+     * @remarks
+     * Queries the list of topics.
      *
      * @param request - ListTopicsRequest
      *
@@ -1255,7 +1511,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 写入数据.
+     * Writes data to a specified topic. This operation is primarily intended for debugging. For high-volume data writes, refer to the SDK documentation.
+     *
+     * @remarks
+     * This operation is primarily intended for debugging. Do not use this operation to write large amounts of data.
      *
      * @param tmpReq - PutRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1312,7 +1571,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 写入数据.
+     * Writes data to a specified topic. This operation is primarily intended for debugging. For high-volume data writes, refer to the SDK documentation.
+     *
+     * @remarks
+     * This operation is primarily intended for debugging. Do not use this operation to write large amounts of data.
      *
      * @param request - PutRecordsRequest
      *
@@ -1330,7 +1592,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 更新Project资源属性.
+     * Updates the description of a project.
+     *
+     * @remarks
+     * Updates the description of a project.
      *
      * @param request - UpdateProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1373,7 +1638,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 更新Project资源属性.
+     * Updates the description of a project.
+     *
+     * @remarks
+     * Updates the description of a project.
      *
      * @param request - UpdateProjectRequest
      *
@@ -1391,7 +1659,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 更新Topic资源属性.
+     * Updates the description of a topic.
+     *
+     * @remarks
+     * Updates the description of a topic.
      *
      * @param request - UpdateTopicRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1438,7 +1709,10 @@ class Datahub extends OpenApiClient
     }
 
     /**
-     * 更新Topic资源属性.
+     * Updates the description of a topic.
+     *
+     * @remarks
+     * Updates the description of a topic.
      *
      * @param request - UpdateTopicRequest
      *
