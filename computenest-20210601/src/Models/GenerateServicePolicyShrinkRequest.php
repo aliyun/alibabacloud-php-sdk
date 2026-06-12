@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GenerateServicePolicyRequest extends Model
+class GenerateServicePolicyShrinkRequest extends Model
 {
     /**
      * @var string[]
@@ -14,9 +14,9 @@ class GenerateServicePolicyRequest extends Model
     public $operationTypes;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $parameters;
+    public $parametersShrink;
 
     /**
      * @var string
@@ -44,7 +44,7 @@ class GenerateServicePolicyRequest extends Model
     public $trialType;
     protected $_name = [
         'operationTypes' => 'OperationTypes',
-        'parameters' => 'Parameters',
+        'parametersShrink' => 'Parameters',
         'regionId' => 'RegionId',
         'serviceId' => 'ServiceId',
         'serviceVersion' => 'ServiceVersion',
@@ -56,9 +56,6 @@ class GenerateServicePolicyRequest extends Model
     {
         if (\is_array($this->operationTypes)) {
             Model::validateArray($this->operationTypes);
-        }
-        if (\is_array($this->parameters)) {
-            Model::validateArray($this->parameters);
         }
         parent::validate();
     }
@@ -77,13 +74,8 @@ class GenerateServicePolicyRequest extends Model
             }
         }
 
-        if (null !== $this->parameters) {
-            if (\is_array($this->parameters)) {
-                $res['Parameters'] = [];
-                foreach ($this->parameters as $key1 => $value1) {
-                    $res['Parameters'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->parametersShrink) {
+            $res['Parameters'] = $this->parametersShrink;
         }
 
         if (null !== $this->regionId) {
@@ -129,12 +121,7 @@ class GenerateServicePolicyRequest extends Model
         }
 
         if (isset($map['Parameters'])) {
-            if (!empty($map['Parameters'])) {
-                $model->parameters = [];
-                foreach ($map['Parameters'] as $key1 => $value1) {
-                    $model->parameters[$key1] = $value1;
-                }
-            }
+            $model->parametersShrink = $map['Parameters'];
         }
 
         if (isset($map['RegionId'])) {

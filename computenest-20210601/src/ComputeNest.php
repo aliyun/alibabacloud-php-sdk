@@ -45,6 +45,7 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GenerateServicePolicyRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GenerateServicePolicyResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GenerateServicePolicyShrinkRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetBackupRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetBackupResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetNetworkAvailableZonesRequest;
@@ -181,7 +182,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Cancels the application for using a service.
+     * Cancels a service usage request.
      *
      * @param request - CancelServiceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -232,7 +233,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Cancels the application for using a service.
+     * Cancels a service usage request.
      *
      * @param request - CancelServiceUsageRequest
      *
@@ -250,7 +251,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the resource group of a cloud resource based on the resource ID.
+     * Changes the resource group for a cloud resource.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -301,7 +302,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the resource group of a cloud resource based on the resource ID.
+     * Changes the resource group for a cloud resource.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -319,7 +320,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Performs a precheck before deploying a service instance.
+     * Performs a precheck to verify that a service instance can be deployed.
      *
      * @param request - CheckServiceDeployableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -382,7 +383,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Performs a precheck before deploying a service instance.
+     * Performs a precheck to verify that a service instance can be deployed.
      *
      * @param request - CheckServiceDeployableRequest
      *
@@ -400,10 +401,10 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Continues to deploy a service instance after the service instance failed to be deployed.
+     * If a service instance fails to deploy, you can call the ContinueDeployServiceInstance operation to resume the deployment.
      *
      * @remarks
-     * This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
+     * If a private service instance that uses the ROS deployment type fails to deploy, you can call the ContinueDeployServiceInstance operation to resume the deployment.
      *
      * @param request - ContinueDeployServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -462,10 +463,10 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Continues to deploy a service instance after the service instance failed to be deployed.
+     * If a service instance fails to deploy, you can call the ContinueDeployServiceInstance operation to resume the deployment.
      *
      * @remarks
-     * This operation is available only for service instances that belong to private services deployed by using Resource Orchestration Service (ROS).
+     * If a private service instance that uses the ROS deployment type fails to deploy, you can call the ContinueDeployServiceInstance operation to resume the deployment.
      *
      * @param request - ContinueDeployServiceInstanceRequest
      *
@@ -483,11 +484,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Create backup for Compute Nest instance.
+     * Creates a backup for a Compute Nest service instance.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade/downgrade feature and configured the corresponding parameters when the service was created.
      *
      * @param request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -530,11 +531,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Create backup for Compute Nest instance.
+     * Creates a backup for a Compute Nest service instance.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade/downgrade feature and configured the corresponding parameters when the service was created.
      *
      * @param request - CreateBackupRequest
      *
@@ -552,11 +553,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Create restore task.
+     * Creates a restore job.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Before you call this operation, ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when the service was created.
      *
      * @param request - CreateRestoreTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -599,11 +600,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Create restore task.
+     * Creates a restore job.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Before you call this operation, ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when the service was created.
      *
      * @param request - CreateRestoreTaskRequest
      *
@@ -621,7 +622,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates and deploys a service instance.
+     * Creates and deploys a service instance in Compute Nest by specifying parameters such as a region ID, a service instance name, and a service ID.
      *
      * @param tmpReq - CreateServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -742,7 +743,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates and deploys a service instance.
+     * Creates and deploys a service instance in Compute Nest by specifying parameters such as a region ID, a service instance name, and a service ID.
      *
      * @param request - CreateServiceInstanceRequest
      *
@@ -760,7 +761,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates an application for using a service.
+     * Creates a service usage request.
      *
      * @param tmpReq - CreateServiceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -817,7 +818,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates an application for using a service.
+     * Creates a service usage request.
      *
      * @param request - CreateServiceUsageRequest
      *
@@ -835,7 +836,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 创建Skill.
+     * Creates a Skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Before you begin, ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
      *
      * @param request - CreateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -904,7 +909,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 创建Skill.
+     * Creates a Skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Before you begin, ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
      *
      * @param request - CreateSkillRequest
      *
@@ -922,7 +931,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 创建Skill文件检测任务
+     * Creates a Skill file detection task.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
      *
      * @param request - CreateSkillFileDetectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -971,7 +984,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 创建Skill文件检测任务
+     * Creates a Skill file detection task.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
      *
      * @param request - CreateSkillFileDetectRequest
      *
@@ -989,7 +1006,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 创建SkillHub配置.
+     * Creates a SkillHub config.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider has enabled the modify configuration feature and set the required parameters.
      *
      * @param request - CreateSkillHubConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1038,7 +1059,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 创建SkillHub配置.
+     * Creates a SkillHub config.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider has enabled the modify configuration feature and set the required parameters.
      *
      * @param request - CreateSkillHubConfigRequest
      *
@@ -1056,7 +1081,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 创建SkillSpace.
+     * Creates a skill space.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
      *
      * @param request - CreateSkillSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1105,7 +1134,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 创建SkillSpace.
+     * Creates a skill space.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider has enabled the modify configuration feature and set the required parameters during service creation.
      *
      * @param request - CreateSkillSpaceRequest
      *
@@ -1123,11 +1156,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Delete Compute Nest instance backups.
+     * Deletes a Compute Nest instance backup.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade/downgrade feature and configured the upgrade/downgrade parameters when the service was created.
      *
      * @param request - DeleteBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1166,11 +1199,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Delete Compute Nest instance backups.
+     * Deletes a Compute Nest instance backup.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade/downgrade feature and configured the upgrade/downgrade parameters when the service was created.
      *
      * @param request - DeleteBackupRequest
      *
@@ -1188,7 +1221,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deletes service instances based on the region ID and service instance IDs.
+     * Deletes the specified service instances in a region.
      *
      * @param request - DeleteServiceInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1235,7 +1268,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deletes service instances based on the region ID and service instance IDs.
+     * Deletes the specified service instances in a region.
      *
      * @param request - DeleteServiceInstancesRequest
      *
@@ -1253,7 +1286,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 删除Skill.
+     * Deletes a skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
      *
      * @param request - DeleteSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1298,7 +1335,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 删除Skill.
+     * Deletes a skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider has enabled the modification feature and configured the modification parameters when creating the service.
      *
      * @param request - DeleteSkillRequest
      *
@@ -1316,7 +1357,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 删除SkillSpace.
+     * Deletes a SkillSpace.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
      *
      * @param request - DeleteSkillSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1361,7 +1406,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 删除SkillSpace.
+     * Deletes a SkillSpace.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider enabled the modify configuration feature and set the required parameters during service creation.
      *
      * @param request - DeleteSkillSpaceRequest
      *
@@ -1379,7 +1428,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deploys the created service instance.
+     * Deploys a service instance.
      *
      * @param request - DeployServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1426,7 +1475,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Deploys the created service instance.
+     * Deploys a service instance.
      *
      * @param request - DeployServiceInstanceRequest
      *
@@ -1444,7 +1493,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * List available regions.
+     * Queries the available regions.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1483,7 +1532,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * List available regions.
+     * Queries the available regions.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -1501,24 +1550,34 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the missing policies before creating a service instance.
+     * Check for missing access policies before you create a service instance.
      *
-     * @param request - GenerateServicePolicyRequest
+     * @param tmpReq - GenerateServicePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GenerateServicePolicyResponse
      *
-     * @param GenerateServicePolicyRequest $request
+     * @param GenerateServicePolicyRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return GenerateServicePolicyResponse
      */
-    public function generateServicePolicyWithOptions($request, $runtime)
+    public function generateServicePolicyWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GenerateServicePolicyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+
         $query = [];
         if (null !== $request->operationTypes) {
             @$query['OperationTypes'] = $request->operationTypes;
+        }
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
         }
 
         if (null !== $request->regionId) {
@@ -1560,7 +1619,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the missing policies before creating a service instance.
+     * Check for missing access policies before you create a service instance.
      *
      * @param request - GenerateServicePolicyRequest
      *
@@ -1578,11 +1637,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about backup task.
+     * Retrieves the details of a backup.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when the service was created.
      *
      * @param request - GetBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1621,11 +1680,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about backup task.
+     * Retrieves the details of a backup.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when the service was created.
      *
      * @param request - GetBackupRequest
      *
@@ -1643,7 +1702,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 根据指定地域获取可用区列表.
+     * Returns a list of available zones for a specified region.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade/downgrade feature and set the related parameters when the service was created.
      *
      * @param request - GetNetworkAvailableZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1710,7 +1773,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 根据指定地域获取可用区列表.
+     * Returns a list of available zones for a specified region.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade/downgrade feature and set the related parameters when the service was created.
      *
      * @param request - GetNetworkAvailableZonesRequest
      *
@@ -1728,7 +1795,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service.
+     * Retrieves the details of a specified service.
      *
      * @param request - GetServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1787,7 +1854,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service.
+     * Retrieves the details of a specified service.
      *
      * @param request - GetServiceRequest
      *
@@ -1805,7 +1872,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the estimated price for creating a service instance.
+     * Queries the estimated cost of creating a service instance.
      *
      * @param tmpReq - GetServiceEstimateCostRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1894,7 +1961,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the estimated price for creating a service instance.
+     * Queries the estimated cost of creating a service instance.
      *
      * @param request - GetServiceEstimateCostRequest
      *
@@ -1912,7 +1979,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
+     * Queries the details of a service instance by its region ID, service instance ID, or Alibaba Cloud Marketplace instance ID. The returned information includes the service status, template name, and a list of resources.
      *
      * @param request - GetServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1959,7 +2026,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
+     * Queries the details of a service instance by its region ID, service instance ID, or Alibaba Cloud Marketplace instance ID. The returned information includes the service status, template name, and a list of resources.
      *
      * @param request - GetServiceInstanceRequest
      *
@@ -1977,7 +2044,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Inquiries the prices of subscription resources for private service instances. Renewal price inquiry is supported. You can make a unified renewal price inquiry for all subscription resources based on a specific service instance ID or make a renewal price inquiry for a specific resource. You can specify a service instance ID or a resource in a request, but cannot specify both of them.
+     * Queries the estimated renewal cost of subscription resources in a privately deployed service instance. You can query the cost for all resources associated with a service instance ID, or for a specific set of resources.
      *
      * @param request - GetServiceInstanceSubscriptionEstimateCostRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2040,7 +2107,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Inquiries the prices of subscription resources for private service instances. Renewal price inquiry is supported. You can make a unified renewal price inquiry for all subscription resources based on a specific service instance ID or make a renewal price inquiry for a specific resource. You can specify a service instance ID or a resource in a request, but cannot specify both of them.
+     * Queries the estimated renewal cost of subscription resources in a privately deployed service instance. You can query the cost for all resources associated with a service instance ID, or for a specific set of resources.
      *
      * @param request - GetServiceInstanceSubscriptionEstimateCostRequest
      *
@@ -2058,7 +2125,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+     * Retrieves the provisions of a service, such as its activation status and service roles.
      *
      * @param tmpReq - GetServiceProvisionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2123,7 +2190,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+     * Retrieves the provisions of a service, such as its activation status and service roles.
      *
      * @param request - GetServiceProvisionsRequest
      *
@@ -2141,7 +2208,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the constraints on the parameters in a Resource Orchestration Service (ROS) template in a region based on the template name and service ID.
+     * Queries the parameter constraints for a Resource Orchestration Service (ROS) template in a specified region using the template name and service ID.
      *
      * @param request - GetServiceTemplateParameterConstraintsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2220,7 +2287,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the constraints on the parameters in a Resource Orchestration Service (ROS) template in a region based on the template name and service ID.
+     * Queries the parameter constraints for a Resource Orchestration Service (ROS) template in a specified region using the template name and service ID.
      *
      * @param request - GetServiceTemplateParameterConstraintsRequest
      *
@@ -2238,7 +2305,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询Skill详情.
+     * Queries the details of a Skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Before calling this operation, ensure that the service provider enabled the modification feature and configured the required parameters during service creation.
      *
      * @param request - GetSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2277,7 +2348,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询Skill详情.
+     * Queries the details of a Skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Before calling this operation, ensure that the service provider enabled the modification feature and configured the required parameters during service creation.
      *
      * @param request - GetSkillRequest
      *
@@ -2295,7 +2370,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询Skill文件检测结果.
+     * Retrieves the result of a Skill file detection task.
+     *
+     * @remarks
+     * ### Prerequisites
+     * This operation is available only if the service provider enabled the modification feature and configured the relevant parameters during service creation.
      *
      * @param request - GetSkillFileDetectResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2338,7 +2417,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询Skill文件检测结果.
+     * Retrieves the result of a Skill file detection task.
+     *
+     * @remarks
+     * ### Prerequisites
+     * This operation is available only if the service provider enabled the modification feature and configured the relevant parameters during service creation.
      *
      * @param request - GetSkillFileDetectResultRequest
      *
@@ -2356,7 +2439,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询SkillHub配置.
+     * Retrieves the SkillHub configuration.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider enabled the modification feature and configured its parameters when creating the service.
      *
      * @param request - GetSkillHubConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2388,7 +2475,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询SkillHub配置.
+     * Retrieves the SkillHub configuration.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider enabled the modification feature and configured its parameters when creating the service.
      *
      * @param request - GetSkillHubConfigRequest
      *
@@ -2406,7 +2497,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询SkillSpace详情.
+     * Retrieves the details of a SkillSpace.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
      *
      * @param request - GetSkillSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2445,7 +2540,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询SkillSpace详情.
+     * Retrieves the details of a SkillSpace.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider has enabled the modification feature and configured the modification parameters for the service.
      *
      * @param request - GetSkillSpaceRequest
      *
@@ -2463,7 +2562,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a customer.
+     * Queries user information.
      *
      * @param request - GetUserInformationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2502,7 +2601,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the information about a customer.
+     * Queries user information.
      *
      * @param request - GetUserInformationRequest
      *
@@ -2520,11 +2619,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query and list Compute Nest instance backups.
+     * Queries a list of backups for Compute Nest service instances.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade and downgrade feature and configured the related parameters when the service was created.
      *
      * @param request - ListBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2571,11 +2670,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query and list Compute Nest instance backups.
+     * Queries a list of backups for Compute Nest service instances.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade and downgrade feature and configured the related parameters when the service was created.
      *
      * @param request - ListBackupsRequest
      *
@@ -2593,7 +2692,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queires the permissions.
+     * Retrieves a list of access policies.
      *
      * @param request - ListPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2640,7 +2739,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queires the permissions.
+     * Retrieves a list of access policies.
      *
      * @param request - ListPoliciesRequest
      *
@@ -2658,7 +2757,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询公开 Skill 列表.
+     * Lists public skills.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider enabled the change specification feature and configured the relevant parameters during service creation.
      *
      * @param request - ListPublicSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2709,7 +2812,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询公开 Skill 列表.
+     * Lists public skills.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider enabled the change specification feature and configured the relevant parameters during service creation.
      *
      * @param request - ListPublicSkillsRequest
      *
@@ -2727,11 +2834,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query and list restore tasks.
+     * Queries a list of restore jobs.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when creating the service.
      *
      * @param request - ListRestoreTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2778,11 +2885,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query and list restore tasks.
+     * Queries a list of restore jobs.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Please ensure that the service provider has enabled the configuration change feature and completed the change parameter settings.
+     * ### Prerequisites
+     * Ensure that the service provider enabled the upgrade and downgrade feature and configured its parameters when creating the service.
      *
      * @param request - ListRestoreTasksRequest
      *
@@ -2800,7 +2907,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries service categories.
+     * Lists the available service categories.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2829,7 +2936,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries service categories.
+     * Lists the available service categories.
      *
      * @returns ListServiceCategoriesResponse
      *
@@ -2843,7 +2950,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries instance bills.
+     * Call the ListServiceInstanceBill operation to query bills for service instances.
      *
      * @param request - ListServiceInstanceBillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2902,7 +3009,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries instance bills.
+     * Call the ListServiceInstanceBill operation to query bills for service instances.
      *
      * @param request - ListServiceInstanceBillRequest
      *
@@ -2920,7 +3027,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the deployment and upgrade logs of a service instance.
+     * Retrieves the deployment and upgrade logs of a service instance.
      *
      * @param request - ListServiceInstanceLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2987,7 +3094,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the deployment and upgrade logs of a service instance.
+     * Retrieves the deployment and upgrade logs of a service instance.
      *
      * @param request - ListServiceInstanceLogsRequest
      *
@@ -3005,7 +3112,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the resources contained in a service instance.
+     * Queries the resources of a service instance based on parameters such as the service instance ID, Alibaba Cloud Resource Name (ARN), and region ID.
      *
      * @param request - ListServiceInstanceResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3068,7 +3175,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the resources contained in a service instance.
+     * Queries the resources of a service instance based on parameters such as the service instance ID, Alibaba Cloud Resource Name (ARN), and region ID.
      *
      * @param request - ListServiceInstanceResourcesRequest
      *
@@ -3086,7 +3193,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the upgrade history of a service instance.
+     * You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
      *
      * @param request - ListServiceInstanceUpgradeHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3137,7 +3244,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the upgrade history of a service instance.
+     * You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
      *
      * @param request - ListServiceInstanceUpgradeHistoryRequest
      *
@@ -3155,7 +3262,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * {}.
+     * Queries service instances for your account in a specified region.
      *
      * @param request - ListServiceInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3214,7 +3321,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * {}.
+     * Queries service instances for your account in a specified region.
      *
      * @param request - ListServiceInstancesRequest
      *
@@ -3232,7 +3339,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the applications for using a service.
+     * Queries your service usages.
      *
      * @param request - ListServiceUsagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3283,7 +3390,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the applications for using a service.
+     * Queries your service usages.
      *
      * @param request - ListServiceUsagesRequest
      *
@@ -3301,7 +3408,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries a list of services.
+     * Queries information about your services.
      *
      * @param request - ListServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3372,7 +3479,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries a list of services.
+     * Queries information about your services.
      *
      * @param request - ListServicesRequest
      *
@@ -3390,7 +3497,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 获取Skill文件列表.
+     * Lists the files of a specified Skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
      *
      * @param request - ListSkillFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3441,7 +3552,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 获取Skill文件列表.
+     * Lists the files of a specified Skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Before you call this operation, ensure that the service provider has enabled the modification feature and configured the modification parameters when creating the service.
      *
      * @param request - ListSkillFilesRequest
      *
@@ -3459,7 +3574,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询SkillSpace列表.
+     * Queries a list of SkillSpaces.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
      *
      * @param request - ListSkillSpacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3506,7 +3625,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询SkillSpace列表.
+     * Queries a list of SkillSpaces.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider enabled the upgrade feature and configured its parameters when creating the service.
      *
      * @param request - ListSkillSpacesRequest
      *
@@ -3524,7 +3647,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询Skill列表.
+     * Retrieves a list of Skills.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider has enabled modification and configured the modification parameters when creating the service.
      *
      * @param request - ListSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3575,7 +3702,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 查询Skill列表.
+     * Retrieves a list of Skills.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider has enabled modification and configured the modification parameters when creating the service.
      *
      * @param request - ListSkillsRequest
      *
@@ -3593,7 +3724,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the existing tag keys.
+     * This operation lists existing tag keys.
      *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3640,7 +3771,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the existing tag keys.
+     * This operation lists existing tag keys.
      *
      * @param request - ListTagKeysRequest
      *
@@ -3658,7 +3789,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query tag resource list.
+     * Queries a list of tagged resources.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3713,7 +3844,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Query tag resource list.
+     * Queries a list of tagged resources.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -3731,7 +3862,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the tag values of a tag key.
+     * Lists the tag values for a specified tag key.
      *
      * @param request - ListTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3782,7 +3913,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Queries the tag values of a tag key.
+     * Lists the tag values for a specified tag key.
      *
      * @param request - ListTagValuesRequest
      *
@@ -3800,7 +3931,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 续费服务实例.
+     * Renews a service instance.
      *
      * @param request - RenewServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3843,7 +3974,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 续费服务实例.
+     * Renews a service instance.
      *
      * @param request - RenewServiceInstanceRequest
      *
@@ -3861,7 +3992,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Renews the subscription resources that are included in a private service instance. You can renew all subscription resources included in a private service instance based on the ID of the private service instance. You can also renew specific resources included in a private service instance. You can use only one of the preceding renewal methods.
+     * Renews the subscription resources for a private deployment service instance. This operation supports two renewal methods: renewing all subscription resources for a service instance or renewing only specific resources. You can use only one method per request.
      *
      * @param request - RenewServiceInstanceResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3920,7 +4051,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Renews the subscription resources that are included in a private service instance. You can renew all subscription resources included in a private service instance based on the ID of the private service instance. You can also renew specific resources included in a private service instance. You can use only one of the preceding renewal methods.
+     * Renews the subscription resources for a private deployment service instance. This operation supports two renewal methods: renewing all subscription resources for a service instance or renewing only specific resources. You can use only one method per request.
      *
      * @param request - RenewServiceInstanceResourcesRequest
      *
@@ -3938,7 +4069,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Restarts a service instance that is in the Deployed state.
+     * Restarts a service instance in the Deployed state.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider enabled the restart O\\&M operation when the service was created.
      *
      * @param request - RestartServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3985,7 +4120,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Restarts a service instance that is in the Deployed state.
+     * Restarts a service instance in the Deployed state.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider enabled the restart O\\&M operation when the service was created.
      *
      * @param request - RestartServiceInstanceRequest
      *
@@ -4003,7 +4142,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Rolls back an upgraded service instance to the previous version.
+     * Rolls back an upgraded service instance.
      *
      * @param request - RollbackServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4050,7 +4189,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Rolls back an upgraded service instance to the previous version.
+     * Rolls back an upgraded service instance.
      *
      * @param request - RollbackServiceInstanceRequest
      *
@@ -4068,7 +4207,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Starts a service instance that is in the Stopped or StartFailed state.
+     * Call the StartServiceInstance operation to start a service instance that is in the Stopped or StartFailed state.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider configured the start and stop O\\&M actions when creating the service.
      *
      * @param request - StartServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4115,7 +4258,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Starts a service instance that is in the Stopped or StartFailed state.
+     * Call the StartServiceInstance operation to start a service instance that is in the Stopped or StartFailed state.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider configured the start and stop O\\&M actions when creating the service.
      *
      * @param request - StartServiceInstanceRequest
      *
@@ -4133,7 +4280,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Stops a service instance that is in the Deployed or StopFailed state.
+     * Call the StopServiceInstance operation to shut down a service instance that is in the Deployed or StopFailed state.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider configured the Operations and Maintenance (O\\&M) operations for startup and shutdown when the service was created.
      *
      * @param request - StopServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4180,7 +4331,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Stops a service instance that is in the Deployed or StopFailed state.
+     * Call the StopServiceInstance operation to shut down a service instance that is in the Deployed or StopFailed state.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that the service provider configured the Operations and Maintenance (O\\&M) operations for startup and shutdown when the service was created.
      *
      * @param request - StopServiceInstanceRequest
      *
@@ -4198,7 +4353,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates and adds tags to a specified resource list.
+     * You can call TagResources to create and attach tags to multiple resources.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4249,7 +4404,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Creates and adds tags to a specified resource list.
+     * You can call TagResources to create and attach tags to multiple resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -4267,7 +4422,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * Detaches tags from specified resources.
      *
      * @param request - UnTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4322,7 +4477,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * Detaches tags from specified resources.
      *
      * @param request - UnTagResourcesRequest
      *
@@ -4409,11 +4564,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a service instance.
+     * You can call the UpdateServiceInstanceSpec operation to upgrade or downgrade a service instance if its parameters or package settings do not meet your requirements.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Configuration change is enabled and the related parameters are configured for the service by the service provider.
+     * ### Prerequisites
+     * Ensure that the service provider has enabled the upgrade/downgrade feature and configured the related parameters when the service was created.
      *
      * @param tmpReq - UpdateServiceInstanceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4486,11 +4641,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of a service instance.
+     * You can call the UpdateServiceInstanceSpec operation to upgrade or downgrade a service instance if its parameters or package settings do not meet your requirements.
      *
      * @remarks
-     * ### [](#)Prerequisites
-     * Configuration change is enabled and the related parameters are configured for the service by the service provider.
+     * ### Prerequisites
+     * Ensure that the service provider has enabled the upgrade/downgrade feature and configured the related parameters when the service was created.
      *
      * @param request - UpdateServiceInstanceSpecRequest
      *
@@ -4508,7 +4663,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the application for using a service.
+     * Updates the information about a service usage request.
      *
      * @param tmpReq - UpdateServiceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4565,7 +4720,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the application for using a service.
+     * Updates the information about a service usage request.
      *
      * @param request - UpdateServiceUsageRequest
      *
@@ -4583,7 +4738,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 更新Skill.
+     * Updates a skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider has enabled the option to modify configurations and configured the relevant parameters during service creation.
      *
      * @param request - UpdateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4652,7 +4811,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 更新Skill.
+     * Updates a skill.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure the service provider has enabled the option to modify configurations and configured the relevant parameters during service creation.
      *
      * @param request - UpdateSkillRequest
      *
@@ -4670,7 +4833,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the information about a customer.
+     * The UpdateUserInformation operation updates user information.
      *
      * @param request - UpdateUserInformationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4713,7 +4876,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Updates the information about a customer.
+     * The UpdateUserInformation operation updates user information.
      *
      * @param request - UpdateUserInformationRequest
      *
@@ -4731,7 +4894,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Upgrades the version of a service instance.
+     * Upgrades a service instance to a new version.
      *
      * @param tmpReq - UpgradeServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4796,7 +4959,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Upgrades the version of a service instance.
+     * Upgrades a service instance to a new version.
      *
      * @param request - UpgradeServiceInstanceRequest
      *
@@ -4814,7 +4977,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 校验服务实例名称.
+     * Validates the name of a service instance.
      *
      * @param request - ValidateServiceInstanceNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4873,7 +5036,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * 校验服务实例名称.
+     * Validates the name of a service instance.
      *
      * @param request - ValidateServiceInstanceNameRequest
      *
