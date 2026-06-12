@@ -1,3 +1,8 @@
+2026-06-12 Version: 4.10.1
+- Update API CreateLogStore: add request parameters body.enableModify.
+- Update API GetMaterializedView: add request parameters returnStatus.
+
+
 2026-05-28 Version: 4.10.0
 - Support API CreateAzureBlobIngestion.
 - Support API CreateElasticsearchIngestion.

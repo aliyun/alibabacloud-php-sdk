@@ -26,6 +26,11 @@ class Logstore extends Model
     /**
      * @var bool
      */
+    public $enableModify;
+
+    /**
+     * @var bool
+     */
     public $enableTracking;
 
     /**
@@ -74,6 +79,11 @@ class Logstore extends Model
     public $productType;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $shardCount;
@@ -96,6 +106,7 @@ class Logstore extends Model
         'appendMeta' => 'appendMeta',
         'autoSplit' => 'autoSplit',
         'createTime' => 'createTime',
+        'enableModify' => 'enableModify',
         'enableTracking' => 'enable_tracking',
         'encryptConf' => 'encrypt_conf',
         'hotTtl' => 'hot_ttl',
@@ -106,6 +117,7 @@ class Logstore extends Model
         'mode' => 'mode',
         'processorId' => 'processorId',
         'productType' => 'productType',
+        'resourceGroupId' => 'resourceGroupId',
         'shardCount' => 'shardCount',
         'shardingPolicy' => 'shardingPolicy',
         'telemetryType' => 'telemetryType',
@@ -136,6 +148,10 @@ class Logstore extends Model
 
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
+        }
+
+        if (null !== $this->enableModify) {
+            $res['enableModify'] = $this->enableModify;
         }
 
         if (null !== $this->enableTracking) {
@@ -178,6 +194,10 @@ class Logstore extends Model
             $res['productType'] = $this->productType;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
         }
@@ -215,6 +235,10 @@ class Logstore extends Model
 
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
+        }
+
+        if (isset($map['enableModify'])) {
+            $model->enableModify = $map['enableModify'];
         }
 
         if (isset($map['enable_tracking'])) {
@@ -255,6 +279,10 @@ class Logstore extends Model
 
         if (isset($map['productType'])) {
             $model->productType = $map['productType'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['shardCount'])) {

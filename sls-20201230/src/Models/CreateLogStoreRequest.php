@@ -21,6 +21,11 @@ class CreateLogStoreRequest extends Model
     /**
      * @var bool
      */
+    public $enableModify;
+
+    /**
+     * @var bool
+     */
     public $enableTracking;
 
     /**
@@ -85,6 +90,7 @@ class CreateLogStoreRequest extends Model
     protected $_name = [
         'appendMeta' => 'appendMeta',
         'autoSplit' => 'autoSplit',
+        'enableModify' => 'enableModify',
         'enableTracking' => 'enable_tracking',
         'encryptConf' => 'encrypt_conf',
         'hotTtl' => 'hot_ttl',
@@ -120,6 +126,10 @@ class CreateLogStoreRequest extends Model
 
         if (null !== $this->autoSplit) {
             $res['autoSplit'] = $this->autoSplit;
+        }
+
+        if (null !== $this->enableModify) {
+            $res['enableModify'] = $this->enableModify;
         }
 
         if (null !== $this->enableTracking) {
@@ -191,6 +201,10 @@ class CreateLogStoreRequest extends Model
 
         if (isset($map['autoSplit'])) {
             $model->autoSplit = $map['autoSplit'];
+        }
+
+        if (isset($map['enableModify'])) {
+            $model->enableModify = $map['enableModify'];
         }
 
         if (isset($map['enable_tracking'])) {

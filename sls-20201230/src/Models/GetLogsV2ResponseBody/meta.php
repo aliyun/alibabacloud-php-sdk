@@ -6,7 +6,6 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2ResponseBody;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2ResponseBody\meta\phraseQueryInfo;
-use AlibabaCloud\SDK\Sls\V20201230\Models\LogContent;
 
 class meta extends Model
 {
@@ -46,7 +45,7 @@ class meta extends Model
     public $hasSQL;
 
     /**
-     * @var LogContent[][]
+     * @var mixed[][]
      */
     public $highlights;
 
@@ -197,10 +196,8 @@ class meta extends Model
                 foreach ($this->highlights as $item1) {
                     if (\is_array($item1)) {
                         $res['highlights'][$n1] = [];
-                        $n2 = 0;
-                        foreach ($item1 as $item2) {
-                            $res['highlights'][$n1][$n2] = null !== $item2 ? $item2->toArray($noStream) : $item2;
-                            ++$n2;
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['highlights'][$n1][$key2] = $value2;
                         }
                     }
                     ++$n1;
@@ -328,10 +325,8 @@ class meta extends Model
                 foreach ($map['highlights'] as $item1) {
                     if (!empty($item1)) {
                         $model->highlights[$n1] = [];
-                        $n2 = 0;
-                        foreach ($item1 as $item2) {
-                            $model->highlights[$n1][$n2] = LogContent::fromMap($item2);
-                            ++$n2;
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->highlights[$n1][$key2] = $value2;
                         }
                     }
                     ++$n1;
