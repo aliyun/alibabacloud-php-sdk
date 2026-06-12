@@ -51,6 +51,7 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateDefaultService
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateDefaultServiceTestConfigResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateServicePolicyRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateServicePolicyResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateServicePolicyShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRequest;
@@ -225,7 +226,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Adds a shared account of a service.
+     * Adds shared accounts for a service.
      *
      * @param request - AddServiceSharedAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -280,7 +281,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Adds a shared account of a service.
+     * Adds shared accounts for a service.
      *
      * @param request - AddServiceSharedAccountsRequest
      *
@@ -298,7 +299,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Merchant uses service request.
+     * Approves a service usage request.
      *
      * @param request - ApproveServiceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -357,7 +358,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Merchant uses service request.
+     * Approves a service usage request.
      *
      * @param request - ApproveServiceUsageRequest
      *
@@ -375,10 +376,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Cancel service registration.
+     * Cancels a service review request.
      *
      * @remarks
-     * Only service registration in the Submitted status can be canceled.
+     * Service review requests can be canceled only if they are in the Submitted state.
      *
      * @param request - CancelServiceRegistrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -425,10 +426,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Cancel service registration.
+     * Cancels a service review request.
      *
      * @remarks
-     * Only service registration in the Submitted status can be canceled.
+     * Service review requests can be canceled only if they are in the Submitted state.
      *
      * @param request - CancelServiceRegistrationRequest
      *
@@ -446,7 +447,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Redeploys a service instance after the service instance failed to be deployed.
+     * Continues the deployment of a service instance after a deployment failure. You must specify the region ID, service ID, and the configuration parameters for the service instance.
      *
      * @param request - ContinueDeployServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -501,7 +502,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Redeploys a service instance after the service instance failed to be deployed.
+     * Continues the deployment of a service instance after a deployment failure. You must specify the region ID, service ID, and the configuration parameters for the service instance.
      *
      * @param request - ContinueDeployServiceInstanceRequest
      *
@@ -519,7 +520,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Creates a deployment package.
+     * Creates an artifact.
      *
      * @param tmpReq - CreateArtifactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -612,7 +613,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Creates a deployment package.
+     * Creates an artifact.
      *
      * @param request - CreateArtifactRequest
      *
@@ -630,7 +631,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 创建运维公告.
+     * Creates an operations and maintenance (O&M) notice.
      *
      * @param tmpReq - CreateOpsNoticeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -711,7 +712,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 创建运维公告.
+     * Creates an operations and maintenance (O&M) notice.
      *
      * @param request - CreateOpsNoticeRequest
      *
@@ -729,7 +730,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Creates a service.
+     * Creates a service by specifying parameters, such as the region ID, deployment type, service type, and service name.
      *
      * @param tmpReq - CreateServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -882,7 +883,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Creates a service.
+     * Creates a service by specifying parameters, such as the region ID, deployment type, service type, and service name.
      *
      * @param request - CreateServiceRequest
      *
@@ -900,7 +901,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Creates and deploys a service instance.
+     * You can create and deploy a service instance by specifying parameters such as the region ID, service ID, and service version.
      *
      * @param tmpReq - CreateServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -993,7 +994,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Creates and deploys a service instance.
+     * You can create and deploy a service instance by specifying parameters such as the region ID, service ID, and service version.
      *
      * @param request - CreateServiceInstanceRequest
      *
@@ -1011,7 +1012,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Create service test case.
+     * Creates a service test case.
      *
      * @param request - CreateServiceTestCaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1070,7 +1071,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Create service test case.
+     * Creates a service test case.
      *
      * @param request - CreateServiceTestCaseRequest
      *
@@ -1088,7 +1089,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Create service test task.
+     * Creates a test task for a service.
      *
      * @param request - CreateServiceTestTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1139,7 +1140,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Create service test task.
+     * Creates a test task for a service.
      *
      * @param request - CreateServiceTestTaskRequest
      *
@@ -1157,7 +1158,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Create  Service resell application.
+     * You can create a service distribution request.
      *
      * @param request - CreateServiceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1204,7 +1205,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Create  Service resell application.
+     * You can create a service distribution request.
      *
      * @param request - CreateServiceUsageRequest
      *
@@ -1222,7 +1223,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Register as a service provider.
+     * Registers a service provider.
      *
      * @param request - CreateSupplierRegistrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1329,7 +1330,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Register as a service provider.
+     * Registers a service provider.
      *
      * @param request - CreateSupplierRegistrationRequest
      *
@@ -1347,7 +1348,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 删除Acr镜像仓库.
+     * Deletes ACR image repositories.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Before you delete an image repository, ensure that no deployments reference its container images. If you delete a repository that contains referenced images, the associated deployments become unavailable.
      *
      * @param request - DeleteAcrImageRepositoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1398,7 +1403,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 删除Acr镜像仓库.
+     * Deletes ACR image repositories.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Before you delete an image repository, ensure that no deployments reference its container images. If you delete a repository that contains referenced images, the associated deployments become unavailable.
      *
      * @param request - DeleteAcrImageRepositoriesRequest
      *
@@ -1416,7 +1425,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 删除Acr容器镜像版本.
+     * Delete a container image version from ACR.
+     *
+     * @remarks
+     * ###
+     * You must delete the deployments that use the container image before you delete the image tag. After the tag is deleted, the corresponding deployments become unusable.
      *
      * @param request - DeleteAcrImageTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1471,7 +1484,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 删除Acr容器镜像版本.
+     * Delete a container image version from ACR.
+     *
+     * @remarks
+     * ###
+     * You must delete the deployments that use the container image before you delete the image tag. After the tag is deleted, the corresponding deployments become unusable.
      *
      * @param request - DeleteAcrImageTagsRequest
      *
@@ -1489,7 +1506,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Deletes an artifact.
+     * You can call DeleteArtifact to delete an artifact or a specific version of an artifact.
      *
      * @param request - DeleteArtifactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1536,7 +1553,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Deletes an artifact.
+     * You can call DeleteArtifact to delete an artifact or a specific version of an artifact.
      *
      * @param request - DeleteArtifactRequest
      *
@@ -1554,7 +1571,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Deletes a service.
+     * Deletes a specified service based on its region ID, service ID, and service version.
      *
      * @param request - DeleteServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1605,7 +1622,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Deletes a service.
+     * Deletes a specified service based on its region ID, service ID, and service version.
      *
      * @param request - DeleteServiceRequest
      *
@@ -1623,7 +1640,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Deletes a service instance.
+     * Deletes service instances by specifying a region ID and service instance IDs.
      *
      * @param request - DeleteServiceInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1670,7 +1687,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Deletes a service instance.
+     * Deletes service instances by specifying a region ID and service instance IDs.
      *
      * @param request - DeleteServiceInstancesRequest
      *
@@ -1688,7 +1705,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Delete service test configuration.
+     * Deletes a service test case.
      *
      * @param request - DeleteServiceTestCaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1731,7 +1748,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Delete service test configuration.
+     * Deletes a service test case.
      *
      * @param request - DeleteServiceTestCaseRequest
      *
@@ -1814,7 +1831,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 生成默认服务测试配置.
+     * You can call the GenerateDefaultServiceTestConfig operation to modify the service test configuration.
      *
      * @param request - GenerateDefaultServiceTestConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1861,7 +1878,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 生成默认服务测试配置.
+     * You can call the GenerateDefaultServiceTestConfig operation to modify the service test configuration.
      *
      * @param request - GenerateDefaultServiceTestConfigRequest
      *
@@ -1879,24 +1896,34 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Generate and validate the stack required for service creation.
+     * Generates the required access policies before you create a service instance.
      *
-     * @param request - GenerateServicePolicyRequest
+     * @param tmpReq - GenerateServicePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns GenerateServicePolicyResponse
      *
-     * @param GenerateServicePolicyRequest $request
+     * @param GenerateServicePolicyRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
      * @return GenerateServicePolicyResponse
      */
-    public function generateServicePolicyWithOptions($request, $runtime)
+    public function generateServicePolicyWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new GenerateServicePolicyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+
         $query = [];
         if (null !== $request->operationTypes) {
             @$query['OperationTypes'] = $request->operationTypes;
+        }
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
         }
 
         if (null !== $request->regionId) {
@@ -1938,7 +1965,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Generate and validate the stack required for service creation.
+     * Generates the required access policies before you create a service instance.
      *
      * @param request - GenerateServicePolicyRequest
      *
@@ -1956,7 +1983,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the information about a deployment package.
+     * Retrieves the details of an artifact.
      *
      * @param request - GetArtifactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2003,7 +2030,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the information about a deployment package.
+     * Retrieves the details of an artifact.
      *
      * @param request - GetArtifactRequest
      *
@@ -2021,7 +2048,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the credentials that are required to upload a deployment package.
+     * Obtains the credentials required to upload an artifact.
      *
      * @param request - GetArtifactRepositoryCredentialsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2064,7 +2091,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the credentials that are required to upload a deployment package.
+     * Obtains the credentials required to upload an artifact.
      *
      * @param request - GetArtifactRepositoryCredentialsRequest
      *
@@ -2082,7 +2109,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 根据地域参数获取地域可用区列表.
+     * Retrieves a list of available zones in a region.
      *
      * @param request - GetNetworkAvailableZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2149,7 +2176,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 根据地域参数获取地域可用区列表.
+     * Retrieves a list of available zones in a region.
      *
      * @param request - GetNetworkAvailableZonesRequest
      *
@@ -2167,7 +2194,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查看运维公告详情.
+     * Retrieves the details of an operations and maintenance (O&M) notice.
+     *
+     * @remarks
+     * Services must be approved before they can be published.
      *
      * @param request - GetOpsNoticeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2210,7 +2240,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查看运维公告详情.
+     * Retrieves the details of an operations and maintenance (O&M) notice.
+     *
+     * @remarks
+     * Services must be approved before they can be published.
      *
      * @param request - GetOpsNoticeRequest
      *
@@ -2228,7 +2261,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service.
+     * Retrieves the details of a specified service.
      *
      * @param request - GetServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2295,7 +2328,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service.
+     * Retrieves the details of a specified service.
      *
      * @param request - GetServiceRequest
      *
@@ -2313,7 +2346,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the estimated price for creating a service instance.
+     * Retrieves the estimated cost of creating a service instance.
      *
      * @param tmpReq - GetServiceEstimateCostRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2394,7 +2427,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the estimated price for creating a service instance.
+     * Retrieves the estimated cost of creating a service instance.
      *
      * @param request - GetServiceEstimateCostRequest
      *
@@ -2412,7 +2445,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service instance.
+     * Queries the details of a specified service instance using the service instance ID and region ID. The returned information includes the deployment status, template name, and service details.
      *
      * @param request - GetServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2455,7 +2488,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the information about a service instance.
+     * Queries the details of a specified service instance using the service instance ID and region ID. The returned information includes the deployment status, template name, and service details.
      *
      * @param request - GetServiceInstanceRequest
      *
@@ -2473,7 +2506,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+     * Queries the activation status of a service and the information about its service roles.
      *
      * @param tmpReq - GetServiceProvisionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2534,7 +2567,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the information about the activation status and Resource Access Management (RAM) roles of the cloud services required by a service.
+     * Queries the activation status of a service and the information about its service roles.
      *
      * @param request - GetServiceProvisionsRequest
      *
@@ -2552,7 +2585,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get service registration detail.
+     * Queries the details of a service registration.
      *
      * @param request - GetServiceRegistrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2595,7 +2628,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get service registration detail.
+     * Queries the details of a service registration.
      *
      * @param request - GetServiceRegistrationRequest
      *
@@ -2613,7 +2646,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询服务模板存在的规范问题.
+     * Queries for criterion issues in a service template.
      *
      * @param request - GetServiceTemplateCriterionIssuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2660,7 +2693,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询服务模板存在的规范问题.
+     * Queries for criterion issues in a service template.
      *
      * @param request - GetServiceTemplateCriterionIssuesRequest
      *
@@ -2678,7 +2711,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
+     * Queries the parameter constraints for a Resource Orchestration Service (ROS) template.
      *
      * @param request - GetServiceTemplateParameterConstraintsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2749,7 +2782,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the valid values of parameters in a Resource Orchestration Service (ROS) template.
+     * Queries the parameter constraints for a Resource Orchestration Service (ROS) template.
      *
      * @param request - GetServiceTemplateParameterConstraintsRequest
      *
@@ -2767,7 +2800,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get the execution status of Cases in the service test task.
+     * After a service test task is created, you can call this API to retrieve the execution details of each use case in the task.
      *
      * @param request - GetServiceTestTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2810,7 +2843,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get the execution status of Cases in the service test task.
+     * After a service test task is created, you can call this API to retrieve the execution details of each use case in the task.
      *
      * @param request - GetServiceTestTaskRequest
      *
@@ -2828,7 +2861,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get service provider information.
+     * Retrieves service provider information.
      *
      * @param request - GetSupplierInformationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2867,7 +2900,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get service provider information.
+     * Retrieves service provider information.
      *
      * @param request - GetSupplierInformationRequest
      *
@@ -2885,7 +2918,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Obtain the AccessKey pair of uploaded files.
+     * Retrieves credentials to upload a file.
      *
      * @param request - GetUploadCredentialsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2928,7 +2961,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Obtain the AccessKey pair of uploaded files.
+     * Retrieves credentials to upload a file.
      *
      * @param request - GetUploadCredentialsRequest
      *
@@ -2946,10 +2979,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Launch service.
+     * Publishes a service.
      *
      * @remarks
-     * 需要上线的服务必须为已通过审核的服务。
+     * Only approved services can be published.
      *
      * @param request - LaunchServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3008,10 +3041,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Launch service.
+     * Publishes a service.
      *
      * @remarks
-     * 需要上线的服务必须为已通过审核的服务。
+     * Only approved services can be published.
      *
      * @param request - LaunchServiceRequest
      *
@@ -3029,7 +3062,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries a list of images uploaded to Container Registry.
+     * You can call the ListAcrImageRepositories operation to query a list of image repositories in ACR.
      *
      * @param request - ListAcrImageRepositoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3080,7 +3113,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries a list of images uploaded to Container Registry.
+     * You can call the ListAcrImageRepositories operation to query a list of image repositories in ACR.
      *
      * @param request - ListAcrImageRepositoriesRequest
      *
@@ -3098,7 +3131,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the versions of images that are uploaded to the image repository.
+     * Lists the uploaded image versions in an image repository.
      *
      * @param request - ListAcrImageTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3149,7 +3182,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the versions of images that are uploaded to the image repository.
+     * Lists the uploaded image versions in an image repository.
      *
      * @param request - ListAcrImageTagsRequest
      *
@@ -3167,7 +3200,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询部署实例、升级以及应用的日志.
+     * Queries the build logs of an artifact.
+     *
+     * @remarks
+     * ### Prerequisites
+     * None
      *
      * @param request - ListArtifactBuildLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3230,7 +3267,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询部署实例、升级以及应用的日志.
+     * Queries the build logs of an artifact.
+     *
+     * @remarks
+     * ### Prerequisites
+     * None
      *
      * @param request - ListArtifactBuildLogsRequest
      *
@@ -3248,7 +3289,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get the list of artifact security risks.
+     * Retrieves a list of security risks for an artifact.
      *
      * @param request - ListArtifactRisksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3291,7 +3332,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get the list of artifact security risks.
+     * Retrieves a list of security risks for an artifact.
      *
      * @param request - ListArtifactRisksRequest
      *
@@ -3309,7 +3350,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the version information about a deployment package.
+     * Queries artifact versions.
      *
      * @param tmpReq - ListArtifactVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3366,7 +3407,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the version information about a deployment package.
+     * Queries artifact versions.
      *
      * @param request - ListArtifactVersionsRequest
      *
@@ -3384,7 +3425,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries a list of deployment packages.
+     * Queries a list of artifacts.
      *
      * @param request - ListArtifactsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3439,7 +3480,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries a list of deployment packages.
+     * Queries a list of artifacts.
      *
      * @param request - ListArtifactsRequest
      *
@@ -3457,7 +3498,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询运维公告.
+     * Queries the operations and maintenance (O&M) notices published by a service provider.
      *
      * @param request - ListOpsNoticesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3508,7 +3549,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询运维公告.
+     * Queries the operations and maintenance (O&M) notices published by a service provider.
      *
      * @param request - ListOpsNoticesRequest
      *
@@ -3526,7 +3567,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Paginated query of distributor information list.
+     * Queries a list of resellers for display on the frontend.
      *
      * @param request - ListResellersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3577,7 +3618,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Paginated query of distributor information list.
+     * Queries a list of resellers for display on the frontend.
      *
      * @param request - ListResellersRequest
      *
@@ -3595,7 +3636,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询部署实例、升级以及应用的日志.
+     * Queries the logs for service instances, upgrades, and applications.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you add the startup and shutdown Operations and Maintenance (O\\&M) operations when you create a service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
      *
      * @param request - ListServiceBuildLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3654,7 +3699,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 查询部署实例、升级以及应用的日志.
+     * Queries the logs for service instances, upgrades, and applications.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you add the startup and shutdown Operations and Maintenance (O\\&M) operations when you create a service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
      *
      * @param request - ListServiceBuildLogsRequest
      *
@@ -3672,7 +3721,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Display service instance bill.
+     * You can call the ListServiceInstanceBill operation to query the bills of a service instance.
      *
      * @param request - ListServiceInstanceBillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3739,7 +3788,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Display service instance bill.
+     * You can call the ListServiceInstanceBill operation to query the bills of a service instance.
      *
      * @param request - ListServiceInstanceBillRequest
      *
@@ -3757,7 +3806,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query service instance deployment details.
+     * Queries the deployment details for service instances.
      *
      * @param request - ListServiceInstanceDeployDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3828,7 +3877,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query service instance deployment details.
+     * Queries the deployment details for service instances.
      *
      * @param request - ListServiceInstanceDeployDetailsRequest
      *
@@ -3846,7 +3895,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * “Query logs at various levels, including service instance application, instance, and resource.”.
+     * Call the ListServiceInstanceLogs operation to query deployment, upgrade, and application logs for a service instance.
      *
      * @param request - ListServiceInstanceLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3913,7 +3962,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * “Query logs at various levels, including service instance application, instance, and resource.”.
+     * Call the ListServiceInstanceLogs operation to query deployment, upgrade, and application logs for a service instance.
      *
      * @param request - ListServiceInstanceLogsRequest
      *
@@ -3931,7 +3980,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query service instance resources.
+     * Lists the resources in a service instance.
      *
      * @param request - ListServiceInstanceResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3994,7 +4043,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query service instance resources.
+     * Lists the resources in a service instance.
      *
      * @param request - ListServiceInstanceResourcesRequest
      *
@@ -4012,7 +4061,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * View the upgrade history of a service instance.
+     * You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
      *
      * @param request - ListServiceInstanceUpgradeHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4063,7 +4112,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * View the upgrade history of a service instance.
+     * You can call ListServiceInstanceUpgradeHistory to query the upgrade history of a service instance.
      *
      * @param request - ListServiceInstanceUpgradeHistoryRequest
      *
@@ -4162,7 +4211,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query service registrations.
+     * Queries service registration requests.
      *
      * @param request - ListServiceRegistrationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4213,7 +4262,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query service registrations.
+     * Queries service registration requests.
      *
      * @param request - ListServiceRegistrationsRequest
      *
@@ -4231,7 +4280,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 调用ListServiceSharedAccounts查看服务共享账号列表。
+     * Queries the accounts that a service is shared with.
      *
      * @param request - ListServiceSharedAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4290,7 +4339,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * 调用ListServiceSharedAccounts查看服务共享账号列表。
+     * Queries the accounts that a service is shared with.
      *
      * @param request - ListServiceSharedAccountsRequest
      *
@@ -4308,7 +4357,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Service test case list.
+     * Queries the service test cases for the current service version.
      *
      * @param request - ListServiceTestCasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4367,7 +4416,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Service test case list.
+     * Queries the service test cases for the current service version.
      *
      * @param request - ListServiceTestCasesRequest
      *
@@ -4385,7 +4434,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get service test real-time logs.
+     * Retrieves the real-time logs of a service test.
      *
      * @param request - ListServiceTestTaskLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4436,7 +4485,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get service test real-time logs.
+     * Retrieves the real-time logs of a service test.
      *
      * @param request - ListServiceTestTaskLogsRequest
      *
@@ -4454,7 +4503,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get task execution list.
+     * Queries the test tasks for a service.
      *
      * @param request - ListServiceTestTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4513,7 +4562,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Get task execution list.
+     * Queries the test tasks for a service.
      *
      * @param request - ListServiceTestTasksRequest
      *
@@ -4531,7 +4580,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the applications for using a service.
+     * Queries the usage of your services.
      *
      * @param request - ListServiceUsagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4566,7 +4615,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries the applications for using a service.
+     * Queries the usage of your services.
      *
      * @param request - ListServiceUsagesRequest
      *
@@ -4584,7 +4633,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries a list of services.
+     * Queries for a list of services based on specified parameters, such as a region ID and service IDs. The returned information includes the service status, service version, and publish time.
      *
      * @param request - ListServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4647,7 +4696,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Queries a list of services.
+     * Queries for a list of services based on specified parameters, such as a region ID and service IDs. The returned information includes the service status, service version, and publish time.
      *
      * @param request - ListServicesRequest
      *
@@ -4665,7 +4714,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query the list of service provider onboarding reviews.
+     * Queries service provider registration requests.
      *
      * @param request - ListSupplierRegistrationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4716,7 +4765,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query the list of service provider onboarding reviews.
+     * Queries service provider registration requests.
      *
      * @param request - ListSupplierRegistrationsRequest
      *
@@ -4734,7 +4783,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query tag key list.
+     * Queries the existing tag keys.
      *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4781,7 +4830,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query tag key list.
+     * Queries the existing tag keys.
      *
      * @param request - ListTagKeysRequest
      *
@@ -4799,7 +4848,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query resource tags.
+     * Queries the tags of one or more resources.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4854,7 +4903,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query resource tags.
+     * Queries the tags of one or more resources.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -4872,7 +4921,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query tag value list.
+     * Queries the tag values for a specific tag key.
      *
      * @param request - ListTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4923,7 +4972,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Query tag value list.
+     * Queries the tag values for a specific tag key.
      *
      * @param request - ListTagValuesRequest
      *
@@ -4941,7 +4990,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Modifies the resource information about a service instance.
+     * Modifies the resources of a service instance.
      *
      * @param request - ModifyServiceInstanceResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4988,7 +5037,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Modifies the resource information about a service instance.
+     * Modifies the resources of a service instance.
      *
      * @param request - ModifyServiceInstanceResourcesRequest
      *
@@ -5006,7 +5055,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Pre-release service.
+     * Prelaunches a service.
      *
      * @param request - PreLaunchServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5053,7 +5102,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Pre-release service.
+     * Prelaunches a service.
      *
      * @param request - PreLaunchServiceRequest
      *
@@ -5071,7 +5120,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Pushes metering data of an Alibaba Cloud Marketplace commodity.
+     * This API pushes metering data for pay-as-you-go Compute Nest service instances. The metering items must be predefined by the service provider.
      *
      * @param request - PushMeteringDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5114,7 +5163,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Pushes metering data of an Alibaba Cloud Marketplace commodity.
+     * This API pushes metering data for pay-as-you-go Compute Nest service instances. The metering items must be predefined by the service provider.
      *
      * @param request - PushMeteringDataRequest
      *
@@ -5132,7 +5181,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Registers an artifact.
+     * Registers a Service deployment.
      *
      * @param request - RegisterServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5179,7 +5228,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Registers an artifact.
+     * Registers a Service deployment.
      *
      * @param request - RegisterServiceRequest
      *
@@ -5197,7 +5246,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Reject service usage.
+     * You can call RejectServiceUsage to reject a service request.
      *
      * @param request - RejectServiceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5256,7 +5305,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Reject service usage.
+     * You can call RejectServiceUsage to reject a service request.
      *
      * @param request - RejectServiceUsageRequest
      *
@@ -5275,6 +5324,10 @@ class ComputeNestSupplier extends OpenApiClient
 
     /**
      * Publishes an artifact.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you have created and saved an artifact.
      *
      * @param request - ReleaseArtifactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5319,6 +5372,10 @@ class ComputeNestSupplier extends OpenApiClient
     /**
      * Publishes an artifact.
      *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you have created and saved an artifact.
+     *
      * @param request - ReleaseArtifactRequest
      *
      * @returns ReleaseArtifactResponse
@@ -5335,7 +5392,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Remove  service shared account.
+     * Removes shared accounts.
      *
      * @param request - RemoveServiceSharedAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5390,7 +5447,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Remove  service shared account.
+     * Removes shared accounts.
      *
      * @param request - RemoveServiceSharedAccountsRequest
      *
@@ -5408,7 +5465,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+     * Call the RestartServiceInstance operation to restart a service instance whose status is Deployed.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you add the restart Operations and Maintenance (O\\&M) operation when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
      *
      * @param request - RestartServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5455,7 +5516,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * When the service instance is Deployed, call the RestartServiceInstance interface to restart the service instance.
+     * Call the RestartServiceInstance operation to restart a service instance whose status is Deployed.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you add the restart Operations and Maintenance (O\\&M) operation when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
      *
      * @param request - RestartServiceInstanceRequest
      *
@@ -5473,7 +5538,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Rollback Service Instance.
+     * Rolls back an upgraded service instance to its previous version.
      *
      * @param request - RollbackServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5520,7 +5585,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Rollback Service Instance.
+     * Rolls back an upgraded service instance to its previous version.
      *
      * @param request - RollbackServiceInstanceRequest
      *
@@ -5538,7 +5603,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+     * Starts a service instance when its status is Stopped or StartFailed.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you add the startup and shutdown O\\&M operations when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
      *
      * @param request - StartServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5585,7 +5654,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * When the service instance status is Stopped (Stopped) or StartFailed (Startup failed), the StartServiceInstance interface is invoked to start the service instance.
+     * Starts a service instance when its status is Stopped or StartFailed.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you add the startup and shutdown O\\&M operations when you create the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
      *
      * @param request - StartServiceInstanceRequest
      *
@@ -5603,7 +5676,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Stops a service instance that is in the Deployed or StopFailed state.
+     * This operation stops a service instance that is in the Deployed or StopFailed state.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you configured the startup and shutdown operations and maintenance (O\\&M) when you created the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
      *
      * @param request - StopServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5650,7 +5727,11 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Stops a service instance that is in the Deployed or StopFailed state.
+     * This operation stops a service instance that is in the Deployed or StopFailed state.
+     *
+     * @remarks
+     * ### Prerequisites
+     * Ensure that you configured the startup and shutdown operations and maintenance (O\\&M) when you created the service. For more information, see [Create a service](https://help.aliyun.com/document_detail/440268.html).
      *
      * @param request - StopServiceInstanceRequest
      *
@@ -5668,7 +5749,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Tag a resource.
+     * Creates and attaches tags to one or more resources.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5719,7 +5800,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Tag a resource.
+     * Creates and attaches tags to one or more resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -5737,7 +5818,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Unbind resource from tag.
+     * Removes tags from resources.
      *
      * @param request - UnTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5792,7 +5873,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Unbind resource from tag.
+     * Removes tags from resources.
      *
      * @param request - UnTagResourcesRequest
      *
@@ -5810,7 +5891,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Updates a deployment package.
+     * Updates an artifact.
      *
      * @param tmpReq - UpdateArtifactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5887,7 +5968,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Updates a deployment package.
+     * Updates an artifact.
      *
      * @param request - UpdateArtifactRequest
      *
@@ -5905,7 +5986,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Update a service.
+     * Updates a service.
+     *
+     * @remarks
+     * Only approved services can be published.
      *
      * @param tmpReq - UpdateServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6070,7 +6154,10 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Update a service.
+     * Updates a service.
+     *
+     * @remarks
+     * Only approved services can be published.
      *
      * @param request - UpdateServiceRequest
      *
@@ -6088,7 +6175,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Updates the properties of a service instance.
+     * Updates the attributes of a service instance.
      *
      * @param tmpReq - UpdateServiceInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6149,7 +6236,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Updates the properties of a service instance.
+     * Updates the attributes of a service instance.
      *
      * @param request - UpdateServiceInstanceAttributeRequest
      *
@@ -6167,7 +6254,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of a service instance.
+     * Upgrades or downgrades a service instance.
      *
      * @param tmpReq - UpdateServiceInstanceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6232,7 +6319,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of a service instance.
+     * Upgrades or downgrades a service instance.
      *
      * @param request - UpdateServiceInstanceSpecRequest
      *
@@ -6250,7 +6337,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Modify Service Test Case.
+     * Updates a service test case.
      *
      * @param request - UpdateServiceTestCaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6301,7 +6388,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Modify Service Test Case.
+     * Updates a service test case.
      *
      * @param request - UpdateServiceTestCaseRequest
      *
@@ -6319,7 +6406,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Update Service Sharing Permissions.
+     * You can call UpdateSharedAccountPermission to update the permissions of a shared account.
      *
      * @param request - UpdateSharedAccountPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6378,7 +6465,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Update Service Sharing Permissions.
+     * You can call UpdateSharedAccountPermission to update the permissions of a shared account.
      *
      * @param request - UpdateSharedAccountPermissionRequest
      *
@@ -6396,7 +6483,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Update the information of supplier.
+     * You can call the UpdateSupplierInformation operation to update supplier information.
      *
      * @param request - UpdateSupplierInformationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6463,7 +6550,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Update the information of supplier.
+     * You can call the UpdateSupplierInformation operation to update supplier information.
      *
      * @param request - UpdateSupplierInformationRequest
      *
@@ -6481,7 +6568,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Upgrades a service instance.
+     * The UpgradeServiceInstance operation upgrades a service instance based on parameters such as the region ID and service version.
      *
      * @param tmpReq - UpgradeServiceInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6546,7 +6633,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Upgrades a service instance.
+     * The UpgradeServiceInstance operation upgrades a service instance based on parameters such as the region ID and service version.
      *
      * @param request - UpgradeServiceInstanceRequest
      *
@@ -6564,7 +6651,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Withdraw service version.
+     * Unpublishes a service version.
      *
      * @param request - WithdrawServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6615,7 +6702,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * Withdraw service version.
+     * Unpublishes a service version.
      *
      * @param request - WithdrawServiceRequest
      *
