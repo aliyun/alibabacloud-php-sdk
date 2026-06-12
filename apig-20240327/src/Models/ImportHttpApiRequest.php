@@ -73,6 +73,11 @@ class ImportHttpApiRequest extends Model
      * @var HttpApiVersionConfig
      */
     public $versionConfig;
+
+    /**
+     * @var bool
+     */
+    public $withGatewayExtension;
     protected $_name = [
         'deployConfigs' => 'deployConfigs',
         'description' => 'description',
@@ -87,6 +92,7 @@ class ImportHttpApiRequest extends Model
         'strategy' => 'strategy',
         'targetHttpApiId' => 'targetHttpApiId',
         'versionConfig' => 'versionConfig',
+        'withGatewayExtension' => 'withGatewayExtension',
     ];
 
     public function validate()
@@ -165,6 +171,10 @@ class ImportHttpApiRequest extends Model
             $res['versionConfig'] = null !== $this->versionConfig ? $this->versionConfig->toArray($noStream) : $this->versionConfig;
         }
 
+        if (null !== $this->withGatewayExtension) {
+            $res['withGatewayExtension'] = $this->withGatewayExtension;
+        }
+
         return $res;
     }
 
@@ -233,6 +243,10 @@ class ImportHttpApiRequest extends Model
 
         if (isset($map['versionConfig'])) {
             $model->versionConfig = HttpApiVersionConfig::fromMap($map['versionConfig']);
+        }
+
+        if (isset($map['withGatewayExtension'])) {
+            $model->withGatewayExtension = $map['withGatewayExtension'];
         }
 
         return $model;

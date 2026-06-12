@@ -8,8 +8,10 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody\data\dryRunInfo\failureComponents;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody\data\dryRunInfo\failureOperations;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody\data\dryRunInfo\failureRoutes;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody\data\dryRunInfo\successComponents;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody\data\dryRunInfo\successOperations;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody\data\dryRunInfo\successRoutes;
 
 class dryRunInfo extends Model
 {
@@ -34,6 +36,11 @@ class dryRunInfo extends Model
     public $failureOperations;
 
     /**
+     * @var failureRoutes[]
+     */
+    public $failureRoutes;
+
+    /**
      * @var string
      */
     public $mcpToolsDefinition;
@@ -49,6 +56,11 @@ class dryRunInfo extends Model
     public $successOperations;
 
     /**
+     * @var successRoutes[]
+     */
+    public $successRoutes;
+
+    /**
      * @var string[]
      */
     public $warningMessages;
@@ -57,9 +69,11 @@ class dryRunInfo extends Model
         'existHttpApiInfo' => 'existHttpApiInfo',
         'failureComponents' => 'failureComponents',
         'failureOperations' => 'failureOperations',
+        'failureRoutes' => 'failureRoutes',
         'mcpToolsDefinition' => 'mcpToolsDefinition',
         'successComponents' => 'successComponents',
         'successOperations' => 'successOperations',
+        'successRoutes' => 'successRoutes',
         'warningMessages' => 'warningMessages',
     ];
 
@@ -77,11 +91,17 @@ class dryRunInfo extends Model
         if (\is_array($this->failureOperations)) {
             Model::validateArray($this->failureOperations);
         }
+        if (\is_array($this->failureRoutes)) {
+            Model::validateArray($this->failureRoutes);
+        }
         if (\is_array($this->successComponents)) {
             Model::validateArray($this->successComponents);
         }
         if (\is_array($this->successOperations)) {
             Model::validateArray($this->successOperations);
+        }
+        if (\is_array($this->successRoutes)) {
+            Model::validateArray($this->successRoutes);
         }
         if (\is_array($this->warningMessages)) {
             Model::validateArray($this->warningMessages);
@@ -129,6 +149,17 @@ class dryRunInfo extends Model
             }
         }
 
+        if (null !== $this->failureRoutes) {
+            if (\is_array($this->failureRoutes)) {
+                $res['failureRoutes'] = [];
+                $n1 = 0;
+                foreach ($this->failureRoutes as $item1) {
+                    $res['failureRoutes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->mcpToolsDefinition) {
             $res['mcpToolsDefinition'] = $this->mcpToolsDefinition;
         }
@@ -150,6 +181,17 @@ class dryRunInfo extends Model
                 $n1 = 0;
                 foreach ($this->successOperations as $item1) {
                     $res['successOperations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->successRoutes) {
+            if (\is_array($this->successRoutes)) {
+                $res['successRoutes'] = [];
+                $n1 = 0;
+                foreach ($this->successRoutes as $item1) {
+                    $res['successRoutes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -214,6 +256,17 @@ class dryRunInfo extends Model
             }
         }
 
+        if (isset($map['failureRoutes'])) {
+            if (!empty($map['failureRoutes'])) {
+                $model->failureRoutes = [];
+                $n1 = 0;
+                foreach ($map['failureRoutes'] as $item1) {
+                    $model->failureRoutes[$n1] = failureRoutes::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['mcpToolsDefinition'])) {
             $model->mcpToolsDefinition = $map['mcpToolsDefinition'];
         }
@@ -235,6 +288,17 @@ class dryRunInfo extends Model
                 $n1 = 0;
                 foreach ($map['successOperations'] as $item1) {
                     $model->successOperations[$n1] = successOperations::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['successRoutes'])) {
+            if (!empty($map['successRoutes'])) {
+                $model->successRoutes = [];
+                $n1 = 0;
+                foreach ($map['successRoutes'] as $item1) {
+                    $model->successRoutes[$n1] = successRoutes::fromMap($item1);
                     ++$n1;
                 }
             }

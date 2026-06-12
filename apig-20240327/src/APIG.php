@@ -73,6 +73,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteSourceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployMcpServerResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAuthorizationRuleResponse;
@@ -824,7 +826,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a consumer authentication rule.
+     * Create consumer authorization rules.
      *
      * @param request - CreateConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -866,7 +868,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a consumer authentication rule.
+     * Create consumer authorization rules.
      *
      * @param request - CreateConsumerAuthorizationRulesRequest
      *
@@ -3219,6 +3221,67 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 查询当前账号可见的云原生API网关开服地域
+     *
+     * @param request - DescribeRegionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRegions',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/regions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询当前账号可见的云原生API网关开服地域
+     *
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Exports the specified HTTP API.
      *
      * @param request - ExportHttpApiRequest
@@ -4612,6 +4675,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->versionConfig) {
             @$body['versionConfig'] = $request->versionConfig;
+        }
+
+        if (null !== $request->withGatewayExtension) {
+            @$body['withGatewayExtension'] = $request->withGatewayExtension;
         }
 
         $req = new OpenApiRequest([
