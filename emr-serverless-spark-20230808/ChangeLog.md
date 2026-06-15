@@ -4,6 +4,12 @@
 - Support API StopCacheCluster.
 
 
+2026-06-15 Version: 1.28.0
+- Support API GetCacheCluster.
+- Support API StartCacheCluster.
+- Support API StopCacheCluster.
+
+
 2026-06-11 Version: 1.27.0
 - Support API CancelRayJob.
 - Support API GetRayJob.
