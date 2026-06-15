@@ -5,10 +5,8 @@
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Dm\V20151123\Models\BatchSendMailRequest\receivers;
-use AlibabaCloud\SDK\Dm\V20151123\Models\BatchSendMailRequest\templateContent;
 
-class BatchSendMailRequest extends Model
+class BatchSendMailShrinkRequest extends Model
 {
     /**
      * @var string
@@ -46,9 +44,9 @@ class BatchSendMailRequest extends Model
     public $ownerId;
 
     /**
-     * @var receivers[]
+     * @var string
      */
-    public $receivers;
+    public $receiversShrink;
 
     /**
      * @var string
@@ -81,9 +79,9 @@ class BatchSendMailRequest extends Model
     public $tagName;
 
     /**
-     * @var templateContent
+     * @var string
      */
-    public $templateContent;
+    public $templateContentShrink;
 
     /**
      * @var string
@@ -107,14 +105,14 @@ class BatchSendMailRequest extends Model
         'headers' => 'Headers',
         'ipPoolId' => 'IpPoolId',
         'ownerId' => 'OwnerId',
-        'receivers' => 'Receivers',
+        'receiversShrink' => 'Receivers',
         'receiversName' => 'ReceiversName',
         'replyAddress' => 'ReplyAddress',
         'replyAddressAlias' => 'ReplyAddressAlias',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'tagName' => 'TagName',
-        'templateContent' => 'TemplateContent',
+        'templateContentShrink' => 'TemplateContent',
         'templateName' => 'TemplateName',
         'unSubscribeFilterLevel' => 'UnSubscribeFilterLevel',
         'unSubscribeLinkType' => 'UnSubscribeLinkType',
@@ -122,12 +120,6 @@ class BatchSendMailRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->receivers)) {
-            Model::validateArray($this->receivers);
-        }
-        if (null !== $this->templateContent) {
-            $this->templateContent->validate();
-        }
         parent::validate();
     }
 
@@ -162,15 +154,8 @@ class BatchSendMailRequest extends Model
             $res['OwnerId'] = $this->ownerId;
         }
 
-        if (null !== $this->receivers) {
-            if (\is_array($this->receivers)) {
-                $res['Receivers'] = [];
-                $n1 = 0;
-                foreach ($this->receivers as $item1) {
-                    $res['Receivers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->receiversShrink) {
+            $res['Receivers'] = $this->receiversShrink;
         }
 
         if (null !== $this->receiversName) {
@@ -197,8 +182,8 @@ class BatchSendMailRequest extends Model
             $res['TagName'] = $this->tagName;
         }
 
-        if (null !== $this->templateContent) {
-            $res['TemplateContent'] = null !== $this->templateContent ? $this->templateContent->toArray($noStream) : $this->templateContent;
+        if (null !== $this->templateContentShrink) {
+            $res['TemplateContent'] = $this->templateContentShrink;
         }
 
         if (null !== $this->templateName) {
@@ -253,14 +238,7 @@ class BatchSendMailRequest extends Model
         }
 
         if (isset($map['Receivers'])) {
-            if (!empty($map['Receivers'])) {
-                $model->receivers = [];
-                $n1 = 0;
-                foreach ($map['Receivers'] as $item1) {
-                    $model->receivers[$n1] = receivers::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->receiversShrink = $map['Receivers'];
         }
 
         if (isset($map['ReceiversName'])) {
@@ -288,7 +266,7 @@ class BatchSendMailRequest extends Model
         }
 
         if (isset($map['TemplateContent'])) {
-            $model->templateContent = templateContent::fromMap($map['TemplateContent']);
+            $model->templateContentShrink = $map['TemplateContent'];
         }
 
         if (isset($map['TemplateName'])) {
