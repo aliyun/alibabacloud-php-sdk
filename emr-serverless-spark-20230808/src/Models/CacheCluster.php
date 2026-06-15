@@ -60,6 +60,11 @@ class CacheCluster extends Model
     public $creator;
 
     /**
+     * @var string
+     */
+    public $extra;
+
+    /**
      * @var int
      */
     public $gmtCreated;
@@ -133,6 +138,7 @@ class CacheCluster extends Model
         'configurations' => 'configurations',
         'createTime' => 'createTime',
         'creator' => 'creator',
+        'extra' => 'extra',
         'gmtCreated' => 'gmtCreated',
         'gmtModified' => 'gmtModified',
         'modifier' => 'modifier',
@@ -232,6 +238,10 @@ class CacheCluster extends Model
 
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
+        }
+
+        if (null !== $this->extra) {
+            $res['extra'] = $this->extra;
         }
 
         if (null !== $this->gmtCreated) {
@@ -366,6 +376,10 @@ class CacheCluster extends Model
 
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
+        }
+
+        if (isset($map['extra'])) {
+            $model->extra = $map['extra'];
         }
 
         if (isset($map['gmtCreated'])) {

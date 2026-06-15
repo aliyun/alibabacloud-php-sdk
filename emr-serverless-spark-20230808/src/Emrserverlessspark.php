@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GenerateTaskCodesReques
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GenerateTaskCodesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetAICenterStateRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetAICenterStateResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetCacheClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetCacheClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetCuHoursRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetCuHoursResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetDoctorApplicationRequest;
@@ -126,6 +128,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesShrinkRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\RefreshLivyComputeTokenRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\RefreshLivyComputeTokenResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartCacheClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartCacheClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartKyuubiServiceResponse;
@@ -137,6 +141,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartRayClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopCacheClusterRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopCacheClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopKyuubiServiceResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopLivyComputeRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopLivyComputeResponse;
@@ -2158,6 +2164,69 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getAICenterStateWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取CacheCluster详情.
+     *
+     * @param request - GetCacheClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCacheClusterResponse
+     *
+     * @param string                 $cacheClusterId
+     * @param GetCacheClusterRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCacheClusterResponse
+     */
+    public function getCacheClusterWithOptions($cacheClusterId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCacheCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/cache/' . Url::percentEncode($cacheClusterId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCacheClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取CacheCluster详情.
+     *
+     * @param request - GetCacheClusterRequest
+     *
+     * @returns GetCacheClusterResponse
+     *
+     * @param string                 $cacheClusterId
+     * @param GetCacheClusterRequest $request
+     *
+     * @return GetCacheClusterResponse
+     */
+    public function getCacheCluster($cacheClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getCacheClusterWithOptions($cacheClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -4783,6 +4852,69 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * Start CacheCluster.
+     *
+     * @param request - StartCacheClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartCacheClusterResponse
+     *
+     * @param string                   $cacheClusterId
+     * @param StartCacheClusterRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StartCacheClusterResponse
+     */
+    public function startCacheClusterWithOptions($cacheClusterId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartCacheCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/cache/' . Url::percentEncode($cacheClusterId) . '/start',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StartCacheClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Start CacheCluster.
+     *
+     * @param request - StartCacheClusterRequest
+     *
+     * @returns StartCacheClusterResponse
+     *
+     * @param string                   $cacheClusterId
+     * @param StartCacheClusterRequest $request
+     *
+     * @return StartCacheClusterResponse
+     */
+    public function startCacheCluster($cacheClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startCacheClusterWithOptions($cacheClusterId, $request, $headers, $runtime);
+    }
+
+    /**
      * Starts a Spark Job.
      *
      * @param request - StartJobRunRequest
@@ -5252,6 +5384,69 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->startSessionClusterWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Stops a CacheCluster.
+     *
+     * @param request - StopCacheClusterRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopCacheClusterResponse
+     *
+     * @param string                  $cacheClusterId
+     * @param StopCacheClusterRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StopCacheClusterResponse
+     */
+    public function stopCacheClusterWithOptions($cacheClusterId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopCacheCluster',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/cache/' . Url::percentEncode($cacheClusterId) . '/stop',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopCacheClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops a CacheCluster.
+     *
+     * @param request - StopCacheClusterRequest
+     *
+     * @returns StopCacheClusterResponse
+     *
+     * @param string                  $cacheClusterId
+     * @param StopCacheClusterRequest $request
+     *
+     * @return StopCacheClusterResponse
+     */
+    public function stopCacheCluster($cacheClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopCacheClusterWithOptions($cacheClusterId, $request, $headers, $runtime);
     }
 
     /**
