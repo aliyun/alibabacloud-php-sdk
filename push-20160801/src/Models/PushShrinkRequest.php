@@ -294,6 +294,16 @@ class PushShrinkRequest extends Model
     public $androidXiaomiImageUrl;
 
     /**
+     * @var string
+     */
+    public $androidXiaomiTemplateId;
+
+    /**
+     * @var string
+     */
+    public $androidXiaomiTemplateParams;
+
+    /**
      * @var int
      */
     public $appKey;
@@ -660,6 +670,8 @@ class PushShrinkRequest extends Model
         'androidXiaomiFocusParam' => 'AndroidXiaomiFocusParam',
         'androidXiaomiFocusPics' => 'AndroidXiaomiFocusPics',
         'androidXiaomiImageUrl' => 'AndroidXiaomiImageUrl',
+        'androidXiaomiTemplateId' => 'AndroidXiaomiTemplateId',
+        'androidXiaomiTemplateParams' => 'AndroidXiaomiTemplateParams',
         'appKey' => 'AppKey',
         'body' => 'Body',
         'deviceType' => 'DeviceType',
@@ -958,6 +970,14 @@ class PushShrinkRequest extends Model
 
         if (null !== $this->androidXiaomiImageUrl) {
             $res['AndroidXiaomiImageUrl'] = $this->androidXiaomiImageUrl;
+        }
+
+        if (null !== $this->androidXiaomiTemplateId) {
+            $res['AndroidXiaomiTemplateId'] = $this->androidXiaomiTemplateId;
+        }
+
+        if (null !== $this->androidXiaomiTemplateParams) {
+            $res['AndroidXiaomiTemplateParams'] = $this->androidXiaomiTemplateParams;
         }
 
         if (null !== $this->appKey) {
@@ -1445,6 +1465,14 @@ class PushShrinkRequest extends Model
 
         if (isset($map['AndroidXiaomiImageUrl'])) {
             $model->androidXiaomiImageUrl = $map['AndroidXiaomiImageUrl'];
+        }
+
+        if (isset($map['AndroidXiaomiTemplateId'])) {
+            $model->androidXiaomiTemplateId = $map['AndroidXiaomiTemplateId'];
+        }
+
+        if (isset($map['AndroidXiaomiTemplateParams'])) {
+            $model->androidXiaomiTemplateParams = $map['AndroidXiaomiTemplateParams'];
         }
 
         if (isset($map['AppKey'])) {
