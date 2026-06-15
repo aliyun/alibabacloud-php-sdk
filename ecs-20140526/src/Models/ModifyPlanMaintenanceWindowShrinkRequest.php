@@ -14,6 +14,11 @@ class ModifyPlanMaintenanceWindowShrinkRequest extends Model
     public $enable;
 
     /**
+     * @var int
+     */
+    public $minMaintenanceInterval;
+
+    /**
      * @var string
      */
     public $planWindowId;
@@ -44,6 +49,7 @@ class ModifyPlanMaintenanceWindowShrinkRequest extends Model
     public $timePeriodShrink;
     protected $_name = [
         'enable' => 'Enable',
+        'minMaintenanceInterval' => 'MinMaintenanceInterval',
         'planWindowId' => 'PlanWindowId',
         'planWindowName' => 'PlanWindowName',
         'regionId' => 'RegionId',
@@ -62,6 +68,10 @@ class ModifyPlanMaintenanceWindowShrinkRequest extends Model
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
+        }
+
+        if (null !== $this->minMaintenanceInterval) {
+            $res['MinMaintenanceInterval'] = $this->minMaintenanceInterval;
         }
 
         if (null !== $this->planWindowId) {
@@ -101,6 +111,10 @@ class ModifyPlanMaintenanceWindowShrinkRequest extends Model
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
+        }
+
+        if (isset($map['MinMaintenanceInterval'])) {
+            $model->minMaintenanceInterval = $map['MinMaintenanceInterval'];
         }
 
         if (isset($map['PlanWindowId'])) {

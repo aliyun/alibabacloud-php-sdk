@@ -1,3 +1,9 @@
+2026-06-15 Version: 7.8.3
+- Update API CreatePlanMaintenanceWindow: add request parameters MinMaintenanceInterval.
+- Update API DescribePlanMaintenanceWindows: add response parameters Body.PlanMaintenanceWindowList.$.MinMaintenanceInterval.
+- Update API ModifyPlanMaintenanceWindow: add request parameters MinMaintenanceInterval.
+
+
 2026-06-09 Version: 7.8.2
 - Update API CreateCapacityReservation: add request parameters InstanceChargeType.
 - Update API DescribeCapacityReservations: add response parameters Body.CapacityReservationSet.$.DeliveryTime.
