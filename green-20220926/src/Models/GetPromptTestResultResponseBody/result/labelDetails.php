@@ -17,9 +17,15 @@ class labelDetails extends Model
      * @var string
      */
     public $label;
+
+    /**
+     * @var string
+     */
+    public $reason;
     protected $_name = [
         'description' => 'Description',
         'label' => 'Label',
+        'reason' => 'Reason',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class labelDetails extends Model
 
         if (null !== $this->label) {
             $res['Label'] = $this->label;
+        }
+
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class labelDetails extends Model
 
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
+        }
+
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
 
         return $model;

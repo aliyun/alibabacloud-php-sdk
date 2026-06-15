@@ -127,6 +127,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetStockOssCheckTasksListShrinkReque
 use AlibabaCloud\SDK\Green\V20220926\Models\GetTextScanResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetTextScanResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetTextScanResultShrinkRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetTuneProposalByIdRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetTuneProposalByIdResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadInfoRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadInfoResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadLinkRequest;
@@ -4459,6 +4461,63 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getTextScanResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取开关配置调优意见
+     *
+     * @param request - GetTuneProposalByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTuneProposalByIdResponse
+     *
+     * @param GetTuneProposalByIdRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetTuneProposalByIdResponse
+     */
+    public function getTuneProposalByIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTuneProposalById',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTuneProposalByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取开关配置调优意见
+     *
+     * @param request - GetTuneProposalByIdRequest
+     *
+     * @returns GetTuneProposalByIdResponse
+     *
+     * @param GetTuneProposalByIdRequest $request
+     *
+     * @return GetTuneProposalByIdResponse
+     */
+    public function getTuneProposalById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTuneProposalByIdWithOptions($request, $runtime);
     }
 
     /**
