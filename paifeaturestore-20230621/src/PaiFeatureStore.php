@@ -149,7 +149,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 检测资源连接状态。
+     * Tests connectivity to a data source.
      *
      * @param request - CheckInstanceDatasourceRequest
      * @param headers - map
@@ -200,7 +200,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 检测资源连接状态。
+     * Tests connectivity to a data source.
      *
      * @param request - CheckInstanceDatasourceRequest
      *
@@ -220,7 +220,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 检查FG配置内容是否正确，是否满足所有规则。
+     * Verify that the FG configuration is correct and meets all rules.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -255,7 +255,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 检查FG配置内容是否正确，是否满足所有规则。
+     * Verify that the FG configuration is correct and meets all rules.
      *
      * @returns CheckModelFeatureFGFeatureResponse
      *
@@ -273,7 +273,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
+     * Registers a datasource in a FeatureStore instance. A datasource provides offline or online storage for a project.
      *
      * @param request - CreateDatasourceRequest
      * @param headers - map
@@ -332,7 +332,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
+     * Registers a datasource in a FeatureStore instance. A datasource provides offline or online storage for a project.
      *
      * @param request - CreateDatasourceRequest
      *
@@ -352,7 +352,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建特征实体.
+     * Creates a feature entity. A feature entity defines a join key that links multiple feature views to it, enabling feature joining.
      *
      * @param request - CreateFeatureEntityRequest
      * @param headers - map
@@ -407,7 +407,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建特征实体.
+     * Creates a feature entity. A feature entity defines a join key that links multiple feature views to it, enabling feature joining.
      *
      * @param request - CreateFeatureEntityRequest
      *
@@ -427,7 +427,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建特征视图。
+     * You can create three types of feature views: offline, real-time, and behavior sequence. Each feature view uses fields to define its structure and links to a feature entity.
      *
      * @param request - CreateFeatureViewRequest
      * @param headers - map
@@ -518,7 +518,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建特征视图。
+     * You can create three types of feature views: offline, real-time, and behavior sequence. Each feature view uses fields to define its structure and links to a feature entity.
      *
      * @param request - CreateFeatureViewRequest
      *
@@ -538,7 +538,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建Feature Store实例。
+     * Creates a FeatureStore instance. This operation is idempotent. If an instance is already running or initializing in the same account, this operation returns the existing instance ID.
      *
      * @param request - CreateInstanceRequest
      * @param headers - map
@@ -580,7 +580,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建Feature Store实例。
+     * Creates a FeatureStore instance. This operation is idempotent. If an instance is already running or initializing in the same account, this operation returns the existing instance ID.
      *
      * @param request - CreateInstanceRequest
      *
@@ -599,7 +599,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建大模型调用信息配置.
+     * Creates an LLM configuration that contains the call parameters and API key for an embedding model. During creation, the service validates the ApiKey and Model. For a DashScope model, the EmbeddingDimension must match one of the fixed, valid dimensions supported by the model.
      *
      * @param request - CreateLLMConfigRequest
      * @param headers - map
@@ -682,7 +682,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建大模型调用信息配置.
+     * Creates an LLM configuration that contains the call parameters and API key for an embedding model. During creation, the service validates the ApiKey and Model. For a DashScope model, the EmbeddingDimension must match one of the fixed, valid dimensions supported by the model.
      *
      * @param request - CreateLLMConfigRequest
      *
@@ -702,7 +702,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建label表.
+     * Creates a label table. A label table defines the schema for label data referenced by model features.
      *
      * @param request - CreateLabelTableRequest
      * @param headers - map
@@ -757,7 +757,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建label表.
+     * Creates a label table. A label table defines the schema for label data referenced by model features.
      *
      * @param request - CreateLabelTableRequest
      *
@@ -777,7 +777,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建模型特征。
+     * Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
      *
      * @param request - CreateModelFeatureRequest
      * @param headers - map
@@ -840,7 +840,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建模型特征。
+     * Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
      *
      * @param request - CreateModelFeatureRequest
      *
@@ -860,7 +860,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
+     * Creates a FeatureStore project. A project is a container for feature entities, feature views, and model features.
      *
      * @param request - CreateProjectRequest
      * @param headers - map
@@ -923,7 +923,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
+     * Creates a FeatureStore project. A project is a container for feature entities, feature views, and model features.
      *
      * @param request - CreateProjectRequest
      *
@@ -943,7 +943,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建feature store服务账户角色.
+     * Creates a service-linked role that authorizes the FeatureStore service to access other cloud resources of the user. Returns a conflict error if the role already exists.
      *
      * @param request - CreateServiceIdentityRoleRequest
      * @param headers - map
@@ -985,7 +985,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建feature store服务账户角色.
+     * Creates a service-linked role that authorizes the FeatureStore service to access other cloud resources of the user. Returns a conflict error if the role already exists.
      *
      * @param request - CreateServiceIdentityRoleRequest
      *
@@ -1004,7 +1004,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Delete a datasource from a FeatureStore Instance.
+     * Deletes a datasource from a FeatureStore instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1039,7 +1039,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Delete a datasource from a FeatureStore Instance.
+     * Deletes a datasource from a FeatureStore instance.
      *
      * @returns DeleteDatasourceResponse
      *
@@ -1057,7 +1057,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定特征实体.
+     * Deletes a feature entity.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1092,7 +1092,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定特征实体.
+     * Deletes a feature entity.
      *
      * @returns DeleteFeatureEntityResponse
      *
@@ -1110,7 +1110,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定特征视图。
+     * Deletes a feature view. A feature view cannot be deleted if it is referenced by a model feature. To delete the feature view, you must first delete the associated model feature.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1145,7 +1145,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定特征视图。
+     * Deletes a feature view. A feature view cannot be deleted if it is referenced by a model feature. To delete the feature view, you must first delete the associated model feature.
      *
      * @returns DeleteFeatureViewResponse
      *
@@ -1163,7 +1163,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除大模型调用信息配置.
+     * Deletes an LLM call configuration. You cannot delete a configuration referenced by a feature view. You must first delete the associated feature view.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1198,7 +1198,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除大模型调用信息配置.
+     * Deletes an LLM call configuration. You cannot delete a configuration referenced by a feature view. You must first delete the associated feature view.
      *
      * @returns DeleteLLMConfigResponse
      *
@@ -1216,7 +1216,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除label表.
+     * Deletes a label table. You cannot delete a label table that is referenced by a model feature. Delete the associated model feature first.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1251,7 +1251,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除label表.
+     * Deletes a label table. You cannot delete a label table that is referenced by a model feature. Delete the associated model feature first.
      *
      * @returns DeleteLabelTableResponse
      *
@@ -1269,7 +1269,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定模型特征。
+     * Deletes a model feature and its associated training set table.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1304,7 +1304,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定模型特征。
+     * Deletes a model feature and its associated training set table.
      *
      * @returns DeleteModelFeatureResponse
      *
@@ -1322,7 +1322,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定Feature Store项目。
+     * Deletes a FeatureStore project.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1357,7 +1357,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 删除指定Feature Store项目。
+     * Deletes a FeatureStore project.
      *
      * @returns DeleteProjectResponse
      *
@@ -1375,7 +1375,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 导出训练集表。
+     * Export a training set table for model features. Create an export task by configuring the Label table input, the data source partition for each feature view, and the training set output partition.
      *
      * @param request - ExportModelFeatureTrainingSetTableRequest
      * @param headers - map
@@ -1435,7 +1435,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 导出训练集表。
+     * Export a training set table for model features. Create an export task by configuring the Label table input, the data source partition for each feature view, and the training set output partition.
      *
      * @param request - ExportModelFeatureTrainingSetTableRequest
      *
@@ -1456,7 +1456,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Get the details of a datasource, including its type, connection info, and Config.
+     * Gets the detailed information about a data source, including its type, connection information, and configuration.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1491,7 +1491,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Get the details of a datasource, including its type, connection info, and Config.
+     * Gets the detailed information about a data source, including its type, connection information, and configuration.
      *
      * @returns GetDatasourceResponse
      *
@@ -1509,7 +1509,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源下指定表的详细信息。
+     * Gets the field information for a specified table in a data source. This operation supports only MaxCompute data sources.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1545,7 +1545,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源下指定表的详细信息。
+     * Gets the field information for a specified table in a data source. This operation supports only MaxCompute data sources.
      *
      * @returns GetDatasourceTableResponse
      *
@@ -1564,7 +1564,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征实体详细信息.
+     * Retrieves the details of a feature entity.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1599,7 +1599,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征实体详细信息.
+     * Retrieves the details of a feature entity.
      *
      * @returns GetFeatureEntityResponse
      *
@@ -1617,7 +1617,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图详细信息。
+     * Gets the details of a feature view, including its field definitions, data source binding, and synchronization status.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1652,7 +1652,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图详细信息。
+     * Gets the details of a feature view, including its field definitions, data source binding, and synchronization status.
      *
      * @returns GetFeatureViewResponse
      *
@@ -1670,7 +1670,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取实例详细信息.
+     * Retrieves the details of a FeatureStore instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1704,7 +1704,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取实例详细信息.
+     * Retrieves the details of a FeatureStore instance.
      *
      * @returns GetInstanceResponse
      *
@@ -1721,7 +1721,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取 LLMConfig 信息.
+     * Retrieves the details of an LLM call configuration.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1757,7 +1757,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取 LLMConfig 信息.
+     * Retrieves the details of an LLM call configuration.
      *
      * @returns GetLLMConfigResponse
      *
@@ -1776,7 +1776,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取Label表详细信息。
+     * Retrieves the details of a label table, including its field definitions and related models.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1811,7 +1811,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取Label表详细信息。
+     * Retrieves the details of a label table, including its field definitions and related models.
      *
      * @returns GetLabelTableResponse
      *
@@ -1829,7 +1829,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取模型特征详情。
+     * Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1864,7 +1864,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取模型特征详情。
+     * Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
      *
      * @returns GetModelFeatureResponse
      *
@@ -1882,7 +1882,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取模型特征的FG特征配置信息。
+     * Retrieves the Feature Generation (FG) feature configuration of a model feature.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1917,7 +1917,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取模型特征的FG特征配置信息。
+     * Retrieves the Feature Generation (FG) feature configuration of a model feature.
      *
      * @returns GetModelFeatureFGFeatureResponse
      *
@@ -1935,7 +1935,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取模型特征的fg.json文件配置信息。
+     * Retrieves the fg.json file configuration for a model feature.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1970,7 +1970,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取模型特征的fg.json文件配置信息。
+     * Retrieves the fg.json file configuration for a model feature.
      *
      * @returns GetModelFeatureFGInfoResponse
      *
@@ -1988,7 +1988,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取指定Feature Store项目详细信息。
+     * Gets the details of a project, including its data source bindings and resource counts.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2023,7 +2023,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取指定Feature Store项目详细信息。
+     * Gets the details of a project, including its data source bindings and resource counts.
      *
      * @returns GetProjectResponse
      *
@@ -2041,7 +2041,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取项目下特征实体详细信息.
+     * Retrieve details of a feature entity in a project by name.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2077,7 +2077,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取项目下特征实体详细信息.
+     * Retrieve details of a feature entity in a project by name.
      *
      * @returns GetProjectFeatureEntityResponse
      *
@@ -2096,7 +2096,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取feature store服务账户角色。
+     * Queries the details of a service-linked role and verifies whether the role exists and is available.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2130,7 +2130,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取feature store服务账户角色。
+     * Queries the details of a service-linked role and verifies whether the role exists and is available.
      *
      * @returns GetServiceIdentityRoleResponse
      *
@@ -2147,7 +2147,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取任务详情.
+     * Gets the details of an asynchronous task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2182,7 +2182,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取任务详情.
+     * Gets the details of an asynchronous task.
      *
      * @returns GetTaskResponse
      *
@@ -2200,7 +2200,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源下所有特征视图信息。
+     * Retrieve all feature view information from the data source.
      *
      * @param request - ListDatasourceFeatureViewsRequest
      * @param headers - map
@@ -2292,7 +2292,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源下所有特征视图信息。
+     * Retrieve all feature view information from the data source.
      *
      * @param request - ListDatasourceFeatureViewsRequest
      *
@@ -2313,7 +2313,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源下所有表。
+     * Lists the tables in a datasource. This operation supports only MaxCompute datasources.
      *
      * @param request - ListDatasourceTablesRequest
      * @param headers - map
@@ -2361,7 +2361,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取数据源下所有表。
+     * Lists the tables in a datasource. This operation supports only MaxCompute datasources.
      *
      * @param request - ListDatasourceTablesRequest
      *
@@ -2382,7 +2382,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
+     * Lists the data sources in a FeatureStore instance. You can filter the results by workspace, type, and name.
      *
      * @param request - ListDatasourcesRequest
      * @param headers - map
@@ -2449,7 +2449,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
+     * Lists the data sources in a FeatureStore instance. You can filter the results by workspace, type, and name.
      *
      * @param request - ListDatasourcesRequest
      *
@@ -2469,7 +2469,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建特征实体列表.
+     * Lists the feature entities in a FeatureStore instance. You can filter the results by project, name, owner, and parent feature entity.
      *
      * @param tmpReq - ListFeatureEntitiesRequest
      * @param headers - map
@@ -2550,7 +2550,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 创建特征实体列表.
+     * Lists the feature entities in a FeatureStore instance. You can filter the results by project, name, owner, and parent feature entity.
      *
      * @param request - ListFeatureEntitiesRequest
      *
@@ -2570,7 +2570,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征字段血缘关系。
+     * Retrieves the relationships for a specific field in a feature view, returning a list of models that reference the field and the names of the associated online and offline tables.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2606,7 +2606,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征字段血缘关系。
+     * Retrieves the relationships for a specific field in a feature view, returning a list of models that reference the field and the names of the associated online and offline tables.
      *
      * @returns ListFeatureViewFieldRelationshipsResponse
      *
@@ -2625,7 +2625,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图下的在线特征数据。
+     * Retrieves online features from a feature view based on one or more join IDs. For each join ID provided, the operation returns the corresponding feature fields as key-value pairs.
      *
      * @param tmpReq - ListFeatureViewOnlineFeaturesRequest
      * @param headers - map
@@ -2679,7 +2679,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图下的在线特征数据。
+     * Retrieves online features from a feature view based on one or more join IDs. For each join ID provided, the operation returns the corresponding feature fields as key-value pairs.
      *
      * @param request - ListFeatureViewOnlineFeaturesRequest
      *
@@ -2700,7 +2700,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图血缘关系。
+     * Lists the relationships for a feature view, including the models that reference it.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2735,7 +2735,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图血缘关系。
+     * Lists the relationships for a feature view, including the models that reference it.
      *
      * @returns ListFeatureViewRelationshipsResponse
      *
@@ -2753,7 +2753,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图列表。
+     * Lists feature views, filterable by project, name, type, tag, and feature name.
      *
      * @param tmpReq - ListFeatureViewsRequest
      * @param headers - map
@@ -2842,7 +2842,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图列表。
+     * Lists feature views, filterable by project, name, type, tag, and feature name.
      *
      * @param request - ListFeatureViewsRequest
      *
@@ -2862,7 +2862,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取Feature Store实例列表。
+     * Lists FeatureStore instances in the current account. You can filter the instances by status.
      *
      * @param request - ListInstancesRequest
      * @param headers - map
@@ -2920,7 +2920,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取Feature Store实例列表。
+     * Lists FeatureStore instances in the current account. You can filter the instances by status.
      *
      * @param request - ListInstancesRequest
      *
@@ -2939,7 +2939,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取大模型调用信息配置.
+     * Lists LLM call configurations.
      *
      * @param request - ListLLMConfigsRequest
      * @param headers - map
@@ -3010,7 +3010,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取大模型调用信息配置.
+     * Lists LLM call configurations.
      *
      * @param request - ListLLMConfigsRequest
      *
@@ -3030,7 +3030,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取Label表列表。
+     * Lists label tables, filterable by project, name, owner, and ID.
      *
      * @param tmpReq - ListLabelTablesRequest
      * @param headers - map
@@ -3107,7 +3107,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取Label表列表。
+     * Lists label tables, filterable by project, name, owner, and ID.
      *
      * @param request - ListLabelTablesRequest
      *
@@ -3127,7 +3127,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取注册FG特征时模型特征下可选的所有特征。
+     * Lists the available features for a model feature when you register a feature group (FG).
      *
      * @param request - ListModelFeatureAvailableFeaturesRequest
      * @param headers - map
@@ -3171,7 +3171,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取注册FG特征时模型特征下可选的所有特征。
+     * Lists the available features for a model feature when you register a feature group (FG).
      *
      * @param request - ListModelFeatureAvailableFeaturesRequest
      *
@@ -3192,7 +3192,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取模型特征列表。
+     * Lists model features, with sorting, pagination, and filtering by project, name, creator, and ID.
      *
      * @param tmpReq - ListModelFeaturesRequest
      * @param headers - map
@@ -3269,7 +3269,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取模型特征列表。
+     * Lists model features, with sorting, pagination, and filtering by project, name, creator, and ID.
      *
      * @param request - ListModelFeaturesRequest
      *
@@ -3289,7 +3289,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取项目下的所有特征视图、特征信息。
+     * Lists all feature views and their available features in a project. Use this operation to select feature views and features for the CreateModelFeature and UpdateModelFeature operations.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3324,7 +3324,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取项目下的所有特征视图、特征信息。
+     * Lists all feature views and their available features in a project. Use this operation to select feature views and features for the CreateModelFeature and UpdateModelFeature operations.
      *
      * @returns ListProjectFeatureViewsResponse
      *
@@ -3342,7 +3342,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取项目下所有特征信息.
+     * Lists all features in a project. This operation supports filtering by name, alias, and feature view, as well as sorting and pagination. The response includes the data type, parent feature view, and the number of model features that reference each feature.
      *
      * @param request - ListProjectFeaturesRequest
      * @param headers - map
@@ -3410,7 +3410,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取项目下所有特征信息.
+     * Lists all features in a project. This operation supports filtering by name, alias, and feature view, as well as sorting and pagination. The response includes the data type, parent feature view, and the number of model features that reference each feature.
      *
      * @param request - ListProjectFeaturesRequest
      *
@@ -3431,7 +3431,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取Feature Store项目列表。
+     * Lists projects in a Feature Store instance, filterable by name, workspace, and owner.
      *
      * @param tmpReq - ListProjectsRequest
      * @param headers - map
@@ -3508,7 +3508,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取Feature Store项目列表。
+     * Lists projects in a Feature Store instance, filterable by name, workspace, and owner.
      *
      * @param request - ListProjectsRequest
      *
@@ -3528,7 +3528,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取任务日志列表.
+     * Lists the execution logs of an asynchronous task. This operation supports pagination.
      *
      * @param request - ListTaskLogsRequest
      * @param headers - map
@@ -3576,7 +3576,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取任务日志列表.
+     * Lists the execution logs of an asynchronous task. This operation supports pagination.
      *
      * @param request - ListTaskLogsRequest
      *
@@ -3597,7 +3597,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取任务列表.
+     * Lists asynchronous tasks for an instance, supporting pagination and filtering by project, object type, and status.
      *
      * @param tmpReq - ListTasksRequest
      * @param headers - map
@@ -3674,7 +3674,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取任务列表.
+     * Lists asynchronous tasks for an instance, supporting pagination and filtering by project, object type, and status.
      *
      * @param request - ListTasksRequest
      *
@@ -3694,7 +3694,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 将特征视图的离线数据发布/同步到线上。
+     * Creates a data synchronization task to synchronize data from a feature view\\"s offline table to its online store.
      *
      * @param request - PublishFeatureViewTableRequest
      * @param headers - map
@@ -3754,7 +3754,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 将特征视图的离线数据发布/同步到线上。
+     * Creates a data synchronization task to synchronize data from a feature view\\"s offline table to its online store.
      *
      * @param request - PublishFeatureViewTableRequest
      *
@@ -3775,7 +3775,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 停止任务。
+     * Stops an asynchronous task. You can only stop tasks in the Initializing or Running state.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3810,7 +3810,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 停止任务。
+     * Stops an asynchronous task. You can only stop tasks in the Initializing or Running state.
      *
      * @returns StopTaskResponse
      *
@@ -3828,7 +3828,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Update a datasource\\"s info. The datasource type and workspace cannot be changed.
+     * Updates information for a data source. Its type and workspace cannot be changed.
      *
      * @param request - UpdateDatasourceRequest
      * @param headers - map
@@ -3880,7 +3880,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Update a datasource\\"s info. The datasource type and workspace cannot be changed.
+     * Updates information for a data source. Its type and workspace cannot be changed.
      *
      * @param request - UpdateDatasourceRequest
      *
@@ -3901,7 +3901,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新特征视图。
+     * Updates a feature view.
      *
      * @param request - UpdateFeatureViewRequest
      * @param headers - map
@@ -3945,7 +3945,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新特征视图。
+     * Updates a feature view.
      *
      * @param request - UpdateFeatureViewRequest
      *
@@ -3966,7 +3966,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新大模型调用信息配置.
+     * Updates the large language model (LLM) call configuration. If you do not specify the `ApiKey` parameter, the existing key is retained. After the update, the system revalidates the model\\"s availability and its parameters.
      *
      * @param request - UpdateLLMConfigRequest
      * @param headers - map
@@ -4046,7 +4046,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新大模型调用信息配置.
+     * Updates the large language model (LLM) call configuration. If you do not specify the `ApiKey` parameter, the existing key is retained. After the update, the system revalidates the model\\"s availability and its parameters.
      *
      * @param request - UpdateLLMConfigRequest
      *
@@ -4067,7 +4067,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新label表。
+     * Updates the attributes of fields in a label table. You can modify the attributes of existing fields, but you cannot add or delete fields, or change field names and types.
      *
      * @param request - UpdateLabelTableRequest
      * @param headers - map
@@ -4119,7 +4119,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新label表。
+     * Updates the attributes of fields in a label table. You can modify the attributes of existing fields, but you cannot add or delete fields, or change field names and types.
      *
      * @param request - UpdateLabelTableRequest
      *
@@ -4140,7 +4140,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新模型特征。
+     * Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
      *
      * @param request - UpdateModelFeatureRequest
      * @param headers - map
@@ -4196,7 +4196,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新模型特征。
+     * Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
      *
      * @param request - UpdateModelFeatureRequest
      *
@@ -4217,7 +4217,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新模型特征的FG特征配置信息。
+     * Update the FG feature configuration for a model feature.
      *
      * @param request - UpdateModelFeatureFGFeatureRequest
      * @param headers - map
@@ -4273,7 +4273,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新模型特征的FG特征配置信息。
+     * Update the FG feature configuration for a model feature.
      *
      * @param request - UpdateModelFeatureFGFeatureRequest
      *
@@ -4294,7 +4294,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新指定Feature Store项目信息。
+     * Updates the description of a project.
      *
      * @param request - UpdateProjectRequest
      * @param headers - map
@@ -4342,7 +4342,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 更新指定Feature Store项目信息。
+     * Updates the description of a project.
      *
      * @param request - UpdateProjectRequest
      *
@@ -4363,7 +4363,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图血缘关系。
+     * Imports data from a URL to the offline table of a feature view. This is an asynchronous operation.
      *
      * @param request - WriteFeatureViewTableRequest
      * @param headers - map
@@ -4415,7 +4415,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * 获取特征视图血缘关系。
+     * Imports data from a URL to the offline table of a feature view. This is an asynchronous operation.
      *
      * @param request - WriteFeatureViewTableRequest
      *

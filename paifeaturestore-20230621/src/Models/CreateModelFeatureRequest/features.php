@@ -26,11 +26,17 @@ class features extends Model
     /**
      * @var string
      */
+    public $prefixName;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'aliasName' => 'AliasName',
         'featureViewId' => 'FeatureViewId',
         'name' => 'Name',
+        'prefixName' => 'PrefixName',
         'type' => 'Type',
     ];
 
@@ -52,6 +58,10 @@ class features extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->prefixName) {
+            $res['PrefixName'] = $this->prefixName;
         }
 
         if (null !== $this->type) {
@@ -79,6 +89,10 @@ class features extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['PrefixName'])) {
+            $model->prefixName = $map['PrefixName'];
         }
 
         if (isset($map['Type'])) {
