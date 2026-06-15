@@ -71,6 +71,14 @@ class AlikafkaStreaming extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
