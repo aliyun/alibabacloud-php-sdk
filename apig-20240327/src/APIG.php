@@ -4607,7 +4607,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
+     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
      *
      * @param request - ImportHttpApiRequest
      * @param headers - map
@@ -4701,7 +4701,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
+     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
      *
      * @param request - ImportHttpApiRequest
      *

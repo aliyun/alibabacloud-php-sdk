@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsResponseBody\data;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsResponseBody\regions;
 
 class DescribeRegionsResponseBody extends Model
@@ -13,6 +14,11 @@ class DescribeRegionsResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var data
+     */
+    public $data;
 
     /**
      * @var string
@@ -30,6 +36,7 @@ class DescribeRegionsResponseBody extends Model
     public $requestId;
     protected $_name = [
         'code' => 'code',
+        'data' => 'data',
         'message' => 'message',
         'regions' => 'regions',
         'requestId' => 'requestId',
@@ -37,6 +44,9 @@ class DescribeRegionsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
         if (null !== $this->regions) {
             $this->regions->validate();
         }
@@ -48,6 +58,10 @@ class DescribeRegionsResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->data) {
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->message) {
@@ -75,6 +89,10 @@ class DescribeRegionsResponseBody extends Model
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['data'])) {
+            $model->data = data::fromMap($map['data']);
         }
 
         if (isset($map['message'])) {
