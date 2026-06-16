@@ -64,6 +64,11 @@ class StartInstanceRefreshRequest extends Model
      * @var bool
      */
     public $skipMatching;
+
+    /**
+     * @var string
+     */
+    public $strategy;
     protected $_name = [
         'checkpointPauseTime' => 'CheckpointPauseTime',
         'checkpoints' => 'Checkpoints',
@@ -76,6 +81,7 @@ class StartInstanceRefreshRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'scalingGroupId' => 'ScalingGroupId',
         'skipMatching' => 'SkipMatching',
+        'strategy' => 'Strategy',
     ];
 
     public function validate()
@@ -143,6 +149,10 @@ class StartInstanceRefreshRequest extends Model
             $res['SkipMatching'] = $this->skipMatching;
         }
 
+        if (null !== $this->strategy) {
+            $res['Strategy'] = $this->strategy;
+        }
+
         return $res;
     }
 
@@ -203,6 +213,10 @@ class StartInstanceRefreshRequest extends Model
 
         if (isset($map['SkipMatching'])) {
             $model->skipMatching = $map['SkipMatching'];
+        }
+
+        if (isset($map['Strategy'])) {
+            $model->strategy = $map['Strategy'];
         }
 
         return $model;

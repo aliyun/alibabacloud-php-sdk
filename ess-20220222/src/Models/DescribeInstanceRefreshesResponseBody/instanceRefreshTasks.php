@@ -81,6 +81,11 @@ class instanceRefreshTasks extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $strategy;
+
+    /**
      * @var int
      */
     public $totalNeedUpdateCapacity;
@@ -99,6 +104,7 @@ class instanceRefreshTasks extends Model
         'skipMatching' => 'SkipMatching',
         'startTime' => 'StartTime',
         'status' => 'Status',
+        'strategy' => 'Strategy',
         'totalNeedUpdateCapacity' => 'TotalNeedUpdateCapacity',
     ];
 
@@ -179,6 +185,10 @@ class instanceRefreshTasks extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->strategy) {
+            $res['Strategy'] = $this->strategy;
+        }
+
         if (null !== $this->totalNeedUpdateCapacity) {
             $res['TotalNeedUpdateCapacity'] = $this->totalNeedUpdateCapacity;
         }
@@ -255,6 +265,10 @@ class instanceRefreshTasks extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Strategy'])) {
+            $model->strategy = $map['Strategy'];
         }
 
         if (isset($map['TotalNeedUpdateCapacity'])) {

@@ -66,6 +66,11 @@ class scalingInstances extends Model
     /**
      * @var string
      */
+    public $replaceStatus;
+
+    /**
+     * @var string
+     */
     public $scalingActivityId;
 
     /**
@@ -114,6 +119,7 @@ class scalingInstances extends Model
         'lifecycleState' => 'LifecycleState',
         'loadBalancerWeight' => 'LoadBalancerWeight',
         'privateIpAddress' => 'PrivateIpAddress',
+        'replaceStatus' => 'ReplaceStatus',
         'scalingActivityId' => 'ScalingActivityId',
         'scalingConfigurationId' => 'ScalingConfigurationId',
         'scalingGroupId' => 'ScalingGroupId',
@@ -174,6 +180,10 @@ class scalingInstances extends Model
 
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+
+        if (null !== $this->replaceStatus) {
+            $res['ReplaceStatus'] = $this->replaceStatus;
         }
 
         if (null !== $this->scalingActivityId) {
@@ -261,6 +271,10 @@ class scalingInstances extends Model
 
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+
+        if (isset($map['ReplaceStatus'])) {
+            $model->replaceStatus = $map['ReplaceStatus'];
         }
 
         if (isset($map['ScalingActivityId'])) {
