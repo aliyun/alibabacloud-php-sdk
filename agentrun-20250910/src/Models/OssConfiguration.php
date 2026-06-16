@@ -16,6 +16,11 @@ class OssConfiguration extends Model
     /**
      * @var string
      */
+    public $endpoint;
+
+    /**
+     * @var string
+     */
     public $mountPoint;
 
     /**
@@ -34,6 +39,7 @@ class OssConfiguration extends Model
     public $region;
     protected $_name = [
         'bucketName' => 'bucketName',
+        'endpoint' => 'endpoint',
         'mountPoint' => 'mountPoint',
         'permission' => 'permission',
         'prefix' => 'prefix',
@@ -50,6 +56,10 @@ class OssConfiguration extends Model
         $res = [];
         if (null !== $this->bucketName) {
             $res['bucketName'] = $this->bucketName;
+        }
+
+        if (null !== $this->endpoint) {
+            $res['endpoint'] = $this->endpoint;
         }
 
         if (null !== $this->mountPoint) {
@@ -81,6 +91,10 @@ class OssConfiguration extends Model
         $model = new self();
         if (isset($map['bucketName'])) {
             $model->bucketName = $map['bucketName'];
+        }
+
+        if (isset($map['endpoint'])) {
+            $model->endpoint = $map['endpoint'];
         }
 
         if (isset($map['mountPoint'])) {

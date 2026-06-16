@@ -56,6 +56,11 @@ class CreateAgentRuntimeInput extends Model
     /**
      * @var bool
      */
+    public $disableOndemand;
+
+    /**
+     * @var bool
+     */
     public $disableSessionAffinity;
 
     /**
@@ -87,6 +92,11 @@ class CreateAgentRuntimeInput extends Model
      * @var string
      */
     public $externalAgentEndpointUrl;
+
+    /**
+     * @var string
+     */
+    public $headerFieldName;
 
     /**
      * @var HealthCheckConfiguration
@@ -134,6 +144,11 @@ class CreateAgentRuntimeInput extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $sessionAffinityType;
+
+    /**
      * @var int
      */
     public $sessionConcurrencyLimitPerInstance;
@@ -162,6 +177,7 @@ class CreateAgentRuntimeInput extends Model
         'credentialId' => 'credentialId',
         'credentialName' => 'credentialName',
         'description' => 'description',
+        'disableOndemand' => 'disableOndemand',
         'disableSessionAffinity' => 'disableSessionAffinity',
         'diskSize' => 'diskSize',
         'edition' => 'edition',
@@ -169,6 +185,7 @@ class CreateAgentRuntimeInput extends Model
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
         'externalAgentEndpointUrl' => 'externalAgentEndpointUrl',
+        'headerFieldName' => 'headerFieldName',
         'healthCheckConfiguration' => 'healthCheckConfiguration',
         'logConfiguration' => 'logConfiguration',
         'memory' => 'memory',
@@ -178,6 +195,7 @@ class CreateAgentRuntimeInput extends Model
         'port' => 'port',
         'protocolConfiguration' => 'protocolConfiguration',
         'resourceGroupId' => 'resourceGroupId',
+        'sessionAffinityType' => 'sessionAffinityType',
         'sessionConcurrencyLimitPerInstance' => 'sessionConcurrencyLimitPerInstance',
         'sessionIdleTimeoutSeconds' => 'sessionIdleTimeoutSeconds',
         'systemTags' => 'systemTags',
@@ -261,6 +279,10 @@ class CreateAgentRuntimeInput extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->disableOndemand) {
+            $res['disableOndemand'] = $this->disableOndemand;
+        }
+
         if (null !== $this->disableSessionAffinity) {
             $res['disableSessionAffinity'] = $this->disableSessionAffinity;
         }
@@ -292,6 +314,10 @@ class CreateAgentRuntimeInput extends Model
 
         if (null !== $this->externalAgentEndpointUrl) {
             $res['externalAgentEndpointUrl'] = $this->externalAgentEndpointUrl;
+        }
+
+        if (null !== $this->headerFieldName) {
+            $res['headerFieldName'] = $this->headerFieldName;
         }
 
         if (null !== $this->healthCheckConfiguration) {
@@ -328,6 +354,10 @@ class CreateAgentRuntimeInput extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->sessionAffinityType) {
+            $res['sessionAffinityType'] = $this->sessionAffinityType;
         }
 
         if (null !== $this->sessionConcurrencyLimitPerInstance) {
@@ -400,6 +430,10 @@ class CreateAgentRuntimeInput extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['disableOndemand'])) {
+            $model->disableOndemand = $map['disableOndemand'];
+        }
+
         if (isset($map['disableSessionAffinity'])) {
             $model->disableSessionAffinity = $map['disableSessionAffinity'];
         }
@@ -431,6 +465,10 @@ class CreateAgentRuntimeInput extends Model
 
         if (isset($map['externalAgentEndpointUrl'])) {
             $model->externalAgentEndpointUrl = $map['externalAgentEndpointUrl'];
+        }
+
+        if (isset($map['headerFieldName'])) {
+            $model->headerFieldName = $map['headerFieldName'];
         }
 
         if (isset($map['healthCheckConfiguration'])) {
@@ -467,6 +505,10 @@ class CreateAgentRuntimeInput extends Model
 
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
+        if (isset($map['sessionAffinityType'])) {
+            $model->sessionAffinityType = $map['sessionAffinityType'];
         }
 
         if (isset($map['sessionConcurrencyLimitPerInstance'])) {

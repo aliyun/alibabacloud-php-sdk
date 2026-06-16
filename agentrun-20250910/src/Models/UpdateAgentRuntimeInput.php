@@ -51,6 +51,11 @@ class UpdateAgentRuntimeInput extends Model
     /**
      * @var bool
      */
+    public $disableOndemand;
+
+    /**
+     * @var bool
+     */
     public $disableSessionAffinity;
 
     /**
@@ -82,6 +87,16 @@ class UpdateAgentRuntimeInput extends Model
      * @var string
      */
     public $externalAgentEndpointUrl;
+
+    /**
+     * @var bool
+     */
+    public $forceEvictInstances;
+
+    /**
+     * @var string
+     */
+    public $headerFieldName;
 
     /**
      * @var HealthCheckConfiguration
@@ -124,6 +139,11 @@ class UpdateAgentRuntimeInput extends Model
     public $protocolConfiguration;
 
     /**
+     * @var string
+     */
+    public $sessionAffinityType;
+
+    /**
      * @var int
      */
     public $sessionConcurrencyLimitPerInstance;
@@ -151,6 +171,7 @@ class UpdateAgentRuntimeInput extends Model
         'cpu' => 'cpu',
         'credentialName' => 'credentialName',
         'description' => 'description',
+        'disableOndemand' => 'disableOndemand',
         'disableSessionAffinity' => 'disableSessionAffinity',
         'diskSize' => 'diskSize',
         'edition' => 'edition',
@@ -158,6 +179,8 @@ class UpdateAgentRuntimeInput extends Model
         'environmentVariables' => 'environmentVariables',
         'executionRoleArn' => 'executionRoleArn',
         'externalAgentEndpointUrl' => 'externalAgentEndpointUrl',
+        'forceEvictInstances' => 'forceEvictInstances',
+        'headerFieldName' => 'headerFieldName',
         'healthCheckConfiguration' => 'healthCheckConfiguration',
         'logConfiguration' => 'logConfiguration',
         'memory' => 'memory',
@@ -166,6 +189,7 @@ class UpdateAgentRuntimeInput extends Model
         'ossMountConfig' => 'ossMountConfig',
         'port' => 'port',
         'protocolConfiguration' => 'protocolConfiguration',
+        'sessionAffinityType' => 'sessionAffinityType',
         'sessionConcurrencyLimitPerInstance' => 'sessionConcurrencyLimitPerInstance',
         'sessionIdleTimeoutSeconds' => 'sessionIdleTimeoutSeconds',
         'systemTags' => 'systemTags',
@@ -245,6 +269,10 @@ class UpdateAgentRuntimeInput extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->disableOndemand) {
+            $res['disableOndemand'] = $this->disableOndemand;
+        }
+
         if (null !== $this->disableSessionAffinity) {
             $res['disableSessionAffinity'] = $this->disableSessionAffinity;
         }
@@ -278,6 +306,14 @@ class UpdateAgentRuntimeInput extends Model
             $res['externalAgentEndpointUrl'] = $this->externalAgentEndpointUrl;
         }
 
+        if (null !== $this->forceEvictInstances) {
+            $res['forceEvictInstances'] = $this->forceEvictInstances;
+        }
+
+        if (null !== $this->headerFieldName) {
+            $res['headerFieldName'] = $this->headerFieldName;
+        }
+
         if (null !== $this->healthCheckConfiguration) {
             $res['healthCheckConfiguration'] = null !== $this->healthCheckConfiguration ? $this->healthCheckConfiguration->toArray($noStream) : $this->healthCheckConfiguration;
         }
@@ -308,6 +344,10 @@ class UpdateAgentRuntimeInput extends Model
 
         if (null !== $this->protocolConfiguration) {
             $res['protocolConfiguration'] = null !== $this->protocolConfiguration ? $this->protocolConfiguration->toArray($noStream) : $this->protocolConfiguration;
+        }
+
+        if (null !== $this->sessionAffinityType) {
+            $res['sessionAffinityType'] = $this->sessionAffinityType;
         }
 
         if (null !== $this->sessionConcurrencyLimitPerInstance) {
@@ -376,6 +416,10 @@ class UpdateAgentRuntimeInput extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['disableOndemand'])) {
+            $model->disableOndemand = $map['disableOndemand'];
+        }
+
         if (isset($map['disableSessionAffinity'])) {
             $model->disableSessionAffinity = $map['disableSessionAffinity'];
         }
@@ -409,6 +453,14 @@ class UpdateAgentRuntimeInput extends Model
             $model->externalAgentEndpointUrl = $map['externalAgentEndpointUrl'];
         }
 
+        if (isset($map['forceEvictInstances'])) {
+            $model->forceEvictInstances = $map['forceEvictInstances'];
+        }
+
+        if (isset($map['headerFieldName'])) {
+            $model->headerFieldName = $map['headerFieldName'];
+        }
+
         if (isset($map['healthCheckConfiguration'])) {
             $model->healthCheckConfiguration = HealthCheckConfiguration::fromMap($map['healthCheckConfiguration']);
         }
@@ -439,6 +491,10 @@ class UpdateAgentRuntimeInput extends Model
 
         if (isset($map['protocolConfiguration'])) {
             $model->protocolConfiguration = ProtocolConfiguration::fromMap($map['protocolConfiguration']);
+        }
+
+        if (isset($map['sessionAffinityType'])) {
+            $model->sessionAffinityType = $map['sessionAffinityType'];
         }
 
         if (isset($map['sessionConcurrencyLimitPerInstance'])) {

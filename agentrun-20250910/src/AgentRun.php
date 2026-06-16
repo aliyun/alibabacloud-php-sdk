@@ -184,7 +184,14 @@ class AgentRun extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shenzhen' => 'agentrun.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'agentrun.cn-shanghai.aliyuncs.com',
+            'cn-hangzhou' => 'agentrun.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'agentrun.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'agentrun.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agentrun', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -214,7 +221,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Enable the TemplateMCP service.
+     * Activates the `MCP service` for a `sandbox` `template`. This enables a client to access the `sandbox` using the MCP protocol.
+     *
+     * @remarks
+     * After activation, the platform automatically deploys the `MCP service` `function` for the specified `sandbox` `template`. The `MCP service` ensures a unique mapping between an `mcp-session-id` and a `SandboxID`. When an MCP `client` invokes a `tool`, the `MCP service` automatically creates a `sandbox`.
      *
      * @param request - ActivateTemplateMCPRequest
      * @param headers - map
@@ -261,7 +271,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Enable the TemplateMCP service.
+     * Activates the `MCP service` for a `sandbox` `template`. This enables a client to access the `sandbox` using the MCP protocol.
+     *
+     * @remarks
+     * After activation, the platform automatically deploys the `MCP service` `function` for the specified `sandbox` `template`. The `MCP service` ensures a unique mapping between an `mcp-session-id` and a `SandboxID`. When an MCP `client` invokes a `tool`, the `MCP service` automatically creates a `sandbox`.
      *
      * @param request - ActivateTemplateMCPRequest
      *
@@ -281,10 +294,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 转换Flow DSL.
+     * Converts a Flow DSL.
      *
      * @remarks
-     * 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+     * This operation converts a third-party workflow DSL, such as Dify or n8n, into an AgentRun Flow definition. It performs compatibility checks, identifies plugins, and extracts metadata. The operation runs in dry-run mode, returning the converted Flow configuration, a compatibility analysis report, and the required Toolset installation configuration without creating a Flow resource.
      *
      * @param request - ConvertFlowDSLRequest
      * @param headers - map
@@ -321,10 +334,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 转换Flow DSL.
+     * Converts a Flow DSL.
      *
      * @remarks
-     * 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+     * This operation converts a third-party workflow DSL, such as Dify or n8n, into an AgentRun Flow definition. It performs compatibility checks, identifies plugins, and extracts metadata. The operation runs in dry-run mode, returning the converted Flow configuration, a compatibility analysis report, and the required Toolset installation configuration without creating a Flow resource.
      *
      * @param request - ConvertFlowDSLRequest
      *
@@ -343,7 +356,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * CreateAgentRuntime.
+     * Creates an agent runtime.
      *
      * @remarks
      * 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -383,7 +396,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * CreateAgentRuntime.
+     * Creates an agent runtime.
      *
      * @remarks
      * 创建一个新的智能体运行时实例，用于执行AI代理任务。智能体运行时是AgentRun服务的核心组件，提供代码执行、浏览器操作、内存管理等能力。
@@ -405,10 +418,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建智能体运行时端点.
+     * Create an access endpoint for an agent runtime.
      *
      * @remarks
-     * 为指定的智能体运行时创建新的端点，用于外部访问和调用。端点是智能体运行时对外提供服务的入口。
+     * Creates a new endpoint for the specified agent runtime, used for external access and invocation. An endpoint serves as the entry point through which an agent runtime provides services externally.
      *
      * @param request - CreateAgentRuntimeEndpointRequest
      * @param headers - map
@@ -446,10 +459,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建智能体运行时端点.
+     * Create an access endpoint for an agent runtime.
      *
      * @remarks
-     * 为指定的智能体运行时创建新的端点，用于外部访问和调用。端点是智能体运行时对外提供服务的入口。
+     * Creates a new endpoint for the specified agent runtime, used for external access and invocation. An endpoint serves as the entry point through which an agent runtime provides services externally.
      *
      * @param request - CreateAgentRuntimeEndpointRequest
      *
@@ -469,10 +482,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建浏览器实例.
+     * Create Browser Sandbox.
      *
      * @remarks
-     * 创建一个新的浏览器实例，用于执行网页自动化任务。浏览器实例提供网页浏览、元素操作、截图录制等功能。
+     * Create a new browser instance for executing web automation tasks. The browser instance provides features such as web browsing, element manipulation, and screenshot recording.
      *
      * @param request - CreateBrowserRequest
      * @param headers - map
@@ -509,10 +522,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建浏览器实例.
+     * Create Browser Sandbox.
      *
      * @remarks
-     * 创建一个新的浏览器实例，用于执行网页自动化任务。浏览器实例提供网页浏览、元素操作、截图录制等功能。
+     * Create a new browser instance for executing web automation tasks. The browser instance provides features such as web browsing, element manipulation, and screenshot recording.
      *
      * @param request - CreateBrowserRequest
      *
@@ -531,7 +544,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建代码解释器.
+     * Creates a code interpreter.
      *
      * @remarks
      * 创建一个新的代码解释器实例，用于执行代码解释和运行任务。代码解释器提供Python代码执行、数据处理、机器学习等功能。
@@ -571,7 +584,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建代码解释器.
+     * Creates a code interpreter.
      *
      * @remarks
      * 创建一个新的代码解释器实例，用于执行代码解释和运行任务。代码解释器提供Python代码执行、数据处理、机器学习等功能。
@@ -593,7 +606,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Create a credential.
+     * Creates a new credential.
+     *
+     * @remarks
+     * This operation creates a credential for an agent.
      *
      * @param request - CreateCredentialRequest
      * @param headers - map
@@ -630,7 +646,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Create a credential.
+     * Creates a new credential.
+     *
+     * @remarks
+     * This operation creates a credential for an agent.
      *
      * @param request - CreateCredentialRequest
      *
@@ -649,7 +668,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建自定义域名.
+     * Creates a custom domain.
      *
      * @param request - CreateCustomDomainRequest
      * @param headers - map
@@ -686,7 +705,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建自定义域名.
+     * Creates a custom domain.
      *
      * @param request - CreateCustomDomainRequest
      *
@@ -705,10 +724,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建工作流
+     * Creates a workflow.
      *
      * @remarks
-     * 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+     * Creates a flow orchestration agent. Flow orchestration is a core component of the AgentRun service that supports visual orchestration and version management.
      *
      * @param request - CreateFlowRequest
      * @param headers - map
@@ -745,10 +764,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建工作流
+     * Creates a workflow.
      *
      * @remarks
-     * 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+     * Creates a flow orchestration agent. Flow orchestration is a core component of the AgentRun service that supports visual orchestration and version management.
      *
      * @param request - CreateFlowRequest
      *
@@ -767,7 +786,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建工作流端点.
+     * Creates a flow endpoint.
      *
      * @remarks
      * 为指定工作流创建一个新的端点，用于对外提供服务访问。
@@ -808,7 +827,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建工作流端点.
+     * Creates a flow endpoint.
      *
      * @remarks
      * 为指定工作流创建一个新的端点，用于对外提供服务访问。
@@ -831,10 +850,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建 IM Bot.
+     * Creates an IM Bot.
      *
      * @remarks
-     * POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+     * A successful request returns an HTTP 201 status code. Once created, an IM Bot\\"s status is always `running`. The response is in a standard format, and its `data` field contains an `IMBotInfo` object.
      *
      * @param request - CreateIMBotRequest
      * @param headers - map
@@ -871,10 +890,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建 IM Bot.
+     * Creates an IM Bot.
      *
      * @remarks
-     * POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+     * A successful request returns an HTTP 201 status code. Once created, an IM Bot\\"s status is always `running`. The response is in a standard format, and its `data` field contains an `IMBotInfo` object.
      *
      * @param request - CreateIMBotRequest
      *
@@ -893,7 +912,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建知识库.
+     * Creates a knowledge base.
      *
      * @param request - CreateKnowledgeBaseRequest
      * @param headers - map
@@ -930,7 +949,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建知识库.
+     * Creates a knowledge base.
      *
      * @param request - CreateKnowledgeBaseRequest
      *
@@ -949,7 +968,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 添加记忆存储.
+     * Creates a memory collection.
      *
      * @param request - CreateMemoryCollectionRequest
      * @param headers - map
@@ -986,7 +1005,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 添加记忆存储.
+     * Creates a memory collection.
      *
      * @param request - CreateMemoryCollectionRequest
      *
@@ -1005,7 +1024,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 新增模型.
+     * Creates a Model Proxy.
+     *
+     * @remarks
+     * This operation creates a Model Proxy based on the specified configuration.
      *
      * @param request - CreateModelProxyRequest
      * @param headers - map
@@ -1042,7 +1064,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 新增模型.
+     * Creates a Model Proxy.
+     *
+     * @remarks
+     * This operation creates a Model Proxy based on the specified configuration.
      *
      * @param request - CreateModelProxyRequest
      *
@@ -1061,7 +1086,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 新增模型.
+     * Creates a model service.
+     *
+     * @remarks
+     * This operation creates a model service, such as a code interpreter, based on the specified configuration.
      *
      * @param request - CreateModelServiceRequest
      * @param headers - map
@@ -1098,7 +1126,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 新增模型.
+     * Creates a model service.
+     *
+     * @remarks
+     * This operation creates a model service, such as a code interpreter, based on the specified configuration.
      *
      * @param request - CreateModelServiceRequest
      *
@@ -1117,10 +1148,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建沙箱.
+     * Creates a sandbox.
      *
      * @remarks
-     * 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+     * Creates a new sandbox instance from a specified template. A sandbox provides an isolated execution environment to run code or launch a browser.
      *
      * @param request - CreateSandboxRequest
      * @param headers - map
@@ -1157,10 +1188,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建沙箱.
+     * Creates a sandbox.
      *
      * @remarks
-     * 根据模板创建一个新的沙箱实例。沙箱是运行时的执行环境，可以执行代码或运行浏览器。
+     * Creates a new sandbox instance from a specified template. A sandbox provides an isolated execution environment to run code or launch a browser.
      *
      * @param request - CreateSandboxRequest
      *
@@ -1179,10 +1210,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Create a template.
+     * Creates a template.
      *
      * @remarks
-     * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+     * Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
      *
      * @param request - CreateTemplateRequest
      * @param headers - map
@@ -1219,10 +1250,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Create a template.
+     * Creates a template.
      *
      * @remarks
-     * 创建一个新的模板，用于后续创建沙箱。模板定义了沙箱的运行时环境、资源配置等。
+     * Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
      *
      * @param request - CreateTemplateRequest
      *
@@ -1241,10 +1272,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建工具.
+     * Creates a tool.
      *
      * @remarks
-     * 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+     * This operation creates various types of tools, such as MCP, function call, and skill. An Agent can then call a tool to extend its capabilities.
      *
      * @param request - CreateToolRequest
      * @param headers - map
@@ -1281,10 +1312,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建工具.
+     * Creates a tool.
      *
      * @remarks
-     * 创建一个新的工具，支持创建 MCP、函数调用和技能等多种类型的工具。工具创建后可以被 Agent 调用以扩展其能力。
+     * This operation creates various types of tools, such as MCP, function call, and skill. An Agent can then call a tool to extend its capabilities.
      *
      * @param request - CreateToolRequest
      *
@@ -1303,10 +1334,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建工作空间.
+     * Creates a workspace.
      *
      * @remarks
-     * 创建工作空间
+     * Creates a workspace.
      *
      * @param request - CreateWorkspaceRequest
      * @param headers - map
@@ -1343,10 +1374,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 创建工作空间.
+     * Creates a workspace.
      *
      * @remarks
-     * 创建工作空间
+     * Creates a workspace.
      *
      * @param request - CreateWorkspaceRequest
      *
@@ -1365,10 +1396,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除智能体运行时.
+     * Delete Agent Runtime.
      *
      * @remarks
-     * 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     * Deletes a specified agent runtime instance, including all associated resources and data. This operation is irreversible. Proceed with caution.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1402,10 +1433,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除智能体运行时.
+     * Delete Agent Runtime.
      *
      * @remarks
-     * 删除指定的智能体运行时实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     * Deletes a specified agent runtime instance, including all associated resources and data. This operation is irreversible. Proceed with caution.
      *
      * @returns DeleteAgentRuntimeResponse
      *
@@ -1422,7 +1453,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Delete an agent runtime endpoint.
+     * Delete Agent Runtime Endpoint.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1457,7 +1488,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Delete an agent runtime endpoint.
+     * Delete Agent Runtime Endpoint.
      *
      * @returns DeleteAgentRuntimeEndpointResponse
      *
@@ -1475,10 +1506,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除浏览器实例.
+     * Delete Browser Sandbox.
      *
      * @remarks
-     * 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     * Delete the specified browser instance, including all its associated resources and data. The deletion is irreversible. Please proceed with caution.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1512,10 +1543,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除浏览器实例.
+     * Delete Browser Sandbox.
      *
      * @remarks
-     * 删除指定的浏览器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     * Delete the specified browser instance, including all its associated resources and data. The deletion is irreversible. Please proceed with caution.
      *
      * @returns DeleteBrowserResponse
      *
@@ -1532,10 +1563,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除代码解释器.
+     * Delete Code Interpreter.
      *
      * @remarks
-     * 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     * Delete a specified code interpreter instance, including all its associated resources and data. This operation is irreversible. Please proceed with caution.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1569,10 +1600,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除代码解释器.
+     * Delete Code Interpreter.
      *
      * @remarks
-     * 删除指定的代码解释器实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     * Delete a specified code interpreter instance, including all its associated resources and data. This operation is irreversible. Please proceed with caution.
      *
      * @returns DeleteCodeInterpreterResponse
      *
@@ -1589,7 +1620,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Delete a credential.
+     * Deletes the specified credential.
+     *
+     * @remarks
+     * This operation deletes the specified credential. This action cannot be undone.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1623,7 +1657,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Delete a credential.
+     * Deletes the specified credential.
+     *
+     * @remarks
+     * This operation deletes the specified credential. This action cannot be undone.
      *
      * @returns DeleteCredentialResponse
      *
@@ -1640,7 +1677,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Delete a custom domain.
+     * Deletes a custom domain.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1674,7 +1711,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Delete a custom domain.
+     * Deletes a custom domain.
      *
      * @returns DeleteCustomDomainResponse
      *
@@ -1691,10 +1728,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工作流
+     * Deletes a flow.
      *
      * @remarks
-     * 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     * Deletes a specified flow instance, along with all its related resources and data. This operation is irreversible and cannot be undone. Use with caution.
      *
      * @param request - DeleteFlowRequest
      * @param headers - map
@@ -1731,10 +1768,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工作流
+     * Deletes a flow.
      *
      * @remarks
-     * 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+     * Deletes a specified flow instance, along with all its related resources and data. This operation is irreversible and cannot be undone. Use with caution.
      *
      * @param request - DeleteFlowRequest
      *
@@ -1754,10 +1791,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工作流端点.
+     * Deletes a flow endpoint.
      *
      * @remarks
-     * 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+     * Deletes the specified flow endpoint. This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteFlowEndpointRequest
      * @param headers - map
@@ -1795,10 +1832,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工作流端点.
+     * Deletes a flow endpoint.
      *
      * @remarks
-     * 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+     * Deletes the specified flow endpoint. This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteFlowEndpointRequest
      *
@@ -1819,10 +1856,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工作流版本.
+     * Deletes a workflow version.
      *
      * @remarks
-     * 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+     * Deletes a specified version of a workflow. This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteFlowVersionRequest
      * @param headers - map
@@ -1860,10 +1897,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工作流版本.
+     * Deletes a workflow version.
      *
      * @remarks
-     * 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+     * Deletes a specified version of a workflow. This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteFlowVersionRequest
      *
@@ -1884,10 +1921,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除 IM Bot.
+     * Deletes an IM bot.
      *
      * @remarks
-     * DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+     * This operation deletes an IM bot via a `DELETE` request to the `/2025-09-10/agents/im-bots/{imBotId}` endpoint. A successful request returns an HTTP `204 No Content` status code and an empty response body.
      *
      * @param request - DeleteIMBotRequest
      * @param headers - map
@@ -1924,10 +1961,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除 IM Bot.
+     * Deletes an IM bot.
      *
      * @remarks
-     * DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+     * This operation deletes an IM bot via a `DELETE` request to the `/2025-09-10/agents/im-bots/{imBotId}` endpoint. A successful request returns an HTTP `204 No Content` status code and an empty response body.
      *
      * @param request - DeleteIMBotRequest
      *
@@ -1947,7 +1984,8 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除知识库.
+     * Deletes a knowledge base.
+     * > This operation is permanent and cannot be undone.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1981,7 +2019,8 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除知识库.
+     * Deletes a knowledge base.
+     * > This operation is permanent and cannot be undone.
      *
      * @returns DeleteKnowledgeBaseResponse
      *
@@ -1998,7 +2037,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除记忆存储.
+     * Deletes a memory collection.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2032,7 +2071,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除记忆存储.
+     * Deletes a memory collection.
      *
      * @returns DeleteMemoryCollectionResponse
      *
@@ -2049,7 +2088,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除模型.
+     * Deletes a model proxy.
+     *
+     * @remarks
+     * This operation deletes the specified model proxy configuration without deleting the underlying models or related resources.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2083,7 +2125,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除模型.
+     * Deletes a model proxy.
+     *
+     * @remarks
+     * This operation deletes the specified model proxy configuration without deleting the underlying models or related resources.
      *
      * @returns DeleteModelProxyResponse
      *
@@ -2100,7 +2145,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除模型.
+     * Deletes a model service.
+     *
+     * @remarks
+     * This operation deletes a model service. You must specify the name of the service to delete.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2134,7 +2182,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除模型.
+     * Deletes a model service.
+     *
+     * @remarks
+     * This operation deletes a model service. You must specify the name of the service to delete.
      *
      * @returns DeleteModelServiceResponse
      *
@@ -2151,7 +2202,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除Sandbox.
+     * Deletes a sandbox instance.
+     *
+     * @remarks
+     * Deletes a sandbox instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2185,7 +2239,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除Sandbox.
+     * Deletes a sandbox instance.
+     *
+     * @remarks
+     * Deletes a sandbox instance.
      *
      * @returns DeleteSandboxResponse
      *
@@ -2202,10 +2259,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除模板
+     * Deletes a template.
      *
      * @remarks
-     * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+     * Deletes the specified template. After you delete a template, you can no longer use it to create new sandboxes.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2239,10 +2296,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除模板
+     * Deletes a template.
      *
      * @remarks
-     * 删除指定的模板。删除后，该模板将无法再用于创建新的沙箱。
+     * Deletes the specified template. After you delete a template, you can no longer use it to create new sandboxes.
      *
      * @returns DeleteTemplateResponse
      *
@@ -2259,10 +2316,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工具.
+     * Delete a tool.
      *
      * @remarks
-     * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+     * Delete the specified tool. The delete operation is irreversible. Proceed with caution. After the tool is deleted, all Agents that reference this tool will no longer be able to use it.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2296,10 +2353,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工具.
+     * Delete a tool.
      *
      * @remarks
-     * 删除指定的工具。删除操作不可逆，请谨慎操作。删除工具后，所有引用该工具的 Agent 将无法继续使用该工具。
+     * Delete the specified tool. The delete operation is irreversible. Proceed with caution. After the tool is deleted, all Agents that reference this tool will no longer be able to use it.
      *
      * @returns DeleteToolResponse
      *
@@ -2316,10 +2373,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工作空间.
+     * Deletes a workspace.
      *
      * @remarks
-     * 删除工作空间
+     * Deletes the specified workspace.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2353,10 +2410,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 删除工作空间.
+     * Deletes a workspace.
      *
      * @remarks
-     * 删除工作空间
+     * Deletes the specified workspace.
      *
      * @returns DeleteWorkspaceResponse
      *
@@ -2373,7 +2430,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Get access token for a resource.
+     * Obtains an access token.
+     *
+     * @remarks
+     * Obtains a temporary accessToken that is used to authenticate subsequent API requests.
      *
      * @param request - GetAccessTokenRequest
      * @param headers - map
@@ -2423,7 +2483,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Get access token for a resource.
+     * Obtains an access token.
+     *
+     * @remarks
+     * Obtains a temporary accessToken that is used to authenticate subsequent API requests.
      *
      * @param request - GetAccessTokenRequest
      *
@@ -2442,10 +2505,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取智能体运行时详情.
+     * Get Agent Runtime.
      *
      * @remarks
-     * 根据智能体运行时ID获取指定智能体运行时的详细信息，包括配置、状态、资源使用情况等。
+     * Retrieves detailed information about a specified agent runtime by its agent runtime ID, including configuration, status, resource usage, and more.
      *
      * @param request - GetAgentRuntimeRequest
      * @param headers - map
@@ -2488,10 +2551,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取智能体运行时详情.
+     * Get Agent Runtime.
      *
      * @remarks
-     * 根据智能体运行时ID获取指定智能体运行时的详细信息，包括配置、状态、资源使用情况等。
+     * Retrieves detailed information about a specified agent runtime by its agent runtime ID, including configuration, status, resource usage, and more.
      *
      * @param request - GetAgentRuntimeRequest
      *
@@ -2511,7 +2574,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Get an agent runtime endpoint.
+     * Get Agent Runtime Access Endpoint.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2546,7 +2609,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Get an agent runtime endpoint.
+     * Get Agent Runtime Access Endpoint.
      *
      * @returns GetAgentRuntimeEndpointResponse
      *
@@ -2564,10 +2627,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取浏览器实例详情.
+     * GetBrowserSandbox.
      *
      * @remarks
-     * 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
+     * Retrieves detailed information about a specified browser instance by browser ID, including configuration, status, resource usage, and more.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2601,10 +2664,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取浏览器实例详情.
+     * GetBrowserSandbox.
      *
      * @remarks
-     * 根据浏览器ID获取指定浏览器实例的详细信息，包括配置、状态、资源使用情况等。
+     * Retrieves detailed information about a specified browser instance by browser ID, including configuration, status, resource usage, and more.
      *
      * @returns GetBrowserResponse
      *
@@ -2621,7 +2684,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取代码解释器详情.
+     * Retrieves an interpreter.
      *
      * @remarks
      * 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
@@ -2658,7 +2721,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取代码解释器详情.
+     * Retrieves an interpreter.
      *
      * @remarks
      * 根据代码解释器ID获取指定代码解释器实例的详细信息，包括配置、状态、资源使用情况等。
@@ -2678,7 +2741,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Get a credential.
+     * Retrieves information about a specific credential.
+     *
+     * @remarks
+     * Retrieves detailed information about a specified credential, including its configuration, metadata, and related resources.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2712,7 +2778,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Get a credential.
+     * Retrieves information about a specific credential.
+     *
+     * @remarks
+     * Retrieves detailed information about a specified credential, including its configuration, metadata, and related resources.
      *
      * @returns GetCredentialResponse
      *
@@ -2729,7 +2798,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取自定义域名详情.
+     * Retrieves the configuration of a custom domain.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2763,7 +2832,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取自定义域名详情.
+     * Retrieves the configuration of a custom domain.
      *
      * @returns GetCustomDomainResponse
      *
@@ -2780,7 +2849,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作流详情.
+     * Get flow details.
      *
      * @remarks
      * 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
@@ -2820,7 +2889,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作流详情.
+     * Get flow details.
      *
      * @remarks
      * 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
@@ -2843,7 +2912,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作流草稿
+     * Get the workflow draft.
      *
      * @remarks
      * 获取指定工作流的草稿版本，返回草稿中的配置信息。
@@ -2883,7 +2952,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作流草稿
+     * Get the workflow draft.
      *
      * @remarks
      * 获取指定工作流的草稿版本，返回草稿中的配置信息。
@@ -2906,7 +2975,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作流端点详情.
+     * Retrieves the details of a workflow endpoint.
      *
      * @remarks
      * 根据工作流ID和端点ID获取指定工作流端点的详细信息。
@@ -2947,7 +3016,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作流端点详情.
+     * Retrieves the details of a workflow endpoint.
      *
      * @remarks
      * 根据工作流ID和端点ID获取指定工作流端点的详细信息。
@@ -2971,10 +3040,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作流版本详情.
+     * Retrieves the details of a workflow version.
      *
      * @remarks
-     * 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+     * Retrieves the details of a specific workflow version, including a complete configuration snapshot of its definition, environment variables, tracing configuration, and logging configuration.
      *
      * @param request - GetFlowVersionRequest
      * @param headers - map
@@ -3012,10 +3081,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作流版本详情.
+     * Retrieves the details of a workflow version.
      *
      * @remarks
-     * 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+     * Retrieves the details of a specific workflow version, including a complete configuration snapshot of its definition, environment variables, tracing configuration, and logging configuration.
      *
      * @param request - GetFlowVersionRequest
      *
@@ -3036,7 +3105,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取 IM Bot.
+     * Gets the details of a specific IM Bot.
      *
      * @remarks
      * GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
@@ -3076,7 +3145,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取 IM Bot.
+     * Gets the details of a specific IM Bot.
      *
      * @remarks
      * GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
@@ -3099,7 +3168,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取知识库.
+     * Gets information about a knowledge base.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3133,7 +3202,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取知识库.
+     * Gets information about a knowledge base.
      *
      * @returns GetKnowledgeBaseResponse
      *
@@ -3150,7 +3219,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查询记忆存储详情.
+     * Retrieves details for a specific memory collection.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3184,7 +3253,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查询记忆存储详情.
+     * Retrieves details for a specific memory collection.
      *
      * @returns GetMemoryCollectionResponse
      *
@@ -3201,7 +3270,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查看model.
+     * Retrieves model governance information.
+     *
+     * @remarks
+     * This operation retrieves the configuration details of a specific model proxy.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3235,7 +3307,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查看model.
+     * Retrieves model governance information.
+     *
+     * @remarks
+     * This operation retrieves the configuration details of a specific model proxy.
      *
      * @returns GetModelProxyResponse
      *
@@ -3252,7 +3327,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查看model.
+     * Retrieves the details of a specified model service.
+     *
+     * @remarks
+     * Retrieves the details of a specified model service.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3286,7 +3364,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查看model.
+     * Retrieves the details of a specified model service.
+     *
+     * @remarks
+     * Retrieves the details of a specified model service.
      *
      * @returns GetModelServiceResponse
      *
@@ -3303,10 +3384,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取沙箱.
+     * Retrieves the details of a specific sandbox.
      *
      * @remarks
-     * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+     * Retrieves the details of a specific sandbox by its `sandboxId`, including its status and configuration.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3340,10 +3421,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取沙箱.
+     * Retrieves the details of a specific sandbox.
      *
      * @remarks
-     * 根据沙箱ID获取指定沙箱的详细信息，包括状态、配置等。
+     * Retrieves the details of a specific sandbox by its `sandboxId`, including its status and configuration.
      *
      * @returns GetSandboxResponse
      *
@@ -3360,10 +3441,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取模板
+     * Retrieves a template.
      *
      * @remarks
-     * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+     * Retrieves the details of a template by its name. The response includes the template\\"s configuration and status.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3397,10 +3478,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取模板
+     * Retrieves a template.
      *
      * @remarks
-     * 根据模板名称获取指定模板的详细信息，包括配置、状态等。
+     * Retrieves the details of a template by its name. The response includes the template\\"s configuration and status.
      *
      * @returns GetTemplateResponse
      *
@@ -3417,10 +3498,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工具详情.
+     * Get a tool.
      *
      * @remarks
-     * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+     * Obtain the complete configuration information of a tool by its name, including basic information, resource configuration, network configuration, running status, and all other detailed information.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3454,10 +3535,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工具详情.
+     * Get a tool.
      *
      * @remarks
-     * 根据工具名称获取工具的完整配置信息，包括工具的基本信息、资源配置、网络配置、运行状态等所有详细信息。
+     * Obtain the complete configuration information of a tool by its name, including basic information, resource configuration, network configuration, running status, and all other detailed information.
      *
      * @returns GetToolResponse
      *
@@ -3474,10 +3555,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查看工作空间.
+     * Retrieves the details of a specific workspace.
      *
      * @remarks
-     * 查看工作空间
+     * Retrieves the details of a specific workspace.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3511,10 +3592,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查看工作空间.
+     * Retrieves the details of a specific workspace.
      *
      * @remarks
-     * 查看工作空间
+     * Retrieves the details of a specific workspace.
      *
      * @returns GetWorkspaceResponse
      *
@@ -3531,7 +3612,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作空间下的发现端点.
+     * Gets the discovery endpoints for a workspace.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3565,7 +3646,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作空间下的发现端点.
+     * Gets the discovery endpoints for a workspace.
      *
      * @returns GetWorkspaceDiscoveryEndpointsResponse
      *
@@ -3582,7 +3663,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of access endpoints for an agent runtime.
+     * List Agent Runtime Endpoints.
      *
      * @remarks
      * 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
@@ -3640,7 +3721,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Retrieve the list of access endpoints for an agent runtime.
+     * List Agent Runtime Endpoints.
      *
      * @remarks
      * 获取指定智能体运行时的所有端点列表，支持按名称过滤和分页查询。端点用于外部系统访问智能体运行时服务。
@@ -3663,7 +3744,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * List agent runtime versions.
+     * Retrieves agent runtime versions.
      *
      * @param request - ListAgentRuntimeVersionsRequest
      * @param headers - map
@@ -3710,7 +3791,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * List agent runtime versions.
+     * Retrieves agent runtime versions.
      *
      * @param request - ListAgentRuntimeVersionsRequest
      *
@@ -3730,10 +3811,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出智能体运行时.
+     * Retrieves a list of agent runtimes.
      *
      * @remarks
-     * 获取当前用户的所有智能体运行时列表，支持按名称、标签等条件过滤，支持分页查询。
+     * Retrieves a list of agent runtimes for the current user. You can filter the results based on criteria such as name and tags. This operation supports pagination.
      *
      * @param request - ListAgentRuntimesRequest
      * @param headers - map
@@ -3811,10 +3892,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出智能体运行时.
+     * Retrieves a list of agent runtimes.
      *
      * @remarks
-     * 获取当前用户的所有智能体运行时列表，支持按名称、标签等条件过滤，支持分页查询。
+     * Retrieves a list of agent runtimes for the current user. You can filter the results based on criteria such as name and tags. This operation supports pagination.
      *
      * @param request - ListAgentRuntimesRequest
      *
@@ -3833,10 +3914,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出浏览器实例.
+     * List Browser Sandboxes.
      *
      * @remarks
-     * 获取当前用户的所有浏览器实例列表，支持按名称、状态等条件过滤，支持分页查询。
+     * Retrieves a list of all browser instances for the current user. Supports filtering by conditions such as name and status, and supports paginated queries.
      *
      * @param request - ListBrowsersRequest
      * @param headers - map
@@ -3890,10 +3971,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出浏览器实例.
+     * List Browser Sandboxes.
      *
      * @remarks
-     * 获取当前用户的所有浏览器实例列表，支持按名称、状态等条件过滤，支持分页查询。
+     * Retrieves a list of all browser instances for the current user. Supports filtering by conditions such as name and status, and supports paginated queries.
      *
      * @param request - ListBrowsersRequest
      *
@@ -3912,10 +3993,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出代码解释器.
+     * List Code Interpreters.
      *
      * @remarks
-     * 获取当前用户的所有代码解释器实例列表，支持按名称等条件过滤，支持分页查询。
+     * Retrieve a list of all code interpreter instances for the current user, with support for filtering by name and pagination.
      *
      * @param request - ListCodeInterpretersRequest
      * @param headers - map
@@ -3965,10 +4046,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出代码解释器.
+     * List Code Interpreters.
      *
      * @remarks
-     * 获取当前用户的所有代码解释器实例列表，支持按名称等条件过滤，支持分页查询。
+     * Retrieve a list of all code interpreter instances for the current user, with support for filtering by name and pagination.
      *
      * @param request - ListCodeInterpretersRequest
      *
@@ -3987,7 +4068,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * List credentials.
+     * Lists all credentials.
+     *
+     * @remarks
+     * Lists the credentials in your account. This operation supports filtering and pagination.
      *
      * @param request - ListCredentialsRequest
      * @param headers - map
@@ -4061,7 +4145,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * List credentials.
+     * Lists all credentials.
+     *
+     * @remarks
+     * Lists the credentials in your account. This operation supports filtering and pagination.
      *
      * @param request - ListCredentialsRequest
      *
@@ -4080,7 +4167,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 自定义域名列表.
+     * Lists custom domains.
      *
      * @param request - ListCustomDomainsRequest
      * @param headers - map
@@ -4142,7 +4229,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 自定义域名列表.
+     * Lists custom domains.
      *
      * @param request - ListCustomDomainsRequest
      *
@@ -4161,10 +4248,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出工作流端点.
+     * List workflow endpoints.
      *
      * @remarks
-     * 获取指定工作流的所有端点列表，支持分页查询。
+     * Retrieve all endpoints for a specified workflow, with pagination support.
      *
      * @param request - ListFlowEndpointsRequest
      * @param headers - map
@@ -4211,10 +4298,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出工作流端点.
+     * List workflow endpoints.
      *
      * @remarks
-     * 获取指定工作流的所有端点列表，支持分页查询。
+     * Retrieve all endpoints for a specified workflow, with pagination support.
      *
      * @param request - ListFlowEndpointsRequest
      *
@@ -4234,10 +4321,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出工作流版本.
+     * Lists the versions of a flow.
      *
      * @remarks
-     * 获取指定工作流的所有版本列表，支持分页查询。
+     * Returns a paginated list of all versions for a specified flow.
      *
      * @param request - ListFlowVersionsRequest
      * @param headers - map
@@ -4284,10 +4371,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出工作流版本.
+     * Lists the versions of a flow.
      *
      * @remarks
-     * 获取指定工作流的所有版本列表，支持分页查询。
+     * Returns a paginated list of all versions for a specified flow.
      *
      * @param request - ListFlowVersionsRequest
      *
@@ -4307,7 +4394,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出工作流
+     * List flows.
      *
      * @remarks
      * 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
@@ -4368,7 +4455,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出工作流
+     * List flows.
      *
      * @remarks
      * 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
@@ -4390,10 +4477,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 分页列举 IM Bots.
+     * Retrieves a paginated list of IM bots.
      *
      * @remarks
-     * GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+     * Send a GET request to the `/2025-09-10/agents/im-bots` endpoint to retrieve a paginated list of IM bots. Use the `botName`, `agentRuntimeId`, `botBizType`, and `status` query parameters to filter the results. For pagination, the `pageNumber` defaults to 1 and the `pageSize` defaults to 20, with a maximum of 100.
      *
      * @param request - ListIMBotsRequest
      * @param headers - map
@@ -4455,10 +4542,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 分页列举 IM Bots.
+     * Retrieves a paginated list of IM bots.
      *
      * @remarks
-     * GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+     * Send a GET request to the `/2025-09-10/agents/im-bots` endpoint to retrieve a paginated list of IM bots. Use the `botName`, `agentRuntimeId`, `botBizType`, and `status` query parameters to filter the results. For pagination, the `pageNumber` defaults to 1 and the `pageSize` defaults to 20, with a maximum of 100.
      *
      * @param request - ListIMBotsRequest
      *
@@ -4477,7 +4564,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出知识库.
+     * Lists the knowledge bases in your account.
      *
      * @param request - ListKnowledgeBasesRequest
      * @param headers - map
@@ -4535,7 +4622,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出知识库.
+     * Lists the knowledge bases in your account.
      *
      * @param request - ListKnowledgeBasesRequest
      *
@@ -4554,7 +4641,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查询记忆存储列表.
+     * Returns a paginated list of memory collections.
      *
      * @param request - ListMemoryCollectionsRequest
      * @param headers - map
@@ -4620,7 +4707,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查询记忆存储列表.
+     * Returns a paginated list of memory collections.
      *
      * @param request - ListMemoryCollectionsRequest
      *
@@ -4639,7 +4726,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查询支持的模型提供商及其模型.
+     * Lists all model providers.
+     *
+     * @remarks
+     * Lists the available model providers. This operation supports filtering and pagination.
      *
      * @param request - ListModelProvidersRequest
      * @param headers - map
@@ -4697,7 +4787,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 查询支持的模型提供商及其模型.
+     * Lists all model providers.
+     *
+     * @remarks
+     * Lists the available model providers. This operation supports filtering and pagination.
      *
      * @param request - ListModelProvidersRequest
      *
@@ -4716,7 +4809,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * model列表.
+     * Lists all Model Proxies.
+     *
+     * @remarks
+     * Retrieves a paginated list of all Model Proxies for the current user. You can filter the list by status.
      *
      * @param request - ListModelProxiesRequest
      * @param headers - map
@@ -4778,7 +4874,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * model列表.
+     * Lists all Model Proxies.
+     *
+     * @remarks
+     * Retrieves a paginated list of all Model Proxies for the current user. You can filter the list by status.
      *
      * @param request - ListModelProxiesRequest
      *
@@ -4797,7 +4896,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * model列表.
+     * Lists all models.
+     *
+     * @remarks
+     * Retrieves a list of all models for the current user. You can filter the models by type and paginate the results.
      *
      * @param request - ListModelServicesRequest
      * @param headers - map
@@ -4863,7 +4965,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * model列表.
+     * Lists all models.
+     *
+     * @remarks
+     * Retrieves a list of all models for the current user. You can filter the models by type and paginate the results.
      *
      * @param request - ListModelServicesRequest
      *
@@ -4882,10 +4987,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出沙箱.
+     * Returns a list of sandboxes.
      *
      * @remarks
-     * 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+     * Retrieves a list of sandboxes for the current user. You can filter the results by template name, template type, or status. This operation supports pagination.
      *
      * @param request - ListSandboxesRequest
      * @param headers - map
@@ -4947,10 +5052,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出沙箱.
+     * Returns a list of sandboxes.
      *
      * @remarks
-     * 获取当前用户的所有沙箱列表，支持按模板名称过滤，支持分页查询。
+     * Retrieves a list of sandboxes for the current user. You can filter the results by template name, template type, or status. This operation supports pagination.
      *
      * @param request - ListSandboxesRequest
      *
@@ -4969,10 +5074,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出模板
+     * Lists templates.
      *
      * @remarks
-     * 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+     * Lists all templates for the current user. You can filter the results by template type and use pagination.
      *
      * @param request - ListTemplatesRequest
      * @param headers - map
@@ -5038,10 +5143,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 列出模板
+     * Lists templates.
      *
      * @remarks
-     * 获取当前用户的所有模板列表，支持按模板类型过滤，支持分页查询。
+     * Lists all templates for the current user. You can filter the results by template type and use pagination.
      *
      * @param request - ListTemplatesRequest
      *
@@ -5060,10 +5165,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 工具列表.
+     * List tools.
      *
      * @remarks
-     * 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+     * Query the tool list. Support paged query and conditional filtering by tool type, workspace, and other criteria. Return the list of tools that meet the conditions and paging information.
      *
      * @param request - ListToolsRequest
      * @param headers - map
@@ -5125,10 +5230,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 工具列表.
+     * List tools.
      *
      * @remarks
-     * 查询工具列表，支持分页查询和按工具类型、工作空间等条件过滤。返回符合条件的工具列表及分页信息。
+     * Query the tool list. Support paged query and conditional filtering by tool type, workspace, and other criteria. Return the list of tools that meet the conditions and paging information.
      *
      * @param request - ListToolsRequest
      *
@@ -5147,10 +5252,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作空间列表.
+     * Lists all workspaces in your account.
      *
      * @remarks
-     * 获取工作空间列表
+     * Lists all workspaces.
      *
      * @param request - ListWorkspacesRequest
      * @param headers - map
@@ -5204,10 +5309,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作空间列表.
+     * Lists all workspaces in your account.
      *
      * @remarks
-     * 获取工作空间列表
+     * Lists all workspaces.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -5226,10 +5331,11 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 暂停沙箱.
+     * Pause the sandbox and retain snapshots of its memory and file system. The sandbox enters the PAUSED state so that it can be recovered later.
      *
      * @remarks
-     * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+     * This API is used to pause a sandbox. When invoked, the system takes a snapshot of the sandbox, capturing and persisting the memory and disk states. The user can recover the sandbox at a later time.
+     * Note that sandbox snapshots are retained for only 30 days. After 30 days, recovery becomes unavailable.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5263,10 +5369,11 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 暂停沙箱.
+     * Pause the sandbox and retain snapshots of its memory and file system. The sandbox enters the PAUSED state so that it can be recovered later.
      *
      * @remarks
-     * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+     * This API is used to pause a sandbox. When invoked, the system takes a snapshot of the sandbox, capturing and persisting the memory and disk states. The user can recover the sandbox at a later time.
+     * Note that sandbox snapshots are retained for only 30 days. After 30 days, recovery becomes unavailable.
      *
      * @returns PauseSandboxResponse
      *
@@ -5283,10 +5390,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 发布工作流版本.
+     * Publishes a workflow version.
      *
      * @remarks
-     * 为指定工作流发布新版本，用于版本管理和回滚。
+     * Publishes a new version of a specified workflow. This operation supports version management and rollbacks.
      *
      * @param request - PublishFlowVersionRequest
      * @param headers - map
@@ -5324,10 +5431,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 发布工作流版本.
+     * Publishes a workflow version.
      *
      * @remarks
-     * 为指定工作流发布新版本，用于版本管理和回滚。
+     * Publishes a new version of a specified workflow. This operation supports version management and rollbacks.
      *
      * @param request - PublishFlowVersionRequest
      *
@@ -5347,10 +5454,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 发布运行时版本.
+     * Publishes a new version of an agent runtime.
      *
      * @remarks
-     * 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
+     * Publishes a new version for a specified agent runtime for version management and deployment. The new version can include code updates, configuration changes, and other content.
      *
      * @param request - PublishRuntimeVersionRequest
      * @param headers - map
@@ -5388,10 +5495,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 发布运行时版本.
+     * Publishes a new version of an agent runtime.
      *
      * @remarks
-     * 为指定的智能体运行时发布新版本，用于版本管理和部署。新版本可以包含代码更新、配置变更等内容。
+     * Publishes a new version for a specified agent runtime for version management and deployment. The new version can include code updates, configuration changes, and other content.
      *
      * @param request - PublishRuntimeVersionRequest
      *
@@ -5411,7 +5518,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 恢复沙箱.
+     * Resume a paused sandbox instance to restore it from the PAUSED state to the READY (running) state.
+     *
+     * @remarks
+     * This API resumes a sandbox instance from the paused state to the ready state, allowing the user to invoke it and restore it to the state it was in before being paused.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5445,7 +5555,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 恢复沙箱.
+     * Resume a paused sandbox instance to restore it from the PAUSED state to the READY (running) state.
+     *
+     * @remarks
+     * This API resumes a sandbox instance from the paused state to the ready state, allowing the user to invoke it and restore it to the state it was in before being paused.
      *
      * @returns ResumeSandboxResponse
      *
@@ -5462,10 +5575,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 停止沙箱.
+     * Stops a sandbox.
      *
      * @remarks
-     * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+     * Stops the specified sandbox instance. After the operation, the sandbox enters the TERMINATED state.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5499,10 +5612,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 停止沙箱.
+     * Stops a sandbox.
      *
      * @remarks
-     * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+     * Stops the specified sandbox instance. After the operation, the sandbox enters the TERMINATED state.
      *
      * @returns StopSandboxResponse
      *
@@ -5519,7 +5632,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Stop the TemplateMCP service.
+     * Stops the TemplateMCP service.
+     *
+     * @remarks
+     * Stopping the MCP service deletes the associated MCP resources and makes the endpoint inaccessible.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5553,7 +5669,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Stop the TemplateMCP service.
+     * Stops the TemplateMCP service.
+     *
+     * @remarks
+     * Stopping the MCP service deletes the associated MCP resources and makes the endpoint inaccessible.
      *
      * @returns StopTemplateMCPResponse
      *
@@ -5570,10 +5689,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新智能体运行时.
+     * UpdateAgentRuntime.
      *
      * @remarks
-     * 更新指定智能体运行时的配置信息，包括资源分配、网络配置、环境变量等。更新操作会触发运行时重启。
+     * Updates the configuration of a specified agent runtime, including resource allocation, network configuration, and environment variables. The update operation triggers a runtime restart.
      *
      * @param request - UpdateAgentRuntimeRequest
      * @param headers - map
@@ -5611,10 +5730,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新智能体运行时.
+     * UpdateAgentRuntime.
      *
      * @remarks
-     * 更新指定智能体运行时的配置信息，包括资源分配、网络配置、环境变量等。更新操作会触发运行时重启。
+     * Updates the configuration of a specified agent runtime, including resource allocation, network configuration, and environment variables. The update operation triggers a runtime restart.
      *
      * @param request - UpdateAgentRuntimeRequest
      *
@@ -5634,7 +5753,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Update an agent runtime endpoint.
+     * Update Agent Runtime Endpoint.
      *
      * @param request - UpdateAgentRuntimeEndpointRequest
      * @param headers - map
@@ -5673,7 +5792,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Update an agent runtime endpoint.
+     * Update Agent Runtime Endpoint.
      *
      * @param request - UpdateAgentRuntimeEndpointRequest
      *
@@ -5694,7 +5813,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Update a credential.
+     * Updates a credential.
+     *
+     * @remarks
+     * Updates the configuration of a specified credential.
      *
      * @param request - UpdateCredentialRequest
      * @param headers - map
@@ -5732,7 +5854,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * Update a credential.
+     * Updates a credential.
+     *
+     * @remarks
+     * Updates the configuration of a specified credential.
      *
      * @param request - UpdateCredentialRequest
      *
@@ -5752,7 +5877,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新自定义域名.
+     * Updates a custom domain.
      *
      * @param request - UpdateCustomDomainRequest
      * @param headers - map
@@ -5790,7 +5915,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新自定义域名.
+     * Updates a custom domain.
      *
      * @param request - UpdateCustomDomainRequest
      *
@@ -5810,10 +5935,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工作流
+     * Updates a workflow.
      *
      * @remarks
-     * 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+     * Updates the configuration of a specified workflow, including the definition, execution mode, and environment variables.
      *
      * @param request - UpdateFlowRequest
      * @param headers - map
@@ -5851,10 +5976,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工作流
+     * Updates a workflow.
      *
      * @remarks
-     * 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+     * Updates the configuration of a specified workflow, including the definition, execution mode, and environment variables.
      *
      * @param request - UpdateFlowRequest
      *
@@ -5874,7 +5999,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工作流草稿
+     * Update a flow draft.
      *
      * @remarks
      * 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
@@ -5915,7 +6040,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工作流草稿
+     * Update a flow draft.
      *
      * @remarks
      * 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
@@ -5938,7 +6063,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工作流端点.
+     * Update Flow Endpoint.
      *
      * @remarks
      * 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
@@ -5980,7 +6105,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工作流端点.
+     * Update Flow Endpoint.
      *
      * @remarks
      * 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
@@ -6004,7 +6129,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新 IM Bot.
+     * Updates an IM bot.
      *
      * @remarks
      * PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
@@ -6045,7 +6170,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新 IM Bot.
+     * Updates an IM bot.
      *
      * @remarks
      * PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
@@ -6068,7 +6193,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新知识库.
+     * Updates the configuration of a knowledge base.
      *
      * @param request - UpdateKnowledgeBaseRequest
      * @param headers - map
@@ -6106,7 +6231,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新知识库.
+     * Updates the configuration of a knowledge base.
      *
      * @param request - UpdateKnowledgeBaseRequest
      *
@@ -6126,7 +6251,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 修改记忆存储信息.
+     * Modifies a memory collection.
      *
      * @param request - UpdateMemoryCollectionRequest
      * @param headers - map
@@ -6164,7 +6289,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 修改记忆存储信息.
+     * Modifies a memory collection.
      *
      * @param request - UpdateMemoryCollectionRequest
      *
@@ -6184,7 +6309,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新模型.
+     * Updates the configuration of a model proxy.
+     *
+     * @remarks
+     * Use this operation to update the configuration of a specific model proxy.
      *
      * @param request - UpdateModelProxyRequest
      * @param headers - map
@@ -6222,7 +6350,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新模型.
+     * Updates the configuration of a model proxy.
+     *
+     * @remarks
+     * Use this operation to update the configuration of a specific model proxy.
      *
      * @param request - UpdateModelProxyRequest
      *
@@ -6242,7 +6373,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新模型.
+     * Updates a model service.
+     *
+     * @remarks
+     * This operation modifies the configuration of an existing model service.
      *
      * @param request - UpdateModelServiceRequest
      * @param headers - map
@@ -6280,7 +6414,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新模型.
+     * Updates a model service.
+     *
+     * @remarks
+     * This operation modifies the configuration of an existing model service.
      *
      * @param request - UpdateModelServiceRequest
      *
@@ -6300,10 +6437,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新模板
+     * Updates a template.
      *
      * @remarks
-     * 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+     * Updates a template\\"s configuration, including its resource configuration, network configuration, and environment variables.
      *
      * @param request - UpdateTemplateRequest
      * @param headers - map
@@ -6347,10 +6484,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新模板
+     * Updates a template.
      *
      * @remarks
-     * 更新指定模板的配置信息，包括资源配置、网络配置、环境变量等。
+     * Updates a template\\"s configuration, including its resource configuration, network configuration, and environment variables.
      *
      * @param request - UpdateTemplateRequest
      *
@@ -6370,10 +6507,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工具.
+     * Updates a tool.
      *
      * @remarks
-     * 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+     * Updates the configuration of an existing tool. You can modify its description, resource configuration, network configuration, and more. This operation supports partial updates. You only need to specify the fields that you want to modify.
      *
      * @param request - UpdateToolRequest
      * @param headers - map
@@ -6411,10 +6548,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工具.
+     * Updates a tool.
      *
      * @remarks
-     * 更新现有工具的配置信息，可以修改工具的描述、资源配置、网络配置等。更新操作支持部分更新，只需提供需要修改的字段。
+     * Updates the configuration of an existing tool. You can modify its description, resource configuration, network configuration, and more. This operation supports partial updates. You only need to specify the fields that you want to modify.
      *
      * @param request - UpdateToolRequest
      *
@@ -6434,10 +6571,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工作空间.
+     * Updates a workspace.
      *
      * @remarks
-     * 更新工作空间
+     * Updates the properties of a workspace.
      *
      * @param request - UpdateWorkspaceRequest
      * @param headers - map
@@ -6475,10 +6612,10 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 更新工作空间.
+     * Updates a workspace.
      *
      * @remarks
-     * 更新工作空间
+     * Updates the properties of a workspace.
      *
      * @param request - UpdateWorkspaceRequest
      *
@@ -6498,7 +6635,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作空间下的发现端点.
+     * Updates the discovery endpoint configuration for a specified workspace.
      *
      * @param request - UpdateWorkspaceDiscoveryEndpointsRequest
      * @param headers - map
@@ -6536,7 +6673,7 @@ class AgentRun extends OpenApiClient
     }
 
     /**
-     * 获取工作空间下的发现端点.
+     * Updates the discovery endpoint configuration for a specified workspace.
      *
      * @param request - UpdateWorkspaceDiscoveryEndpointsRequest
      *
