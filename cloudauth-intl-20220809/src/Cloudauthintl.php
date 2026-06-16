@@ -53,6 +53,9 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxV2AdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxV2Request;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxV2Response;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrV2AdvanceRequest;
@@ -93,6 +96,10 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeShrinkRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeV2AdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeV2Request;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeV2Response;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeV2ShrinkRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\KeepaliveIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile2MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Mobile2MetaVerifyIntlResponse;
@@ -122,7 +129,13 @@ class Cloudauthintl extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-hongkong' => 'cloudauth-intl.cn-hongkong.aliyuncs.com',
+            'ap-southeast-5' => 'cloudauth-intl.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'cloudauth-intl.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-1' => 'cloudauth-intl.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloudauth-intl', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -249,7 +262,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸图片入库.
+     * Adds a face image to a specified face library.
      *
      * @param Request - AddFaceRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -312,7 +325,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸图片入库.
+     * Adds a face image to a specified face library.
      *
      * @param Request - AddFaceRecordRequest
      *
@@ -422,10 +435,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Address Similarity Comparison.
+     * Compares the similarity of two addresses.
      *
      * @remarks
-     * API for comparing two addresses, standardizing and checking address consistency.
+     * Compares two addresses for consistency by using address standardization.
      *
      * @param Request - AddressCompareIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -476,10 +489,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Address Similarity Comparison.
+     * Compares the similarity of two addresses.
      *
      * @remarks
-     * API for comparing two addresses, standardizing and checking address consistency.
+     * Compares two addresses for consistency by using address standardization.
      *
      * @param Request - AddressCompareIntlRequest
      *
@@ -497,10 +510,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Address Verification.
+     * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
      *
      * @remarks
-     * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
+     * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
      *
      * @deprecated openAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead
      *
@@ -582,10 +595,10 @@ class Cloudauthintl extends OpenApiClient
 
     // Deprecated
     /**
-     * Address Verification.
+     * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
      *
      * @remarks
-     * Based on the operator\\"s capabilities, input the phone number and address (or latitude and longitude) to verify whether the provided address is the user\\"s usual residence.
+     * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
      *
      * @deprecated openAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead
      *
@@ -605,7 +618,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
+     * Verifies an address.
      *
      * @param Request - AddressVerifyV2IntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -664,7 +677,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This topic describes the address verification API operation, which verifies the region and address of a device using device data and carrier big data capabilities.
+     * Verifies an address.
      *
      * @param Request - AddressVerifyV2IntlRequest
      *
@@ -682,10 +695,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Bank Card Verification.
+     * Provides bank card element verification (two-element, three-element, and four-element) API operations.
      *
      * @remarks
-     * Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
+     * Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
      *
      * @param Request - BankMetaVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -756,10 +769,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Bank Card Verification.
+     * Provides bank card element verification (two-element, three-element, and four-element) API operations.
      *
      * @remarks
-     * Verification of bank card elements, including: two-element verification (name + bank card number), three-element verification (name + ID number + bank card number), and four-element verification (name + ID number + phone number + bank card number) for consistency.
+     * Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
      *
      * @param Request - BankMetaVerifyIntlRequest
      *
@@ -777,7 +790,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Pure server-side interface for document OCR recognition.
+     * Provides server-side ID card and certificate OCR capabilities.
      *
      * @deprecated openAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead
      *
@@ -853,7 +866,7 @@ class Cloudauthintl extends OpenApiClient
 
     // Deprecated
     /**
-     * Pure server-side interface for document OCR recognition.
+     * Provides server-side ID card and certificate OCR capabilities.
      *
      * @deprecated openAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead
      *
@@ -873,7 +886,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Result Query.
+     * Queries the verification result.
      *
      * @param Request - CheckResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -928,7 +941,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Result Query.
+     * Queries the verification result.
      *
      * @param Request - CheckResultRequest
      *
@@ -946,7 +959,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Authentication Log Query Interface.
+     * Authentication log query.
      *
      * @param Request - CheckVerifyLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -989,7 +1002,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Authentication Log Query Interface.
+     * Authentication log query.
      *
      * @param Request - CheckVerifyLogRequest
      *
@@ -1007,10 +1020,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Credential Recognition Query.
+     * Queries the credential recognition result.
      *
      * @remarks
-     * After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
+     * After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
      *
      * @param Request - CredentialGetResultIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1049,10 +1062,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Credential Recognition Query.
+     * Queries the credential recognition result.
      *
      * @remarks
-     * After obtaining the TransactionId, you can use this interface on the server side to get the corresponding authentication result.
+     * After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
      *
      * @param Request - CredentialGetResultIntlRequest
      *
@@ -1070,10 +1083,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Credential Recognition.
+     * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
      *
      * @remarks
-     * Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
+     * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
      *
      * @param Request - CredentialRecognitionIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1134,10 +1147,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Credential Recognition.
+     * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name from the credential.
      *
      * @remarks
-     * Detects whether a voucher (such as water, electricity, gas, credit card, etc., e-bills) is forged using AI technology and extracts key information from the voucher.
+     * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
      *
      * @param Request - CredentialRecognitionIntlRequest
      *
@@ -1155,10 +1168,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Credential Recognition Submission.
+     * Submits credential recognition information.
      *
      * @remarks
-     * Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
+     * Initializes the credential recognition OCR operation and retrieves a transactionId.
      *
      * @param Request - CredentialSubmitIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1227,10 +1240,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Credential Recognition Submission.
+     * Submits credential recognition information.
      *
      * @remarks
-     * Initialization interface for credential recognition OCR, through which you can obtain the transactionId.
+     * Initializes the credential recognition OCR operation and retrieves a transactionId.
      *
      * @param Request - CredentialSubmitIntlRequest
      *
@@ -1248,10 +1261,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Credential Verification.
+     * Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
      *
      * @remarks
-     * Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
+     * Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
      *
      * @param Request - CredentialVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1308,10 +1321,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Credential Verification.
+     * Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
      *
      * @remarks
-     * Input credential image information, perform image quality, tampering, and forgery detection, and return the detection results.
+     * Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
      *
      * @param Request - CredentialVerifyIntlRequest
      *
@@ -1421,10 +1434,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Face Credential Verification.
+     * Detects deepfake risks in facial images.
      *
      * @remarks
-     * Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
+     * Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
      *
      * @param Request - DeepfakeDetectIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1485,10 +1498,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Face Credential Verification.
+     * Detects deepfake risks in facial images.
      *
      * @remarks
-     * Input a face image and use the algorithm to detect if there is a risk of deep forgery. This includes risk scenarios such as AIGC-generated faces, deepfake face swapping, template faces, and rephotographed faces, and outputs risk labels and confidence levels.
+     * Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
      *
      * @param Request - DeepfakeDetectIntlRequest
      *
@@ -1506,10 +1519,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * deepfake file stream API.
+     * ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
      *
      * @remarks
-     * Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
+     * Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
      *
      * @param Request - DeepfakeDetectIntlStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1572,10 +1585,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * deepfake file stream API.
+     * ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
      *
      * @remarks
-     * Input a face image and use the algorithm to detect if there is a risk of deepfake. This includes risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and rephotographed faces, and outputs risk labels and confidence scores.
+     * Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
      *
      * @param Request - DeepfakeDetectIntlStreamRequest
      *
@@ -1685,7 +1698,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Delete Face Group.
+     * Deletes a face library.
      *
      * @param Request - DeleteFaceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1724,7 +1737,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Delete Face Group.
+     * Deletes a face library.
      *
      * @param Request - DeleteFaceGroupRequest
      *
@@ -1742,7 +1755,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Delete Face.
+     * Deletes a face record.
      *
      * @param Request - DeleteFaceRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1781,7 +1794,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Delete Face.
+     * Deletes a face record.
      *
      * @param Request - DeleteFaceRecordRequest
      *
@@ -1799,7 +1812,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Delete user authentication record results.
+     * Deletes data related to a user authentication record.
      *
      * @param Request - DeleteVerifyResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1846,7 +1859,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Delete user authentication record results.
+     * Deletes data related to a user authentication record.
      *
      * @param Request - DeleteVerifyResultRequest
      *
@@ -1864,7 +1877,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Card and document OCR pure server-side.
+     * Provides server-side card and certificate OCR capabilities.
      *
      * @param Request - DocOcrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1945,7 +1958,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Card and document OCR pure server-side.
+     * Provides server-side card and certificate OCR capabilities.
      *
      * @param Request - DocOcrRequest
      *
@@ -1963,7 +1976,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Global Document OCR Recognition Interface.
+     * Recognizes global identity documents through OCR.
      *
      * @param Request - DocOcrMaxRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2060,7 +2073,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Global Document OCR Recognition Interface.
+     * Recognizes global identity documents through OCR.
      *
      * @param Request - DocOcrMaxRequest
      *
@@ -2078,7 +2091,210 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 卡证ocr纯服务端V2.
+     * 全球证件ocr识别接口.
+     *
+     * @param Request - DocOcrMaxV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DocOcrMaxV2Response
+     *
+     * @param DocOcrMaxV2Request $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DocOcrMaxV2Response
+     */
+    public function docOcrMaxV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ocrValueStandard) {
+            @$query['OcrValueStandard'] = $request->ocrValueStandard;
+        }
+
+        $body = [];
+        if (null !== $request->authorize) {
+            @$body['Authorize'] = $request->authorize;
+        }
+
+        if (null !== $request->docPage) {
+            @$body['DocPage'] = $request->docPage;
+        }
+
+        if (null !== $request->docType) {
+            @$body['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->idOcrPictureBase64) {
+            @$body['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
+
+        if (null !== $request->idOcrPictureFile) {
+            @$body['IdOcrPictureFile'] = $request->idOcrPictureFile;
+        }
+
+        if (null !== $request->idOcrPictureUrl) {
+            @$body['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        }
+
+        if (null !== $request->idSpoof) {
+            @$body['IdSpoof'] = $request->idSpoof;
+        }
+
+        if (null !== $request->idThreshold) {
+            @$body['IdThreshold'] = $request->idThreshold;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$body['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$body['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->ocrModel) {
+            @$body['OcrModel'] = $request->ocrModel;
+        }
+
+        if (null !== $request->productCode) {
+            @$body['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$body['SceneCode'] = $request->sceneCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DocOcrMaxV2',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DocOcrMaxV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 全球证件ocr识别接口.
+     *
+     * @param Request - DocOcrMaxV2Request
+     *
+     * @returns DocOcrMaxV2Response
+     *
+     * @param DocOcrMaxV2Request $request
+     *
+     * @return DocOcrMaxV2Response
+     */
+    public function docOcrMaxV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->docOcrMaxV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DocOcrMaxV2AdvanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DocOcrMaxV2Response
+     */
+    public function docOcrMaxV2Advance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $docOcrMaxV2Req = new DocOcrMaxV2Request([]);
+        Utils::convert($request, $docOcrMaxV2Req);
+        if (null !== $request->idOcrPictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->idOcrPictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $docOcrMaxV2Req->idOcrPictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->docOcrMaxV2WithOptions($docOcrMaxV2Req, $runtime);
+    }
+
+    /**
+     * Provides server-side card and certificate OCR capabilities.
      *
      * @param Request - DocOcrV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2163,7 +2379,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 卡证ocr纯服务端V2.
+     * Provides server-side card and certificate OCR capabilities.
      *
      * @param Request - DocOcrV2Request
      *
@@ -2273,7 +2489,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Console Export Records.
+     * Downloads verification task records.
      *
      * @param Request - DownloadVerifyRecordIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2328,7 +2544,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Console Export Records.
+     * Downloads verification task records.
      *
      * @param Request - DownloadVerifyRecordIntlRequest
      *
@@ -2346,7 +2562,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This topic describes how to integrate with ID Verification using only the server-side API.
+     * Provides a server-side-only API for the eKYC solution.
      *
      * @param Request - EkycVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2435,7 +2651,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This topic describes how to integrate with ID Verification using only the server-side API.
+     * Provides a server-side-only API for the eKYC solution.
      *
      * @param Request - EkycVerifyRequest
      *
@@ -2453,7 +2669,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * ekyc纯服务端接口V2.
+     * Server-side-only eKYC API.
      *
      * @param Request - EkycVerifyV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2550,7 +2766,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * ekyc纯服务端接口V2.
+     * Server-side-only eKYC API.
      *
      * @param Request - EkycVerifyV2Request
      *
@@ -2683,7 +2899,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This topic describes how to integrate FaceCompare using only the server-side API.
+     * Compares two face images by using face recognition technology and returns the comparison result and similarity score.
      *
      * @param Request - FaceCompareRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2748,7 +2964,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This topic describes how to integrate FaceCompare using only the server-side API.
+     * Compares two face images by using face recognition technology and returns the comparison result and similarity score.
      *
      * @param Request - FaceCompareRequest
      *
@@ -2766,7 +2982,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸比对V2.
+     * Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
      *
      * @param Request - FaceCompareV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2839,7 +3055,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸比对V2.
+     * Compares two face images by using face recognition technology and returns the comparison result and a similarity score.
      *
      * @param Request - FaceCompareV2Request
      *
@@ -2972,7 +3188,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Face Cross Comparison.
+     * Performs cross-comparison of faces.
      *
      * @param Request - FaceCrossCompareIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3053,7 +3269,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Face Cross Comparison.
+     * Performs cross-comparison of faces.
      *
      * @param Request - FaceCrossCompareIntlRequest
      *
@@ -3071,7 +3287,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Face Duplication Detection API.
+     * FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
      *
      * @param Request - FaceDuplicationCheckIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3176,7 +3392,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Face Duplication Detection API.
+     * FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
      *
      * @param Request - FaceDuplicationCheckIntlRequest
      *
@@ -3194,7 +3410,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This topic describes how to set up the server for FACE_GUARD.
+     * Server-side API for the international Face Guard service.
      *
      * @param Request - FaceGuardRiskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3249,7 +3465,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This topic describes how to set up the server for FACE_GUARD.
+     * Server-side API for the international Face Guard service.
      *
      * @param Request - FaceGuardRiskRequest
      *
@@ -3267,7 +3483,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen.
+     * Calls the server-side API for passive liveness detection.
      *
      * @param Request - FaceLivenessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3340,7 +3556,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Passive liveness detection (FaceLiveness) is a service that detects whether a pre-captured facial image, submitted to an API operation, is a real face. The algorithm primarily detects presentation attacks, such as screen replays and printed photos. This service is suitable for low-risk business scen.
+     * Calls the server-side API for passive liveness detection.
      *
      * @param Request - FaceLivenessRequest
      *
@@ -3359,6 +3575,9 @@ class Cloudauthintl extends OpenApiClient
 
     /**
      * 人脸活体验证
+     *
+     * @remarks
+     * 调用FaceLivenessV2接口对人脸图片进行活体检测。
      *
      * @param Request - FaceLivenessV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3424,6 +3643,9 @@ class Cloudauthintl extends OpenApiClient
 
     /**
      * 人脸活体验证
+     *
+     * @remarks
+     * 调用FaceLivenessV2接口对人脸图片进行活体检测。
      *
      * @param Request - FaceLivenessV2Request
      *
@@ -3535,6 +3757,9 @@ class Cloudauthintl extends OpenApiClient
     /**
      * 人脸活体验证
      *
+     * @remarks
+     * 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+     *
      * @param Request - FaceVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3631,6 +3856,9 @@ class Cloudauthintl extends OpenApiClient
 
     /**
      * 人脸活体验证
+     *
+     * @remarks
+     * 调用FaceVerifyIntl接口对人脸图片进行活体检测。
      *
      * @param Request - FaceVerifyIntlRequest
      *
@@ -3763,7 +3991,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Anti-Fraud Callback Interface.
+     * Calls the eKYC global anti-spoofing callback operation.
      *
      * @deprecated OpenAPI FraudResultCallBack is deprecated
      *
@@ -3817,7 +4045,7 @@ class Cloudauthintl extends OpenApiClient
 
     // Deprecated
     /**
-     * Anti-Fraud Callback Interface.
+     * Calls the eKYC global anti-spoofing callback operation.
      *
      * @deprecated OpenAPI FraudResultCallBack is deprecated
      *
@@ -3837,7 +4065,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
+     * Verifies the validity period of an identity document as a two-factor authentication element.
      *
      * @param Request - Id2MetaPeriodVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3908,7 +4136,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * This operation verifies the authenticity and consistency of a name, ID card number, and the start and end dates of the ID card\\"s validity period against an authoritative source.
+     * Verifies the validity period of an identity document as a two-factor authentication element.
      *
      * @param Request - Id2MetaPeriodVerifyIntlRequest
      *
@@ -3926,7 +4154,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Verifies that a name and an ID card number are consistent.
+     * Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
      *
      * @param Request - Id2MetaVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3977,7 +4205,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Verifies that a name and an ID card number are consistent.
+     * Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
      *
      * @param Request - Id2MetaVerifyIntlRequest
      *
@@ -3995,7 +4223,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Authentication Initialization.
+     * Initializes an authentication session.
      *
      * @param tmpReq - InitializeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4262,7 +4490,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Authentication Initialization.
+     * Initializes an authentication session.
      *
      * @param Request - InitializeRequest
      *
@@ -4280,7 +4508,418 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
+     * 认证初始化.
+     *
+     * @param tmpReq - InitializeV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InitializeV2Response
+     *
+     * @param InitializeV2Request $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InitializeV2Response
+     */
+    public function initializeV2WithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new InitializeV2ShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docPageConfig) {
+            $request->docPageConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docPageConfig, 'DocPageConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appQualityCheck) {
+            @$query['AppQualityCheck'] = $request->appQualityCheck;
+        }
+
+        if (null !== $request->authorize) {
+            @$query['Authorize'] = $request->authorize;
+        }
+
+        if (null !== $request->autoRegistration) {
+            @$query['AutoRegistration'] = $request->autoRegistration;
+        }
+
+        if (null !== $request->callbackToken) {
+            @$query['CallbackToken'] = $request->callbackToken;
+        }
+
+        if (null !== $request->callbackUrl) {
+            @$query['CallbackUrl'] = $request->callbackUrl;
+        }
+
+        if (null !== $request->chameleonFrameEnable) {
+            @$query['ChameleonFrameEnable'] = $request->chameleonFrameEnable;
+        }
+
+        if (null !== $request->crop) {
+            @$query['Crop'] = $request->crop;
+        }
+
+        if (null !== $request->dateOfBirth) {
+            @$query['DateOfBirth'] = $request->dateOfBirth;
+        }
+
+        if (null !== $request->dateOfExpiry) {
+            @$query['DateOfExpiry'] = $request->dateOfExpiry;
+        }
+
+        if (null !== $request->docName) {
+            @$query['DocName'] = $request->docName;
+        }
+
+        if (null !== $request->docNo) {
+            @$query['DocNo'] = $request->docNo;
+        }
+
+        if (null !== $request->docPageConfigShrink) {
+            @$query['DocPageConfig'] = $request->docPageConfigShrink;
+        }
+
+        if (null !== $request->docScanMode) {
+            @$query['DocScanMode'] = $request->docScanMode;
+        }
+
+        if (null !== $request->docType) {
+            @$query['DocType'] = $request->docType;
+        }
+
+        if (null !== $request->docVideo) {
+            @$query['DocVideo'] = $request->docVideo;
+        }
+
+        if (null !== $request->documentNumber) {
+            @$query['DocumentNumber'] = $request->documentNumber;
+        }
+
+        if (null !== $request->editOcrResult) {
+            @$query['EditOcrResult'] = $request->editOcrResult;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->experienceCode) {
+            @$query['ExperienceCode'] = $request->experienceCode;
+        }
+
+        if (null !== $request->faceGroupCodes) {
+            @$query['FaceGroupCodes'] = $request->faceGroupCodes;
+        }
+
+        if (null !== $request->facePictureFile) {
+            @$query['FacePictureFile'] = $request->facePictureFile;
+        }
+
+        if (null !== $request->facePictureUrl) {
+            @$query['FacePictureUrl'] = $request->facePictureUrl;
+        }
+
+        if (null !== $request->faceRegisterGroupCode) {
+            @$query['FaceRegisterGroupCode'] = $request->faceRegisterGroupCode;
+        }
+
+        if (null !== $request->faceVerifyThreshold) {
+            @$query['FaceVerifyThreshold'] = $request->faceVerifyThreshold;
+        }
+
+        if (null !== $request->idFaceQuality) {
+            @$query['IdFaceQuality'] = $request->idFaceQuality;
+        }
+
+        if (null !== $request->idSpoof) {
+            @$query['IdSpoof'] = $request->idSpoof;
+        }
+
+        if (null !== $request->idThreshold) {
+            @$query['IdThreshold'] = $request->idThreshold;
+        }
+
+        if (null !== $request->languageConfig) {
+            @$query['LanguageConfig'] = $request->languageConfig;
+        }
+
+        if (null !== $request->MRTDInput) {
+            @$query['MRTDInput'] = $request->MRTDInput;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->metaInfo) {
+            @$query['MetaInfo'] = $request->metaInfo;
+        }
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->ocr) {
+            @$query['Ocr'] = $request->ocr;
+        }
+
+        if (null !== $request->ocrValueStandard) {
+            @$query['OcrValueStandard'] = $request->ocrValueStandard;
+        }
+
+        if (null !== $request->pages) {
+            @$query['Pages'] = $request->pages;
+        }
+
+        if (null !== $request->procedurePriority) {
+            @$query['ProcedurePriority'] = $request->procedurePriority;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->productFlow) {
+            @$query['ProductFlow'] = $request->productFlow;
+        }
+
+        if (null !== $request->returnFaces) {
+            @$query['ReturnFaces'] = $request->returnFaces;
+        }
+
+        if (null !== $request->returnUrl) {
+            @$query['ReturnUrl'] = $request->returnUrl;
+        }
+
+        if (null !== $request->saveFacePicture) {
+            @$query['SaveFacePicture'] = $request->saveFacePicture;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->securityLevel) {
+            @$query['SecurityLevel'] = $request->securityLevel;
+        }
+
+        if (null !== $request->showAlbumIcon) {
+            @$query['ShowAlbumIcon'] = $request->showAlbumIcon;
+        }
+
+        if (null !== $request->showGuidePage) {
+            @$query['ShowGuidePage'] = $request->showGuidePage;
+        }
+
+        if (null !== $request->showOcrResult) {
+            @$query['ShowOcrResult'] = $request->showOcrResult;
+        }
+
+        if (null !== $request->styleConfig) {
+            @$query['StyleConfig'] = $request->styleConfig;
+        }
+
+        if (null !== $request->targetFacePictureFile) {
+            @$query['TargetFacePictureFile'] = $request->targetFacePictureFile;
+        }
+
+        if (null !== $request->targetFacePictureUrl) {
+            @$query['TargetFacePictureUrl'] = $request->targetFacePictureUrl;
+        }
+
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
+        }
+
+        if (null !== $request->templateRanCount) {
+            @$query['TemplateRanCount'] = $request->templateRanCount;
+        }
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
+        }
+
+        if (null !== $request->useNFC) {
+            @$query['UseNFC'] = $request->useNFC;
+        }
+
+        if (null !== $request->verifyModel) {
+            @$query['VerifyModel'] = $request->verifyModel;
+        }
+
+        $body = [];
+        if (null !== $request->facePictureBase64) {
+            @$body['FacePictureBase64'] = $request->facePictureBase64;
+        }
+
+        if (null !== $request->targetFacePicture) {
+            @$body['TargetFacePicture'] = $request->targetFacePicture;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InitializeV2',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InitializeV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 认证初始化.
+     *
+     * @param Request - InitializeV2Request
+     *
+     * @returns InitializeV2Response
+     *
+     * @param InitializeV2Request $request
+     *
+     * @return InitializeV2Response
+     */
+    public function initializeV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initializeV2WithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InitializeV2AdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InitializeV2Response
+     */
+    public function initializeV2Advance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $initializeV2Req = new InitializeV2Request([]);
+        Utils::convert($request, $initializeV2Req);
+        if (null !== $request->facePictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->facePictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $initializeV2Req->facePictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        if (null !== $request->targetFacePictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->targetFacePictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $initializeV2Req->targetFacePictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->initializeV2WithOptions($initializeV2Req, $runtime);
+    }
+
+    /**
+     * Configures client connection keep-alive settings.
+     *
+     * @remarks
+     * Configures client connection keep-alive settings.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4309,7 +4948,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * If your server makes infrequent calls to the ID Verification API, you can call the KeepaliveIntl operation to maintain the client connection.
+     * Configures client connection keep-alive settings.
+     *
+     * @remarks
+     * Configures client connection keep-alive settings.
      *
      * @returns KeepaliveIntlResponse
      *
@@ -4323,7 +4965,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
+     * Verifies the identity of a phone number owner by using two-factor authentication.
+     *
+     * @remarks
+     * Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
      *
      * @param Request - Mobile2MetaVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4374,7 +5019,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Verifies the authenticity and consistency of a mobile number and name against an authoritative data source.
+     * Verifies the identity of a phone number owner by using two-factor authentication.
+     *
+     * @remarks
+     * Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
      *
      * @param Request - Mobile2MetaVerifyIntlRequest
      *
@@ -4392,7 +5040,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * International Version of Mobile Three Elements API.
+     * Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
      *
      * @param Request - Mobile3MetaVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4447,7 +5095,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * International Version of Mobile Three Elements API.
+     * Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
      *
      * @param Request - Mobile3MetaVerifyIntlRequest
      *
@@ -4465,7 +5113,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Modify Face Group.
+     * Modifies a face library.
      *
      * @param Request - ModifyFaceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4512,7 +5160,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Modify Face Group.
+     * Modifies a face library.
      *
      * @param Request - ModifyFaceGroupRequest
      *
@@ -4530,7 +5178,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Add New Face.
+     * Edits a face record.
      *
      * @param Request - ModifyFaceRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4573,7 +5221,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Add New Face.
+     * Edits a face record.
      *
      * @param Request - ModifyFaceRecordRequest
      *
@@ -4591,7 +5239,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Query Face Group.
+     * Queries face libraries.
      *
      * @param Request - QueryFaceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4650,7 +5298,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Query Face Group.
+     * Queries face libraries.
      *
      * @param Request - QueryFaceGroupRequest
      *
@@ -4668,7 +5316,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Query Face Records.
+     * Queries face records.
      *
      * @param Request - QueryFaceRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4735,7 +5383,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Query Face Records.
+     * Queries face records.
      *
      * @param Request - QueryFaceRecordRequest
      *
@@ -4753,7 +5401,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Get Temporary Token.
+     * Retrieves a temporary token.
      *
      * @param Request - TempAccessTokenIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4792,7 +5440,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Get Temporary Token.
+     * Retrieves a temporary token.
      *
      * @param Request - TempAccessTokenIntlRequest
      *
@@ -4810,7 +5458,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Get Temporary File URL.
+     * Retrieves a temporary URL for a file.
      *
      * @param Request - TempOssUrlIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4849,7 +5497,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Get Temporary File URL.
+     * Retrieves a temporary URL for a file.
      *
      * @param Request - TempOssUrlIntlRequest
      *
