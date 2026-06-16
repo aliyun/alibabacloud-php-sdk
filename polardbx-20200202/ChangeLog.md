@@ -1,3 +1,7 @@
+2026-06-16 Version: 3.5.0
+- Support API ResetMem0AccountPassword.
+
+
 2026-06-09 Version: 3.4.2
 - Update API DescribeCdcVersionList: add request parameters InstanceName.
 

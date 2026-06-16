@@ -253,6 +253,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRestrictRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRestrictResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetMem0AccountPasswordRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetMem0AccountPasswordResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
@@ -447,7 +449,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开通冷存储.
+     * Calls the AllocateColdDataVolume operation.
      *
      * @param request - AllocateColdDataVolumeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -490,7 +492,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开通冷存储.
+     * Calls the AllocateColdDataVolume operation.
      *
      * @param request - AllocateColdDataVolumeRequest
      *
@@ -508,7 +510,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开通公网域名.
+     * Calls the AllocateInstancePublicConnection operation to create a public IP address.
      *
      * @param request - AllocateInstancePublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -579,7 +581,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开通公网域名.
+     * Calls the AllocateInstancePublicConnection operation to create a public IP address.
      *
      * @param request - AllocateInstancePublicConnectionRequest
      *
@@ -597,6 +599,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Mounts a columnar instance to a specified primary database instance.
+     *
      * @param request - AttachColumnarInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -638,6 +642,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Mounts a columnar instance to a specified primary database instance.
+     *
      * @param request - AttachColumnarInstanceRequest
      *
      * @returns AttachColumnarInstanceResponse
@@ -654,7 +660,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 取消主动运维任务
+     * Cancels active O&M event tasks by calling the CancelActiveOperationTasks operation.
      *
      * @param request - CancelActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -689,7 +695,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 取消主动运维任务
+     * Cancels active O&M event tasks by calling the CancelActiveOperationTasks operation.
      *
      * @param request - CancelActiveOperationTasksRequest
      *
@@ -707,7 +713,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改实例所在资源组.
+     * Modifies the resource group of an instance.
+     *
+     * @remarks
+     * Note:
+     * - The **endpoint** differs from other operations. Use **polardbx.aliyuncs.com** for Chinese mainland regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
+     * - When testing this API operation, if a service unavailable error is returned, verify that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** to change the **endpoint** to **polardbx.aliyuncs.com**.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -758,7 +769,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改实例所在资源组.
+     * Modifies the resource group of an instance.
+     *
+     * @remarks
+     * Note:
+     * - The **endpoint** differs from other operations. Use **polardbx.aliyuncs.com** for Chinese mainland regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
+     * - When testing this API operation, if a service unavailable error is returned, verify that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** to change the **endpoint** to **polardbx.aliyuncs.com**.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -776,6 +792,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Checks whether a PolarDB-X instance is authorized to use Key Management Service (KMS).
+     *
      * @param request - CheckCloudResourceAuthorizedRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -821,6 +839,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Checks whether a PolarDB-X instance is authorized to use Key Management Service (KMS).
+     *
      * @param request - CheckCloudResourceAuthorizedRequest
      *
      * @returns CheckCloudResourceAuthorizedResponse
@@ -837,6 +857,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Checks whether SQL audit logs of a specified database instance have been successfully connected to Simple Log Service (SLS).
+     * After the call, the system returns the connection status between the SQL audit feature and SLS for the current instance, the project and Logstore configuration information, and whether synchronization is normal.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data delivery. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
      * @param request - CheckSqlAuditSlsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -874,6 +900,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Checks whether SQL audit logs of a specified database instance have been successfully connected to Simple Log Service (SLS).
+     * After the call, the system returns the connection status between the SQL audit feature and SLS for the current instance, the project and Logstore configuration information, and whether synchronization is normal.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data delivery. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
      * @param request - CheckSqlAuditSlsStatusRequest
      *
      * @returns CheckSqlAuditSlsStatusResponse
@@ -890,7 +922,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 取消实例迁移.
+     * Closes the database engine migration process for a specified instance. After you start a data migration task from another database (such as a self-managed MySQL database or an ApsaraDB RDS instance) to PolarDB-X, you can call this operation to safely stop the migration process if you need to terminate or clean up the migration state.
      *
      * @param request - CloseEngineMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -937,7 +969,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 取消实例迁移.
+     * Closes the database engine migration process for a specified instance. After you start a data migration task from another database (such as a self-managed MySQL database or an ApsaraDB RDS instance) to PolarDB-X, you can call this operation to safely stop the migration process if you need to terminate or clean up the migration state.
      *
      * @param request - CloseEngineMigrationRequest
      *
@@ -955,7 +987,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 回滚切换时确认无连接.
+     * Confirms that no active connections exist before performing a rollback switchover.
+     *
+     * @remarks
+     * Confirms that no active connections exist before a rollback task to ensure operation safety.
      *
      * @param request - ConfirmNoConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1002,7 +1037,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 回滚切换时确认无连接.
+     * Confirms that no active connections exist before performing a rollback switchover.
+     *
+     * @remarks
+     * Confirms that no active connections exist before a rollback task to ensure operation safety.
      *
      * @param request - ConfirmNoConnectionRequest
      *
@@ -1020,6 +1058,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Creates an account by calling the CreateAccount operation.
+     *
      * @param request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1089,6 +1129,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Creates an account by calling the CreateAccount operation.
+     *
      * @param request - CreateAccountRequest
      *
      * @returns CreateAccountResponse
@@ -1105,6 +1147,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the CreateBackup operation to create a backup.
+     *
      * @param request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1150,6 +1194,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the CreateBackup operation to create a backup.
+     *
      * @param request - CreateBackupRequest
      *
      * @returns CreateBackupResponse
@@ -1166,7 +1212,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建自定义endpoint.
+     * Creates a custom endpoint for a database instance.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html)..
      *
      * @param request - CreateCustomEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1233,7 +1282,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建自定义endpoint.
+     * Creates a custom endpoint for a database instance.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html)..
      *
      * @param request - CreateCustomEndpointRequest
      *
@@ -1251,6 +1303,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Creates a database by calling the CreateDB operation.
+     *
      * @param request - CreateDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1328,6 +1382,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Creates a database by calling the CreateDB operation.
+     *
      * @param request - CreateDBRequest
      *
      * @returns CreateDBResponse
@@ -1344,7 +1400,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Creates a PolarDB-X instance.
+     * Calls the CreateDBInstance operation to create a PolarDB-X instance.
+     *
+     * @remarks
      *
      * @param tmpReq - CreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1509,7 +1567,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Creates a PolarDB-X instance.
+     * Calls the CreateDBInstance operation to create a PolarDB-X instance.
+     *
+     * @remarks
      *
      * @param request - CreateDBInstanceRequest
      *
@@ -1527,7 +1587,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建评估升级的数据迁移任务
+     * Creates a data import task to import external data files, such as SQL scripts and CSV files, into a target database instance.
+     *
+     * @remarks
+     * Creates a data import task that imports SQL or CSV files stored in OSS or ECS, or directly provided files, into a target database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
      *
      * @param request - CreateDataImportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1606,7 +1669,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建评估升级的数据迁移任务
+     * Creates a data import task to import external data files, such as SQL scripts and CSV files, into a target database instance.
+     *
+     * @remarks
+     * Creates a data import task that imports SQL or CSV files stored in OSS or ECS, or directly provided files, into a target database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
      *
      * @param request - CreateDataImportTaskRequest
      *
@@ -1624,7 +1690,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建GDN实例.
+     * Creates a Global Database Network (GDN) instance.
      *
      * @param request - CreateGdnInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1687,7 +1753,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建GDN实例.
+     * Creates a Global Database Network (GDN) instance.
      *
      * @param request - CreateGdnInstanceRequest
      *
@@ -1706,6 +1772,9 @@ class Polardbx extends OpenApiClient
 
     /**
      * 创建GDN从实例.
+     *
+     * @remarks
+     * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
      *
      * @param request - CreateGdnStandbyMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1838,6 +1907,9 @@ class Polardbx extends OpenApiClient
     /**
      * 创建GDN从实例.
      *
+     * @remarks
+     * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+     *
      * @param request - CreateGdnStandbyMemberRequest
      *
      * @returns CreateGdnStandbyMemberResponse
@@ -1854,7 +1926,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建mem0.
+     * Enables the memory engine.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html)..
      *
      * @param request - CreateMem0Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1897,7 +1972,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建mem0.
+     * Enables the memory engine.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html)..
      *
      * @param request - CreateMem0Request
      *
@@ -1915,7 +1993,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建评估预检任务
+     * Performs a health check on the replication task during data migration.
+     *
+     * @remarks
+     * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for issues such as latency, replication interruption, or data inconsistency.
      *
      * @param request - CreateRplInspectionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1982,7 +2063,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建评估预检任务
+     * Performs a health check on the replication task during data migration.
+     *
+     * @remarks
+     * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for issues such as latency, replication interruption, or data inconsistency.
      *
      * @param request - CreateRplInspectionTaskRequest
      *
@@ -2000,7 +2084,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建评估升级的兼容性评估任务
+     * Creates a SQL statement assessment task. You submit SQL statements through this operation, and the system performs static analysis and risk assessment to identify execution risks and compatibility issues on the target database instance.
      *
      * @param request - CreateSQLEvaluateTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2087,7 +2171,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建评估升级的兼容性评估任务
+     * Creates a SQL statement assessment task. You submit SQL statements through this operation, and the system performs static analysis and risk assessment to identify execution risks and compatibility issues on the target database instance.
      *
      * @param request - CreateSQLEvaluateTaskRequest
      *
@@ -2105,7 +2189,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建 PolarDB-X 存储资源池.
+     * Creates a resource storage pool.
      *
      * @param request - CreateStoragePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2160,7 +2244,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建 PolarDB-X 存储资源池.
+     * Creates a resource storage pool.
      *
      * @param request - CreateStoragePoolRequest
      *
@@ -2178,7 +2262,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建评估升级的结构迁移任务
+     * Creates a database schema import task. This operation allows you to import SQL script files or text content that contains DDL statements into a target database instance, and automatically performs schema operations such as creating tables, indexes, views, and stored procedures.
      *
      * @param request - CreateStructureImportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2231,7 +2315,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建评估升级的结构迁移任务
+     * Creates a database schema import task. This operation allows you to import SQL script files or text content that contains DDL statements into a target database instance, and automatically performs schema operations such as creating tables, indexes, views, and stored procedures.
      *
      * @param request - CreateStructureImportTaskRequest
      *
@@ -2322,6 +2406,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Creates a privileged user. Each instance can have only one privileged user.
+     *
      * @param request - CreateSuperAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2375,6 +2461,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Creates a privileged user. Each instance can have only one privileged user.
+     *
      * @param request - CreateSuperAccountRequest
      *
      * @returns CreateSuperAccountResponse
@@ -2391,7 +2479,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建标准版迁移到企业版的操作任务
+     * Creates a conversion task to change a specific status or configuration of an instance.
      *
      * @param request - CreateTransformOperationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2438,7 +2526,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建标准版迁移到企业版的操作任务
+     * Creates a conversion task to change a specific status or configuration of an instance.
      *
      * @param request - CreateTransformOperationRequest
      *
@@ -2456,6 +2544,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Deletes an account by calling the DeleteAccount operation.
+     *
      * @param request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2509,6 +2599,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Deletes an account by calling the DeleteAccount operation.
+     *
      * @param request - DeleteAccountRequest
      *
      * @returns DeleteAccountResponse
@@ -2525,7 +2617,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除自定义endpoint.
+     * Deletes a custom endpoint domain name.
+     *
+     * @remarks
+     * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
      *
      * @param request - DeleteCustomEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2572,7 +2667,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除自定义endpoint.
+     * Deletes a custom endpoint domain name.
+     *
+     * @remarks
+     * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
      *
      * @param request - DeleteCustomEndpointRequest
      *
@@ -2590,6 +2688,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Deletes a database by calling the DeleteDB operation.
+     *
      * @param request - DeleteDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2635,6 +2735,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Deletes a database by calling the DeleteDB operation.
+     *
      * @param request - DeleteDBRequest
      *
      * @returns DeleteDBResponse
@@ -2651,7 +2753,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 释放实例.
+     * Calls the DeleteDBInstance operation to delete an instance.
      *
      * @param request - DeleteDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2694,7 +2796,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 释放实例.
+     * Calls the DeleteDBInstance operation to delete an instance.
      *
      * @param request - DeleteDBInstanceRequest
      *
@@ -2712,7 +2814,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除评估导入任务
+     * Deletes an evaluation import task.
+     *
+     * @remarks
+     * Deletes a created evaluation task and performs subsequent data import operations.
      *
      * @param request - DeleteEvaluateAndImportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2755,7 +2860,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除评估导入任务
+     * Deletes an evaluation import task.
+     *
+     * @remarks
+     * Deletes a created evaluation task and performs subsequent data import operations.
      *
      * @param request - DeleteEvaluateAndImportTaskRequest
      *
@@ -2773,7 +2881,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除GDN实例.
+     * Deletes a global database network (GDN) instance.
      *
      * @param request - DeleteGdnInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2816,7 +2924,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除GDN实例.
+     * Deletes a global database network (GDN) instance.
      *
      * @param request - DeleteGdnInstanceRequest
      *
@@ -2834,7 +2942,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除mem0.
+     * Disables the memory engine.
+     *
+     * @remarks
+     * Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
      *
      * @param request - DeleteMem0Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2877,7 +2988,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删除mem0.
+     * Disables the memory engine.
+     *
+     * @remarks
+     * Deletes the custom endpoint of a specified database instance and disables the access entry for the domain name.
      *
      * @param request - DeleteMem0Request
      *
@@ -2964,6 +3078,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries the list of accounts by calling the DescribeAccountList operation.
+     *
      * @param request - DescribeAccountListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3013,6 +3129,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries the list of accounts by calling the DescribeAccountList operation.
+     *
      * @param request - DescribeAccountListRequest
      *
      * @returns DescribeAccountListResponse
@@ -3029,7 +3147,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 展示全局运维窗口配置.
+     * Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3068,7 +3186,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 展示全局运维窗口配置.
+     * Calls the DescribeActiveOperationMaintainConf operation to display the O&M window configuration.
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
      *
@@ -3086,7 +3204,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取主动运维任务数量.
+     * Retrieves the total number of O&M events.
      *
      * @param request - DescribeActiveOperationTaskCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3121,7 +3239,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取主动运维任务数量.
+     * Retrieves the total number of O&M events.
      *
      * @param request - DescribeActiveOperationTaskCountRequest
      *
@@ -3139,7 +3257,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取待执行自动运维任务列表.
+     * Queries O&M events by calling the DescribeActiveOperationTasks operation.
      *
      * @param request - DescribeActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3174,7 +3292,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取待执行自动运维任务列表.
+     * Queries O&M events by calling the DescribeActiveOperationTasks operation.
      *
      * @param request - DescribeActiveOperationTasksRequest
      *
@@ -3192,7 +3310,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 冷存储表列表.
+     * Lists cold storage tables.
      *
      * @param request - DescribeArchiveTableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3255,7 +3373,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 冷存储表列表.
+     * Lists cold storage tables.
      *
      * @param request - DescribeArchiveTableListRequest
      *
@@ -3273,7 +3391,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取已开启跨地域备份的地域
+     * Queries the list of available regions that support cross-region operations, typically used for multi-region deployment or data replication scenarios.
      *
      * @param request - DescribeAvailableCrossRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3316,7 +3434,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取已开启跨地域备份的地域
+     * Queries the list of available regions that support cross-region operations, typically used for multi-region deployment or data replication scenarios.
      *
      * @param request - DescribeAvailableCrossRegionsRequest
      *
@@ -3334,7 +3452,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 描述备份策略.
+     * Calls the DescribeBackupPolicy operation to query the backup settings of an instance.
      *
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3377,7 +3495,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 描述备份策略.
+     * Calls the DescribeBackupPolicy operation to query the backup settings of an instance.
      *
      * @param request - DescribeBackupPolicyRequest
      *
@@ -3395,7 +3513,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 备份集详情.
+     * Queries the details of a backup set by calling the DescribeBackupSet operation.
      *
      * @param request - DescribeBackupSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3446,7 +3564,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 备份集详情.
+     * Queries the details of a backup set by calling the DescribeBackupSet operation.
      *
      * @param request - DescribeBackupSetRequest
      *
@@ -3464,6 +3582,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeBackupSetList operation to query the list of backup sets.
+     *
      * @param request - DescribeBackupSetListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3497,6 +3617,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeBackupSetList operation to query the list of backup sets.
+     *
      * @param request - DescribeBackupSetListRequest
      *
      * @returns DescribeBackupSetListResponse
@@ -3513,6 +3635,13 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeBinaryLogList operation to query binlog logs.
+     *
+     * @remarks
+     * - Binlog files are retained for 15 days by default.
+     * - The returned log list includes all logs whose record end time is after the query start time and whose record start time is before the query end time.
+     * - When the DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     *
      * @param request - DescribeBinaryLogListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3574,6 +3703,13 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeBinaryLogList operation to query binlog logs.
+     *
+     * @remarks
+     * - Binlog files are retained for 15 days by default.
+     * - The returned log list includes all logs whose record end time is after the query start time and whose record start time is before the query end time.
+     * - When the DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     *
      * @param request - DescribeBinaryLogListRequest
      *
      * @returns DescribeBinaryLogListResponse
@@ -3590,7 +3726,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询多流规格列表.
+     * Queries the list of instance specifications.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
      *
      * @param request - DescribeCdcClassListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3637,7 +3778,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询多流规格列表.
+     * Queries the list of instance specifications.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. This URL is valid for 2 days after it is generated. Download the file before the URL expires.
      *
      * @param request - DescribeCdcClassListRequest
      *
@@ -3655,7 +3801,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询CDC信息.
+     * Queries CDC information.
      *
      * @param request - DescribeCdcInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3698,7 +3844,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询CDC信息.
+     * Queries CDC information.
      *
      * @param request - DescribeCdcInfoRequest
      *
@@ -3716,7 +3862,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取CDC版本列表.
+     * Retrieves the list of CDC versions.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+     * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
      *
      * @param request - DescribeCdcVersionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3763,7 +3914,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取CDC版本列表.
+     * Retrieves the list of CDC versions.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+     * - When DownloadLink is not NULL, you can download the backup file from this URL. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
      *
      * @param request - DescribeCdcVersionListRequest
      *
@@ -3781,6 +3937,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Invokes the DescribeCharacterSet operation to query the character set types supported by databases in a target instance.
+     *
      * @param request - DescribeCharacterSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3822,6 +3980,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Invokes the DescribeCharacterSet operation to query the character set types supported by databases in a target instance.
+     *
      * @param request - DescribeCharacterSetRequest
      *
      * @returns DescribeCharacterSetResponse
@@ -3838,7 +3998,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 冷存储基础信息.
+     * The cold storage basic information.
      *
      * @param request - DescribeColdDataBasicInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3873,7 +4033,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 冷存储基础信息.
+     * The cold storage basic information.
      *
      * @param request - DescribeColdDataBasicInfoRequest
      *
@@ -3891,7 +4051,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询列存规格列表.
+     * Queries the list of column store specifications for an instance.
      *
      * @param request - DescribeColumnarClassListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3938,7 +4098,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询列存规格列表.
+     * Queries the list of column store specifications for an instance.
      *
      * @param request - DescribeColumnarClassListRequest
      *
@@ -3956,7 +4116,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询Columnar信息.
+     * Queries column store information.
      *
      * @param request - DescribeColumnarInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3999,7 +4159,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询Columnar信息.
+     * Queries column store information.
      *
      * @param request - DescribeColumnarInfoRequest
      *
@@ -4017,7 +4177,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取Columnar版本列表.
+     * Queries column store version information.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+     * - When DownloadLink is not NULL, you can download the backup file from this URL. This URL is valid for 2 days after it is generated. Download the file before the expiration time.
      *
      * @param request - DescribeColumnarVersionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4060,7 +4225,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取Columnar版本列表.
+     * Queries column store version information.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is after the query start time and whose log record start time is before the query end time.
+     * - When DownloadLink is not NULL, you can download the backup file from this URL. This URL is valid for 2 days after it is generated. Download the file before the expiration time.
      *
      * @param request - DescribeColumnarVersionListRequest
      *
@@ -4078,7 +4248,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB-X 实例指定组件的属性列表.
+     * Retrieves the property information of a specified component, including property names and types.
      *
      * @param request - DescribeComponentPropetiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4129,7 +4299,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB-X 实例指定组件的属性列表.
+     * Retrieves the property information of a specified component, including property names and types.
      *
      * @param request - DescribeComponentPropetiesRequest
      *
@@ -4147,7 +4317,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询自定义连接信息.
+     * Queries the list of custom endpoints defined by the user.
+     *
+     * @remarks
+     * Queries the list of custom endpoints configured by the user. You can use this operation to manage and view the settings of private connections or VPC endpoint services.
      *
      * @param request - DescribeCustomEndpointListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4198,7 +4371,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询自定义连接信息.
+     * Queries the list of custom endpoints defined by the user.
+     *
+     * @remarks
+     * Queries the list of custom endpoints configured by the user. You can use this operation to manage and view the settings of private connections or VPC endpoint services.
      *
      * @param request - DescribeCustomEndpointListRequest
      *
@@ -4216,7 +4392,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4263,7 +4439,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Calls the DescribeDBInstanceAttribute operation to retrieve instance attributes.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      *
@@ -4281,7 +4457,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询实例配置信息.
+     * Calls the DescribeDBInstanceConfig operation to retrieve the configuration parameters of an instance.
      *
      * @param request - DescribeDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4328,7 +4504,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询实例配置信息.
+     * Calls the DescribeDBInstanceConfig operation to retrieve the configuration parameters of an instance.
      *
      * @param request - DescribeDBInstanceConfigRequest
      *
@@ -4347,6 +4523,9 @@ class Polardbx extends OpenApiClient
 
     /**
      * 查询endpoint列表.
+     *
+     * @remarks
+     * 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
      *
      * @param request - DescribeDBInstanceEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4399,6 +4578,9 @@ class Polardbx extends OpenApiClient
     /**
      * 查询endpoint列表.
      *
+     * @remarks
+     * 该接口用于获取用户已配置的自定义终端节点（Endpoint）列表，便于管理和查看私有连接或VPC终端服务的设置。
+     *
      * @param request - DescribeDBInstanceEndpointRequest
      *
      * @returns DescribeDBInstanceEndpointResponse
@@ -4415,7 +4597,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询实例的HA信息.
+     * Queries the high availability (HA) information of an instance.
      *
      * @param request - DescribeDBInstanceHARequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4458,7 +4640,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询实例的HA信息.
+     * Queries the high availability (HA) information of an instance.
      *
      * @param request - DescribeDBInstanceHARequest
      *
@@ -4476,6 +4658,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Views SSL information.
+     *
      * @param request - DescribeDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4517,6 +4701,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Views SSL information.
+     *
      * @param request - DescribeDBInstanceSSLRequest
      *
      * @returns DescribeDBInstanceSSLResponse
@@ -4533,6 +4719,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeDBInstanceTDE operation to retrieve the details of Transparent Data Encryption (TDE) for an instance.
+     *
      * @param request - DescribeDBInstanceTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4574,6 +4762,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeDBInstanceTDE operation to retrieve the details of Transparent Data Encryption (TDE) for an instance.
+     *
      * @param request - DescribeDBInstanceTDERequest
      *
      * @returns DescribeDBInstanceTDEResponse
@@ -4590,7 +4780,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询实例拓扑.
+     * Calls the DescribeDBInstanceTopology operation to retrieve the topology information of an instance.
      *
      * @param request - DescribeDBInstanceTopologyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4645,7 +4835,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询实例拓扑.
+     * Calls the DescribeDBInstanceTopology operation to retrieve the topology information of an instance.
      *
      * @param request - DescribeDBInstanceTopologyRequest
      *
@@ -4663,7 +4853,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 通过Endpoint查询实例.
+     * Retrieves the basic information about an instance by using the endpoint of the instance.
      *
      * @param request - DescribeDBInstanceViaEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4706,7 +4896,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 通过Endpoint查询实例.
+     * Retrieves the basic information about an instance by using the endpoint of the instance.
      *
      * @param request - DescribeDBInstanceViaEndpointRequest
      *
@@ -4724,7 +4914,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取PolarDB-X实例列表.
+     * Calls the DescribeDBInstances operation to query a list of instances.
      *
      * @param request - DescribeDBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4799,7 +4989,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取PolarDB-X实例列表.
+     * Calls the DescribeDBInstances operation to query a list of instances.
      *
      * @param request - DescribeDBInstancesRequest
      *
@@ -4817,7 +5007,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 性能监控数据接口.
+     * Queries the performance data of an instance by calling the DescribeDBNodePerformance operation.
+     *
+     * @remarks
+     * Note:
+     * - The **endpoint** differs from other API operations. Use **polardbx.aliyuncs.com** for Chinese regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
+     * - When debugging this API operation, if a service not active error is returned, confirm that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** and change the **endpoint** to **polardbx.aliyuncs.com**.
      *
      * @param request - DescribeDBNodePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4884,7 +5079,12 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 性能监控数据接口.
+     * Queries the performance data of an instance by calling the DescribeDBNodePerformance operation.
+     *
+     * @remarks
+     * Note:
+     * - The **endpoint** differs from other API operations. Use **polardbx.aliyuncs.com** for Chinese regions and Singapore. For other regions, use **polardbx.{region id}.aliyunc.com**.
+     * - When debugging this API operation, if a service not active error is returned, confirm that the **endpoint** is correct. You can switch the **service address** to **Dubai** or **India** and change the **endpoint** to **polardbx.aliyuncs.com**.
      *
      * @param request - DescribeDBNodePerformanceRequest
      *
@@ -4902,7 +5102,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 导入任务详情.
+     * Queries the execution details of a data import task.
      *
      * @param request - DescribeDataImportTaskInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4961,7 +5161,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 导入任务详情.
+     * Queries the execution details of a data import task.
      *
      * @param request - DescribeDataImportTaskInfoRequest
      *
@@ -4979,6 +5179,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries the list of databases by calling the DescribeDbList operation.
+     *
      * @param request - DescribeDbListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5024,6 +5226,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries the list of databases by calling the DescribeDbList operation.
+     *
      * @param request - DescribeDbListRequest
      *
      * @returns DescribeDbListResponse
@@ -5040,6 +5244,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeDistributeTableList operation to retrieve the list of database tables.
+     *
      * @param request - DescribeDistributeTableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5085,6 +5291,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeDistributeTableList operation to retrieve the list of database tables.
+     *
      * @param request - DescribeDistributeTableListRequest
      *
      * @returns DescribeDistributeTableListResponse
@@ -5101,7 +5309,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取已开启跨地域备份的地域
+     * Queries the currently enabled cross-zone configurations.
      *
      * @param request - DescribeEnabledCrossRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5144,7 +5352,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取已开启跨地域备份的地域
+     * Queries the currently enabled cross-zone configurations.
      *
      * @param request - DescribeEnabledCrossRegionsRequest
      *
@@ -5162,7 +5370,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询单个评估迁移任务详情.
+     * Queries the list of PolarDB-X assessment import tasks. (Single).
      *
      * @param request - DescribeEvaluateAndImportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5205,7 +5413,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询单个评估迁移任务详情.
+     * Queries the list of PolarDB-X assessment import tasks. (Single).
      *
      * @param request - DescribeEvaluateAndImportTaskRequest
      *
@@ -5223,7 +5431,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 请求评估导入任务列表.
+     * Queries a list of assessment import tasks for PolarDB-X.
+     *
+     * @remarks
+     * Creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided files, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
      *
      * @param request - DescribeEvaluateAndImportTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5270,7 +5481,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 请求评估导入任务列表.
+     * Queries a list of assessment import tasks for PolarDB-X.
+     *
+     * @remarks
+     * Creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided files, into a destination database instance. By specifying the instance ID, database name, engine type, data source (such as an OSS path), and import type, the system performs data write operations asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
      *
      * @param request - DescribeEvaluateAndImportTasksRequest
      *
@@ -5288,7 +5502,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 历史事件.
+     * Retrieves historical events.
      *
      * @param request - DescribeEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5323,7 +5537,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 历史事件.
+     * Retrieves historical events.
      *
      * @param request - DescribeEventsRequest
      *
@@ -5341,7 +5555,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取GDN实例列表.
+     * Retrieves a list of global database network (GDN) instances.
      *
      * @param request - DescribeGdnInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5400,7 +5614,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 获取GDN实例列表.
+     * Retrieves a list of global database network (GDN) instances.
      *
      * @param request - DescribeGdnInstancesRequest
      *
@@ -5418,7 +5632,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询mem0实例信息.
+     * Query mem0 instance information.
+     *
+     * @remarks
+     * > * The PolarDB-X 2.0 SQL Audit and Analysis feature is free to use. However, Simple Log Service charges for storage space, read traffic, request quantity, data transformation, data shipping, and other resources. For more details about the SQL Audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
      *
      * @param request - DescribeMem0InfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5461,7 +5678,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询mem0实例信息.
+     * Query mem0 instance information.
+     *
+     * @remarks
+     * > * The PolarDB-X 2.0 SQL Audit and Analysis feature is free to use. However, Simple Log Service charges for storage space, read traffic, request quantity, data transformation, data shipping, and other resources. For more details about the SQL Audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
      *
      * @param request - DescribeMem0InfoRequest
      *
@@ -5479,7 +5699,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开放商业备份集.
+     * Exposes instance topology information and download links for commercial backup sets to support offline restoration of cloud instances.
      *
      * @param request - DescribeOpenBackupSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5526,7 +5746,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开放商业备份集.
+     * Exposes instance topology information and download links for commercial backup sets to support offline restoration of cloud instances.
      *
      * @param request - DescribeOpenBackupSetRequest
      *
@@ -5544,7 +5764,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询参数模版列表.
+     * Queries the list of database parameter templates created by users or supported by the system, including basic information, associated engine types, and modification times of each parameter template.
      *
      * @param request - DescribeParameterGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5579,7 +5799,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询参数模版列表.
+     * Queries the list of database parameter templates created by users or supported by the system, including basic information, associated engine types, and modification times of each parameter template.
      *
      * @param request - DescribeParameterGroupsRequest
      *
@@ -5597,7 +5817,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查看参数模版.
+     * Calls the DescribeParameterTemplates operation to retrieve the parameter template list for an instance.
      *
      * @param request - DescribeParameterTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5648,7 +5868,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查看参数模版.
+     * Calls the DescribeParameterTemplates operation to retrieve the parameter template list for an instance.
      *
      * @param request - DescribeParameterTemplatesRequest
      *
@@ -5666,6 +5886,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeParameters operation to retrieve instance parameters.
+     *
      * @param request - DescribeParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5711,6 +5933,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeParameters operation to retrieve instance parameters.
+     *
      * @param request - DescribeParametersRequest
      *
      * @returns DescribeParametersResponse
@@ -5727,7 +5951,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询数据节点列表.
+     * Queries the details of all data nodes (Data Nodes) in a PolarDB-X instance, including node status, storage usage, and network addresses, to facilitate operations management and monitoring.
      *
      * @param request - DescribePolarxDataNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5782,7 +6006,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询数据节点列表.
+     * Queries the details of all data nodes (Data Nodes) in a PolarDB-X instance, including node status, storage usage, and network addresses, to facilitate operations management and monitoring.
      *
      * @param request - DescribePolarxDataNodesRequest
      *
@@ -5800,6 +6024,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries the list of VPCs available for PolarDB-X.
+     *
+     * @remarks
+     * Queries the list of Virtual Private Clouds (VPCs) available under your account for database instances. You can use this operation to select an appropriate network environment when creating or managing database instances.
+     *
      * @param request - DescribeRdsVpcsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5841,6 +6070,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries the list of VPCs available for PolarDB-X.
+     *
+     * @remarks
+     * Queries the list of Virtual Private Clouds (VPCs) available under your account for database instances. You can use this operation to select an appropriate network environment when creating or managing database instances.
+     *
      * @param request - DescribeRdsVpcsRequest
      *
      * @returns DescribeRdsVpcsResponse
@@ -5857,7 +6091,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询Vswitch信息.
+     * Queries the list of available vSwitches in a virtual private cloud (VPC) for an ApsaraDB RDS instance.
+     *
+     * @remarks
+     * Queries the list of available virtual private clouds (VPCs) under your account for an instance, so that you can select an appropriate network environment when creating or managing a database instance.
      *
      * @param request - DescribeRdsVswitchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5904,7 +6141,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询Vswitch信息.
+     * Queries the list of available vSwitches in a virtual private cloud (VPC) for an ApsaraDB RDS instance.
+     *
+     * @remarks
+     * Queries the list of available virtual private clouds (VPCs) under your account for an instance, so that you can select an appropriate network environment when creating or managing a database instance.
      *
      * @param request - DescribeRdsVswitchesRequest
      *
@@ -5922,6 +6162,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeRegions operation to obtain the list of regions.
+     *
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeRegionsResponse
@@ -5949,6 +6191,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeRegions operation to obtain the list of regions.
+     *
      * @returns DescribeRegionsResponse
      *
      * @return DescribeRegionsResponse
@@ -5961,7 +6205,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询预检任务结果.
+     * Queries the details of a replication lag inspection task for an instance.
+     *
+     * @remarks
+     * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, interruption, or data inconsistency.
      *
      * @param request - DescribeRplInspectionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6020,7 +6267,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询预检任务结果.
+     * Queries the details of a replication lag inspection task for an instance.
+     *
+     * @remarks
+     * During the data synchronization phase, proactively initiates a diagnostic task for the replication task to check for exceptions such as latency, interruption, or data inconsistency.
      *
      * @param request - DescribeRplInspectionTaskRequest
      *
@@ -6038,6 +6288,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Display the ScaleOut migration task progress.
+     *
      * @param request - DescribeScaleOutMigrateTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6095,6 +6347,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Display the ScaleOut migration task progress.
+     *
      * @param request - DescribeScaleOutMigrateTaskListRequest
      *
      * @returns DescribeScaleOutMigrateTaskListResponse
@@ -6111,6 +6365,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeSecurityIps operation to view the IP whitelist of an instance.
+     *
      * @param request - DescribeSecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6152,6 +6408,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeSecurityIps operation to view the IP whitelist of an instance.
+     *
      * @param request - DescribeSecurityIpsRequest
      *
      * @returns DescribeSecurityIpsResponse
@@ -6168,7 +6426,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询 PolarDB-X 存储节点信息.
+     * Queries the storage usage details of an instance, including the total capacity, used space, remaining space, and other information.
      *
      * @param request - DescribeShowStorageInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6215,7 +6473,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询 PolarDB-X 存储节点信息.
+     * Queries the storage usage details of an instance, including the total capacity, used space, remaining space, and other information.
      *
      * @param request - DescribeShowStorageInfoRequest
      *
@@ -6233,7 +6491,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 慢SQL明细.
+     * Queries the details of slow SQL statements on compute nodes and storage nodes of a PolarDB-X instance.
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6304,7 +6562,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 慢SQL明细.
+     * Queries the details of slow SQL statements on compute nodes and storage nodes of a PolarDB-X instance.
      *
      * @param request - DescribeSlowLogRecordsRequest
      *
@@ -6322,6 +6580,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries SQL audit information.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data delivery. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
      * @param request - DescribeSqlAuditInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6371,6 +6634,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries SQL audit information.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Simple Log Service charges fees for storage space, read traffic, number of requests, data transformation, and data delivery. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
      * @param request - DescribeSqlAuditInfoRequest
      *
      * @returns DescribeSqlAuditInfoResponse
@@ -6387,7 +6655,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * SQL闪回任务列表查询.
+     * Queries the list of SQL flashback tasks by calling the DescribeSqlFlashbackTaskList operation.
      *
      * @param request - DescribeSqlFlashbackTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6430,7 +6698,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * SQL闪回任务列表查询.
+     * Queries the list of SQL flashback tasks by calling the DescribeSqlFlashbackTaskList operation.
      *
      * @param request - DescribeSqlFlashbackTaskListRequest
      *
@@ -6448,7 +6716,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询 PolarDB-X 存储资源池信息.
+     * Queries the details of a storage pool, including capacity, usage, and status.
      *
      * @param request - DescribeStoragePoolInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6495,7 +6763,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询 PolarDB-X 存储资源池信息.
+     * Queries the details of a storage pool, including capacity, usage, and status.
      *
      * @param request - DescribeStoragePoolInfoRequest
      *
@@ -6513,7 +6781,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询结构迁移任务结果.
+     * Queries the details of a database schema import task.
+     *
+     * @remarks
+     * The CreateDataImportTask operation creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. Specify the instance ID, database name, engine type, data source (such as an OSS path), and import type. The system performs the data write operation asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
      *
      * @param request - DescribeStructureImportTaskInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6556,7 +6827,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询结构迁移任务结果.
+     * Queries the details of a database schema import task.
+     *
+     * @remarks
+     * The CreateDataImportTask operation creates a data import task. You can use this operation to import SQL or CSV files stored in OSS or ECS, or directly provided, into a destination database instance. Specify the instance ID, database name, engine type, data source (such as an OSS path), and import type. The system performs the data write operation asynchronously or synchronously. This operation is applicable to scenarios such as data migration, initialization, and data backfill. A task ID is returned for subsequent status queries and management.
      *
      * @param request - DescribeStructureImportTaskInfoRequest
      *
@@ -6574,7 +6848,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 标签列表查询.
+     * Retrieves tag information.
      *
      * @param request - DescribeTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6621,7 +6895,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 标签列表查询.
+     * Retrieves tag information.
      *
      * @param request - DescribeTagsRequest
      *
@@ -6639,6 +6913,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Retrieves the task list of an instance.
+     *
      * @param request - DescribeTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6712,6 +6988,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Retrieves the task list of an instance.
+     *
      * @param request - DescribeTasksRequest
      *
      * @returns DescribeTasksResponse
@@ -6728,7 +7006,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询标准版迁移到企业版的任务状态
+     * Queries the current status of a task that upgrades or converts a standard instance to an Enterprise instance.
      *
      * @param request - DescribeTransformStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6775,7 +7053,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查询标准版迁移到企业版的任务状态
+     * Queries the current status of a task that upgrades or converts a standard instance to an Enterprise instance.
      *
      * @param request - DescribeTransformStatusRequest
      *
@@ -6793,6 +7071,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeUserEncryptionKeyList operation to retrieve the list of Transparent Data Encryption (TDE) keys for a user.
+     *
      * @param request - DescribeUserEncryptionKeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6834,6 +7114,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the DescribeUserEncryptionKeyList operation to retrieve the list of Transparent Data Encryption (TDE) keys for a user.
+     *
      * @param request - DescribeUserEncryptionKeyListRequest
      *
      * @returns DescribeUserEncryptionKeyListResponse
@@ -6850,6 +7132,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Disables three-role mode.
+     *
      * @param request - DisableRightsSeparationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6899,6 +7183,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Disables three-role mode.
+     *
      * @param request - DisableRightsSeparationRequest
      *
      * @returns DisableRightsSeparationResponse
@@ -6915,6 +7201,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Disables the SQL audit feature.
+     *
+     * @remarks
+     * > After the SQL audit and analysis feature is disabled, data is no longer written to Simple Log Service. However, you can still view historical data, which incurs storage and indexing fees. You can delete all data to deactivate Simple Log Service. After Simple Log Service is deactivated, no further fees are incurred. For more information about deactivating Simple Log Service, see [Deactivate Simple Log Service](https://help.aliyun.com/document_detail/90650.html).
+     *
      * @param request - DisableSqlAuditRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6964,6 +7255,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Disables the SQL audit feature.
+     *
+     * @remarks
+     * > After the SQL audit and analysis feature is disabled, data is no longer written to Simple Log Service. However, you can still view historical data, which incurs storage and indexing fees. You can delete all data to deactivate Simple Log Service. After Simple Log Service is deactivated, no further fees are incurred. For more information about deactivating Simple Log Service, see [Deactivate Simple Log Service](https://help.aliyun.com/document_detail/90650.html).
+     *
      * @param request - DisableSqlAuditRequest
      *
      * @returns DisableSqlAuditResponse
@@ -6980,7 +7276,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开启三权分立.
+     * Enables three-role mode.
      *
      * @param request - EnableRightsSeparationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7047,7 +7343,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开启三权分立.
+     * Enables three-role mode.
      *
      * @param request - EnableRightsSeparationRequest
      *
@@ -7065,6 +7361,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Enables the SQL audit feature.
+     *
+     * @remarks
+     * > * The PolarDB-X 2.0 SQL audit and analysis feature itself is free of charge. However, Log Service charges fees for storage space, read traffic, number of requests, data transformation, data shipping, and other services. For more information about the SQL audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
      * @param request - EnableSqlAuditRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7118,6 +7419,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Enables the SQL audit feature.
+     *
+     * @remarks
+     * > * The PolarDB-X 2.0 SQL audit and analysis feature itself is free of charge. However, Log Service charges fees for storage space, read traffic, number of requests, data transformation, data shipping, and other services. For more information about the SQL audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
      * @param request - EnableSqlAuditRequest
      *
      * @returns EnableSqlAuditResponse
@@ -7134,7 +7440,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查标签接口.
+     * Retrieves a list of labels.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7189,7 +7495,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 查标签接口.
+     * Retrieves a list of labels.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -7207,6 +7513,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Migrates an instance from one zone to another.
+     *
      * @param request - MigrateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7276,6 +7584,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Migrates an instance from one zone to another.
+     *
      * @param request - MigrateDBInstanceRequest
      *
      * @returns MigrateDBInstanceResponse
@@ -7292,6 +7602,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifyAccountDescription operation to modify the description of an account.
+     *
      * @param request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7341,6 +7653,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifyAccountDescription operation to modify the description of an account.
+     *
      * @param request - ModifyAccountDescriptionRequest
      *
      * @returns ModifyAccountDescriptionResponse
@@ -7357,6 +7671,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Modifies the permissions of a standard account.
+     *
      * @param request - ModifyAccountPrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7418,6 +7734,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Modifies the permissions of a standard account.
+     *
      * @param request - ModifyAccountPrivilegeRequest
      *
      * @returns ModifyAccountPrivilegeResponse
@@ -7434,7 +7752,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改全局运维窗口信息.
+     * Calls the ModifyActiveOperationMaintainConf operation to modify the time configuration of O&M events.
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7469,7 +7787,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改全局运维窗口信息.
+     * Calls the ModifyActiveOperationMaintainConf operation to modify the time configuration of O&M events.
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
      *
@@ -7487,7 +7805,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改主动运维任务
+     * Calls the ModifyActiveOperationTasks operation to modify the execution time of O&M events.
      *
      * @param request - ModifyActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7538,7 +7856,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改主动运维任务
+     * Calls the ModifyActiveOperationTasks operation to modify the execution time of O&M events.
      *
      * @param request - ModifyActiveOperationTasksRequest
      *
@@ -7556,9 +7874,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * CDC变配.
+     * Modifies the CDC configuration.
      *
      * @remarks
+     * ***.
      *
      * @param request - ModifyCdcClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7613,9 +7932,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * CDC变配.
+     * Modifies the CDC configuration.
      *
      * @remarks
+     * ***.
      *
      * @param request - ModifyCdcClassRequest
      *
@@ -7633,9 +7953,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Columnar变配.
+     * Modifies the column store specifications.
      *
      * @remarks
+     * ***.
      *
      * @param request - ModifyColumnarClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7690,9 +8011,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Columnar变配.
+     * Modifies the column store specifications.
      *
      * @remarks
+     * ***.
      *
      * @param request - ModifyColumnarClassRequest
      *
@@ -7710,7 +8032,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修复自定连接基本信息.
+     * Modifies the configuration of a custom endpoint.
+     *
+     * @remarks
+     * In PolarDB-X, in addition to the default primary endpoint and read-only endpoint, you can create custom endpoints to implement more flexible read/write splitting, load balancing, or business isolation strategies. The ModifyCustomEndpoint operation allows you to dynamically adjust the attributes of these custom endpoints without restarting the instance.
      *
      * @param request - ModifyCustomEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7773,7 +8098,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修复自定连接基本信息.
+     * Modifies the configuration of a custom endpoint.
+     *
+     * @remarks
+     * In PolarDB-X, in addition to the default primary endpoint and read-only endpoint, you can create custom endpoints to implement more flexible read/write splitting, load balancing, or business isolation strategies. The ModifyCustomEndpoint operation allows you to dynamically adjust the attributes of these custom endpoints without restarting the instance.
      *
      * @param request - ModifyCustomEndpointRequest
      *
@@ -7791,7 +8119,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修复自定连接的网络信息.
+     * Modifies the network configurations of a custom network endpoint, such as the subnet, security group, and public network access settings.
+     *
+     * @remarks
+     * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
      *
      * @param request - ModifyCustomEndpointNetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7854,7 +8185,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修复自定连接的网络信息.
+     * Modifies the network configurations of a custom network endpoint, such as the subnet, security group, and public network access settings.
+     *
+     * @remarks
+     * Deletes the custom endpoint of a specified database instance and disables access through the domain name.
      *
      * @param request - ModifyCustomEndpointNetRequest
      *
@@ -7872,6 +8206,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Modifies the specifications of an instance by calling the ModifyDBInstanceClass operation.
+     *
      * @param request - ModifyDBInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7949,6 +8285,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Modifies the specifications of an instance by calling the ModifyDBInstanceClass operation.
+     *
      * @param request - ModifyDBInstanceClassRequest
      *
      * @returns ModifyDBInstanceClassResponse
@@ -7965,7 +8303,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改实例配置.
+     * Calls the ModifyDBInstanceConfig operation to modify instance configuration items.
      *
      * @param request - ModifyDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8016,7 +8354,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改实例配置.
+     * Calls the ModifyDBInstanceConfig operation to modify instance configuration items.
      *
      * @param request - ModifyDBInstanceConfigRequest
      *
@@ -8034,7 +8372,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改实例链接串.
+     * Modifies the connection string of an instance.
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8089,7 +8427,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 修改实例链接串.
+     * Modifies the connection string of an instance.
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
      *
@@ -8107,6 +8445,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifyDBInstanceDescription operation to modify the description of an instance.
+     *
      * @param request - ModifyDBInstanceDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8152,6 +8492,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifyDBInstanceDescription operation to modify the description of an instance.
+     *
      * @param request - ModifyDBInstanceDescriptionRequest
      *
      * @returns ModifyDBInstanceDescriptionResponse
@@ -8168,6 +8510,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Modifies the maintenance window of an instance.
+     *
+     * @remarks
+     * ***.
+     *
      * @param request - ModifyDBInstanceMaintainTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8217,6 +8564,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Modifies the maintenance window of an instance.
+     *
+     * @remarks
+     * ***.
+     *
      * @param request - ModifyDBInstanceMaintainTimeRequest
      *
      * @returns ModifyDBInstanceMaintainTimeResponse
@@ -8233,9 +8585,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 切换交换机.
+     * Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
      *
      * @remarks
+     * ***.
      *
      * @param request - ModifyDBInstanceVipRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8290,9 +8643,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 切换交换机.
+     * Modifies the virtual IP (VIP) address or network properties bound to a database instance. This operation supports changing the internal IP address, adjusting the vSwitch, migrating across zones, and other operations.
      *
      * @remarks
+     * ***.
      *
      * @param request - ModifyDBInstanceVipRequest
      *
@@ -8310,6 +8664,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifyDatabaseDescription operation to modify the description of a database.
+     *
      * @param request - ModifyDatabaseDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8359,6 +8715,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifyDatabaseDescription operation to modify the description of a database.
+     *
      * @param request - ModifyDatabaseDescriptionRequest
      *
      * @returns ModifyDatabaseDescriptionResponse
@@ -8375,9 +8733,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * ModifyEngineMigration.
+     * Modifies the configuration or migration parameters of a database engine migration task, such as the source database, destination database, migration objects, or migration mode.
      *
      * @remarks
+     * ***.
      *
      * @param request - ModifyEngineMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8436,9 +8795,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * ModifyEngineMigration.
+     * Modifies the configuration or migration parameters of a database engine migration task, such as the source database, destination database, migration objects, or migration mode.
      *
      * @remarks
+     * ***.
      *
      * @param request - ModifyEngineMigrationRequest
      *
@@ -8456,6 +8816,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifyParameter operation to modify instance parameters, including compute layer and storage layer parameters.
+     *
      * @param request - ModifyParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8513,6 +8875,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifyParameter operation to modify instance parameters, including compute layer and storage layer parameters.
+     *
      * @param request - ModifyParameterRequest
      *
      * @returns ModifyParameterResponse
@@ -8529,6 +8893,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifySecurityIps operation to modify the whitelist of an instance.
+     *
      * @param request - ModifySecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8582,6 +8948,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Calls the ModifySecurityIps operation to modify the whitelist of an instance.
+     *
      * @param request - ModifySecurityIpsRequest
      *
      * @returns ModifySecurityIpsResponse
@@ -8598,7 +8966,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * SQL闪回任务预检
+     * Performs a pre-check and feasibility assessment for a recovery task before you execute SQL flashback recovery.
      *
      * @param request - PreCheckSqlFlashbackTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8653,7 +9021,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * SQL闪回任务预检
+     * Performs a pre-check and feasibility assessment for a recovery task before you execute SQL flashback recovery.
      *
      * @param request - PreCheckSqlFlashbackTaskRequest
      *
@@ -8671,7 +9039,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 刷新评估升级任务的导入元数据.
+     * Refreshes the metadata of an import task.
      *
      * @param request - RefreshImportMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8718,7 +9086,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 刷新评估升级任务的导入元数据.
+     * Refreshes the metadata of an import task.
      *
      * @param request - RefreshImportMetaRequest
      *
@@ -8736,7 +9104,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 关闭冷存储.
+     * Calls the ReleaseColdDataVolume operation.
      *
      * @param request - ReleaseColdDataVolumeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8779,7 +9147,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 关闭冷存储.
+     * Calls the ReleaseColdDataVolume operation.
      *
      * @param request - ReleaseColdDataVolumeRequest
      *
@@ -8797,6 +9165,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Releases the public network connection of an instance by calling the ReleaseInstancePublicConnection operation.
+     *
      * @param request - ReleaseInstancePublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8842,6 +9212,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Releases the public network connection of an instance by calling the ReleaseInstancePublicConnection operation.
+     *
      * @param request - ReleaseInstancePublicConnectionRequest
      *
      * @returns ReleaseInstancePublicConnectionResponse
@@ -8858,6 +9230,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Resets the password of an account.
+     *
      * @param request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8915,6 +9289,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Resets the password of an account.
+     *
      * @param request - ResetAccountPasswordRequest
      *
      * @returns ResetAccountPasswordResponse
@@ -8931,7 +9307,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Resets the password of an account.
+     *
      * @remarks
+     * ***.
      *
      * @param request - ResetAccountPasswordRestrictRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8990,7 +9369,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Resets the password of an account.
+     *
      * @remarks
+     * ***.
      *
      * @param request - ResetAccountPasswordRestrictRequest
      *
@@ -9008,6 +9390,79 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Resets the API key of the memory engine.
+     *
+     * @remarks
+     * ***.
+     *
+     * @param request - ResetMem0AccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetMem0AccountPasswordResponse
+     *
+     * @param ResetMem0AccountPasswordRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ResetMem0AccountPasswordResponse
+     */
+    public function resetMem0AccountPasswordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->mem0ApiKey) {
+            @$query['Mem0ApiKey'] = $request->mem0ApiKey;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetMem0AccountPassword',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetMem0AccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resets the API key of the memory engine.
+     *
+     * @remarks
+     * ***.
+     *
+     * @param request - ResetMem0AccountPasswordRequest
+     *
+     * @returns ResetMem0AccountPasswordResponse
+     *
+     * @param ResetMem0AccountPasswordRequest $request
+     *
+     * @return ResetMem0AccountPasswordResponse
+     */
+    public function resetMem0AccountPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetMem0AccountPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * Restarts an instance by calling the RestartDBInstance operation.
+     *
      * @param request - RestartDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9049,6 +9504,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Restarts an instance by calling the RestartDBInstance operation.
+     *
      * @param request - RestartDBInstanceRequest
      *
      * @returns RestartDBInstanceResponse
@@ -9065,7 +9522,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 重启数据导入任务
+     * Restarts a data import task.
      *
      * @param request - RestartDataImportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9116,7 +9573,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 重启数据导入任务
+     * Restarts a data import task.
      *
      * @param request - RestartDataImportTaskRequest
      *
@@ -9315,7 +9772,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 跳过评估迁移的当前步骤.
+     * This API is used to skip the current step.
      *
      * @param request - SkipCurrentStepRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9362,7 +9819,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 跳过评估迁移的当前步骤.
+     * This API is used to skip the current step.
      *
      * @param request - SkipCurrentStepRequest
      *
@@ -9380,7 +9837,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开始评估迁移切换.
+     * Starts a database cutover for a database migration or synchronization task.
      *
      * @param request - StartSwitchDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9447,7 +9904,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 开始评估迁移切换.
+     * Starts a database cutover for a database migration or synchronization task.
      *
      * @param request - StartSwitchDatabaseRequest
      *
@@ -9465,7 +9922,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 暂停数据导入任务
+     * Stops a data import task.
      *
      * @param request - StopDataImportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9516,7 +9973,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 暂停数据导入任务
+     * Stops a data import task.
      *
      * @param request - StopDataImportTaskRequest
      *
@@ -9534,7 +9991,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 提交SQL闪回任务
+     * Creates a SQL flashback task by calling the SubmitSqlFlashbackTask operation.
      *
      * @param request - SubmitSqlFlashbackTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9613,7 +10070,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 提交SQL闪回任务
+     * Creates a SQL flashback task by calling the SubmitSqlFlashbackTask operation.
      *
      * @param request - SubmitSqlFlashbackTaskRequest
      *
@@ -9704,7 +10161,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * GDN主备切换.
+     * Performs a primary/secondary switchover for a global database network (GDN).
      *
      * @param request - SwitchGdnMemberRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9775,7 +10232,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * GDN主备切换.
+     * Performs a primary/secondary switchover for a global database network (GDN).
      *
      * @param request - SwitchGdnMemberRoleRequest
      *
@@ -9793,7 +10250,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 打标签接口.
+     * Calls the TagResources operation to add tags to resources.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9844,7 +10301,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 打标签接口.
+     * Calls the TagResources operation to add tags to resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -9862,7 +10319,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删标签接口.
+     * Removes tags from a resource.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9917,7 +10374,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 删标签接口.
+     * Removes tags from a resource.
      *
      * @param request - UntagResourcesRequest
      *
@@ -9935,7 +10392,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 更新备份策略.
+     * Calls the UpdateBackupPolicy operation to modify the backup policy of an instance.
      *
      * @param request - UpdateBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10054,7 +10511,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 更新备份策略.
+     * Calls the UpdateBackupPolicy operation to modify the backup policy of an instance.
      *
      * @param request - UpdateBackupPolicyRequest
      *
@@ -10073,6 +10530,9 @@ class Polardbx extends OpenApiClient
 
     /**
      * 更新实例的管控参数.
+     *
+     * @remarks
+     * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
      *
      * @param request - UpdateCustinsParamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10125,6 +10585,9 @@ class Polardbx extends OpenApiClient
     /**
      * 更新实例的管控参数.
      *
+     * @remarks
+     * <props="china">更多关于实例账号的信息，请参见[账号管理](https://help.aliyun.com/document_detail/172163.html)。
+     *
      * @param request - UpdateCustinsParamRequest
      *
      * @returns UpdateCustinsParamResponse
@@ -10141,6 +10604,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Updates the SSL configuration of an instance.
+     *
      * @param request - UpdateDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10190,6 +10655,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Updates the SSL configuration of an instance.
+     *
      * @param request - UpdateDBInstanceSSLRequest
      *
      * @returns UpdateDBInstanceSSLResponse
@@ -10206,6 +10673,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Enables Transparent Data Encryption (TDE) for an instance by calling the UpdateDBInstanceTDE operation.
+     *
      * @param request - UpdateDBInstanceTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10259,6 +10728,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Enables Transparent Data Encryption (TDE) for an instance by calling the UpdateDBInstanceTDE operation.
+     *
      * @param request - UpdateDBInstanceTDERequest
      *
      * @returns UpdateDBInstanceTDEResponse
@@ -10275,7 +10746,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 扩缩容实例节点数.
+     * Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
      *
      * @param request - UpdatePolarDBXInstanceNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10346,7 +10817,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 扩缩容实例节点数.
+     * Calls the UpdatePolarDBXInstanceNode operation to change the number of nodes for an instance, including scaling out and scaling in. This request generates a billable order.
      *
      * @param request - UpdatePolarDBXInstanceNodeRequest
      *
@@ -10364,7 +10835,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 升级CDC版本.
+     * Upgrades the CDC node version of a PolarDB-X instance.
      *
      * @param request - UpgradeCDCVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10423,7 +10894,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 升级CDC版本.
+     * Upgrades the CDC node version of a PolarDB-X instance.
      *
      * @param request - UpgradeCDCVersionRequest
      *
@@ -10441,7 +10912,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 升级Columnar版本.
+     * Updates the column store version.
      *
      * @param request - UpgradeColumnarVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10496,7 +10967,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 升级Columnar版本.
+     * Updates the column store version.
      *
      * @param request - UpgradeColumnarVersionRequest
      *
@@ -10514,6 +10985,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Invokes the UpgradeDBInstanceKernelVersion operation to update the kernel version of an instance.
+     *
      * @param request - UpgradeDBInstanceKernelVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10563,6 +11036,8 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Invokes the UpgradeDBInstanceKernelVersion operation to update the kernel version of an instance.
+     *
      * @param request - UpgradeDBInstanceKernelVersionRequest
      *
      * @returns UpgradeDBInstanceKernelVersionResponse
