@@ -32,6 +32,11 @@ class GetUserResponseBody extends Model
     /**
      * @var string
      */
+    public $dashscopeHost;
+
+    /**
+     * @var string
+     */
     public $host;
 
     /**
@@ -58,6 +63,7 @@ class GetUserResponseBody extends Model
         'apiKeys' => 'ApiKeys',
         'appId' => 'AppId',
         'code' => 'Code',
+        'dashscopeHost' => 'DashscopeHost',
         'host' => 'Host',
         'innerToken' => 'InnerToken',
         'message' => 'Message',
@@ -97,6 +103,10 @@ class GetUserResponseBody extends Model
 
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->dashscopeHost) {
+            $res['DashscopeHost'] = $this->dashscopeHost;
         }
 
         if (null !== $this->host) {
@@ -151,6 +161,10 @@ class GetUserResponseBody extends Model
 
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+
+        if (isset($map['DashscopeHost'])) {
+            $model->dashscopeHost = $map['DashscopeHost'];
         }
 
         if (isset($map['Host'])) {
