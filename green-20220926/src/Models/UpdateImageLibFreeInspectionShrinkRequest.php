@@ -17,9 +17,15 @@ class UpdateImageLibFreeInspectionShrinkRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $serviceCode;
     protected $_name = [
         'configShrink' => 'Config',
         'regionId' => 'RegionId',
+        'serviceCode' => 'ServiceCode',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class UpdateImageLibFreeInspectionShrinkRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->serviceCode) {
+            $res['ServiceCode'] = $this->serviceCode;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class UpdateImageLibFreeInspectionShrinkRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ServiceCode'])) {
+            $model->serviceCode = $map['ServiceCode'];
         }
 
         return $model;

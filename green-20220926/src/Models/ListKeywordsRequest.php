@@ -36,6 +36,11 @@ class ListKeywordsRequest extends Model
     /**
      * @var string
      */
+    public $tenantCode;
+
+    /**
+     * @var string
+     */
     public $word;
     protected $_name = [
         'currentPage' => 'CurrentPage',
@@ -43,6 +48,7 @@ class ListKeywordsRequest extends Model
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'sort' => 'Sort',
+        'tenantCode' => 'TenantCode',
         'word' => 'Word',
     ];
 
@@ -80,6 +86,10 @@ class ListKeywordsRequest extends Model
                     $res['Sort'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->tenantCode) {
+            $res['TenantCode'] = $this->tenantCode;
         }
 
         if (null !== $this->word) {
@@ -120,6 +130,10 @@ class ListKeywordsRequest extends Model
                     $model->sort[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['TenantCode'])) {
+            $model->tenantCode = $map['TenantCode'];
         }
 
         if (isset($map['Word'])) {

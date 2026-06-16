@@ -25,6 +25,11 @@ class ListImageLibResponseBody extends Model
     public $libList;
 
     /**
+     * @var int
+     */
+    public $maxLibCount;
+
+    /**
      * @var string
      */
     public $msg;
@@ -42,6 +47,7 @@ class ListImageLibResponseBody extends Model
         'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
         'libList' => 'LibList',
+        'maxLibCount' => 'MaxLibCount',
         'msg' => 'Msg',
         'requestId' => 'RequestId',
         'success' => 'Success',
@@ -75,6 +81,10 @@ class ListImageLibResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->maxLibCount) {
+            $res['MaxLibCount'] = $this->maxLibCount;
         }
 
         if (null !== $this->msg) {
@@ -117,6 +127,10 @@ class ListImageLibResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['MaxLibCount'])) {
+            $model->maxLibCount = $map['MaxLibCount'];
         }
 
         if (isset($map['Msg'])) {

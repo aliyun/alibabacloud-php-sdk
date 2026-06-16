@@ -36,6 +36,11 @@ class ListKeywordsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $tenantCode;
+
+    /**
+     * @var string
+     */
     public $word;
     protected $_name = [
         'currentPage' => 'CurrentPage',
@@ -43,6 +48,7 @@ class ListKeywordsShrinkRequest extends Model
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
         'sortShrink' => 'Sort',
+        'tenantCode' => 'TenantCode',
         'word' => 'Word',
     ];
 
@@ -72,6 +78,10 @@ class ListKeywordsShrinkRequest extends Model
 
         if (null !== $this->sortShrink) {
             $res['Sort'] = $this->sortShrink;
+        }
+
+        if (null !== $this->tenantCode) {
+            $res['TenantCode'] = $this->tenantCode;
         }
 
         if (null !== $this->word) {
@@ -107,6 +117,10 @@ class ListKeywordsShrinkRequest extends Model
 
         if (isset($map['Sort'])) {
             $model->sortShrink = $map['Sort'];
+        }
+
+        if (isset($map['TenantCode'])) {
+            $model->tenantCode = $map['TenantCode'];
         }
 
         if (isset($map['Word'])) {

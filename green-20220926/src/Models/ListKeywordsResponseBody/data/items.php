@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Green\V20220926\Models\ListKeywordsResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListKeywordsResponseBody\data\items\properties;
 
 class items extends Model
 {
@@ -34,6 +35,11 @@ class items extends Model
     public $keywordMd5Id;
 
     /**
+     * @var properties
+     */
+    public $properties;
+
+    /**
      * @var string
      */
     public $word;
@@ -43,11 +49,15 @@ class items extends Model
         'id' => 'Id',
         'keywordLibId' => 'KeywordLibId',
         'keywordMd5Id' => 'KeywordMd5Id',
+        'properties' => 'Properties',
         'word' => 'Word',
     ];
 
     public function validate()
     {
+        if (null !== $this->properties) {
+            $this->properties->validate();
+        }
         parent::validate();
     }
 
@@ -72,6 +82,10 @@ class items extends Model
 
         if (null !== $this->keywordMd5Id) {
             $res['KeywordMd5Id'] = $this->keywordMd5Id;
+        }
+
+        if (null !== $this->properties) {
+            $res['Properties'] = null !== $this->properties ? $this->properties->toArray($noStream) : $this->properties;
         }
 
         if (null !== $this->word) {
@@ -107,6 +121,10 @@ class items extends Model
 
         if (isset($map['KeywordMd5Id'])) {
             $model->keywordMd5Id = $map['KeywordMd5Id'];
+        }
+
+        if (isset($map['Properties'])) {
+            $model->properties = properties::fromMap($map['Properties']);
         }
 
         if (isset($map['Word'])) {

@@ -478,8 +478,16 @@ class Green extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->properties) {
+            @$query['Properties'] = $request->properties;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
         }
 
         $body = [];
@@ -553,6 +561,10 @@ class Green extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
+        }
+
         $body = [];
         if (null !== $request->keywords) {
             @$body['Keywords'] = $request->keywords;
@@ -620,8 +632,16 @@ class Green extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->properties) {
+            @$query['Properties'] = $request->properties;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
         }
 
         $body = [];
@@ -1734,6 +1754,10 @@ class Green extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
+        }
+
         $body = [];
         if (null !== $request->keywordIdList) {
             @$body['KeywordIdList'] = $request->keywordIdList;
@@ -1803,6 +1827,10 @@ class Green extends OpenApiClient
         $query = [];
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
         }
 
         $body = [];
@@ -2231,6 +2259,10 @@ class Green extends OpenApiClient
         $query = [];
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
         }
 
         $body = [];
@@ -3420,6 +3452,10 @@ class Green extends OpenApiClient
         $query = [];
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
         }
 
         $body = [];
@@ -4842,8 +4878,14 @@ class Green extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        $body = [];
+        if (null !== $request->serviceCode) {
+            @$body['ServiceCode'] = $request->serviceCode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListImageLib',
@@ -4992,6 +5034,10 @@ class Green extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -5053,6 +5099,10 @@ class Green extends OpenApiClient
         $query = [];
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
         }
 
         $body = [];
@@ -6356,6 +6406,10 @@ class Green extends OpenApiClient
             @$body['Config'] = $request->configShrink;
         }
 
+        if (null !== $request->serviceCode) {
+            @$body['ServiceCode'] = $request->serviceCode;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
@@ -6412,6 +6466,10 @@ class Green extends OpenApiClient
         $query = [];
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantCode) {
+            @$query['TenantCode'] = $request->tenantCode;
         }
 
         $body = [];

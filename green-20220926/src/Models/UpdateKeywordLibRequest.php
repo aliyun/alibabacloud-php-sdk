@@ -22,10 +22,16 @@ class UpdateKeywordLibRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $tenantCode;
     protected $_name = [
         'libId' => 'LibId',
         'libName' => 'LibName',
         'regionId' => 'RegionId',
+        'tenantCode' => 'TenantCode',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class UpdateKeywordLibRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->tenantCode) {
+            $res['TenantCode'] = $this->tenantCode;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class UpdateKeywordLibRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['TenantCode'])) {
+            $model->tenantCode = $map['TenantCode'];
         }
 
         return $model;

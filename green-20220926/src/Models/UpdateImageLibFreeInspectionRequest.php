@@ -17,9 +17,15 @@ class UpdateImageLibFreeInspectionRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $serviceCode;
     protected $_name = [
         'config' => 'Config',
         'regionId' => 'RegionId',
+        'serviceCode' => 'ServiceCode',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class UpdateImageLibFreeInspectionRequest extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->serviceCode) {
+            $res['ServiceCode'] = $this->serviceCode;
+        }
+
         return $res;
     }
 
@@ -68,6 +78,10 @@ class UpdateImageLibFreeInspectionRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ServiceCode'])) {
+            $model->serviceCode = $map['ServiceCode'];
         }
 
         return $model;

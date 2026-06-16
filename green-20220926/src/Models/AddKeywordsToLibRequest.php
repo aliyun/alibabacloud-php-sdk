@@ -26,12 +26,24 @@ class AddKeywordsToLibRequest extends Model
     /**
      * @var string
      */
+    public $properties;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $tenantCode;
     protected $_name = [
         'keywords' => 'Keywords',
         'keywordsObject' => 'KeywordsObject',
         'libId' => 'LibId',
+        'properties' => 'Properties',
         'regionId' => 'RegionId',
+        'tenantCode' => 'TenantCode',
     ];
 
     public function validate()
@@ -54,8 +66,16 @@ class AddKeywordsToLibRequest extends Model
             $res['LibId'] = $this->libId;
         }
 
+        if (null !== $this->properties) {
+            $res['Properties'] = $this->properties;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->tenantCode) {
+            $res['TenantCode'] = $this->tenantCode;
         }
 
         return $res;
@@ -81,8 +101,16 @@ class AddKeywordsToLibRequest extends Model
             $model->libId = $map['LibId'];
         }
 
+        if (isset($map['Properties'])) {
+            $model->properties = $map['Properties'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['TenantCode'])) {
+            $model->tenantCode = $map['TenantCode'];
         }
 
         return $model;
