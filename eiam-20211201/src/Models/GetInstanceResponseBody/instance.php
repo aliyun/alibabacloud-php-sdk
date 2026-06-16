@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponseBody\instance\defaultEndpoint;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponseBody\instance\domainConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponseBody\instance\replicationConfiguration;
 
 class instance extends Model
 {
@@ -14,6 +15,16 @@ class instance extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var string
+     */
+    public $crossRegionReplication;
+
+    /**
+     * @var string
+     */
+    public $crossRegionReplicationRole;
 
     /**
      * @var defaultEndpoint
@@ -38,12 +49,22 @@ class instance extends Model
     /**
      * @var string
      */
+    public $instanceFailoverStatus;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
      * @var string
      */
     public $managedServiceCode;
+
+    /**
+     * @var replicationConfiguration
+     */
+    public $replicationConfiguration;
 
     /**
      * @var bool
@@ -56,12 +77,16 @@ class instance extends Model
     public $status;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'crossRegionReplication' => 'CrossRegionReplication',
+        'crossRegionReplicationRole' => 'CrossRegionReplicationRole',
         'defaultEndpoint' => 'DefaultEndpoint',
         'description' => 'Description',
         'domainConfig' => 'DomainConfig',
         'egressAddresses' => 'EgressAddresses',
+        'instanceFailoverStatus' => 'InstanceFailoverStatus',
         'instanceId' => 'InstanceId',
         'managedServiceCode' => 'ManagedServiceCode',
+        'replicationConfiguration' => 'ReplicationConfiguration',
         'serviceManaged' => 'ServiceManaged',
         'status' => 'Status',
     ];
@@ -77,6 +102,9 @@ class instance extends Model
         if (\is_array($this->egressAddresses)) {
             Model::validateArray($this->egressAddresses);
         }
+        if (null !== $this->replicationConfiguration) {
+            $this->replicationConfiguration->validate();
+        }
         parent::validate();
     }
 
@@ -85,6 +113,14 @@ class instance extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->crossRegionReplication) {
+            $res['CrossRegionReplication'] = $this->crossRegionReplication;
+        }
+
+        if (null !== $this->crossRegionReplicationRole) {
+            $res['CrossRegionReplicationRole'] = $this->crossRegionReplicationRole;
         }
 
         if (null !== $this->defaultEndpoint) {
@@ -110,12 +146,20 @@ class instance extends Model
             }
         }
 
+        if (null !== $this->instanceFailoverStatus) {
+            $res['InstanceFailoverStatus'] = $this->instanceFailoverStatus;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->managedServiceCode) {
             $res['ManagedServiceCode'] = $this->managedServiceCode;
+        }
+
+        if (null !== $this->replicationConfiguration) {
+            $res['ReplicationConfiguration'] = null !== $this->replicationConfiguration ? $this->replicationConfiguration->toArray($noStream) : $this->replicationConfiguration;
         }
 
         if (null !== $this->serviceManaged) {
@@ -141,6 +185,14 @@ class instance extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['CrossRegionReplication'])) {
+            $model->crossRegionReplication = $map['CrossRegionReplication'];
+        }
+
+        if (isset($map['CrossRegionReplicationRole'])) {
+            $model->crossRegionReplicationRole = $map['CrossRegionReplicationRole'];
+        }
+
         if (isset($map['DefaultEndpoint'])) {
             $model->defaultEndpoint = defaultEndpoint::fromMap($map['DefaultEndpoint']);
         }
@@ -164,12 +216,20 @@ class instance extends Model
             }
         }
 
+        if (isset($map['InstanceFailoverStatus'])) {
+            $model->instanceFailoverStatus = $map['InstanceFailoverStatus'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['ManagedServiceCode'])) {
             $model->managedServiceCode = $map['ManagedServiceCode'];
+        }
+
+        if (isset($map['ReplicationConfiguration'])) {
+            $model->replicationConfiguration = replicationConfiguration::fromMap($map['ReplicationConfiguration']);
         }
 
         if (isset($map['ServiceManaged'])) {

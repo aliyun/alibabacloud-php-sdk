@@ -11,6 +11,11 @@ class ListInstancesRequest extends Model
     /**
      * @var string
      */
+    public $crossRegionReplication;
+
+    /**
+     * @var string
+     */
     public $edition;
 
     /**
@@ -33,6 +38,7 @@ class ListInstancesRequest extends Model
      */
     public $status;
     protected $_name = [
+        'crossRegionReplication' => 'CrossRegionReplication',
         'edition' => 'Edition',
         'instanceIds' => 'InstanceIds',
         'pageNumber' => 'PageNumber',
@@ -51,6 +57,10 @@ class ListInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->crossRegionReplication) {
+            $res['CrossRegionReplication'] = $this->crossRegionReplication;
+        }
+
         if (null !== $this->edition) {
             $res['Edition'] = $this->edition;
         }
@@ -89,6 +99,10 @@ class ListInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CrossRegionReplication'])) {
+            $model->crossRegionReplication = $map['CrossRegionReplication'];
+        }
+
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
         }
