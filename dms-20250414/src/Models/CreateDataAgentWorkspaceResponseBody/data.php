@@ -41,6 +41,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $workspaceDesc;
 
     /**
@@ -64,6 +69,7 @@ class data extends Model
         'modifyTime' => 'ModifyTime',
         'roleName' => 'RoleName',
         'totalMember' => 'TotalMember',
+        'type' => 'Type',
         'workspaceDesc' => 'WorkspaceDesc',
         'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
@@ -100,6 +106,10 @@ class data extends Model
 
         if (null !== $this->totalMember) {
             $res['TotalMember'] = $this->totalMember;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->workspaceDesc) {
@@ -151,6 +161,10 @@ class data extends Model
 
         if (isset($map['TotalMember'])) {
             $model->totalMember = $map['TotalMember'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['WorkspaceDesc'])) {

@@ -5,7 +5,10 @@
 namespace AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\artifacts;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\chatHistoryLocations;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\dataSources;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\recallResults;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponseBody\data\sessionConfig;
 
 class data extends Model
@@ -21,6 +24,11 @@ class data extends Model
     public $agentStatus;
 
     /**
+     * @var artifacts[]
+     */
+    public $artifacts;
+
+    /**
      * @var chatHistoryLocations[]
      */
     public $chatHistoryLocations;
@@ -31,6 +39,11 @@ class data extends Model
     public $createTime;
 
     /**
+     * @var dataSources[]
+     */
+    public $dataSources;
+
+    /**
      * @var string
      */
     public $favoriteInWorkspace;
@@ -39,6 +52,11 @@ class data extends Model
      * @var string
      */
     public $file;
+
+    /**
+     * @var recallResults[]
+     */
+    public $recallResults;
 
     /**
      * @var bool
@@ -72,10 +90,13 @@ class data extends Model
     protected $_name = [
         'agentId' => 'AgentId',
         'agentStatus' => 'AgentStatus',
+        'artifacts' => 'Artifacts',
         'chatHistoryLocations' => 'ChatHistoryLocations',
         'createTime' => 'CreateTime',
+        'dataSources' => 'DataSources',
         'favoriteInWorkspace' => 'FavoriteInWorkspace',
         'file' => 'File',
+        'recallResults' => 'RecallResults',
         'saved' => 'Saved',
         'sessionConfig' => 'SessionConfig',
         'sessionId' => 'SessionId',
@@ -86,8 +107,17 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->artifacts)) {
+            Model::validateArray($this->artifacts);
+        }
         if (\is_array($this->chatHistoryLocations)) {
             Model::validateArray($this->chatHistoryLocations);
+        }
+        if (\is_array($this->dataSources)) {
+            Model::validateArray($this->dataSources);
+        }
+        if (\is_array($this->recallResults)) {
+            Model::validateArray($this->recallResults);
         }
         if (null !== $this->sessionConfig) {
             $this->sessionConfig->validate();
@@ -106,6 +136,17 @@ class data extends Model
             $res['AgentStatus'] = $this->agentStatus;
         }
 
+        if (null !== $this->artifacts) {
+            if (\is_array($this->artifacts)) {
+                $res['Artifacts'] = [];
+                $n1 = 0;
+                foreach ($this->artifacts as $item1) {
+                    $res['Artifacts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->chatHistoryLocations) {
             if (\is_array($this->chatHistoryLocations)) {
                 $res['ChatHistoryLocations'] = [];
@@ -121,12 +162,34 @@ class data extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->dataSources) {
+            if (\is_array($this->dataSources)) {
+                $res['DataSources'] = [];
+                $n1 = 0;
+                foreach ($this->dataSources as $item1) {
+                    $res['DataSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->favoriteInWorkspace) {
             $res['FavoriteInWorkspace'] = $this->favoriteInWorkspace;
         }
 
         if (null !== $this->file) {
             $res['File'] = $this->file;
+        }
+
+        if (null !== $this->recallResults) {
+            if (\is_array($this->recallResults)) {
+                $res['RecallResults'] = [];
+                $n1 = 0;
+                foreach ($this->recallResults as $item1) {
+                    $res['RecallResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->saved) {
@@ -172,6 +235,17 @@ class data extends Model
             $model->agentStatus = $map['AgentStatus'];
         }
 
+        if (isset($map['Artifacts'])) {
+            if (!empty($map['Artifacts'])) {
+                $model->artifacts = [];
+                $n1 = 0;
+                foreach ($map['Artifacts'] as $item1) {
+                    $model->artifacts[$n1] = artifacts::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ChatHistoryLocations'])) {
             if (!empty($map['ChatHistoryLocations'])) {
                 $model->chatHistoryLocations = [];
@@ -187,12 +261,34 @@ class data extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['DataSources'])) {
+            if (!empty($map['DataSources'])) {
+                $model->dataSources = [];
+                $n1 = 0;
+                foreach ($map['DataSources'] as $item1) {
+                    $model->dataSources[$n1] = dataSources::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['FavoriteInWorkspace'])) {
             $model->favoriteInWorkspace = $map['FavoriteInWorkspace'];
         }
 
         if (isset($map['File'])) {
             $model->file = $map['File'];
+        }
+
+        if (isset($map['RecallResults'])) {
+            if (!empty($map['RecallResults'])) {
+                $model->recallResults = [];
+                $n1 = 0;
+                foreach ($map['RecallResults'] as $item1) {
+                    $model->recallResults[$n1] = recallResults::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Saved'])) {

@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest\dataSource;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest\dataSources;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest\sessionConfig;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest\taskConfig;
 
 class SendChatMessageRequest extends Model
 {
@@ -70,6 +71,11 @@ class SendChatMessageRequest extends Model
      * @var string
      */
     public $sessionId;
+
+    /**
+     * @var taskConfig
+     */
+    public $taskConfig;
     protected $_name = [
         'agentId' => 'AgentId',
         'DMSUnit' => 'DMSUnit',
@@ -83,6 +89,7 @@ class SendChatMessageRequest extends Model
         'replyTo' => 'ReplyTo',
         'sessionConfig' => 'SessionConfig',
         'sessionId' => 'SessionId',
+        'taskConfig' => 'TaskConfig',
     ];
 
     public function validate()
@@ -95,6 +102,9 @@ class SendChatMessageRequest extends Model
         }
         if (null !== $this->sessionConfig) {
             $this->sessionConfig->validate();
+        }
+        if (null !== $this->taskConfig) {
+            $this->taskConfig->validate();
         }
         parent::validate();
     }
@@ -155,6 +165,10 @@ class SendChatMessageRequest extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->taskConfig) {
+            $res['TaskConfig'] = null !== $this->taskConfig ? $this->taskConfig->toArray($noStream) : $this->taskConfig;
         }
 
         return $res;
@@ -221,6 +235,10 @@ class SendChatMessageRequest extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['TaskConfig'])) {
+            $model->taskConfig = taskConfig::fromMap($map['TaskConfig']);
         }
 
         return $model;

@@ -21,10 +21,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $messageId;
+
+    /**
+     * @var string
+     */
     public $sessionId;
     protected $_name = [
         'agentId' => 'AgentId',
         'message' => 'Message',
+        'messageId' => 'MessageId',
         'sessionId' => 'SessionId',
     ];
 
@@ -42,6 +48,10 @@ class data extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->messageId) {
+            $res['MessageId'] = $this->messageId;
         }
 
         if (null !== $this->sessionId) {
@@ -65,6 +75,10 @@ class data extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['MessageId'])) {
+            $model->messageId = $map['MessageId'];
         }
 
         if (isset($map['SessionId'])) {

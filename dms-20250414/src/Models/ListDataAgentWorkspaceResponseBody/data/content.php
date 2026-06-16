@@ -46,6 +46,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
 
     /**
@@ -65,6 +70,7 @@ class content extends Model
         'modifyTime' => 'ModifyTime',
         'roleName' => 'RoleName',
         'totalMember' => 'TotalMember',
+        'type' => 'Type',
         'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
         'workspaceStatus' => 'WorkspaceStatus',
@@ -104,6 +110,10 @@ class content extends Model
 
         if (null !== $this->totalMember) {
             $res['TotalMember'] = $this->totalMember;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->workspaceId) {
@@ -155,6 +165,10 @@ class content extends Model
 
         if (isset($map['TotalMember'])) {
             $model->totalMember = $map['TotalMember'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['WorkspaceId'])) {
