@@ -37,6 +37,11 @@ class certificate extends Model
     /**
      * @var int
      */
+    public $certMaxTime;
+
+    /**
+     * @var int
+     */
     public $certRemainingCount;
 
     /**
@@ -189,6 +194,7 @@ class certificate extends Model
         'beforeDate' => 'BeforeDate',
         'caCertChain' => 'CaCertChain',
         'certIssuedCount' => 'CertIssuedCount',
+        'certMaxTime' => 'CertMaxTime',
         'certRemainingCount' => 'CertRemainingCount',
         'certTotalCount' => 'CertTotalCount',
         'certificateType' => 'CertificateType',
@@ -250,6 +256,10 @@ class certificate extends Model
 
         if (null !== $this->certIssuedCount) {
             $res['CertIssuedCount'] = $this->certIssuedCount;
+        }
+
+        if (null !== $this->certMaxTime) {
+            $res['CertMaxTime'] = $this->certMaxTime;
         }
 
         if (null !== $this->certRemainingCount) {
@@ -408,6 +418,10 @@ class certificate extends Model
 
         if (isset($map['CertIssuedCount'])) {
             $model->certIssuedCount = $map['CertIssuedCount'];
+        }
+
+        if (isset($map['CertMaxTime'])) {
+            $model->certMaxTime = $map['CertMaxTime'];
         }
 
         if (isset($map['CertRemainingCount'])) {
