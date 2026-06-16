@@ -948,7 +948,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Variable binding operation.
+     * Performs a variable binding operation.
      *
      * @param Request - BindVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1051,7 +1051,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Variable binding operation.
+     * Performs a variable binding operation.
      *
      * @param Request - BindVariableRequest
      *
@@ -1069,7 +1069,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 创建任务组.
+     * Create a task group.
      *
      * @param Request - CancelSubTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1120,7 +1120,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 创建任务组.
+     * Create a task group.
      *
      * @param Request - CancelSubTaskRequest
      *
@@ -1215,7 +1215,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if the cumulative number of variables exceeds the limit.
+     * Checks whether the number of cumulative variables exceeds the limit.
      *
      * @param Request - CheckCustVariableLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1262,7 +1262,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if the cumulative number of variables exceeds the limit.
+     * Checks whether the number of cumulative variables exceeds the limit.
      *
      * @param Request - CheckCustVariableLimitRequest
      *
@@ -1280,7 +1280,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if Creating Variables Exceeds the Limit.
+     * Checks whether creating a variable exceeds the upper limit.
      *
      * @param Request - CheckExpressionVariableLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1323,7 +1323,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if Creating Variables Exceeds the Limit.
+     * Checks whether creating a variable exceeds the upper limit.
      *
      * @param Request - CheckExpressionVariableLimitRequest
      *
@@ -1341,7 +1341,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if the number of fields exceeds the limit.
+     * Checks whether the number of fields exceeds the specified limit.
      *
      * @param Request - CheckFieldLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1388,7 +1388,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if the number of fields exceeds the limit.
+     * Checks whether the number of fields exceeds the specified limit.
      *
      * @param Request - CheckFieldLimitRequest
      *
@@ -1406,7 +1406,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 样本名称唯一性校验.
+     * Validate sample name uniqueness.
      *
      * @param Request - CheckSampleNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1453,7 +1453,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 样本名称唯一性校验.
+     * Validate sample name uniqueness.
      *
      * @param Request - CheckSampleNameRequest
      *
@@ -1471,7 +1471,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 任务组名称唯一性校验.
+     * Validate the uniqueness of the task group name.
      *
      * @param Request - CheckTaskGroupNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1518,7 +1518,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 任务组名称唯一性校验.
+     * Validate the uniqueness of the task group name.
      *
      * @param Request - CheckTaskGroupNameRequest
      *
@@ -1536,7 +1536,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Validate Variable Reference.
+     * Checks variable references.
      *
      * @param Request - CheckUsageVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1583,7 +1583,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Validate Variable Reference.
+     * Checks variable references.
      *
      * @param Request - CheckUsageVariableRequest
      *
@@ -1747,7 +1747,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add Query Conditions.
+     * Creates a query condition.
      *
      * @param Request - CreateAnalysisConditionFavoriteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1822,7 +1822,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add Query Conditions.
+     * Creates a query condition.
      *
      * @param Request - CreateAnalysisConditionFavoriteRequest
      *
@@ -1840,7 +1840,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Export Task.
+     * Creates an export task.
      *
      * @param Request - CreateAnalysisExportTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1923,7 +1923,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Export Task.
+     * Creates an export task.
      *
      * @param Request - CreateAnalysisExportTaskRequest
      *
@@ -1941,7 +1941,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create AppKey.
+     * Create an AppKey.
      *
      * @param Request - CreateAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1984,7 +1984,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create AppKey.
+     * Create an AppKey.
      *
      * @param Request - CreateAppKeyRequest
      *
@@ -2002,7 +2002,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Accumulative Variable.
+     * Creates a cumulative variable.
      *
      * @param Request - CreateCustVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2097,7 +2097,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Accumulative Variable.
+     * Creates a cumulative variable.
      *
      * @param Request - CreateCustVariableRequest
      *
@@ -2115,7 +2115,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add Data Source.
+     * Creates a data source.
      *
      * @param Request - CreateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2174,7 +2174,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add Data Source.
+     * Creates a data source.
      *
      * @param Request - CreateDataSourceRequest
      *
@@ -2192,7 +2192,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Event.
+     * Creates an event.
      *
      * @param Request - CreateEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2263,7 +2263,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Event.
+     * Creates an event.
      *
      * @param Request - CreateEventRequest
      *
@@ -2281,7 +2281,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Custom Variable.
+     * Creates a custom variable.
      *
      * @param Request - CreateExpressionVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2356,7 +2356,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Custom Variable.
+     * Creates a custom variable.
      *
      * @param Request - CreateExpressionVariableRequest
      *
@@ -2374,7 +2374,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add New Field.
+     * Creates a field.
      *
      * @param Request - CreateFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2445,7 +2445,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add New Field.
+     * Creates a field.
      *
      * @param Request - CreateFieldRequest
      *
@@ -2463,7 +2463,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 创建样本记录对客.
+     * Create a sample record for the customer.
      *
      * @param Request - CreateForeignPocSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2522,7 +2522,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 创建样本记录对客.
+     * Create a sample record for the customer.
      *
      * @param Request - CreateForeignPocSampleRequest
      *
@@ -2721,7 +2721,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create POC.
+     * Creates a POC.
      *
      * @param Request - CreatePocEvRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2800,7 +2800,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create POC.
+     * Creates a POC.
      *
      * @param Request - CreatePocEvRequest
      *
@@ -2818,7 +2818,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 创建样本记录.
+     * Create a sample record.
      *
      * @param Request - CreatePocSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2885,7 +2885,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 创建样本记录.
+     * Create a sample record.
      *
      * @param Request - CreatePocSampleRequest
      *
@@ -2903,7 +2903,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add New Custom Query Variable.
+     * Creates a custom query variable.
      *
      * @param Request - CreateQueryVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2982,7 +2982,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add New Custom Query Variable.
+     * Creates a custom query variable.
      *
      * @param Request - CreateQueryVariableRequest
      *
@@ -3000,7 +3000,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Recommended Event Strategy.
+     * Creates a recommended event policy.
      *
      * @param Request - CreateRecommendEventRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3059,7 +3059,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Recommended Event Strategy.
+     * Creates a recommended event policy.
      *
      * @param Request - CreateRecommendEventRuleRequest
      *
@@ -3077,7 +3077,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Recommendation Task.
+     * Creates a recommendation task.
      *
      * @param Request - CreateRecommendTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3136,7 +3136,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Recommendation Task.
+     * Creates a recommendation task.
      *
      * @param Request - CreateRecommendTaskRequest
      *
@@ -3154,7 +3154,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Policy & Version.
+     * Creates a policy and version.
      *
      * @param Request - CreateRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3245,7 +3245,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Policy & Version.
+     * Creates a policy and version.
      *
      * @param Request - CreateRuleRequest
      *
@@ -3263,7 +3263,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add Sample.
+     * Adds a data sample.
      *
      * @param Request - CreateSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3334,7 +3334,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Add Sample.
+     * Adds a data sample.
      *
      * @param Request - CreateSampleRequest
      *
@@ -3352,7 +3352,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * User-level Single API to Create Sample Batches.
+     * Creates a sample batch for a single API at the user level.
      *
      * @param Request - CreateSampleApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3411,7 +3411,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * User-level Single API to Create Sample Batches.
+     * Creates a sample batch for a single API at the user level.
      *
      * @param Request - CreateSampleApiRequest
      *
@@ -3518,7 +3518,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Sample Data.
+     * Creates sample data.
      *
      * @param Request - CreateSampleDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3589,7 +3589,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Sample Data.
+     * Creates sample data.
      *
      * @param Request - CreateSampleDataRequest
      *
@@ -3607,7 +3607,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Task.
+     * Creates a task.
      *
      * @param Request - CreateSimulationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3686,7 +3686,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create Task.
+     * Creates a task.
      *
      * @param Request - CreateSimulationTaskRequest
      *
@@ -3704,7 +3704,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 取消子任务
+     * Cancels a subtask.
      *
      * @param Request - CreateTaskGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3738,6 +3738,10 @@ class Xtee extends OpenApiClient
 
         if (null !== $request->serviceCodes) {
             @$query['ServiceCodes'] = $request->serviceCodes;
+        }
+
+        if (null !== $request->serviceList) {
+            @$query['ServiceList'] = $request->serviceList;
         }
 
         if (null !== $request->serviceNames) {
@@ -3775,7 +3779,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 取消子任务
+     * Cancels a subtask.
      *
      * @param Request - CreateTaskGroupRequest
      *
@@ -3890,7 +3894,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Query Condition.
+     * Deletes a query condition.
      *
      * @param Request - DeleteAnalysisConditionFavoriteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3937,7 +3941,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Query Condition.
+     * Deletes a query condition.
      *
      * @param Request - DeleteAnalysisConditionFavoriteRequest
      *
@@ -3955,7 +3959,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Bypass Event.
+     * Deletes a bypass event.
      *
      * @param Request - DeleteByPassShuntEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4002,7 +4006,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Bypass Event.
+     * Deletes a bypass event.
      *
      * @param Request - DeleteByPassShuntEventRequest
      *
@@ -4020,7 +4024,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Accumulated Variable.
+     * Deletes a cumulative variable.
      *
      * @param Request - DeleteCustVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4075,7 +4079,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Accumulated Variable.
+     * Deletes a cumulative variable.
      *
      * @param Request - DeleteCustVariableRequest
      *
@@ -4093,7 +4097,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Data Source.
+     * Deletes a data source.
      *
      * @param Request - DeleteDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4140,7 +4144,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Data Source.
+     * Deletes a data source.
      *
      * @param Request - DeleteDataSourceRequest
      *
@@ -4227,7 +4231,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Custom Variable.
+     * Deletes a custom variable.
      *
      * @param Request - DeleteExpressionVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4278,7 +4282,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Custom Variable.
+     * Deletes a custom variable.
      *
      * @param Request - DeleteExpressionVariableRequest
      *
@@ -4296,7 +4300,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Field.
+     * Deletes a field.
      *
      * @param Request - DeleteFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4347,7 +4351,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Field.
+     * Deletes a field.
      *
      * @param Request - DeleteFieldRequest
      *
@@ -4365,7 +4369,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Name List.
+     * Deletes a list.
      *
      * @param Request - DeleteNameListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4412,7 +4416,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Name List.
+     * Deletes a list.
      *
      * @param Request - DeleteNameListRequest
      *
@@ -4430,7 +4434,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete (pseudo) name list variable data.
+     * Deletes list variable data.
      *
      * @param Request - DeleteNameListDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4477,7 +4481,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete (pseudo) name list variable data.
+     * Deletes list variable data.
      *
      * @param Request - DeleteNameListDataRequest
      *
@@ -4495,7 +4499,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Query Variable.
+     * Deletes a custom query variable.
      *
      * @param Request - DeleteQueryVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4542,7 +4546,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Query Variable.
+     * Deletes a custom query variable.
      *
      * @param Request - DeleteQueryVariableRequest
      *
@@ -4560,7 +4564,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Policy Version.
+     * Deletes a policy version.
      *
      * @param Request - DeleteRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4615,7 +4619,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Policy Version.
+     * Deletes a policy version.
      *
      * @param Request - DeleteRuleRequest
      *
@@ -4633,7 +4637,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 删除样本.
+     * Delete sample.
      *
      * @param Request - DeleteSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4680,7 +4684,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 删除样本.
+     * Delete sample.
      *
      * @param Request - DeleteSampleRequest
      *
@@ -4698,7 +4702,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Batch Delete Samples.
+     * Deletes samples in batches.
      *
      * @param Request - DeleteSampleBatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4749,7 +4753,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Batch Delete Samples.
+     * Deletes samples in batches.
      *
      * @param Request - DeleteSampleBatchRequest
      *
@@ -4832,7 +4836,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Sample Data.
+     * Deletes sample data.
      *
      * @param Request - DeleteSampleDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4879,7 +4883,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Sample Data.
+     * Deletes sample data.
      *
      * @param Request - DeleteSampleDataRequest
      *
@@ -4962,7 +4966,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Advanced Query to Get Left Variables Interface.
+     * Retrieves left-hand variables for advanced queries.
      *
      * @param Request - DescribeAdvanceSearchLeftVariableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5013,7 +5017,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Advanced Query to Get Left Variables Interface.
+     * Retrieves left-hand variables for advanced queries.
      *
      * @param Request - DescribeAdvanceSearchLeftVariableListRequest
      *
@@ -5031,7 +5035,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Advanced Query.
+     * Performs an advanced query for event analysis.
      *
      * @param Request - DescribeAdvanceSearchPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5106,7 +5110,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Advanced Query.
+     * Performs an advanced query for event analysis.
      *
      * @param Request - DescribeAdvanceSearchPageListRequest
      *
@@ -5124,7 +5128,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Data Source List.
+     * Lists data sources.
      *
      * @param Request - DescribeAllDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5167,7 +5171,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Data Source List.
+     * Lists data sources.
      *
      * @param Request - DescribeAllDataSourceRequest
      *
@@ -5185,7 +5189,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Event List Query.
+     * Queries the event list.
      *
      * @param Request - DescribeAllEventNameAndCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5232,7 +5236,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Event List Query.
+     * Queries the event list.
      *
      * @param Request - DescribeAllEventNameAndCodeRequest
      *
@@ -5250,7 +5254,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Display all root variables when testing custom expressions.
+     * Displays all root variables during custom expression testing.
      *
      * @param Request - DescribeAllRootVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5325,7 +5329,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Display all root variables when testing custom expressions.
+     * Displays all root variables during custom expression testing.
      *
      * @param Request - DescribeAllRootVariableRequest
      *
@@ -5343,7 +5347,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Display All Fields.
+     * Displays all fields.
      *
      * @param Request - DescribeAnalysisColumnFieldListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5386,7 +5390,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Display All Fields.
+     * Displays all fields.
      *
      * @param Request - DescribeAnalysisColumnFieldListRequest
      *
@@ -5404,7 +5408,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Custom Columns.
+     * Queries custom columns.
      *
      * @param Request - DescribeAnalysisColumnListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5447,7 +5451,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Custom Columns.
+     * Queries custom columns.
      *
      * @param Request - DescribeAnalysisColumnListRequest
      *
@@ -5465,7 +5469,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Condition List.
+     * Queries the condition favorite list.
      *
      * @param Request - DescribeAnalysisConditionFavoriteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5508,7 +5512,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Condition List.
+     * Queries the condition favorite list.
      *
      * @param Request - DescribeAnalysisConditionFavoriteListRequest
      *
@@ -5526,7 +5530,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Download Query Results.
+     * Download query results.
      *
      * @param Request - DescribeAnalysisExportTaskDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5569,7 +5573,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Download Query Results.
+     * Download query results.
      *
      * @param Request - DescribeAnalysisExportTaskDownloadUrlRequest
      *
@@ -5587,7 +5591,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get API Details.
+     * Retrieves the details of an API.
      *
      * @param Request - DescribeApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5642,7 +5646,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get API Details.
+     * Retrieves the details of an API.
      *
      * @param Request - DescribeApiRequest
      *
@@ -5660,7 +5664,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get API groups including those purchased by the user and custom ones.
+     * Retrieves API groups, including purchased and custom groups.
      *
      * @param Request - DescribeApiGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5707,7 +5711,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get API groups including those purchased by the user and custom ones.
+     * Retrieves API groups, including purchased and custom groups.
      *
      * @param Request - DescribeApiGroupsRequest
      *
@@ -5725,7 +5729,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the limit information for creating API tasks.
+     * Queries the limit information for creating API tasks.
      *
      * @param Request - DescribeApiLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5768,7 +5772,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the limit information for creating API tasks.
+     * Queries the limit information for creating API tasks.
      *
      * @param Request - DescribeApiLimitRequest
      *
@@ -5786,7 +5790,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get API Service Name.
+     * Retrieves API service names.
      *
      * @param Request - DescribeApiNameListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5829,7 +5833,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get API Service Name.
+     * Retrieves API service names.
      *
      * @param Request - DescribeApiNameListRequest
      *
@@ -5847,7 +5851,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Details.
+     * Query variable details.
      *
      * @param Request - DescribeApiVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5894,7 +5898,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Details.
+     * Query variable details.
      *
      * @param Request - DescribeApiVariableRequest
      *
@@ -5912,7 +5916,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get API list including purchased and customized APIs.
+     * Retrieves the API list, including purchased and custom APIs.
      *
      * @param Request - DescribeApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5967,7 +5971,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get API list including purchased and customized APIs.
+     * Retrieves the API list, including purchased and custom APIs.
      *
      * @param Request - DescribeApisRequest
      *
@@ -5985,7 +5989,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query appKey List.
+     * Queries the list of appKeys.
      *
      * @param Request - DescribeAppKeyPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6036,7 +6040,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query appKey List.
+     * Queries the list of appKeys.
      *
      * @param Request - DescribeAppKeyPageRequest
      *
@@ -6054,7 +6058,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Approval Switch.
+     * Configures the approval switch.
      *
      * @param Request - DescribeAuditConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6101,7 +6105,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Approval Switch.
+     * Configures the approval switch.
      *
      * @param Request - DescribeAuditConfigRequest
      *
@@ -6119,7 +6123,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Approval Details.
+     * Retrieves approval details.
      *
      * @param Request - DescribeAuditDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6166,7 +6170,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Approval Details.
+     * Retrieves approval details.
      *
      * @param Request - DescribeAuditDetailsRequest
      *
@@ -6184,7 +6188,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Display and Query of Audit List.
+     * Displays and queries the audit list.
      *
      * @param Request - DescribeAuditPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6247,7 +6251,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Display and Query of Audit List.
+     * Displays and queries the audit list.
      *
      * @param Request - DescribeAuditPageListRequest
      *
@@ -6265,7 +6269,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the list of event names for the current user.
+     * Queries the list of event names for the current user.
      *
      * @param Request - DescribeAuthEventNameListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6308,7 +6312,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the list of event names for the current user.
+     * Queries the list of event names for the current user.
      *
      * @param Request - DescribeAuthEventNameListRequest
      *
@@ -6326,7 +6330,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Policy List.
+     * Queries a list of policies.
      *
      * @param Request - DescribeAuthRulePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6381,7 +6385,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Policy List.
+     * Queries a list of policies.
      *
      * @param Request - DescribeAuthRulePageListRequest
      *
@@ -6399,7 +6403,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * List of Scenarios.
+     * Queries the list of scenarios.
      *
      * @param Request - DescribeAuthSceneListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6442,7 +6446,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * List of Scenarios.
+     * Queries the list of scenarios.
      *
      * @param Request - DescribeAuthSceneListRequest
      *
@@ -6460,7 +6464,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Scene List.
+     * Queries the list of scenarios.
      *
      * @param Request - DescribeAuthScenePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6507,7 +6511,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Scene List.
+     * Queries the list of scenarios.
      *
      * @param Request - DescribeAuthScenePageListRequest
      *
@@ -6525,7 +6529,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check Authorization.
+     * Checks whether authorization is granted.
      *
      * @param Request - DescribeAuthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6568,7 +6572,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check Authorization.
+     * Checks whether authorization is granted.
      *
      * @param Request - DescribeAuthStatusRequest
      *
@@ -6586,7 +6590,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Average Execution Time.
+     * Average execution duration.
      *
      * @param Request - DescribeAvgExecuteCostReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6629,7 +6633,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Average Execution Time.
+     * Average execution duration.
      *
      * @param Request - DescribeAvgExecuteCostReportRequest
      *
@@ -6647,7 +6651,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Basic Query.
+     * Performs a basic query.
      *
      * @param Request - DescribeBasicSearchPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6718,7 +6722,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Basic Query.
+     * Performs a basic query.
      *
      * @param Request - DescribeBasicSearchPageListRequest
      *
@@ -6736,7 +6740,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Basic Statistics.
+     * Queries basic statistics.
      *
      * @param Request - DescribeBasicStartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6791,7 +6795,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Basic Statistics.
+     * Queries basic statistics.
      *
      * @param Request - DescribeBasicStartRequest
      *
@@ -6809,7 +6813,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * View Bypass Event.
+     * Queries a bypass event.
      *
      * @param Request - DescribeByPassShuntEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6856,7 +6860,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * View Bypass Event.
+     * Queries a bypass event.
      *
      * @param Request - DescribeByPassShuntEventRequest
      *
@@ -6874,7 +6878,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the type configuration of custom accumulated variables.
+     * Queries the type configurations of custom cumulative variables.
      *
      * @param Request - DescribeCustVariableConfigListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6925,7 +6929,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the type configuration of custom accumulated variables.
+     * Queries the type configurations of custom cumulative variables.
      *
      * @param Request - DescribeCustVariableConfigListRequest
      *
@@ -6943,7 +6947,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Cumulative Variable Details.
+     * Queries the details of a cumulative variable.
      *
      * @param Request - DescribeCustVariableDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6990,7 +6994,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Cumulative Variable Details.
+     * Queries the details of a cumulative variable.
      *
      * @param Request - DescribeCustVariableDetailRequest
      *
@@ -7008,10 +7012,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Custom Accumulated Variable List.
+     * Queries the list of custom cumulative variables.
      *
      * @remarks
-     * List Query of Accumulated Variables
+     * Queries the list of cumulative variables.
      *
      * @param Request - DescribeCustVariablePageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7078,10 +7082,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Custom Accumulated Variable List.
+     * Queries the list of custom cumulative variables.
      *
      * @remarks
-     * List Query of Accumulated Variables
+     * Queries the list of cumulative variables.
      *
      * @param Request - DescribeCustVariablePageRequest
      *
@@ -7099,7 +7103,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Data Source Data Download Link.
+     * Retrieves the download URL for data source data.
      *
      * @param Request - DescribeDataSourceDataDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7146,7 +7150,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Data Source Data Download Link.
+     * Retrieves the download URL for data source data.
      *
      * @param Request - DescribeDataSourceDataDownloadUrlRequest
      *
@@ -7164,7 +7168,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Retrieve all fields of a data source.
+     * Retrieves all fields of a data source.
      *
      * @param Request - DescribeDataSourceFieldsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7211,7 +7215,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Retrieve all fields of a data source.
+     * Retrieves all fields of a data source.
      *
      * @param Request - DescribeDataSourceFieldsRequest
      *
@@ -7229,7 +7233,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Data Source List Interface.
+     * Queries a list of data sources.
      *
      * @param Request - DescribeDataSourcePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7292,7 +7296,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Data Source List Interface.
+     * Queries a list of data sources.
      *
      * @param Request - DescribeDataSourcePageListRequest
      *
@@ -7310,7 +7314,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Decision Result Fluctuation Detection.
+     * Detects fluctuations in decision results.
      *
      * @param Request - DescribeDecisionResultFluctuationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7357,7 +7361,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Decision Result Fluctuation Detection.
+     * Detects fluctuations in decision results.
      *
      * @param Request - DescribeDecisionResultFluctuationRequest
      *
@@ -7375,7 +7379,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Decision Result Fluctuation Trend.
+     * Queries the fluctuation trend of decision results.
      *
      * @param Request - DescribeDecisionResultTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7430,7 +7434,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Decision Result Fluctuation Trend.
+     * Queries the fluctuation trend of decision results.
      *
      * @param Request - DescribeDecisionResultTrendRequest
      *
@@ -7448,7 +7452,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Detailed Statistics.
+     * Retrieves detailed statistics.
      *
      * @param Request - DescribeDetailStartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7503,7 +7507,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Detailed Statistics.
+     * Retrieves detailed statistics.
      *
      * @param Request - DescribeDetailStartRequest
      *
@@ -7521,7 +7525,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Download.
+     * Downloads a file.
      *
      * @param Request - DescribeDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7576,7 +7580,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Download.
+     * Downloads a file.
      *
      * @param Request - DescribeDownloadUrlRequest
      *
@@ -7594,7 +7598,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Details.
+     * Queries event details.
      *
      * @param Request - DescribeEventBaseInfoByEventCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7645,7 +7649,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Details.
+     * Queries event details.
      *
      * @param Request - DescribeEventBaseInfoByEventCodeRequest
      *
@@ -7663,7 +7667,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Total Event Count.
+     * Queries the total number of events.
      *
      * @param Request - DescribeEventCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7710,7 +7714,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Total Event Count.
+     * Queries the total number of events.
      *
      * @param Request - DescribeEventCountRequest
      *
@@ -7728,7 +7732,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query event details based on the request ID.
+     * Queries event details by request ID.
      *
      * @param Request - DescribeEventDetailByRequestIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7783,7 +7787,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query event details based on the request ID.
+     * Queries event details by request ID.
      *
      * @param Request - DescribeEventDetailByRequestIdRequest
      *
@@ -7801,7 +7805,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event History Details.
+     * Queries the details of an event history.
      *
      * @param Request - DescribeEventLogDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7848,7 +7852,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event History Details.
+     * Queries the details of an event history.
      *
      * @param Request - DescribeEventLogDetailRequest
      *
@@ -7866,7 +7870,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event History List.
+     * Queries the event history list.
      *
      * @param Request - DescribeEventLogPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8021,7 +8025,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event History List.
+     * Queries the event history list.
      *
      * @param Request - DescribeEventLogPageRequest
      *
@@ -8039,7 +8043,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Paged Query for Events.
+     * Queries events by paging.
      *
      * @param Request - DescribeEventPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8106,7 +8110,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Paged Query for Events.
+     * Queries events by paging.
      *
      * @param Request - DescribeEventPageListRequest
      *
@@ -8197,7 +8201,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Event Overview List.
+     * Queries the event overview list.
      *
      * @param Request - DescribeEventResultListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8256,7 +8260,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Event Overview List.
+     * Queries the event overview list.
      *
      * @param Request - DescribeEventResultListRequest
      *
@@ -8274,7 +8278,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Policy Download List.
+     * Queries the policy download list.
      *
      * @param Request - DescribeEventTaskHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8317,7 +8321,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Policy Download List.
+     * Queries the policy download list.
      *
      * @param Request - DescribeEventTaskHistoryRequest
      *
@@ -8335,7 +8339,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Event Invocation Count.
+     * Call event count.
      *
      * @param Request - DescribeEventTotalCountReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8378,7 +8382,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Event Invocation Count.
+     * Call event count.
      *
      * @param Request - DescribeEventTotalCountReportRequest
      *
@@ -8396,7 +8400,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Batch Import Policy.
+     * Imports policies in batches.
      *
      * @param Request - DescribeEventUploadPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8439,7 +8443,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Batch Import Policy.
+     * Imports policies in batches.
      *
      * @param Request - DescribeEventUploadPolicyRequest
      *
@@ -8457,10 +8461,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query event variables.
+     * Queries event variables.
      *
      * @remarks
-     * Cumulative Variable List Query
+     * Queries the list of cumulative variables.
      *
      * @param Request - DescribeEventVariableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8523,10 +8527,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query event variables.
+     * Queries event variables.
      *
      * @remarks
-     * Cumulative Variable List Query
+     * Queries the list of cumulative variables.
      *
      * @param Request - DescribeEventVariableListRequest
      *
@@ -8544,7 +8548,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Template.
+     * Queries an event pattern template.
      *
      * @param Request - DescribeEventVariableTemplateBindRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8599,7 +8603,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Template.
+     * Queries an event pattern template.
      *
      * @param Request - DescribeEventVariableTemplateBindRequest
      *
@@ -8617,7 +8621,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Template.
+     * Queries an event pattern template.
      *
      * @param Request - DescribeEventVariableTemplateListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8672,7 +8676,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Template.
+     * Queries an event pattern template.
      *
      * @param Request - DescribeEventVariableTemplateListRequest
      *
@@ -8690,7 +8694,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Variables.
+     * Queries event variables.
      *
      * @param Request - DescribeEventsVariableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8749,7 +8753,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Variables.
+     * Queries event variables.
      *
      * @param Request - DescribeEventsVariableListRequest
      *
@@ -8767,7 +8771,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Self-service call list.
+     * Self-service invocation list.
      *
      * @param Request - DescribeExcuteNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8826,7 +8830,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Self-service call list.
+     * Self-service invocation list.
      *
      * @param Request - DescribeExcuteNumRequest
      *
@@ -8844,7 +8848,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Validate if the field name is duplicated (based on user\\"s organization).
+     * Checks whether a field name is duplicate based on the user unit.
      *
      * @param Request - DescribeExistNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8891,7 +8895,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Validate if the field name is duplicated (based on user\\"s organization).
+     * Checks whether a field name is duplicate based on the user unit.
      *
      * @param Request - DescribeExistNameRequest
      *
@@ -8909,7 +8913,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if Scene Exists.
+     * Checks whether a scenario exists.
      *
      * @param Request - DescribeExistSceneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8956,7 +8960,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if Scene Exists.
+     * Checks whether a scenario exists.
      *
      * @param Request - DescribeExistSceneRequest
      *
@@ -8974,7 +8978,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Custom Variable Details.
+     * Queries the details of a custom variable.
      *
      * @param Request - DescribeExpressionVariableDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9021,7 +9025,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Custom Variable Details.
+     * Queries the details of a custom variable.
      *
      * @param Request - DescribeExpressionVariableDetailRequest
      *
@@ -9039,7 +9043,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Function List.
+     * Queries the function list.
      *
      * @param Request - DescribeExpressionVariableFunctionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9082,7 +9086,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Function List.
+     * Queries the function list.
      *
      * @param Request - DescribeExpressionVariableFunctionListRequest
      *
@@ -9100,7 +9104,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Paged Query for Custom Variables.
+     * Performs a paging query of custom variables.
      *
      * @param Request - DescribeExpressionVariablePageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9167,7 +9171,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Paged Query for Custom Variables.
+     * Performs a paging query of custom variables.
      *
      * @param Request - DescribeExpressionVariablePageRequest
      *
@@ -9262,7 +9266,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Field Details.
+     * Retrieves field details.
      *
      * @param Request - DescribeFieldByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9309,7 +9313,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Field Details.
+     * Retrieves field details.
      *
      * @param Request - DescribeFieldByIdRequest
      *
@@ -9327,7 +9331,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Field List.
+     * Queries the list of fields.
      *
      * @param Request - DescribeFieldListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9378,7 +9382,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Field List.
+     * Queries the list of fields.
      *
      * @param Request - DescribeFieldListRequest
      *
@@ -9396,7 +9400,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query paged list of fields.
+     * Queries a paginated list of fields.
      *
      * @param Request - DescribeFieldPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9475,7 +9479,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query paged list of fields.
+     * Queries a paginated list of fields.
      *
      * @param Request - DescribeFieldPageRequest
      *
@@ -9493,7 +9497,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Community Account List.
+     * Queries the list of community accounts.
      *
      * @param Request - DescribeGroupAccountPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9572,7 +9576,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Community Account List.
+     * Queries the list of community accounts.
      *
      * @param Request - DescribeGroupAccountPageRequest
      *
@@ -9590,7 +9594,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Community List Query Conditions.
+     * Queries the filter conditions for the community list.
      *
      * @param Request - DescribeGroupConditionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9633,7 +9637,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Community List Query Conditions.
+     * Queries the filter conditions for the community list.
      *
      * @param Request - DescribeGroupConditionListRequest
      *
@@ -9651,7 +9655,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Community List.
+     * Queries the list of communities.
      *
      * @param Request - DescribeGroupPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9718,7 +9722,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Community List.
+     * Queries the list of communities.
      *
      * @param Request - DescribeGroupPageRequest
      *
@@ -9736,7 +9740,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Risk Communities Discovered Today.
+     * Queries the risk communities discovered on the current day.
      *
      * @param Request - DescribeGroupStatisticsByTodayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9779,7 +9783,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Risk Communities Discovered Today.
+     * Queries the risk communities discovered on the current day.
      *
      * @param Request - DescribeGroupStatisticsByTodayRequest
      *
@@ -9797,7 +9801,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Recent Trends in Risk Communities.
+     * Queries recent trends of risky communities.
      *
      * @param Request - DescribeGroupTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9844,7 +9848,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Recent Trends in Risk Communities.
+     * Queries recent trends of risky communities.
      *
      * @param Request - DescribeGroupTrendRequest
      *
@@ -9862,7 +9866,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if the policy name under the event name exists.
+     * Queries whether a policy name exists under a specified event name.
      *
      * @param Request - DescribeHasRuleNameByEventCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9917,7 +9921,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check if the policy name under the event name exists.
+     * Queries whether a policy name exists under a specified event name.
      *
      * @param Request - DescribeHasRuleNameByEventCodeRequest
      *
@@ -9935,7 +9939,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Risk Map Overview Chart (Pie Chart).
+     * Retrieves the risk map overview chart (pie chart).
      *
      * @param Request - DescribeHighRiskPieChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9990,7 +9994,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Risk Map Overview Chart (Pie Chart).
+     * Retrieves the risk map overview chart (pie chart).
      *
      * @param Request - DescribeHighRiskPieChartRequest
      *
@@ -10008,7 +10012,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Policy Hit Fluctuation Detection.
+     * Detects fluctuations in policy hits.
      *
      * @param Request - DescribeHitRuleFluctuationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10059,7 +10063,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Policy Hit Fluctuation Detection.
+     * Detects fluctuations in policy hits.
      *
      * @param Request - DescribeHitRuleFluctuationRequest
      *
@@ -10077,7 +10081,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Top 20 Hits for Main Events/Bypass/Diversion Strategies.
+     * Queries the top 20 policies by hits for main events, bypass, and automatic request distribution.
      *
      * @param Request - DescribeHitRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10136,7 +10140,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Top 20 Hits for Main Events/Bypass/Diversion Strategies.
+     * Queries the top 20 policies by hits for main events, bypass, and automatic request distribution.
      *
      * @param Request - DescribeHitRuleListRequest
      *
@@ -10154,7 +10158,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Hit Rule Trend.
+     * Queries the policy hit trends.
      *
      * @param Request - DescribeHitRuleTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10213,7 +10217,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Hit Rule Trend.
+     * Queries the policy hit trends.
      *
      * @param Request - DescribeHitRuleTrendRequest
      *
@@ -10302,7 +10306,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Total Number of Events.
+     * Queries the total number of events.
      *
      * @param Request - DescribeInputFeildCountByEventCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10353,7 +10357,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Total Number of Events.
+     * Queries the total number of events.
      *
      * @param Request - DescribeInputFeildCountByEventCodeRequest
      *
@@ -10436,7 +10440,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Task List.
+     * Queries the list of tasks.
      *
      * @param Request - DescribeListPocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10499,7 +10503,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Task List.
+     * Queries the list of tasks.
      *
      * @param Request - DescribeListPocRequest
      *
@@ -10517,7 +10521,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Monitoring Object List.
+     * Queries the list of monitoring objects.
      *
      * @param Request - DescribeLoanExecListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10580,7 +10584,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Monitoring Object List.
+     * Queries the list of monitoring objects.
      *
      * @param Request - DescribeLoanExecListRequest
      *
@@ -10598,7 +10602,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Loan Monitoring Task List.
+     * Retrieves the list of in-loan monitoring tasks.
      *
      * @param Request - DescribeLoanTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10657,7 +10661,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Loan Monitoring Task List.
+     * Retrieves the list of in-loan monitoring tasks.
      *
      * @param Request - DescribeLoanTaskListRequest
      *
@@ -10675,7 +10679,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Mark List.
+     * Queries the tagging list.
      *
      * @param Request - DescribeMarkPageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10742,7 +10746,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Mark List.
+     * Queries the tagging list.
      *
      * @param Request - DescribeMarkPageRequest
      *
@@ -10760,7 +10764,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check Permission.
+     * Queries whether the current user has the specified permission.
      *
      * @param Request - DescribeMenuPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10807,7 +10811,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check Permission.
+     * Queries whether the current user has the specified permission.
      *
      * @param Request - DescribeMenuPermissionRequest
      *
@@ -10947,7 +10951,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Task Limit.
+     * Queries the limits of tasks.
      *
      * @param Request - DescribeMonitorTaskLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10990,7 +10994,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Task Limit.
+     * Queries the limits of tasks.
      *
      * @param Request - DescribeMonitorTaskLimitRequest
      *
@@ -11008,7 +11012,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Name List Pagination.
+     * Queries a name list by page.
      *
      * @param Request - DescribeNameListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11071,7 +11075,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Name List Pagination.
+     * Queries a name list by page.
      *
      * @param Request - DescribeNameListRequest
      *
@@ -11089,7 +11093,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Download Name List.
+     * Downloads the content of a list.
      *
      * @param Request - DescribeNameListDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11136,7 +11140,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Download Name List.
+     * Downloads the content of a list.
      *
      * @param Request - DescribeNameListDownloadUrlRequest
      *
@@ -11154,7 +11158,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Name List Limit.
+     * Queries the quota limit for lists.
      *
      * @param Request - DescribeNameListLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11201,7 +11205,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Name List Limit.
+     * Queries the quota limit for lists.
      *
      * @param Request - DescribeNameListLimitRequest
      *
@@ -11219,7 +11223,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the content of the list.
+     * Queries the content of a list.
      *
      * @param Request - DescribeNameListPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11286,7 +11290,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the content of the list.
+     * Queries the content of a list.
      *
      * @param Request - DescribeNameListPageListRequest
      *
@@ -11304,7 +11308,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * List of Name Types.
+     * Queries the list of name list types.
      *
      * @param Request - DescribeNameListTypeListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11347,7 +11351,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * List of Name Types.
+     * Queries the list of name list types.
      *
      * @param Request - DescribeNameListTypeListRequest
      *
@@ -11365,7 +11369,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Name List.
+     * Queries a list of named lists.
      *
      * @param Request - DescribeNameListVariablePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11428,7 +11432,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Name List.
+     * Queries a list of named lists.
      *
      * @param Request - DescribeNameListVariablePageListRequest
      *
@@ -11519,7 +11523,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query event list by event name.
+     * Queries the list of events by event name.
      *
      * @param Request - DescribeOperationLogPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11586,7 +11590,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query event list by event name.
+     * Queries the list of events by event name.
      *
      * @param Request - DescribeOperationLogPageListRequest
      *
@@ -11604,7 +11608,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the operator mapping list based on customer ID.
+     * Queries the operator mapping list by customer ID.
      *
      * @param Request - DescribeOperatorListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11647,7 +11651,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the operator mapping list based on customer ID.
+     * Queries the operator mapping list by customer ID.
      *
      * @param Request - DescribeOperatorListRequest
      *
@@ -11665,7 +11669,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Operator Mapping List.
+     * Queries the operator mapping list.
      *
      * @param Request - DescribeOperatorListBySceneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11712,7 +11716,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Operator Mapping List.
+     * Queries the operator mapping list.
      *
      * @param Request - DescribeOperatorListBySceneRequest
      *
@@ -11730,7 +11734,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Operator Mapping List.
+     * Queries the list of operator mappings.
      *
      * @param Request - DescribeOperatorListByTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11773,7 +11777,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Operator Mapping List.
+     * Queries the list of operator mappings.
      *
      * @param Request - DescribeOperatorListByTypeRequest
      *
@@ -11791,7 +11795,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check Oss Authorization.
+     * Checks whether OSS is authorized.
      *
      * @param Request - DescribeOssAuthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11834,7 +11838,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Check Oss Authorization.
+     * Checks whether OSS is authorized.
      *
      * @param Request - DescribeOssAuthStatusRequest
      *
@@ -11852,7 +11856,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get OSS Policy.
+     * Retrieves the OSS policy.
      *
      * @param Request - DescribeOssPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11899,7 +11903,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get OSS Policy.
+     * Retrieves the OSS policy.
      *
      * @param Request - DescribeOssPolicyRequest
      *
@@ -11917,7 +11921,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get File Upload Credentials.
+     * Retrieves the upload credential for a file.
      *
      * @param Request - DescribeOssTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11968,7 +11972,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get File Upload Credentials.
+     * Retrieves the upload credential for a file.
      *
      * @param Request - DescribeOssTokenRequest
      *
@@ -11986,7 +11990,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Property List.
+     * Queries the list of event properties.
      *
      * @param Request - DescribeParamByEventCodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12037,7 +12041,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event Property List.
+     * Queries the list of event properties.
      *
      * @param Request - DescribeParamByEventCodesRequest
      *
@@ -12055,7 +12059,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get File Upload Credentials.
+     * Retrieves the file upload credential.
      *
      * @param Request - DescribePocOssTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12098,7 +12102,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get File Upload Credentials.
+     * Retrieves the file upload credential.
      *
      * @param Request - DescribePocOssTokenRequest
      *
@@ -12116,7 +12120,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get POC Task List.
+     * Retrieves the list of POC tasks.
      *
      * @param Request - DescribePocTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12171,7 +12175,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get POC Task List.
+     * Retrieves the list of POC tasks.
      *
      * @param Request - DescribePocTaskListRequest
      *
@@ -12189,7 +12193,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Determine if Stack Private Domain Mode is Enabled.
+     * Checks whether the Stack private domain mode is enabled.
      *
      * @param Request - DescribePrivateStackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12228,7 +12232,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Determine if Stack Private Domain Mode is Enabled.
+     * Checks whether the Stack private domain mode is enabled.
      *
      * @param Request - DescribePrivateStackRequest
      *
@@ -12246,7 +12250,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Detail Query.
+     * Queries the details of a custom query variable.
      *
      * @param Request - DescribeQueryVariableDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12293,7 +12297,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Detail Query.
+     * Queries the details of a custom query variable.
      *
      * @param Request - DescribeQueryVariableDetailRequest
      *
@@ -12311,7 +12315,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable List Query.
+     * Queries a list of custom query variables.
      *
      * @param Request - DescribeQueryVariablePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12374,7 +12378,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable List Query.
+     * Queries a list of custom query variables.
      *
      * @param Request - DescribeQueryVariablePageListRequest
      *
@@ -12392,7 +12396,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable List under Sample & Scenario.
+     * Queries the list of variables under a data sample and scenario.
      *
      * @param Request - DescribeRecommendSceneVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12439,7 +12443,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable List under Sample & Scenario.
+     * Queries the list of variables under a data sample and scenario.
      *
      * @param Request - DescribeRecommendSceneVariablesRequest
      *
@@ -12457,7 +12461,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Variable Recommendation Details Query Interface.
+     * Queries the details of variable recommendations.
      *
      * @param Request - DescribeRecommendTaskDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12504,7 +12508,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Variable Recommendation Details Query Interface.
+     * Queries the details of variable recommendations.
      *
      * @param Request - DescribeRecommendTaskDetailRequest
      *
@@ -12522,7 +12526,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Variable Recommendation List Query Interface.
+     * Queries the variable recommendation list.
      *
      * @param Request - DescribeRecommendTaskPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12577,7 +12581,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Variable Recommendation List Query Interface.
+     * Queries the variable recommendation list.
      *
      * @param Request - DescribeRecommendTaskPageListRequest
      *
@@ -12595,7 +12599,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Indicators Information under Variables.
+     * Queries the metric information of a variable.
      *
      * @param Request - DescribeRecommendVariablesVelocityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12646,7 +12650,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Indicators Information under Variables.
+     * Queries the metric information of a variable.
      *
      * @param Request - DescribeRecommendVariablesVelocityRequest
      *
@@ -12664,7 +12668,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Supported Metrics List.
+     * Queries the list of supported metrics.
      *
      * @param Request - DescribeRecommendVelocitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12715,7 +12719,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Supported Metrics List.
+     * Queries the list of supported metrics.
      *
      * @param Request - DescribeRecommendVelocitiesRequest
      *
@@ -12733,7 +12737,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the list of regions supported by ApiGateway.
+     * Queries the list of regions supported by API Gateway.
      *
      * @param Request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12776,7 +12780,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the list of regions supported by ApiGateway.
+     * Queries the list of regions supported by API Gateway.
      *
      * @param Request - DescribeRegionsRequest
      *
@@ -12794,7 +12798,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Request Hit Details.
+     * Queries the hit details of a request.
      *
      * @param Request - DescribeRequestHitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12841,7 +12845,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Request Hit Details.
+     * Queries the hit details of a request.
      *
      * @param Request - DescribeRequestHitRequest
      *
@@ -12859,7 +12863,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Request Peak.
+     * Request Rate (QPS).
      *
      * @param Request - DescribeRequestPeakReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12902,7 +12906,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Request Peak.
+     * Request Rate (QPS).
      *
      * @param Request - DescribeRequestPeakReportRequest
      *
@@ -12920,7 +12924,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Drill-down Analysis.
+     * Performs drill-down analysis.
      *
      * @param Request - DescribeResultCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12971,7 +12975,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Drill-down Analysis.
+     * Performs drill-down analysis.
      *
      * @param Request - DescribeResultCountRequest
      *
@@ -12989,7 +12993,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Risk map overview chart (line chart).
+     * Risk Map Overview Chart (Line Chart).
      *
      * @param Request - DescribeRiskLineChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13044,7 +13048,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Risk map overview chart (line chart).
+     * Risk Map Overview Chart (Line Chart).
      *
      * @param Request - DescribeRiskLineChartRequest
      *
@@ -13135,7 +13139,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Policy Overview List.
+     * Queries the policy overview list.
      *
      * @param Request - DescribeRuleBarChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13190,7 +13194,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Policy Overview List.
+     * Queries the policy overview list.
      *
      * @param Request - DescribeRuleBarChartRequest
      *
@@ -13208,7 +13212,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Policy Count by User ID.
+     * Queries the number of policies by user ID.
      *
      * @param Request - DescribeRuleCountByUserIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13255,7 +13259,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Policy Count by User ID.
+     * Queries the number of policies by user ID.
      *
      * @param Request - DescribeRuleCountByUserIdRequest
      *
@@ -13346,7 +13350,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query rule hit details.
+     * Queries the details of policy rule hits.
      *
      * @param Request - DescribeRuleHitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13405,7 +13409,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query rule hit details.
+     * Queries the details of policy rule hits.
      *
      * @param Request - DescribeRuleHitRequest
      *
@@ -13423,7 +13427,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query policy list.
+     * Queries a list of policies.
      *
      * @param Request - DescribeRuleListByEventCodesListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13470,7 +13474,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query policy list.
+     * Queries a list of policies.
      *
      * @param Request - DescribeRuleListByEventCodesListRequest
      *
@@ -13488,7 +13492,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the list of policies.
+     * Queries a list of policies.
      *
      * @param Request - DescribeRulePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13563,7 +13567,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query the list of policies.
+     * Queries a list of policies.
      *
      * @param Request - DescribeRulePageListRequest
      *
@@ -13650,7 +13654,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Policy Version List.
+     * Queries the list of policy versions.
      *
      * @param Request - DescribeRuleVersionListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13709,7 +13713,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Policy Version List.
+     * Queries the list of policy versions.
      *
      * @param Request - DescribeRuleVersionListRequest
      *
@@ -13727,7 +13731,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * SDK Download List.
+     * Queries the list of SDK downloads.
      *
      * @param Request - DescribeSDKDownloadListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13778,7 +13782,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * SDK Download List.
+     * Queries the list of SDK downloads.
      *
      * @param Request - DescribeSDKDownloadListRequest
      *
@@ -13796,7 +13800,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query SAF permissions.
+     * Queries SAF permissions.
      *
      * @param Request - DescribeSafConsoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13843,7 +13847,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query SAF permissions.
+     * Queries SAF permissions.
      *
      * @param Request - DescribeSafConsoleRequest
      *
@@ -13861,7 +13865,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query saf_de Order.
+     * Queries saf_de orders.
      *
      * @param Request - DescribeSafDeOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13920,7 +13924,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query saf_de Order.
+     * Queries saf_de orders.
      *
      * @param Request - DescribeSafDeOrderRequest
      *
@@ -13938,7 +13942,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Order Information.
+     * Queries order information.
      *
      * @param Request - DescribeSafOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14001,7 +14005,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Order Information.
+     * Queries order information.
      *
      * @param Request - DescribeSafOrderRequest
      *
@@ -14019,7 +14023,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Access Configuration.
+     * Queries the access configuration.
      *
      * @param Request - DescribeSafStartConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14062,7 +14066,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Access Configuration.
+     * Queries the access configuration.
      *
      * @param Request - DescribeSafStartConfigRequest
      *
@@ -14080,7 +14084,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Access Configuration.
+     * Queries access configurations.
      *
      * @param Request - DescribeSafStartStepsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14143,7 +14147,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Access Configuration.
+     * Queries access configurations.
      *
      * @param Request - DescribeSafStartStepsRequest
      *
@@ -14161,7 +14165,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Risk Tag List.
+     * Retrieves the list of risk labels.
      *
      * @param Request - DescribeSafTagListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14220,7 +14224,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Risk Tag List.
+     * Retrieves the list of risk labels.
      *
      * @param Request - DescribeSafTagListRequest
      *
@@ -14388,7 +14392,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Paged Query of Sample List.
+     * Performs a paging query on the sample list.
      *
      * @param Request - DescribeSampleDataListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14459,7 +14463,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Paged Query of Sample List.
+     * Performs a paging query on the sample list.
      *
      * @param Request - DescribeSampleDataListRequest
      *
@@ -14558,7 +14562,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample Example Authorization.
+     * Queries the authorization of a data sample.
      *
      * @param Request - DescribeSampleDemoDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14605,7 +14609,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample Example Authorization.
+     * Queries the authorization of a data sample.
      *
      * @param Request - DescribeSampleDemoDownloadUrlRequest
      *
@@ -14623,7 +14627,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample Download Authorization Information.
+     * Queries the authorization information for downloading a data sample.
      *
      * @param Request - DescribeSampleDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14670,7 +14674,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample Download Authorization Information.
+     * Queries the authorization information for downloading a data sample.
      *
      * @param Request - DescribeSampleDownloadUrlRequest
      *
@@ -14688,7 +14692,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample Details.
+     * Queries the details of a data sample.
      *
      * @param Request - DescribeSampleInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14739,7 +14743,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample Details.
+     * Queries the details of a data sample.
      *
      * @param Request - DescribeSampleInfoRequest
      *
@@ -14757,7 +14761,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample List.
+     * Queries the sample list.
      *
      * @param Request - DescribeSampleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14816,7 +14820,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample List.
+     * Queries the sample list.
      *
      * @param Request - DescribeSampleListRequest
      *
@@ -14834,7 +14838,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Scene List.
+     * Queries the list of scenarios.
      *
      * @param Request - DescribeSampleSceneListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14877,7 +14881,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Scene List.
+     * Queries the list of scenarios.
      *
      * @param Request - DescribeSampleSceneListRequest
      *
@@ -14895,7 +14899,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Tag List.
+     * Retrieves the list of labels.
      *
      * @param Request - DescribeSampleTagListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14938,7 +14942,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Tag List.
+     * Retrieves the list of labels.
      *
      * @param Request - DescribeSampleTagListRequest
      *
@@ -14956,7 +14960,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample Upload Authorization Information.
+     * Queries the authorization information for sample uploads.
      *
      * @param Request - DescribeSampleUploadPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14999,7 +15003,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Sample Upload Authorization Information.
+     * Queries the authorization information for sample uploads.
      *
      * @param Request - DescribeSampleUploadPolicyRequest
      *
@@ -15090,10 +15094,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Dropdown list for scenario-based service events.
+     * Queries the dropdown list of scenario-based risk control events.
      *
      * @remarks
-     * Dropdown list for scenario-based risk control events
+     * Queries the dropdown list of scenario-based risk control events.
      *
      * @param Request - DescribeSceneAllEventNameCodeListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15140,10 +15144,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Dropdown list for scenario-based service events.
+     * Queries the dropdown list of scenario-based risk control events.
      *
      * @remarks
-     * Dropdown list for scenario-based risk control events
+     * Queries the dropdown list of scenario-based risk control events.
      *
      * @param Request - DescribeSceneAllEventNameCodeListRequest
      *
@@ -15161,7 +15165,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * List of Scenario-based Risk Control Events.
+     * Queries the list of scenario-based risk control events.
      *
      * @param Request - DescribeSceneEventPageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15216,7 +15220,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * List of Scenario-based Risk Control Events.
+     * Queries the list of scenario-based risk control events.
      *
      * @param Request - DescribeSceneEventPageListRequest
      *
@@ -15234,10 +15238,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * White-boxed strategy list for risk control services.
+     * Queries the list of scenario-based risk control event policies.
      *
      * @remarks
-     * Query the list of scenarized risk control event strategies
+     * Queries the list of scenario-based risk control event policies.
      *
      * @param Request - DescribeSceneRulePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15308,10 +15312,10 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * White-boxed strategy list for risk control services.
+     * Queries the list of scenario-based risk control event policies.
      *
      * @remarks
-     * Query the list of scenarized risk control event strategies
+     * Queries the list of scenario-based risk control event policies.
      *
      * @param Request - DescribeSceneRulePageListRequest
      *
@@ -15390,7 +15394,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Score Range Quantity Analysis.
+     * Analyzes the quantity distribution across score ranges.
      *
      * @param Request - DescribeScoreSectionNumLineChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15453,7 +15457,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Score Range Quantity Analysis.
+     * Analyzes the quantity distribution across score ranges.
      *
      * @param Request - DescribeScoreSectionNumLineChartRequest
      *
@@ -15471,7 +15475,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Proportion of Score Ranges for Main Events/Bypass Events/Diversion Events.
+     * Queries the score range distribution of main events, bypass events, and diversion events.
      *
      * @param Request - DescribeScoreSectionPieChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15530,7 +15534,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Proportion of Score Ranges for Main Events/Bypass Events/Diversion Events.
+     * Queries the score range distribution of main events, bypass events, and diversion events.
      *
      * @param Request - DescribeScoreSectionPieChartRequest
      *
@@ -15548,7 +15552,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Score Section Ratio Analysis.
+     * Score Range Proportion Analysis.
      *
      * @param Request - DescribeScoreSectionRatioLineChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15611,7 +15615,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Score Section Ratio Analysis.
+     * Score Range Proportion Analysis.
      *
      * @param Request - DescribeScoreSectionRatioLineChartRequest
      *
@@ -15629,7 +15633,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Task ID List.
+     * Queries the list of task IDs.
      *
      * @param Request - DescribeSelectItemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15672,7 +15676,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Task ID List.
+     * Queries the list of task IDs.
      *
      * @param Request - DescribeSelectItemRequest
      *
@@ -15690,7 +15694,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * ServiceAppkey dropdown.
+     * Retrieves the dropdown values for ServiceAppkey.
      *
      * @param Request - DescribeServiceAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15729,7 +15733,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * ServiceAppkey dropdown.
+     * Retrieves the dropdown values for ServiceAppkey.
      *
      * @param Request - DescribeServiceAppKeyRequest
      *
@@ -15808,7 +15812,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Service List.
+     * Retrieves the list of services.
      *
      * @param Request - DescribeServiceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15851,7 +15855,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Service List.
+     * Retrieves the list of services.
      *
      * @param Request - DescribeServiceListRequest
      *
@@ -15869,7 +15873,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Estimate Call Information.
+     * Estimates call information.
      *
      * @param Request - DescribeSimulationPreditInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15920,7 +15924,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Estimate Call Information.
+     * Estimates call information.
      *
      * @param Request - DescribeSimulationPreditInfoRequest
      *
@@ -15938,7 +15942,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Task Record Count.
+     * Queries the number of task records.
      *
      * @param Request - DescribeSimulationTaskCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16005,7 +16009,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Task Record Count.
+     * Queries the number of task records.
      *
      * @param Request - DescribeSimulationTaskCountRequest
      *
@@ -16023,7 +16027,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Task List.
+     * Queries the task list.
      *
      * @param Request - DescribeSimulationTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16086,7 +16090,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Task List.
+     * Queries the task list.
      *
      * @param Request - DescribeSimulationTaskListRequest
      *
@@ -16104,7 +16108,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Project Configuration.
+     * Retrieves the project configuration.
      *
      * @param Request - DescribeSlsUrlConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16147,7 +16151,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Project Configuration.
+     * Retrieves the project configuration.
      *
      * @param Request - DescribeSlsUrlConfigRequest
      *
@@ -16165,7 +16169,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query List of Policies Supporting Simulation.
+     * Queries the list of policies that support simulation.
      *
      * @param Request - DescribeSupportRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16212,7 +16216,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query List of Policies Supporting Simulation.
+     * Queries the list of policies that support simulation.
      *
      * @param Request - DescribeSupportRuleListRequest
      *
@@ -16230,7 +16234,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag List.
+     * Queries the label list.
      *
      * @param Request - DescribeTagListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16277,7 +16281,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag List.
+     * Queries the label list.
      *
      * @param Request - DescribeTagListRequest
      *
@@ -16295,7 +16299,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Overview List.
+     * Queries the tag overview list.
      *
      * @param Request - DescribeTagsBarChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16354,7 +16358,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Overview List.
+     * Queries the tag overview list.
      *
      * @param Request - DescribeTagsBarChartRequest
      *
@@ -16372,7 +16376,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Fluctuation Detection.
+     * Detects label fluctuations.
      *
      * @param Request - DescribeTagsFluctuationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16419,7 +16423,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Fluctuation Detection.
+     * Detects label fluctuations.
      *
      * @param Request - DescribeTagsFluctuationRequest
      *
@@ -16437,7 +16441,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Tag List.
+     * Retrieves the list of labels.
      *
      * @param Request - DescribeTagsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16480,7 +16484,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Tag List.
+     * Retrieves the list of labels.
      *
      * @param Request - DescribeTagsListRequest
      *
@@ -16498,7 +16502,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Hit Count Analysis.
+     * Analyzes the number of label hits.
      *
      * @param Request - DescribeTagsNumLineChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16561,7 +16565,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Hit Count Analysis.
+     * Analyzes the number of label hits.
      *
      * @param Request - DescribeTagsNumLineChartRequest
      *
@@ -16579,7 +16583,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Hit Ratio Analysis.
+     * Analyzes the tag hit ratio distribution.
      *
      * @param Request - DescribeTagsRatioLineChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16642,7 +16646,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Hit Ratio Analysis.
+     * Analyzes the tag hit ratio distribution.
      *
      * @param Request - DescribeTagsRatioLineChartRequest
      *
@@ -16660,7 +16664,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Hit Trend.
+     * Queries the trend of tag hits.
      *
      * @param Request - DescribeTagsTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16719,7 +16723,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Tag Hit Trend.
+     * Queries the trend of tag hits.
      *
      * @param Request - DescribeTagsTrendRequest
      *
@@ -16737,7 +16741,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Task List.
+     * Queries the task list.
      *
      * @param Request - DescribeTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16792,7 +16796,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Task List.
+     * Queries the task list.
      *
      * @param Request - DescribeTaskListRequest
      *
@@ -16810,7 +16814,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Task Log List.
+     * Queries the task logs.
      *
      * @param Request - DescribeTaskLogListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16873,7 +16877,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Task Log List.
+     * Queries the task logs.
      *
      * @param Request - DescribeTaskLogListRequest
      *
@@ -16891,7 +16895,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Total Event Count.
+     * Queries the total number of events.
      *
      * @param Request - DescribeTemplateCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16934,7 +16938,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Total Event Count.
+     * Queries the total number of events.
      *
      * @param Request - DescribeTemplateCountRequest
      *
@@ -16952,7 +16956,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Template Download.
+     * Downloads a template.
      *
      * @param Request - DescribeTemplateDownloadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16995,7 +16999,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Template Download.
+     * Downloads a template.
      *
      * @param Request - DescribeTemplateDownloadRequest
      *
@@ -17013,7 +17017,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event List by Event Name.
+     * Queries a list of events by event name.
      *
      * @param Request - DescribeTemplatePageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17084,7 +17088,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Event List by Event Name.
+     * Queries a list of events by event name.
      *
      * @param Request - DescribeTemplatePageListRequest
      *
@@ -17102,7 +17106,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get List of Services Used by User.
+     * Queries the list of services used by the user.
      *
      * @param Request - DescribeUsedServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17145,7 +17149,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get List of Services Used by User.
+     * Queries the list of services used by the user.
      *
      * @param Request - DescribeUsedServiceRequest
      *
@@ -17163,7 +17167,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Current Logged-in User Information.
+     * Retrieves the information about the current logged-on user.
      *
      * @param Request - DescribeUserInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17206,7 +17210,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Get Current Logged-in User Information.
+     * Retrieves the information about the current logged-on user.
      *
      * @param Request - DescribeUserInfoRequest
      *
@@ -17224,7 +17228,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Binding Information.
+     * Queries variable binding information.
      *
      * @param Request - DescribeVariableBindDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17275,7 +17279,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Binding Information.
+     * Queries variable binding information.
      *
      * @param Request - DescribeVariableBindDetailRequest
      *
@@ -17293,7 +17297,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query variable details.
+     * Queries the details of a variable.
      *
      * @param Request - DescribeVariableDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17340,7 +17344,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query variable details.
+     * Queries the details of a variable.
      *
      * @param Request - DescribeVariableDetailRequest
      *
@@ -17358,7 +17362,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Fee Information.
+     * Queries the billing information of variables.
      *
      * @param Request - DescribeVariableFeeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17405,7 +17409,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Fee Information.
+     * Queries the billing information of variables.
      *
      * @param Request - DescribeVariableFeeRequest
      *
@@ -17423,7 +17427,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Details.
+     * Queries the details of variables.
      *
      * @param Request - DescribeVariableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17498,7 +17502,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Details.
+     * Queries the details of variables.
      *
      * @param Request - DescribeVariableListRequest
      *
@@ -17516,7 +17520,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Definitions.
+     * Queries variable definitions.
      *
      * @param Request - DescribeVariableMarketListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17591,7 +17595,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Definitions.
+     * Queries variable definitions.
      *
      * @param Request - DescribeVariableMarketListRequest
      *
@@ -17609,7 +17613,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Configuration Information.
+     * Queries configuration information.
      *
      * @param Request - DescribeVariableSceneListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17672,7 +17676,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Configuration Information.
+     * Queries configuration information.
      *
      * @param Request - DescribeVariableSceneListRequest
      *
@@ -17860,7 +17864,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 下载样本文件.
+     * Download sample file.
      *
      * @param Request - DownloadSampleFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17911,7 +17915,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 下载样本文件.
+     * Download sample file.
      *
      * @param Request - DownloadSampleFileRequest
      *
@@ -17994,7 +17998,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 下载子任务结果.
+     * Download subtask result.
      *
      * @param Request - DownloadSubTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18041,7 +18045,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 下载子任务结果.
+     * Download subtask result.
      *
      * @param Request - DownloadSubTaskResultRequest
      *
@@ -18059,7 +18063,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Custom Variable Test.
+     * Tests a custom variable.
      *
      * @param Request - ExpressionTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18122,7 +18126,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Custom Variable Test.
+     * Tests a custom variable.
      *
      * @param Request - ExpressionTestRequest
      *
@@ -18140,7 +18144,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * File Upload.
+     * Uploads a file.
      *
      * @param Request - FileUploadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18191,7 +18195,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * File Upload.
+     * Uploads a file.
      *
      * @param Request - FileUploadRequest
      *
@@ -18209,7 +18213,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 创建样本记录.
+     * Create a sample record.
      *
      * @param Request - GetSampleDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18256,7 +18260,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 创建样本记录.
+     * Create a sample record.
      *
      * @param Request - GetSampleDetailRequest
      *
@@ -18274,7 +18278,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 查看子任务结果.
+     * View subtask results.
      *
      * @param Request - GetSubTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18321,7 +18325,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 查看子任务结果.
+     * View subtask results.
      *
      * @param Request - GetSubTaskResultRequest
      *
@@ -18404,7 +18408,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create or Import Name List.
+     * Creates or imports a list.
      *
      * @param Request - ImportNameListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18479,7 +18483,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Create or Import Name List.
+     * Creates or imports a list.
      *
      * @param Request - ImportNameListRequest
      *
@@ -18497,7 +18501,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Import Template Event.
+     * Imports template events.
      *
      * @param Request - ImportTemplateEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18544,7 +18548,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Import Template Event.
+     * Imports template events.
      *
      * @param Request - ImportTemplateEventRequest
      *
@@ -18562,7 +18566,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 样本列表查询.
+     * Sample List Query.
      *
      * @param Request - ListSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18633,7 +18637,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 样本列表查询.
+     * Sample List Query.
      *
      * @param Request - ListSampleRequest
      *
@@ -18651,7 +18655,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 任务组列表查询.
+     * Query task group list.
      *
      * @param Request - ListTaskGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18714,7 +18718,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 任务组列表查询.
+     * Query task group list.
      *
      * @param Request - ListTaskGroupRequest
      *
@@ -18841,7 +18845,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 合并下载.
+     * Merge Download.
      *
      * @param Request - MergeDownloadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18888,7 +18892,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 合并下载.
+     * Merge Download.
      *
      * @param Request - MergeDownloadRequest
      *
@@ -19219,7 +19223,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Update Memo.
+     * Update memo.
      *
      * @param Request - ModifyAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19270,7 +19274,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Update Memo.
+     * Update memo.
      *
      * @param Request - ModifyAppKeyRequest
      *
@@ -19288,7 +19292,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Edit Accumulated Variable.
+     * Edits a cumulative variable.
      *
      * @param Request - ModifyCustVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19359,7 +19363,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Edit Accumulated Variable.
+     * Edits a cumulative variable.
      *
      * @param Request - ModifyCustVariableRequest
      *
@@ -19377,7 +19381,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Edit Event.
+     * Edits an event.
      *
      * @param Request - ModifyEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19448,7 +19452,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Edit Event.
+     * Edits an event.
      *
      * @param Request - ModifyEventRequest
      *
@@ -19466,7 +19470,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Event Status.
+     * Modifies the status of an event.
      *
      * @param Request - ModifyEventStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19525,7 +19529,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Event Status.
+     * Modifies the status of an event.
      *
      * @param Request - ModifyEventStatusRequest
      *
@@ -19543,7 +19547,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Edit Custom Variable.
+     * Edits a custom variable.
      *
      * @param Request - ModifyExpressionVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19630,7 +19634,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Edit Custom Variable.
+     * Edits a custom variable.
      *
      * @param Request - ModifyExpressionVariableRequest
      *
@@ -19648,7 +19652,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Field.
+     * Modifies a field.
      *
      * @param Request - ModifyFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19715,7 +19719,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Field.
+     * Modifies a field.
      *
      * @param Request - ModifyFieldRequest
      *
@@ -19733,7 +19737,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Policy Priority.
+     * Modifies the priority of a policy.
      *
      * @param Request - ModifyRulePriorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19788,7 +19792,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Policy Priority.
+     * Modifies the priority of a policy.
      *
      * @param Request - ModifyRulePriorityRequest
      *
@@ -19806,7 +19810,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Change the status of a policy version application.
+     * Changes the approval status of a policy version.
      *
      * @param Request - ModifyRuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19889,7 +19893,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Change the status of a policy version application.
+     * Changes the approval status of a policy version.
      *
      * @param Request - ModifyRuleStatusRequest
      *
@@ -19907,7 +19911,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Activate Service.
+     * Activates a service.
      *
      * @param Request - OpenConsoleSlsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19954,7 +19958,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Activate Service.
+     * Activates a service.
      *
      * @param Request - OpenConsoleSlsRequest
      *
@@ -19972,7 +19976,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Operate Favorites.
+     * Manages favorites.
      *
      * @param Request - OperateFavoriteVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20023,7 +20027,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Operate Favorites.
+     * Manages favorites.
      *
      * @param Request - OperateFavoriteVariableRequest
      *
@@ -20041,7 +20045,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Enterprise Verification.
+     * Performs a precondition check.
      *
      * @param Request - PermissionCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20084,7 +20088,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Enterprise Verification.
+     * Performs a precondition check.
      *
      * @param Request - PermissionCheckRequest
      *
@@ -20374,7 +20378,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query White-box Strategy Details.
+     * Queries the details of a whitebox implementation policy.
      *
      * @param Request - QueryAuthRuleDetailByRuleIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20429,7 +20433,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query White-box Strategy Details.
+     * Queries the details of a whitebox implementation policy.
      *
      * @param Request - QueryAuthRuleDetailByRuleIdRequest
      *
@@ -20447,7 +20451,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Recall.
+     * Withdraws a review.
      *
      * @param Request - RecallRuleAuditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20490,7 +20494,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Recall.
+     * Withdraws a review.
      *
      * @param Request - RecallRuleAuditRequest
      *
@@ -20508,7 +20512,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Event.
+     * Deletes an event.
      *
      * @param Request - RemoveEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20567,7 +20571,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Delete Event.
+     * Deletes an event.
      *
      * @param Request - RemoveEventRequest
      *
@@ -20585,7 +20589,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Template Download.
+     * Download template.
      *
      * @param Request - SampleFileDownloadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20632,7 +20636,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Template Download.
+     * Download template.
      *
      * @param Request - SampleFileDownloadRequest
      *
@@ -20650,7 +20654,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Save Custom Columns.
+     * Saves custom columns.
      *
      * @param Request - SaveAnalysisColumnRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20697,7 +20701,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Save Custom Columns.
+     * Saves custom columns.
      *
      * @param Request - SaveAnalysisColumnRequest
      *
@@ -20715,7 +20719,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Bypass/Shunt Configuration.
+     * The bypass/diversion configuration.
      *
      * @param Request - SaveByPassOrShuntEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20770,7 +20774,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Bypass/Shunt Configuration.
+     * The bypass/diversion configuration.
      *
      * @param Request - SaveByPassOrShuntEventRequest
      *
@@ -20788,7 +20792,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 样本列表查询.
+     * Sample Search.
      *
      * @param Request - SearchSampleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20851,7 +20855,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 样本列表查询.
+     * Sample Search.
      *
      * @param Request - SearchSampleRequest
      *
@@ -20869,7 +20873,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Start/Stop Bypass Event.
+     * Starts or stops a bypass event.
      *
      * @param Request - StartOrStopByPassShuntEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20920,7 +20924,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Start/Stop Bypass Event.
+     * Starts or stops a bypass event.
      *
      * @param Request - StartOrStopByPassShuntEventRequest
      *
@@ -20938,7 +20942,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Start Task Execution.
+     * Starts executing a task.
      *
      * @param Request - StartSimulationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20985,7 +20989,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Start Task Execution.
+     * Starts executing a task.
      *
      * @param Request - StartSimulationTaskRequest
      *
@@ -21003,7 +21007,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Stop Task.
+     * Stops a task.
      *
      * @param Request - StopSimulationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21050,7 +21054,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Stop Task.
+     * Stops a task.
      *
      * @param Request - StopSimulationTaskRequest
      *
@@ -21068,7 +21072,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Custom Variable Switch.
+     * Enables or disables a custom variable.
      *
      * @param Request - SwitchExpressionVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21123,7 +21127,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Custom Variable Switch.
+     * Enables or disables a custom variable.
      *
      * @param Request - SwitchExpressionVariableRequest
      *
@@ -21141,7 +21145,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Field Switch.
+     * Toggles a field on or off.
      *
      * @param Request - SwitchFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21200,7 +21204,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Field Switch.
+     * Toggles a field on or off.
      *
      * @param Request - SwitchFieldRequest
      *
@@ -21218,7 +21222,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Enable/Disable.
+     * Queries the enabling or disabling status of a variable.
      *
      * @param Request - SwitchQueryVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21269,7 +21273,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Query Variable Enable/Disable.
+     * Queries the enabling or disabling status of a variable.
      *
      * @param Request - SwitchQueryVariableRequest
      *
@@ -21287,7 +21291,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * One-click switch online.
+     * Switches an event to online with one click.
      *
      * @param Request - SwitchToOnlineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21334,7 +21338,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * One-click switch online.
+     * Switches an event to online with one click.
      *
      * @param Request - SwitchToOnlineRequest
      *
@@ -21352,7 +21356,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Cumulative Variable Switch.
+     * Enables or disables a cumulative variable.
      *
      * @param Request - SwitchVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21411,7 +21415,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Cumulative Variable Switch.
+     * Enables or disables a cumulative variable.
      *
      * @param Request - SwitchVariableRequest
      *
@@ -21429,7 +21433,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Determine if the task name is duplicated.
+     * Checks whether a task name is duplicate.
      *
      * @param Request - TaskNameByUserIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21476,7 +21480,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Determine if the task name is duplicated.
+     * Checks whether a task name is duplicate.
      *
      * @param Request - TaskNameByUserIdRequest
      *
@@ -21494,7 +21498,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Query Conditions.
+     * Modifies a query condition.
      *
      * @param Request - UpdateAnalysisConditionFavoriteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21573,7 +21577,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Query Conditions.
+     * Modifies a query condition.
      *
      * @param Request - UpdateAnalysisConditionFavoriteRequest
      *
@@ -21591,7 +21595,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Approval.
+     * Processes an approval request.
      *
      * @param Request - UpdateAuditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21650,7 +21654,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Approval.
+     * Processes an approval request.
      *
      * @param Request - UpdateAuditRequest
      *
@@ -21668,7 +21672,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Authorization Policy.
+     * Modifies an authorization policy.
      *
      * @param Request - UpdateAuthRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21735,7 +21739,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Authorization Policy.
+     * Modifies an authorization policy.
      *
      * @param Request - UpdateAuthRuleRequest
      *
@@ -21753,7 +21757,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Edit Bypass Event.
+     * Edits a bypass event.
      *
      * @param Request - UpdateByPassShuntEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21804,7 +21808,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Edit Bypass Event.
+     * Edits a bypass event.
      *
      * @param Request - UpdateByPassShuntEventRequest
      *
@@ -21822,7 +21826,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Data Source.
+     * Modifies a data source.
      *
      * @param Request - UpdateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21885,7 +21889,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Data Source.
+     * Modifies a data source.
      *
      * @param Request - UpdateDataSourceRequest
      *
@@ -21903,7 +21907,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Custom Query Variable.
+     * Modifies a custom query variable.
      *
      * @param Request - UpdateQueryVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21986,7 +21990,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Modify Custom Query Variable.
+     * Modifies a custom query variable.
      *
      * @param Request - UpdateQueryVariableRequest
      *
@@ -22004,7 +22008,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Update Policy.
+     * Updates a policy.
      *
      * @param Request - UpdateRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22095,7 +22099,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Update Policy.
+     * Updates a policy.
      *
      * @param Request - UpdateRuleRequest
      *
@@ -22113,7 +22117,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Update Basic Policy Information.
+     * Updates the basic information of a policy.
      *
      * @param Request - UpdateRuleBaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22176,7 +22180,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Update Basic Policy Information.
+     * Updates the basic information of a policy.
      *
      * @param Request - UpdateRuleBaseRequest
      *
@@ -22194,7 +22198,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Batch Update Samples.
+     * Modifies samples in batches.
      *
      * @param Request - UpdateSampleBatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22249,7 +22253,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * Batch Update Samples.
+     * Modifies samples in batches.
      *
      * @param Request - UpdateSampleBatchRequest
      *
@@ -22348,7 +22352,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 上传并校验样本文件.
+     * Upload and validate the sample file for the customer.
      *
      * @param Request - UploadForeignSampleFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22399,7 +22403,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 上传并校验样本文件.
+     * Upload and validate the sample file for the customer.
      *
      * @param Request - UploadForeignSampleFileRequest
      *
@@ -22509,7 +22513,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 上传并校验样本文件.
+     * Upload and validate the sample file.
      *
      * @param Request - UploadSampleFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22568,7 +22572,7 @@ class Xtee extends OpenApiClient
     }
 
     /**
-     * 上传并校验样本文件.
+     * Upload and validate the sample file.
      *
      * @param Request - UploadSampleFileRequest
      *

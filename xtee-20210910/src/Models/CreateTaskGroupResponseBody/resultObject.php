@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Xtee\V20210910\Models\CreateTaskGroupResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Xtee\V20210910\Models\CreateTaskGroupResponseBody\resultObject\subTaskList;
 
 class resultObject extends Model
 {
@@ -34,6 +35,11 @@ class resultObject extends Model
     public $subTaskCount;
 
     /**
+     * @var subTaskList[]
+     */
+    public $subTaskList;
+
+    /**
      * @var string
      */
     public $tab;
@@ -53,6 +59,7 @@ class resultObject extends Model
         'groupStatus' => 'GroupStatus',
         'sampleNames' => 'SampleNames',
         'subTaskCount' => 'SubTaskCount',
+        'subTaskList' => 'SubTaskList',
         'tab' => 'Tab',
         'taskGroupId' => 'TaskGroupId',
         'taskGroupName' => 'TaskGroupName',
@@ -62,6 +69,9 @@ class resultObject extends Model
     {
         if (\is_array($this->sampleNames)) {
             Model::validateArray($this->sampleNames);
+        }
+        if (\is_array($this->subTaskList)) {
+            Model::validateArray($this->subTaskList);
         }
         parent::validate();
     }
@@ -94,6 +104,17 @@ class resultObject extends Model
 
         if (null !== $this->subTaskCount) {
             $res['SubTaskCount'] = $this->subTaskCount;
+        }
+
+        if (null !== $this->subTaskList) {
+            if (\is_array($this->subTaskList)) {
+                $res['SubTaskList'] = [];
+                $n1 = 0;
+                foreach ($this->subTaskList as $item1) {
+                    $res['SubTaskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->tab) {
@@ -144,6 +165,17 @@ class resultObject extends Model
 
         if (isset($map['SubTaskCount'])) {
             $model->subTaskCount = $map['SubTaskCount'];
+        }
+
+        if (isset($map['SubTaskList'])) {
+            if (!empty($map['SubTaskList'])) {
+                $model->subTaskList = [];
+                $n1 = 0;
+                foreach ($map['SubTaskList'] as $item1) {
+                    $model->subTaskList[$n1] = subTaskList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Tab'])) {

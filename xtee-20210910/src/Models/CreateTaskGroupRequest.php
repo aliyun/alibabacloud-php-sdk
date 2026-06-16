@@ -36,6 +36,11 @@ class CreateTaskGroupRequest extends Model
     /**
      * @var string
      */
+    public $serviceList;
+
+    /**
+     * @var string
+     */
     public $serviceNames;
 
     /**
@@ -58,6 +63,7 @@ class CreateTaskGroupRequest extends Model
         'sampleIds' => 'SampleIds',
         'scenes' => 'Scenes',
         'serviceCodes' => 'ServiceCodes',
+        'serviceList' => 'ServiceList',
         'serviceNames' => 'ServiceNames',
         'tab' => 'Tab',
         'taskGroupName' => 'TaskGroupName',
@@ -90,6 +96,10 @@ class CreateTaskGroupRequest extends Model
 
         if (null !== $this->serviceCodes) {
             $res['ServiceCodes'] = $this->serviceCodes;
+        }
+
+        if (null !== $this->serviceList) {
+            $res['ServiceList'] = $this->serviceList;
         }
 
         if (null !== $this->serviceNames) {
@@ -137,6 +147,10 @@ class CreateTaskGroupRequest extends Model
 
         if (isset($map['ServiceCodes'])) {
             $model->serviceCodes = $map['ServiceCodes'];
+        }
+
+        if (isset($map['ServiceList'])) {
+            $model->serviceList = $map['ServiceList'];
         }
 
         if (isset($map['ServiceNames'])) {
