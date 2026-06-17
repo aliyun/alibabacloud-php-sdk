@@ -87,7 +87,7 @@ class CreateAIDBClusterRequest extends Model
     /**
      * @var string
      */
-    public $modeName;
+    public $modelName;
 
     /**
      * @var string
@@ -189,7 +189,7 @@ class CreateAIDBClusterRequest extends Model
         'kubeType' => 'KubeType',
         'kubernetesConfig' => 'KubernetesConfig',
         'managementMode' => 'ManagementMode',
-        'modeName' => 'ModeName',
+        'modelName' => 'ModelName',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'password' => 'Password',
@@ -280,8 +280,8 @@ class CreateAIDBClusterRequest extends Model
             $res['ManagementMode'] = $this->managementMode;
         }
 
-        if (null !== $this->modeName) {
-            $res['ModeName'] = $this->modeName;
+        if (null !== $this->modelName) {
+            $res['ModelName'] = $this->modelName;
         }
 
         if (null !== $this->ownerAccount) {
@@ -430,8 +430,8 @@ class CreateAIDBClusterRequest extends Model
             $model->managementMode = $map['ManagementMode'];
         }
 
-        if (isset($map['ModeName'])) {
-            $model->modeName = $map['ModeName'];
+        if (isset($map['ModelName'])) {
+            $model->modelName = $map['ModelName'];
         }
 
         if (isset($map['OwnerAccount'])) {

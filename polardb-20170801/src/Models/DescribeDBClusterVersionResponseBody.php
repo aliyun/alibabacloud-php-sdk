@@ -18,6 +18,11 @@ class DescribeDBClusterVersionResponseBody extends Model
     /**
      * @var string
      */
+    public $DBLatestStableVersion;
+
+    /**
+     * @var string
+     */
     public $DBLatestVersion;
 
     /**
@@ -44,6 +49,11 @@ class DescribeDBClusterVersionResponseBody extends Model
      * @var string
      */
     public $DBVersionStatus;
+
+    /**
+     * @var string
+     */
+    public $isLatestStableVersion;
 
     /**
      * @var string
@@ -81,12 +91,14 @@ class DescribeDBClusterVersionResponseBody extends Model
     public $requestId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
+        'DBLatestStableVersion' => 'DBLatestStableVersion',
         'DBLatestVersion' => 'DBLatestVersion',
         'DBMinorVersion' => 'DBMinorVersion',
         'DBRevisionVersion' => 'DBRevisionVersion',
         'DBRevisionVersionList' => 'DBRevisionVersionList',
         'DBVersion' => 'DBVersion',
         'DBVersionStatus' => 'DBVersionStatus',
+        'isLatestStableVersion' => 'IsLatestStableVersion',
         'isLatestVersion' => 'IsLatestVersion',
         'isProxyLatestVersion' => 'IsProxyLatestVersion',
         'proxyLatestVersion' => 'ProxyLatestVersion',
@@ -112,6 +124,10 @@ class DescribeDBClusterVersionResponseBody extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->DBLatestStableVersion) {
+            $res['DBLatestStableVersion'] = $this->DBLatestStableVersion;
         }
 
         if (null !== $this->DBLatestVersion) {
@@ -143,6 +159,10 @@ class DescribeDBClusterVersionResponseBody extends Model
 
         if (null !== $this->DBVersionStatus) {
             $res['DBVersionStatus'] = $this->DBVersionStatus;
+        }
+
+        if (null !== $this->isLatestStableVersion) {
+            $res['IsLatestStableVersion'] = $this->isLatestStableVersion;
         }
 
         if (null !== $this->isLatestVersion) {
@@ -195,6 +215,10 @@ class DescribeDBClusterVersionResponseBody extends Model
             $model->DBClusterId = $map['DBClusterId'];
         }
 
+        if (isset($map['DBLatestStableVersion'])) {
+            $model->DBLatestStableVersion = $map['DBLatestStableVersion'];
+        }
+
         if (isset($map['DBLatestVersion'])) {
             $model->DBLatestVersion = $map['DBLatestVersion'];
         }
@@ -224,6 +248,10 @@ class DescribeDBClusterVersionResponseBody extends Model
 
         if (isset($map['DBVersionStatus'])) {
             $model->DBVersionStatus = $map['DBVersionStatus'];
+        }
+
+        if (isset($map['IsLatestStableVersion'])) {
+            $model->isLatestStableVersion = $map['IsLatestStableVersion'];
         }
 
         if (isset($map['IsLatestVersion'])) {

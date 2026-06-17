@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateBatchTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $applicationType;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -33,6 +38,7 @@ class CreateBatchTaskRequest extends Model
      */
     public $taskType;
     protected $_name = [
+        'applicationType' => 'ApplicationType',
         'instanceIds' => 'InstanceIds',
         'param' => 'Param',
         'regionId' => 'RegionId',
@@ -51,6 +57,10 @@ class CreateBatchTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationType) {
+            $res['ApplicationType'] = $this->applicationType;
+        }
+
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
@@ -89,6 +99,10 @@ class CreateBatchTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationType'])) {
+            $model->applicationType = $map['ApplicationType'];
+        }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];

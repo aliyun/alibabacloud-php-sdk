@@ -11,6 +11,11 @@ class CreateBatchTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $applicationType;
+
+    /**
+     * @var string
+     */
     public $instanceIdsShrink;
 
     /**
@@ -33,6 +38,7 @@ class CreateBatchTaskShrinkRequest extends Model
      */
     public $taskType;
     protected $_name = [
+        'applicationType' => 'ApplicationType',
         'instanceIdsShrink' => 'InstanceIds',
         'param' => 'Param',
         'regionId' => 'RegionId',
@@ -48,6 +54,10 @@ class CreateBatchTaskShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationType) {
+            $res['ApplicationType'] = $this->applicationType;
+        }
+
         if (null !== $this->instanceIdsShrink) {
             $res['InstanceIds'] = $this->instanceIdsShrink;
         }
@@ -79,6 +89,10 @@ class CreateBatchTaskShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationType'])) {
+            $model->applicationType = $map['ApplicationType'];
+        }
+
         if (isset($map['InstanceIds'])) {
             $model->instanceIdsShrink = $map['InstanceIds'];
         }

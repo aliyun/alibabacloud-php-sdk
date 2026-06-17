@@ -726,6 +726,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\MovePolarFsObjectsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\MovePolarFsObjectsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\OpenAITaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\OpenAITaskResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\OperateApplicationRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\OperateApplicationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\PatchPolarClawConfigRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\PatchPolarClawConfigResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\PatchPolarClawConfigShrinkRequest;
@@ -859,6 +861,29 @@ class Polardb extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'polardb.aliyuncs.com',
             'eu-west-1-oxs' => 'polardb.aliyuncs.com',
             'rus-west-1-pop' => 'polardb.aliyuncs.com',
+            'us-west-1' => 'polardb.us-west-1.aliyuncs.com',
+            'us-east-1' => 'polardb.us-east-1.aliyuncs.com',
+            'na-south-1' => 'polardb.na-south-1.aliyuncs.com',
+            'me-east-1' => 'polardb.me-east-1.aliyuncs.com',
+            'eu-west-1' => 'polardb.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'polardb.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'polardb.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'polardb.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shenzhen' => 'polardb.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'polardb.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-huhehaote' => 'polardb.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'polardb.cn-hongkong.aliyuncs.com',
+            'cn-guangzhou' => 'polardb.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'polardb.cn-chengdu.aliyuncs.com',
+            'ap-southeast-7' => 'polardb.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-6' => 'polardb.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'polardb.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'polardb.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-2' => 'polardb.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'polardb.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'polardb.ap-south-1.aliyuncs.com',
+            'ap-northeast-2' => 'polardb.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'polardb.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('polardb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -889,6 +914,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Aborts an upgrade or migration task.
+     *
+     * @remarks
+     * - Aborts an upgrade or migration task.
+     * > Before you call this operation, create an upgrade task for the cluster by calling the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation and setting the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Upgrade an ApsaraDB RDS for MySQL instance to a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/121582.html).
+     *
      * @param request - AbortDBClusterMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -950,6 +981,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Aborts an upgrade or migration task.
+     *
+     * @remarks
+     * - Aborts an upgrade or migration task.
+     * > Before you call this operation, create an upgrade task for the cluster by calling the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation and setting the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Upgrade an ApsaraDB RDS for MySQL instance to a PolarDB for MySQL cluster](https://help.aliyun.com/document_detail/121582.html).
+     *
      * @param request - AbortDBClusterMigrationRequest
      *
      * @returns AbortDBClusterMigrationResponse
@@ -966,7 +1003,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加角色权限.
+     * Grants permissions to a role.
      *
      * @param request - AddEncryptionDBRolePrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1029,7 +1066,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加角色权限.
+     * Grants permissions to a role.
      *
      * @param request - AddEncryptionDBRolePrivilegeRequest
      *
@@ -1047,7 +1084,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加sql防火墙配置.
+     * Adds SQL firewall rules.
      *
      * @param request - AddFirewallRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1114,7 +1151,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加sql防火墙配置.
+     * Adds SQL firewall rules.
      *
      * @param request - AddFirewallRulesRequest
      *
@@ -1132,7 +1169,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加PolarClaw MCP Server.
+     * Adds an MCP server to a specified PolarClaw application.
+     *
+     * @remarks
+     * ## Description
+     * - The `ApplicationId` and `ServerName` parameters are required.
+     * - The `ApplicationId` parameter specifies the application ID.
+     * - The `ServerName` parameter specifies the MCP server name to add.
+     * - A successful response returns the request ID, a message, a status code, the application ID, and the server name.
+     * - If the request fails, the API may return a 500 error code with a detailed error message.
      *
      * @param tmpReq - AddPolarClawMCPServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1185,7 +1230,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加PolarClaw MCP Server.
+     * Adds an MCP server to a specified PolarClaw application.
+     *
+     * @remarks
+     * ## Description
+     * - The `ApplicationId` and `ServerName` parameters are required.
+     * - The `ApplicationId` parameter specifies the application ID.
+     * - The `ServerName` parameter specifies the MCP server name to add.
+     * - A successful response returns the request ID, a message, a status code, the application ID, and the server name.
+     * - If the request fails, the API may return a 500 error code with a detailed error message.
      *
      * @param request - AddPolarClawMCPServerRequest
      *
@@ -1203,7 +1256,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 新增polarfs bucket路径.
+     * Adds a transparent acceleration path.
      *
      * @param request - AddPolarFsPathMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1250,7 +1303,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 新增polarfs bucket路径.
+     * Adds a transparent acceleration path.
      *
      * @param request - AddPolarFsPathMappingRequest
      *
@@ -1268,7 +1321,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 新增PolarFs Quota规则.
+     * Adds a new directory quota rule to a Polarlakebase instance.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation adds a new path policy—a directory quota rule—to a specified Polarlakebase instance.
+     * - The `Quotas` parameter is a list. Each element represents a new quota rule. You can add up to 11 rules in a single request.
+     * - Each rule must include the `Name` and `Include` fields. Other fields, such as `Description` and `Exclude`, are optional.
+     * - To define the quota limit, specify at least one of the following parameters: `SizeLimit`, `FileCountLimit`, `AccessTTL`, or `ChangeTTL`.
+     * - The `Priority` field specifies the rule priority. A larger value indicates higher priority. The default value is 0.
+     * - The `Enabled` field determines whether the rule takes effect immediately. The default value is true.
      *
      * @param request - AddPolarFsQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1315,7 +1377,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 新增PolarFs Quota规则.
+     * Adds a new directory quota rule to a Polarlakebase instance.
+     *
+     * @remarks
+     * ## Request description
+     * - This operation adds a new path policy—a directory quota rule—to a specified Polarlakebase instance.
+     * - The `Quotas` parameter is a list. Each element represents a new quota rule. You can add up to 11 rules in a single request.
+     * - Each rule must include the `Name` and `Include` fields. Other fields, such as `Description` and `Exclude`, are optional.
+     * - To define the quota limit, specify at least one of the following parameters: `SizeLimit`, `FileCountLimit`, `AccessTTL`, or `ChangeTTL`.
+     * - The `Priority` field specifies the rule priority. A larger value indicates higher priority. The default value is 0.
+     * - The `Enabled` field determines whether the rule takes effect immediately. The default value is true.
      *
      * @param request - AddPolarFsQuotaRequest
      *
@@ -1333,7 +1404,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加SQL限流规则.
+     * Adds SQL throttling rules.
      *
      * @param request - AddSQLRateLimitingRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1396,7 +1467,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 添加SQL限流规则.
+     * Adds SQL throttling rules.
      *
      * @param request - AddSQLRateLimitingRulesRequest
      *
@@ -1414,7 +1485,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 应用提示词策略到实例.
+     * Applies prompts to an application instance.
+     *
+     * @remarks
+     * ## Request
+     * - Applies prompts to a specified application instance.
      *
      * @param tmpReq - ApplyApplicationPromptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1471,7 +1546,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 应用提示词策略到实例.
+     * Applies prompts to an application instance.
+     *
+     * @remarks
+     * ## Request
+     * - Applies prompts to a specified application instance.
      *
      * @param request - ApplyApplicationPromptsRequest
      *
@@ -1489,7 +1568,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 批准PolarClaw设备配对.
+     * Approves a PolarClaw device pairing.
      *
      * @param request - ApprovePolarClawDevicePairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1532,7 +1611,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 批准PolarClaw设备配对.
+     * Approves a PolarClaw device pairing.
      *
      * @param request - ApprovePolarClawDevicePairRequest
      *
@@ -1550,7 +1629,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 挂载PolarFS到PolarDB应用.
+     * Attaches a specified PolarLakeBase cold-storage instance to a PolarDB application.
      *
      * @param request - AttachApplicationPolarFSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1601,7 +1680,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 挂载PolarFS到PolarDB应用.
+     * Attaches a specified PolarLakeBase cold-storage instance to a PolarDB application.
      *
      * @param request - AttachApplicationPolarFSRequest
      *
@@ -1619,7 +1698,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 绑定PolarClaw Agent.
+     * Binds a PolarClaw Agent to a channel.
+     *
+     * @remarks
+     * ## Request
+     * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
      *
      * @param request - BindPolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1670,7 +1753,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 绑定PolarClaw Agent.
+     * Binds a PolarClaw Agent to a channel.
+     *
+     * @remarks
+     * ## Request
+     * This API associates an agent from a PolarClaw application with a communication channel. You specify the application with `ApplicationId`, the agent with `AgentId`, and the channel with `Channel`. You can optionally specify an account ID for the channel with `ChannelAccountId`.
      *
      * @param request - BindPolarClawAgentRequest
      *
@@ -1769,7 +1856,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 取消周期任务策略.
+     * Cancels an auto triggered task policy.
      *
      * @param request - CancelCronJobPolicyServerlessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1832,7 +1919,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 取消周期任务策略.
+     * Cancels an auto triggered task policy.
      *
      * @param request - CancelCronJobPolicyServerlessRequest
      *
@@ -1850,7 +1937,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 取消目录的配额.
+     * Deletes quota rules for one or more file paths within a specified Polarlakebase instance.
+     *
+     * @remarks
+     * ## Request description
+     * - The `PolarFsInstanceId` parameter is required. It specifies the Polarlakebase instance for the operation.
+     * - The `FilePathIds` parameter is required. It accepts a string containing the IDs of the file paths for which you want to delete quota rules. Ensure that each ID is valid and belongs to the specified Polarlakebase instance.
+     * - A single API call can delete quotas for multiple file paths. However, limit the number of paths in a single request to avoid performance issues.
      *
      * @param request - CancelPolarFsFileQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1897,7 +1990,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 取消目录的配额.
+     * Deletes quota rules for one or more file paths within a specified Polarlakebase instance.
+     *
+     * @remarks
+     * ## Request description
+     * - The `PolarFsInstanceId` parameter is required. It specifies the Polarlakebase instance for the operation.
+     * - The `FilePathIds` parameter is required. It accepts a string containing the IDs of the file paths for which you want to delete quota rules. Ensure that each ID is valid and belongs to the specified Polarlakebase instance.
+     * - A single API call can delete quotas for multiple file paths. However, limit the number of paths in a single request to avoid performance issues.
      *
      * @param request - CancelPolarFsFileQuotaRequest
      *
@@ -1915,7 +2014,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Cancels scheduled tasks that are not yet started.
+     * Cancels scheduled tasks that have not started.
      *
      * @param request - CancelScheduleTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1978,7 +2077,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Cancels scheduled tasks that are not yet started.
+     * Cancels scheduled tasks that have not started.
      *
      * @param request - CancelScheduleTasksRequest
      *
@@ -2073,7 +2172,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 检查PolarDB账号名称.
+     * Checks a PolarDB account name.
      *
      * @param request - CheckAccountNameZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2132,7 +2231,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 检查PolarDB账号名称.
+     * Checks a PolarDB account name.
      *
      * @param request - CheckAccountNameZonalRequest
      *
@@ -2150,7 +2249,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 检查连接串.
+     * Checks the connection string of a cluster.
      *
      * @param request - CheckConnectionStringRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2209,7 +2308,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 检查连接串.
+     * Checks the connection string of a cluster.
      *
      * @param request - CheckConnectionStringRequest
      *
@@ -2227,7 +2326,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+     * Checks whether a database name is valid or if a database with the same name already exists in the current cluster.
      *
      * @param request - CheckDBNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2286,7 +2385,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether a database name is valid or whether the name is already used by another database in the current cluster.
+     * Checks whether a database name is valid or if a database with the same name already exists in the current cluster.
      *
      * @param request - CheckDBNameRequest
      *
@@ -2304,7 +2403,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 检查PolarDB边缘云数据库名.
+     * Checks the name of a database in an edge cluster for PolarDB on ENS.
      *
      * @param request - CheckDBNameZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2363,7 +2462,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 检查PolarDB边缘云数据库名.
+     * Checks the name of a database in an edge cluster for PolarDB on ENS.
      *
      * @param request - CheckDBNameZonalRequest
      *
@@ -2381,7 +2480,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the cluster is authorized to use Key Management Service (KMS).
+     * Checks whether a user is authorized to use Key Management Service (KMS).
      *
      * @param request - CheckKMSAuthorizedRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2444,7 +2543,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the cluster is authorized to use Key Management Service (KMS).
+     * Checks whether a user is authorized to use Key Management Service (KMS).
      *
      * @param request - CheckKMSAuthorizedRequest
      *
@@ -2462,16 +2561,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 用于检查PolarFS实例中配额设置的一致性状态。
+     * Checks the consistency of quota settings in a PolarFS instance.
      *
      * @remarks
-     * ## 请求说明
-     * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
-     * ### 注意事项
-     * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
-     * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
-     * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
-     * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+     * ## Description
+     * This operation verifies the consistency of quota configurations within a specified PolarFS instance. These configurations include storage capacity and inode limits on directory paths. If inconsistencies are found, the operation returns a list of the inconsistent paths and any related error information.
+     * ### Usage notes
+     * - Ensure that the `PolarFsInstanceId` parameter correctly identifies the target PolarFS instance.
+     * - When the system detects quota inconsistencies, it returns `IsConsistent=false` and populates the `InconsistentPaths` array.
+     * - If the request is successful and no inconsistencies are found, the `InconsistentPaths` array is empty and `IsConsistent` is set to `true`.
+     * - For errors such as insufficient permissions or a non-existent resource, see the error codes for details.
      *
      * @param request - CheckPolarFsQuotaConsistencyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2522,16 +2621,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 用于检查PolarFS实例中配额设置的一致性状态。
+     * Checks the consistency of quota settings in a PolarFS instance.
      *
      * @remarks
-     * ## 请求说明
-     * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
-     * ### 注意事项
-     * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
-     * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
-     * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
-     * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+     * ## Description
+     * This operation verifies the consistency of quota configurations within a specified PolarFS instance. These configurations include storage capacity and inode limits on directory paths. If inconsistencies are found, the operation returns a list of the inconsistent paths and any related error information.
+     * ### Usage notes
+     * - Ensure that the `PolarFsInstanceId` parameter correctly identifies the target PolarFS instance.
+     * - When the system detects quota inconsistencies, it returns `IsConsistent=false` and populates the `InconsistentPaths` array.
+     * - If the request is successful and no inconsistencies are found, the `InconsistentPaths` array is empty and `IsConsistent` is set to `true`.
+     * - For errors such as insufficient permissions or a non-existent resource, see the error codes for details.
      *
      * @param request - CheckPolarFsQuotaConsistencyRequest
      *
@@ -2549,7 +2648,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether a service-linked role (SLR) is created.
+     * Checks whether a service-linked role has been created.
      *
      * @param request - CheckServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2600,7 +2699,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Checks whether a service-linked role (SLR) is created.
+     * Checks whether a service-linked role has been created.
      *
      * @param request - CheckServiceLinkedRoleRequest
      *
@@ -2618,7 +2717,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 支持基础版支持clone文件或目录快照.
+     * Clones a snapshot of a file or folder for a Basic Edition instance.
+     *
+     * @remarks
+     * ## Request description
+     * - `PolarFsInstanceId` is required. It specifies the PolarDB instance for the operation.
      *
      * @param request - ClonePolarFsBasicSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2669,7 +2772,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 支持基础版支持clone文件或目录快照.
+     * Clones a snapshot of a file or folder for a Basic Edition instance.
+     *
+     * @remarks
+     * ## Request description
+     * - `PolarFsInstanceId` is required. It specifies the PolarDB instance for the operation.
      *
      * @param request - ClonePolarFsBasicSnapshotRequest
      *
@@ -2687,7 +2794,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Disables the PolarDB for AI feature for a cluster.
+     * Disables the PolarDB for AI feature.
      *
      * @param request - CloseAITaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2746,7 +2853,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Disables the PolarDB for AI feature for a cluster.
+     * Disables the PolarDB for AI feature.
      *
      * @param request - CloseAITaskRequest
      *
@@ -2767,9 +2874,9 @@ class Polardb extends OpenApiClient
      * Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
      *
      * @remarks
-     *   You can call this operation to cancel the migration task before data migration.
-     * *   You can call this operation to perform the migration task after data migration.
-     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     * - Cancel the migration task before data migration.
+     * - Perform the migration task after data migration.
+     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html)Operation to create an upgrade task. Set the **CreationOption**Parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
      *
      * @param request - CloseDBClusterMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2831,9 +2938,9 @@ class Polardb extends OpenApiClient
      * Cancels or completes the migration task that upgrades an RDS cluster to a PolarDB cluster.
      *
      * @remarks
-     *   You can call this operation to cancel the migration task before data migration.
-     * *   You can call this operation to perform the migration task after data migration.
-     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     * - Cancel the migration task before data migration.
+     * - Perform the migration task after data migration.
+     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html)Operation to create an upgrade task. Set the **CreationOption**Parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
      *
      * @param request - CloseDBClusterMigrationRequest
      *
@@ -2851,6 +2958,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Continues the current migration or upgrade task.
+     *
      * @param request - ContinueDBClusterMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2920,6 +3029,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Continues the current migration or upgrade task.
+     *
      * @param request - ContinueDBClusterMigrationRequest
      *
      * @returns ContinueDBClusterMigrationResponse
@@ -2936,7 +3047,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建AI集群.
+     * This topic describes how to create an AI cluster.
      *
      * @param request - CreateAIDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3012,8 +3123,8 @@ class Polardb extends OpenApiClient
             @$query['ManagementMode'] = $request->managementMode;
         }
 
-        if (null !== $request->modeName) {
-            @$query['ModeName'] = $request->modeName;
+        if (null !== $request->modelName) {
+            @$query['ModelName'] = $request->modelName;
         }
 
         if (null !== $request->ownerAccount) {
@@ -3103,7 +3214,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建AI集群.
+     * This topic describes how to create an AI cluster.
      *
      * @param request - CreateAIDBClusterRequest
      *
@@ -3121,7 +3232,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset.
      *
      * @param request - CreateAIDBClusterDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3196,7 +3307,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset.
      *
      * @param request - CreateAIDBClusterDatasetRequest
      *
@@ -3214,7 +3325,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建模型评测任务
+     * Creates a model operator instance.
      *
      * @param request - CreateAIDBClusterTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3325,7 +3436,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建模型评测任务
+     * Creates a model operator instance.
      *
      * @param request - CreateAIDBClusterTaskRequest
      *
@@ -3343,7 +3454,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建AI节点.
+     * Creates AI nodes.
      *
      * @param request - CreateAINodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3386,7 +3497,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建AI节点.
+     * Creates AI nodes.
      *
      * @param request - CreateAINodesRequest
      *
@@ -3513,7 +3624,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建边缘云账号.
+     * Creates an account for a PolarDB on ENS cluster.
      *
      * @param request - CreateAccountZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3604,7 +3715,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建边缘云账号.
+     * Creates an account for a PolarDB on ENS cluster.
      *
      * @param request - CreateAccountZonalRequest
      *
@@ -3622,7 +3733,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Generates a lightweight license activation code.
+     * Generates activation codes for the lightweight version.
      *
      * @param request - CreateActivationCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3693,7 +3804,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Generates a lightweight license activation code.
+     * Generates activation codes for the lightweight version.
      *
      * @param request - CreateActivationCodeRequest
      *
@@ -3711,7 +3822,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarDB应用.
+     * Creates an application attached to a PolarDB instance.
      *
      * @param tmpReq - CreateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3924,7 +4035,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarDB应用.
+     * Creates an application attached to a PolarDB instance.
      *
      * @param request - CreateApplicationRequest
      *
@@ -3942,7 +4053,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarDB应用终端节点地址
+     * Creates a connection address for a specified application.
      *
      * @param request - CreateApplicationEndpointAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3989,7 +4100,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarDB应用终端节点地址
+     * Creates a connection address for a specified application.
      *
      * @param request - CreateApplicationEndpointAddressRequest
      *
@@ -4007,7 +4118,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建应用提示词策略.
+     * Creates a Prompt for an Application.
      *
      * @param request - CreateApplicationPromptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4058,7 +4169,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建应用提示词策略.
+     * Creates a Prompt for an Application.
      *
      * @param request - CreateApplicationPromptRequest
      *
@@ -4079,10 +4190,11 @@ class Polardb extends OpenApiClient
      * Creates a full snapshot backup for a PolarDB cluster.
      *
      * @remarks
+     * > - Each cluster can have up to three manually created backups at a time.
      * >
-     * *   You can manually create up to three backups for each cluster.
-     * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](https://help.aliyun.com/document_detail/98101.html).
-     * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+     * > - If you receive the error message `Exceeding the daily backup times of this DB cluster`, this indicates that three manual backups already exist for your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation again.
+     * >
+     * > - After you call this operation, a backup job is created in the background. The job may take a long time to complete if the data volume is large.
      *
      * @param request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4144,10 +4256,11 @@ class Polardb extends OpenApiClient
      * Creates a full snapshot backup for a PolarDB cluster.
      *
      * @remarks
+     * > - Each cluster can have up to three manually created backups at a time.
      * >
-     * *   You can manually create up to three backups for each cluster.
-     * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](https://help.aliyun.com/document_detail/98101.html).
-     * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+     * > - If you receive the error message `Exceeding the daily backup times of this DB cluster`, this indicates that three manual backups already exist for your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation again.
+     * >
+     * > - After you call this operation, a backup job is created in the background. The job may take a long time to complete if the data volume is large.
      *
      * @param request - CreateBackupRequest
      *
@@ -4165,7 +4278,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建批量任务
+     * Creates a batch task.
      *
      * @param tmpReq - CreateBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4187,6 +4300,10 @@ class Polardb extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->applicationType) {
+            @$query['ApplicationType'] = $request->applicationType;
+        }
+
         if (null !== $request->instanceIdsShrink) {
             @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
@@ -4226,7 +4343,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建批量任务
+     * Creates a batch task.
      *
      * @param request - CreateBatchTaskRequest
      *
@@ -4244,7 +4361,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建预算策略.
+     * Creates a budget policy.
      *
      * @param request - CreateBudgetPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4307,7 +4424,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建预算策略.
+     * Creates a budget policy.
      *
      * @param request - CreateBudgetPolicyRequest
      *
@@ -4325,7 +4442,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a cluster that is used to store cold data.
+     * Creates a cold storage instance.
      *
      * @param request - CreateColdStorageInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4392,7 +4509,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a cluster that is used to store cold data.
+     * Creates a cold storage instance.
      *
      * @param request - CreateColdStorageInstanceRequest
      *
@@ -4410,7 +4527,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建消费者.
+     * Creates a consumer.
      *
      * @param request - CreateConsumerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4469,7 +4586,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建消费者.
+     * Creates a consumer.
      *
      * @param request - CreateConsumerRequest
      *
@@ -4487,7 +4604,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建消费者组.
+     * Creates a consumer group.
      *
      * @param request - CreateConsumerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4542,7 +4659,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建消费者组.
+     * Creates a consumer group.
      *
      * @param request - CreateConsumerGroupRequest
      *
@@ -4560,7 +4677,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建限流策略.
+     * Creates a cost rule.
      *
      * @param request - CreateCostRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4623,7 +4740,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建限流策略.
+     * Creates a cost rule.
      *
      * @param request - CreateCostRuleRequest
      *
@@ -4641,7 +4758,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * serverless创建周期任务策略.
+     * Creates a scheduled task policy for a serverless cluster.
      *
      * @param request - CreateCronJobPolicyServerlessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4756,7 +4873,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * serverless创建周期任务策略.
+     * Creates a scheduled task policy for a serverless cluster.
      *
      * @param request - CreateCronJobPolicyServerlessRequest
      *
@@ -4774,7 +4891,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * CreateDBCluster.
+     * Creates a db cluster.
      *
      * @param request - CreateDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5061,7 +5178,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * CreateDBCluster.
+     * Creates a db cluster.
      *
      * @param request - CreateDBClusterRequest
      *
@@ -5204,7 +5321,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 边缘云创建链接地址接口.
+     * Edge Cloud API: Create Link Address.
      *
      * @param request - CreateDBClusterEndpointZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5299,7 +5416,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 边缘云创建链接地址接口.
+     * Edge Cloud API: Create Link Address.
      *
      * @param request - CreateDBClusterEndpointZonalRequest
      *
@@ -5317,10 +5434,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint of a PolarDB cluster.
      *
      * @remarks
-     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint of a PolarDB cluster.
      *
      * @param request - CreateDBEndpointAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5399,10 +5516,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * Creates a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint of a PolarDB cluster.
      *
      * @remarks
-     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint of a PolarDB cluster.
      *
      * @param request - CreateDBEndpointAddressRequest
      *
@@ -5420,13 +5537,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database link.
+     * Creates a DBLink.
      *
      * @remarks
-     * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
-     * > *   You can create up to 10 database links for a cluster.
-     * > *   Each database link connects a source cluster and a destination cluster.
-     * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+     * A DBLink provides connectivity between two PolarDB for PostgreSQL (Oracle-compatible) clusters, or between a PolarDB for PostgreSQL (Oracle-compatible) cluster and a self-managed PostgreSQL database on an Elastic Compute Service (ECS) instance. This lets you query data across clusters.
+     * > - Each cluster supports a maximum of 10 DBLinks.
+     * >
+     * > - A DBLink consumes one DBLink quota from both the source cluster and the destination cluster.
+     * >
+     * > - The source cluster and the destination cluster or destination ECS instance must be in the same region.
      *
      * @param request - CreateDBLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5529,13 +5648,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database link.
+     * Creates a DBLink.
      *
      * @remarks
-     * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
-     * > *   You can create up to 10 database links for a cluster.
-     * > *   Each database link connects a source cluster and a destination cluster.
-     * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+     * A DBLink provides connectivity between two PolarDB for PostgreSQL (Oracle-compatible) clusters, or between a PolarDB for PostgreSQL (Oracle-compatible) cluster and a self-managed PostgreSQL database on an Elastic Compute Service (ECS) instance. This lets you query data across clusters.
+     * > - Each cluster supports a maximum of 10 DBLinks.
+     * >
+     * > - A DBLink consumes one DBLink quota from both the source cluster and the destination cluster.
+     * >
+     * > - The source cluster and the destination cluster or destination ECS instance must be in the same region.
      *
      * @param request - CreateDBLinkRequest
      *
@@ -5553,7 +5674,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Adds a read-only node to a PolarDB cluster.
+     * Add read-only nodes to a PolarDB cluster.
      *
      * @param request - CreateDBNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5652,7 +5773,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Adds a read-only node to a PolarDB cluster.
+     * Add read-only nodes to a PolarDB cluster.
      *
      * @param request - CreateDBNodesRequest
      *
@@ -5781,7 +5902,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarDB边缘云数据库.
+     * Creates a database of an edge cluster for PolarDB on ENS.
      *
      * @param request - CreateDatabaseZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5868,7 +5989,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarDB边缘云数据库.
+     * Creates a database of an edge cluster for PolarDB on ENS.
      *
      * @param request - CreateDatabaseZonalRequest
      *
@@ -5886,7 +6007,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建插件.
+     * Creates one or more extensions.
      *
      * @param request - CreateExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5977,7 +6098,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建插件.
+     * Creates one or more extensions.
      *
      * @param request - CreateExtensionsRequest
      *
@@ -5995,7 +6116,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建网关地址
+     * Creates a gateway instance.
      *
      * @param request - CreateGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6074,7 +6195,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建网关地址
+     * Creates a gateway instance.
      *
      * @param request - CreateGatewayRequest
      *
@@ -6092,7 +6213,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a global data network (GDN).
+     * Create a new PolarLakeBase Global Data Network (GDN).
+     *
+     * @remarks
+     * > This API creates a PolarFileSystem (PolarFS) Global Data Network (GDN). Do not confuse it with the CreateGlobalDatabaseNetwork API, which operates on a PolarDB cluster. Ensure you are using the correct API to avoid unintended actions.
      *
      * @param request - CreateGlobalDataNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6167,7 +6291,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a global data network (GDN).
+     * Create a new PolarLakeBase Global Data Network (GDN).
+     *
+     * @remarks
+     * > This API creates a PolarFileSystem (PolarFS) Global Data Network (GDN). Do not confuse it with the CreateGlobalDatabaseNetwork API, which operates on a PolarDB cluster. Ensure you are using the correct API to avoid unintended actions.
      *
      * @param request - CreateGlobalDataNetworkRequest
      *
@@ -6185,10 +6312,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a global database network (GDN).
+     * Creates a new global database network (GDN).
      *
      * @remarks
-     * >  A cluster belongs to only one GDN.
+     * > A cluster can belong to only one GDN.
      *
      * @param request - CreateGlobalDatabaseNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6263,10 +6390,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a global database network (GDN).
+     * Creates a new global database network (GDN).
      *
      * @remarks
-     * >  A cluster belongs to only one GDN.
+     * > A cluster can belong to only one GDN.
      *
      * @param request - CreateGlobalDatabaseNetworkRequest
      *
@@ -6373,7 +6500,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建路由规则.
+     * Creates a model API.
      *
      * @param request - CreateModelApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6448,7 +6575,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建路由规则.
+     * Creates a model API.
      *
      * @param request - CreateModelApiRequest
      *
@@ -6466,7 +6593,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Creates a model service.
      *
      * @param request - CreateModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6545,7 +6672,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建模型服务
+     * Creates a model service.
      *
      * @param request - CreateModelServiceRequest
      *
@@ -6563,7 +6690,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建网络通道.
+     * Creates a network channel.
      *
      * @param request - CreateNetworkChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6654,7 +6781,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建网络通道.
+     * Creates a network channel.
      *
      * @param request - CreateNetworkChannelRequest
      *
@@ -6745,11 +6872,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a parameter template.
+     * Creates a PolarDB parameter template.
      *
      * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * > You can call this operation only on a PolarDB for MySQL cluster.
+     * Parameter templates allow you to manage cluster parameters in batches. You can use this feature to quickly apply parameter templates to PolarDB clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > This feature is available only for PolarDB for MySQL clusters.
      *
      * @param request - CreateParameterGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6828,11 +6955,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a parameter template.
+     * Creates a PolarDB parameter template.
      *
      * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * > You can call this operation only on a PolarDB for MySQL cluster.
+     * Parameter templates allow you to manage cluster parameters in batches. You can use this feature to quickly apply parameter templates to PolarDB clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > This feature is available only for PolarDB for MySQL clusters.
      *
      * @param request - CreateParameterGroupRequest
      *
@@ -6850,7 +6977,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarClaw Agent.
+     * Creates a PolarClaw Agent.
+     *
+     * @remarks
+     * ## Description
+     * Use this operation to create a PolarClaw Agent. You can optionally specify an `emoji` and an `avatar`.
      *
      * @param request - CreatePolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6909,7 +7040,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarClaw Agent.
+     * Creates a PolarClaw Agent.
+     *
+     * @remarks
+     * ## Description
+     * Use this operation to create a PolarClaw Agent. You can optionally specify an `emoji` and an `avatar`.
      *
      * @param request - CreatePolarClawAgentRequest
      *
@@ -6927,7 +7062,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarClaw Channel.
+     * Creates a channel in PolarClaw.
+     *
+     * @remarks
+     * ## Request
      *
      * @param tmpReq - CreatePolarClawChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6992,7 +7130,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarClaw Channel.
+     * Creates a channel in PolarClaw.
+     *
+     * @remarks
+     * ## Request
      *
      * @param request - CreatePolarClawChannelRequest
      *
@@ -7010,7 +7151,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarClaw定时任务
+     * Creates a PolarClaw scheduled task.
+     *
+     * @remarks
+     * ## Request
+     * Use this API to create a cron job. You can configure the job\\"s payload, execution frequency, timezone, target channel, recipients, and a failure alert mechanism.
      *
      * @param tmpReq - CreatePolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7123,7 +7268,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建PolarClaw定时任务
+     * Creates a PolarClaw scheduled task.
+     *
+     * @remarks
+     * ## Request
+     * Use this API to create a cron job. You can configure the job\\"s payload, execution frequency, timezone, target channel, recipients, and a failure alert mechanism.
      *
      * @param request - CreatePolarClawCronJobRequest
      *
@@ -7141,15 +7290,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 用于在指定PolarFS实例中创建新的目录。
+     * Creates a new directory in a specified PolarFS instance.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path**：需要创建的目录绝对路径。
-     * - **Recursive**：是否递归创建父目录，默认为 `false`。
-     * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
-     * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
-     * - 创建目录时，请确保具有足够的权限。
+     * ## Description
+     * - **Path**: The absolute path of the directory to create.
+     * - **Recursive**: Specifies whether to recursively create parent directories. The default value is `false`.
+     * - This operation creates a directory structure with one or more levels in the specified PolarFS instance.
+     * - Setting `Recursive` to `true` automatically creates all non-existent parent directories.
+     * - Ensure that you have sufficient permissions to create the directory.
      *
      * @param request - CreatePolarFsObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7192,15 +7341,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 用于在指定PolarFS实例中创建新的目录。
+     * Creates a new directory in a specified PolarFS instance.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path**：需要创建的目录绝对路径。
-     * - **Recursive**：是否递归创建父目录，默认为 `false`。
-     * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
-     * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
-     * - 创建目录时，请确保具有足够的权限。
+     * ## Description
+     * - **Path**: The absolute path of the directory to create.
+     * - **Recursive**: Specifies whether to recursively create parent directories. The default value is `false`.
+     * - This operation creates a directory structure with one or more levels in the specified PolarFS instance.
+     * - Setting `Recursive` to `true` automatically creates all non-existent parent directories.
+     * - Ensure that you have sufficient permissions to create the directory.
      *
      * @param request - CreatePolarFsObjectRequest
      *
@@ -7218,7 +7367,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建限流策略.
+     * Creates a rate limiting policy.
      *
      * @param request - CreateRateLimitPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7277,7 +7426,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建限流策略.
+     * Creates a rate limiting policy.
      *
      * @param request - CreateRateLimitPolicyRequest
      *
@@ -7295,7 +7444,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role (SLR).
+     * Ccreates a service-linked role.
      *
      * @param request - CreateServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7346,7 +7495,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role (SLR).
+     * Ccreates a service-linked role.
      *
      * @param request - CreateServiceLinkedRoleRequest
      *
@@ -7461,7 +7610,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除AI集群实例.
+     * Deletes an AI cluster instance.
      *
      * @param request - DeleteAIDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7500,7 +7649,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除AI集群实例.
+     * Deletes an AI cluster instance.
      *
      * @param request - DeleteAIDBClusterRequest
      *
@@ -7518,7 +7667,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Deletes a dataset.
      *
      * @param request - DeleteAIDBClusterDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7581,7 +7730,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Deletes a dataset.
      *
      * @param request - DeleteAIDBClusterDatasetRequest
      *
@@ -7599,7 +7748,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除任务实例.
+     * Deletes a task instance.
      *
      * @param request - DeleteAIDBClusterTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7662,7 +7811,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除任务实例.
+     * Deletes a task instance.
      *
      * @param request - DeleteAIDBClusterTaskRequest
      *
@@ -7680,7 +7829,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除ai实例子节点.
+     * Deletes child nodes of an AI instance.
      *
      * @param request - DeleteAINodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7723,7 +7872,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除ai实例子节点.
+     * Deletes child nodes of an AI instance.
      *
      * @param request - DeleteAINodesRequest
      *
@@ -7741,10 +7890,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database account for a PolarDB cluster.
+     * Deletes a PolarDB database account.
      *
      * @remarks
-     * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     * > The cluster must be in the running state for this operation to succeed.
      *
      * @param request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7803,10 +7952,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database account for a PolarDB cluster.
+     * Deletes a PolarDB database account.
      *
      * @remarks
-     * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     * > The cluster must be in the running state for this operation to succeed.
      *
      * @param request - DeleteAccountRequest
      *
@@ -7824,7 +7973,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB边缘云集群账号.
+     * Deletes an account from an edge cluster for PolarDB on ENS.
      *
      * @param request - DeleteAccountZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7883,7 +8032,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB边缘云集群账号.
+     * Deletes an account from an edge cluster for PolarDB on ENS.
      *
      * @param request - DeleteAccountZonalRequest
      *
@@ -7901,7 +8050,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB应用.
+     * Deletes the specified PolarDB application. This operation does not delete the associated PolarDB instance.
+     *
+     * @remarks
+     * ## Important
+     * - This operation deletes a PolarDB application but does not affect the associated PolarDB instance.
+     * - The delete operation is irreversible and permanently deletes the application. Proceed with caution.
+     * - Ensure that you have backed up all critical data before proceeding.Before you delete an application, make sure that you have backed up all important data.
      *
      * @param request - DeleteApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7940,7 +8095,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB应用.
+     * Deletes the specified PolarDB application. This operation does not delete the associated PolarDB instance.
+     *
+     * @remarks
+     * ## Important
+     * - This operation deletes a PolarDB application but does not affect the associated PolarDB instance.
+     * - The delete operation is irreversible and permanently deletes the application. Proceed with caution.
+     * - Ensure that you have backed up all critical data before proceeding.Before you delete an application, make sure that you have backed up all important data.
      *
      * @param request - DeleteApplicationRequest
      *
@@ -7958,7 +8119,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB应用终端地址
+     * Deletes a specified connection address for a PolarDB application.
      *
      * @param request - DeleteApplicationEndpointAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8005,7 +8166,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB应用终端地址
+     * Deletes a specified connection address for a PolarDB application.
      *
      * @param request - DeleteApplicationEndpointAddressRequest
      *
@@ -8023,7 +8184,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除应用提示词策略.
+     * Deletes an application prompt.
      *
      * @param request - DeleteApplicationPromptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8066,7 +8227,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除应用提示词策略.
+     * Deletes an application prompt.
      *
      * @param request - DeleteApplicationPromptRequest
      *
@@ -8175,7 +8336,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除预算策略.
+     * Deletes a cost budget policy.
      *
      * @param request - DeleteBudgetPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8222,7 +8383,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除预算策略.
+     * Deletes a cost budget policy.
      *
      * @param request - DeleteBudgetPolicyRequest
      *
@@ -8240,7 +8401,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除消费者.
+     * Deletes a consumer.
      *
      * @param request - DeleteConsumerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8287,7 +8448,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除消费者.
+     * Deletes a consumer.
      *
      * @param request - DeleteConsumerRequest
      *
@@ -8305,7 +8466,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除消费者组.
+     * Deletes a consumer group.
      *
      * @param request - DeleteConsumerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8352,7 +8513,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除消费者组.
+     * Deletes a consumer group.
      *
      * @param request - DeleteConsumerGroupRequest
      *
@@ -8370,7 +8531,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除限流策略.
+     * Deletes a cost rule.
      *
      * @param request - DeleteCostRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8417,7 +8578,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除限流策略.
+     * Deletes a cost rule.
      *
      * @param request - DeleteCostRuleRequest
      *
@@ -8435,7 +8596,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go PolarDB cluster.
+     * Deletes a pay-as-you-go PolarDB cluster.
      *
      * @param request - DeleteDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8498,7 +8659,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go PolarDB cluster.
+     * Deletes a pay-as-you-go PolarDB cluster.
      *
      * @param request - DeleteDBClusterRequest
      *
@@ -8516,7 +8677,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases a custom cluster endpoint of a PolarDB cluster.
+     * Deletes a custom cluster endpoint for a PolarDB cluster.
      *
      * @param request - DeleteDBClusterEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8579,7 +8740,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Releases a custom cluster endpoint of a PolarDB cluster.
+     * Deletes a custom cluster endpoint for a PolarDB cluster.
      *
      * @param request - DeleteDBClusterEndpointRequest
      *
@@ -8597,7 +8758,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB 边缘云集群的链接地址
+     * Deletes a cluster endpoint of a PolarDB for Edge cluster.
      *
      * @param request - DeleteDBClusterEndpointZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8656,7 +8817,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB 边缘云集群的链接地址
+     * Deletes a cluster endpoint of a PolarDB for Edge cluster.
      *
      * @param request - DeleteDBClusterEndpointZonalRequest
      *
@@ -8677,8 +8838,9 @@ class Polardb extends OpenApiClient
      * Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
      *
      * @remarks
-     * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-     * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+     * > - You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * >
+     * > - Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
      *
      * @param request - DeleteDBEndpointAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8744,8 +8906,9 @@ class Polardb extends OpenApiClient
      * Releases the public endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, and custom cluster endpoint.
      *
      * @remarks
-     * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
-     * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+     * > - You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     * >
+     * > - Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
      *
      * @param request - DeleteDBEndpointAddressRequest
      *
@@ -8763,7 +8926,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     * Deletes a DBLink from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
      *
      * @param request - DeleteDBLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8822,7 +8985,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a database link from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
+     * Deletes a DBLink from a PolarDB for PostgreSQL (Compatible with Oracle) cluster.
      *
      * @param request - DeleteDBLinkRequest
      *
@@ -8840,7 +9003,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a read-only node from a PolarDB cluster.
+     * Deletes read-only nodes from a PolarDB cluster.
      *
      * @param request - DeleteDBNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8911,7 +9074,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a read-only node from a PolarDB cluster.
+     * Deletes read-only nodes from a PolarDB cluster.
      *
      * @param request - DeleteDBNodesRequest
      *
@@ -9014,7 +9177,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB边缘云集群数据库.
+     * Deletes a database from a PolarDB edge cloud cluster.
      *
      * @param request - DeleteDatabaseZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9073,7 +9236,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarDB边缘云集群数据库.
+     * Deletes a database from a PolarDB edge cloud cluster.
      *
      * @param request - DeleteDatabaseZonalRequest
      *
@@ -9091,7 +9254,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除角色.
+     * Deletes a role.
      *
      * @param request - DeleteEncryptionDBRolePrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9150,7 +9313,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除角色.
+     * Deletes a role.
      *
      * @param request - DeleteEncryptionDBRolePrivilegeRequest
      *
@@ -9168,7 +9331,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除插件.
+     * Deletes an extension.
      *
      * @param request - DeleteExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9247,7 +9410,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除插件.
+     * Deletes an extension.
      *
      * @param request - DeleteExtensionsRequest
      *
@@ -9265,7 +9428,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除sql防火墙.
+     * Deletes the specified SQL firewall rules.
      *
      * @param request - DeleteFirewallRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9324,7 +9487,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除sql防火墙.
+     * Deletes the specified SQL firewall rules.
      *
      * @param request - DeleteFirewallRulesRequest
      *
@@ -9342,7 +9505,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除网关实例.
+     * Deletes a gateway instance.
      *
      * @param request - DeleteGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9385,7 +9548,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除网关实例.
+     * Deletes a gateway instance.
      *
      * @param request - DeleteGatewayRequest
      *
@@ -9403,7 +9566,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a global data network (GDN).
+     * Deletes a Polarlakebase Global Data Network (GDN).
+     *
+     * @remarks
+     * > This API deletes the Global Data Network (GDN) for PolarFS. Do not confuse it with the DeleteGlobalDatabaseNetwork API, which applies to PolarDB clusters.
      *
      * @param request - DeleteGlobalDataNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9442,7 +9608,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a global data network (GDN).
+     * Deletes a Polarlakebase Global Data Network (GDN).
+     *
+     * @remarks
+     * > This API deletes the Global Data Network (GDN) for PolarFS. Do not confuse it with the DeleteGlobalDatabaseNetwork API, which applies to PolarDB clusters.
      *
      * @param request - DeleteGlobalDataNetworkRequest
      *
@@ -9463,7 +9632,7 @@ class Polardb extends OpenApiClient
      * Deletes a global database network (GDN).
      *
      * @remarks
-     * >  You can delete a GDN only when the GDN includes only a primary cluster.
+     * > A GDN can be deleted only if it contains a single primary cluster.
      *
      * @param request - DeleteGlobalDatabaseNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9529,7 +9698,7 @@ class Polardb extends OpenApiClient
      * Deletes a global database network (GDN).
      *
      * @remarks
-     * >  You can delete a GDN only when the GDN includes only a primary cluster.
+     * > A GDN can be deleted only if it contains a single primary cluster.
      *
      * @param request - DeleteGlobalDatabaseNetworkRequest
      *
@@ -9636,7 +9805,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a data masking rule.
+     * Deletes the specified data masking rules.
      *
      * @param request - DeleteMaskingRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9683,7 +9852,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a data masking rule.
+     * Deletes the specified data masking rules.
      *
      * @param request - DeleteMaskingRulesRequest
      *
@@ -9701,7 +9870,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除路由规则.
+     * Deletes a model API.
      *
      * @param request - DeleteModelApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9748,7 +9917,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除路由规则.
+     * Deletes a model API.
      *
      * @param request - DeleteModelApiRequest
      *
@@ -9766,7 +9935,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除模型服务
+     * Deletes a specified model service.
      *
      * @param request - DeleteModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9813,7 +9982,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除模型服务
+     * Deletes a specified model service.
      *
      * @param request - DeleteModelServiceRequest
      *
@@ -9831,7 +10000,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除网络通道.
+     * Deletes a network channel.
      *
      * @param request - DeleteNetworkChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9906,7 +10075,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除网络通道.
+     * Deletes a network channel.
      *
      * @param request - DeleteNetworkChannelRequest
      *
@@ -9924,11 +10093,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a parameter template from a PolarDB cluster.
+     * Deletes a PolarDB parameter template.
      *
      * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+     * Parameter templates help you manage cluster parameters in batches. You can quickly apply a template to PolarDB clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > Deleting a parameter template does not affect PolarDB clusters to which the template has been applied.
      *
      * @param request - DeleteParameterGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9991,11 +10160,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Deletes a parameter template from a PolarDB cluster.
+     * Deletes a PolarDB parameter template.
      *
      * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+     * Parameter templates help you manage cluster parameters in batches. You can quickly apply a template to PolarDB clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > Deleting a parameter template does not affect PolarDB clusters to which the template has been applied.
      *
      * @param request - DeleteParameterGroupRequest
      *
@@ -10013,7 +10182,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarClaw Agent.
+     * This operation removes an agent and its associated bindings from a specified PolarClaw.
+     *
+     * @remarks
+     * ## Usage notes
+     * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
+     * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
      *
      * @param request - DeletePolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10060,7 +10234,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarClaw Agent.
+     * This operation removes an agent and its associated bindings from a specified PolarClaw.
+     *
+     * @remarks
+     * ## Usage notes
+     * - A successful operation returns the ID of the deleted agent and the number of removed bindings.
+     * - Ensure you provide the correct target `AgentId`. An incorrect ID can cause the operation to fail or affect an unintended agent.
      *
      * @param request - DeletePolarClawAgentRequest
      *
@@ -10078,7 +10257,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarClaw Channel.
+     * Deletes a PolarClaw Channel.
+     *
+     * @remarks
+     * ## Description
+     * Use the `DeletePolarClawChannel` operation to delete a specified PolarClaw Channel. You can also uninstall the associated channel plugin. Before you delete the channel, back up all important data and ensure that no critical tasks are running on it.
      *
      * @param request - DeletePolarClawChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10133,7 +10316,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarClaw Channel.
+     * Deletes a PolarClaw Channel.
+     *
+     * @remarks
+     * ## Description
+     * Use the `DeletePolarClawChannel` operation to delete a specified PolarClaw Channel. You can also uninstall the associated channel plugin. Before you delete the channel, back up all important data and ensure that no critical tasks are running on it.
      *
      * @param request - DeletePolarClawChannelRequest
      *
@@ -10151,7 +10338,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarClaw定时任务
+     * Deletes a PolarClaw cron job.
+     *
+     * @remarks
+     * ## Description
+     * To delete a PolarClaw cron job, provide its `ApplicationId` and `JobId`. Ensure that the IDs are correct to prevent accidental deletion of other jobs.
+     * **Note**: This operation is irreversible. Proceed with caution.
      *
      * @param request - DeletePolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10198,7 +10390,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarClaw定时任务
+     * Deletes a PolarClaw cron job.
+     *
+     * @remarks
+     * ## Description
+     * To delete a PolarClaw cron job, provide its `ApplicationId` and `JobId`. Ensure that the IDs are correct to prevent accidental deletion of other jobs.
+     * **Note**: This operation is irreversible. Proceed with caution.
      *
      * @param request - DeletePolarClawCronJobRequest
      *
@@ -10216,7 +10413,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarFs文件.
+     * Deletes objects from PolarLakebase. This operation supports only Basic Edition and Cold Storage Edition instances.
      *
      * @remarks
      * ## 请求说明
@@ -10275,7 +10472,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarFs文件.
+     * Deletes objects from PolarLakebase. This operation supports only Basic Edition and Cold Storage Edition instances.
      *
      * @remarks
      * ## 请求说明
@@ -10299,7 +10496,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除polar fs bucket路径.
+     * Deletes a path mapping for transparent acceleration.
      *
      * @param request - DeletePolarFsPathMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10346,7 +10543,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除polar fs bucket路径.
+     * Deletes a path mapping for transparent acceleration.
      *
      * @param request - DeletePolarFsPathMappingRequest
      *
@@ -10364,7 +10561,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarFs Quota规则.
+     * Deletes one or more quota rules from a specified Polarlakebase instance.
+     *
+     * @remarks
+     * ## Request description
+     * - You must specify the `PolarFsInstanceId` parameter to identify the Polarlakebase instance.
+     * - The `Quotas` parameter is a list of quota rules to delete. Each rule is uniquely identified by its `Name` and `Id`. You can delete up to 21 rules in a single request.
+     * - For each quota rule, provide both the `Name` and `Id`. This information must match an existing rule.
      *
      * @param request - DeletePolarFsQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10411,7 +10614,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarFs Quota规则.
+     * Deletes one or more quota rules from a specified Polarlakebase instance.
+     *
+     * @remarks
+     * ## Request description
+     * - You must specify the `PolarFsInstanceId` parameter to identify the Polarlakebase instance.
+     * - The `Quotas` parameter is a list of quota rules to delete. Each rule is uniquely identified by its `Name` and `Id`. You can delete up to 21 rules in a single request.
+     * - For each quota rule, provide both the `Name` and `Id`. This information must match an existing rule.
      *
      * @param request - DeletePolarFsQuotaRequest
      *
@@ -10429,7 +10638,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除限流策略.
+     * Deletes a throttling policy.
      *
      * @param request - DeleteRateLimitPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10476,7 +10685,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除限流策略.
+     * Deletes a throttling policy.
      *
      * @param request - DeleteRateLimitPolicyRequest
      *
@@ -10494,7 +10703,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除SQL限流规则.
+     * Deletes SQL throttling rules.
      *
      * @param request - DeleteSQLRateLimitingRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10553,7 +10762,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除SQL限流规则.
+     * Deletes SQL throttling rules.
      *
      * @param request - DeleteSQLRateLimitingRulesRequest
      *
@@ -10571,7 +10780,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看custom实例详情.
+     * Gets the details of a custom instance.
      *
      * @param request - DescribeAIDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10626,7 +10835,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看custom实例详情.
+     * Gets the details of a custom instance.
      *
      * @param request - DescribeAIDBClusterAttributeRequest
      *
@@ -10644,7 +10853,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询数据集列表.
+     * Query datasets.
      *
      * @param request - DescribeAIDBClusterDatasetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10727,7 +10936,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询数据集列表.
+     * Query datasets.
      *
      * @param request - DescribeAIDBClusterDatasetsRequest
      *
@@ -10745,7 +10954,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取ai容器性能指标.
+     * Retrieves the performance metrics of an AI container.
      *
      * @param request - DescribeAIDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10800,7 +11009,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取ai容器性能指标.
+     * Retrieves the performance metrics of an AI container.
      *
      * @param request - DescribeAIDBClusterPerformanceRequest
      *
@@ -10818,7 +11027,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取任务实例详情.
+     * Get task instance details.
      *
      * @param request - DescribeAIDBClusterTaskAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10881,7 +11090,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取任务实例详情.
+     * Get task instance details.
      *
      * @param request - DescribeAIDBClusterTaskAttributeRequest
      *
@@ -10899,7 +11108,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询模型算子日志.
+     * Queries the logs of model operators.
      *
      * @param request - DescribeAIDBClusterTaskLogFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10966,7 +11175,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询模型算子日志.
+     * Queries the logs of model operators.
      *
      * @param request - DescribeAIDBClusterTaskLogFilesRequest
      *
@@ -10984,7 +11193,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询模型算子指标.
+     * Queries the metrics of model operators.
+     *
+     * @remarks
+     * > For more information about kernel versions for PolarDB for MySQL clusters, see [Kernel versions](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
      *
      * @param request - DescribeAIDBClusterTaskMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11051,7 +11263,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询模型算子指标.
+     * Queries the metrics of model operators.
+     *
+     * @remarks
+     * > For more information about kernel versions for PolarDB for MySQL clusters, see [Kernel versions](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
      *
      * @param request - DescribeAIDBClusterTaskMetricsRequest
      *
@@ -11069,7 +11284,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取任务实例列表.
+     * Retrieves a list of model operators for a specified PolarDB instance.
+     *
+     * @remarks
+     * ## Request
+     * - This API returns a list of model operators filtered by the `RelativeDBClusterId` and `KubeType` parameters.
+     * - Note: Ensure the provided `RelativeDBClusterId` matches the ID of an existing PolarDB database instance. Otherwise, no data will be returned.
      *
      * @param request - DescribeAIDBClusterTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11132,7 +11352,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取任务实例列表.
+     * Retrieves a list of model operators for a specified PolarDB instance.
+     *
+     * @remarks
+     * ## Request
+     * - This API returns a list of model operators filtered by the `RelativeDBClusterId` and `KubeType` parameters.
+     * - Note: Ensure the provided `RelativeDBClusterId` matches the ID of an existing PolarDB database instance. Otherwise, no data will be returned.
      *
      * @param request - DescribeAIDBClusterTasksRequest
      *
@@ -11150,7 +11375,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看custom集群列表.
+     * View custom clusters.
      *
      * @param request - DescribeAIDBClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11237,7 +11462,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看custom集群列表.
+     * View custom clusters.
      *
      * @param request - DescribeAIDBClustersRequest
      *
@@ -11255,7 +11480,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the status of the PolarDB for AI feature.
+     * Retrieves the status of the PolarDB for AI feature.
      *
      * @param request - DescribeAITaskStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11290,7 +11515,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the status of the PolarDB for AI feature.
+     * Retrieves the status of the PolarDB for AI feature.
      *
      * @param request - DescribeAITaskStatusRequest
      *
@@ -11308,7 +11533,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries information about a database account of a PolarDB cluster.
+     * Queries a database account of a PolarDB cluster.
      *
      * @param request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11379,7 +11604,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries information about a database account of a PolarDB cluster.
+     * Queries a database account of a PolarDB cluster.
      *
      * @param request - DescribeAccountsRequest
      *
@@ -11397,7 +11622,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB边缘云集群列表.
+     * Queries the edge clusters for PolarDB on ENS.
      *
      * @param request - DescribeAccountsZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11476,7 +11701,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB边缘云集群列表.
+     * Queries the edge clusters for PolarDB on ENS.
      *
      * @param request - DescribeAccountsZonalRequest
      *
@@ -11494,7 +11719,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of an activation code.
+     * Queries an activation code.
      *
      * @param request - DescribeActivationCodeDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11553,7 +11778,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of an activation code.
+     * Queries an activation code.
      *
      * @param request - DescribeActivationCodeDetailsRequest
      *
@@ -11571,7 +11796,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of activation codes.
+     * Retrieves a paginated list of activation codes associated with your account. You can filter the results by order ID or specific hardware identifiers.
      *
      * @param request - DescribeActivationCodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11642,7 +11867,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of activation codes.
+     * Retrieves a paginated list of activation codes associated with your account. You can filter the results by order ID or specific hardware identifiers.
      *
      * @param request - DescribeActivationCodesRequest
      *
@@ -11660,7 +11885,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取用户的运维配置信息，目前包括主动运维窗口信息.
+     * Queries the Operations and Maintenance (O&M) configuration for a user, including the active O&M window.
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11723,7 +11948,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取用户的运维配置信息，目前包括主动运维窗口信息.
+     * Queries the Operations and Maintenance (O&M) configuration for a user, including the active O&M window.
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
      *
@@ -11741,7 +11966,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the O\\\\\\&M event details of an instance.
+     * Queries operation and maintenance events for instances.
      *
      * @param request - DescribeActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11836,7 +12061,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the O\\\\\\&M event details of an instance.
+     * Queries operation and maintenance events for instances.
      *
      * @param request - DescribeActiveOperationTasksRequest
      *
@@ -11854,7 +12079,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取应用详情.
+     * Retrieves the details of a specific application in a PolarDB instance.
+     *
+     * @remarks
+     * Retrieves all information about a specific PolarDB application, such as component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11893,7 +12121,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取应用详情.
+     * Retrieves the details of a specific application in a PolarDB instance.
+     *
+     * @remarks
+     * Retrieves all information about a specific PolarDB application, such as component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      *
@@ -11911,7 +12142,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * AI 应用日志明细.
+     * AI Application Log Details.
      *
      * @param request - DescribeApplicationLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12002,7 +12233,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * AI 应用日志明细.
+     * AI Application Log Details.
      *
      * @param request - DescribeApplicationLogsRequest
      *
@@ -12020,7 +12251,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取应用组件参数.
+     * Retrieves the current parameters and template information for a specified application and its components.
      *
      * @param tmpReq - DescribeApplicationParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12069,7 +12300,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取应用组件参数.
+     * Retrieves the current parameters and template information for a specified application and its components.
      *
      * @param request - DescribeApplicationParametersRequest
      *
@@ -12087,7 +12318,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB AI应用性能.
+     * Querying PolarDB AI application performance.
      *
      * @param request - DescribeApplicationPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12154,7 +12385,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB AI应用性能.
+     * Querying PolarDB AI application performance.
      *
      * @param request - DescribeApplicationPerformanceRequest
      *
@@ -12172,7 +12403,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询当前应用下所有的应用提示词策略列表.
+     * Lists the Application Prompts for a specific Application.
      *
      * @param request - DescribeApplicationPromptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12219,7 +12450,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询当前应用下所有的应用提示词策略列表.
+     * Lists the Application Prompts for a specific Application.
      *
      * @param request - DescribeApplicationPromptsRequest
      *
@@ -12237,7 +12468,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取应用serverless配置.
+     * Queries the Serverless configuration for a PolarDB application.
      *
      * @param request - DescribeApplicationServerlessConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12276,7 +12507,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取应用serverless配置.
+     * Queries the Serverless configuration for a PolarDB application.
      *
      * @param request - DescribeApplicationServerlessConfRequest
      *
@@ -12294,7 +12525,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取当前地域所有PolarDB实例的应用列表.
+     * Gets the list of applications for all PolarDB instances in a specified region.
      *
      * @param request - DescribeApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12357,7 +12588,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取当前地域所有PolarDB实例的应用列表.
+     * Gets the list of applications for all PolarDB instances in a specified region.
      *
      * @param request - DescribeApplicationsRequest
      *
@@ -12375,7 +12606,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the auto-renewal attributes of a subscription PolarDB cluster.
+     * Describes the auto-renewal status of a subscription PolarDB cluster.
      *
      * @param request - DescribeAutoRenewAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12450,7 +12681,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the auto-renewal attributes of a subscription PolarDB cluster.
+     * Describes the auto-renewal status of a subscription PolarDB cluster.
      *
      * @param request - DescribeAutoRenewAttributeRequest
      *
@@ -12468,7 +12699,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询可用跨地域备份地域列表.
+     * Retrieves a list of regions available for cross-region backup.
      *
      * @param request - DescribeAvailableCrossRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12523,7 +12754,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询可用跨地域备份地域列表.
+     * Retrieves a list of regions available for cross-region backup.
      *
      * @param request - DescribeAvailableCrossRegionsRequest
      *
@@ -12541,7 +12772,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取ai集群模型列表.
+     * Lists the available models in an AI cluster.
      *
      * @param request - DescribeAvailableModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12584,7 +12815,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取ai集群模型列表.
+     * Lists the available models in an AI cluster.
      *
      * @param request - DescribeAvailableModelsRequest
      *
@@ -12602,7 +12833,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries backup logs and the URLs to download the backup logs.
+     * Queries a list of backup logs and returns their download URLs.
      *
      * @param request - DescribeBackupLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12677,7 +12908,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries backup logs and the URLs to download the backup logs.
+     * Queries a list of backup logs and returns their download URLs.
      *
      * @param request - DescribeBackupLogsRequest
      *
@@ -12768,7 +12999,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询备份集所在地域信息.
+     * Queries the regions that store backup sets.
      *
      * @param request - DescribeBackupRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12823,7 +13054,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询备份集所在地域信息.
+     * Queries the regions that store backup sets.
      *
      * @param request - DescribeBackupRegionsRequest
      *
@@ -12841,7 +13072,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of backup tasks of a cluster.
+     * Retrieves a list of backup jobs and their details for a cluster.
      *
      * @param request - DescribeBackupTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12904,7 +13135,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of backup tasks of a cluster.
+     * Retrieves a list of backup jobs and their details for a cluster.
      *
      * @param request - DescribeBackupTasksRequest
      *
@@ -12922,7 +13153,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the backup details of a PolarDB cluster.
+     * Queries backup information for a PolarDB cluster.
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13009,7 +13240,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the backup details of a PolarDB cluster.
+     * Queries backup information for a PolarDB cluster.
      *
      * @param request - DescribeBackupsRequest
      *
@@ -13027,7 +13258,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询批量任务状态详情.
+     * Queries the status of a batch task.
      *
      * @param request - DescribeBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13066,7 +13297,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询批量任务状态详情.
+     * Queries the status of a batch task.
      *
      * @param request - DescribeBatchTaskRequest
      *
@@ -13084,7 +13315,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询批量任务状态
+     * Queries the status of batch tasks.
      *
      * @param tmpReq - DescribeBatchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13149,7 +13380,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询批量任务状态
+     * Queries the status of batch tasks.
      *
      * @param request - DescribeBatchTasksRequest
      *
@@ -13167,7 +13398,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询预算策略.
+     * Querying budget policies.
      *
      * @param request - DescribeBudgetPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13234,7 +13465,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询预算策略.
+     * Querying budget policies.
      *
      * @param request - DescribeBudgetPoliciesRequest
      *
@@ -13252,7 +13483,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries character sets that are supported by a PolarDB for MySQL cluster.
+     * Queries the character sets supported by PolarDB for MySQL.
      *
      * @param request - DescribeCharacterSetNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13311,7 +13542,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries character sets that are supported by a PolarDB for MySQL cluster.
+     * Queries the character sets supported by PolarDB for MySQL.
      *
      * @param request - DescribeCharacterSetNameRequest
      *
@@ -13329,7 +13560,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of a cluster.
+     * Lists the available cluster specifications.
      *
      * @param request - DescribeClassListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13400,7 +13631,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the specifications of a cluster.
+     * Lists the available cluster specifications.
      *
      * @param request - DescribeClassListRequest
      *
@@ -13418,7 +13649,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询冷存储实例信息.
+     * Queries cold storage instances.
      *
      * @param request - DescribeColdStorageInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13513,7 +13744,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询冷存储实例信息.
+     * Queries cold storage instances.
      *
      * @param request - DescribeColdStorageInstanceRequest
      *
@@ -13531,7 +13762,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询消费者组列表.
+     * Retrieves a list of consumer groups.
      *
      * @param request - DescribeConsumerGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13586,7 +13817,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询消费者组列表.
+     * Retrieves a list of consumer groups.
      *
      * @param request - DescribeConsumerGroupsRequest
      *
@@ -13604,7 +13835,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询消费者列表.
+     * Returns a list of consumers.
      *
      * @param request - DescribeConsumersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13663,7 +13894,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询消费者列表.
+     * Returns a list of consumers.
      *
      * @param request - DescribeConsumersRequest
      *
@@ -13681,7 +13912,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询限流策略.
+     * Queries cost rules.
      *
      * @param request - DescribeCostRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13740,7 +13971,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询限流策略.
+     * Queries cost rules.
      *
      * @param request - DescribeCostRulesRequest
      *
@@ -13758,7 +13989,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询周期任务策略.
+     * Queries the policies for automatically triggered tasks.
      *
      * @param request - DescribeCronJobPolicyServerlessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13829,7 +14060,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询周期任务策略.
+     * Queries the policies for automatically triggered tasks.
      *
      * @param request - DescribeCronJobPolicyServerlessRequest
      *
@@ -13847,7 +14078,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询跨云支持的规格列表.
+     * Queries the supported cross-cloud specifications.
      *
      * @param request - DescribeCrossCloudLevelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13898,7 +14129,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询跨云支持的规格列表.
+     * Queries the supported cross-cloud specifications.
      *
      * @param request - DescribeCrossCloudLevelsRequest
      *
@@ -13916,7 +14147,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看跨云开区信息.
+     * Queries cross-cloud regions.
      *
      * @param request - DescribeCrossCloudRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13963,7 +14194,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看跨云开区信息.
+     * Queries cross-cloud regions.
      *
      * @param request - DescribeCrossCloudRegionRequest
      *
@@ -13981,7 +14212,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询跨云地域映射.
+     * This operation queries cross-cloud region mappings.
      *
      * @param request - DescribeCrossCloudRegionMappingToAliyunRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14028,7 +14259,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询跨云地域映射.
+     * This operation queries cross-cloud region mappings.
      *
      * @param request - DescribeCrossCloudRegionMappingToAliyunRequest
      *
@@ -14046,7 +14277,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelists and security groups of a PolarDB cluster.
+     * Queries the IP whitelists and security groups that are allowed to access a database cluster.
      *
      * @param request - DescribeDBClusterAccessWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14101,7 +14332,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelists and security groups of a PolarDB cluster.
+     * Queries the IP whitelists and security groups that are allowed to access a database cluster.
      *
      * @param request - DescribeDBClusterAccessWhitelistRequest
      *
@@ -14119,7 +14350,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries information about a PolarDB cluster.
+     * Queries the attributes of a specified cluster.
      *
      * @param request - DescribeDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14178,7 +14409,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries information about a PolarDB cluster.
+     * Queries the attributes of a specified cluster.
      *
      * @param request - DescribeDBClusterAttributeRequest
      *
@@ -14269,7 +14500,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries available resources in a PolarDB cluster.
+     * Queries the available resources of a PolarDB cluster.
      *
      * @param request - DescribeDBClusterAvailableResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14344,7 +14575,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries available resources in a PolarDB cluster.
+     * Queries the available resources of a PolarDB cluster.
      *
      * @param request - DescribeDBClusterAvailableResourcesRequest
      *
@@ -14362,7 +14593,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the source IP address can access a cluster.
+     * Checks whether a database cluster is accessible from a source IP address.
      *
      * @param request - DescribeDBClusterConnectivityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14429,7 +14660,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the source IP address can access a cluster.
+     * Checks whether a database cluster is accessible from a source IP address.
      *
      * @param request - DescribeDBClusterConnectivityRequest
      *
@@ -14447,7 +14678,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * DescribeDBClusterEncryptionKey.
+     * Queries the key usage details for a specified PolarDB cluster.
+     *
+     * @remarks
+     * ## Description
+     * - Query the key usage details for a PolarDB cluster, such as the key ID, status, and type.
+     * - The `DBClusterId`Parameter is required. It specifies the ID of the PolarDB cluster to query.
+     * - Before you call this operation, make sure that the required Resource Access Management (RAM) roles and policies are configured.
      *
      * @param request - DescribeDBClusterEncryptionKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14490,7 +14727,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * DescribeDBClusterEncryptionKey.
+     * Queries the key usage details for a specified PolarDB cluster.
+     *
+     * @remarks
+     * ## Description
+     * - Query the key usage details for a PolarDB cluster, such as the key ID, status, and type.
+     * - The `DBClusterId`Parameter is required. It specifies the ID of the PolarDB cluster to query.
+     * - Before you call this operation, make sure that the required Resource Access Management (RAM) roles and policies are configured.
      *
      * @param request - DescribeDBClusterEncryptionKeyRequest
      *
@@ -14593,7 +14836,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB边缘集群的链接地址
+     * Queries the endpoints of an edge cluster for PolarDB on ENS.
      *
      * @param request - DescribeDBClusterEndpointsZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14656,7 +14899,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB边缘集群的链接地址
+     * Queries the endpoints of an edge cluster for PolarDB on ENS.
      *
      * @param request - DescribeDBClusterEndpointsZonalRequest
      *
@@ -14674,10 +14917,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * The ID of the synchronous task.
+     * Queries the migration status of a PolarDB cluster.
      *
      * @remarks
-     * The ID of the request.
+     * - You can use this operation to query the status of a one-click migration from an ApsaraDB RDS for MySQL instance to a PolarDB for MySQL cluster. For more information, see [Upgrade an ApsaraDB RDS for MySQL instance to PolarDB for MySQL](https://help.aliyun.com/document_detail/121582.html).
+     * - Before you call this operation, you must create a one-click upgrade task for the cluster by calling the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation and setting the **CreationOption** parameter to **MigrationFromRDS**.
      *
      * @param request - DescribeDBClusterMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14732,10 +14976,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * The ID of the synchronous task.
+     * Queries the migration status of a PolarDB cluster.
      *
      * @remarks
-     * The ID of the request.
+     * - You can use this operation to query the status of a one-click migration from an ApsaraDB RDS for MySQL instance to a PolarDB for MySQL cluster. For more information, see [Upgrade an ApsaraDB RDS for MySQL instance to PolarDB for MySQL](https://help.aliyun.com/document_detail/121582.html).
+     * - Before you call this operation, you must create a one-click upgrade task for the cluster by calling the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation and setting the **CreationOption** parameter to **MigrationFromRDS**.
      *
      * @param request - DescribeDBClusterMigrationRequest
      *
@@ -14826,6 +15071,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries database endpoints.
+     *
      * @param request - DescribeDBClusterNetInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14883,6 +15130,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries database endpoints.
+     *
      * @param request - DescribeDBClusterNetInfoRequest
      *
      * @returns DescribeDBClusterNetInfoResponse
@@ -14899,7 +15148,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a PolarDB cluster.
+     * Queries the list of running parameters for a PolarDB cluster.
      *
      * @param request - DescribeDBClusterParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14958,7 +15207,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a PolarDB cluster.
+     * Queries the list of running parameters for a PolarDB cluster.
      *
      * @param request - DescribeDBClusterParametersRequest
      *
@@ -14979,18 +15228,18 @@ class Polardb extends OpenApiClient
      * Queries the performance data of a PolarDB cluster.
      *
      * @remarks
-     *   When the monitoring data is collected every 5 seconds:
-     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     * *   When the monitoring data is collected every 60 seconds:
-     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     * - If the monitoring frequency is once every 5 seconds:
+     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
+     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
+     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
+     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
+     *   - If the query time range is more than 30 days, the data granularity is 1 day.
+     * - If the monitoring frequency is once every 60 seconds:
+     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
+     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
+     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
+     *   - If the query time range is more than 30 days, the data granularity is 1 day.
+     * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15056,18 +15305,18 @@ class Polardb extends OpenApiClient
      * Queries the performance data of a PolarDB cluster.
      *
      * @remarks
-     *   When the monitoring data is collected every 5 seconds:
-     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     * *   When the monitoring data is collected every 60 seconds:
-     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     * - If the monitoring frequency is once every 5 seconds:
+     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
+     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
+     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
+     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
+     *   - If the query time range is more than 30 days, the data granularity is 1 day.
+     * - If the monitoring frequency is once every 60 seconds:
+     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
+     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
+     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
+     *   - If the query time range is more than 30 days, the data granularity is 1 day.
+     * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      *
@@ -15085,7 +15334,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询代理详情.
+     * Queries a database cluster proxy.
      *
      * @param request - DescribeDBClusterProxyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15148,7 +15397,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询代理详情.
+     * Queries a database cluster proxy.
      *
      * @param request - DescribeDBClusterProxyRequest
      *
@@ -15166,7 +15415,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+     * Queries the SSL settings of a PolarDB cluster.
      *
      * @param request - DescribeDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15221,7 +15470,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the Secure Sockets Layer (SSL) settings of a PolarDB cluster.
+     * Queries the SSL settings of a PolarDB cluster.
      *
      * @param request - DescribeDBClusterSSLRequest
      *
@@ -15239,7 +15488,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the serverless configurations of a serverless cluster.
+     * Queries the configuration of a serverless cluster.
      *
      * @param request - DescribeDBClusterServerlessConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15294,7 +15543,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the serverless configurations of a serverless cluster.
+     * Queries the configuration of a serverless cluster.
      *
      * @param request - DescribeDBClusterServerlessConfRequest
      *
@@ -15312,7 +15561,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
+     * Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
      *
      * @param request - DescribeDBClusterTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15367,7 +15616,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the transparent data encryption (TDE) settings of a PolarDB cluster.
+     * Queries the transparent data encryption (TDE) settings for a specified PolarDB cluster.
      *
      * @param request - DescribeDBClusterTDERequest
      *
@@ -15385,7 +15634,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about the database engine version of a PolarDB for MySQL cluster.
+     * Retrieves the details of the current kernel version for a PolarDB for MySQL cluster.
+     *
+     * @remarks
+     * > For more information about the kernel versions of PolarDB for MySQL clusters, see [Kernel version guide](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
      *
      * @param request - DescribeDBClusterVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15444,7 +15696,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about the database engine version of a PolarDB for MySQL cluster.
+     * Retrieves the details of the current kernel version for a PolarDB for MySQL cluster.
+     *
+     * @remarks
+     * > For more information about the kernel versions of PolarDB for MySQL clusters, see [Kernel version guide](https://help.aliyun.com/document_detail/471239.html) and [Kernel release notes](https://help.aliyun.com/document_detail/423884.html).
      *
      * @param request - DescribeDBClusterVersionRequest
      *
@@ -15462,7 +15717,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB边缘集群查询版本.
+     * Queries the version of a PolarDB edge cluster.
      *
      * @param request - DescribeDBClusterVersionZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15521,7 +15776,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB边缘集群查询版本.
+     * Queries the version of a PolarDB edge cluster.
      *
      * @param request - DescribeDBClusterVersionZonalRequest
      *
@@ -15539,7 +15794,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+     * Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
      *
      * @param request - DescribeDBClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15658,7 +15913,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries PolarDB clusters or the clusters that can be accessed by an authorized RAM user.
+     * Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
      *
      * @param request - DescribeDBClustersRequest
      *
@@ -15676,7 +15931,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about PolarDB clusters that contain backup sets in a region.
+     * Queries PolarDB clusters in a region that have backup sets.
      *
      * @param request - DescribeDBClustersWithBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15763,7 +16018,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about PolarDB clusters that contain backup sets in a region.
+     * Queries PolarDB clusters in a region that have backup sets.
      *
      * @param request - DescribeDBClustersWithBackupsRequest
      *
@@ -15781,7 +16036,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * MyBase中的PolarDB列表.
+     * Lists the PolarDB clusters in MyBase.
      *
      * @param request - DescribeDBClustersZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15912,7 +16167,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * MyBase中的PolarDB列表.
+     * Lists the PolarDB clusters in MyBase.
      *
      * @param request - DescribeDBClustersZonalRequest
      *
@@ -15930,7 +16185,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
+     * Queries the supported character sets, collations, and other properties of a PolarDB database.
      *
      * @param request - DescribeDBInitializeVariableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15985,7 +16240,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries attributes such as character sets and collations supported by a database in a PolarDB cluster.
+     * Queries the supported character sets, collations, and other properties of a PolarDB database.
      *
      * @param request - DescribeDBInitializeVariableRequest
      *
@@ -16003,7 +16258,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询实例性能数据.
+     * Queries the performance monitoring data for a compute node.
      *
      * @param request - DescribeDBInstancePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16070,7 +16325,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询实例性能数据.
+     * Queries the performance monitoring data for a compute node.
      *
      * @param request - DescribeDBInstancePerformanceRequest
      *
@@ -16171,7 +16426,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
+     * Queries the logs of a PolarDB cluster, such as primary/secondary failover logs.
      *
      * @param request - DescribeDBLogFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16266,7 +16521,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries logs for a PolarDB cluster such as primary/secondary switchover logs.
+     * Queries the logs of a PolarDB cluster, such as primary/secondary failover logs.
      *
      * @param request - DescribeDBLogFilesRequest
      *
@@ -16284,7 +16539,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询可用内核小版本列表.
+     * Queries the available minor engine versions.
      *
      * @param request - DescribeDBMiniEngineVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16347,7 +16602,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询可用内核小版本列表.
+     * Queries the available minor engine versions.
      *
      * @param request - DescribeDBMiniEngineVersionsRequest
      *
@@ -16365,21 +16620,21 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance data of a node in a PolarDB cluster.
+     * Queries performance data for a node in a PolarDB cluster.
      *
      * @remarks
-     *   When the monitoring data is collected every 5 seconds:
-     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     * *   When the monitoring data is collected every 60 seconds:
-     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     * - If the monitoring frequency is 5 seconds:
+     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
+     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
+     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
+     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
+     *   - If the query time range is more than 30 days, the data granularity is 1 day.
+     * - If the monitoring frequency is 60 seconds:
+     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
+     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
+     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
+     *   - If the query time range is more than 30 days, the data granularity is 1 day.
+     * > The default monitoring frequency is 60 seconds. Call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
      *
      * @param request - DescribeDBNodePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16442,21 +16697,21 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the performance data of a node in a PolarDB cluster.
+     * Queries performance data for a node in a PolarDB cluster.
      *
      * @remarks
-     *   When the monitoring data is collected every 5 seconds:
-     *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
-     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     * *   When the monitoring data is collected every 60 seconds:
-     *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
-     *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
-     *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
-     *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
-     * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the data collection interval to every 5 seconds.
+     * - If the monitoring frequency is 5 seconds:
+     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
+     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
+     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
+     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
+     *   - If the query time range is more than 30 days, the data granularity is 1 day.
+     * - If the monitoring frequency is 60 seconds:
+     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
+     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
+     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
+     *   - If the query time range is more than 30 days, the data granularity is 1 day.
+     * > The default monitoring frequency is 60 seconds. Call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
      *
      * @param request - DescribeDBNodePerformanceRequest
      *
@@ -16474,7 +16729,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a specified node in a cluster.
+     * Queries the parameters for specified nodes in a cluster.
      *
      * @param request - DescribeDBNodesParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16533,7 +16788,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a specified node in a cluster.
+     * Queries the parameters for specified nodes in a cluster.
      *
      * @param request - DescribeDBNodesParametersRequest
      *
@@ -16715,7 +16970,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about databases in a PolarDB cluster.
+     * Queries for the details of databases in a specified PolarDB cluster.
      *
      * @param request - DescribeDatabasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16782,7 +17037,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about databases in a PolarDB cluster.
+     * Queries for the details of databases in a specified PolarDB cluster.
      *
      * @param request - DescribeDatabasesRequest
      *
@@ -16800,7 +17055,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB边缘云数据库.
+     * Describes the databases in a PolarDB on ENS cluster.
      *
      * @param request - DescribeDatabasesZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16875,7 +17130,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarDB边缘云数据库.
+     * Describes the databases in a PolarDB on ENS cluster.
      *
      * @param request - DescribeDatabasesZonalRequest
      *
@@ -16893,7 +17148,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB的MyBase集群.
+     * Queries the attributes of an PolarDB on ENS cluster.
      *
      * @param request - DescribeDbClusterAttributeZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16952,7 +17207,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB的MyBase集群.
+     * Queries the attributes of an PolarDB on ENS cluster.
      *
      * @param request - DescribeDbClusterAttributeZonalRequest
      *
@@ -17083,7 +17338,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取角色权限列表.
+     * Queries a list of permissions for a database role.
      *
      * @param request - DescribeEncryptionDBRolePrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17142,7 +17397,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取角色权限列表.
+     * Queries a list of permissions for a database role.
      *
      * @param request - DescribeEncryptionDBRolePrivilegeRequest
      *
@@ -17160,7 +17415,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取加密信息.
+     * Queries encryption key information.
      *
      * @param request - DescribeEncryptionDBSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17199,7 +17454,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取加密信息.
+     * Queries encryption key information.
      *
      * @param request - DescribeEncryptionDBSecretRequest
      *
@@ -17217,7 +17472,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询插件详情.
+     * Retrieves the details of extensions.
      *
      * @param request - DescribeExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17280,7 +17535,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询插件详情.
+     * Retrieves the details of extensions.
      *
      * @param request - DescribeExtensionsRequest
      *
@@ -17298,7 +17553,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询sql防火墙信息.
+     * Describes SQL firewall rules.
      *
      * @param request - DescribeFirewallRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17357,7 +17612,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询sql防火墙信息.
+     * Describes SQL firewall rules.
      *
      * @param request - DescribeFirewallRulesRequest
      *
@@ -17375,7 +17630,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询网关实例详情.
+     * Viewing gateway instance details.
      *
      * @param request - DescribeGatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17418,7 +17673,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询网关实例详情.
+     * Viewing gateway instance details.
      *
      * @param request - DescribeGatewayAttributeRequest
      *
@@ -17436,7 +17691,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询网关实例列表.
+     * Queries a list of gateway instances.
      *
      * @param request - DescribeGatewayListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17491,7 +17746,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询网关实例列表.
+     * Queries a list of gateway instances.
      *
      * @param request - DescribeGatewayListRequest
      *
@@ -17509,7 +17764,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the PolarFS global data network (GDN) details in all regions.
+     * Retrieves details for Polarlakebase Global Data Networks (GDNs) across all regions in your account.
      *
      * @param request - DescribeGlobalDataNetworkListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17552,7 +17807,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the PolarFS global data network (GDN) details in all regions.
+     * Retrieves details for Polarlakebase Global Data Networks (GDNs) across all regions in your account.
      *
      * @param request - DescribeGlobalDataNetworkListRequest
      *
@@ -17570,7 +17825,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Global Database Network (GDN).
+     * Retrieves details for a Global Database Network (GDN).
      *
      * @param request - DescribeGlobalDatabaseNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17633,7 +17888,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Global Database Network (GDN).
+     * Retrieves details for a Global Database Network (GDN).
      *
      * @param request - DescribeGlobalDatabaseNetworkRequest
      *
@@ -17651,7 +17906,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about all Global Database Networks (GDNs) that belong to an account.
+     * View details for all Global Database Networks (GDNs) in your account.
      *
      * @param request - DescribeGlobalDatabaseNetworksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17734,7 +17989,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about all Global Database Networks (GDNs) that belong to an account.
+     * View details for all Global Database Networks (GDNs) in your account.
      *
      * @param request - DescribeGlobalDatabaseNetworksRequest
      *
@@ -17752,7 +18007,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries global IP whitelist templates.
+     * Queries the list of global IP allowlist templates.
      *
      * @param request - DescribeGlobalSecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17819,7 +18074,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries global IP whitelist templates.
+     * Queries the list of global IP allowlist templates.
      *
      * @param request - DescribeGlobalSecurityIPGroupRequest
      *
@@ -17922,7 +18177,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the HA logs of a cluster.
+     * Queries high availability (HA) logs for an instance.
+     *
+     * @remarks
+     * > - Only PolarDB for MySQL supports this operation.
      *
      * @param request - DescribeHALogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17985,7 +18243,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the HA logs of a cluster.
+     * Queries high availability (HA) logs for an instance.
+     *
+     * @remarks
+     * > - Only PolarDB for MySQL supports this operation.
      *
      * @param request - DescribeHALogsRequest
      *
@@ -18003,7 +18264,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 事件中心事件列表.
+     * Lists the historical events in Event Center.
      *
      * @param request - DescribeHistoryEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18098,7 +18359,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 事件中心事件列表.
+     * Lists the historical events in Event Center.
      *
      * @param request - DescribeHistoryEventsRequest
      *
@@ -18116,7 +18377,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries historical tasks.
+     * Retrieves a list of historical administrative tasks for PolarDB for MySQL instances, such as parameter changes, and instance restarts.
      *
      * @param request - DescribeHistoryTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18219,7 +18480,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries historical tasks.
+     * Retrieves a list of historical administrative tasks for PolarDB for MySQL instances, such as parameter changes, and instance restarts.
      *
      * @param request - DescribeHistoryTasksRequest
      *
@@ -18237,7 +18498,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 任务中心任务统计
+     * Queries task statistics in Task Center.
      *
      * @param request - DescribeHistoryTasksStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18328,7 +18589,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 任务中心任务统计
+     * Queries task statistics in Task Center.
      *
      * @param request - DescribeHistoryTasksStatRequest
      *
@@ -18346,7 +18607,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information of a license order.
+     * Queries a license order.
      *
      * @param request - DescribeLicenseOrderDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18401,7 +18662,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information of a license order.
+     * Queries a license order.
      *
      * @param request - DescribeLicenseOrderDetailsRequest
      *
@@ -18419,7 +18680,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of license orders.
+     * This operation queries a list of license orders.
      *
      * @param request - DescribeLicenseOrdersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18494,7 +18755,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a list of license orders.
+     * This operation queries a list of license orders.
      *
      * @param request - DescribeLicenseOrdersRequest
      *
@@ -18512,7 +18773,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询库表恢复可恢复时间范围.
+     * Queries the available time range to recover from a backup.
      *
      * @param request - DescribeLocalAvailableRecoveryTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18571,7 +18832,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询库表恢复可恢复时间范围.
+     * Queries the available time range to recover from a backup.
      *
      * @param request - DescribeLocalAvailableRecoveryTimeRequest
      *
@@ -18589,7 +18850,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the retention policy of log backups in a PolarDB cluster.
+     * Queries the data retention policy for the log backups of a PolarDB cluster.
      *
      * @param request - DescribeLogBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18644,7 +18905,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the retention policy of log backups in a PolarDB cluster.
+     * Queries the data retention policy for the log backups of a PolarDB cluster.
      *
      * @param request - DescribeLogBackupPolicyRequest
      *
@@ -18727,7 +18988,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of the databases or tables that can be restored.
+     * Queries recoverable databases and tables.
      *
      * @param request - DescribeMetaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18810,7 +19071,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of the databases or tables that can be restored.
+     * Queries recoverable databases and tables.
      *
      * @param request - DescribeMetaListRequest
      *
@@ -18828,7 +19089,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询路由规则列表.
+     * Model Query API.
      *
      * @param request - DescribeModelApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18903,7 +19164,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询路由规则列表.
+     * Model Query API.
      *
      * @param request - DescribeModelApisRequest
      *
@@ -18921,7 +19182,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询模型服务列表.
+     * List model services.
      *
      * @param request - DescribeModelServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18992,7 +19253,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询模型服务列表.
+     * List model services.
      *
      * @param request - DescribeModelServicesRequest
      *
@@ -19010,7 +19271,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询参数修改历史.
+     * Queries the modification history of parameters.
      *
      * @param request - DescribeModifyParameterLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19073,7 +19334,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询参数修改历史.
+     * Queries the modification history of parameters.
      *
      * @param request - DescribeModifyParameterLogRequest
      *
@@ -19091,7 +19352,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询网络通道.
+     * Queries network channels.
      *
      * @param request - DescribeNetworkChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19166,7 +19427,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询网络通道.
+     * Queries network channels.
      *
      * @param request - DescribeNetworkChannelRequest
      *
@@ -19184,11 +19445,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a parameter template.
+     * Retrieves the details of a specified parameter template.
      *
      * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * > This parameter is valid only for a PolarDB for MySQL cluster.
+     * Parameter templates let you centrally manage parameters for multiple clusters. You can quickly apply a parameter template to PolarDB clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > This feature currently supports only PolarDB for MySQL clusters.
      *
      * @param request - DescribeParameterGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19255,11 +19516,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a parameter template.
+     * Retrieves the details of a specified parameter template.
      *
      * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * > This parameter is valid only for a PolarDB for MySQL cluster.
+     * Parameter templates let you centrally manage parameters for multiple clusters. You can quickly apply a parameter template to PolarDB clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > This feature currently supports only PolarDB for MySQL clusters.
      *
      * @param request - DescribeParameterGroupRequest
      *
@@ -19277,11 +19538,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries parameter templates that are available in a specified region.
+     * This operation queries the parameter templates in a specified region.
      *
      * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * > This operation is applicable only to PolarDB for MySQL clusters.
+     * Parameter templates allow you to manage cluster parameters in batches and quickly apply them to PolarDB clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > This feature is available only for PolarDB for MySQL clusters.
      *
      * @param request - DescribeParameterGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19348,11 +19609,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries parameter templates that are available in a specified region.
+     * This operation queries the parameter templates in a specified region.
      *
      * @remarks
-     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * > This operation is applicable only to PolarDB for MySQL clusters.
+     * Parameter templates allow you to manage cluster parameters in batches and quickly apply them to PolarDB clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > This feature is available only for PolarDB for MySQL clusters.
      *
      * @param request - DescribeParameterGroupsRequest
      *
@@ -19370,7 +19631,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the default parameters in a cluster.
+     * Queries the default parameters of a database cluster.
      *
      * @param request - DescribeParameterTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19437,7 +19698,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the default parameters in a cluster.
+     * Queries the default parameters of a database cluster.
      *
      * @param request - DescribeParameterTemplatesRequest
      *
@@ -19552,7 +19813,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of scheduled events for different types of tasks.
+     * Retrieves a count of pending events for various task types.
      *
      * @param request - DescribePendingMaintenanceActionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19619,7 +19880,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of scheduled events for different types of tasks.
+     * Retrieves a count of pending events for various task types.
      *
      * @param request - DescribePendingMaintenanceActionsRequest
      *
@@ -19637,7 +19898,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询指定会话明细.
+     * Queries the chat records of a specified session.
      *
      * @param request - DescribePolarAgentChatRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19680,7 +19941,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询指定会话明细.
+     * Queries the chat records of a specified session.
      *
      * @param request - DescribePolarAgentChatRecordsRequest
      *
@@ -19698,7 +19959,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询会话状态
+     * Queries the status of a session.
      *
      * @param request - DescribePolarAgentSessionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19741,7 +20002,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询会话状态
+     * Queries the status of a session.
      *
      * @param request - DescribePolarAgentSessionStatusRequest
      *
@@ -19759,7 +20020,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看历史会话记录.
+     * Queries historical session records.
      *
      * @param request - DescribePolarAgentUserSessionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19798,7 +20059,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看历史会话记录.
+     * Queries historical session records.
      *
      * @param request - DescribePolarAgentUserSessionsRequest
      *
@@ -19816,7 +20077,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw Agent列表.
+     * Queries the details of agents installed in a specified application.
      *
      * @param tmpReq - DescribePolarClawAgentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19865,7 +20126,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw Agent列表.
+     * Queries the details of agents installed in a specified application.
      *
      * @param request - DescribePolarClawAgentsRequest
      *
@@ -19883,7 +20144,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw Channels.
+     * Lists all installed PolarClaw channels and their status information.
      *
      * @param tmpReq - DescribePolarClawChannelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19932,7 +20193,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw Channels.
+     * Lists all installed PolarClaw channels and their status information.
      *
      * @param request - DescribePolarClawChannelsRequest
      *
@@ -19950,7 +20211,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw定时任务列表.
+     * Query all or specific scheduled tasks in PolarClaw and their details.
+     *
+     * @remarks
+     * ## Request description
+     * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
+     * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
      *
      * @param tmpReq - DescribePolarClawCronJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20011,7 +20277,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw定时任务列表.
+     * Query all or specific scheduled tasks in PolarClaw and their details.
+     *
+     * @remarks
+     * ## Request description
+     * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
+     * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
      *
      * @param request - DescribePolarClawCronJobsRequest
      *
@@ -20029,7 +20300,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw MCP Servers.
+     * Lists all installed PolarClaw MCP services and their configurations.
      *
      * @param request - DescribePolarClawMCPServersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20072,7 +20343,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw MCP Servers.
+     * Lists all installed PolarClaw MCP services and their configurations.
      *
      * @param request - DescribePolarClawMCPServersRequest
      *
@@ -20090,7 +20361,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw Plugins.
+     * Lists all installed PolarClaw plugins and their status.
+     *
+     * @remarks
+     * ## Request
+     * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
+     * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
      *
      * @param request - DescribePolarClawPluginsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20133,7 +20409,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw Plugins.
+     * Lists all installed PolarClaw plugins and their status.
+     *
+     * @remarks
+     * ## Request
+     * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
+     * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
      *
      * @param request - DescribePolarClawPluginsRequest
      *
@@ -20151,7 +20432,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw异步任务状态
+     * Queries the status of a PolarClaw asynchronous task.
      *
      * @param request - DescribePolarClawTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20194,7 +20475,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw异步任务状态
+     * Queries the status of a PolarClaw asynchronous task.
      *
      * @param request - DescribePolarClawTaskRequest
      *
@@ -20212,7 +20493,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取PolarFS实例详情.
+     * Gets the details of a PolarFS instance.
      *
      * @param request - DescribePolarFsAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20259,7 +20540,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取PolarFS实例详情.
+     * Gets the details of a PolarFS instance.
      *
      * @param request - DescribePolarFsAttributeRequest
      *
@@ -20277,14 +20558,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 列出指定路径下的文件和子目录信息。
+     * Lists the files and subdirectories at a specified path.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path** 参数必须提供一个绝对路径。
-     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
-     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
-     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     * ## Usage notes
+     * - The **Path** parameter must be an absolute path.
+     * - The **Recursive** parameter defaults to `false`. If set to `true`, the operation recursively lists the contents of all subdirectories.
+     * - The **Depth** parameter limits the recursive depth. The default value is `1`.
+     * - The **Filter** parameter supports filtering with wildcards or regular expressions.
      *
      * @param request - DescribePolarFsObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20327,14 +20608,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 列出指定路径下的文件和子目录信息。
+     * Lists the files and subdirectories at a specified path.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path** 参数必须提供一个绝对路径。
-     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
-     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
-     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     * ## Usage notes
+     * - The **Path** parameter must be an absolute path.
+     * - The **Recursive** parameter defaults to `false`. If set to `true`, the operation recursively lists the contents of all subdirectories.
+     * - The **Depth** parameter limits the recursive depth. The default value is `1`.
+     * - The **Filter** parameter supports filtering with wildcards or regular expressions.
      *
      * @param request - DescribePolarFsObjectsRequest
      *
@@ -20352,7 +20633,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询配额规则.
+     * Retrieves all quota rules for a specified PolarFileSystem (PolarFS) instance.
+     *
+     * @remarks
+     * ## Request
+     * - This operation queries all quota rules for a specific PolarFS instance. It supports wildcard matching with the `QuotaNameMatch` and `PatternMatch` parameters.
+     * - Paging is not yet available and will be released in a future kernel update.
+     * - The `PolarFsInstanceId` parameter is required to specify the PolarFS instance to query.
+     * - You can use optional parameters, such as `QuotaNameMatch` and `PatternMatch`, to filter quota rules.
+     * - The returned data includes the total number of quota rules, the number of rules on the current page, and details for each rule, such as the rule ID, name, description, and capacity limit.
      *
      * @param request - DescribePolarFsQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20407,7 +20696,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询配额规则.
+     * Retrieves all quota rules for a specified PolarFileSystem (PolarFS) instance.
+     *
+     * @remarks
+     * ## Request
+     * - This operation queries all quota rules for a specific PolarFS instance. It supports wildcard matching with the `QuotaNameMatch` and `PatternMatch` parameters.
+     * - Paging is not yet available and will be released in a future kernel update.
+     * - The `PolarFsInstanceId` parameter is required to specify the PolarFS instance to query.
+     * - You can use optional parameters, such as `QuotaNameMatch` and `PatternMatch`, to filter quota rules.
+     * - The returned data includes the total number of quota rules, the number of rules on the current page, and details for each rule, such as the rule ID, name, description, and capacity limit.
      *
      * @param request - DescribePolarFsQuotaRequest
      *
@@ -20425,7 +20722,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询配额列表.
+     * Retrieves the quota list.
      *
      * @param request - DescribePolarFsQuotaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20484,7 +20781,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询配额列表.
+     * Retrieves the quota list.
      *
      * @param request - DescribePolarFsQuotaListRequest
      *
@@ -20502,7 +20799,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the SQL Explorer feature is enabled for the cluster.
+     * Checks whether the SQL Explorer feature is enabled for a target cluster.
+     *
+     * @remarks
+     * *Note:**
+     * This API operation is deprecated. Use [Query the configurations of DAS Enterprise Edition](https://help.aliyun.com/document_detail/2778837.html) instead.
      *
      * @param request - DescribePolarSQLCollectorPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20537,7 +20838,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries whether the SQL Explorer feature is enabled for the cluster.
+     * Checks whether the SQL Explorer feature is enabled for a target cluster.
+     *
+     * @remarks
+     * *Note:**
+     * This API operation is deprecated. Use [Query the configurations of DAS Enterprise Edition](https://help.aliyun.com/document_detail/2778837.html) instead.
      *
      * @param request - DescribePolarSQLCollectorPolicyRequest
      *
@@ -20555,7 +20860,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询限流策略.
+     * Queries rate limit policies.
      *
      * @param request - DescribeRateLimitPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20618,7 +20923,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询限流策略.
+     * Queries rate limit policies.
      *
      * @param request - DescribeRateLimitPolicyRequest
      *
@@ -20636,6 +20941,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries a list of vSwitches.
+     *
      * @param request - DescribeRdsVSwitchsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -20701,6 +21008,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries a list of vSwitches.
+     *
      * @param request - DescribeRdsVSwitchsRequest
      *
      * @returns DescribeRdsVSwitchsResponse
@@ -20717,7 +21026,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询vpc.
+     * Describes a list of VPCs.
      *
      * @param request - DescribeRdsVpcsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20784,7 +21093,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询vpc.
+     * Describes a list of VPCs.
      *
      * @param request - DescribeRdsVpcsRequest
      *
@@ -20871,7 +21180,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询资源包列表.
+     * Describes cross-cloud resource plans.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -20900,7 +21209,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询资源包列表.
+     * Describes cross-cloud resource plans.
      *
      * @returns DescribeResourcePackagesResponse
      *
@@ -20914,7 +21223,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询SQL限流规则信息.
+     * Returns the details of SQL throttling rules.
      *
      * @param request - DescribeSQLRateLimitingRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20981,7 +21290,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询SQL限流规则信息.
+     * Returns the details of SQL throttling rules.
      *
      * @param request - DescribeSQLRateLimitingRulesRequest
      *
@@ -20999,7 +21308,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of all scheduled tasks.
+     * Retrieves the details of all scheduled tasks.
      *
      * @param request - DescribeScheduleTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21094,7 +21403,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of all scheduled tasks.
+     * Retrieves the details of all scheduled tasks.
      *
      * @param request - DescribeScheduleTasksRequest
      *
@@ -21112,7 +21421,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询共享备份集.
+     * Queries shared backup sets.
      *
      * @param request - DescribeSharedBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21195,7 +21504,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询共享备份集.
+     * Queries shared backup sets.
      *
      * @param request - DescribeSharedBackupsRequest
      *
@@ -21213,11 +21522,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Slow Log Details.
+     * Queries the details of slow query logs for a PolarDB cluster.
      *
      * @remarks
-     * >- Only PolarDB MySQL Edition clusters support calling this interface.
-     * >- Starting from September 1, 2024, due to the optimization of the SQL template algorithm, when calling this interface, the value of the SQLHash field will change. For more details, please refer to [Notice] Optimization of Slow SQL Template Algorithm (~~2845725~~).
+     * > - This operation is supported only for PolarDB for MySQL clusters.
+     * >
+     * > - For PolarDB for PostgreSQL and PolarDB for PostgreSQL (Oracle Compatible) clusters, use the [DAS API to query slow log records](https://help.aliyun.com/document_detail/2922426.html).
+     * >
+     * > - Starting September 1, 2024, the value of the `SQLHash` field will change due to an optimization of the SQL templating algorithm. For more information, see [[Notice\\] Optimization of the templating algorithm for slow SQL queries](~~2845725~~).
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21304,11 +21616,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Slow Log Details.
+     * Queries the details of slow query logs for a PolarDB cluster.
      *
      * @remarks
-     * >- Only PolarDB MySQL Edition clusters support calling this interface.
-     * >- Starting from September 1, 2024, due to the optimization of the SQL template algorithm, when calling this interface, the value of the SQLHash field will change. For more details, please refer to [Notice] Optimization of Slow SQL Template Algorithm (~~2845725~~).
+     * > - This operation is supported only for PolarDB for MySQL clusters.
+     * >
+     * > - For PolarDB for PostgreSQL and PolarDB for PostgreSQL (Oracle Compatible) clusters, use the [DAS API to query slow log records](https://help.aliyun.com/document_detail/2922426.html).
+     * >
+     * > - Starting September 1, 2024, the value of the `SQLHash` field will change due to an optimization of the SQL templating algorithm. For more information, see [[Notice\\] Optimization of the templating algorithm for slow SQL queries](~~2845725~~).
      *
      * @param request - DescribeSlowLogRecordsRequest
      *
@@ -21326,10 +21641,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the statistics about the slow query logs of a PolarDB cluster.
+     * Queries the slow query log statistics for a PolarDB cluster.
      *
      * @remarks
-     * > This operation is applicable only to PolarDB for MySQL clusters.
+     * > - This API is available only for PolarDB for MySQL.
+     * >
+     * > - Effective September 1, 2024, the SQLHash field value will change when you call this API due to an optimization to the SQL templating algorithm. For more information, see [Optimization of the templating algorithm for slow SQL queries](https://help.aliyun.com/document_detail/2845725.html).
      *
      * @param request - DescribeSlowLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21408,10 +21725,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the statistics about the slow query logs of a PolarDB cluster.
+     * Queries the slow query log statistics for a PolarDB cluster.
      *
      * @remarks
-     * > This operation is applicable only to PolarDB for MySQL clusters.
+     * > - This API is available only for PolarDB for MySQL.
+     * >
+     * > - Effective September 1, 2024, the SQLHash field value will change when you call this API due to an optimization to the SQL templating algorithm. For more information, see [Optimization of the templating algorithm for slow SQL queries](https://help.aliyun.com/document_detail/2845725.html).
      *
      * @param request - DescribeSlowLogsRequest
      *
@@ -21429,11 +21748,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
+     * Queries the progress details of tasks generated by API calls, such as creating a cluster.
      *
      * @remarks
-     *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
-     * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+     * - You can view the progress details of tasks generated by either direct API calls, such as [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html), or operations in the PolarDB console, such as [creating a cluster](https://help.aliyun.com/document_detail/58769.html).
+     * - Currently, this operation supports viewing the progress details only for tasks generated when you create a cluster by calling the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation, provided that the `CreationOption` parameter is not set to `CreateGdnStandby`.
      *
      * @param request - DescribeTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21512,11 +21831,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the status of the tasks that are generated based on API operations, such as the status of instance creation tasks.
+     * Queries the progress details of tasks generated by API calls, such as creating a cluster.
      *
      * @remarks
-     *   You can call this operation to view the details of a task that is generated by a specific API operation or in the PolarDB console. The system calls the specific API operation when you perform an operation in the PolarDB console. For example, you can view the details of the task when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation or [create a cluster](https://help.aliyun.com/document_detail/58769.html) in the PolarDB console.
-     * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+     * - You can view the progress details of tasks generated by either direct API calls, such as [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html), or operations in the PolarDB console, such as [creating a cluster](https://help.aliyun.com/document_detail/58769.html).
+     * - Currently, this operation supports viewing the progress details only for tasks generated when you create a cluster by calling the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation, provided that the `CreationOption` parameter is not set to `CreateGdnStandby`.
      *
      * @param request - DescribeTasksRequest
      *
@@ -21534,7 +21853,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询校验报告.
+     * Queries the verification reports.
      *
      * @param request - DescribeUpgradeReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21625,7 +21944,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询校验报告.
+     * Queries the verification reports.
      *
      * @param request - DescribeUpgradeReportRequest
      *
@@ -21643,7 +21962,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+     * Retrieves a list of Key Management Service (KMS) keys.
      *
      * @param request - DescribeUserEncryptionKeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21714,7 +22033,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the Key Management Service (KMS)-managed customer master keys (CMKs) that are used to encrypt data in a PolarDB cluster.
+     * Retrieves a list of Key Management Service (KMS) keys.
      *
      * @param request - DescribeUserEncryptionKeyListRequest
      *
@@ -21732,7 +22051,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询交换机信息.
+     * Retrieves information about vSwitches.
      *
      * @param request - DescribeVSwitchListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21811,7 +22130,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询交换机信息.
+     * Retrieves information about vSwitches.
      *
      * @param request - DescribeVSwitchListRequest
      *
@@ -21829,7 +22148,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a vSwitch.
+     * Queries one or more vSwitches.
      *
      * @param request - DescribeVSwitchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21912,7 +22231,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries a vSwitch.
+     * Queries one or more vSwitches.
      *
      * @param request - DescribeVSwitchesRequest
      *
@@ -21930,7 +22249,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询vpc.
+     * Queries one or more VPCs.
      *
      * @param request - DescribeVpcsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22009,7 +22328,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询vpc.
+     * Queries one or more VPCs.
      *
      * @param request - DescribeVpcsRequest
      *
@@ -22027,7 +22346,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取可用区.
+     * Queries the available zones.
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22078,7 +22397,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取可用区.
+     * Queries the available zones.
      *
      * @param request - DescribeZonesRequest
      *
@@ -22096,7 +22415,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 关闭DynamoDB兼容性能力.
+     * Disables DynamoDB compatibility.
      *
      * @param request - DisableDBClusterDynamoDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22135,7 +22454,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 关闭DynamoDB兼容性能力.
+     * Disables DynamoDB compatibility.
      *
      * @param request - DisableDBClusterDynamoDBRequest
      *
@@ -22153,7 +22472,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 关闭集群的关系性.
+     * Disables the Orca (Redis-compatible) feature for a PolarDB cluster.
      *
      * @param request - DisableDBClusterOrcaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22212,7 +22531,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 关闭集群的关系性.
+     * Disables the Orca (Redis-compatible) feature for a PolarDB cluster.
      *
      * @param request - DisableDBClusterOrcaRequest
      *
@@ -22230,7 +22549,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Disables a stable serverless cluster.
+     * Disables steady-state serverless.
      *
      * @param request - DisableDBClusterServerlessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22250,12 +22569,24 @@ class Polardb extends OpenApiClient
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->fromTimeService) {
+            @$query['FromTimeService'] = $request->fromTimeService;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->plannedEndTime) {
+            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        }
+
+        if (null !== $request->plannedStartTime) {
+            @$query['PlannedStartTime'] = $request->plannedStartTime;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -22285,7 +22616,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Disables a stable serverless cluster.
+     * Disables steady-state serverless.
      *
      * @param request - DisableDBClusterServerlessRequest
      *
@@ -22303,7 +22634,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 禁用PolarClaw Channel.
+     * This API disables a specified PolarClaw channel.
+     *
+     * @remarks
+     * ## Description
+     * Call the`DisablePolarClawChannel` API to disable a PolarClaw channel for a specific application. Before you perform this operation, make sure you have the target channel ID and the application ID.
      *
      * @param request - DisablePolarClawChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22350,7 +22685,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 禁用PolarClaw Channel.
+     * This API disables a specified PolarClaw channel.
+     *
+     * @remarks
+     * ## Description
+     * Call the`DisablePolarClawChannel` API to disable a PolarClaw channel for a specific application. Before you perform this operation, make sure you have the target channel ID and the application ID.
      *
      * @param request - DisablePolarClawChannelRequest
      *
@@ -22368,7 +22707,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 禁用PolarClaw定时任务
+     * Disables a PolarClaw cron job.
      *
      * @param request - DisablePolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22415,7 +22754,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 禁用PolarClaw定时任务
+     * Disables a PolarClaw cron job.
      *
      * @param request - DisablePolarClawCronJobRequest
      *
@@ -22433,7 +22772,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 禁用PolarClaw Plugin.
+     * Disables the PolarClaw plugin.
      *
      * @param request - DisablePolarClawPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22480,7 +22819,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 禁用PolarClaw Plugin.
+     * Disables the PolarClaw plugin.
      *
      * @param request - DisablePolarClawPluginRequest
      *
@@ -22498,7 +22837,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 开启DynamoDB兼容性能力.
+     * Enables DynamoDB compatibility.
      *
      * @param request - EnableDBClusterDynamoDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22537,7 +22876,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 开启DynamoDB兼容性能力.
+     * Enables DynamoDB compatibility.
      *
      * @param request - EnableDBClusterDynamoDBRequest
      *
@@ -22555,7 +22894,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 开启集群的关系性.
+     * Enables the Orca (Redis-compatible) feature for a PolarDB cluster.
      *
      * @param request - EnableDBClusterOrcaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22610,7 +22949,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 开启集群的关系性.
+     * Enables the Orca (Redis-compatible) feature for a PolarDB cluster.
      *
      * @param request - EnableDBClusterOrcaRequest
      *
@@ -22628,7 +22967,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables a stable serverless cluster.
+     * Enables steady-state serverless.
      *
      * @param request - EnableDBClusterServerlessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22648,12 +22987,24 @@ class Polardb extends OpenApiClient
             @$query['DBClusterId'] = $request->DBClusterId;
         }
 
+        if (null !== $request->fromTimeService) {
+            @$query['FromTimeService'] = $request->fromTimeService;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->plannedEndTime) {
+            @$query['PlannedEndTime'] = $request->plannedEndTime;
+        }
+
+        if (null !== $request->plannedStartTime) {
+            @$query['PlannedStartTime'] = $request->plannedStartTime;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -22707,7 +23058,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables a stable serverless cluster.
+     * Enables steady-state serverless.
      *
      * @param request - EnableDBClusterServerlessRequest
      *
@@ -22806,7 +23157,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 启用PolarClaw Channel.
+     * Enables a PolarClaw channel.
      *
      * @param request - EnablePolarClawChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22853,7 +23204,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 启用PolarClaw Channel.
+     * Enables a PolarClaw channel.
      *
      * @param request - EnablePolarClawChannelRequest
      *
@@ -22871,7 +23222,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 启用PolarClaw定时任务
+     * Enables a cron job in PolarClaw.
+     *
+     * @remarks
+     * ## Request
+     * This operation enables a cron job in a PolarClaw application to run tasks on a schedule. Specify the correct `ApplicationId` to associate the job with the target application.
      *
      * @param request - EnablePolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22918,7 +23273,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 启用PolarClaw定时任务
+     * Enables a cron job in PolarClaw.
+     *
+     * @remarks
+     * ## Request
+     * This operation enables a cron job in a PolarClaw application to run tasks on a schedule. Specify the correct `ApplicationId` to associate the job with the target application.
      *
      * @param request - EnablePolarClawCronJobRequest
      *
@@ -22936,7 +23295,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 启用PolarClaw Plugin.
+     * Enables a PolarClaw plugin.
      *
      * @param request - EnablePolarClawPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22983,7 +23342,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 启用PolarClaw Plugin.
+     * Enables a PolarClaw plugin.
      *
      * @param request - EnablePolarClawPluginRequest
      *
@@ -23001,7 +23360,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 启用/禁用SQL限流规则.
+     * Enables or disables SQL throttling rules.
      *
      * @param request - EnableSQLRateLimitingRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23064,7 +23423,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 启用/禁用SQL限流规则.
+     * Enables or disables SQL throttling rules.
      *
      * @param request - EnableSQLRateLimitingRulesRequest
      *
@@ -23082,7 +23441,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Evaluates available resources.
+     * Evaluates the resources in a region.
      *
      * @param request - EvaluateRegionResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23173,7 +23532,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Evaluates available resources.
+     * Evaluates the resources in a region.
      *
      * @param request - EvaluateRegionResourceRequest
      *
@@ -23191,7 +23550,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 调用跨云 OpenAPI.
+     * Calls a cross-cloud OpenAPI.
      *
      * @param request - ExecuteCrossCloudOpenAPIRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23230,7 +23589,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 调用跨云 OpenAPI.
+     * Calls a cross-cloud OpenAPI.
      *
      * @param request - ExecuteCrossCloudOpenAPIRequest
      *
@@ -23337,7 +23696,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 角色切换.
+     * Initiates a zonal failover for a PolarDB cluster, promoting a secondary node to primary.
      *
      * @param request - FailoverDBClusterZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23408,7 +23767,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 角色切换.
+     * Initiates a zonal failover for a PolarDB cluster, promoting a secondary node to primary.
      *
      * @param request - FailoverDBClusterZonalRequest
      *
@@ -23426,7 +23785,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 生成校验报告.
+     * Generates a report for a pre-upgrade check.
      *
      * @param request - GenerateUpgradeReportForSyncCloneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23509,7 +23868,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 生成校验报告.
+     * Generates a report for a pre-upgrade check.
      *
      * @param request - GenerateUpgradeReportForSyncCloneRequest
      *
@@ -23527,7 +23886,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建聊天记录.
+     * Creates a chat record.
      *
      * @param request - GetPolarAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23591,7 +23950,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建聊天记录.
+     * Creates a chat record.
      *
      * @param request - GetPolarAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23642,7 +24001,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 创建聊天记录.
+     * Creates a chat record.
      *
      * @param request - GetPolarAgentRequest
      *
@@ -23660,7 +24019,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取PolarClaw配置.
+     * Retrieves the PolarClaw configuration.
      *
      * @param request - GetPolarClawConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23703,7 +24062,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 获取PolarClaw配置.
+     * Retrieves the PolarClaw configuration.
      *
      * @param request - GetPolarClawConfigRequest
      *
@@ -23724,11 +24083,15 @@ class Polardb extends OpenApiClient
      * Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
      *
      * @remarks
-     * > *   An account can be authorized to access one or more databases.
-     * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
-     * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-     * > *   You can call this operation only on a PolarDB for MySQL cluster.
-     * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+     * > - An account can be authorized to access one or more databases.
+     * >
+     * > - If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+     * >
+     * > - Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     * >
+     * > - This operation is supported only for PolarDB for MySQL clusters.
+     * >
+     * > - By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
      *
      * @param request - GrantAccountPrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23798,11 +24161,15 @@ class Polardb extends OpenApiClient
      * Grants a standard account the permissions to access one or more databases in a specified PolarDB cluster.
      *
      * @remarks
-     * > *   An account can be authorized to access one or more databases.
-     * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
-     * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
-     * > *   You can call this operation only on a PolarDB for MySQL cluster.
-     * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+     * > - An account can be authorized to access one or more databases.
+     * >
+     * > - If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+     * >
+     * > - Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     * >
+     * > - This operation is supported only for PolarDB for MySQL clusters.
+     * >
+     * > - By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
      *
      * @param request - GrantAccountPrivilegeRequest
      *
@@ -23820,7 +24187,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB边缘集群的账号权限.
+     * Modifies the account permissions on a PolarDB for Xscale cluster.
      *
      * @param request - GrantAccountPrivilegeZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23891,7 +24258,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB边缘集群的账号权限.
+     * Modifies the account permissions on a PolarDB for Xscale cluster.
      *
      * @param request - GrantAccountPrivilegeZonalRequest
      *
@@ -23909,7 +24276,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 安装PolarClaw Plugin.
+     * Installs a PolarClaw plugin.
      *
      * @param request - InstallPolarClawPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23960,7 +24327,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 安装PolarClaw Plugin.
+     * Installs a PolarClaw plugin.
      *
      * @param request - InstallPolarClawPluginRequest
      *
@@ -23978,7 +24345,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询订单.
+     * Queries a list of orders.
      *
      * @param request - ListOrdersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24053,7 +24420,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询订单.
+     * Queries a list of orders.
      *
      * @param request - ListOrdersRequest
      *
@@ -24071,7 +24438,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw绑定关系列表.
+     * Lists PolarClaw bindings.
      *
      * @param tmpReq - ListPolarClawBindingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24120,7 +24487,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询PolarClaw绑定关系列表.
+     * Lists PolarClaw bindings.
      *
      * @param request - ListPolarClawBindingsRequest
      *
@@ -24138,7 +24505,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 列出PolarClaw设备配对.
+     * List PolarClaw device pairings.
      *
      * @param request - ListPolarClawDevicePairsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24177,7 +24544,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 列出PolarClaw设备配对.
+     * List PolarClaw device pairings.
      *
      * @param request - ListPolarClawDevicePairsRequest
      *
@@ -24195,7 +24562,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
+     * Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24266,7 +24633,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
+     * Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -24284,6 +24651,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the tags that are attached to resources in a specified region.
+     *
      * @param request - ListTagResourcesForRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -24345,6 +24714,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the tags that are attached to resources in a specified region.
+     *
      * @param request - ListTagResourcesForRegionRequest
      *
      * @returns ListTagResourcesForRegionResponse
@@ -24361,7 +24732,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 登录PolarClaw Channel.
+     * Logs into a PolarClaw channel.
      *
      * @param request - LoginPolarClawChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24404,7 +24775,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 登录PolarClaw Channel.
+     * Logs into a PolarClaw channel.
      *
      * @param request - LoginPolarClawChannelRequest
      *
@@ -24422,7 +24793,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Manually starts a cluster.
+     * Starts a DB cluster.
      *
      * @param request - ManuallyStartDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24481,7 +24852,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Manually starts a cluster.
+     * Starts a DB cluster.
      *
      * @param request - ManuallyStartDBClusterRequest
      *
@@ -24499,7 +24870,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改AI实例名称.
+     * Modify the name of an AI instance.
      *
      * @param request - ModifyAIDBClusterDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24558,7 +24929,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改AI实例名称.
+     * Modify the name of an AI instance.
      *
      * @param request - ModifyAIDBClusterDescriptionRequest
      *
@@ -24576,7 +24947,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account of a PolarDB cluster.
+     * Modifies the description of a PolarDB database account.
      *
      * @param request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24639,7 +25010,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account of a PolarDB cluster.
+     * Modifies the description of a PolarDB database account.
      *
      * @param request - ModifyAccountDescriptionRequest
      *
@@ -24657,7 +25028,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB边缘云账号的描述.
+     * Modifies the description of a PolarDB on ENS account.
      *
      * @param request - ModifyAccountDescriptionZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24724,7 +25095,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB边缘云账号的描述.
+     * Modifies the description of a PolarDB on ENS account.
      *
      * @param request - ModifyAccountDescriptionZonalRequest
      *
@@ -24742,6 +25113,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Changes the lock status of a PolarDB database account.
+     *
      * @param request - ModifyAccountLockStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -24807,6 +25180,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Changes the lock status of a PolarDB database account.
+     *
      * @param request - ModifyAccountLockStateRequest
      *
      * @returns ModifyAccountLockStateResponse
@@ -24908,7 +25283,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB边缘的账号密码
+     * Modifies the password of an account in a PolarDB for Xscale cluster.
      *
      * @param request - ModifyAccountPasswordZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24979,7 +25354,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB边缘的账号密码
+     * Modifies the password of an account in a PolarDB for Xscale cluster.
      *
      * @param request - ModifyAccountPasswordZonalRequest
      *
@@ -24997,7 +25372,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 配置用户的运维信息，目前包括主动运维窗口信息.
+     * Configures the operations and maintenance (O&M) settings for a user. These settings include the active maintenance window.
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25084,7 +25459,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 配置用户的运维信息，目前包括主动运维窗口信息.
+     * Configures the operations and maintenance (O&M) settings for a user. These settings include the active maintenance window.
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
      *
@@ -25191,7 +25566,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改应用描述.
+     * Updates the description of a PolarDB application.
      *
      * @param request - ModifyApplicationDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25234,7 +25609,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改应用描述.
+     * Updates the description of a PolarDB application.
      *
      * @param request - ModifyApplicationDescriptionRequest
      *
@@ -25252,7 +25627,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB应用参数.
+     * Modifies the configuration parameters of a sub-component within a specified PolarDB application.
      *
      * @param tmpReq - ModifyApplicationParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25309,7 +25684,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB应用参数.
+     * Modifies the configuration parameters of a sub-component within a specified PolarDB application.
      *
      * @param request - ModifyApplicationParameterRequest
      *
@@ -25327,7 +25702,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改应用提示词策略.
+     * Modifies the prompt for a specified application.
      *
      * @param request - ModifyApplicationPromptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25378,7 +25753,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改应用提示词策略.
+     * Modifies the prompt for a specified application.
      *
      * @param request - ModifyApplicationPromptRequest
      *
@@ -25396,7 +25771,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改应用serverless配置.
+     * Modifies the Serverless configuration of a PolarDB application.
      *
      * @param request - ModifyApplicationServerlessConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25439,7 +25814,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改应用serverless配置.
+     * Modifies the Serverless configuration of a PolarDB application.
      *
      * @param request - ModifyApplicationServerlessConfRequest
      *
@@ -25457,7 +25832,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改应用白名单.
+     * Modifies the IP address whitelist and security group configuration for a PolarDB application.
      *
      * @param request - ModifyApplicationWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25516,7 +25891,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改应用白名单.
+     * Modifies the IP address whitelist and security group configuration for a PolarDB application.
      *
      * @param request - ModifyApplicationWhitelistRequest
      *
@@ -25534,7 +25909,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+     * Sets the auto-renewal status for a subscription PolarDB cluster.
      *
      * @param request - ModifyAutoRenewAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25613,7 +25988,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the auto-renewal attributes of a subscription PolarDB cluster.
+     * Sets the auto-renewal status for a subscription PolarDB cluster.
      *
      * @param request - ModifyAutoRenewAttributeRequest
      *
@@ -25631,10 +26006,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the automatic backup policy of a PolarDB cluster.
+     * Modifies the automatic backup policy for a PolarDB cluster.
      *
      * @remarks
-     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     * > You can also modify the automatic backup policy for a PolarDB cluster in the console. For more information, see [backup settings](https://help.aliyun.com/document_detail/280422.html).
      *
      * @param tmpReq - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25751,10 +26126,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the automatic backup policy of a PolarDB cluster.
+     * Modifies the automatic backup policy for a PolarDB cluster.
      *
      * @remarks
-     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     * > You can also modify the automatic backup policy for a PolarDB cluster in the console. For more information, see [backup settings](https://help.aliyun.com/document_detail/280422.html).
      *
      * @param request - ModifyBackupPolicyRequest
      *
@@ -25772,7 +26147,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改预算策略.
+     * Modifies a budget policy.
      *
      * @param request - ModifyBudgetPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25831,7 +26206,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改预算策略.
+     * Modifies a budget policy.
      *
      * @param request - ModifyBudgetPolicyRequest
      *
@@ -25849,7 +26224,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改消费者.
+     * Modifies the properties of a consumer.
      *
      * @param request - ModifyConsumerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25908,7 +26283,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改消费者.
+     * Modifies the properties of a consumer.
      *
      * @param request - ModifyConsumerRequest
      *
@@ -25926,7 +26301,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改消费者组.
+     * Modifies a consumer group.
      *
      * @param request - ModifyConsumerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25981,7 +26356,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改消费者组.
+     * Modifies a consumer group.
      *
      * @param request - ModifyConsumerGroupRequest
      *
@@ -25999,7 +26374,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改限流策略.
+     * Modifies a cost rule.
      *
      * @param request - ModifyCostRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26066,7 +26441,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改限流策略.
+     * Modifies a cost rule.
      *
      * @param request - ModifyCostRuleRequest
      *
@@ -26084,7 +26459,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改周期任务策略.
+     * Modifies the policy for a scheduled task.
      *
      * @param request - ModifyCronJobPolicyServerlessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26203,7 +26578,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改周期任务策略.
+     * Modifies the policy for a scheduled task.
      *
      * @param request - ModifyCronJobPolicyServerlessRequest
      *
@@ -26221,7 +26596,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a PolarDB for MySQL cluster.
+     * Modify the feature configuration of a PolarDB MySQL cluster.
      *
      * @param request - ModifyDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26320,7 +26695,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a PolarDB for MySQL cluster.
+     * Modify the feature configuration of a PolarDB MySQL cluster.
      *
      * @param request - ModifyDBClusterRequest
      *
@@ -26338,7 +26713,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+     * Creates or modifies the access whitelist for a cluster. The whitelist can be an IP address whitelist or a security group.
      *
      * @param request - ModifyDBClusterAccessWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26417,7 +26792,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates or modifies the whitelists (IP whitelists and security groups) of a specified cluster.
+     * Creates or modifies the access whitelist for a cluster. The whitelist can be an IP address whitelist or a security group.
      *
      * @param request - ModifyDBClusterAccessWhitelistRequest
      *
@@ -26435,7 +26810,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies cluster parameters and applies them to specified nodes.
+     * Modify cluster parameters and apply them to specified nodes.
      *
      * @param request - ModifyDBClusterAndNodesParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26522,7 +26897,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies cluster parameters and applies them to specified nodes.
+     * Modify cluster parameters and apply them to specified nodes.
      *
      * @param request - ModifyDBClusterAndNodesParametersRequest
      *
@@ -26540,7 +26915,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the high availability mode of the cluster.
+     * Modifies the high-availability mode of a cluster.
      *
      * @param request - ModifyDBClusterArchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26599,7 +26974,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the high availability mode of the cluster.
+     * Modifies the high-availability mode of a cluster.
      *
      * @param request - ModifyDBClusterArchRequest
      *
@@ -26618,6 +26993,10 @@ class Polardb extends OpenApiClient
 
     /**
      * Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
+     *
+     * @remarks
+     * *Note:** This API has been deprecated and is no longer maintained. We recommend that you use [Enable or configure DAS Enterprise Edition](https://help.aliyun.com/document_detail/2778835.html).
+     * > If DAS Enterprise Edition is available in the region of the cluster, calling this API to enable SQL Audit automatically enables the latest DAS Enterprise Edition available in that region. For information about database engines and regions supported by each DAS Enterprise Edition version, see [Supported database engines and regions for DAS Enterprise Edition](https://help.aliyun.com/document_detail/156204.html).
      *
      * @param request - ModifyDBClusterAuditLogCollectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26678,6 +27057,10 @@ class Polardb extends OpenApiClient
     /**
      * Enables or disables SQL collector for a PolarDB cluster. The features related to SQL collector include Audit Logs and SQL Explorer.
      *
+     * @remarks
+     * *Note:** This API has been deprecated and is no longer maintained. We recommend that you use [Enable or configure DAS Enterprise Edition](https://help.aliyun.com/document_detail/2778835.html).
+     * > If DAS Enterprise Edition is available in the region of the cluster, calling this API to enable SQL Audit automatically enables the latest DAS Enterprise Edition available in that region. For information about database engines and regions supported by each DAS Enterprise Edition version, see [Supported database engines and regions for DAS Enterprise Edition](https://help.aliyun.com/document_detail/156204.html).
+     *
      * @param request - ModifyDBClusterAuditLogCollectorRequest
      *
      * @returns ModifyDBClusterAuditLogCollectorResponse
@@ -26694,7 +27077,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the cluster lock feature for a PolarDB cluster.
+     * Enables or disables the cluster lock.
      *
      * @param request - ModifyDBClusterDeletionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26753,7 +27136,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the cluster lock feature for a PolarDB cluster.
+     * Enables or disables the cluster lock.
      *
      * @param request - ModifyDBClusterDeletionRequest
      *
@@ -26771,7 +27154,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a PolarDB cluster.
+     * Modifies the description of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26830,7 +27213,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a PolarDB cluster.
+     * Modifies the description of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterDescriptionRequest
      *
@@ -26848,7 +27231,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改集群描述.
+     * Modifies the description of a cluster.
      *
      * @param request - ModifyDBClusterDescriptionZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26911,7 +27294,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改集群描述.
+     * Modifies the description of a cluster.
      *
      * @param request - ModifyDBClusterDescriptionZonalRequest
      *
@@ -26929,7 +27312,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+     * This operation modifies the properties of a PolarDB cluster endpoint. You can configure settings such as the read/write mode, automatic node addition, consistency level, transaction splitting, the connection pool, and whether the primary node accepts read requests.
      *
      * @param request - ModifyDBClusterEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27020,7 +27403,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the attributes of a specified PolarDB cluster endpoint. For example, you can modify the following attributes for the specified cluster endpoint: read/write mode, consistency level, transaction splitting, primary node accepts read requests, and connection pool. You can also call the operation to specify whether newly added nodes are automatically associated with the specified cluster endpoint.
+     * This operation modifies the properties of a PolarDB cluster endpoint. You can configure settings such as the read/write mode, automatic node addition, consistency level, transaction splitting, the connection pool, and whether the primary node accepts read requests.
      *
      * @param request - ModifyDBClusterEndpointRequest
      *
@@ -27038,7 +27421,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB边缘集群修改链接地址
+     * Modifies the connection string for an edge cluster for PolarDB on ENS.
      *
      * @param request - ModifyDBClusterEndpointZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27133,7 +27516,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB边缘集群修改链接地址
+     * Modifies the connection string for an edge cluster for PolarDB on ENS.
      *
      * @param request - ModifyDBClusterEndpointZonalRequest
      *
@@ -27151,10 +27534,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of a PolarDB cluster.
+     * Modifies the routine maintenance window for a PolarDB cluster.
      *
      * @remarks
-     * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+     * > Set the routine maintenance window for the cluster to a time during off-peak hours. Alibaba Cloud performs cluster maintenance during this window to minimize the impact on your business.
      *
      * @param request - ModifyDBClusterMaintainTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27213,10 +27596,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of a PolarDB cluster.
+     * Modifies the routine maintenance window for a PolarDB cluster.
      *
      * @remarks
-     * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+     * > Set the routine maintenance window for the cluster to a time during off-peak hours. Alibaba Cloud performs cluster maintenance during this window to minimize the impact on your business.
      *
      * @param request - ModifyDBClusterMaintainTimeRequest
      *
@@ -27234,12 +27617,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     * Switches or rolls back a migration task for a one-click upgrade from RDS to PolarDB.
      *
      * @remarks
-     *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
-     * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
-     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     * - If this operation is called before the switchover, it performs a switchover.
+     * - If this operation is called after the switchover is complete, it performs a rollback.
+     * > A one-click upgrade task must be created for the cluster before you call this operation. To create the task, call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation and set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [One-click upgrade from RDS MySQL to PolarDB for MySQL](https://help.aliyun.com/document_detail/121582.html).
      *
      * @param request - ModifyDBClusterMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27314,12 +27697,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Switches or rolls back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     * Switches or rolls back a migration task for a one-click upgrade from RDS to PolarDB.
      *
      * @remarks
-     *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
-     * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
-     * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](https://help.aliyun.com/document_detail/121582.html).
+     * - If this operation is called before the switchover, it performs a switchover.
+     * - If this operation is called after the switchover is complete, it performs a rollback.
+     * > A one-click upgrade task must be created for the cluster before you call this operation. To create the task, call the [CreateDBCluster](https://help.aliyun.com/document_detail/98169.html) operation and set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [One-click upgrade from RDS MySQL to PolarDB for MySQL](https://help.aliyun.com/document_detail/121582.html).
      *
      * @param request - ModifyDBClusterMigrationRequest
      *
@@ -27337,7 +27720,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改dts源实例、目标实例.
+     * Modifies the source and target instances of a Data Transmission Service (DTS) task.
      *
      * @param request - ModifyDBClusterMigrationEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27396,7 +27779,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改dts源实例、目标实例.
+     * Modifies the source and target instances of a Data Transmission Service (DTS) task.
      *
      * @param request - ModifyDBClusterMigrationEndpointRequest
      *
@@ -27517,12 +27900,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
+     * Modifies the parameters of a PolarDB cluster or applies an existing parameter template to a destination cluster.
      *
      * @remarks
-     * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * **
-     * **Only PolarDB for MySQL clusters support parameter templates.
+     * The parameter template feature in PolarDB lets you centrally manage parameters and apply them to your clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > The parameter template feature is available only for PolarDB for MySQL.
      *
      * @param request - ModifyDBClusterParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27601,12 +27983,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of a specified PolarDB cluster or applies existing parameter templates to a specified cluster.
+     * Modifies the parameters of a PolarDB cluster or applies an existing parameter template to a destination cluster.
      *
      * @remarks
-     * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](https://help.aliyun.com/document_detail/207009.html).
-     * **
-     * **Only PolarDB for MySQL clusters support parameter templates.
+     * The parameter template feature in PolarDB lets you centrally manage parameters and apply them to your clusters. For more information, see [Use parameter templates](https://help.aliyun.com/document_detail/207009.html).
+     * > The parameter template feature is available only for PolarDB for MySQL.
      *
      * @param request - ModifyDBClusterParametersRequest
      *
@@ -27729,7 +28110,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a resource group for a database cluster.
+     * Modifies the resource group of a database cluster.
      *
      * @param request - ModifyDBClusterResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27792,7 +28173,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a resource group for a database cluster.
+     * Modifies the resource group of a database cluster.
      *
      * @param request - ModifyDBClusterResourceGroupRequest
      *
@@ -27810,7 +28191,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the SSL encryption feature for a PolarDB cluster, or updates the CA certificate of the cluster.
+     * Enables or disables SSL encryption for a PolarDB cluster, or updates its CA certificate.
      *
      * @param request - ModifyDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27881,7 +28262,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the SSL encryption feature for a PolarDB cluster, or updates the CA certificate of the cluster.
+     * Enables or disables SSL encryption for a PolarDB cluster, or updates its CA certificate.
      *
      * @param request - ModifyDBClusterSSLRequest
      *
@@ -27899,7 +28280,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a serverless cluster.
+     * Modifies the configuration of a serverless cluster.
      *
      * @param request - ModifyDBClusterServerlessConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28018,7 +28399,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a serverless cluster.
+     * Modifies the configuration of a serverless cluster.
      *
      * @param request - ModifyDBClusterServerlessConfRequest
      *
@@ -28036,7 +28417,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the storage performance of a PolarDB for MySQL cluster.
+     * Modifies the storage performance of a PolarDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterStoragePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28107,7 +28488,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the storage performance of a PolarDB for MySQL cluster.
+     * Modifies the storage performance of a PolarDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterStoragePerformanceRequest
      *
@@ -28125,7 +28506,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+     * This operation modifies the storage space for pay-as-you-go enterprise edition and standard edition clusters.
+     *
+     * @remarks
+     * > You cannot scale down the storage space of PolarDB for PostgreSQL clusters.
      *
      * @param request - ModifyDBClusterStorageSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28212,7 +28596,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the storage capacity of a pay-as-you-go cluster of Enterprise Edition or a cluster of Standard Edition.
+     * This operation modifies the storage space for pay-as-you-go enterprise edition and standard edition clusters.
+     *
+     * @remarks
+     * > You cannot scale down the storage space of PolarDB for PostgreSQL clusters.
      *
      * @param request - ModifyDBClusterStorageSpaceRequest
      *
@@ -28230,11 +28617,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
+     * ModifyDBClusterTDE.
      *
      * @remarks
-     * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
-     * > *   After TDE is enabled, you cannot disable TDE.
+     * > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * >
+     * > - You cannot disable transparent data encryption (TDE) after you enable it.
      *
      * @param request - ModifyDBClusterTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28309,11 +28697,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the transparent data encryption (TDE) feature for a PolarDB cluster.
+     * ModifyDBClusterTDE.
      *
      * @remarks
-     * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
-     * > *   After TDE is enabled, you cannot disable TDE.
+     * > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * >
+     * > - You cannot disable transparent data encryption (TDE) after you enable it.
      *
      * @param request - ModifyDBClusterTDERequest
      *
@@ -28331,7 +28720,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改集群VSwitch参数.
+     * Modifies the vSwitch parameters for a cluster.
      *
      * @param request - ModifyDBClusterVpcRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28398,7 +28787,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改集群VSwitch参数.
+     * Modifies the vSwitch parameters for a cluster.
      *
      * @param request - ModifyDBClusterVpcRequest
      *
@@ -28497,7 +28886,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB边缘云集群数据库描述.
+     * Modifies the database description of an edge cluster for PolarDB on ENS.
      *
      * @param request - ModifyDBDescriptionZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28564,7 +28953,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改PolarDB边缘云集群数据库描述.
+     * Modifies the database description of an edge cluster for PolarDB on ENS.
      *
      * @param request - ModifyDBDescriptionZonalRequest
      *
@@ -28582,7 +28971,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+     * Modifies the connection address of a PolarDB cluster. The address can be a primary address, default cluster address, custom cluster address, or private domain name.
      *
      * @param request - ModifyDBEndpointAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28661,7 +29050,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the endpoints of a PolarDB cluster, including the primary endpoint, default cluster endpoint, custom cluster endpoint, and private domain name.
+     * Modifies the connection address of a PolarDB cluster. The address can be a primary address, default cluster address, custom cluster address, or private domain name.
      *
      * @param request - ModifyDBEndpointAddressRequest
      *
@@ -28679,7 +29068,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the node specifications of a PolarDB cluster.
+     * Modifies the node specifications of a PolarDB cluster.
      *
      * @param request - ModifyDBNodeClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28778,7 +29167,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the node specifications of a PolarDB cluster.
+     * Modifies the node specifications of a PolarDB cluster.
      *
      * @param request - ModifyDBNodeClassRequest
      *
@@ -28796,6 +29185,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Modifies the configuration of a node in a PolarDB cluster.
+     *
      * @param request - ModifyDBNodeConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -28865,6 +29256,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Modifies the configuration of a node in a PolarDB cluster.
+     *
      * @param request - ModifyDBNodeConfigRequest
      *
      * @returns ModifyDBNodeConfigResponse
@@ -28881,7 +29274,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改物理节点描述.
+     * Modifies the name of a node in a PolarDB cluster.
      *
      * @param request - ModifyDBNodeDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28944,7 +29337,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改物理节点描述.
+     * Modifies the name of a node in a PolarDB cluster.
      *
      * @param request - ModifyDBNodeDescriptionRequest
      *
@@ -29043,7 +29436,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改节点的Scc.
+     * Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
      *
      * @param request - ModifyDBNodeSccModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29106,7 +29499,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改节点的Scc.
+     * Modifies the Snapshot Consistency Cluster (SCC) mode for a specified node in a PolarDB cluster.
      *
      * @param request - ModifyDBNodeSccModeRequest
      *
@@ -29124,7 +29517,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a node in a PolarDB cluster.
+     * Modifies the specifications of a single node in a PolarDB cluster.
      *
      * @param request - ModifyDBNodesClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29219,7 +29612,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Changes the specifications of a node in a PolarDB cluster.
+     * Modifies the specifications of a single node in a PolarDB cluster.
      *
      * @param request - ModifyDBNodesClassRequest
      *
@@ -29237,7 +29630,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of a node and applies them to specified nodes.
+     * Modifies and applies the parameters of one or more nodes.
      *
      * @param request - ModifyDBNodesParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29316,7 +29709,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of a node and applies them to specified nodes.
+     * Modifies and applies the parameters of one or more nodes.
      *
      * @param request - ModifyDBNodesParametersRequest
      *
@@ -29334,7 +29727,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 变更角色权限.
+     * Modifies role permissions.
      *
      * @param request - ModifyEncryptionDBRolePrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29397,7 +29790,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 变更角色权限.
+     * Modifies role permissions.
      *
      * @param request - ModifyEncryptionDBRolePrivilegeRequest
      *
@@ -29415,7 +29808,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 变更加密策略.
+     * Modifies an encryption policy.
      *
      * @param request - ModifyEncryptionDBSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29482,7 +29875,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 变更加密策略.
+     * Modifies an encryption policy.
      *
      * @param request - ModifyEncryptionDBSecretRequest
      *
@@ -29500,7 +29893,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改sql防火墙配置.
+     * Modifies the configuration of the SQL firewall.
      *
      * @param request - ModifyFirewallRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29563,7 +29956,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改sql防火墙配置.
+     * Modifies the configuration of the SQL firewall.
      *
      * @param request - ModifyFirewallRulesRequest
      *
@@ -29670,7 +30063,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies an IP whitelist template.
+     * Modifies an IP address whitelist template.
      *
      * @param request - ModifyGlobalSecurityIPGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29745,7 +30138,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies an IP whitelist template.
+     * Modifies an IP address whitelist template.
      *
      * @param request - ModifyGlobalSecurityIPGroupRequest
      *
@@ -29763,7 +30156,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a global IP whitelist template.
+     * Modifies the name of a global IP address whitelist template.
      *
      * @param request - ModifyGlobalSecurityIPGroupNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29834,7 +30227,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a global IP whitelist template.
+     * Modifies the name of a global IP address whitelist template.
      *
      * @param request - ModifyGlobalSecurityIPGroupNameRequest
      *
@@ -29852,7 +30245,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the relationship between a cluster and a global IP whitelist template.
+     * Modifies the association between a cluster and a global IP address whitelist template.
      *
      * @param request - ModifyGlobalSecurityIPGroupRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29923,7 +30316,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the relationship between a cluster and a global IP whitelist template.
+     * Modifies the association between a cluster and a global IP address whitelist template.
      *
      * @param request - ModifyGlobalSecurityIPGroupRelationRequest
      *
@@ -29941,7 +30334,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the retention policy of the log backups in a PolarDB cluster.
+     * Modifies the log backup retention policy for a PolarDB cluster.
      *
      * @param tmpReq - ModifyLogBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30018,7 +30411,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the retention policy of the log backups in a PolarDB cluster.
+     * Modifies the log backup retention policy for a PolarDB cluster.
      *
      * @param request - ModifyLogBackupPolicyRequest
      *
@@ -30036,7 +30429,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies or adds a data masking rule.
+     * Modifies or creates data masking rules.
      *
      * @param request - ModifyMaskingRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30107,7 +30500,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies or adds a data masking rule.
+     * Modifies or creates data masking rules.
      *
      * @param request - ModifyMaskingRulesRequest
      *
@@ -30125,7 +30518,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改模型API.
+     * Modifies a model API.
      *
      * @param request - ModifyModelApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30196,7 +30589,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改模型API.
+     * Modifies a model API.
      *
      * @param request - ModifyModelApiRequest
      *
@@ -30214,7 +30607,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改模型服务
+     * Modifies a model service.
      *
      * @param request - ModifyModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30293,7 +30686,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改模型服务
+     * Modifies a model service.
      *
      * @param request - ModifyModelServiceRequest
      *
@@ -30400,7 +30793,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改限流策略.
+     * Modifies a rate limit policy.
      *
      * @param request - ModifyRateLimitPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30455,7 +30848,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改限流策略.
+     * Modifies a rate limit policy.
      *
      * @param request - ModifyRateLimitPolicyRequest
      *
@@ -30473,7 +30866,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 配置资源包.
+     * Modifies a cross-cloud resource plan.
      *
      * @param request - ModifyResourcePackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30516,7 +30909,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 配置资源包.
+     * Modifies a cross-cloud resource plan.
      *
      * @param request - ModifyResourcePackageRequest
      *
@@ -30534,7 +30927,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改SQL限流规则.
+     * Modifies SQL throttling rules.
      *
      * @param request - ModifySQLRateLimitingRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30597,7 +30990,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改SQL限流规则.
+     * Modifies SQL throttling rules.
      *
      * @param request - ModifySQLRateLimitingRulesRequest
      *
@@ -30615,7 +31008,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改目标计划任务
+     * Modifies the specified scheduled task.
      *
      * @param request - ModifyScheduleTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30686,7 +31079,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 修改目标计划任务
+     * Modifies the specified scheduled task.
      *
      * @param request - ModifyScheduleTaskRequest
      *
@@ -30704,7 +31097,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 重命名或移动文件.
+     * Renames or moves files in a PolarFs instance.
      *
      * @param request - MovePolarFsObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30747,7 +31140,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 重命名或移动文件.
+     * Renames or moves files in a PolarFs instance.
      *
      * @param request - MovePolarFsObjectsRequest
      *
@@ -30765,7 +31158,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the PolarDB for AI feature for a cluster.
+     * Enables the PolarDB for AI feature.
      *
      * @param request - OpenAITaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30840,7 +31233,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables the PolarDB for AI feature for a cluster.
+     * Enables the PolarDB for AI feature.
      *
      * @param request - OpenAITaskRequest
      *
@@ -30858,7 +31251,68 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新PolarClaw配置.
+     * Restarts, pauses, or starts an application on a PolarDB instance without deleting the instance.
+     *
+     * @param request - OperateApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateApplicationResponse
+     *
+     * @param OperateApplicationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OperateApplicationResponse
+     */
+    public function operateApplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OperateApplication',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OperateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restarts, pauses, or starts an application on a PolarDB instance without deleting the instance.
+     *
+     * @param request - OperateApplicationRequest
+     *
+     * @returns OperateApplicationResponse
+     *
+     * @param OperateApplicationRequest $request
+     *
+     * @return OperateApplicationResponse
+     */
+    public function operateApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a PolarClaw configuration.
      *
      * @param tmpReq - PatchPolarClawConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30911,7 +31365,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新PolarClaw配置.
+     * Updates a PolarClaw configuration.
      *
      * @param request - PatchPolarClawConfigRequest
      *
@@ -30986,7 +31440,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates the storage usage of a cluster.
+     * Refreshes the storage usage for a cluster instance.
      *
      * @param request - RefreshDBClusterStorageUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31041,7 +31495,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Updates the storage usage of a cluster.
+     * Refreshes the storage usage for a cluster instance.
      *
      * @param request - RefreshDBClusterStorageUsageRequest
      *
@@ -31059,7 +31513,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 拒绝PolarClaw设备配对.
+     * Rejects a PolarClaw device pairing request.
      *
      * @param request - RejectPolarClawDevicePairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31102,7 +31556,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 拒绝PolarClaw设备配对.
+     * Rejects a PolarClaw device pairing request.
      *
      * @param request - RejectPolarClawDevicePairRequest
      *
@@ -31120,7 +31574,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除应用环境变量.
+     * Removes application environment variables. This operation supports only PolarClaw.
      *
      * @param tmpReq - RemoveApplicationEnvironmentVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31173,7 +31627,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除应用环境变量.
+     * Removes application environment variables. This operation supports only PolarClaw.
      *
      * @param request - RemoveApplicationEnvironmentVariablesRequest
      *
@@ -31191,10 +31645,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Removes a secondary cluster from a GDN.
+     * Removes a secondary cluster from a Global Database Network (GDN).
      *
      * @remarks
-     * >  You cannot remove the primary cluster from a GDN.
+     * > The primary cluster in a GDN cannot be removed.
      *
      * @param request - RemoveDBClusterFromGDNRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31265,10 +31719,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Removes a secondary cluster from a GDN.
+     * Removes a secondary cluster from a Global Database Network (GDN).
      *
      * @remarks
-     * >  You cannot remove the primary cluster from a GDN.
+     * > The primary cluster in a GDN cannot be removed.
      *
      * @param request - RemoveDBClusterFromGDNRequest
      *
@@ -31286,7 +31740,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 移除PolarClaw已配对设备.
+     * Unpairs a PolarClaw device.
      *
      * @param request - RemovePolarClawDevicePairRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31329,7 +31783,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 移除PolarClaw已配对设备.
+     * Unpairs a PolarClaw device.
      *
      * @param request - RemovePolarClawDevicePairRequest
      *
@@ -31347,7 +31801,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarClaw MCP Server.
+     * Deletes a PolarClaw MCP server.
      *
      * @param request - RemovePolarClawMCPServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31390,7 +31844,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 删除PolarClaw MCP Server.
+     * Deletes a PolarClaw MCP server.
      *
      * @param request - RemovePolarClawMCPServerRequest
      *
@@ -31411,8 +31865,9 @@ class Polardb extends OpenApiClient
      * Resets the permissions of a privileged account for a PolarDB cluster.
      *
      * @remarks
-     * >- Only PolarDB for MySQL clusters support this operation.
-     * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+     * > - Only PolarDB for MySQL clusters support this operation.
+     * >
+     * > - If the privileged account of your cluster encounters exceptions, you can reset the permissions by using this operation. For example, the permissions are accidentally revoked.
      *
      * @param request - ResetAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31478,8 +31933,9 @@ class Polardb extends OpenApiClient
      * Resets the permissions of a privileged account for a PolarDB cluster.
      *
      * @remarks
-     * >- Only PolarDB for MySQL clusters support this operation.
-     * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+     * > - Only PolarDB for MySQL clusters support this operation.
+     * >
+     * > - If the privileged account of your cluster encounters exceptions, you can reset the permissions by using this operation. For example, the permissions are accidentally revoked.
      *
      * @param request - ResetAccountRequest
      *
@@ -31497,6 +31953,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Resets the password for a PolarDB database account.
+     *
      * @param request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -31558,6 +32016,8 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Resets the password for a PolarDB database account.
+     *
      * @param request - ResetAccountPasswordRequest
      *
      * @returns ResetAccountPasswordResponse
@@ -31574,7 +32034,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 重置PolarDB边缘集群账号.
+     * Resets an account in a PolarDB for Xscale cluster.
      *
      * @param request - ResetAccountZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31641,7 +32101,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 重置PolarDB边缘集群账号.
+     * Resets an account in a PolarDB for Xscale cluster.
      *
      * @param request - ResetAccountZonalRequest
      *
@@ -31659,7 +32119,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 重置API密钥.
+     * Resets an api key.
      *
      * @param request - ResetConsumerApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31706,7 +32166,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 重置API密钥.
+     * Resets an api key.
      *
      * @param request - ResetConsumerApiKeyRequest
      *
@@ -31724,7 +32184,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Rebuilds a secondary cluster in a Global Database Network (GDN).
+     * Resets the network of a secondary cluster in a Global Database Network (GDN).
      *
      * @param request - ResetGlobalDatabaseNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31791,7 +32251,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Rebuilds a secondary cluster in a Global Database Network (GDN).
+     * Resets the network of a secondary cluster in a Global Database Network (GDN).
      *
      * @param request - ResetGlobalDatabaseNetworkRequest
      *
@@ -31886,7 +32346,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restarts a node in a PolarDB cluster.
+     * Restarts a node of a PolarDB cluster.
      *
      * @param request - RestartDBNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -31957,7 +32417,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restarts a node in a PolarDB cluster.
+     * Restarts a node of a PolarDB cluster.
      *
      * @param request - RestartDBNodeRequest
      *
@@ -31975,7 +32435,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 重启poalrdb边缘云集群节点.
+     * Restarts a node of an edge cluster for PolarDB on ENS.
      *
      * @param request - RestartDBNodeZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32038,7 +32498,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 重启poalrdb边缘云集群节点.
+     * Restarts a node of an edge cluster for PolarDB on ENS.
      *
      * @param request - RestartDBNodeZonalRequest
      *
@@ -32056,7 +32516,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restores PolarDB databases and tables.
+     * Restores databases or tables to a PolarDB cluster.
      *
      * @param request - RestoreTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32127,7 +32587,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Restores PolarDB databases and tables.
+     * Restores databases or tables to a PolarDB cluster.
      *
      * @param request - RestoreTableRequest
      *
@@ -32145,7 +32605,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+     * Revokes access permissions on a database from a PolarDB standard account.
      *
      * @param request - RevokeAccountPrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32208,7 +32668,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Revokes the access permissions on one or more databases from a specified PolarDB standard account.
+     * Revokes access permissions on a database from a PolarDB standard account.
      *
      * @param request - RevokeAccountPrivilegeRequest
      *
@@ -32226,7 +32686,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 撤销账号权限.
+     * Revokes permissions from an account.
      *
      * @param request - RevokeAccountPrivilegeZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32293,7 +32753,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 撤销账号权限.
+     * Revokes permissions from an account.
      *
      * @param request - RevokeAccountPrivilegeZonalRequest
      *
@@ -32311,7 +32771,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 手动执行PolarClaw定时任务
+     * Runs a PolarClaw cron job.
      *
      * @param request - RunPolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32362,7 +32822,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 手动执行PolarClaw定时任务
+     * Runs a PolarClaw cron job.
      *
      * @param request - RunPolarClawCronJobRequest
      *
@@ -32380,7 +32840,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 检索记忆.
+     * Retrieves memories based on a search query.
      *
      * @param request - SearchMemoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32443,7 +32903,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 检索记忆.
+     * Retrieves memories based on a search query.
      *
      * @param request - SearchMemoriesRequest
      *
@@ -32461,7 +32921,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 为目录配置配额或应用配额规则.
+     * Sets file quota rules for specific directories in a PolarFS instance.
+     *
+     * @remarks
+     * ## Request
+     * This operation sets file quota rules for specific directories in a PolarFS instance. Use the `FilePathQuotas` parameter to define the target directories and their properties. The path for `FilePathId` must be an absolute path from the root directory, not from a mount target. The `Strategy` parameter controls how the rule applies to existing files. By default, the operation applies a rule only if one does not already exist.
+     * ### Notes
+     * - The `FilePathQuotas` list can contain up to 21 items.
+     * - To apply the rule to subdirectories at multiple levels under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
      *
      * @param request - SetPolarFsFileQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32508,7 +32975,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 为目录配置配额或应用配额规则.
+     * Sets file quota rules for specific directories in a PolarFS instance.
+     *
+     * @remarks
+     * ## Request
+     * This operation sets file quota rules for specific directories in a PolarFS instance. Use the `FilePathQuotas` parameter to define the target directories and their properties. The path for `FilePathId` must be an absolute path from the root directory, not from a mount target. The `Strategy` parameter controls how the rule applies to existing files. By default, the operation applies a rule only if one does not already exist.
+     * ### Notes
+     * - The `FilePathQuotas` list can contain up to 21 items.
+     * - To apply the rule to subdirectories at multiple levels under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
      *
      * @param request - SetPolarFsFileQuotaRequest
      *
@@ -32619,7 +33093,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates tags for a PolarDB cluster.
+     * Adds tags to PolarDB clusters.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32686,7 +33160,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates tags for a PolarDB cluster.
+     * Adds tags to PolarDB clusters.
      *
      * @param request - TagResourcesRequest
      *
@@ -32704,7 +33178,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Temporarily changes the node configurations.
+     * Temporarily Modifies the configuration of a node.
      *
      * @param request - TempModifyDBNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32787,7 +33261,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Temporarily changes the node configurations.
+     * Temporarily Modifies the configuration of a node.
      *
      * @param request - TempModifyDBNodeRequest
      *
@@ -32808,10 +33282,11 @@ class Polardb extends OpenApiClient
      * Changes the billing method of a PolarDB cluster.
      *
      * @remarks
+     * > - PolarDB clusters support two billing methods: subscription and pay-as-you-go. You can change the billing method of a cluster from subscription to pay-as-you-go, or from pay-as-you-go to subscription. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
      * >
-     * *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-     * *   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-     * *   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     * > - You cannot change the billing method from pay-as-you-go to subscription if your Alibaba Cloud account has an insufficient balance.
+     * >
+     * > - When you change the billing method from subscription to pay-as-you-go, the system automatically refunds your remaining prepaid fees.
      *
      * @param request - TransformDBClusterPayTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32901,10 +33376,11 @@ class Polardb extends OpenApiClient
      * Changes the billing method of a PolarDB cluster.
      *
      * @remarks
+     * > - PolarDB clusters support two billing methods: subscription and pay-as-you-go. You can change the billing method of a cluster from subscription to pay-as-you-go, or from pay-as-you-go to subscription. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
      * >
-     * *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](https://help.aliyun.com/document_detail/172886.html) and [Change the billing method from pay-as-you-go to subscription](https://help.aliyun.com/document_detail/84076.html).
-     * *   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
-     * *   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     * > - You cannot change the billing method from pay-as-you-go to subscription if your Alibaba Cloud account has an insufficient balance.
+     * >
+     * > - When you change the billing method from subscription to pay-as-you-go, the system automatically refunds your remaining prepaid fees.
      *
      * @param request - TransformDBClusterPayTypeRequest
      *
@@ -32922,7 +33398,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 解绑PolarClaw Agent通道.
+     * Unbinds a PolarClaw Agent.
      *
      * @param request - UnbindPolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -32973,7 +33449,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 解绑PolarClaw Agent通道.
+     * Unbinds a PolarClaw Agent.
      *
      * @param request - UnbindPolarClawAgentRequest
      *
@@ -32991,7 +33467,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 卸载PolarClaw Plugin.
+     * Uninstalls a PolarClaw plugin.
      *
      * @param request - UninstallPolarClawPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33038,7 +33514,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 卸载PolarClaw Plugin.
+     * Uninstalls a PolarClaw plugin.
      *
      * @param request - UninstallPolarClawPluginRequest
      *
@@ -33056,7 +33532,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unbinds tags from PolarDB clusters.
+     * Detaches tags from a PolarDB cluster.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33127,7 +33603,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Unbinds tags from PolarDB clusters.
+     * Detaches tags from a PolarDB cluster.
      *
      * @param request - UntagResourcesRequest
      *
@@ -33145,7 +33621,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新应用环境变量.
+     * Updates the environment variables of an application. This operation is only supported for PolarClaw.
      *
      * @param tmpReq - UpdateApplicationEnvironmentVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33198,7 +33674,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新应用环境变量.
+     * Updates the environment variables of an application. This operation is only supported for PolarClaw.
      *
      * @param request - UpdateApplicationEnvironmentVariablesRequest
      *
@@ -33216,7 +33692,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新插件.
+     * Updates one or more extensions.
      *
      * @param request - UpdateExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33299,7 +33775,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新插件.
+     * Updates one or more extensions.
      *
      * @param request - UpdateExtensionsRequest
      *
@@ -33317,7 +33793,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新PolarClaw Agent.
+     * Update PolarClaw Agent.
      *
      * @param tmpReq - UpdatePolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33390,7 +33866,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新PolarClaw Agent.
+     * Update PolarClaw Agent.
      *
      * @param request - UpdatePolarClawAgentRequest
      *
@@ -33408,7 +33884,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新PolarClaw定时任务
+     * Updates the configuration of a PolarClaw scheduled task, allowing for partial field updates.
      *
      * @param tmpReq - UpdatePolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33521,7 +33997,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 更新PolarClaw定时任务
+     * Updates the configuration of a PolarClaw scheduled task, allowing for partial field updates.
      *
      * @param request - UpdatePolarClawCronJobRequest
      *
@@ -33652,7 +34128,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB边缘云集群小版本升级.
+     * Upgrades the minor version of a PolarDB cluster.
      *
      * @param request - UpgradeDBClusterVersionZonalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33743,7 +34219,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * PolarDB边缘云集群小版本升级.
+     * Upgrades the minor version of a PolarDB cluster.
      *
      * @param request - UpgradeDBClusterVersionZonalRequest
      *
@@ -33761,7 +34237,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 升级PolarClaw Channel.
+     * Upgrades a PolarClaw channel.
      *
      * @param tmpReq - UpgradePolarClawChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33826,7 +34302,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 升级PolarClaw Channel.
+     * Upgrades a PolarClaw channel.
      *
      * @param request - UpgradePolarClawChannelRequest
      *
@@ -33844,7 +34320,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 升级PolarClaw Plugin.
+     * Upgrades a PolarClaw plugin.
      *
      * @param request - UpgradePolarClawPluginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33895,7 +34371,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 升级PolarClaw Plugin.
+     * Upgrades a PolarClaw plugin.
      *
      * @param request - UpgradePolarClawPluginRequest
      *
@@ -33913,7 +34389,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 执行自定义命令.
+     * Upgrades the PolarClaw feature.
      *
      * @param request - UpgradePolarClawSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -33964,7 +34440,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 执行自定义命令.
+     * Upgrades the PolarClaw feature.
      *
      * @param request - UpgradePolarClawSkillsRequest
      *

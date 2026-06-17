@@ -21,6 +21,11 @@ class memApplicationAttribute extends Model
     /**
      * @var string
      */
+    public $graphLlmModelName;
+
+    /**
+     * @var string
+     */
     public $llmModelName;
 
     /**
@@ -40,6 +45,7 @@ class memApplicationAttribute extends Model
     protected $_name = [
         'dbName' => 'DbName',
         'embedderModelName' => 'EmbedderModelName',
+        'graphLlmModelName' => 'GraphLlmModelName',
         'llmModelName' => 'LlmModelName',
         'projectName' => 'ProjectName',
         'rerankerModelName' => 'RerankerModelName',
@@ -60,6 +66,10 @@ class memApplicationAttribute extends Model
 
         if (null !== $this->embedderModelName) {
             $res['EmbedderModelName'] = $this->embedderModelName;
+        }
+
+        if (null !== $this->graphLlmModelName) {
+            $res['GraphLlmModelName'] = $this->graphLlmModelName;
         }
 
         if (null !== $this->llmModelName) {
@@ -95,6 +105,10 @@ class memApplicationAttribute extends Model
 
         if (isset($map['EmbedderModelName'])) {
             $model->embedderModelName = $map['EmbedderModelName'];
+        }
+
+        if (isset($map['GraphLlmModelName'])) {
+            $model->graphLlmModelName = $map['GraphLlmModelName'];
         }
 
         if (isset($map['LlmModelName'])) {

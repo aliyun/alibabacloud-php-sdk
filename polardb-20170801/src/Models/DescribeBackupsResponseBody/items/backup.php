@@ -77,6 +77,11 @@ class backup extends Model
      * @var string
      */
     public $isAvail;
+
+    /**
+     * @var string
+     */
+    public $tableRestoreMetaStatus;
     protected $_name = [
         'backupEndTime' => 'BackupEndTime',
         'backupId' => 'BackupId',
@@ -92,6 +97,7 @@ class backup extends Model
         'expectExpireTime' => 'ExpectExpireTime',
         'expectExpireType' => 'ExpectExpireType',
         'isAvail' => 'IsAvail',
+        'tableRestoreMetaStatus' => 'TableRestoreMetaStatus',
     ];
 
     public function validate()
@@ -156,6 +162,10 @@ class backup extends Model
 
         if (null !== $this->isAvail) {
             $res['IsAvail'] = $this->isAvail;
+        }
+
+        if (null !== $this->tableRestoreMetaStatus) {
+            $res['TableRestoreMetaStatus'] = $this->tableRestoreMetaStatus;
         }
 
         return $res;
@@ -223,6 +233,10 @@ class backup extends Model
 
         if (isset($map['IsAvail'])) {
             $model->isAvail = $map['IsAvail'];
+        }
+
+        if (isset($map['TableRestoreMetaStatus'])) {
+            $model->tableRestoreMetaStatus = $map['TableRestoreMetaStatus'];
         }
 
         return $model;

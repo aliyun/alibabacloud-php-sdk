@@ -12,6 +12,11 @@ class DescribeBatchTaskResponseBody extends Model
     /**
      * @var string
      */
+    public $applicationType;
+
+    /**
+     * @var string
+     */
     public $batchId;
 
     /**
@@ -59,6 +64,7 @@ class DescribeBatchTaskResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
+        'applicationType' => 'ApplicationType',
         'batchId' => 'BatchId',
         'requestId' => 'RequestId',
         'status' => 'Status',
@@ -82,6 +88,10 @@ class DescribeBatchTaskResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationType) {
+            $res['ApplicationType'] = $this->applicationType;
+        }
+
         if (null !== $this->batchId) {
             $res['BatchId'] = $this->batchId;
         }
@@ -140,6 +150,10 @@ class DescribeBatchTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationType'])) {
+            $model->applicationType = $map['ApplicationType'];
+        }
+
         if (isset($map['BatchId'])) {
             $model->batchId = $map['BatchId'];
         }
