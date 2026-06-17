@@ -31,6 +31,11 @@ class CreateSupabaseProjectRequest extends Model
     /**
      * @var string
      */
+    public $engineVersion;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -87,6 +92,7 @@ class CreateSupabaseProjectRequest extends Model
         'autoScale' => 'AutoScale',
         'clientToken' => 'ClientToken',
         'diskPerformanceLevel' => 'DiskPerformanceLevel',
+        'engineVersion' => 'EngineVersion',
         'payType' => 'PayType',
         'period' => 'Period',
         'projectName' => 'ProjectName',
@@ -122,6 +128,10 @@ class CreateSupabaseProjectRequest extends Model
 
         if (null !== $this->diskPerformanceLevel) {
             $res['DiskPerformanceLevel'] = $this->diskPerformanceLevel;
+        }
+
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
 
         if (null !== $this->payType) {
@@ -193,6 +203,10 @@ class CreateSupabaseProjectRequest extends Model
 
         if (isset($map['DiskPerformanceLevel'])) {
             $model->diskPerformanceLevel = $map['DiskPerformanceLevel'];
+        }
+
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
 
         if (isset($map['PayType'])) {
