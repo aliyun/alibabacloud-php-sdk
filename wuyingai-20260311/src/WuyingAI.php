@@ -20,7 +20,7 @@ class WuyingAI extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('wuyingai', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -50,7 +50,18 @@ class WuyingAI extends OpenApiClient
     }
 
     /**
-     * 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+     * Conducts a streaming conversation with JVS Crew, using the Server-Sent Events (SSE) protocol to push conversation content in real time.
+     *
+     * @remarks
+     * *Features**
+     * - Real-time streaming response that reduces time to first token.
+     * - Supports multimodal input (text, images, and files).
+     * - Session persistence for multi-turn conversations.
+     * - Event-driven architecture for precise message status control.
+     * **Request information**
+     * - **Request method**: `POST`
+     * - **Content-Type**: `application/json`
+     * - **Response Content-Type**: `text/event-stream`.
      *
      * @param tmpReq - ChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -95,6 +106,14 @@ class WuyingAI extends OpenApiClient
 
         if (null !== $request->inputShrink) {
             @$body['Input'] = $request->inputShrink;
+        }
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->resume) {
+            @$body['Resume'] = $request->resume;
         }
 
         if (null !== $request->routingKey) {
@@ -146,7 +165,18 @@ class WuyingAI extends OpenApiClient
     }
 
     /**
-     * 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+     * Conducts a streaming conversation with JVS Crew, using the Server-Sent Events (SSE) protocol to push conversation content in real time.
+     *
+     * @remarks
+     * *Features**
+     * - Real-time streaming response that reduces time to first token.
+     * - Supports multimodal input (text, images, and files).
+     * - Session persistence for multi-turn conversations.
+     * - Event-driven architecture for precise message status control.
+     * **Request information**
+     * - **Request method**: `POST`
+     * - **Content-Type**: `application/json`
+     * - **Response Content-Type**: `text/event-stream`.
      *
      * @param tmpReq - ChatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -193,6 +223,14 @@ class WuyingAI extends OpenApiClient
             @$body['Input'] = $request->inputShrink;
         }
 
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
+        }
+
+        if (null !== $request->resume) {
+            @$body['Resume'] = $request->resume;
+        }
+
         if (null !== $request->routingKey) {
             @$body['RoutingKey'] = $request->routingKey;
         }
@@ -229,7 +267,18 @@ class WuyingAI extends OpenApiClient
     }
 
     /**
-     * 与 JVS Crew 进行流式对话，采用 Server-Sent Events (SSE) 协议实时推送对话内容。
+     * Conducts a streaming conversation with JVS Crew, using the Server-Sent Events (SSE) protocol to push conversation content in real time.
+     *
+     * @remarks
+     * *Features**
+     * - Real-time streaming response that reduces time to first token.
+     * - Supports multimodal input (text, images, and files).
+     * - Session persistence for multi-turn conversations.
+     * - Event-driven architecture for precise message status control.
+     * **Request information**
+     * - **Request method**: `POST`
+     * - **Content-Type**: `application/json`
+     * - **Response Content-Type**: `text/event-stream`.
      *
      * @param request - ChatRequest
      *
@@ -247,7 +296,13 @@ class WuyingAI extends OpenApiClient
     }
 
     /**
-     * 获取用户进行对话所需的访问令牌（AccessToken），用于后续调用 Chat 接口进行身份验证。
+     * Obtains an access token (AccessToken) for user conversations, which is used to authenticate when invoking the Chat operation.
+     *
+     * @remarks
+     * *Token format**: The AccessToken is a **JWT** consisting of **Header.Payload.Signature** segments, each Base64URL-encoded and concatenated with `.` into a single line. The examples in the following table are masked for illustration purposes. The actual RequestId and JWT segments are longer.
+     * **Token validity**: The AccessToken **is valid for a limited period of time**. After it expires, call this operation again to obtain a new token.
+     * **Authentication method**: POP V1 signature (AK/SK)
+     * **Action**: `GetAccessToken`.
      *
      * @param request - GetAccessTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -290,7 +345,13 @@ class WuyingAI extends OpenApiClient
     }
 
     /**
-     * 获取用户进行对话所需的访问令牌（AccessToken），用于后续调用 Chat 接口进行身份验证。
+     * Obtains an access token (AccessToken) for user conversations, which is used to authenticate when invoking the Chat operation.
+     *
+     * @remarks
+     * *Token format**: The AccessToken is a **JWT** consisting of **Header.Payload.Signature** segments, each Base64URL-encoded and concatenated with `.` into a single line. The examples in the following table are masked for illustration purposes. The actual RequestId and JWT segments are longer.
+     * **Token validity**: The AccessToken **is valid for a limited period of time**. After it expires, call this operation again to obtain a new token.
+     * **Authentication method**: POP V1 signature (AK/SK)
+     * **Action**: `GetAccessToken`.
      *
      * @param request - GetAccessTokenRequest
      *

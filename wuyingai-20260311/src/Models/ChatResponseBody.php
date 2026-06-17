@@ -87,6 +87,11 @@ class ChatResponseBody extends Model
     /**
      * @var string
      */
+    public $traceId;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
         'code' => 'Code',
@@ -104,6 +109,7 @@ class ChatResponseBody extends Model
         'status' => 'Status',
         'success' => 'Success',
         'text' => 'Text',
+        'traceId' => 'TraceId',
         'type' => 'Type',
     ];
 
@@ -183,6 +189,10 @@ class ChatResponseBody extends Model
 
         if (null !== $this->text) {
             $res['Text'] = $this->text;
+        }
+
+        if (null !== $this->traceId) {
+            $res['TraceId'] = $this->traceId;
         }
 
         if (null !== $this->type) {
@@ -265,6 +275,10 @@ class ChatResponseBody extends Model
 
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
+        }
+
+        if (isset($map['TraceId'])) {
+            $model->traceId = $map['TraceId'];
         }
 
         if (isset($map['Type'])) {

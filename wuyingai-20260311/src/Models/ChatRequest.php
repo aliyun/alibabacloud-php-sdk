@@ -29,6 +29,16 @@ class ChatRequest extends Model
     /**
      * @var string
      */
+    public $model;
+
+    /**
+     * @var bool
+     */
+    public $resume;
+
+    /**
+     * @var string
+     */
     public $routingKey;
 
     /**
@@ -54,6 +64,8 @@ class ChatRequest extends Model
         'authorization' => 'Authorization',
         'externalUserId' => 'ExternalUserId',
         'input' => 'Input',
+        'model' => 'Model',
+        'resume' => 'Resume',
         'routingKey' => 'RoutingKey',
         'sessionId' => 'SessionId',
         'settings' => 'Settings',
@@ -95,6 +107,14 @@ class ChatRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->resume) {
+            $res['Resume'] = $this->resume;
         }
 
         if (null !== $this->routingKey) {
@@ -145,6 +165,14 @@ class ChatRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
+
+        if (isset($map['Resume'])) {
+            $model->resume = $map['Resume'];
         }
 
         if (isset($map['RoutingKey'])) {

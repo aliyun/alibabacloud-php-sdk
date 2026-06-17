@@ -26,6 +26,16 @@ class ChatShrinkRequest extends Model
     /**
      * @var string
      */
+    public $model;
+
+    /**
+     * @var bool
+     */
+    public $resume;
+
+    /**
+     * @var string
+     */
     public $routingKey;
 
     /**
@@ -51,6 +61,8 @@ class ChatShrinkRequest extends Model
         'authorization' => 'Authorization',
         'externalUserId' => 'ExternalUserId',
         'inputShrink' => 'Input',
+        'model' => 'Model',
+        'resume' => 'Resume',
         'routingKey' => 'RoutingKey',
         'sessionId' => 'SessionId',
         'settingsShrink' => 'Settings',
@@ -76,6 +88,14 @@ class ChatShrinkRequest extends Model
 
         if (null !== $this->inputShrink) {
             $res['Input'] = $this->inputShrink;
+        }
+
+        if (null !== $this->model) {
+            $res['Model'] = $this->model;
+        }
+
+        if (null !== $this->resume) {
+            $res['Resume'] = $this->resume;
         }
 
         if (null !== $this->routingKey) {
@@ -119,6 +139,14 @@ class ChatShrinkRequest extends Model
 
         if (isset($map['Input'])) {
             $model->inputShrink = $map['Input'];
+        }
+
+        if (isset($map['Model'])) {
+            $model->model = $map['Model'];
+        }
+
+        if (isset($map['Resume'])) {
+            $model->resume = $map['Resume'];
         }
 
         if (isset($map['RoutingKey'])) {
