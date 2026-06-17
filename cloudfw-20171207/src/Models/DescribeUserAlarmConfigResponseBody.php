@@ -8,7 +8,6 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAlarmConfigResponseBody\alarmConfig;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAlarmConfigResponseBody\contactConfig;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAlarmConfigResponseBody\defaultContact;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAlarmConfigResponseBody\notifyConfig;
 
 class DescribeUserAlarmConfigResponseBody extends Model
 {
@@ -33,11 +32,6 @@ class DescribeUserAlarmConfigResponseBody extends Model
     public $defaultContact;
 
     /**
-     * @var notifyConfig[]
-     */
-    public $notifyConfig;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -46,7 +40,6 @@ class DescribeUserAlarmConfigResponseBody extends Model
         'alarmLang' => 'AlarmLang',
         'contactConfig' => 'ContactConfig',
         'defaultContact' => 'DefaultContact',
-        'notifyConfig' => 'NotifyConfig',
         'requestId' => 'RequestId',
     ];
 
@@ -60,9 +53,6 @@ class DescribeUserAlarmConfigResponseBody extends Model
         }
         if (null !== $this->defaultContact) {
             $this->defaultContact->validate();
-        }
-        if (\is_array($this->notifyConfig)) {
-            Model::validateArray($this->notifyConfig);
         }
         parent::validate();
     }
@@ -98,17 +88,6 @@ class DescribeUserAlarmConfigResponseBody extends Model
 
         if (null !== $this->defaultContact) {
             $res['DefaultContact'] = null !== $this->defaultContact ? $this->defaultContact->toArray($noStream) : $this->defaultContact;
-        }
-
-        if (null !== $this->notifyConfig) {
-            if (\is_array($this->notifyConfig)) {
-                $res['NotifyConfig'] = [];
-                $n1 = 0;
-                foreach ($this->notifyConfig as $item1) {
-                    $res['NotifyConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
         }
 
         if (null !== $this->requestId) {
@@ -154,17 +133,6 @@ class DescribeUserAlarmConfigResponseBody extends Model
 
         if (isset($map['DefaultContact'])) {
             $model->defaultContact = defaultContact::fromMap($map['DefaultContact']);
-        }
-
-        if (isset($map['NotifyConfig'])) {
-            if (!empty($map['NotifyConfig'])) {
-                $model->notifyConfig = [];
-                $n1 = 0;
-                foreach ($map['NotifyConfig'] as $item1) {
-                    $model->notifyConfig[$n1] = notifyConfig::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         if (isset($map['RequestId'])) {

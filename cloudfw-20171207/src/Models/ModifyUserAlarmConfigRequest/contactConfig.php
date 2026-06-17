@@ -24,7 +24,7 @@ class contactConfig extends Model
     public $name;
 
     /**
-     * @var string
+     * @var int
      */
     public $status;
     protected $_name = [

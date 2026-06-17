@@ -16,6 +16,16 @@ class DescribeACLProtectTrendRequest extends Model
     /**
      * @var string
      */
+    public $firewallType;
+
+    /**
+     * @var int
+     */
+    public $interval;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -29,6 +39,8 @@ class DescribeACLProtectTrendRequest extends Model
     public $startTime;
     protected $_name = [
         'endTime' => 'EndTime',
+        'firewallType' => 'FirewallType',
+        'interval' => 'Interval',
         'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
         'startTime' => 'StartTime',
@@ -44,6 +56,14 @@ class DescribeACLProtectTrendRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->firewallType) {
+            $res['FirewallType'] = $this->firewallType;
+        }
+
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
 
         if (null !== $this->lang) {
@@ -71,6 +91,14 @@ class DescribeACLProtectTrendRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['FirewallType'])) {
+            $model->firewallType = $map['FirewallType'];
+        }
+
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
 
         if (isset($map['Lang'])) {

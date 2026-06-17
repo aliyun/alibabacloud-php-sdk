@@ -17,9 +17,15 @@ class rules extends Model
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var string
+     */
+    public $ruleSource;
     protected $_name = [
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
+        'ruleSource' => 'RuleSource',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class rules extends Model
 
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+
+        if (null !== $this->ruleSource) {
+            $res['RuleSource'] = $this->ruleSource;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class rules extends Model
 
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+
+        if (isset($map['RuleSource'])) {
+            $model->ruleSource = $map['RuleSource'];
         }
 
         return $model;

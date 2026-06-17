@@ -5,10 +5,9 @@
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyUserAlarmConfigRequest\alarmConfig;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyUserAlarmConfigRequest\contactConfig;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyUserAlarmConfigShrinkRequest\alarmConfig;
 
-class ModifyUserAlarmConfigRequest extends Model
+class ModifyUserAlarmConfigShrinkRequest extends Model
 {
     /**
      * @var alarmConfig[]
@@ -21,9 +20,9 @@ class ModifyUserAlarmConfigRequest extends Model
     public $alarmLang;
 
     /**
-     * @var contactConfig[]
+     * @var string
      */
-    public $contactConfig;
+    public $contactConfigShrink;
 
     /**
      * @var string
@@ -42,7 +41,7 @@ class ModifyUserAlarmConfigRequest extends Model
     protected $_name = [
         'alarmConfig' => 'AlarmConfig',
         'alarmLang' => 'AlarmLang',
-        'contactConfig' => 'ContactConfig',
+        'contactConfigShrink' => 'ContactConfig',
         'lang' => 'Lang',
         'sourceIp' => 'SourceIp',
         'useDefaultContact' => 'UseDefaultContact',
@@ -52,9 +51,6 @@ class ModifyUserAlarmConfigRequest extends Model
     {
         if (\is_array($this->alarmConfig)) {
             Model::validateArray($this->alarmConfig);
-        }
-        if (\is_array($this->contactConfig)) {
-            Model::validateArray($this->contactConfig);
         }
         parent::validate();
     }
@@ -77,15 +73,8 @@ class ModifyUserAlarmConfigRequest extends Model
             $res['AlarmLang'] = $this->alarmLang;
         }
 
-        if (null !== $this->contactConfig) {
-            if (\is_array($this->contactConfig)) {
-                $res['ContactConfig'] = [];
-                $n1 = 0;
-                foreach ($this->contactConfig as $item1) {
-                    $res['ContactConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->contactConfigShrink) {
+            $res['ContactConfig'] = $this->contactConfigShrink;
         }
 
         if (null !== $this->lang) {
@@ -127,14 +116,7 @@ class ModifyUserAlarmConfigRequest extends Model
         }
 
         if (isset($map['ContactConfig'])) {
-            if (!empty($map['ContactConfig'])) {
-                $model->contactConfig = [];
-                $n1 = 0;
-                foreach ($map['ContactConfig'] as $item1) {
-                    $model->contactConfig[$n1] = contactConfig::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->contactConfigShrink = $map['ContactConfig'];
         }
 
         if (isset($map['Lang'])) {

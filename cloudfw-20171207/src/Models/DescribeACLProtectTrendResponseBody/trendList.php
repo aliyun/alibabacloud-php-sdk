@@ -11,6 +11,16 @@ class trendList extends Model
     /**
      * @var int
      */
+    public $alertCnt;
+
+    /**
+     * @var int
+     */
+    public $passCnt;
+
+    /**
+     * @var int
+     */
     public $protectCnt;
 
     /**
@@ -18,6 +28,8 @@ class trendList extends Model
      */
     public $time;
     protected $_name = [
+        'alertCnt' => 'AlertCnt',
+        'passCnt' => 'PassCnt',
         'protectCnt' => 'ProtectCnt',
         'time' => 'Time',
     ];
@@ -30,6 +42,14 @@ class trendList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alertCnt) {
+            $res['AlertCnt'] = $this->alertCnt;
+        }
+
+        if (null !== $this->passCnt) {
+            $res['PassCnt'] = $this->passCnt;
+        }
+
         if (null !== $this->protectCnt) {
             $res['ProtectCnt'] = $this->protectCnt;
         }
@@ -49,6 +69,14 @@ class trendList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertCnt'])) {
+            $model->alertCnt = $map['AlertCnt'];
+        }
+
+        if (isset($map['PassCnt'])) {
+            $model->passCnt = $map['PassCnt'];
+        }
+
         if (isset($map['ProtectCnt'])) {
             $model->protectCnt = $map['ProtectCnt'];
         }

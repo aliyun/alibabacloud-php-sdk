@@ -37,6 +37,16 @@ class DescribeACLProtectTrendResponseBody extends Model
     /**
      * @var int
      */
+    public $totalAlertCnt;
+
+    /**
+     * @var int
+     */
+    public $totalPassCnt;
+
+    /**
+     * @var int
+     */
     public $totalProtectCnt;
 
     /**
@@ -49,6 +59,8 @@ class DescribeACLProtectTrendResponseBody extends Model
         'interval' => 'Interval',
         'outProtectCnt' => 'OutProtectCnt',
         'requestId' => 'RequestId',
+        'totalAlertCnt' => 'TotalAlertCnt',
+        'totalPassCnt' => 'TotalPassCnt',
         'totalProtectCnt' => 'TotalProtectCnt',
         'trendList' => 'TrendList',
     ];
@@ -82,6 +94,14 @@ class DescribeACLProtectTrendResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->totalAlertCnt) {
+            $res['TotalAlertCnt'] = $this->totalAlertCnt;
+        }
+
+        if (null !== $this->totalPassCnt) {
+            $res['TotalPassCnt'] = $this->totalPassCnt;
         }
 
         if (null !== $this->totalProtectCnt) {
@@ -128,6 +148,14 @@ class DescribeACLProtectTrendResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalAlertCnt'])) {
+            $model->totalAlertCnt = $map['TotalAlertCnt'];
+        }
+
+        if (isset($map['TotalPassCnt'])) {
+            $model->totalPassCnt = $map['TotalPassCnt'];
         }
 
         if (isset($map['TotalProtectCnt'])) {

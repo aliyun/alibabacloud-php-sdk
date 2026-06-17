@@ -156,6 +156,11 @@ class DescribeTrafficLogRequest extends Model
     /**
      * @var string
      */
+    public $ruleSourceFinal;
+
+    /**
+     * @var string
+     */
     public $sourceCode;
 
     /**
@@ -237,6 +242,7 @@ class DescribeTrafficLogRequest extends Model
         'ruleId' => 'RuleId',
         'ruleResult' => 'RuleResult',
         'ruleSource' => 'RuleSource',
+        'ruleSourceFinal' => 'RuleSourceFinal',
         'sourceCode' => 'SourceCode',
         'sourceIp' => 'SourceIp',
         'srcIP' => 'SrcIP',
@@ -372,6 +378,10 @@ class DescribeTrafficLogRequest extends Model
 
         if (null !== $this->ruleSource) {
             $res['RuleSource'] = $this->ruleSource;
+        }
+
+        if (null !== $this->ruleSourceFinal) {
+            $res['RuleSourceFinal'] = $this->ruleSourceFinal;
         }
 
         if (null !== $this->sourceCode) {
@@ -543,6 +553,10 @@ class DescribeTrafficLogRequest extends Model
 
         if (isset($map['RuleSource'])) {
             $model->ruleSource = $map['RuleSource'];
+        }
+
+        if (isset($map['RuleSourceFinal'])) {
+            $model->ruleSourceFinal = $map['RuleSourceFinal'];
         }
 
         if (isset($map['SourceCode'])) {
