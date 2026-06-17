@@ -11,6 +11,16 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\GetSourceResponseBody\data\nacosSourc
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $associationReason;
+
+    /**
+     * @var string
+     */
+    public $associationStatus;
+
+    /**
      * @var int
      */
     public $createTimestamp;
@@ -55,6 +65,8 @@ class data extends Model
      */
     public $updateTimestamp;
     protected $_name = [
+        'associationReason' => 'associationReason',
+        'associationStatus' => 'associationStatus',
         'createTimestamp' => 'createTimestamp',
         'gatewayId' => 'gatewayId',
         'k8SSourceInfo' => 'k8SSourceInfo',
@@ -80,6 +92,14 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->associationReason) {
+            $res['associationReason'] = $this->associationReason;
+        }
+
+        if (null !== $this->associationStatus) {
+            $res['associationStatus'] = $this->associationStatus;
+        }
+
         if (null !== $this->createTimestamp) {
             $res['createTimestamp'] = $this->createTimestamp;
         }
@@ -127,6 +147,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['associationReason'])) {
+            $model->associationReason = $map['associationReason'];
+        }
+
+        if (isset($map['associationStatus'])) {
+            $model->associationStatus = $map['associationStatus'];
+        }
+
         if (isset($map['createTimestamp'])) {
             $model->createTimestamp = $map['createTimestamp'];
         }

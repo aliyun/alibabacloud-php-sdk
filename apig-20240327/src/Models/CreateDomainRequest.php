@@ -24,6 +24,11 @@ class CreateDomainRequest extends Model
     public $clientCACert;
 
     /**
+     * @var string
+     */
+    public $domainScope;
+
+    /**
      * @var bool
      */
     public $forceHttps;
@@ -76,6 +81,7 @@ class CreateDomainRequest extends Model
         'caCertIdentifier' => 'caCertIdentifier',
         'certIdentifier' => 'certIdentifier',
         'clientCACert' => 'clientCACert',
+        'domainScope' => 'domainScope',
         'forceHttps' => 'forceHttps',
         'gatewayType' => 'gatewayType',
         'http2Option' => 'http2Option',
@@ -109,6 +115,10 @@ class CreateDomainRequest extends Model
 
         if (null !== $this->clientCACert) {
             $res['clientCACert'] = $this->clientCACert;
+        }
+
+        if (null !== $this->domainScope) {
+            $res['domainScope'] = $this->domainScope;
         }
 
         if (null !== $this->forceHttps) {
@@ -172,6 +182,10 @@ class CreateDomainRequest extends Model
 
         if (isset($map['clientCACert'])) {
             $model->clientCACert = $map['clientCACert'];
+        }
+
+        if (isset($map['domainScope'])) {
+            $model->domainScope = $map['domainScope'];
         }
 
         if (isset($map['forceHttps'])) {

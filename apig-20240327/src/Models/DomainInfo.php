@@ -34,6 +34,11 @@ class DomainInfo extends Model
     public $domainId;
 
     /**
+     * @var string
+     */
+    public $domainScope;
+
+    /**
      * @var bool
      */
     public $forceHttps;
@@ -73,6 +78,7 @@ class DomainInfo extends Model
         'createFrom' => 'createFrom',
         'createTimestamp' => 'createTimestamp',
         'domainId' => 'domainId',
+        'domainScope' => 'domainScope',
         'forceHttps' => 'forceHttps',
         'mTLSEnabled' => 'mTLSEnabled',
         'name' => 'name',
@@ -108,6 +114,10 @@ class DomainInfo extends Model
 
         if (null !== $this->domainId) {
             $res['domainId'] = $this->domainId;
+        }
+
+        if (null !== $this->domainScope) {
+            $res['domainScope'] = $this->domainScope;
         }
 
         if (null !== $this->forceHttps) {
@@ -167,6 +177,10 @@ class DomainInfo extends Model
 
         if (isset($map['domainId'])) {
             $model->domainId = $map['domainId'];
+        }
+
+        if (isset($map['domainScope'])) {
+            $model->domainScope = $map['domainScope'];
         }
 
         if (isset($map['forceHttps'])) {

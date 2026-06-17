@@ -11,6 +11,11 @@ class ListDomainsRequest extends Model
     /**
      * @var string
      */
+    public $domainScope;
+
+    /**
+     * @var string
+     */
     public $gatewayId;
 
     /**
@@ -38,6 +43,7 @@ class ListDomainsRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
+        'domainScope' => 'domainScope',
         'gatewayId' => 'gatewayId',
         'gatewayType' => 'gatewayType',
         'nameLike' => 'nameLike',
@@ -54,6 +60,10 @@ class ListDomainsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->domainScope) {
+            $res['domainScope'] = $this->domainScope;
+        }
+
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
@@ -89,6 +99,10 @@ class ListDomainsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['domainScope'])) {
+            $model->domainScope = $map['domainScope'];
+        }
+
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }

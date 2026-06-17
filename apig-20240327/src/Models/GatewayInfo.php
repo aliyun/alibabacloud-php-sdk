@@ -17,6 +17,11 @@ class GatewayInfo extends Model
     /**
      * @var string
      */
+    public $gatewayEdition;
+
+    /**
+     * @var string
+     */
     public $gatewayId;
 
     /**
@@ -30,6 +35,7 @@ class GatewayInfo extends Model
     public $vpcInfo;
     protected $_name = [
         'engineVersion' => 'engineVersion',
+        'gatewayEdition' => 'gatewayEdition',
         'gatewayId' => 'gatewayId',
         'name' => 'name',
         'vpcInfo' => 'vpcInfo',
@@ -48,6 +54,10 @@ class GatewayInfo extends Model
         $res = [];
         if (null !== $this->engineVersion) {
             $res['engineVersion'] = $this->engineVersion;
+        }
+
+        if (null !== $this->gatewayEdition) {
+            $res['gatewayEdition'] = $this->gatewayEdition;
         }
 
         if (null !== $this->gatewayId) {
@@ -75,6 +85,10 @@ class GatewayInfo extends Model
         $model = new self();
         if (isset($map['engineVersion'])) {
             $model->engineVersion = $map['engineVersion'];
+        }
+
+        if (isset($map['gatewayEdition'])) {
+            $model->gatewayEdition = $map['gatewayEdition'];
         }
 
         if (isset($map['gatewayId'])) {

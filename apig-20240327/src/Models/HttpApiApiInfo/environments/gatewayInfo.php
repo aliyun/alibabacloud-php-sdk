@@ -11,6 +11,11 @@ class gatewayInfo extends Model
     /**
      * @var string
      */
+    public $gatewayEdition;
+
+    /**
+     * @var string
+     */
     public $gatewayId;
 
     /**
@@ -18,6 +23,7 @@ class gatewayInfo extends Model
      */
     public $name;
     protected $_name = [
+        'gatewayEdition' => 'gatewayEdition',
         'gatewayId' => 'gatewayId',
         'name' => 'name',
     ];
@@ -30,6 +36,10 @@ class gatewayInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->gatewayEdition) {
+            $res['gatewayEdition'] = $this->gatewayEdition;
+        }
+
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
@@ -49,6 +59,10 @@ class gatewayInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['gatewayEdition'])) {
+            $model->gatewayEdition = $map['gatewayEdition'];
+        }
+
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }

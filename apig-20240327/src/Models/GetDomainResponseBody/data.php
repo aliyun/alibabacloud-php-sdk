@@ -56,6 +56,11 @@ class data extends Model
     public $domainId;
 
     /**
+     * @var string
+     */
+    public $domainScope;
+
+    /**
      * @var bool
      */
     public $forceHttps;
@@ -139,6 +144,7 @@ class data extends Model
         'createTimestamp' => 'createTimestamp',
         'default' => 'default',
         'domainId' => 'domainId',
+        'domainScope' => 'domainScope',
         'forceHttps' => 'forceHttps',
         'http2Option' => 'http2Option',
         'issuer' => 'issuer',
@@ -204,6 +210,10 @@ class data extends Model
 
         if (null !== $this->domainId) {
             $res['domainId'] = $this->domainId;
+        }
+
+        if (null !== $this->domainScope) {
+            $res['domainScope'] = $this->domainScope;
         }
 
         if (null !== $this->forceHttps) {
@@ -311,6 +321,10 @@ class data extends Model
 
         if (isset($map['domainId'])) {
             $model->domainId = $map['domainId'];
+        }
+
+        if (isset($map['domainScope'])) {
+            $model->domainScope = $map['domainScope'];
         }
 
         if (isset($map['forceHttps'])) {

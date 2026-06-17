@@ -24,6 +24,11 @@ class UpdateDomainRequest extends Model
     public $clientCACert;
 
     /**
+     * @var string
+     */
+    public $domainScope;
+
+    /**
      * @var bool
      */
     public $forceHttps;
@@ -61,6 +66,7 @@ class UpdateDomainRequest extends Model
         'caCertIdentifier' => 'caCertIdentifier',
         'certIdentifier' => 'certIdentifier',
         'clientCACert' => 'clientCACert',
+        'domainScope' => 'domainScope',
         'forceHttps' => 'forceHttps',
         'http2Option' => 'http2Option',
         'mTLSEnabled' => 'mTLSEnabled',
@@ -91,6 +97,10 @@ class UpdateDomainRequest extends Model
 
         if (null !== $this->clientCACert) {
             $res['clientCACert'] = $this->clientCACert;
+        }
+
+        if (null !== $this->domainScope) {
+            $res['domainScope'] = $this->domainScope;
         }
 
         if (null !== $this->forceHttps) {
@@ -142,6 +152,10 @@ class UpdateDomainRequest extends Model
 
         if (isset($map['clientCACert'])) {
             $model->clientCACert = $map['clientCACert'];
+        }
+
+        if (isset($map['domainScope'])) {
+            $model->domainScope = $map['domainScope'];
         }
 
         if (isset($map['forceHttps'])) {

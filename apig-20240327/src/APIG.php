@@ -213,7 +213,34 @@ class APIG extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'apig.us-west-1.aliyuncs.com',
+            'us-east-1' => 'apig.us-east-1.aliyuncs.com',
+            'me-east-1' => 'apig.me-east-1.aliyuncs.com',
+            'me-central-1' => 'apig.me-central-1.aliyuncs.com',
+            'eu-west-1' => 'apig.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'apig.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'apig.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'apig.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'apig.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'apig.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'apig.cn-qingdao.aliyuncs.com',
+            'cn-hongkong' => 'apig.cn-hongkong.aliyuncs.com',
+            'cn-heyuan' => 'apig.cn-heyuan.aliyuncs.com',
+            'cn-hangzhou' => 'apig.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'apig.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'apig.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'apig.cn-beijing.aliyuncs.com',
+            'ap-southeast-7' => 'apig.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-6' => 'apig.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'apig.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'apig.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-2' => 'apig.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'apig.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2' => 'apig.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'apig.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('apig', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -889,9 +916,6 @@ class APIG extends OpenApiClient
     /**
      * Creates a domain name.
      *
-     * @remarks
-     * Create Domain.
-     *
      * @param request - CreateDomainRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -918,6 +942,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->clientCACert) {
             @$body['clientCACert'] = $request->clientCACert;
+        }
+
+        if (null !== $request->domainScope) {
+            @$body['domainScope'] = $request->domainScope;
         }
 
         if (null !== $request->forceHttps) {
@@ -981,9 +1009,6 @@ class APIG extends OpenApiClient
 
     /**
      * Creates a domain name.
-     *
-     * @remarks
-     * Create Domain.
      *
      * @param request - CreateDomainRequest
      *
@@ -3404,7 +3429,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains a consumer authentication rule.
+     * Retrieves a consumer authorization rule.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3439,7 +3464,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains a consumer authentication rule.
+     * Retrieves a consumer authorization rule.
      *
      * @returns GetConsumerAuthorizationRuleResponse
      *
@@ -3558,7 +3583,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the information about a domain name.
+     * Queries a domain name.
      *
      * @param request - GetDomainRequest
      * @param headers - map
@@ -3601,7 +3626,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the information about a domain name.
+     * Queries a domain name.
      *
      * @param request - GetDomainRequest
      *
@@ -4004,7 +4029,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a route of an HTTP API.
+     * Retrieves the route details of an HTTP API.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4039,7 +4064,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a route of an HTTP API.
+     * Retrieves the route details of an HTTP API.
      *
      * @returns GetHttpApiRouteResponse
      *
@@ -4114,7 +4139,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a plug-in attachment.
+     * Queries a plugin attachment.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4148,7 +4173,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a plug-in attachment.
+     * Queries a plugin attachment.
      *
      * @returns GetPluginAttachmentResponse
      *
@@ -4493,7 +4518,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a service source.
+     * Queries the details of a service source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4527,7 +4552,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a service source.
+     * Queries the details of a service source.
      *
      * @returns GetSourceResponse
      *
@@ -4785,7 +4810,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains a list of consumer authentication rules.
+     * Retrieves the list of consumer authorization rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -4836,7 +4861,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains a list of consumer authentication rules.
+     * Retrieves the list of consumer authorization rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
      *
@@ -4947,6 +4972,10 @@ class APIG extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->domainScope) {
+            @$query['domainScope'] = $request->domainScope;
+        }
+
         if (null !== $request->gatewayId) {
             @$query['gatewayId'] = $request->gatewayId;
         }
@@ -5010,7 +5039,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * ListEnvironments.
+     * Queries a list of environments.
      *
      * @deprecated OpenAPI ListEnvironments is deprecated
      *
@@ -5083,7 +5112,7 @@ class APIG extends OpenApiClient
 
     // Deprecated
     /**
-     * ListEnvironments.
+     * Queries a list of environments.
      *
      * @deprecated OpenAPI ListEnvironments is deprecated
      *
@@ -5531,7 +5560,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Gets the route list for an HTTP API.
+     * Queries the route list of an HTTP API.
      *
      * @param request - ListHttpApiRoutesRequest
      * @param headers - map
@@ -5630,7 +5659,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Gets the route list for an HTTP API.
+     * Queries the route list of an HTTP API.
      *
      * @param request - ListHttpApiRoutesRequest
      *
@@ -6566,7 +6595,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries SSL certificates.
+     * Retrieves a list of certificates.
      *
      * @param request - ListSslCertsRequest
      * @param headers - map
@@ -6620,7 +6649,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries SSL certificates.
+     * Retrieves a list of certificates.
      *
      * @param request - ListSslCertsRequest
      *
@@ -6687,7 +6716,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of consumer authentication rules.
+     * Queries a list of consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -6769,7 +6798,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of consumer authentication rules.
+     * Queries a list of consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      *
@@ -7493,7 +7522,7 @@ class APIG extends OpenApiClient
      * Updates a domain name.
      *
      * @remarks
-     * You can update the listening Ingress only for sources whose types are **ACK**.
+     * Only sources of the **Container Service** type can update the listener Ingress configuration.
      *
      * @param request - UpdateDomainRequest
      * @param headers - map
@@ -7522,6 +7551,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->clientCACert) {
             @$body['clientCACert'] = $request->clientCACert;
+        }
+
+        if (null !== $request->domainScope) {
+            @$body['domainScope'] = $request->domainScope;
         }
 
         if (null !== $request->forceHttps) {
@@ -7575,7 +7608,7 @@ class APIG extends OpenApiClient
      * Updates a domain name.
      *
      * @remarks
-     * You can update the listening Ingress only for sources whose types are **ACK**.
+     * Only sources of the **Container Service** type can update the listener Ingress configuration.
      *
      * @param request - UpdateDomainRequest
      *
@@ -8094,7 +8127,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates an operation of an HTTP API.
+     * Updates an API operation.
      *
      * @param request - UpdateHttpApiOperationRequest
      * @param headers - map
@@ -8138,7 +8171,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates an operation of an HTTP API.
+     * Updates an API operation.
      *
      * @param request - UpdateHttpApiOperationRequest
      *
