@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\AlikafkaStreaming\V20260202;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\AlikafkaStreaming\V20260202\Models\CreateComputeInstanceRequest;
 use AlibabaCloud\SDK\AlikafkaStreaming\V20260202\Models\CreateComputeInstanceResponse;
+use AlibabaCloud\SDK\AlikafkaStreaming\V20260202\Models\DeleteComputeInstanceRequest;
+use AlibabaCloud\SDK\AlikafkaStreaming\V20260202\Models\DeleteComputeInstanceResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -113,5 +115,66 @@ class AlikafkaStreaming extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createComputeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除实例.
+     *
+     * @param request - DeleteComputeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteComputeInstanceResponse
+     *
+     * @param DeleteComputeInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteComputeInstanceResponse
+     */
+    public function deleteComputeInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteComputeInstance',
+            'version' => '2026-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteComputeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除实例.
+     *
+     * @param request - DeleteComputeInstanceRequest
+     *
+     * @returns DeleteComputeInstanceResponse
+     *
+     * @param DeleteComputeInstanceRequest $request
+     *
+     * @return DeleteComputeInstanceResponse
+     */
+    public function deleteComputeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteComputeInstanceWithOptions($request, $runtime);
     }
 }
