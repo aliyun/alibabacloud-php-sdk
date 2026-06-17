@@ -17,9 +17,15 @@ class DeleteComputeInstanceRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class DeleteComputeInstanceRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class DeleteComputeInstanceRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;
