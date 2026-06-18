@@ -147,6 +147,26 @@ class Eflocontroller extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'me-east-1' => 'eflo-controller.me-east-1.aliyuncs.com',
+            'eu-central-1' => 'eflo-controller.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'eflo-controller.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'eflo-controller.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'eflo-controller.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'eflo-controller.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'eflo-controller.cn-shanghai.aliyuncs.com',
+            'cn-huhehaote' => 'eflo-controller.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'eflo-controller.cn-hongkong.aliyuncs.com',
+            'cn-heyuan' => 'eflo-controller.cn-heyuan.aliyuncs.com',
+            'cn-hangzhou' => 'eflo-controller.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'eflo-controller.cn-guangzhou.aliyuncs.com',
+            'cn-beijing' => 'eflo-controller.cn-beijing.aliyuncs.com',
+            'ap-southeast-8' => 'eflo-controller.ap-sourtheast-8.aliyuncs.com',
+            'ap-southeast-7' => 'eflo-controller.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-3' => 'eflo-controller.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-1' => 'eflo-controller.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'eflo-controller.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eflo-controller', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -237,7 +257,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 修改节点的节点组.
+     * Changes the node group of a node.
+     *
+     * @remarks
+     * Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
      *
      * @param tmpReq - ChangeNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -292,7 +315,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 修改节点的节点组.
+     * Changes the node group of a node.
+     *
+     * @remarks
+     * Creates a session, returns a frontend endpoint, and starts an auto-triggered task to track the session status.
      *
      * @param request - ChangeNodeGroupRequest
      *
@@ -310,7 +336,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 节点规格变配.
+     * Upgrades or downgrades the specifications of one or more nodes. Before you change the specifications, ensure that the node resources meet the requirements of the target specifications. If a node does not meet the new specification requirements, the task reports success, but the specifications are not changed. Therefore, do not rely on the task status. To confirm a successful change, query the node after the task is complete and check the returned specifications.
      *
      * @param tmpReq - ChangeNodeTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -359,7 +385,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 节点规格变配.
+     * Upgrades or downgrades the specifications of one or more nodes. Before you change the specifications, ensure that the node resources meet the requirements of the target specifications. If a node does not meet the new specification requirements, the task reports success, but the specifications are not changed. Therefore, do not rely on the task status. To confirm a successful change, query the node after the task is complete and check the returned specifications.
      *
      * @param request - ChangeNodeTypesRequest
      *
@@ -377,7 +403,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Moves a resource from one resource group to another.
+     * Changes the resource group of a resource.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -428,7 +454,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Moves a resource from one resource group to another.
+     * Changes the resource group of a resource.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -447,6 +473,9 @@ class Eflocontroller extends OpenApiClient
 
     /**
      * Disconnect Connection.
+     *
+     * @remarks
+     * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
      *
      * @param request - CloseSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -491,6 +520,9 @@ class Eflocontroller extends OpenApiClient
     /**
      * Disconnect Connection.
      *
+     * @remarks
+     * An interface for creating a session, returning the front-end EndPoint, and initiating a periodic task to track the session status
+     *
      * @param request - CloseSessionRequest
      *
      * @returns CloseSessionResponse
@@ -507,7 +539,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Create a large-scale computing cluster.
+     * Creates a new LINGJUN Cluster.
+     *
+     * @remarks
+     * 关闭远程会话的接口。
      *
      * @param tmpReq - CreateClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -610,7 +645,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Create a large-scale computing cluster.
+     * Creates a new LINGJUN Cluster.
+     *
+     * @remarks
+     * 关闭远程会话的接口。
      *
      * @param request - CreateClusterRequest
      *
@@ -709,9 +747,6 @@ class Eflocontroller extends OpenApiClient
     /**
      * Creates a network test task.
      *
-     * @remarks
-     * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
-     *
      * @param tmpReq - CreateNetTestTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -793,9 +828,6 @@ class Eflocontroller extends OpenApiClient
     /**
      * Creates a network test task.
      *
-     * @remarks
-     * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
-     *
      * @param request - CreateNetTestTaskRequest
      *
      * @returns CreateNetTestTaskResponse
@@ -812,7 +844,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Create Node Group under Cluster.
+     * Create a node group in a cluster.
+     *
+     * @remarks
+     * Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
      *
      * @param tmpReq - CreateNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -869,7 +904,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Create Node Group under Cluster.
+     * Create a node group in a cluster.
+     *
+     * @remarks
+     * Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
      *
      * @param request - CreateNodeGroupRequest
      *
@@ -958,7 +996,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Creates a virtual storage channel (VSC).
+     * Creates a VSC.
      *
      * @param request - CreateVscRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1019,7 +1057,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Creates a virtual storage channel (VSC).
+     * Creates a VSC.
      *
      * @param request - CreateVscRequest
      *
@@ -1094,7 +1132,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除一个未使用超节点.
+     * Deletes an unused hyper node.
      *
      * @param request - DeleteHyperNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1133,7 +1171,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除一个未使用超节点.
+     * Deletes an unused hyper node.
      *
      * @param request - DeleteHyperNodeRequest
      *
@@ -1151,7 +1189,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除一个未使用节点.
+     * Releases a pay-as-you-go node.
      *
      * @param request - DeleteNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1190,7 +1228,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 删除一个未使用节点.
+     * Releases a pay-as-you-go node.
      *
      * @param request - DeleteNodeRequest
      *
@@ -1269,7 +1307,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual storage channel (VSC).
+     * Deletes a VSC.
      *
      * @param request - DeleteVscRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1314,7 +1352,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual storage channel (VSC).
+     * Deletes a VSC.
      *
      * @param request - DeleteVscRequest
      *
@@ -1332,7 +1370,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries information about a Lingjun cluster.
+     * Queries the details of a cluster.
+     *
+     * @remarks
+     * Queries the details of a specified cluster.
      *
      * @param request - DescribeClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1371,7 +1412,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries information about a Lingjun cluster.
+     * Queries the details of a cluster.
+     *
+     * @remarks
+     * Queries the details of a specified cluster.
      *
      * @param request - DescribeClusterRequest
      *
@@ -1452,7 +1496,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询节点列表.
+     * Queries the details of a hyper node.
+     *
+     * @remarks
+     * Queries the details of a specified hyper node.
      *
      * @param request - DescribeHyperNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1491,7 +1538,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询节点列表.
+     * Queries the details of a hyper node.
+     *
+     * @remarks
+     * Queries the details of a specified hyper node.
      *
      * @param request - DescribeHyperNodeRequest
      *
@@ -1509,7 +1559,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the execution list and status of O\\\\\\&M Assistant commands.
+     * Queries the execution history and status of Cloud Assistant commands.
      *
      * @param request - DescribeInvocationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1560,7 +1610,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the execution list and status of O\\\\\\&M Assistant commands.
+     * Queries the execution history and status of Cloud Assistant commands.
      *
      * @param request - DescribeInvocationsRequest
      *
@@ -1578,7 +1628,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Query Network Test Result.
+     * Queries the results of a network test.
      *
      * @param request - DescribeNetTestResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1617,7 +1667,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Query Network Test Result.
+     * Queries the results of a network test.
      *
      * @param request - DescribeNetTestResultRequest
      *
@@ -1635,7 +1685,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes.
+     * Queries the list of nodes.
+     *
+     * @remarks
+     * Queries the detailed information of a hyper node.
      *
      * @param request - DescribeNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1674,7 +1727,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes.
+     * Queries the list of nodes.
+     *
+     * @remarks
+     * Queries the detailed information of a hyper node.
      *
      * @param request - DescribeNodeRequest
      *
@@ -1692,7 +1748,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询节点分组.
+     * Queries the details of a node group.
+     *
+     * @remarks
+     * This operation queries the details of a node group.
      *
      * @param request - DescribeNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1731,7 +1790,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询节点分组.
+     * Queries the details of a node group.
+     *
+     * @remarks
+     * This operation queries the details of a node group.
      *
      * @param request - DescribeNodeGroupRequest
      *
@@ -1749,7 +1811,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询节点规格详情.
+     * Describes the constraints for a node type.
      *
      * @param request - DescribeNodeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1788,7 +1850,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询节点规格详情.
+     * Describes the constraints for a node type.
      *
      * @param request - DescribeNodeTypeRequest
      *
@@ -1981,7 +2043,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries information about a virtual storage channel (VSC).
+     * Retrieves the details of a specific virtual switch controller (Vsc).
      *
      * @param request - DescribeVscRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2020,7 +2082,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries information about a virtual storage channel (VSC).
+     * Retrieves the details of a specific virtual switch controller (Vsc).
      *
      * @param request - DescribeVscRequest
      *
@@ -2095,7 +2157,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Cluster Scaling.
+     * Extends a cluster.
+     *
+     * @remarks
+     * Closes a remote session.
      *
      * @param tmpReq - ExtendClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2168,7 +2233,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Cluster Scaling.
+     * Extends a cluster.
+     *
+     * @remarks
+     * Closes a remote session.
      *
      * @param request - ExtendClusterRequest
      *
@@ -2186,7 +2254,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 集群下的主机分组列表，分组下的主机列表.
+     * Lists the node groups of a cluster and the nodes in each group.
      *
      * @param request - ListClusterHyperNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2247,7 +2315,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 集群下的主机分组列表，分组下的主机列表.
+     * Lists the node groups of a cluster and the nodes in each group.
      *
      * @param request - ListClusterHyperNodesRequest
      *
@@ -2265,7 +2333,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes in a cluster.
+     * Queries the nodes in a cluster.
      *
      * @param request - ListClusterNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2330,7 +2398,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes in a cluster.
+     * Queries the nodes in a cluster.
      *
      * @param request - ListClusterNodesRequest
      *
@@ -2348,7 +2416,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of clusters.
+     * Query cluster instances with optional filtering by resource group and tags.
      *
      * @param request - ListClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2401,7 +2469,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of clusters.
+     * Query cluster instances with optional filtering by resource group and tags.
      *
      * @param request - ListClustersRequest
      *
@@ -2420,6 +2488,9 @@ class Eflocontroller extends OpenApiClient
 
     /**
      * List of Diagnostic Tasks.
+     *
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
      *
      * @param request - ListDiagnosticResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2472,6 +2543,9 @@ class Eflocontroller extends OpenApiClient
     /**
      * List of Diagnostic Tasks.
      *
+     * @remarks
+     * An interface for creating a session, which returns the frontend EndPoint and initiates a periodic task to track the session status.
+     *
      * @param request - ListDiagnosticResultsRequest
      *
      * @returns ListDiagnosticResultsResponse
@@ -2488,7 +2562,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 可用rack物理机列表.
+     * Lists the active physical servers in the rack.
      *
      * @param request - ListFreeHyperNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2551,7 +2625,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 可用rack物理机列表.
+     * Lists the active physical servers in the rack.
      *
      * @param request - ListFreeHyperNodesRequest
      *
@@ -2569,7 +2643,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes that are not used.
+     * Lists all unused nodes.
      *
      * @param request - ListFreeNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2634,7 +2708,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of nodes that are not used.
+     * Lists all unused nodes.
      *
      * @param request - ListFreeNodesRequest
      *
@@ -2652,7 +2726,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 机器列表.
+     * Machines.
+     *
+     * @remarks
+     * Queries the details of hypernodes.
      *
      * @param tmpReq - ListHyperNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2751,7 +2828,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 机器列表.
+     * Machines.
+     *
+     * @remarks
+     * Queries the details of hypernodes.
      *
      * @param request - ListHyperNodesRequest
      *
@@ -2834,7 +2914,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Query machine network configuration using HPNZone and machine type.
+     * Queries the network configurations for machine types.
      *
      * @param tmpReq - ListMachineNetworkInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2879,7 +2959,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Query machine network configuration using HPNZone and machine type.
+     * Queries the network configurations for machine types.
      *
      * @param request - ListMachineNetworkInfoRequest
      *
@@ -2897,7 +2977,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of instance types that are available to users.
+     * Queries a list of available machine types.
      *
      * @param request - ListMachineTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2936,7 +3016,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of instance types that are available to users.
+     * Queries a list of available machine types.
      *
      * @param request - ListMachineTypesRequest
      *
@@ -2954,10 +3034,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists the results of network test results.
-     *
-     * @remarks
-     * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+     * Lists network test results.
      *
      * @param request - ListNetTestResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3008,10 +3085,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Lists the results of network test results.
-     *
-     * @remarks
-     * The API creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
+     * Lists network test results.
      *
      * @param request - ListNetTestResultsRequest
      *
@@ -3029,7 +3103,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries node groups in a cluster.
+     * Query Node Group Information Under the Cluster.
      *
      * @param request - ListNodeGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3080,7 +3154,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries node groups in a cluster.
+     * Query Node Group Information Under the Cluster.
      *
      * @param request - ListNodeGroupsRequest
      *
@@ -3098,7 +3172,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询系统日志.
+     * Queries system logs.
      *
      * @param request - ListSyslogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3157,7 +3231,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 查询系统日志.
+     * Queries system logs.
      *
      * @param request - ListSyslogsRequest
      *
@@ -3175,7 +3249,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the tags of resources.
+     * Queries the tags that are attached to resources.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3230,7 +3304,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries the tags of resources.
+     * Queries the tags that are attached to resources.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -3250,7 +3324,9 @@ class Eflocontroller extends OpenApiClient
     /**
      * Query the cluster types available to the user.
      *
-     * @param request - ListUserClusterTypesRequest
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+     *
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListUserClusterTypesResponse
@@ -3280,6 +3356,9 @@ class Eflocontroller extends OpenApiClient
     /**
      * Query the cluster types available to the user.
      *
+     * @remarks
+     * An interface for creating a session, which returns the front-end EndPoint and initiates a periodic task to track the session status
+     *
      * @returns ListUserClusterTypesResponse
      *
      * @return ListUserClusterTypesResponse
@@ -3292,7 +3371,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of virtual storage channels (VSC).
+     * Queries a list of VSCs.
      *
      * @param tmpReq - ListVscsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3359,7 +3438,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Queries a list of virtual storage channels (VSC).
+     * Queries a list of VSCs.
      *
      * @param request - ListVscsRequest
      *
@@ -3448,7 +3527,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reinstall a node.
+     * Reimages the specified nodes.
      *
      * @param tmpReq - ReimageNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3505,7 +3584,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reinstall a node.
+     * Reimages the specified nodes.
      *
      * @param request - ReimageNodesRequest
      *
@@ -3523,7 +3602,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 节点异常问题上报.
+     * Reports issues with abnormal nodes.
+     *
+     * @remarks
+     * Creates a session, returns a frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param tmpReq - ReportNodesStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3588,7 +3670,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * 节点异常问题上报.
+     * Reports issues with abnormal nodes.
+     *
+     * @remarks
+     * Creates a session, returns a frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param request - ReportNodesStatusRequest
      *
@@ -3836,7 +3921,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Scales in a cluster.
+     * Scales in a CC cluster.
      *
      * @param tmpReq - ShrinkClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3889,7 +3974,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Scales in a cluster.
+     * Scales in a CC cluster.
      *
      * @param request - ShrinkClusterRequest
      *
@@ -4041,7 +4126,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Tags resources.
+     * Applies tags to resources.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4092,7 +4177,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Tags resources.
+     * Applies tags to resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -4110,7 +4195,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Deletes a custom tag from a resource.
+     * Removes custom tags from resources.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4165,7 +4250,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Deletes a custom tag from a resource.
+     * Removes custom tags from resources.
      *
      * @param request - UntagResourcesRequest
      *
@@ -4183,7 +4268,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Update Node Group.
+     * Updates a node group.
+     *
+     * @remarks
+     * Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
      *
      * @param request - UpdateNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4250,7 +4338,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Update Node Group.
+     * Updates a node group.
+     *
+     * @remarks
+     * Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
      *
      * @param request - UpdateNodeGroupRequest
      *

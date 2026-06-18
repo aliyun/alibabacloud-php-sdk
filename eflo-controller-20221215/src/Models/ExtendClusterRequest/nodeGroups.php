@@ -64,6 +64,11 @@ class nodeGroups extends Model
     /**
      * @var string
      */
+    public $savingsPlanId;
+
+    /**
+     * @var string
+     */
     public $userData;
 
     /**
@@ -91,6 +96,7 @@ class nodeGroups extends Model
         'nodeTag' => 'NodeTag',
         'nodes' => 'Nodes',
         'period' => 'Period',
+        'savingsPlanId' => 'SavingsPlanId',
         'userData' => 'UserData',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -183,6 +189,10 @@ class nodeGroups extends Model
 
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+
+        if (null !== $this->savingsPlanId) {
+            $res['SavingsPlanId'] = $this->savingsPlanId;
         }
 
         if (null !== $this->userData) {
@@ -278,6 +288,10 @@ class nodeGroups extends Model
 
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+
+        if (isset($map['SavingsPlanId'])) {
+            $model->savingsPlanId = $map['SavingsPlanId'];
         }
 
         if (isset($map['UserData'])) {

@@ -113,6 +113,11 @@ class DescribeNodeResponseBody extends Model
     /**
      * @var string
      */
+    public $savingsPlanId;
+
+    /**
+     * @var string
+     */
     public $sn;
 
     /**
@@ -145,6 +150,7 @@ class DescribeNodeResponseBody extends Model
         'operatingState' => 'OperatingState',
         'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
+        'savingsPlanId' => 'SavingsPlanId',
         'sn' => 'Sn',
         'userData' => 'UserData',
         'zoneId' => 'ZoneId',
@@ -256,6 +262,10 @@ class DescribeNodeResponseBody extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->savingsPlanId) {
+            $res['SavingsPlanId'] = $this->savingsPlanId;
         }
 
         if (null !== $this->sn) {
@@ -373,6 +383,10 @@ class DescribeNodeResponseBody extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SavingsPlanId'])) {
+            $model->savingsPlanId = $map['SavingsPlanId'];
         }
 
         if (isset($map['Sn'])) {
