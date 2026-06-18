@@ -6,8 +6,14 @@ namespace AlibabaCloud\SDK\ModelStudio\V20260210;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\AddOrganizationMemberRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\AddOrganizationMemberResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\BatchAssignSeatsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\BatchAssignSeatsResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateTokenPlanKeyRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateTokenPlanKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DeleteApiKeyResponse;
@@ -18,6 +24,8 @@ use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DisableApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\EnableApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\EnableApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetSubscriptionSeatDetailsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetSubscriptionSeatDetailsResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListApiKeysResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListWorkspacesRequest;
@@ -36,7 +44,13 @@ class ModelStudio extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'eu-central-1' => 'modelstudio.eu-central-1.aliyuncs.com',
+            'cn-hongkong' => 'modelstudio.cn-hongkong.aliyuncs.com',
+            'cn-beijing' => 'modelstudio.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'modelstudio.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('modelstudio', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -66,7 +80,173 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 创建ApiKey.
+     * Creates an account and directly adds it as a member.
+     *
+     * @param request - AddOrganizationMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddOrganizationMemberResponse
+     *
+     * @param AddOrganizationMemberRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddOrganizationMemberResponse
+     */
+    public function addOrganizationMemberWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
+        }
+
+        if (null !== $request->callerUacAccountId) {
+            @$query['CallerUacAccountId'] = $request->callerUacAccountId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->orgId) {
+            @$query['OrgId'] = $request->orgId;
+        }
+
+        if (null !== $request->orgRoleCode) {
+            @$query['OrgRoleCode'] = $request->orgRoleCode;
+        }
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddOrganizationMember',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/organization/member-additions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return AddOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an account and directly adds it as a member.
+     *
+     * @param request - AddOrganizationMemberRequest
+     *
+     * @returns AddOrganizationMemberResponse
+     *
+     * @param AddOrganizationMemberRequest $request
+     *
+     * @return AddOrganizationMemberResponse
+     */
+    public function addOrganizationMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addOrganizationMemberWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Assigns seats in bulk to the member level.
+     *
+     * @param request - BatchAssignSeatsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchAssignSeatsResponse
+     *
+     * @param BatchAssignSeatsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BatchAssignSeatsResponse
+     */
+    public function batchAssignSeatsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountIds) {
+            @$query['AccountIds'] = $request->accountIds;
+        }
+
+        if (null !== $request->accountIdsStr) {
+            @$query['AccountIdsStr'] = $request->accountIdsStr;
+        }
+
+        if (null !== $request->callerUacAccountId) {
+            @$query['CallerUacAccountId'] = $request->callerUacAccountId;
+        }
+
+        if (null !== $request->locale) {
+            @$query['Locale'] = $request->locale;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->seatType) {
+            @$query['SeatType'] = $request->seatType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchAssignSeats',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/subscription/seat-assignments',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchAssignSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Assigns seats in bulk to the member level.
+     *
+     * @param request - BatchAssignSeatsRequest
+     *
+     * @returns BatchAssignSeatsResponse
+     *
+     * @param BatchAssignSeatsRequest $request
+     *
+     * @return BatchAssignSeatsResponse
+     */
+    public function batchAssignSeats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchAssignSeatsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
      *
      * @param request - CreateApiKeyRequest
      * @param headers - map
@@ -118,7 +298,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 创建ApiKey.
+     * Before using large models or applications in Alibaba Cloud Model Studio, create an API key as an authentication credential.
      *
      * @param request - CreateApiKeyRequest
      *
@@ -137,7 +317,84 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 创建业务空间.
+     * Creates a UAC API key.
+     *
+     * @param request - CreateTokenPlanKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTokenPlanKeyResponse
+     *
+     * @param CreateTokenPlanKeyRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateTokenPlanKeyResponse
+     */
+    public function createTokenPlanKeyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
+        }
+
+        if (null !== $request->callerUacAccountId) {
+            @$query['CallerUacAccountId'] = $request->callerUacAccountId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTokenPlanKey',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/api-keys',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTokenPlanKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a UAC API key.
+     *
+     * @param request - CreateTokenPlanKeyRequest
+     *
+     * @returns CreateTokenPlanKeyResponse
+     *
+     * @param CreateTokenPlanKeyRequest $request
+     *
+     * @return CreateTokenPlanKeyResponse
+     */
+    public function createTokenPlanKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTokenPlanKeyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a business workspace.
      *
      * @param request - CreateWorkspaceRequest
      * @param headers - map
@@ -183,7 +440,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 创建业务空间.
+     * Creates a business workspace.
      *
      * @param request - CreateWorkspaceRequest
      *
@@ -202,7 +459,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 删除apiKey.
+     * Deletes an authentication credential API key.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -236,7 +493,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 删除apiKey.
+     * Deletes an authentication credential API key.
      *
      * @returns DeleteApiKeyResponse
      *
@@ -253,7 +510,14 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 删除业务空间.
+     * Deletes a workspace.
+     *
+     * @remarks
+     * A workspace can be deleted only if the following conditional requirements are met:
+     * 1. The workspace is not the default workspace.
+     * 2. The workspace is not used to purchase other products, such as AMB.
+     * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
+     * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
      *
      * @param request - DeleteWorkspaceRequest
      * @param headers - map
@@ -290,7 +554,14 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 删除业务空间.
+     * Deletes a workspace.
+     *
+     * @remarks
+     * A workspace can be deleted only if the following conditional requirements are met:
+     * 1. The workspace is not the default workspace.
+     * 2. The workspace is not used to purchase other products, such as AMB.
+     * 3. In permission management, the workspace is not granted to Resource Access Management (RAM) users or RAM roles.
+     * 4. The workspace does not contain any resources, such as API keys, model deployments, or knowledge bases.
      *
      * @param request - DeleteWorkspaceRequest
      *
@@ -310,7 +581,10 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 禁用API Key.
+     * Disables an API key.
+     *
+     * @remarks
+     * An API key cannot be disabled if it is already disabled.
      *
      * @param request - DisableApiKeyRequest
      * @param headers - map
@@ -347,7 +621,10 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 禁用API Key.
+     * Disables an API key.
+     *
+     * @remarks
+     * An API key cannot be disabled if it is already disabled.
      *
      * @param request - DisableApiKeyRequest
      *
@@ -367,7 +644,10 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 启用API Key.
+     * Enables an API key.
+     *
+     * @remarks
+     * An API key that is already enabled cannot be enabled again.
      *
      * @param request - EnableApiKeyRequest
      * @param headers - map
@@ -404,7 +684,10 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 启用API Key.
+     * Enables an API key.
+     *
+     * @remarks
+     * An API key that is already enabled cannot be enabled again.
      *
      * @param request - EnableApiKeyRequest
      *
@@ -424,7 +707,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 查询ApiKey详情.
+     * Retrieves the information of a specified authentication credential API key.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -458,7 +741,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 查询ApiKey详情.
+     * Retrieves the information of a specified authentication credential API key.
      *
      * @returns GetApiKeyResponse
      *
@@ -475,7 +758,100 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 获取ApiKey列表.
+     * Queries seat details by paging.
+     *
+     * @param request - GetSubscriptionSeatDetailsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSubscriptionSeatDetailsResponse
+     *
+     * @param GetSubscriptionSeatDetailsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetSubscriptionSeatDetailsResponse
+     */
+    public function getSubscriptionSeatDetailsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callerUacAccountId) {
+            @$query['CallerUacAccountId'] = $request->callerUacAccountId;
+        }
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->queryAssigned) {
+            @$query['QueryAssigned'] = $request->queryAssigned;
+        }
+
+        if (null !== $request->seatId) {
+            @$query['SeatId'] = $request->seatId;
+        }
+
+        if (null !== $request->seatType) {
+            @$query['SeatType'] = $request->seatType;
+        }
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
+        }
+
+        if (null !== $request->statusListStr) {
+            @$query['StatusListStr'] = $request->statusListStr;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSubscriptionSeatDetails',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/subscription/seat-detail',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSubscriptionSeatDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries seat details by paging.
+     *
+     * @param request - GetSubscriptionSeatDetailsRequest
+     *
+     * @returns GetSubscriptionSeatDetailsResponse
+     *
+     * @param GetSubscriptionSeatDetailsRequest $request
+     *
+     * @return GetSubscriptionSeatDetailsResponse
+     */
+    public function getSubscriptionSeatDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSubscriptionSeatDetailsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Obtain the list of authentication credential API Key information.
      *
      * @param request - ListApiKeysRequest
      * @param headers - map
@@ -533,7 +909,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 获取ApiKey列表.
+     * Obtain the list of authentication credential API Key information.
      *
      * @param request - ListApiKeysRequest
      *
@@ -552,7 +928,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 业务空间列表.
+     * Retrieves the list of business workspaces.
      *
      * @param request - ListWorkspacesRequest
      * @param headers - map
@@ -606,7 +982,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 业务空间列表.
+     * Retrieves the list of business workspaces.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -625,7 +1001,10 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 重置API Key.
+     * Resets an API key.
+     *
+     * @remarks
+     * Only the API key value changes. The API key ID remains unchanged.
      *
      * @param request - ResetApiKeyRequest
      * @param headers - map
@@ -662,7 +1041,10 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 重置API Key.
+     * Resets an API key.
+     *
+     * @remarks
+     * Only the API key value changes. The API key ID remains unchanged.
      *
      * @param request - ResetApiKeyRequest
      *
@@ -682,7 +1064,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 编辑apiKey的描述.
+     * Edits the information of an authentication credential API key.
      *
      * @param request - UpdateApiKeyRequest
      * @param headers - map
@@ -731,7 +1113,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * 编辑apiKey的描述.
+     * Edits the information of an authentication credential API key.
      *
      * @param request - UpdateApiKeyRequest
      *
