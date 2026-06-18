@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Agency\V20250227\Models\GetCommissionDetailFileListResponse
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetCustomerOrderListRequest;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetCustomerOrderListResponse;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetCustomerOrderListShrinkRequest;
+use AlibabaCloud\SDK\Agency\V20250227\Models\GetIntlCommissionDetailFileListRequest;
+use AlibabaCloud\SDK\Agency\V20250227\Models\GetIntlCommissionDetailFileListResponse;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetRenewalRateListRequest;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetRenewalRateListResponse;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetSubPartnerListRequest;
@@ -87,6 +89,7 @@ class Agency extends OpenApiClient
             'rus-west-1-pop' => 'agency.aliyuncs.com',
             'us-east-1' => 'agency.aliyuncs.com',
             'us-west-1' => 'agency.aliyuncs.com',
+            'ap-southeast-1' => 'agency.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agency', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -117,7 +120,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query bill export files.
+     * Queries exported bill files.
      *
      * @param request - GetBillDetailFileListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -180,7 +183,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query bill export files.
+     * Queries exported bill files.
      *
      * @param request - GetBillDetailFileListRequest
      *
@@ -198,7 +201,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query partner commission details.
+     * Queries the commission details of a partner.
      *
      * @param request - GetCommissionDetailFileListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -261,7 +264,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query partner commission details.
+     * Queries the commission details of a partner.
      *
      * @param request - GetCommissionDetailFileListRequest
      *
@@ -279,7 +282,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query partner customer acquisition orders.
+     * Queries partner customer acquisition orders.
      *
      * @param tmpReq - GetCustomerOrderListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -392,7 +395,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query partner customer acquisition orders.
+     * Queries partner customer acquisition orders.
      *
      * @param request - GetCustomerOrderListRequest
      *
@@ -410,7 +413,96 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query partner renewal rate.
+     * Downloads the commission details of an international partner.
+     *
+     * @remarks
+     * Make sure that the current caller identity is a T1 distribution partner.
+     * <notice>Available only for international sites.</notice>.
+     *
+     * @param request - GetIntlCommissionDetailFileListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIntlCommissionDetailFileListResponse
+     *
+     * @param GetIntlCommissionDetailFileListRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetIntlCommissionDetailFileListResponse
+     */
+    public function getIntlCommissionDetailFileListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->billMonth) {
+            @$query['BillMonth'] = $request->billMonth;
+        }
+
+        if (null !== $request->ossAccessKeyId) {
+            @$query['OssAccessKeyId'] = $request->ossAccessKeyId;
+        }
+
+        if (null !== $request->ossAccessKeySecret) {
+            @$query['OssAccessKeySecret'] = $request->ossAccessKeySecret;
+        }
+
+        if (null !== $request->ossBucketName) {
+            @$query['OssBucketName'] = $request->ossBucketName;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
+        if (null !== $request->ossRegion) {
+            @$query['OssRegion'] = $request->ossRegion;
+        }
+
+        if (null !== $request->ossSecurityToken) {
+            @$query['OssSecurityToken'] = $request->ossSecurityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetIntlCommissionDetailFileList',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIntlCommissionDetailFileListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Downloads the commission details of an international partner.
+     *
+     * @remarks
+     * Make sure that the current caller identity is a T1 distribution partner.
+     * <notice>Available only for international sites.</notice>.
+     *
+     * @param request - GetIntlCommissionDetailFileListRequest
+     *
+     * @returns GetIntlCommissionDetailFileListResponse
+     *
+     * @param GetIntlCommissionDetailFileListRequest $request
+     *
+     * @return GetIntlCommissionDetailFileListResponse
+     */
+    public function getIntlCommissionDetailFileList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIntlCommissionDetailFileListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the partner renewal rate.
      *
      * @param request - GetRenewalRateListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -449,7 +541,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query partner renewal rate.
+     * Queries the partner renewal rate.
      *
      * @param request - GetRenewalRateListRequest
      *
@@ -467,7 +559,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query the list of second-tier distributors.
+     * Queries the list of secondary distributors.
      *
      * @param request - GetSubPartnerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -518,7 +610,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query the list of second-tier distributors.
+     * Queries the list of secondary distributors.
      *
      * @param request - GetSubPartnerListRequest
      *
@@ -536,7 +628,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query channel expansion orders.
+     * Queries channel expansion orders.
      *
      * @param tmpReq - GetSubPartnerOrderListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -645,7 +737,7 @@ class Agency extends OpenApiClient
     }
 
     /**
-     * Query channel expansion orders.
+     * Queries channel expansion orders.
      *
      * @param request - GetSubPartnerOrderListRequest
      *
