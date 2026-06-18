@@ -31,6 +31,11 @@ class recordModel extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $customPort;
+
+    /**
      * @var data
      */
     public $data;
@@ -39,6 +44,16 @@ class recordModel extends Model
      * @var string
      */
     public $hostPolicy;
+
+    /**
+     * @var string
+     */
+    public $httpPorts;
+
+    /**
+     * @var string
+     */
+    public $httpsPorts;
 
     /**
      * @var bool
@@ -94,8 +109,11 @@ class recordModel extends Model
         'bizName' => 'BizName',
         'comment' => 'Comment',
         'createTime' => 'CreateTime',
+        'customPort' => 'CustomPort',
         'data' => 'Data',
         'hostPolicy' => 'HostPolicy',
+        'httpPorts' => 'HttpPorts',
+        'httpsPorts' => 'HttpsPorts',
         'proxied' => 'Proxied',
         'recordCname' => 'RecordCname',
         'recordId' => 'RecordId',
@@ -138,12 +156,24 @@ class recordModel extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->customPort) {
+            $res['CustomPort'] = $this->customPort;
+        }
+
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         if (null !== $this->hostPolicy) {
             $res['HostPolicy'] = $this->hostPolicy;
+        }
+
+        if (null !== $this->httpPorts) {
+            $res['HttpPorts'] = $this->httpPorts;
+        }
+
+        if (null !== $this->httpsPorts) {
+            $res['HttpsPorts'] = $this->httpsPorts;
         }
 
         if (null !== $this->proxied) {
@@ -213,12 +243,24 @@ class recordModel extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['CustomPort'])) {
+            $model->customPort = $map['CustomPort'];
+        }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
 
         if (isset($map['HostPolicy'])) {
             $model->hostPolicy = $map['HostPolicy'];
+        }
+
+        if (isset($map['HttpPorts'])) {
+            $model->httpPorts = $map['HttpPorts'];
+        }
+
+        if (isset($map['HttpsPorts'])) {
+            $model->httpsPorts = $map['HttpsPorts'];
         }
 
         if (isset($map['Proxied'])) {

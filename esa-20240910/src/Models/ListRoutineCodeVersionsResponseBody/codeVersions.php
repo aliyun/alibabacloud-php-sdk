@@ -37,7 +37,17 @@ class codeVersions extends Model
     /**
      * @var string
      */
+    public $deployEnv;
+
+    /**
+     * @var string
+     */
     public $extraInfo;
+
+    /**
+     * @var bool
+     */
+    public $hasEnvVars;
 
     /**
      * @var string
@@ -49,7 +59,9 @@ class codeVersions extends Model
         'codeVersion' => 'CodeVersion',
         'confOptions' => 'ConfOptions',
         'createTime' => 'CreateTime',
+        'deployEnv' => 'DeployEnv',
         'extraInfo' => 'ExtraInfo',
+        'hasEnvVars' => 'HasEnvVars',
         'status' => 'Status',
     ];
 
@@ -84,8 +96,16 @@ class codeVersions extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->deployEnv) {
+            $res['DeployEnv'] = $this->deployEnv;
+        }
+
         if (null !== $this->extraInfo) {
             $res['ExtraInfo'] = $this->extraInfo;
+        }
+
+        if (null !== $this->hasEnvVars) {
+            $res['HasEnvVars'] = $this->hasEnvVars;
         }
 
         if (null !== $this->status) {
@@ -123,8 +143,16 @@ class codeVersions extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['DeployEnv'])) {
+            $model->deployEnv = $map['DeployEnv'];
+        }
+
         if (isset($map['ExtraInfo'])) {
             $model->extraInfo = $map['ExtraInfo'];
+        }
+
+        if (isset($map['HasEnvVars'])) {
+            $model->hasEnvVars = $map['HasEnvVars'];
         }
 
         if (isset($map['Status'])) {

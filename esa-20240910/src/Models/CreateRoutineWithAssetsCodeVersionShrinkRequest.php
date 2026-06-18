@@ -26,6 +26,11 @@ class CreateRoutineWithAssetsCodeVersionShrinkRequest extends Model
     /**
      * @var string
      */
+    public $deployEnv;
+
+    /**
+     * @var string
+     */
     public $extraInfo;
 
     /**
@@ -36,6 +41,7 @@ class CreateRoutineWithAssetsCodeVersionShrinkRequest extends Model
         'buildId' => 'BuildId',
         'codeDescription' => 'CodeDescription',
         'confOptionsShrink' => 'ConfOptions',
+        'deployEnv' => 'DeployEnv',
         'extraInfo' => 'ExtraInfo',
         'name' => 'Name',
     ];
@@ -58,6 +64,10 @@ class CreateRoutineWithAssetsCodeVersionShrinkRequest extends Model
 
         if (null !== $this->confOptionsShrink) {
             $res['ConfOptions'] = $this->confOptionsShrink;
+        }
+
+        if (null !== $this->deployEnv) {
+            $res['DeployEnv'] = $this->deployEnv;
         }
 
         if (null !== $this->extraInfo) {
@@ -89,6 +99,10 @@ class CreateRoutineWithAssetsCodeVersionShrinkRequest extends Model
 
         if (isset($map['ConfOptions'])) {
             $model->confOptionsShrink = $map['ConfOptions'];
+        }
+
+        if (isset($map['DeployEnv'])) {
+            $model->deployEnv = $map['DeployEnv'];
         }
 
         if (isset($map['ExtraInfo'])) {

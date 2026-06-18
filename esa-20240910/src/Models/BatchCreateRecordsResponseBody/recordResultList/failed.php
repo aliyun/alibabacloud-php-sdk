@@ -25,6 +25,16 @@ class failed extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $httpPorts;
+
+    /**
+     * @var string
+     */
+    public $httpsPorts;
+
+    /**
      * @var bool
      */
     public $proxied;
@@ -57,6 +67,8 @@ class failed extends Model
         'bizName' => 'BizName',
         'data' => 'Data',
         'description' => 'Description',
+        'httpPorts' => 'HttpPorts',
+        'httpsPorts' => 'HttpsPorts',
         'proxied' => 'Proxied',
         'recordId' => 'RecordId',
         'recordName' => 'RecordName',
@@ -86,6 +98,14 @@ class failed extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->httpPorts) {
+            $res['HttpPorts'] = $this->httpPorts;
+        }
+
+        if (null !== $this->httpsPorts) {
+            $res['HttpsPorts'] = $this->httpsPorts;
         }
 
         if (null !== $this->proxied) {
@@ -133,6 +153,14 @@ class failed extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['HttpPorts'])) {
+            $model->httpPorts = $map['HttpPorts'];
+        }
+
+        if (isset($map['HttpsPorts'])) {
+            $model->httpsPorts = $map['HttpsPorts'];
         }
 
         if (isset($map['Proxied'])) {

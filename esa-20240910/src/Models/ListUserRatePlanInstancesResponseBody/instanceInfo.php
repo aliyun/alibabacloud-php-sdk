@@ -105,6 +105,16 @@ class instanceInfo extends Model
     public $planType;
 
     /**
+     * @var int
+     */
+    public $renewalDuration;
+
+    /**
+     * @var string
+     */
+    public $renewalStatus;
+
+    /**
      * @var string
      */
     public $siteQuota;
@@ -153,6 +163,8 @@ class instanceInfo extends Model
         'planName' => 'PlanName',
         'planTraffic' => 'PlanTraffic',
         'planType' => 'PlanType',
+        'renewalDuration' => 'RenewalDuration',
+        'renewalStatus' => 'RenewalStatus',
         'siteQuota' => 'SiteQuota',
         'sites' => 'Sites',
         'smartRoutingRequest' => 'SmartRoutingRequest',
@@ -246,6 +258,14 @@ class instanceInfo extends Model
 
         if (null !== $this->planType) {
             $res['PlanType'] = $this->planType;
+        }
+
+        if (null !== $this->renewalDuration) {
+            $res['RenewalDuration'] = $this->renewalDuration;
+        }
+
+        if (null !== $this->renewalStatus) {
+            $res['RenewalStatus'] = $this->renewalStatus;
         }
 
         if (null !== $this->siteQuota) {
@@ -364,6 +384,14 @@ class instanceInfo extends Model
 
         if (isset($map['PlanType'])) {
             $model->planType = $map['PlanType'];
+        }
+
+        if (isset($map['RenewalDuration'])) {
+            $model->renewalDuration = $map['RenewalDuration'];
+        }
+
+        if (isset($map['RenewalStatus'])) {
+            $model->renewalStatus = $map['RenewalStatus'];
         }
 
         if (isset($map['SiteQuota'])) {

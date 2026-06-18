@@ -34,6 +34,16 @@ class CreateRecordShrinkRequest extends Model
     public $hostPolicy;
 
     /**
+     * @var string
+     */
+    public $httpPorts;
+
+    /**
+     * @var string
+     */
+    public $httpsPorts;
+
+    /**
      * @var bool
      */
     public $proxied;
@@ -68,6 +78,8 @@ class CreateRecordShrinkRequest extends Model
         'comment' => 'Comment',
         'dataShrink' => 'Data',
         'hostPolicy' => 'HostPolicy',
+        'httpPorts' => 'HttpPorts',
+        'httpsPorts' => 'HttpsPorts',
         'proxied' => 'Proxied',
         'recordName' => 'RecordName',
         'siteId' => 'SiteId',
@@ -102,6 +114,14 @@ class CreateRecordShrinkRequest extends Model
 
         if (null !== $this->hostPolicy) {
             $res['HostPolicy'] = $this->hostPolicy;
+        }
+
+        if (null !== $this->httpPorts) {
+            $res['HttpPorts'] = $this->httpPorts;
+        }
+
+        if (null !== $this->httpsPorts) {
+            $res['HttpsPorts'] = $this->httpsPorts;
         }
 
         if (null !== $this->proxied) {
@@ -157,6 +177,14 @@ class CreateRecordShrinkRequest extends Model
 
         if (isset($map['HostPolicy'])) {
             $model->hostPolicy = $map['HostPolicy'];
+        }
+
+        if (isset($map['HttpPorts'])) {
+            $model->httpPorts = $map['HttpPorts'];
+        }
+
+        if (isset($map['HttpsPorts'])) {
+            $model->httpsPorts = $map['HttpsPorts'];
         }
 
         if (isset($map['Proxied'])) {

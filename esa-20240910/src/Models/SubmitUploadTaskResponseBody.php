@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GenerateTraceDiagnoseRequest extends Model
+class SubmitUploadTaskResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $source;
+    public $requestId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $url;
+    public $uploadId;
     protected $_name = [
-        'source' => 'Source',
-        'url' => 'Url',
+        'requestId' => 'RequestId',
+        'uploadId' => 'UploadId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class GenerateTraceDiagnoseRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->uploadId) {
+            $res['UploadId'] = $this->uploadId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class GenerateTraceDiagnoseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['UploadId'])) {
+            $model->uploadId = $map['UploadId'];
         }
 
         return $model;

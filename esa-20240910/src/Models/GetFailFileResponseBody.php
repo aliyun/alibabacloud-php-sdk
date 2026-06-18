@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GenerateTraceDiagnoseRequest extends Model
+class GetFailFileResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $source;
+    public $downloadLink;
 
     /**
      * @var string
      */
-    public $url;
+    public $requestId;
     protected $_name = [
-        'source' => 'Source',
-        'url' => 'Url',
+        'downloadLink' => 'DownloadLink',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class GenerateTraceDiagnoseRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
+        if (null !== $this->downloadLink) {
+            $res['DownloadLink'] = $this->downloadLink;
         }
 
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class GenerateTraceDiagnoseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
+        if (isset($map['DownloadLink'])) {
+            $model->downloadLink = $map['DownloadLink'];
         }
 
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

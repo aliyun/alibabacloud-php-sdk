@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GenerateTraceDiagnoseRequest extends Model
+class DescribeCacheReservePriceGapRequest extends Model
 {
     /**
      * @var string
      */
-    public $source;
+    public $instanceId;
 
     /**
-     * @var string
+     * @var int
      */
-    public $url;
+    public $targetQuotaGb;
     protected $_name = [
-        'source' => 'Source',
-        'url' => 'Url',
+        'instanceId' => 'InstanceId',
+        'targetQuotaGb' => 'TargetQuotaGb',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class GenerateTraceDiagnoseRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->targetQuotaGb) {
+            $res['TargetQuotaGb'] = $this->targetQuotaGb;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class GenerateTraceDiagnoseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['TargetQuotaGb'])) {
+            $model->targetQuotaGb = $map['TargetQuotaGb'];
         }
 
         return $model;

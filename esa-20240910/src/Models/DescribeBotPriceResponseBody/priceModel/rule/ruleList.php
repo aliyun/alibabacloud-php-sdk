@@ -2,30 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ESA\V20240910\Models;
+namespace AlibabaCloud\SDK\ESA\V20240910\Models\DescribeBotPriceResponseBody\priceModel\rule;
 
 use AlibabaCloud\Dara\Model;
 
-class CommitRoutineStagingCodeRequest extends Model
+class ruleList extends Model
 {
     /**
      * @var string
      */
-    public $codeDescription;
-
-    /**
-     * @var string
-     */
-    public $deployEnv;
-
-    /**
-     * @var string
-     */
     public $name;
+
+    /**
+     * @var int
+     */
+    public $ruleDescId;
     protected $_name = [
-        'codeDescription' => 'CodeDescription',
-        'deployEnv' => 'DeployEnv',
         'name' => 'Name',
+        'ruleDescId' => 'RuleDescId',
     ];
 
     public function validate()
@@ -36,16 +30,12 @@ class CommitRoutineStagingCodeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->codeDescription) {
-            $res['CodeDescription'] = $this->codeDescription;
-        }
-
-        if (null !== $this->deployEnv) {
-            $res['DeployEnv'] = $this->deployEnv;
-        }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->ruleDescId) {
+            $res['RuleDescId'] = $this->ruleDescId;
         }
 
         return $res;
@@ -59,16 +49,12 @@ class CommitRoutineStagingCodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CodeDescription'])) {
-            $model->codeDescription = $map['CodeDescription'];
-        }
-
-        if (isset($map['DeployEnv'])) {
-            $model->deployEnv = $map['DeployEnv'];
-        }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RuleDescId'])) {
+            $model->ruleDescId = $map['RuleDescId'];
         }
 
         return $model;

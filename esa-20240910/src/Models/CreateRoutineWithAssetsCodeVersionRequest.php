@@ -27,6 +27,11 @@ class CreateRoutineWithAssetsCodeVersionRequest extends Model
     /**
      * @var string
      */
+    public $deployEnv;
+
+    /**
+     * @var string
+     */
     public $extraInfo;
 
     /**
@@ -37,6 +42,7 @@ class CreateRoutineWithAssetsCodeVersionRequest extends Model
         'buildId' => 'BuildId',
         'codeDescription' => 'CodeDescription',
         'confOptions' => 'ConfOptions',
+        'deployEnv' => 'DeployEnv',
         'extraInfo' => 'ExtraInfo',
         'name' => 'Name',
     ];
@@ -62,6 +68,10 @@ class CreateRoutineWithAssetsCodeVersionRequest extends Model
 
         if (null !== $this->confOptions) {
             $res['ConfOptions'] = null !== $this->confOptions ? $this->confOptions->toArray($noStream) : $this->confOptions;
+        }
+
+        if (null !== $this->deployEnv) {
+            $res['DeployEnv'] = $this->deployEnv;
         }
 
         if (null !== $this->extraInfo) {
@@ -93,6 +103,10 @@ class CreateRoutineWithAssetsCodeVersionRequest extends Model
 
         if (isset($map['ConfOptions'])) {
             $model->confOptions = confOptions::fromMap($map['ConfOptions']);
+        }
+
+        if (isset($map['DeployEnv'])) {
+            $model->deployEnv = $map['DeployEnv'];
         }
 
         if (isset($map['ExtraInfo'])) {

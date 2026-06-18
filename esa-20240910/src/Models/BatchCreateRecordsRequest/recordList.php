@@ -26,6 +26,16 @@ class recordList extends Model
     public $data;
 
     /**
+     * @var string
+     */
+    public $httpPorts;
+
+    /**
+     * @var string
+     */
+    public $httpsPorts;
+
+    /**
      * @var bool
      */
     public $proxied;
@@ -53,6 +63,8 @@ class recordList extends Model
         'authConf' => 'AuthConf',
         'bizName' => 'BizName',
         'data' => 'Data',
+        'httpPorts' => 'HttpPorts',
+        'httpsPorts' => 'HttpsPorts',
         'proxied' => 'Proxied',
         'recordName' => 'RecordName',
         'sourceType' => 'SourceType',
@@ -84,6 +96,14 @@ class recordList extends Model
 
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+        }
+
+        if (null !== $this->httpPorts) {
+            $res['HttpPorts'] = $this->httpPorts;
+        }
+
+        if (null !== $this->httpsPorts) {
+            $res['HttpsPorts'] = $this->httpsPorts;
         }
 
         if (null !== $this->proxied) {
@@ -127,6 +147,14 @@ class recordList extends Model
 
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
+        }
+
+        if (isset($map['HttpPorts'])) {
+            $model->httpPorts = $map['HttpPorts'];
+        }
+
+        if (isset($map['HttpsPorts'])) {
+            $model->httpsPorts = $map['HttpsPorts'];
         }
 
         if (isset($map['Proxied'])) {

@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GenerateTraceDiagnoseRequest extends Model
+class DescribeBotPriceRequest extends Model
 {
     /**
      * @var string
      */
-    public $source;
-
-    /**
-     * @var string
-     */
-    public $url;
+    public $botInstanceLevel;
     protected $_name = [
-        'source' => 'Source',
-        'url' => 'Url',
+        'botInstanceLevel' => 'BotInstanceLevel',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class GenerateTraceDiagnoseRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
-        }
-
-        if (null !== $this->url) {
-            $res['Url'] = $this->url;
+        if (null !== $this->botInstanceLevel) {
+            $res['BotInstanceLevel'] = $this->botInstanceLevel;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class GenerateTraceDiagnoseRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
-        }
-
-        if (isset($map['Url'])) {
-            $model->url = $map['Url'];
+        if (isset($map['BotInstanceLevel'])) {
+            $model->botInstanceLevel = $map['BotInstanceLevel'];
         }
 
         return $model;

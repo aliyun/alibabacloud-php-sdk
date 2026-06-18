@@ -14,6 +14,11 @@ class ListRecordsRequest extends Model
     public $bizName;
 
     /**
+     * @var string
+     */
+    public $customPort;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -54,6 +59,7 @@ class ListRecordsRequest extends Model
     public $type;
     protected $_name = [
         'bizName' => 'BizName',
+        'customPort' => 'CustomPort',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'proxied' => 'Proxied',
@@ -74,6 +80,10 @@ class ListRecordsRequest extends Model
         $res = [];
         if (null !== $this->bizName) {
             $res['BizName'] = $this->bizName;
+        }
+
+        if (null !== $this->customPort) {
+            $res['CustomPort'] = $this->customPort;
         }
 
         if (null !== $this->pageNumber) {
@@ -121,6 +131,10 @@ class ListRecordsRequest extends Model
         $model = new self();
         if (isset($map['BizName'])) {
             $model->bizName = $map['BizName'];
+        }
+
+        if (isset($map['CustomPort'])) {
+            $model->customPort = $map['CustomPort'];
         }
 
         if (isset($map['PageNumber'])) {
