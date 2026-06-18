@@ -76,6 +76,16 @@ class UpdateModelApplicationRequest extends Model
     public $dtmfRetryPromptText;
 
     /**
+     * @var int
+     */
+    public $dtmfSendMaxCount;
+
+    /**
+     * @var int
+     */
+    public $dtmfSendWaitTimeout;
+
+    /**
      * @var string
      */
     public $dyvmsSceneName;
@@ -84,6 +94,11 @@ class UpdateModelApplicationRequest extends Model
      * @var bool
      */
     public $enableDtmfReceive;
+
+    /**
+     * @var bool
+     */
+    public $enableDtmfSend;
 
     /**
      * @var bool
@@ -119,6 +134,11 @@ class UpdateModelApplicationRequest extends Model
      * @var int
      */
     public $muteHangupNum;
+
+    /**
+     * @var string
+     */
+    public $mutePushMode;
 
     /**
      * @var int
@@ -208,8 +228,11 @@ class UpdateModelApplicationRequest extends Model
         'dtmfOutOfRangeAction' => 'DtmfOutOfRangeAction',
         'dtmfRetryPlayTimes' => 'DtmfRetryPlayTimes',
         'dtmfRetryPromptText' => 'DtmfRetryPromptText',
+        'dtmfSendMaxCount' => 'DtmfSendMaxCount',
+        'dtmfSendWaitTimeout' => 'DtmfSendWaitTimeout',
         'dyvmsSceneName' => 'DyvmsSceneName',
         'enableDtmfReceive' => 'EnableDtmfReceive',
+        'enableDtmfSend' => 'EnableDtmfSend',
         'enableMorse' => 'EnableMorse',
         'interruptConfig' => 'InterruptConfig',
         'modelCode' => 'ModelCode',
@@ -217,6 +240,7 @@ class UpdateModelApplicationRequest extends Model
         'muteActive' => 'MuteActive',
         'muteDuration' => 'MuteDuration',
         'muteHangupNum' => 'MuteHangupNum',
+        'mutePushMode' => 'MutePushMode',
         'ownerId' => 'OwnerId',
         'prompt' => 'Prompt',
         'qualificationId' => 'QualificationId',
@@ -300,12 +324,24 @@ class UpdateModelApplicationRequest extends Model
             $res['DtmfRetryPromptText'] = $this->dtmfRetryPromptText;
         }
 
+        if (null !== $this->dtmfSendMaxCount) {
+            $res['DtmfSendMaxCount'] = $this->dtmfSendMaxCount;
+        }
+
+        if (null !== $this->dtmfSendWaitTimeout) {
+            $res['DtmfSendWaitTimeout'] = $this->dtmfSendWaitTimeout;
+        }
+
         if (null !== $this->dyvmsSceneName) {
             $res['DyvmsSceneName'] = $this->dyvmsSceneName;
         }
 
         if (null !== $this->enableDtmfReceive) {
             $res['EnableDtmfReceive'] = $this->enableDtmfReceive;
+        }
+
+        if (null !== $this->enableDtmfSend) {
+            $res['EnableDtmfSend'] = $this->enableDtmfSend;
         }
 
         if (null !== $this->enableMorse) {
@@ -334,6 +370,10 @@ class UpdateModelApplicationRequest extends Model
 
         if (null !== $this->muteHangupNum) {
             $res['MuteHangupNum'] = $this->muteHangupNum;
+        }
+
+        if (null !== $this->mutePushMode) {
+            $res['MutePushMode'] = $this->mutePushMode;
         }
 
         if (null !== $this->ownerId) {
@@ -459,12 +499,24 @@ class UpdateModelApplicationRequest extends Model
             $model->dtmfRetryPromptText = $map['DtmfRetryPromptText'];
         }
 
+        if (isset($map['DtmfSendMaxCount'])) {
+            $model->dtmfSendMaxCount = $map['DtmfSendMaxCount'];
+        }
+
+        if (isset($map['DtmfSendWaitTimeout'])) {
+            $model->dtmfSendWaitTimeout = $map['DtmfSendWaitTimeout'];
+        }
+
         if (isset($map['DyvmsSceneName'])) {
             $model->dyvmsSceneName = $map['DyvmsSceneName'];
         }
 
         if (isset($map['EnableDtmfReceive'])) {
             $model->enableDtmfReceive = $map['EnableDtmfReceive'];
+        }
+
+        if (isset($map['EnableDtmfSend'])) {
+            $model->enableDtmfSend = $map['EnableDtmfSend'];
         }
 
         if (isset($map['EnableMorse'])) {
@@ -493,6 +545,10 @@ class UpdateModelApplicationRequest extends Model
 
         if (isset($map['MuteHangupNum'])) {
             $model->muteHangupNum = $map['MuteHangupNum'];
+        }
+
+        if (isset($map['MutePushMode'])) {
+            $model->mutePushMode = $map['MutePushMode'];
         }
 
         if (isset($map['OwnerId'])) {
