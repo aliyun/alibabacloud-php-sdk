@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAIServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAIServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBranchRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBranchResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionShrinkRequest;
@@ -91,6 +93,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSecretRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSecretResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSnapshotRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSnapshotResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateStreamingDataSourceRequest;
@@ -112,6 +116,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAIServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAIServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBranchRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBranchResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteChunksRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteChunksResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteChunksShrinkRequest;
@@ -155,6 +161,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSaasServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSaasServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSecretRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSecretResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSnapshotRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSnapshotResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataSourceRequest;
@@ -181,6 +189,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupPolicyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBranchRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBranchResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCreateIndexJobRequest;
@@ -332,6 +342,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetBranchSchemaRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetBranchSchemaResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetGraphRAGJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetGraphRAGJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSaasServiceRequest;
@@ -364,6 +376,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAIServicesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAIServicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBranchesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBranchesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListChunksRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListChunksResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
@@ -511,6 +525,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetSupabaseProjectPasswordRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetSupabaseProjectPasswordResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartSupabaseProjectRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartSupabaseProjectResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestoreSnapshotRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestoreSnapshotResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeInstanceRequest;
@@ -2104,6 +2122,113 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a Supabase project branch.
+     *
+     * @remarks
+     * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+     *
+     * @param Request - CreateBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBranchResponse
+     *
+     * @param CreateBranchRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateBranchResponse
+     */
+    public function createBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->expiresAt) {
+            @$query['ExpiresAt'] = $request->expiresAt;
+        }
+
+        if (null !== $request->initSource) {
+            @$query['InitSource'] = $request->initSource;
+        }
+
+        if (null !== $request->parentBranchId) {
+            @$query['ParentBranchId'] = $request->parentBranchId;
+        }
+
+        if (null !== $request->parentLsn) {
+            @$query['ParentLsn'] = $request->parentLsn;
+        }
+
+        if (null !== $request->parentTimestamp) {
+            @$query['ParentTimestamp'] = $request->parentTimestamp;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->protected) {
+            @$query['Protected'] = $request->protected;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBranch',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a Supabase project branch.
+     *
+     * @remarks
+     * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+     *
+     * @param Request - CreateBranchRequest
+     *
+     * @returns CreateBranchResponse
+     *
+     * @param CreateBranchRequest $request
+     *
+     * @return CreateBranchResponse
+     */
+    public function createBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBranchWithOptions($request, $runtime);
     }
 
     /**
@@ -4038,6 +4163,85 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Creates a snapshot for a Supabase project.
+     *
+     * @remarks
+     * Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+     *
+     * @param Request - CreateSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSnapshotResponse
+     *
+     * @param CreateSnapshotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateSnapshotResponse
+     */
+    public function createSnapshotWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->lsn) {
+            @$query['Lsn'] = $request->lsn;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->snapshotTimestamp) {
+            @$query['SnapshotTimestamp'] = $request->snapshotTimestamp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSnapshot',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a snapshot for a Supabase project.
+     *
+     * @remarks
+     * Creates a snapshot for a Supabase project based on a specified point in time or Log Sequence Number (LSN). You must specify either SnapshotTimestamp or Lsn. ClientToken is used to ensure idempotence of the request.
+     *
+     * @param Request - CreateSnapshotRequest
+     *
+     * @returns CreateSnapshotResponse
+     *
+     * @param CreateSnapshotRequest $request
+     *
+     * @return CreateSnapshotResponse
+     */
+    public function createSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
      * Create External Data Source Configuration.
      *
      * @param Request - CreateStreamingDataServiceRequest
@@ -4354,7 +4558,7 @@ class Gpdb extends OpenApiClient
      * Creates a Supabase project.
      *
      * @remarks
-     * - This operation is used to create a Supabase instance.
+     * Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
      *
      * @param Request - CreateSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4456,7 +4660,7 @@ class Gpdb extends OpenApiClient
      * Creates a Supabase project.
      *
      * @remarks
-     * - This operation is used to create a Supabase instance.
+     * Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
      *
      * @param Request - CreateSupabaseProjectRequest
      *
@@ -4923,6 +5127,73 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a Supabase branch.
+     *
+     * @remarks
+     * Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+     *
+     * @param Request - DeleteBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBranchResponse
+     *
+     * @param DeleteBranchRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteBranchResponse
+     */
+    public function deleteBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteBranch',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a Supabase branch.
+     *
+     * @remarks
+     * Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+     *
+     * @param Request - DeleteBranchRequest
+     *
+     * @returns DeleteBranchResponse
+     *
+     * @param DeleteBranchRequest $request
+     *
+     * @return DeleteBranchResponse
+     */
+    public function deleteBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBranchWithOptions($request, $runtime);
     }
 
     /**
@@ -6443,6 +6714,77 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 删除恢复点.
+     *
+     * @remarks
+     * 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+     *
+     * @param Request - DeleteSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSnapshotResponse
+     *
+     * @param DeleteSnapshotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSnapshotResponse
+     */
+    public function deleteSnapshotWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->lsn) {
+            @$query['Lsn'] = $request->lsn;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSnapshot',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除恢复点.
+     *
+     * @remarks
+     * 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+     *
+     * @param Request - DeleteSnapshotRequest
+     *
+     * @returns DeleteSnapshotResponse
+     *
+     * @param DeleteSnapshotRequest $request
+     *
+     * @return DeleteSnapshotResponse
+     */
+    public function deleteSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSnapshotWithOptions($request, $runtime);
+    }
+
+    /**
      * Delete a real-time data service.
      *
      * @param Request - DeleteStreamingDataServiceRequest
@@ -7355,6 +7697,73 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a Supabase branch.
+     *
+     * @remarks
+     * Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+     *
+     * @param Request - DescribeBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBranchResponse
+     *
+     * @param DescribeBranchRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeBranchResponse
+     */
+    public function describeBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeBranch',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a Supabase branch.
+     *
+     * @remarks
+     * Queries the detailed information of a specified Supabase branch, including basic branch attributes, parent branch information, protection status, and connection information.
+     *
+     * @param Request - DescribeBranchRequest
+     *
+     * @returns DescribeBranchResponse
+     *
+     * @param DescribeBranchRequest $request
+     *
+     * @return DescribeBranchResponse
+     */
+    public function describeBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBranchWithOptions($request, $runtime);
     }
 
     /**
@@ -13162,6 +13571,81 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Retrieves the database schema of a Supabase branch.
+     *
+     * @remarks
+     * Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+     *
+     * @param Request - GetBranchSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBranchSchemaResponse
+     *
+     * @param GetBranchSchemaRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetBranchSchemaResponse
+     */
+    public function getBranchSchemaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBranchSchema',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBranchSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the database schema of a Supabase branch.
+     *
+     * @remarks
+     * Queries the schema SQL content of a specified database in a specified branch. The system databases postgres, template0, and template1 are not supported.
+     *
+     * @param Request - GetBranchSchemaRequest
+     *
+     * @returns GetBranchSchemaResponse
+     *
+     * @param GetBranchSchemaRequest $request
+     *
+     * @return GetBranchSchemaResponse
+     */
+    public function getBranchSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBranchSchemaWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves a task to build a knowledge graph.
      *
      * @param Request - GetGraphRAGJobRequest
@@ -14351,6 +14835,101 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBackupJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query the branch list of a Supabase project.
+     *
+     * @remarks
+     * This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+     *
+     * @param Request - ListBranchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBranchesResponse
+     *
+     * @param ListBranchesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListBranchesResponse
+     */
+    public function listBranchesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->parentBranchId) {
+            @$query['ParentBranchId'] = $request->parentBranchId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->search) {
+            @$query['Search'] = $request->search;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBranches',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query the branch list of a Supabase project.
+     *
+     * @remarks
+     * This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+     *
+     * @param Request - ListBranchesRequest
+     *
+     * @returns ListBranchesResponse
+     *
+     * @param ListBranchesRequest $request
+     *
+     * @return ListBranchesResponse
+     */
+    public function listBranches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBranchesWithOptions($request, $runtime);
     }
 
     /**
@@ -20035,6 +20614,160 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Restarts a Supabase project.
+     *
+     * @remarks
+     * Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+     *
+     * @param Request - RestartSupabaseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartSupabaseProjectResponse
+     *
+     * @param RestartSupabaseProjectRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return RestartSupabaseProjectResponse
+     */
+    public function restartSupabaseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartSupabaseProject',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartSupabaseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restarts a Supabase project.
+     *
+     * @remarks
+     * Restarts a specified Supabase project. After a successful call, a request ID is returned, and the restart process is executed asynchronously in the backend.
+     *
+     * @param Request - RestartSupabaseProjectRequest
+     *
+     * @returns RestartSupabaseProjectResponse
+     *
+     * @param RestartSupabaseProjectRequest $request
+     *
+     * @return RestartSupabaseProjectResponse
+     */
+    public function restartSupabaseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartSupabaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Restores a Supabase project from a snapshot.
+     *
+     * @remarks
+     * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+     *
+     * @param Request - RestoreSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreSnapshotResponse
+     *
+     * @param RestoreSnapshotRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestoreSnapshotResponse
+     */
+    public function restoreSnapshotWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->finalizeRestore) {
+            @$query['FinalizeRestore'] = $request->finalizeRestore;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->restoredBranchName) {
+            @$query['RestoredBranchName'] = $request->restoredBranchName;
+        }
+
+        if (null !== $request->restoredLsn) {
+            @$query['RestoredLsn'] = $request->restoredLsn;
+        }
+
+        if (null !== $request->targetBranchId) {
+            @$query['TargetBranchId'] = $request->targetBranchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestoreSnapshot',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestoreSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restores a Supabase project from a snapshot.
+     *
+     * @remarks
+     * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+     *
+     * @param Request - RestoreSnapshotRequest
+     *
+     * @returns RestoreSnapshotResponse
+     *
+     * @param RestoreSnapshotRequest $request
+     *
+     * @return RestoreSnapshotResponse
+     */
+    public function restoreSnapshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restoreSnapshotWithOptions($request, $runtime);
     }
 
     /**
