@@ -21,10 +21,16 @@ class NotifyAppNotificationForAdminRequest extends Model
     /**
      * @var string
      */
+    public $payload;
+
+    /**
+     * @var string
+     */
     public $sceneId;
     protected $_name = [
         'bizId' => 'BizId',
         'env' => 'Env',
+        'payload' => 'Payload',
         'sceneId' => 'SceneId',
     ];
 
@@ -42,6 +48,10 @@ class NotifyAppNotificationForAdminRequest extends Model
 
         if (null !== $this->env) {
             $res['Env'] = $this->env;
+        }
+
+        if (null !== $this->payload) {
+            $res['Payload'] = $this->payload;
         }
 
         if (null !== $this->sceneId) {
@@ -65,6 +75,10 @@ class NotifyAppNotificationForAdminRequest extends Model
 
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
+        }
+
+        if (isset($map['Payload'])) {
+            $model->payload = $map['Payload'];
         }
 
         if (isset($map['SceneId'])) {

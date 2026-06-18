@@ -26,6 +26,16 @@ class AppInstanceProfile extends Model
     /**
      * @var string
      */
+    public $chatbiTaskId;
+
+    /**
+     * @var string
+     */
+    public $chatbiTaskStatus;
+
+    /**
+     * @var string
+     */
     public $commodityCode;
 
     /**
@@ -42,6 +52,11 @@ class AppInstanceProfile extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var bool
+     */
+    public $openChatBi;
 
     /**
      * @var string
@@ -92,24 +107,17 @@ class AppInstanceProfile extends Model
      * @var string
      */
     public $templateId;
-
-    /**
-     * @var string
-     */
-    public $chatbiTaskId;
-
-    /**
-     * @var string
-     */
-    public $chatbiTaskStatus;
     protected $_name = [
         'applicationType' => 'ApplicationType',
         'applicationTypeText' => 'ApplicationTypeText',
         'bizId' => 'BizId',
+        'chatbiTaskId' => 'ChatbiTaskId',
+        'chatbiTaskStatus' => 'ChatbiTaskStatus',
         'commodityCode' => 'CommodityCode',
         'customerService' => 'CustomerService',
         'deployArea' => 'DeployArea',
         'instanceId' => 'InstanceId',
+        'openChatBi' => 'OpenChatBi',
         'ordTime' => 'OrdTime',
         'orderId' => 'OrderId',
         'payTime' => 'PayTime',
@@ -120,8 +128,6 @@ class AppInstanceProfile extends Model
         'source' => 'Source',
         'templateEtag' => 'TemplateEtag',
         'templateId' => 'TemplateId',
-        'chatbiTaskId' => 'chatbiTaskId',
-        'chatbiTaskStatus' => 'chatbiTaskStatus',
     ];
 
     public function validate()
@@ -144,6 +150,14 @@ class AppInstanceProfile extends Model
             $res['BizId'] = $this->bizId;
         }
 
+        if (null !== $this->chatbiTaskId) {
+            $res['ChatbiTaskId'] = $this->chatbiTaskId;
+        }
+
+        if (null !== $this->chatbiTaskStatus) {
+            $res['ChatbiTaskStatus'] = $this->chatbiTaskStatus;
+        }
+
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
@@ -158,6 +172,10 @@ class AppInstanceProfile extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->openChatBi) {
+            $res['OpenChatBi'] = $this->openChatBi;
         }
 
         if (null !== $this->ordTime) {
@@ -200,14 +218,6 @@ class AppInstanceProfile extends Model
             $res['TemplateId'] = $this->templateId;
         }
 
-        if (null !== $this->chatbiTaskId) {
-            $res['chatbiTaskId'] = $this->chatbiTaskId;
-        }
-
-        if (null !== $this->chatbiTaskStatus) {
-            $res['chatbiTaskStatus'] = $this->chatbiTaskStatus;
-        }
-
         return $res;
     }
 
@@ -231,6 +241,14 @@ class AppInstanceProfile extends Model
             $model->bizId = $map['BizId'];
         }
 
+        if (isset($map['ChatbiTaskId'])) {
+            $model->chatbiTaskId = $map['ChatbiTaskId'];
+        }
+
+        if (isset($map['ChatbiTaskStatus'])) {
+            $model->chatbiTaskStatus = $map['ChatbiTaskStatus'];
+        }
+
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
@@ -245,6 +263,10 @@ class AppInstanceProfile extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['OpenChatBi'])) {
+            $model->openChatBi = $map['OpenChatBi'];
         }
 
         if (isset($map['OrdTime'])) {
@@ -285,14 +307,6 @@ class AppInstanceProfile extends Model
 
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
-        }
-
-        if (isset($map['chatbiTaskId'])) {
-            $model->chatbiTaskId = $map['chatbiTaskId'];
-        }
-
-        if (isset($map['chatbiTaskStatus'])) {
-            $model->chatbiTaskStatus = $map['chatbiTaskStatus'];
         }
 
         return $model;

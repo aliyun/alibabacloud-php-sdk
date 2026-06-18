@@ -299,7 +299,11 @@ class WebsiteBuild extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'public' => 'websitebuild.aliyuncs.com',
+            'cn-zhangjiakou' => 'websitebuild.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('websitebuild', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -817,10 +821,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 试用转正.
+     * Converts a trial instance to a paid instance.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - ConfirmAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -903,10 +907,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 试用转正.
+     * Converts a trial instance to a paid instance.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - ConfirmAppInstanceRequest
      *
@@ -5960,6 +5964,10 @@ class WebsiteBuild extends OpenApiClient
         $tmpReq->validate();
         $request = new ListAppInstancesShrinkRequest([]);
         Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->bizIds) {
+            $request->bizIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->bizIds, 'BizIds', 'json');
+        }
+
         if (null !== $tmpReq->statusList) {
             $request->statusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'json');
         }
@@ -5967,6 +5975,10 @@ class WebsiteBuild extends OpenApiClient
         $query = [];
         if (null !== $request->bizId) {
             @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->bizIdsShrink) {
+            @$query['BizIds'] = $request->bizIdsShrink;
         }
 
         if (null !== $request->endTimeBegin) {
@@ -6970,10 +6982,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 数据变更通知触发（for admin）.
+     * Triggers a data change notification (for admin).
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - NotifyAppNotificationForAdminRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6995,6 +7007,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->env) {
             @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->payload) {
+            @$query['Payload'] = $request->payload;
         }
 
         if (null !== $request->sceneId) {
@@ -7020,10 +7036,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 数据变更通知触发（for admin）.
+     * Triggers a data change notification (for admin).
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - NotifyAppNotificationForAdminRequest
      *

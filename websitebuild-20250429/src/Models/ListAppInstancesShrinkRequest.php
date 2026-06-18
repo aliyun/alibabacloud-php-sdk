@@ -16,6 +16,11 @@ class ListAppInstancesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $bizIdsShrink;
+
+    /**
+     * @var string
+     */
     public $endTimeBegin;
 
     /**
@@ -69,6 +74,7 @@ class ListAppInstancesShrinkRequest extends Model
     public $statusListShrink;
     protected $_name = [
         'bizId' => 'BizId',
+        'bizIdsShrink' => 'BizIds',
         'endTimeBegin' => 'EndTimeBegin',
         'endTimeEnd' => 'EndTimeEnd',
         'extend' => 'Extend',
@@ -92,6 +98,10 @@ class ListAppInstancesShrinkRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->bizIdsShrink) {
+            $res['BizIds'] = $this->bizIdsShrink;
         }
 
         if (null !== $this->endTimeBegin) {
@@ -151,6 +161,10 @@ class ListAppInstancesShrinkRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['BizIds'])) {
+            $model->bizIdsShrink = $map['BizIds'];
         }
 
         if (isset($map['EndTimeBegin'])) {

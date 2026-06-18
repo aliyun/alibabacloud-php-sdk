@@ -14,6 +14,11 @@ class ListAppInstancesRequest extends Model
     public $bizId;
 
     /**
+     * @var string[]
+     */
+    public $bizIds;
+
+    /**
      * @var string
      */
     public $endTimeBegin;
@@ -69,6 +74,7 @@ class ListAppInstancesRequest extends Model
     public $statusList;
     protected $_name = [
         'bizId' => 'BizId',
+        'bizIds' => 'BizIds',
         'endTimeBegin' => 'EndTimeBegin',
         'endTimeEnd' => 'EndTimeEnd',
         'extend' => 'Extend',
@@ -84,6 +90,9 @@ class ListAppInstancesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->bizIds)) {
+            Model::validateArray($this->bizIds);
+        }
         if (\is_array($this->statusList)) {
             Model::validateArray($this->statusList);
         }
@@ -95,6 +104,17 @@ class ListAppInstancesRequest extends Model
         $res = [];
         if (null !== $this->bizId) {
             $res['BizId'] = $this->bizId;
+        }
+
+        if (null !== $this->bizIds) {
+            if (\is_array($this->bizIds)) {
+                $res['BizIds'] = [];
+                $n1 = 0;
+                foreach ($this->bizIds as $item1) {
+                    $res['BizIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->endTimeBegin) {
@@ -161,6 +181,17 @@ class ListAppInstancesRequest extends Model
         $model = new self();
         if (isset($map['BizId'])) {
             $model->bizId = $map['BizId'];
+        }
+
+        if (isset($map['BizIds'])) {
+            if (!empty($map['BizIds'])) {
+                $model->bizIds = [];
+                $n1 = 0;
+                foreach ($map['BizIds'] as $item1) {
+                    $model->bizIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['EndTimeBegin'])) {
