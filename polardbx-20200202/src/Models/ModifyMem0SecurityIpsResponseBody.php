@@ -5,10 +5,10 @@
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0InfoResponseBody\accessDeniedDetail;
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0InfoResponseBody\data;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyMem0SecurityIpsResponseBody\accessDeniedDetail;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyMem0SecurityIpsResponseBody\data;
 
-class DescribeMem0InfoResponseBody extends Model
+class ModifyMem0SecurityIpsResponseBody extends Model
 {
     /**
      * @var accessDeniedDetail

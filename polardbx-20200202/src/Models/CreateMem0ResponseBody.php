@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0ResponseBody\accessDeniedDetail;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0ResponseBody\data;
 
 class CreateMem0ResponseBody extends Model
 {
+    /**
+     * @var accessDeniedDetail
+     */
+    public $accessDeniedDetail;
+
     /**
      * @var data
      */
@@ -19,12 +25,16 @@ class CreateMem0ResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->accessDeniedDetail) {
+            $this->accessDeniedDetail->validate();
+        }
         if (null !== $this->data) {
             $this->data->validate();
         }
@@ -34,6 +44,10 @@ class CreateMem0ResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toArray($noStream) : $this->accessDeniedDetail;
+        }
+
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
@@ -53,6 +67,10 @@ class CreateMem0ResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
+        }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }

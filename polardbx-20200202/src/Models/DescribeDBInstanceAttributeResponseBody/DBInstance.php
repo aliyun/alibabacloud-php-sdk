@@ -115,6 +115,11 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $dnStorageSpace;
+
+    /**
+     * @var string
+     */
     public $engine;
 
     /**
@@ -322,6 +327,7 @@ class DBInstance extends Model
         'differentDNSpec' => 'DifferentDNSpec',
         'dnNodeClassCode' => 'DnNodeClassCode',
         'dnNodeCount' => 'DnNodeCount',
+        'dnStorageSpace' => 'DnStorageSpace',
         'engine' => 'Engine',
         'engineVersion' => 'EngineVersion',
         'expireDate' => 'ExpireDate',
@@ -490,6 +496,10 @@ class DBInstance extends Model
 
         if (null !== $this->dnNodeCount) {
             $res['DnNodeCount'] = $this->dnNodeCount;
+        }
+
+        if (null !== $this->dnStorageSpace) {
+            $res['DnStorageSpace'] = $this->dnStorageSpace;
         }
 
         if (null !== $this->engine) {
@@ -782,6 +792,10 @@ class DBInstance extends Model
 
         if (isset($map['DnNodeCount'])) {
             $model->dnNodeCount = $map['DnNodeCount'];
+        }
+
+        if (isset($map['DnStorageSpace'])) {
+            $model->dnStorageSpace = $map['DnStorageSpace'];
         }
 
         if (isset($map['Engine'])) {

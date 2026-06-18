@@ -152,6 +152,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0InfoRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0InfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0SecurityIpsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeMem0SecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterGroupsRequest;
@@ -237,6 +239,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceVipRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyDBInstanceVipResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyEngineMigrationRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyEngineMigrationResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyMem0SecurityIpsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyMem0SecurityIpsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySecurityIpsRequest;
@@ -350,6 +354,18 @@ class Polardbx extends OpenApiClient
             'eu-west-1-oxs' => 'polardbx.aliyuncs.com',
             'me-east-1' => 'polardbx.aliyuncs.com',
             'rus-west-1-pop' => 'polardbx.aliyuncs.com',
+            'us-west-1' => 'polardbx.us-west-1.aliyuncs.com',
+            'us-east-1' => 'polardbx.us-east-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'polardbx.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen' => 'polardbx.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'polardbx.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'polardbx.cn-qingdao.aliyuncs.com',
+            'cn-huhehaote' => 'polardbx.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'polardbx.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'polardbx.cn-hangzhou.aliyuncs.com',
+            'cn-chengdu' => 'polardbx.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'polardbx.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'polardbx.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('polardbx', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -1926,10 +1942,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enables the memory engine.
+     * Enable Memory Engine.
      *
      * @remarks
-     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html)..
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
      *
      * @param request - CreateMem0Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1972,10 +1988,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Enables the memory engine.
+     * Enable Memory Engine.
      *
      * @remarks
-     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html)..
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
      *
      * @param request - CreateMem0Request
      *
@@ -5632,10 +5648,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Query mem0 instance information.
+     * View Memory Engine Information.
      *
      * @remarks
-     * > * The PolarDB-X 2.0 SQL Audit and Analysis feature is free to use. However, Simple Log Service charges for storage space, read traffic, request quantity, data transformation, data shipping, and other resources. For more details about the SQL Audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Log Service charges fees for storage space, read traffic, the number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
      *
      * @param request - DescribeMem0InfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5678,10 +5694,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Query mem0 instance information.
+     * View Memory Engine Information.
      *
      * @remarks
-     * > * The PolarDB-X 2.0 SQL Audit and Analysis feature is free to use. However, Simple Log Service charges for storage space, read traffic, request quantity, data transformation, data shipping, and other resources. For more details about the SQL Audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Log Service charges fees for storage space, read traffic, the number of requests, data transformation, and data shipping. For more information about the SQL audit feature, see [Enable SQL audit and analysis](https://help.aliyun.com/document_detail/184619.html).
      *
      * @param request - DescribeMem0InfoRequest
      *
@@ -5696,6 +5712,73 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeMem0InfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the whitelist of a memory engine.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Log Service charges fees for storage space, read traffic, number of requests, data processing, and data shipping. For more information about the SQL audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
+     * @param request - DescribeMem0SecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMem0SecurityIpsResponse
+     *
+     * @param DescribeMem0SecurityIpsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeMem0SecurityIpsResponse
+     */
+    public function describeMem0SecurityIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMem0SecurityIps',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMem0SecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the whitelist of a memory engine.
+     *
+     * @remarks
+     * > * The SQL audit and analysis feature of PolarDB-X 2.0 is free of charge. However, Log Service charges fees for storage space, read traffic, number of requests, data processing, and data shipping. For more information about the SQL audit feature, see [Enable SQL Audit and Analysis](https://help.aliyun.com/document_detail/184619.html).
+     *
+     * @param request - DescribeMem0SecurityIpsRequest
+     *
+     * @returns DescribeMem0SecurityIpsResponse
+     *
+     * @param DescribeMem0SecurityIpsRequest $request
+     *
+     * @return DescribeMem0SecurityIpsResponse
+     */
+    public function describeMem0SecurityIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMem0SecurityIpsWithOptions($request, $runtime);
     }
 
     /**
@@ -8206,7 +8289,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the specifications of an instance by calling the ModifyDBInstanceClass operation.
+     * Calls the ModifyDBInstanceClass operation to modify the specifications of an instance.
      *
      * @param request - ModifyDBInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8285,7 +8368,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the specifications of an instance by calling the ModifyDBInstanceClass operation.
+     * Calls the ModifyDBInstanceClass operation to modify the specifications of an instance.
      *
      * @param request - ModifyDBInstanceClassRequest
      *
@@ -8813,6 +8896,85 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyEngineMigrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the whitelist of a memory engine instance.
+     *
+     * @remarks
+     * ***.
+     *
+     * @param request - ModifyMem0SecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMem0SecurityIpsResponse
+     *
+     * @param ModifyMem0SecurityIpsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyMem0SecurityIpsResponse
+     */
+    public function modifyMem0SecurityIpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyMem0SecurityIps',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyMem0SecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the whitelist of a memory engine instance.
+     *
+     * @remarks
+     * ***.
+     *
+     * @param request - ModifyMem0SecurityIpsRequest
+     *
+     * @returns ModifyMem0SecurityIpsResponse
+     *
+     * @param ModifyMem0SecurityIpsRequest $request
+     *
+     * @return ModifyMem0SecurityIpsResponse
+     */
+    public function modifyMem0SecurityIps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMem0SecurityIpsWithOptions($request, $runtime);
     }
 
     /**
