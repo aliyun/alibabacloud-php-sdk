@@ -21,10 +21,16 @@ class AddTableShrinkRequest extends Model
     /**
      * @var string
      */
+    public $tableDesc;
+
+    /**
+     * @var string
+     */
     public $tableName;
     protected $_name = [
         'connectorId' => 'ConnectorId',
         'tableColumnsShrink' => 'TableColumns',
+        'tableDesc' => 'TableDesc',
         'tableName' => 'TableName',
     ];
 
@@ -42,6 +48,10 @@ class AddTableShrinkRequest extends Model
 
         if (null !== $this->tableColumnsShrink) {
             $res['TableColumns'] = $this->tableColumnsShrink;
+        }
+
+        if (null !== $this->tableDesc) {
+            $res['TableDesc'] = $this->tableDesc;
         }
 
         if (null !== $this->tableName) {
@@ -65,6 +75,10 @@ class AddTableShrinkRequest extends Model
 
         if (isset($map['TableColumns'])) {
             $model->tableColumnsShrink = $map['TableColumns'];
+        }
+
+        if (isset($map['TableDesc'])) {
+            $model->tableDesc = $map['TableDesc'];
         }
 
         if (isset($map['TableName'])) {

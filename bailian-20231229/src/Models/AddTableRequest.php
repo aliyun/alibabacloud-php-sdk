@@ -22,10 +22,16 @@ class AddTableRequest extends Model
     /**
      * @var string
      */
+    public $tableDesc;
+
+    /**
+     * @var string
+     */
     public $tableName;
     protected $_name = [
         'connectorId' => 'ConnectorId',
         'tableColumns' => 'TableColumns',
+        'tableDesc' => 'TableDesc',
         'tableName' => 'TableName',
     ];
 
@@ -53,6 +59,10 @@ class AddTableRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->tableDesc) {
+            $res['TableDesc'] = $this->tableDesc;
         }
 
         if (null !== $this->tableName) {
@@ -83,6 +93,10 @@ class AddTableRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TableDesc'])) {
+            $model->tableDesc = $map['TableDesc'];
         }
 
         if (isset($map['TableName'])) {

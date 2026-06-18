@@ -36,6 +36,11 @@ class fileList extends Model
     /**
      * @var string
      */
+    public $parseErrorMessage;
+
+    /**
+     * @var string
+     */
     public $parser;
 
     /**
@@ -58,6 +63,7 @@ class fileList extends Model
         'fileId' => 'FileId',
         'fileName' => 'FileName',
         'fileType' => 'FileType',
+        'parseErrorMessage' => 'ParseErrorMessage',
         'parser' => 'Parser',
         'sizeInBytes' => 'SizeInBytes',
         'status' => 'Status',
@@ -93,6 +99,10 @@ class fileList extends Model
 
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+
+        if (null !== $this->parseErrorMessage) {
+            $res['ParseErrorMessage'] = $this->parseErrorMessage;
         }
 
         if (null !== $this->parser) {
@@ -147,6 +157,10 @@ class fileList extends Model
 
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+
+        if (isset($map['ParseErrorMessage'])) {
+            $model->parseErrorMessage = $map['ParseErrorMessage'];
         }
 
         if (isset($map['Parser'])) {
