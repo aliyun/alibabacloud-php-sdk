@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\attachments;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\dataSource;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\mountInstances;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\operationLocks;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\placement;
@@ -47,6 +48,11 @@ class disk extends Model
      * @var string
      */
     public $creationTime;
+
+    /**
+     * @var dataSource
+     */
+    public $dataSource;
 
     /**
      * @var bool
@@ -270,6 +276,7 @@ class disk extends Model
         'burstingEnabled' => 'BurstingEnabled',
         'category' => 'Category',
         'creationTime' => 'CreationTime',
+        'dataSource' => 'DataSource',
         'deleteAutoSnapshot' => 'DeleteAutoSnapshot',
         'deleteWithInstance' => 'DeleteWithInstance',
         'description' => 'Description',
@@ -320,6 +327,9 @@ class disk extends Model
         if (null !== $this->attachments) {
             $this->attachments->validate();
         }
+        if (null !== $this->dataSource) {
+            $this->dataSource->validate();
+        }
         if (null !== $this->mountInstances) {
             $this->mountInstances->validate();
         }
@@ -364,6 +374,10 @@ class disk extends Model
 
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+
+        if (null !== $this->dataSource) {
+            $res['DataSource'] = null !== $this->dataSource ? $this->dataSource->toArray($noStream) : $this->dataSource;
         }
 
         if (null !== $this->deleteAutoSnapshot) {
@@ -575,6 +589,10 @@ class disk extends Model
 
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+
+        if (isset($map['DataSource'])) {
+            $model->dataSource = dataSource::fromMap($map['DataSource']);
         }
 
         if (isset($map['DeleteAutoSnapshot'])) {
