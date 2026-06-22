@@ -12,14 +12,32 @@ class VideoInsightsConfig extends Model
      * @var VideoInsightsCaptionConfig
      */
     public $caption;
+
+    /**
+     * @var VideoInsightsLabelConfig
+     */
+    public $label;
+
+    /**
+     * @var VideoInsightsMultiStreamConfig
+     */
+    public $multiStream;
     protected $_name = [
         'caption' => 'Caption',
+        'label' => 'Label',
+        'multiStream' => 'MultiStream',
     ];
 
     public function validate()
     {
         if (null !== $this->caption) {
             $this->caption->validate();
+        }
+        if (null !== $this->label) {
+            $this->label->validate();
+        }
+        if (null !== $this->multiStream) {
+            $this->multiStream->validate();
         }
         parent::validate();
     }
@@ -29,6 +47,14 @@ class VideoInsightsConfig extends Model
         $res = [];
         if (null !== $this->caption) {
             $res['Caption'] = null !== $this->caption ? $this->caption->toArray($noStream) : $this->caption;
+        }
+
+        if (null !== $this->label) {
+            $res['Label'] = null !== $this->label ? $this->label->toArray($noStream) : $this->label;
+        }
+
+        if (null !== $this->multiStream) {
+            $res['MultiStream'] = null !== $this->multiStream ? $this->multiStream->toArray($noStream) : $this->multiStream;
         }
 
         return $res;
@@ -44,6 +70,14 @@ class VideoInsightsConfig extends Model
         $model = new self();
         if (isset($map['Caption'])) {
             $model->caption = VideoInsightsCaptionConfig::fromMap($map['Caption']);
+        }
+
+        if (isset($map['Label'])) {
+            $model->label = VideoInsightsLabelConfig::fromMap($map['Label']);
+        }
+
+        if (isset($map['MultiStream'])) {
+            $model->multiStream = VideoInsightsMultiStreamConfig::fromMap($map['MultiStream']);
         }
 
         return $model;

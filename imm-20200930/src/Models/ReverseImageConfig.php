@@ -6,25 +6,19 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class InsightsConfig extends Model
+class ReverseImageConfig extends Model
 {
     /**
-     * @var ImageInsightsConfig
+     * @var ImageReverseImageConfig
      */
     public $image;
 
     /**
-     * @var string
-     */
-    public $language;
-
-    /**
-     * @var VideoInsightsConfig
+     * @var VideoReverseImageConfig
      */
     public $video;
     protected $_name = [
         'image' => 'Image',
-        'language' => 'Language',
         'video' => 'Video',
     ];
 
@@ -46,10 +40,6 @@ class InsightsConfig extends Model
             $res['Image'] = null !== $this->image ? $this->image->toArray($noStream) : $this->image;
         }
 
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
-        }
-
         if (null !== $this->video) {
             $res['Video'] = null !== $this->video ? $this->video->toArray($noStream) : $this->video;
         }
@@ -66,15 +56,11 @@ class InsightsConfig extends Model
     {
         $model = new self();
         if (isset($map['Image'])) {
-            $model->image = ImageInsightsConfig::fromMap($map['Image']);
-        }
-
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
+            $model->image = ImageReverseImageConfig::fromMap($map['Image']);
         }
 
         if (isset($map['Video'])) {
-            $model->video = VideoInsightsConfig::fromMap($map['Video']);
+            $model->video = VideoReverseImageConfig::fromMap($map['Video']);
         }
 
         return $model;

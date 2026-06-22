@@ -15,6 +15,11 @@ class Project extends Model
     public $createTime;
 
     /**
+     * @var DatasetConfig
+     */
+    public $datasetConfig;
+
+    /**
      * @var int
      */
     public $datasetCount;
@@ -100,6 +105,7 @@ class Project extends Model
     public $updateTime;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'datasetConfig' => 'DatasetConfig',
         'datasetCount' => 'DatasetCount',
         'datasetMaxBindCount' => 'DatasetMaxBindCount',
         'datasetMaxEntityCount' => 'DatasetMaxEntityCount',
@@ -121,6 +127,9 @@ class Project extends Model
 
     public function validate()
     {
+        if (null !== $this->datasetConfig) {
+            $this->datasetConfig->validate();
+        }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
         }
@@ -132,6 +141,10 @@ class Project extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->datasetConfig) {
+            $res['DatasetConfig'] = null !== $this->datasetConfig ? $this->datasetConfig->toArray($noStream) : $this->datasetConfig;
         }
 
         if (null !== $this->datasetCount) {
@@ -222,6 +235,10 @@ class Project extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['DatasetConfig'])) {
+            $model->datasetConfig = DatasetConfig::fromMap($map['DatasetConfig']);
         }
 
         if (isset($map['DatasetCount'])) {

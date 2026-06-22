@@ -14,11 +14,17 @@ class DatasetConfig extends Model
     public $insights;
 
     /**
+     * @var ReverseImageConfig
+     */
+    public $reverseImage;
+
+    /**
      * @var SmartClusterConfig
      */
     public $smartCluster;
     protected $_name = [
         'insights' => 'Insights',
+        'reverseImage' => 'ReverseImage',
         'smartCluster' => 'SmartCluster',
     ];
 
@@ -26,6 +32,9 @@ class DatasetConfig extends Model
     {
         if (null !== $this->insights) {
             $this->insights->validate();
+        }
+        if (null !== $this->reverseImage) {
+            $this->reverseImage->validate();
         }
         if (null !== $this->smartCluster) {
             $this->smartCluster->validate();
@@ -38,6 +47,10 @@ class DatasetConfig extends Model
         $res = [];
         if (null !== $this->insights) {
             $res['Insights'] = null !== $this->insights ? $this->insights->toArray($noStream) : $this->insights;
+        }
+
+        if (null !== $this->reverseImage) {
+            $res['ReverseImage'] = null !== $this->reverseImage ? $this->reverseImage->toArray($noStream) : $this->reverseImage;
         }
 
         if (null !== $this->smartCluster) {
@@ -57,6 +70,10 @@ class DatasetConfig extends Model
         $model = new self();
         if (isset($map['Insights'])) {
             $model->insights = InsightsConfig::fromMap($map['Insights']);
+        }
+
+        if (isset($map['ReverseImage'])) {
+            $model->reverseImage = ReverseImageConfig::fromMap($map['ReverseImage']);
         }
 
         if (isset($map['SmartCluster'])) {

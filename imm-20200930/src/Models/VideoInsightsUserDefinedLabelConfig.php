@@ -1,0 +1,93 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Imm\V20200930\Models;
+
+use AlibabaCloud\Dara\Model;
+
+class VideoInsightsUserDefinedLabelConfig extends Model
+{
+    /**
+     * @var bool
+     */
+    public $enable;
+
+    /**
+     * @var InsightsLabel[]
+     */
+    public $labels;
+
+    /**
+     * @var string
+     */
+    public $mode;
+    protected $_name = [
+        'enable' => 'Enable',
+        'labels' => 'Labels',
+        'mode' => 'Mode',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
+        }
+
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
+
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = InsightsLabel::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
+
+        return $model;
+    }
+}

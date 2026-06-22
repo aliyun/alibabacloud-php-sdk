@@ -6,35 +6,26 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class InsightsConfig extends Model
+class Summary extends Model
 {
     /**
-     * @var ImageInsightsConfig
+     * @var Illustration
      */
     public $image;
 
     /**
      * @var string
      */
-    public $language;
-
-    /**
-     * @var VideoInsightsConfig
-     */
-    public $video;
+    public $text;
     protected $_name = [
         'image' => 'Image',
-        'language' => 'Language',
-        'video' => 'Video',
+        'text' => 'Text',
     ];
 
     public function validate()
     {
         if (null !== $this->image) {
             $this->image->validate();
-        }
-        if (null !== $this->video) {
-            $this->video->validate();
         }
         parent::validate();
     }
@@ -46,12 +37,8 @@ class InsightsConfig extends Model
             $res['Image'] = null !== $this->image ? $this->image->toArray($noStream) : $this->image;
         }
 
-        if (null !== $this->language) {
-            $res['Language'] = $this->language;
-        }
-
-        if (null !== $this->video) {
-            $res['Video'] = null !== $this->video ? $this->video->toArray($noStream) : $this->video;
+        if (null !== $this->text) {
+            $res['Text'] = $this->text;
         }
 
         return $res;
@@ -66,15 +53,11 @@ class InsightsConfig extends Model
     {
         $model = new self();
         if (isset($map['Image'])) {
-            $model->image = ImageInsightsConfig::fromMap($map['Image']);
+            $model->image = Illustration::fromMap($map['Image']);
         }
 
-        if (isset($map['Language'])) {
-            $model->language = $map['Language'];
-        }
-
-        if (isset($map['Video'])) {
-            $model->video = VideoInsightsConfig::fromMap($map['Video']);
+        if (isset($map['Text'])) {
+            $model->text = $map['Text'];
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class VideoInsightsCaptionConfig extends Model
+class ImageInsightsCaptionConfig extends Model
 {
     /**
      * @var bool
@@ -14,25 +14,16 @@ class VideoInsightsCaptionConfig extends Model
     public $enable;
 
     /**
-     * @var PersonReferenceConfig
-     */
-    public $personReference;
-
-    /**
      * @var string
      */
     public $prompt;
     protected $_name = [
         'enable' => 'Enable',
-        'personReference' => 'PersonReference',
         'prompt' => 'Prompt',
     ];
 
     public function validate()
     {
-        if (null !== $this->personReference) {
-            $this->personReference->validate();
-        }
         parent::validate();
     }
 
@@ -41,10 +32,6 @@ class VideoInsightsCaptionConfig extends Model
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
-        }
-
-        if (null !== $this->personReference) {
-            $res['PersonReference'] = null !== $this->personReference ? $this->personReference->toArray($noStream) : $this->personReference;
         }
 
         if (null !== $this->prompt) {
@@ -64,10 +51,6 @@ class VideoInsightsCaptionConfig extends Model
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
-        }
-
-        if (isset($map['PersonReference'])) {
-            $model->personReference = PersonReferenceConfig::fromMap($map['PersonReference']);
         }
 
         if (isset($map['Prompt'])) {
