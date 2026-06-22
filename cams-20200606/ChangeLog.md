@@ -1,3 +1,7 @@
+2026-06-22 Version: 5.2.0
+- Support API SubmitVerifyCodeResult.
+
+
 2026-04-28 Version: 5.1.0
 - Support API SyncBusinessAppHistory.
 - Update API QueryChatappBindWaba: add response parameters Body.Data.IsOnBizApp.
