@@ -6,8 +6,8 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\AddMem0MemoriesRequest;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\AddMem0MemoriesResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\AddDatasetDataRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\AddDatasetDataResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateAgentSpaceRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateAgentSpaceResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateContextStoreAPIKeyRequest;
@@ -24,11 +24,6 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteContextStoreRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteContextStoreResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteDatasetRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteDatasetResponse;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteMem0MemoriesRequest;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteMem0MemoriesResponse;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteMem0MemoriesShrinkRequest;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteMem0MemoryRequest;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteMem0MemoryResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeletePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DescribeRegionsRequest;
@@ -43,10 +38,6 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetDatasetResponse;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetMem0MemoriesRequest;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetMem0MemoriesResponse;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetMem0MemoryRequest;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetMem0MemoryResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListAgentSpacesRequest;
@@ -61,20 +52,14 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\SearchContextRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\SearchContextResponse;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\SearchMem0MemoriesRequest;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\SearchMem0MemoriesResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateAgentSpaceRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateAgentSpaceResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateDatasetResponse;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateMem0MemoryRequest;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateMem0MemoryResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineResponse;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ValidateMem0APIKeyRequest;
-use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ValidateMem0APIKeyResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -85,7 +70,14 @@ class AgentLoop extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-zhangjiakou' => 'agentloop.cn-zhangjiakou.aliyuncs.com',
+            'cn-shanghai' => 'agentloop.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'agentloop.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'agentloop.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'agentloop.cn-beijing.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agentloop', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -115,31 +107,33 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 给记忆库中增加数据.
+     * 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
      *
-     * @param request - AddMem0MemoriesRequest
+     * @param request - AddDatasetDataRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @returns AddMem0MemoriesResponse
+     * @returns AddDatasetDataResponse
      *
-     * @param AddMem0MemoriesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param string                $agentSpace
+     * @param string                $datasetName
+     * @param AddDatasetDataRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return AddMem0MemoriesResponse
+     * @return AddDatasetDataResponse
      */
-    public function addMem0MemoriesWithOptions($request, $headers, $runtime)
+    public function addDatasetDataWithOptions($agentSpace, $datasetName, $request, $headers, $runtime)
     {
         $request->validate();
         $query = [];
-        if (null !== $request->agentSpace) {
-            @$query['agentSpace'] = $request->agentSpace;
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
         }
 
         $body = [];
-        if (null !== $request->body) {
-            @$body['body'] = $request->body;
+        if (null !== $request->dataArray) {
+            @$body['dataArray'] = $request->dataArray;
         }
 
         $req = new OpenApiRequest([
@@ -148,37 +142,39 @@ class AgentLoop extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action' => 'AddMem0Memories',
+            'action' => 'AddDatasetData',
             'version' => '2026-05-20',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/memories',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/dataset/' . Url::percentEncode($datasetName) . '/rows',
             'method' => 'POST',
-            'authType' => 'Anonymous',
+            'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
 
-        return AddMem0MemoriesResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
+        return AddDatasetDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 给记忆库中增加数据.
+     * 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
      *
-     * @param request - AddMem0MemoriesRequest
+     * @param request - AddDatasetDataRequest
      *
-     * @returns AddMem0MemoriesResponse
+     * @returns AddDatasetDataResponse
      *
-     * @param AddMem0MemoriesRequest $request
+     * @param string                $agentSpace
+     * @param string                $datasetName
+     * @param AddDatasetDataRequest $request
      *
-     * @return AddMem0MemoriesResponse
+     * @return AddDatasetDataResponse
      */
-    public function addMem0Memories($request)
+    public function addDatasetData($agentSpace, $datasetName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addMem0MemoriesWithOptions($request, $headers, $runtime);
+        return $this->addDatasetDataWithOptions($agentSpace, $datasetName, $request, $headers, $runtime);
     }
 
     /**
@@ -736,180 +732,6 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 批量删除记忆.
-     *
-     * @param tmpReq - DeleteMem0MemoriesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteMem0MemoriesResponse
-     *
-     * @param DeleteMem0MemoriesRequest $tmpReq
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteMem0MemoriesResponse
-     */
-    public function deleteMem0MemoriesWithOptions($tmpReq, $headers, $runtime)
-    {
-        $tmpReq->validate();
-        $request = new DeleteMem0MemoriesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->metadata) {
-            $request->metadataShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'metadata', 'json');
-        }
-
-        $query = [];
-        if (null !== $request->agentSpace) {
-            @$query['agentSpace'] = $request->agentSpace;
-        }
-
-        if (null !== $request->agentId) {
-            @$query['agent_id'] = $request->agentId;
-        }
-
-        if (null !== $request->appId) {
-            @$query['app_id'] = $request->appId;
-        }
-
-        if (null !== $request->contextStoreId) {
-            @$query['context_store_id'] = $request->contextStoreId;
-        }
-
-        if (null !== $request->metadataShrink) {
-            @$query['metadata'] = $request->metadataShrink;
-        }
-
-        if (null !== $request->orgId) {
-            @$query['org_id'] = $request->orgId;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['project_id'] = $request->projectId;
-        }
-
-        if (null !== $request->runId) {
-            @$query['run_id'] = $request->runId;
-        }
-
-        if (null !== $request->userId) {
-            @$query['user_id'] = $request->userId;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DeleteMem0Memories',
-            'version' => '2026-05-20',
-            'protocol' => 'HTTPS',
-            'pathname' => '/v1/memories',
-            'method' => 'DELETE',
-            'authType' => 'Anonymous',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return DeleteMem0MemoriesResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
-    }
-
-    /**
-     * 批量删除记忆.
-     *
-     * @param request - DeleteMem0MemoriesRequest
-     *
-     * @returns DeleteMem0MemoriesResponse
-     *
-     * @param DeleteMem0MemoriesRequest $request
-     *
-     * @return DeleteMem0MemoriesResponse
-     */
-    public function deleteMem0Memories($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteMem0MemoriesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * 删除记忆.
-     *
-     * @param request - DeleteMem0MemoryRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteMem0MemoryResponse
-     *
-     * @param string                  $memoryId
-     * @param DeleteMem0MemoryRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteMem0MemoryResponse
-     */
-    public function deleteMem0MemoryWithOptions($memoryId, $request, $headers, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->agentSpace) {
-            @$query['agentSpace'] = $request->agentSpace;
-        }
-
-        if (null !== $request->contextStoreId) {
-            @$query['context_store_id'] = $request->contextStoreId;
-        }
-
-        if (null !== $request->orgId) {
-            @$query['org_id'] = $request->orgId;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['project_id'] = $request->projectId;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DeleteMem0Memory',
-            'version' => '2026-05-20',
-            'protocol' => 'HTTPS',
-            'pathname' => '/v1/memories/' . Url::percentEncode($memoryId) . '',
-            'method' => 'DELETE',
-            'authType' => 'Anonymous',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return DeleteMem0MemoryResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
-    }
-
-    /**
-     * 删除记忆.
-     *
-     * @param request - DeleteMem0MemoryRequest
-     *
-     * @returns DeleteMem0MemoryResponse
-     *
-     * @param string                  $memoryId
-     * @param DeleteMem0MemoryRequest $request
-     *
-     * @return DeleteMem0MemoryResponse
-     */
-    public function deleteMem0Memory($memoryId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteMem0MemoryWithOptions($memoryId, $request, $headers, $runtime);
-    }
-
-    /**
      * 删除流水线
      *
      * @param request - DeletePipelineRequest
@@ -1340,164 +1162,6 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->getDatasetWithOptions($agentSpace, $datasetName, $request, $headers, $runtime);
-    }
-
-    /**
-     * 查询记忆库数据.
-     *
-     * @param request - GetMem0MemoriesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMem0MemoriesResponse
-     *
-     * @param GetMem0MemoriesRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetMem0MemoriesResponse
-     */
-    public function getMem0MemoriesWithOptions($request, $headers, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->agentSpace) {
-            @$query['agentSpace'] = $request->agentSpace;
-        }
-
-        if (null !== $request->contextStoreId) {
-            @$query['context_store_id'] = $request->contextStoreId;
-        }
-
-        if (null !== $request->enableGraph) {
-            @$query['enable_graph'] = $request->enableGraph;
-        }
-
-        if (null !== $request->orgId) {
-            @$query['org_id'] = $request->orgId;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['project_id'] = $request->projectId;
-        }
-
-        $body = [];
-        if (null !== $request->body) {
-            @$body['body'] = $request->body;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'GetMem0Memories',
-            'version' => '2026-05-20',
-            'protocol' => 'HTTPS',
-            'pathname' => '/v2/memories',
-            'method' => 'POST',
-            'authType' => 'Anonymous',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'array',
-        ]);
-
-        return GetMem0MemoriesResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
-    }
-
-    /**
-     * 查询记忆库数据.
-     *
-     * @param request - GetMem0MemoriesRequest
-     *
-     * @returns GetMem0MemoriesResponse
-     *
-     * @param GetMem0MemoriesRequest $request
-     *
-     * @return GetMem0MemoriesResponse
-     */
-    public function getMem0Memories($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getMem0MemoriesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * 查询记忆.
-     *
-     * @param request - GetMem0MemoryRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMem0MemoryResponse
-     *
-     * @param string               $memoryId
-     * @param GetMem0MemoryRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetMem0MemoryResponse
-     */
-    public function getMem0MemoryWithOptions($memoryId, $request, $headers, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->agentSpace) {
-            @$query['agentSpace'] = $request->agentSpace;
-        }
-
-        if (null !== $request->contextStoreId) {
-            @$query['context_store_id'] = $request->contextStoreId;
-        }
-
-        if (null !== $request->orgId) {
-            @$query['org_id'] = $request->orgId;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['project_id'] = $request->projectId;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetMem0Memory',
-            'version' => '2026-05-20',
-            'protocol' => 'HTTPS',
-            'pathname' => '/v1/memories/' . Url::percentEncode($memoryId) . '',
-            'method' => 'GET',
-            'authType' => 'Anonymous',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return GetMem0MemoryResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
-    }
-
-    /**
-     * 查询记忆.
-     *
-     * @param request - GetMem0MemoryRequest
-     *
-     * @returns GetMem0MemoryResponse
-     *
-     * @param string               $memoryId
-     * @param GetMem0MemoryRequest $request
-     *
-     * @return GetMem0MemoryResponse
-     */
-    public function getMem0Memory($memoryId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getMem0MemoryWithOptions($memoryId, $request, $headers, $runtime);
     }
 
     /**
@@ -2000,89 +1664,6 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询记忆库内容.
-     *
-     * @param request - SearchMem0MemoriesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SearchMem0MemoriesResponse
-     *
-     * @param SearchMem0MemoriesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SearchMem0MemoriesResponse
-     */
-    public function searchMem0MemoriesWithOptions($request, $headers, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->agentSpace) {
-            @$query['agentSpace'] = $request->agentSpace;
-        }
-
-        if (null !== $request->contextStoreId) {
-            @$query['context_store_id'] = $request->contextStoreId;
-        }
-
-        if (null !== $request->enableGraph) {
-            @$query['enable_graph'] = $request->enableGraph;
-        }
-
-        if (null !== $request->orgId) {
-            @$query['org_id'] = $request->orgId;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['project_id'] = $request->projectId;
-        }
-
-        $body = [];
-        if (null !== $request->body) {
-            @$body['body'] = $request->body;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'SearchMem0Memories',
-            'version' => '2026-05-20',
-            'protocol' => 'HTTPS',
-            'pathname' => '/v2/memories/search',
-            'method' => 'POST',
-            'authType' => 'Anonymous',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'array',
-        ]);
-
-        return SearchMem0MemoriesResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
-    }
-
-    /**
-     * 查询记忆库内容.
-     *
-     * @param request - SearchMem0MemoriesRequest
-     *
-     * @returns SearchMem0MemoriesResponse
-     *
-     * @param SearchMem0MemoriesRequest $request
-     *
-     * @return SearchMem0MemoriesResponse
-     */
-    public function searchMem0Memories($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->searchMem0MemoriesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * 更新AgentSpace.
      *
      * @param request - UpdateAgentSpaceRequest
@@ -2310,87 +1891,6 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 修改记忆.
-     *
-     * @param request - UpdateMem0MemoryRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateMem0MemoryResponse
-     *
-     * @param string                  $memoryId
-     * @param UpdateMem0MemoryRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateMem0MemoryResponse
-     */
-    public function updateMem0MemoryWithOptions($memoryId, $request, $headers, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->agentSpace) {
-            @$query['agentSpace'] = $request->agentSpace;
-        }
-
-        if (null !== $request->contextStoreId) {
-            @$query['context_store_id'] = $request->contextStoreId;
-        }
-
-        if (null !== $request->orgId) {
-            @$query['org_id'] = $request->orgId;
-        }
-
-        if (null !== $request->projectId) {
-            @$query['project_id'] = $request->projectId;
-        }
-
-        $body = [];
-        if (null !== $request->body) {
-            @$body['body'] = $request->body;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action' => 'UpdateMem0Memory',
-            'version' => '2026-05-20',
-            'protocol' => 'HTTPS',
-            'pathname' => '/v1/memories/' . Url::percentEncode($memoryId) . '',
-            'method' => 'PUT',
-            'authType' => 'Anonymous',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return UpdateMem0MemoryResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
-    }
-
-    /**
-     * 修改记忆.
-     *
-     * @param request - UpdateMem0MemoryRequest
-     *
-     * @returns UpdateMem0MemoryResponse
-     *
-     * @param string                  $memoryId
-     * @param UpdateMem0MemoryRequest $request
-     *
-     * @return UpdateMem0MemoryResponse
-     */
-    public function updateMem0Memory($memoryId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateMem0MemoryWithOptions($memoryId, $request, $headers, $runtime);
-    }
-
-    /**
      * 更新流水线
      *
      * @param request - UpdatePipelineRequest
@@ -2475,66 +1975,5 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->updatePipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime);
-    }
-
-    /**
-     * 校验 Mem0 / ContextStore API Key.
-     *
-     * @param request - ValidateMem0APIKeyRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ValidateMem0APIKeyResponse
-     *
-     * @param ValidateMem0APIKeyRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ValidateMem0APIKeyResponse
-     */
-    public function validateMem0APIKeyWithOptions($request, $headers, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->agentSpace) {
-            @$query['agentSpace'] = $request->agentSpace;
-        }
-
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ValidateMem0APIKey',
-            'version' => '2026-05-20',
-            'protocol' => 'HTTPS',
-            'pathname' => '/v1/ping',
-            'method' => 'GET',
-            'authType' => 'Anonymous',
-            'style' => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType' => 'json',
-        ]);
-
-        return ValidateMem0APIKeyResponse::fromMap($this->doROARequest($params->action, $params->version, $params->protocol, $params->method, $params->authType, $params->pathname, $params->bodyType, $req, $runtime));
-    }
-
-    /**
-     * 校验 Mem0 / ContextStore API Key.
-     *
-     * @param request - ValidateMem0APIKeyRequest
-     *
-     * @returns ValidateMem0APIKeyResponse
-     *
-     * @param ValidateMem0APIKeyRequest $request
-     *
-     * @return ValidateMem0APIKeyResponse
-     */
-    public function validateMem0APIKey($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->validateMem0APIKeyWithOptions($request, $headers, $runtime);
     }
 }

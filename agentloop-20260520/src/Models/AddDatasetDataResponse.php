@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ValidateMem0APIKeyResponse extends Model
+class AddDatasetDataResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ValidateMem0APIKeyResponse extends Model
     public $statusCode;
 
     /**
-     * @var mixed[]
+     * @var AddDatasetDataResponseBody
      */
     public $body;
     protected $_name = [
@@ -32,6 +32,9 @@ class ValidateMem0APIKeyResponse extends Model
     {
         if (\is_array($this->headers)) {
             Model::validateArray($this->headers);
+        }
+        if (null !== $this->body) {
+            $this->body->validate();
         }
         parent::validate();
     }
@@ -53,7 +56,7 @@ class ValidateMem0APIKeyResponse extends Model
         }
 
         if (null !== $this->body) {
-            $res['body'] = $this->body;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
@@ -81,7 +84,7 @@ class ValidateMem0APIKeyResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = $map['body'];
+            $model->body = AddDatasetDataResponseBody::fromMap($map['body']);
         }
 
         return $model;
