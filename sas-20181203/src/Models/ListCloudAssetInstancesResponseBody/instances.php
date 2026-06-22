@@ -34,6 +34,11 @@ class instances extends Model
     public $assetTypeName;
 
     /**
+     * @var string
+     */
+    public $assetUuid;
+
+    /**
      * @var int
      */
     public $createdTime;
@@ -62,6 +67,16 @@ class instances extends Model
      * @var string
      */
     public $riskStatus;
+
+    /**
+     * @var int
+     */
+    public $saleCspm;
+
+    /**
+     * @var int
+     */
+    public $saleType;
 
     /**
      * @var string
@@ -93,12 +108,15 @@ class instances extends Model
         'assetSubTypeName' => 'AssetSubTypeName',
         'assetType' => 'AssetType',
         'assetTypeName' => 'AssetTypeName',
+        'assetUuid' => 'AssetUuid',
         'createdTime' => 'CreatedTime',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
         'internetIp' => 'InternetIp',
         'regionId' => 'RegionId',
         'riskStatus' => 'RiskStatus',
+        'saleCspm' => 'SaleCspm',
+        'saleType' => 'SaleType',
         'securityInfo' => 'SecurityInfo',
         'tags' => 'Tags',
         'vendor' => 'Vendor',
@@ -137,6 +155,10 @@ class instances extends Model
             $res['AssetTypeName'] = $this->assetTypeName;
         }
 
+        if (null !== $this->assetUuid) {
+            $res['AssetUuid'] = $this->assetUuid;
+        }
+
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
@@ -159,6 +181,14 @@ class instances extends Model
 
         if (null !== $this->riskStatus) {
             $res['RiskStatus'] = $this->riskStatus;
+        }
+
+        if (null !== $this->saleCspm) {
+            $res['SaleCspm'] = $this->saleCspm;
+        }
+
+        if (null !== $this->saleType) {
+            $res['SaleType'] = $this->saleType;
         }
 
         if (null !== $this->securityInfo) {
@@ -219,6 +249,10 @@ class instances extends Model
             $model->assetTypeName = $map['AssetTypeName'];
         }
 
+        if (isset($map['AssetUuid'])) {
+            $model->assetUuid = $map['AssetUuid'];
+        }
+
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
@@ -241,6 +275,14 @@ class instances extends Model
 
         if (isset($map['RiskStatus'])) {
             $model->riskStatus = $map['RiskStatus'];
+        }
+
+        if (isset($map['SaleCspm'])) {
+            $model->saleCspm = $map['SaleCspm'];
+        }
+
+        if (isset($map['SaleType'])) {
+            $model->saleType = $map['SaleType'];
         }
 
         if (isset($map['SecurityInfo'])) {

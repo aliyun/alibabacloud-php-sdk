@@ -54,6 +54,11 @@ class BindAuthToMachineRequest extends Model
     public $preBindOrderId;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string[]
      */
     public $unBind;
@@ -67,6 +72,7 @@ class BindAuthToMachineRequest extends Model
         'logicalExp' => 'LogicalExp',
         'ntmVersion' => 'NtmVersion',
         'preBindOrderId' => 'PreBindOrderId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
         'unBind' => 'UnBind',
     ];
 
@@ -125,6 +131,10 @@ class BindAuthToMachineRequest extends Model
 
         if (null !== $this->preBindOrderId) {
             $res['PreBindOrderId'] = $this->preBindOrderId;
+        }
+
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
 
         if (null !== $this->unBind) {
@@ -190,6 +200,10 @@ class BindAuthToMachineRequest extends Model
 
         if (isset($map['PreBindOrderId'])) {
             $model->preBindOrderId = $map['PreBindOrderId'];
+        }
+
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
 
         if (isset($map['UnBind'])) {

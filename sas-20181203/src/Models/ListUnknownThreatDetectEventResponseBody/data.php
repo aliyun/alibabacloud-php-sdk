@@ -41,6 +41,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $handleType;
+
+    /**
+     * @var string
+     */
     public $hashKey;
 
     /**
@@ -119,6 +124,7 @@ class data extends Model
         'cmdline' => 'Cmdline',
         'count' => 'Count',
         'firstTime' => 'FirstTime',
+        'handleType' => 'HandleType',
         'hashKey' => 'HashKey',
         'id' => 'Id',
         'instanceName' => 'InstanceName',
@@ -166,6 +172,10 @@ class data extends Model
 
         if (null !== $this->firstTime) {
             $res['FirstTime'] = $this->firstTime;
+        }
+
+        if (null !== $this->handleType) {
+            $res['HandleType'] = $this->handleType;
         }
 
         if (null !== $this->hashKey) {
@@ -261,6 +271,10 @@ class data extends Model
 
         if (isset($map['FirstTime'])) {
             $model->firstTime = $map['FirstTime'];
+        }
+
+        if (isset($map['HandleType'])) {
+            $model->handleType = $map['HandleType'];
         }
 
         if (isset($map['HashKey'])) {

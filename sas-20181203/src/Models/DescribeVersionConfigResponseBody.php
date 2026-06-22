@@ -56,12 +56,32 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @var int
      */
+    public $cspmInstanceCapacity;
+
+    /**
+     * @var int
+     */
     public $highestVersion;
 
     /**
      * @var int
      */
     public $honeypotCapacity;
+
+    /**
+     * @var int
+     */
+    public $hybridPaidModuleSwitchMap;
+
+    /**
+     * @var int
+     */
+    public $hybridPaidStatus;
+
+    /**
+     * @var int
+     */
+    public $hybridSwitch;
 
     /**
      * @var int
@@ -132,6 +152,11 @@ class DescribeVersionConfigResponseBody extends Model
      * @var string
      */
     public $multiVersion;
+
+    /**
+     * @var int
+     */
+    public $newPostPaidCspm;
 
     /**
      * @var int
@@ -257,8 +282,12 @@ class DescribeVersionConfigResponseBody extends Model
         'assetLevel' => 'AssetLevel',
         'canTryPostPaidPackage' => 'CanTryPostPaidPackage',
         'cspmCapacity' => 'CspmCapacity',
+        'cspmInstanceCapacity' => 'CspmInstanceCapacity',
         'highestVersion' => 'HighestVersion',
         'honeypotCapacity' => 'HoneypotCapacity',
+        'hybridPaidModuleSwitchMap' => 'HybridPaidModuleSwitchMap',
+        'hybridPaidStatus' => 'HybridPaidStatus',
+        'hybridSwitch' => 'HybridSwitch',
         'imageScanCapacity' => 'ImageScanCapacity',
         'instanceBuyType' => 'InstanceBuyType',
         'instanceId' => 'InstanceId',
@@ -273,6 +302,7 @@ class DescribeVersionConfigResponseBody extends Model
         'MVUnusedAuthCount' => 'MVUnusedAuthCount',
         'mergedVersion' => 'MergedVersion',
         'multiVersion' => 'MultiVersion',
+        'newPostPaidCspm' => 'NewPostPaidCspm',
         'newThreatAnalysis' => 'NewThreatAnalysis',
         'onboardedAssets' => 'OnboardedAssets',
         'openTime' => 'OpenTime',
@@ -342,12 +372,28 @@ class DescribeVersionConfigResponseBody extends Model
             $res['CspmCapacity'] = $this->cspmCapacity;
         }
 
+        if (null !== $this->cspmInstanceCapacity) {
+            $res['CspmInstanceCapacity'] = $this->cspmInstanceCapacity;
+        }
+
         if (null !== $this->highestVersion) {
             $res['HighestVersion'] = $this->highestVersion;
         }
 
         if (null !== $this->honeypotCapacity) {
             $res['HoneypotCapacity'] = $this->honeypotCapacity;
+        }
+
+        if (null !== $this->hybridPaidModuleSwitchMap) {
+            $res['HybridPaidModuleSwitchMap'] = $this->hybridPaidModuleSwitchMap;
+        }
+
+        if (null !== $this->hybridPaidStatus) {
+            $res['HybridPaidStatus'] = $this->hybridPaidStatus;
+        }
+
+        if (null !== $this->hybridSwitch) {
+            $res['HybridSwitch'] = $this->hybridSwitch;
         }
 
         if (null !== $this->imageScanCapacity) {
@@ -404,6 +450,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (null !== $this->multiVersion) {
             $res['MultiVersion'] = $this->multiVersion;
+        }
+
+        if (null !== $this->newPostPaidCspm) {
+            $res['NewPostPaidCspm'] = $this->newPostPaidCspm;
         }
 
         if (null !== $this->newThreatAnalysis) {
@@ -545,12 +595,28 @@ class DescribeVersionConfigResponseBody extends Model
             $model->cspmCapacity = $map['CspmCapacity'];
         }
 
+        if (isset($map['CspmInstanceCapacity'])) {
+            $model->cspmInstanceCapacity = $map['CspmInstanceCapacity'];
+        }
+
         if (isset($map['HighestVersion'])) {
             $model->highestVersion = $map['HighestVersion'];
         }
 
         if (isset($map['HoneypotCapacity'])) {
             $model->honeypotCapacity = $map['HoneypotCapacity'];
+        }
+
+        if (isset($map['HybridPaidModuleSwitchMap'])) {
+            $model->hybridPaidModuleSwitchMap = $map['HybridPaidModuleSwitchMap'];
+        }
+
+        if (isset($map['HybridPaidStatus'])) {
+            $model->hybridPaidStatus = $map['HybridPaidStatus'];
+        }
+
+        if (isset($map['HybridSwitch'])) {
+            $model->hybridSwitch = $map['HybridSwitch'];
         }
 
         if (isset($map['ImageScanCapacity'])) {
@@ -607,6 +673,10 @@ class DescribeVersionConfigResponseBody extends Model
 
         if (isset($map['MultiVersion'])) {
             $model->multiVersion = $map['MultiVersion'];
+        }
+
+        if (isset($map['NewPostPaidCspm'])) {
+            $model->newPostPaidCspm = $map['NewPostPaidCspm'];
         }
 
         if (isset($map['NewThreatAnalysis'])) {

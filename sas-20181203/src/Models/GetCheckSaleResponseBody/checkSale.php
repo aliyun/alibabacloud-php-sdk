@@ -14,6 +14,26 @@ class checkSale extends Model
     public $consumeCount;
 
     /**
+     * @var int
+     */
+    public $instanceConsumeCount;
+
+    /**
+     * @var int
+     */
+    public $instanceHybridPostLatestCycledResourceCount;
+
+    /**
+     * @var int
+     */
+    public $instancePostConsumeCount;
+
+    /**
+     * @var int
+     */
+    public $instancePurchaseCount;
+
+    /**
      * @var bool
      */
     public $loyalUser;
@@ -29,6 +49,10 @@ class checkSale extends Model
     public $saleUserType;
     protected $_name = [
         'consumeCount' => 'ConsumeCount',
+        'instanceConsumeCount' => 'InstanceConsumeCount',
+        'instanceHybridPostLatestCycledResourceCount' => 'InstanceHybridPostLatestCycledResourceCount',
+        'instancePostConsumeCount' => 'InstancePostConsumeCount',
+        'instancePurchaseCount' => 'InstancePurchaseCount',
         'loyalUser' => 'LoyalUser',
         'purchaseCount' => 'PurchaseCount',
         'saleUserType' => 'SaleUserType',
@@ -44,6 +68,22 @@ class checkSale extends Model
         $res = [];
         if (null !== $this->consumeCount) {
             $res['ConsumeCount'] = $this->consumeCount;
+        }
+
+        if (null !== $this->instanceConsumeCount) {
+            $res['InstanceConsumeCount'] = $this->instanceConsumeCount;
+        }
+
+        if (null !== $this->instanceHybridPostLatestCycledResourceCount) {
+            $res['InstanceHybridPostLatestCycledResourceCount'] = $this->instanceHybridPostLatestCycledResourceCount;
+        }
+
+        if (null !== $this->instancePostConsumeCount) {
+            $res['InstancePostConsumeCount'] = $this->instancePostConsumeCount;
+        }
+
+        if (null !== $this->instancePurchaseCount) {
+            $res['InstancePurchaseCount'] = $this->instancePurchaseCount;
         }
 
         if (null !== $this->loyalUser) {
@@ -71,6 +111,22 @@ class checkSale extends Model
         $model = new self();
         if (isset($map['ConsumeCount'])) {
             $model->consumeCount = $map['ConsumeCount'];
+        }
+
+        if (isset($map['InstanceConsumeCount'])) {
+            $model->instanceConsumeCount = $map['InstanceConsumeCount'];
+        }
+
+        if (isset($map['InstanceHybridPostLatestCycledResourceCount'])) {
+            $model->instanceHybridPostLatestCycledResourceCount = $map['InstanceHybridPostLatestCycledResourceCount'];
+        }
+
+        if (isset($map['InstancePostConsumeCount'])) {
+            $model->instancePostConsumeCount = $map['InstancePostConsumeCount'];
+        }
+
+        if (isset($map['InstancePurchaseCount'])) {
+            $model->instancePurchaseCount = $map['InstancePurchaseCount'];
         }
 
         if (isset($map['LoyalUser'])) {

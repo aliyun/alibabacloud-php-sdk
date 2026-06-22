@@ -23,10 +23,16 @@ class groupedFields extends Model
      * @var int
      */
     public $instanceRiskCountTotal;
+
+    /**
+     * @var int
+     */
+    public $instanceSaleCountTotal;
     protected $_name = [
         'cloudAssetSummaryMetas' => 'CloudAssetSummaryMetas',
         'instanceCountTotal' => 'InstanceCountTotal',
         'instanceRiskCountTotal' => 'InstanceRiskCountTotal',
+        'instanceSaleCountTotal' => 'InstanceSaleCountTotal',
     ];
 
     public function validate()
@@ -59,6 +65,10 @@ class groupedFields extends Model
             $res['InstanceRiskCountTotal'] = $this->instanceRiskCountTotal;
         }
 
+        if (null !== $this->instanceSaleCountTotal) {
+            $res['InstanceSaleCountTotal'] = $this->instanceSaleCountTotal;
+        }
+
         return $res;
     }
 
@@ -87,6 +97,10 @@ class groupedFields extends Model
 
         if (isset($map['InstanceRiskCountTotal'])) {
             $model->instanceRiskCountTotal = $map['InstanceRiskCountTotal'];
+        }
+
+        if (isset($map['InstanceSaleCountTotal'])) {
+            $model->instanceSaleCountTotal = $map['InstanceSaleCountTotal'];
         }
 
         return $model;

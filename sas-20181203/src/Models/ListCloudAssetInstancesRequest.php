@@ -31,6 +31,11 @@ class ListCloudAssetInstancesRequest extends Model
     public $currentPage;
 
     /**
+     * @var bool
+     */
+    public $isSaleData;
+
+    /**
      * @var string
      */
     public $logicalExp;
@@ -49,6 +54,7 @@ class ListCloudAssetInstancesRequest extends Model
         'cloudAssetTypes' => 'CloudAssetTypes',
         'criteria' => 'Criteria',
         'currentPage' => 'CurrentPage',
+        'isSaleData' => 'IsSaleData',
         'logicalExp' => 'LogicalExp',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
@@ -96,6 +102,10 @@ class ListCloudAssetInstancesRequest extends Model
 
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->isSaleData) {
+            $res['IsSaleData'] = $this->isSaleData;
         }
 
         if (null !== $this->logicalExp) {
@@ -149,6 +159,10 @@ class ListCloudAssetInstancesRequest extends Model
 
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['IsSaleData'])) {
+            $model->isSaleData = $map['IsSaleData'];
         }
 
         if (isset($map['LogicalExp'])) {

@@ -15,11 +15,17 @@ class GetCloudAssetSummaryRequest extends Model
     public $cloudAssetTypes;
 
     /**
+     * @var bool
+     */
+    public $isSaleData;
+
+    /**
      * @var int[]
      */
     public $vendors;
     protected $_name = [
         'cloudAssetTypes' => 'CloudAssetTypes',
+        'isSaleData' => 'IsSaleData',
         'vendors' => 'Vendors',
     ];
 
@@ -46,6 +52,10 @@ class GetCloudAssetSummaryRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->isSaleData) {
+            $res['IsSaleData'] = $this->isSaleData;
         }
 
         if (null !== $this->vendors) {
@@ -79,6 +89,10 @@ class GetCloudAssetSummaryRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['IsSaleData'])) {
+            $model->isSaleData = $map['IsSaleData'];
         }
 
         if (isset($map['Vendors'])) {
