@@ -17,6 +17,11 @@ class CreateSecurityProxyRequest extends Model
     /**
      * @var string
      */
+    public $fwVswitchZoneId;
+
+    /**
+     * @var string
+     */
     public $lang;
 
     /**
@@ -65,6 +70,7 @@ class CreateSecurityProxyRequest extends Model
     public $vswitchId;
     protected $_name = [
         'firewallSwitch' => 'FirewallSwitch',
+        'fwVswitchZoneId' => 'FwVswitchZoneId',
         'lang' => 'Lang',
         'natGatewayId' => 'NatGatewayId',
         'natRouteEntryList' => 'NatRouteEntryList',
@@ -90,6 +96,10 @@ class CreateSecurityProxyRequest extends Model
         $res = [];
         if (null !== $this->firewallSwitch) {
             $res['FirewallSwitch'] = $this->firewallSwitch;
+        }
+
+        if (null !== $this->fwVswitchZoneId) {
+            $res['FwVswitchZoneId'] = $this->fwVswitchZoneId;
         }
 
         if (null !== $this->lang) {
@@ -152,6 +162,10 @@ class CreateSecurityProxyRequest extends Model
         $model = new self();
         if (isset($map['FirewallSwitch'])) {
             $model->firewallSwitch = $map['FirewallSwitch'];
+        }
+
+        if (isset($map['FwVswitchZoneId'])) {
+            $model->fwVswitchZoneId = $map['FwVswitchZoneId'];
         }
 
         if (isset($map['Lang'])) {
