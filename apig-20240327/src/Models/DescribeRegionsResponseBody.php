@@ -6,7 +6,6 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsResponseBody\data;
-use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsResponseBody\regions;
 
 class DescribeRegionsResponseBody extends Model
 {
@@ -16,7 +15,7 @@ class DescribeRegionsResponseBody extends Model
     public $code;
 
     /**
-     * @var data
+     * @var data[]
      */
     public $data;
 
@@ -26,11 +25,6 @@ class DescribeRegionsResponseBody extends Model
     public $message;
 
     /**
-     * @var regions
-     */
-    public $regions;
-
-    /**
      * @var string
      */
     public $requestId;
@@ -38,17 +32,13 @@ class DescribeRegionsResponseBody extends Model
         'code' => 'code',
         'data' => 'data',
         'message' => 'message',
-        'regions' => 'regions',
         'requestId' => 'requestId',
     ];
 
     public function validate()
     {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        if (null !== $this->regions) {
-            $this->regions->validate();
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
         }
         parent::validate();
     }
@@ -61,15 +51,18 @@ class DescribeRegionsResponseBody extends Model
         }
 
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->message) {
             $res['message'] = $this->message;
-        }
-
-        if (null !== $this->regions) {
-            $res['regions'] = null !== $this->regions ? $this->regions->toArray($noStream) : $this->regions;
         }
 
         if (null !== $this->requestId) {
@@ -92,15 +85,18 @@ class DescribeRegionsResponseBody extends Model
         }
 
         if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+            if (!empty($map['data'])) {
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['message'])) {
             $model->message = $map['message'];
-        }
-
-        if (isset($map['regions'])) {
-            $model->regions = regions::fromMap($map['regions']);
         }
 
         if (isset($map['requestId'])) {
