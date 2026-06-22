@@ -14,16 +14,25 @@ class OperationData extends Model
     public $actualDeliveredAmounts;
 
     /**
+     * @var string[]
+     */
+    public $failedRefundInstanceIds;
+
+    /**
      * @var int
      */
     public $toBeDeliveredAmounts;
     protected $_name = [
         'actualDeliveredAmounts' => 'actualDeliveredAmounts',
+        'failedRefundInstanceIds' => 'failedRefundInstanceIds',
         'toBeDeliveredAmounts' => 'toBeDeliveredAmounts',
     ];
 
     public function validate()
     {
+        if (\is_array($this->failedRefundInstanceIds)) {
+            Model::validateArray($this->failedRefundInstanceIds);
+        }
         parent::validate();
     }
 
@@ -32,6 +41,17 @@ class OperationData extends Model
         $res = [];
         if (null !== $this->actualDeliveredAmounts) {
             $res['actualDeliveredAmounts'] = $this->actualDeliveredAmounts;
+        }
+
+        if (null !== $this->failedRefundInstanceIds) {
+            if (\is_array($this->failedRefundInstanceIds)) {
+                $res['failedRefundInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->failedRefundInstanceIds as $item1) {
+                    $res['failedRefundInstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->toBeDeliveredAmounts) {
@@ -51,6 +71,17 @@ class OperationData extends Model
         $model = new self();
         if (isset($map['actualDeliveredAmounts'])) {
             $model->actualDeliveredAmounts = $map['actualDeliveredAmounts'];
+        }
+
+        if (isset($map['failedRefundInstanceIds'])) {
+            if (!empty($map['failedRefundInstanceIds'])) {
+                $model->failedRefundInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['failedRefundInstanceIds'] as $item1) {
+                    $model->failedRefundInstanceIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['toBeDeliveredAmounts'])) {

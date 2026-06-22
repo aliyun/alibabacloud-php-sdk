@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteApiTemplateRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteClusterResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteNodeGroupRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteNodeGroupResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteScriptRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteScriptResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\DeleteUsersRequest;
@@ -151,6 +153,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAttributeRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAttributeResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAutoRenewRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAutoRenewResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateNodeGroupAttributesRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateNodeGroupAttributesResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptShrinkRequest;
@@ -210,6 +214,21 @@ class Emr extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'emr.aliyuncs.com',
             'eu-west-1-oxs' => 'emr.aliyuncs.com',
             'rus-west-1-pop' => 'emr.aliyuncs.com',
+            'us-east-1' => 'emr.us-east-1.aliyuncs.com',
+            'me-east-1' => 'emr.me-east-1.aliyuncs.com',
+            'me-central-1' => 'emr.me-central-1.aliyuncs.com',
+            'eu-west-1' => 'emr.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'emr.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'emr.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'emr.cn-wulanchabu.aliyuncs.com',
+            'cn-qingdao' => 'emr.cn-qingdao.aliyuncs.com',
+            'cn-huhehaote' => 'emr.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'emr.cn-hongkong.aliyuncs.com',
+            'cn-heyuan-acdr-1' => 'emr.cn-heyuan-acdr-1.aliyuncs.com',
+            'cn-chengdu' => 'emr.cn-chengdu.aliyuncs.com',
+            'ap-southeast-5' => 'emr.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'emr.ap-southeast-3.aliyuncs.com',
+            'ap-northeast-1' => 'emr.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('emr', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -509,7 +528,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     * Creates a bootstrap script or a regular cluster script.
      *
      * @param request - CreateScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -564,7 +583,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds a bootstrap action or a common script of an E-MapReduce (EMR) cluster.
+     * Creates a bootstrap script or a regular cluster script.
      *
      * @param request - CreateScriptRequest
      *
@@ -582,10 +601,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates multiple users at a time.
+     * Creates users in a batch.
      *
      * @remarks
-     * You can call this operation to create multiple users at a time.
+     * Creates users in a batch.
      *
      * @param request - CreateUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -632,10 +651,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates multiple users at a time.
+     * Creates users in a batch.
      *
      * @remarks
-     * You can call this operation to create multiple users at a time.
+     * Creates users in a batch.
      *
      * @param request - CreateUsersRequest
      *
@@ -653,7 +672,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Performs a scale-out operation on the target node group.
+     * Scales in a target node group.
      *
      * @param request - DecreaseNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -716,7 +735,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Performs a scale-out operation on the target node group.
+     * Scales in a target node group.
      *
      * @param request - DecreaseNodesRequest
      *
@@ -803,6 +822,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Deletes a pay-as-you-go cluster.
+     *
      * @param request - DeleteClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -844,6 +865,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Deletes a pay-as-you-go cluster.
+     *
      * @param request - DeleteClusterRequest
      *
      * @returns DeleteClusterResponse
@@ -857,6 +880,75 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a created cluster node group.
+     *
+     * @param request - DeleteNodeGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNodeGroupResponse
+     *
+     * @param DeleteNodeGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteNodeGroupResponse
+     */
+    public function deleteNodeGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->nodeGroupId) {
+            @$query['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNodeGroup',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNodeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a created cluster node group.
+     *
+     * @param request - DeleteNodeGroupRequest
+     *
+     * @returns DeleteNodeGroupResponse
+     *
+     * @param DeleteNodeGroupRequest $request
+     *
+     * @return DeleteNodeGroupResponse
+     */
+    public function deleteNodeGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNodeGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1008,7 +1100,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 导出应用服务配置.
+     * Exports the configurations of a specified service in a cluster.
      *
      * @param request - ExportApplicationConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1075,7 +1167,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 导出应用服务配置.
+     * Exports the configurations of a specified service in a cluster.
      *
      * @param request - ExportApplicationConfigsRequest
      *
@@ -1157,7 +1249,7 @@ class Emr extends OpenApiClient
      * Retrieves the details of an application.
      *
      * @remarks
-     * 查询应用详情。
+     * Queries the details of an application.
      *
      * @param request - GetApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1207,7 +1299,7 @@ class Emr extends OpenApiClient
      * Retrieves the details of an application.
      *
      * @remarks
-     * 查询应用详情。
+     * Queries the details of an application.
      *
      * @param request - GetApplicationRequest
      *
@@ -1225,7 +1317,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the information about an auto scaling activity.
+     * Retrieves the details of an Auto Scaling activity.
      *
      * @param request - GetAutoScalingActivityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1272,7 +1364,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the information about an auto scaling activity.
+     * Retrieves the details of an Auto Scaling activity.
      *
      * @param request - GetAutoScalingActivityRequest
      *
@@ -1290,7 +1382,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries custom auto scaling rules.
+     * Retrieves the details of a custom Auto Scaling policy.
      *
      * @param request - GetAutoScalingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1337,7 +1429,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries custom auto scaling rules.
+     * Retrieves the details of a custom Auto Scaling policy.
      *
      * @param request - GetAutoScalingPolicyRequest
      *
@@ -1416,7 +1508,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+     * Retrieves the clone metadata of an E-MapReduce (EMR) cluster. You can use this metadata to quickly create a cluster by calling the CreateCluster operation.
      *
      * @param request - GetClusterCloneMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1459,7 +1551,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Obtains metadata of the E-MapReduce (EMR) cluster that you want to clone. This helps you call the CreateCluster API operation to quickly create an EMR cluster.
+     * Retrieves the clone metadata of an E-MapReduce (EMR) cluster. You can use this metadata to quickly create a cluster by calling the CreateCluster operation.
      *
      * @param request - GetClusterCloneMetaRequest
      *
@@ -2436,6 +2528,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a managed scaling policy.
+     *
      * @param request - GetManagedScalingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2477,6 +2571,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a managed scaling policy.
+     *
      * @param request - GetManagedScalingPolicyRequest
      *
      * @returns GetManagedScalingPolicyResponse
@@ -2493,10 +2589,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain the details of a node group.
+     * Queries the details of a node group.
      *
      * @remarks
-     * 获取节点组详情。
+     * Queries the details of a node group.
      *
      * @param request - GetNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2543,10 +2639,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * You can call this operation to obtain the details of a node group.
+     * Queries the details of a node group.
      *
      * @remarks
-     * 获取节点组详情。
+     * Queries the details of a node group.
      *
      * @param request - GetNodeGroupRequest
      *
@@ -2629,7 +2725,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Scales out the node group.
+     * Scales out a target node group.
      *
      * @param request - IncreaseNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2708,7 +2804,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Scales out the node group.
+     * Scales out a target node group.
      *
      * @param request - IncreaseNodesRequest
      *
@@ -2795,7 +2891,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询API模板
+     * Lists API templates.
      *
      * @param request - ListApiTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2862,7 +2958,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * 查询API模板
+     * Lists API templates.
      *
      * @param request - ListApiTemplatesRequest
      *
@@ -2883,7 +2979,7 @@ class Emr extends OpenApiClient
      * Queries the configurations of the application.
      *
      * @remarks
-     * 查询应用配置。
+     * Queries application configurations.
      *
      * @param request - ListApplicationConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2961,7 +3057,7 @@ class Emr extends OpenApiClient
      * Queries the configurations of the application.
      *
      * @remarks
-     * 查询应用配置。
+     * Queries application configurations.
      *
      * @param request - ListApplicationConfigsRequest
      *
@@ -3052,7 +3148,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries a list of auto scaling activities.
+     * Lists Auto Scaling activities.
      *
      * @param request - ListAutoScalingActivitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3135,7 +3231,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries a list of auto scaling activities.
+     * Lists Auto Scaling activities.
      *
      * @param request - ListAutoScalingActivitiesRequest
      *
@@ -3153,7 +3249,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries E-MapReduce (EMR) clusters.
+     * Lists EMR clusters.
      *
      * @param request - ListClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3228,7 +3324,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries E-MapReduce (EMR) clusters.
+     * Lists EMR clusters.
      *
      * @param request - ListClustersRequest
      *
@@ -3796,8 +3892,10 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Retrieves batch analysis results for specific directories using EMR Doctor. The directory depth cannot exceed five levels.
+     *
      * @remarks
-     * list Doctor HDFSNodes
+     * Queries the analysis results for HDFS directories.
      *
      * @param request - ListDoctorHDFSDirectoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3864,8 +3962,10 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Retrieves batch analysis results for specific directories using EMR Doctor. The directory depth cannot exceed five levels.
+     *
      * @remarks
-     * list Doctor HDFSNodes
+     * Queries the analysis results for HDFS directories.
      *
      * @param request - ListDoctorHDFSDirectoriesRequest
      *
@@ -4433,7 +4533,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Lists instance types.
+     * Retrieves a list of EMR instance types.
      *
      * @param request - ListInstanceTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4512,7 +4612,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Lists instance types.
+     * Retrieves a list of EMR instance types.
      *
      * @param request - ListInstanceTypesRequest
      *
@@ -4530,7 +4630,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the list of node groups in an EMR cluster.
+     * Queries the node groups in an EMR cluster.
      *
      * @param request - ListNodeGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4601,7 +4701,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the list of node groups in an EMR cluster.
+     * Queries the node groups in an EMR cluster.
      *
      * @param request - ListNodeGroupsRequest
      *
@@ -4719,7 +4819,7 @@ class Emr extends OpenApiClient
      * Queries the major E-MapReduce (EMR) versions.
      *
      * @remarks
-     * 查询主版本。
+     * Queries release versions.
      *
      * @param request - ListReleaseVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4769,7 +4869,7 @@ class Emr extends OpenApiClient
      * Queries the major E-MapReduce (EMR) versions.
      *
      * @remarks
-     * 查询主版本。
+     * Queries release versions.
      *
      * @param request - ListReleaseVersionsRequest
      *
@@ -4787,7 +4887,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Query EMR cluster bootstrap scripts or regular scripts.
+     * Queries the bootstrap or normal scripts of an EMR cluster.
      *
      * @param request - ListScriptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4854,7 +4954,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Query EMR cluster bootstrap scripts or regular scripts.
+     * Queries the bootstrap or normal scripts of an EMR cluster.
      *
      * @param request - ListScriptsRequest
      *
@@ -4872,7 +4972,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are bound to an EMR cluster.
+     * Queries the tags attached to E-MapReduce (EMR) clusters.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4931,7 +5031,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are bound to an EMR cluster.
+     * Queries the tags attached to E-MapReduce (EMR) clusters.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -5032,10 +5132,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds a custom auto scaling rule.
+     * Creates a custom Auto Scaling policy.
      *
      * @remarks
-     * You can call this operation to configure auto scaling policies.
+     * Configures an Auto Scaling policy.
      *
      * @param request - PutAutoScalingPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5090,10 +5190,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Adds a custom auto scaling rule.
+     * Creates a custom Auto Scaling policy.
      *
      * @remarks
-     * You can call this operation to configure auto scaling policies.
+     * Configures an Auto Scaling policy.
      *
      * @param request - PutAutoScalingPolicyRequest
      *
@@ -5237,6 +5337,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Runs an API template.
+     *
      * @param request - RunApiTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5286,6 +5388,8 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Runs an API template.
+     *
      * @param request - RunApiTemplateRequest
      *
      * @returns RunApiTemplateResponse
@@ -5391,10 +5495,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+     * Creates a pay-as-you-go or subscription cluster.
      *
      * @remarks
-     * RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+     * RunCluster is an upgraded version of CreateCluster. It uses HTTPS POST requests and supports larger parameter values. For complex parameters, such as objects and arrays, RunCluster uses the JSON format. This improves compatibility with command-line interface (CLI) tools.
      *
      * @param tmpReq - RunClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5541,10 +5645,10 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+     * Creates a pay-as-you-go or subscription cluster.
      *
      * @remarks
-     * RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
+     * RunCluster is an upgraded version of CreateCluster. It uses HTTPS POST requests and supports larger parameter values. For complex parameters, such as objects and arrays, RunCluster uses the JSON format. This improves compatibility with command-line interface (CLI) tools.
      *
      * @param request - RunClusterRequest
      *
@@ -5707,7 +5811,7 @@ class Emr extends OpenApiClient
      * Updates an API operation template.
      *
      * @remarks
-     * 修改集群模板
+     * Modifies a cluster template.
      *
      * @param request - UpdateApiTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5769,7 +5873,7 @@ class Emr extends OpenApiClient
      * Updates an API operation template.
      *
      * @remarks
-     * 修改集群模板
+     * Modifies a cluster template.
      *
      * @param request - UpdateApiTemplateRequest
      *
@@ -5787,7 +5891,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates the application configurations.
+     * Updates the configurations of an application.
      *
      * @param request - UpdateApplicationConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5867,7 +5971,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * Updates the application configurations.
+     * Updates the configurations of an application.
      *
      * @param request - UpdateApplicationConfigsRequest
      *
@@ -5958,6 +6062,11 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Enables or disables auto-renewal for an EMR cluster and its Elastic Compute Service (ECS) instances.
+     *
+     * @remarks
+     * Before you call this operation, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.d54d281ftXTbvg#/emapreduce/detail/emrpre) of E-MapReduce. Note: Auto-renewal is different from manual renewal. If an instance has expired or will expire the next day, you must perform a manual renewal first.
+     *
      * @param request - UpdateClusterAutoRenewRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6019,6 +6128,11 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * Enables or disables auto-renewal for an EMR cluster and its Elastic Compute Service (ECS) instances.
+     *
+     * @remarks
+     * Before you call this operation, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.d54d281ftXTbvg#/emapreduce/detail/emrpre) of E-MapReduce. Note: Auto-renewal is different from manual renewal. If an instance has expired or will expire the next day, you must perform a manual renewal first.
+     *
      * @param request - UpdateClusterAutoRenewRequest
      *
      * @returns UpdateClusterAutoRenewResponse
@@ -6032,6 +6146,145 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateClusterAutoRenewWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the attributes of a node group.
+     *
+     * @remarks
+     * 更新节点组基本属性。
+     *
+     * @param request - UpdateNodeGroupAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNodeGroupAttributesResponse
+     *
+     * @param UpdateNodeGroupAttributesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateNodeGroupAttributesResponse
+     */
+    public function updateNodeGroupAttributesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ackConfig) {
+            @$query['AckConfig'] = $request->ackConfig;
+        }
+
+        if (null !== $request->additionalSecurityGroupIds) {
+            @$query['AdditionalSecurityGroupIds'] = $request->additionalSecurityGroupIds;
+        }
+
+        if (null !== $request->autoCompensateState) {
+            @$query['AutoCompensateState'] = $request->autoCompensateState;
+        }
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->costOptimizedConfig) {
+            @$query['CostOptimizedConfig'] = $request->costOptimizedConfig;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->ecsSpotStrategy) {
+            @$query['EcsSpotStrategy'] = $request->ecsSpotStrategy;
+        }
+
+        if (null !== $request->enableGracefulDecommission) {
+            @$query['EnableGracefulDecommission'] = $request->enableGracefulDecommission;
+        }
+
+        if (null !== $request->instanceTypeList) {
+            @$query['InstanceTypeList'] = $request->instanceTypeList;
+        }
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
+        }
+
+        if (null !== $request->maxSize) {
+            @$query['MaxSize'] = $request->maxSize;
+        }
+
+        if (null !== $request->minSize) {
+            @$query['MinSize'] = $request->minSize;
+        }
+
+        if (null !== $request->nodeCount) {
+            @$query['NodeCount'] = $request->nodeCount;
+        }
+
+        if (null !== $request->nodeGroupId) {
+            @$query['NodeGroupId'] = $request->nodeGroupId;
+        }
+
+        if (null !== $request->nodeGroupName) {
+            @$query['NodeGroupName'] = $request->nodeGroupName;
+        }
+
+        if (null !== $request->nodeResizeStrategy) {
+            @$query['NodeResizeStrategy'] = $request->nodeResizeStrategy;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->spotBidPrices) {
+            @$query['SpotBidPrices'] = $request->spotBidPrices;
+        }
+
+        if (null !== $request->spotInstanceRemedy) {
+            @$query['SpotInstanceRemedy'] = $request->spotInstanceRemedy;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNodeGroupAttributes',
+            'version' => '2021-03-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNodeGroupAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the attributes of a node group.
+     *
+     * @remarks
+     * 更新节点组基本属性。
+     *
+     * @param request - UpdateNodeGroupAttributesRequest
+     *
+     * @returns UpdateNodeGroupAttributesResponse
+     *
+     * @param UpdateNodeGroupAttributesRequest $request
+     *
+     * @return UpdateNodeGroupAttributesResponse
+     */
+    public function updateNodeGroupAttributes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNodeGroupAttributesWithOptions($request, $runtime);
     }
 
     /**
