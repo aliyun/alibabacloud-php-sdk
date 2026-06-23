@@ -1,3 +1,6 @@
+2026-06-23 Version: 1.9.2
+- Generated php 2024-11-11 for IQS.
+
 2026-05-28 Version: 1.9.1
 - Generated php 2024-11-11 for IQS.
 

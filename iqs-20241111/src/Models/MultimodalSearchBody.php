@@ -16,9 +16,15 @@ class MultimodalSearchBody extends Model
     /**
      * @var string
      */
+    public $engineType;
+
+    /**
+     * @var string
+     */
     public $query;
     protected $_name = [
         'advancedParams' => 'advancedParams',
+        'engineType' => 'engineType',
         'query' => 'query',
     ];
 
@@ -40,6 +46,10 @@ class MultimodalSearchBody extends Model
                     $res['advancedParams'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->engineType) {
+            $res['engineType'] = $this->engineType;
         }
 
         if (null !== $this->query) {
@@ -64,6 +74,10 @@ class MultimodalSearchBody extends Model
                     $model->advancedParams[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['engineType'])) {
+            $model->engineType = $map['engineType'];
         }
 
         if (isset($map['query'])) {
