@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceShrinkRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGatewayConsumerForPolarDBXRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGatewayConsumerForPolarDBXResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnStandbyMemberRequest;
@@ -1703,6 +1705,73 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an AI gateway consumer for a PolarDB-X instance.
+     *
+     * @remarks
+     * ***.
+     *
+     * @param request - CreateGatewayConsumerForPolarDBXRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGatewayConsumerForPolarDBXResponse
+     *
+     * @param CreateGatewayConsumerForPolarDBXRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CreateGatewayConsumerForPolarDBXResponse
+     */
+    public function createGatewayConsumerForPolarDBXWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGatewayConsumerForPolarDBX',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGatewayConsumerForPolarDBXResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an AI gateway consumer for a PolarDB-X instance.
+     *
+     * @remarks
+     * ***.
+     *
+     * @param request - CreateGatewayConsumerForPolarDBXRequest
+     *
+     * @returns CreateGatewayConsumerForPolarDBXResponse
+     *
+     * @param CreateGatewayConsumerForPolarDBXRequest $request
+     *
+     * @return CreateGatewayConsumerForPolarDBXResponse
+     */
+    public function createGatewayConsumerForPolarDBX($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGatewayConsumerForPolarDBXWithOptions($request, $runtime);
     }
 
     /**

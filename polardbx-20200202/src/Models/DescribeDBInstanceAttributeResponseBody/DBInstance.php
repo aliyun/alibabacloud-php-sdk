@@ -13,6 +13,11 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeRespon
 class DBInstance extends Model
 {
     /**
+     * @var string
+     */
+    public $aiGatewayEnabled;
+
+    /**
      * @var bool
      */
     public $canNotCreateColumnar;
@@ -307,6 +312,7 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'aiGatewayEnabled' => 'AiGatewayEnabled',
         'canNotCreateColumnar' => 'CanNotCreateColumnar',
         'cnNodeClassCode' => 'CnNodeClassCode',
         'cnNodeCount' => 'CnNodeCount',
@@ -397,6 +403,10 @@ class DBInstance extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiGatewayEnabled) {
+            $res['AiGatewayEnabled'] = $this->aiGatewayEnabled;
+        }
+
         if (null !== $this->canNotCreateColumnar) {
             $res['CanNotCreateColumnar'] = $this->canNotCreateColumnar;
         }
@@ -693,6 +703,10 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiGatewayEnabled'])) {
+            $model->aiGatewayEnabled = $map['AiGatewayEnabled'];
+        }
+
         if (isset($map['CanNotCreateColumnar'])) {
             $model->canNotCreateColumnar = $map['CanNotCreateColumnar'];
         }
