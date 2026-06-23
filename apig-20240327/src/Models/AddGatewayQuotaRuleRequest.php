@@ -34,6 +34,11 @@ class AddGatewayQuotaRuleRequest extends Model
     public $overwrite;
 
     /**
+     * @var int
+     */
+    public $periodMultiplier;
+
+    /**
      * @var string
      */
     public $periodType;
@@ -68,6 +73,7 @@ class AddGatewayQuotaRuleRequest extends Model
         'consumerIds' => 'consumerIds',
         'dryRun' => 'dryRun',
         'overwrite' => 'overwrite',
+        'periodMultiplier' => 'periodMultiplier',
         'periodType' => 'periodType',
         'quotaDimension' => 'quotaDimension',
         'quotaLimit' => 'quotaLimit',
@@ -122,6 +128,10 @@ class AddGatewayQuotaRuleRequest extends Model
 
         if (null !== $this->overwrite) {
             $res['overwrite'] = $this->overwrite;
+        }
+
+        if (null !== $this->periodMultiplier) {
+            $res['periodMultiplier'] = $this->periodMultiplier;
         }
 
         if (null !== $this->periodType) {
@@ -191,6 +201,10 @@ class AddGatewayQuotaRuleRequest extends Model
 
         if (isset($map['overwrite'])) {
             $model->overwrite = $map['overwrite'];
+        }
+
+        if (isset($map['periodMultiplier'])) {
+            $model->periodMultiplier = $map['periodMultiplier'];
         }
 
         if (isset($map['periodType'])) {

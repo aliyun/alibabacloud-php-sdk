@@ -10,7 +10,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewayQuotaRuleResponseBody\data\
 class data extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
     public $accepted;
 

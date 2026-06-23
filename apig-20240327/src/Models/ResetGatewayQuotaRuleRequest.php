@@ -24,6 +24,11 @@ class ResetGatewayQuotaRuleRequest extends Model
     public $overwrite;
 
     /**
+     * @var int
+     */
+    public $periodMultiplier;
+
+    /**
      * @var string
      */
     public $periodType;
@@ -37,13 +42,20 @@ class ResetGatewayQuotaRuleRequest extends Model
      * @var string
      */
     public $timezone;
+
+    /**
+     * @var string
+     */
+    public $windowAlignment;
     protected $_name = [
         'conflictHash' => 'conflictHash',
         'dryRun' => 'dryRun',
         'overwrite' => 'overwrite',
+        'periodMultiplier' => 'periodMultiplier',
         'periodType' => 'periodType',
         'quotaLimit' => 'quotaLimit',
         'timezone' => 'timezone',
+        'windowAlignment' => 'windowAlignment',
     ];
 
     public function validate()
@@ -66,6 +78,10 @@ class ResetGatewayQuotaRuleRequest extends Model
             $res['overwrite'] = $this->overwrite;
         }
 
+        if (null !== $this->periodMultiplier) {
+            $res['periodMultiplier'] = $this->periodMultiplier;
+        }
+
         if (null !== $this->periodType) {
             $res['periodType'] = $this->periodType;
         }
@@ -76,6 +92,10 @@ class ResetGatewayQuotaRuleRequest extends Model
 
         if (null !== $this->timezone) {
             $res['timezone'] = $this->timezone;
+        }
+
+        if (null !== $this->windowAlignment) {
+            $res['windowAlignment'] = $this->windowAlignment;
         }
 
         return $res;
@@ -101,6 +121,10 @@ class ResetGatewayQuotaRuleRequest extends Model
             $model->overwrite = $map['overwrite'];
         }
 
+        if (isset($map['periodMultiplier'])) {
+            $model->periodMultiplier = $map['periodMultiplier'];
+        }
+
         if (isset($map['periodType'])) {
             $model->periodType = $map['periodType'];
         }
@@ -111,6 +135,10 @@ class ResetGatewayQuotaRuleRequest extends Model
 
         if (isset($map['timezone'])) {
             $model->timezone = $map['timezone'];
+        }
+
+        if (isset($map['windowAlignment'])) {
+            $model->windowAlignment = $map['windowAlignment'];
         }
 
         return $model;

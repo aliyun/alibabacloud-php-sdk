@@ -320,6 +320,10 @@ class APIG extends OpenApiClient
             @$body['overwrite'] = $request->overwrite;
         }
 
+        if (null !== $request->periodMultiplier) {
+            @$body['periodMultiplier'] = $request->periodMultiplier;
+        }
+
         if (null !== $request->periodType) {
             @$body['periodType'] = $request->periodType;
         }
@@ -6911,6 +6915,10 @@ class APIG extends OpenApiClient
             @$body['overwrite'] = $request->overwrite;
         }
 
+        if (null !== $request->periodMultiplier) {
+            @$body['periodMultiplier'] = $request->periodMultiplier;
+        }
+
         if (null !== $request->periodType) {
             @$body['periodType'] = $request->periodType;
         }
@@ -6921,6 +6929,10 @@ class APIG extends OpenApiClient
 
         if (null !== $request->timezone) {
             @$body['timezone'] = $request->timezone;
+        }
+
+        if (null !== $request->windowAlignment) {
+            @$body['windowAlignment'] = $request->windowAlignment;
         }
 
         $req = new OpenApiRequest([

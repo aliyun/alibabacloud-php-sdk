@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayQuotaRuleResponseBody\data\consumers;
 
 class data extends Model
 {
@@ -17,6 +18,11 @@ class data extends Model
      * @var int
      */
     public $consumerCount;
+
+    /**
+     * @var consumers[]
+     */
+    public $consumers;
 
     /**
      * @var string
@@ -60,6 +66,7 @@ class data extends Model
     protected $_name = [
         'baseTimestamp' => 'baseTimestamp',
         'consumerCount' => 'consumerCount',
+        'consumers' => 'consumers',
         'periodType' => 'periodType',
         'quotaDimension' => 'quotaDimension',
         'quotaLimit' => 'quotaLimit',
@@ -72,6 +79,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->consumers)) {
+            Model::validateArray($this->consumers);
+        }
         parent::validate();
     }
 
@@ -84,6 +94,17 @@ class data extends Model
 
         if (null !== $this->consumerCount) {
             $res['consumerCount'] = $this->consumerCount;
+        }
+
+        if (null !== $this->consumers) {
+            if (\is_array($this->consumers)) {
+                $res['consumers'] = [];
+                $n1 = 0;
+                foreach ($this->consumers as $item1) {
+                    $res['consumers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->periodType) {
@@ -135,6 +156,17 @@ class data extends Model
 
         if (isset($map['consumerCount'])) {
             $model->consumerCount = $map['consumerCount'];
+        }
+
+        if (isset($map['consumers'])) {
+            if (!empty($map['consumers'])) {
+                $model->consumers = [];
+                $n1 = 0;
+                foreach ($map['consumers'] as $item1) {
+                    $model->consumers[$n1] = consumers::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['periodType'])) {

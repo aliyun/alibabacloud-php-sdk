@@ -11,6 +11,16 @@ class items extends Model
     /**
      * @var string
      */
+    public $conflictPeriodType;
+
+    /**
+     * @var string
+     */
+    public $conflictType;
+
+    /**
+     * @var string
+     */
     public $consumerId;
 
     /**
@@ -18,6 +28,8 @@ class items extends Model
      */
     public $consumerName;
     protected $_name = [
+        'conflictPeriodType' => 'conflictPeriodType',
+        'conflictType' => 'conflictType',
         'consumerId' => 'consumerId',
         'consumerName' => 'consumerName',
     ];
@@ -30,6 +42,14 @@ class items extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->conflictPeriodType) {
+            $res['conflictPeriodType'] = $this->conflictPeriodType;
+        }
+
+        if (null !== $this->conflictType) {
+            $res['conflictType'] = $this->conflictType;
+        }
+
         if (null !== $this->consumerId) {
             $res['consumerId'] = $this->consumerId;
         }
@@ -49,6 +69,14 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['conflictPeriodType'])) {
+            $model->conflictPeriodType = $map['conflictPeriodType'];
+        }
+
+        if (isset($map['conflictType'])) {
+            $model->conflictType = $map['conflictType'];
+        }
+
         if (isset($map['consumerId'])) {
             $model->consumerId = $map['consumerId'];
         }
