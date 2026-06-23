@@ -183,7 +183,13 @@ class Dm extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-east-1' => 'dm.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'dm.eu-central-1.aliyuncs.com',
+            'cn-hangzhou' => 'dm.aliyuncs.com',
+            'ap-southeast-1' => 'dm.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dm', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -6220,7 +6226,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Validates an email address.
+     * Validate an email address.
      *
      * @param Request - ValidateEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6242,6 +6248,10 @@ class Dm extends OpenApiClient
 
         if (null !== $request->email) {
             @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->probeType) {
+            @$query['ProbeType'] = $request->probeType;
         }
 
         if (null !== $request->timeout) {
@@ -6267,7 +6277,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Validates an email address.
+     * Validate an email address.
      *
      * @param Request - ValidateEmailRequest
      *

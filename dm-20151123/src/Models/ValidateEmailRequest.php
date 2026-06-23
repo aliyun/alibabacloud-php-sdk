@@ -19,12 +19,18 @@ class ValidateEmailRequest extends Model
     public $email;
 
     /**
+     * @var string
+     */
+    public $probeType;
+
+    /**
      * @var int
      */
     public $timeout;
     protected $_name = [
         'checkGraylist' => 'CheckGraylist',
         'email' => 'Email',
+        'probeType' => 'ProbeType',
         'timeout' => 'Timeout',
     ];
 
@@ -42,6 +48,10 @@ class ValidateEmailRequest extends Model
 
         if (null !== $this->email) {
             $res['Email'] = $this->email;
+        }
+
+        if (null !== $this->probeType) {
+            $res['ProbeType'] = $this->probeType;
         }
 
         if (null !== $this->timeout) {
@@ -65,6 +75,10 @@ class ValidateEmailRequest extends Model
 
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
+        }
+
+        if (isset($map['ProbeType'])) {
+            $model->probeType = $map['ProbeType'];
         }
 
         if (isset($map['Timeout'])) {
