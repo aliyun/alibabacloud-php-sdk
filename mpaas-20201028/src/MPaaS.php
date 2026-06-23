@@ -9686,6 +9686,14 @@ class MPaaS extends OpenApiClient
             @$body['CustomId'] = $request->customId;
         }
 
+        if (null !== $request->itemId) {
+            @$body['ItemId'] = $request->itemId;
+        }
+
+        if (null !== $request->itemTitle) {
+            @$body['ItemTitle'] = $request->itemTitle;
+        }
+
         if (null !== $request->miniProgramId) {
             @$body['MiniProgramId'] = $request->miniProgramId;
         }

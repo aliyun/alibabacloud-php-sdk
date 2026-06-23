@@ -46,6 +46,16 @@ class SaveOrderRelationInfoToMsenceRequest extends Model
     /**
      * @var string
      */
+    public $itemId;
+
+    /**
+     * @var string
+     */
+    public $itemTitle;
+
+    /**
+     * @var string
+     */
     public $miniProgramId;
 
     /**
@@ -75,6 +85,8 @@ class SaveOrderRelationInfoToMsenceRequest extends Model
         'clientType' => 'ClientType',
         'cpExtra' => 'CpExtra',
         'customId' => 'CustomId',
+        'itemId' => 'ItemId',
+        'itemTitle' => 'ItemTitle',
         'miniProgramId' => 'MiniProgramId',
         'openUid' => 'OpenUid',
         'platformId' => 'PlatformId',
@@ -116,6 +128,14 @@ class SaveOrderRelationInfoToMsenceRequest extends Model
 
         if (null !== $this->customId) {
             $res['CustomId'] = $this->customId;
+        }
+
+        if (null !== $this->itemId) {
+            $res['ItemId'] = $this->itemId;
+        }
+
+        if (null !== $this->itemTitle) {
+            $res['ItemTitle'] = $this->itemTitle;
         }
 
         if (null !== $this->miniProgramId) {
@@ -175,6 +195,14 @@ class SaveOrderRelationInfoToMsenceRequest extends Model
 
         if (isset($map['CustomId'])) {
             $model->customId = $map['CustomId'];
+        }
+
+        if (isset($map['ItemId'])) {
+            $model->itemId = $map['ItemId'];
+        }
+
+        if (isset($map['ItemTitle'])) {
+            $model->itemTitle = $map['ItemTitle'];
         }
 
         if (isset($map['MiniProgramId'])) {
