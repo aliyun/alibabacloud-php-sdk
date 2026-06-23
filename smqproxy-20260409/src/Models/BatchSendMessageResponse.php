@@ -17,15 +17,24 @@ class BatchSendMessageResponse extends Model
      * @var int
      */
     public $statusCode;
+
+    /**
+     * @var BatchSendMessageResponseBody
+     */
+    public $body;
     protected $_name = [
         'headers' => 'headers',
         'statusCode' => 'statusCode',
+        'body' => 'body',
     ];
 
     public function validate()
     {
         if (\is_array($this->headers)) {
             Model::validateArray($this->headers);
+        }
+        if (null !== $this->body) {
+            $this->body->validate();
         }
         parent::validate();
     }
@@ -44,6 +53,10 @@ class BatchSendMessageResponse extends Model
 
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
+        }
+
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
@@ -68,6 +81,10 @@ class BatchSendMessageResponse extends Model
 
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
+        }
+
+        if (isset($map['body'])) {
+            $model->body = BatchSendMessageResponseBody::fromMap($map['body']);
         }
 
         return $model;
