@@ -5,36 +5,22 @@
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
 use AlibabaCloud\Dara\Model;
+use Darabonba\OpenApi\Models\WebSocketClient;
 
 class EndToEndRealTimeDialogResponse extends Model
 {
     /**
-     * @var string[]
+     * @var WebSocketClient
      */
-    public $headers;
-
-    /**
-     * @var int
-     */
-    public $statusCode;
-
-    /**
-     * @var EndToEndRealTimeDialogResponseBody
-     */
-    public $body;
+    public $webSocketClient;
     protected $_name = [
-        'headers' => 'headers',
-        'statusCode' => 'statusCode',
-        'body' => 'body',
+        'webSocketClient' => 'webSocketClient',
     ];
 
     public function validate()
     {
-        if (\is_array($this->headers)) {
-            Model::validateArray($this->headers);
-        }
-        if (null !== $this->body) {
-            $this->body->validate();
+        if (null !== $this->webSocketClient) {
+            $this->webSocketClient->validate();
         }
         parent::validate();
     }
@@ -42,21 +28,8 @@ class EndToEndRealTimeDialogResponse extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->headers) {
-            if (\is_array($this->headers)) {
-                $res['headers'] = [];
-                foreach ($this->headers as $key1 => $value1) {
-                    $res['headers'][$key1] = $value1;
-                }
-            }
-        }
-
-        if (null !== $this->statusCode) {
-            $res['statusCode'] = $this->statusCode;
-        }
-
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
+        if (null !== $this->webSocketClient) {
+            $res['webSocketClient'] = null !== $this->webSocketClient ? $this->webSocketClient->toArray($noStream) : $this->webSocketClient;
         }
 
         return $res;
@@ -70,21 +43,8 @@ class EndToEndRealTimeDialogResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            if (!empty($map['headers'])) {
-                $model->headers = [];
-                foreach ($map['headers'] as $key1 => $value1) {
-                    $model->headers[$key1] = $value1;
-                }
-            }
-        }
-
-        if (isset($map['statusCode'])) {
-            $model->statusCode = $map['statusCode'];
-        }
-
-        if (isset($map['body'])) {
-            $model->body = EndToEndRealTimeDialogResponseBody::fromMap($map['body']);
+        if (isset($map['webSocketClient'])) {
+            $model->webSocketClient = WebSocketClient::fromMap($map['webSocketClient']);
         }
 
         return $model;
