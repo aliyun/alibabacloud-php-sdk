@@ -24,6 +24,11 @@ class ApproveProcessInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var int
+     */
+    public $newExpiration;
+
+    /**
      * @var string
      */
     public $processInstanceId;
@@ -31,6 +36,7 @@ class ApproveProcessInstanceRequest extends Model
         'approvalAction' => 'ApprovalAction',
         'approvalComment' => 'ApprovalComment',
         'clientToken' => 'ClientToken',
+        'newExpiration' => 'NewExpiration',
         'processInstanceId' => 'ProcessInstanceId',
     ];
 
@@ -52,6 +58,10 @@ class ApproveProcessInstanceRequest extends Model
 
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->newExpiration) {
+            $res['NewExpiration'] = $this->newExpiration;
         }
 
         if (null !== $this->processInstanceId) {
@@ -79,6 +89,10 @@ class ApproveProcessInstanceRequest extends Model
 
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['NewExpiration'])) {
+            $model->newExpiration = $map['NewExpiration'];
         }
 
         if (isset($map['ProcessInstanceId'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionRe
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionRequest\params\meta\agent;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionRequest\params\meta\config;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAgentSessionRequest\params\meta\initialConfigOptions;
 
 class meta extends Model
 {
@@ -19,9 +20,15 @@ class meta extends Model
      * @var config
      */
     public $config;
+
+    /**
+     * @var initialConfigOptions
+     */
+    public $initialConfigOptions;
     protected $_name = [
         'agent' => 'Agent',
         'config' => 'Config',
+        'initialConfigOptions' => 'InitialConfigOptions',
     ];
 
     public function validate()
@@ -31,6 +38,9 @@ class meta extends Model
         }
         if (null !== $this->config) {
             $this->config->validate();
+        }
+        if (null !== $this->initialConfigOptions) {
+            $this->initialConfigOptions->validate();
         }
         parent::validate();
     }
@@ -44,6 +54,10 @@ class meta extends Model
 
         if (null !== $this->config) {
             $res['Config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
+        }
+
+        if (null !== $this->initialConfigOptions) {
+            $res['InitialConfigOptions'] = null !== $this->initialConfigOptions ? $this->initialConfigOptions->toArray($noStream) : $this->initialConfigOptions;
         }
 
         return $res;
@@ -63,6 +77,10 @@ class meta extends Model
 
         if (isset($map['Config'])) {
             $model->config = config::fromMap($map['Config']);
+        }
+
+        if (isset($map['InitialConfigOptions'])) {
+            $model->initialConfigOptions = initialConfigOptions::fromMap($map['InitialConfigOptions']);
         }
 
         return $model;
