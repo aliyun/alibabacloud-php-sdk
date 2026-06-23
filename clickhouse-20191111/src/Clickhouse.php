@@ -236,6 +236,18 @@ class Clickhouse extends OpenApiClient
             'rus-west-1-pop' => 'clickhouse.aliyuncs.com',
             'us-east-1' => 'clickhouse.aliyuncs.com',
             'us-west-1' => 'clickhouse.aliyuncs.com',
+            'me-central-1' => 'clickhouse.me-central-1.aliyuncs.com',
+            'eu-west-1' => 'clickhouse.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'clickhouse.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'clickhouse.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'clickhouse.aliyuncs.com',
+            'cn-huhehaote' => 'clickhouse.cn-huhehaote.aliyuncs.com',
+            'cn-guangzhou' => 'clickhouse.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'clickhouse.cn-chengdu.aliyuncs.com',
+            'ap-southeast-6' => 'clickhouse.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'clickhouse.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'clickhouse.aliyuncs.com',
+            'ap-northeast-1' => 'clickhouse.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('clickhouse', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -266,7 +278,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
+     * Allocates a public endpoint for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - AllocateClusterPublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -325,7 +337,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a public endpoint for an ApsaraDB for ClickHouse cluster.
+     * Allocates a public endpoint for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - AllocateClusterPublicConnectionRequest
      *
@@ -343,7 +355,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消运维事件任务
+     * Cancels tasks for O&M events.
      *
      * @param request - CancelActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -402,7 +414,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消运维事件任务
+     * Cancels tasks for O&M events.
      *
      * @param request - CancelActiveOperationTasksRequest
      *
@@ -420,7 +432,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消预约Zookeeper切主.
+     * Cancels a scheduled ZooKeeper leader switchover on a community-compatible ClickHouse instance.
      *
      * @param request - CancelAppointmentElectZookeeperLeaderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -487,7 +499,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消预约Zookeeper切主.
+     * Cancels a scheduled ZooKeeper leader switchover on a community-compatible ClickHouse instance.
      *
      * @param request - CancelAppointmentElectZookeeperLeaderRequest
      *
@@ -505,7 +517,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消预约重启节点列表.
+     * Cancels the scheduled restart on the specified ClickHouse nodes.
      *
      * @param request - CancelAppointmentRestartInstanceNodeListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -572,7 +584,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消预约重启节点列表.
+     * Cancels the scheduled restart on the specified ClickHouse nodes.
      *
      * @param request - CancelAppointmentRestartInstanceNodeListRequest
      *
@@ -590,7 +602,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
+     * Cancels a scheduled restart for a specific community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @param request - CancelRestartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -661,7 +673,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Cancels the scheduled restart time of an ApsaraDB for ClickHouse cluster.
+     * Cancels a scheduled restart for a specific community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @param request - CancelRestartInstanceRequest
      *
@@ -679,7 +691,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * Changes the resource group of a community-edition compatible ClickHouse cluster.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -726,7 +738,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * Changes the resource group of a community-edition compatible ClickHouse cluster.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -744,7 +756,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+     * Call the CheckClickhouseToRDS operation to verify the connectivity between a community-compatible ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
      *
      * @param request - CheckClickhouseToRDSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -835,7 +847,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Checks the connectivity between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+     * Call the CheckClickhouseToRDS operation to verify the connectivity between a community-compatible ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
      *
      * @param request - CheckClickhouseToRDSRequest
      *
@@ -853,10 +865,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
+     * Queries whether changing the configuration parameters of an ApsaraDB for ClickHouse community-compatible cluster in XML mode requires a restart.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > 该接口仅支持 2021 年 12 月 01 日之后创建的社区兼容版集群。
      *
      * @param request - CheckModifyConfigNeedRestartRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -899,10 +911,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries whether an ApsaraDB for ClickHouse cluster needs to be restarted after you change the values of the configuration parameters in XML mode.
+     * Queries whether changing the configuration parameters of an ApsaraDB for ClickHouse community-compatible cluster in XML mode requires a restart.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > 该接口仅支持 2021 年 12 月 01 日之后创建的社区兼容版集群。
      *
      * @param request - CheckModifyConfigNeedRestartRequest
      *
@@ -920,7 +932,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
+     * Call the CheckMonitorAlert operation to check whether the alert monitoring feature of Application Real-Time Monitoring Service (ARMS) is enabled for a specified ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * > This operation applies only to community-compatible clusters of version 20.8 or later that were created after December 1, 2021.
      *
      * @param request - CheckMonitorAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -979,7 +994,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Checks whether the monitoring and alerting feature that is provided by Application Real-Time Monitoring Service (ARMS) is enabled for an ApsaraDB for ClickHouse cluster.
+     * Call the CheckMonitorAlert operation to check whether the alert monitoring feature of Application Real-Time Monitoring Service (ARMS) is enabled for a specified ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * > This operation applies only to community-compatible clusters of version 20.8 or later that were created after December 1, 2021.
      *
      * @param request - CheckMonitorAlertRequest
      *
@@ -997,7 +1015,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
+     * Performs a migration scale-out check on a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - CheckScaleOutBalancedRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1045,6 +1063,10 @@ class Clickhouse extends OpenApiClient
             @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
 
+        if (null !== $request->scalingType) {
+            @$query['ScalingType'] = $request->scalingType;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1064,7 +1086,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Performs migration and scale-out detection on an ApsaraDB for ClickHouse cluster.
+     * Performs a migration scale-out check on a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - CheckScaleOutBalancedRequest
      *
@@ -1082,7 +1104,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the service-linked role of ApsaraDB for ClickHouse.
+     * Queries the service-linked role for ApsaraDB for ClickHouse.
      *
      * @param request - CheckServiceLinkedRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1133,7 +1155,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the service-linked role of ApsaraDB for ClickHouse.
+     * Queries the service-linked role for ApsaraDB for ClickHouse.
      *
      * @param request - CheckServiceLinkedRoleRequest
      *
@@ -1236,7 +1258,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates an account and grants permissions to the account.
+     * Creates a database account and grants permissions.
+     *
+     * @remarks
+     * This API is available only for cluster versions 21.8 and earlier. For newer versions, use a high-privilege account and SQL statements to modify user permissions.
      *
      * @param request - CreateAccountAndAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1331,7 +1356,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates an account and grants permissions to the account.
+     * Creates a database account and grants permissions.
+     *
+     * @remarks
+     * This API is available only for cluster versions 21.8 and earlier. For newer versions, use a high-privilege account and SQL statements to modify user permissions.
      *
      * @param request - CreateAccountAndAuthorityRequest
      *
@@ -1352,7 +1380,7 @@ class Clickhouse extends OpenApiClient
      * Creates a backup policy.
      *
      * @remarks
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     * > ApsaraDB for ClickHouse supports data backup for clusters that run version 20.3, 20.8, or 21.8.
      *
      * @param request - CreateBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1426,7 +1454,7 @@ class Clickhouse extends OpenApiClient
      * Creates a backup policy.
      *
      * @remarks
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     * > ApsaraDB for ClickHouse supports data backup for clusters that run version 20.3, 20.8, or 21.8.
      *
      * @param request - CreateBackupPolicyRequest
      *
@@ -1444,10 +1472,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraDB for ClickHouse cluster.
+     * Create an Alibaba Cloud ClickHouse cluster.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+     * Before you call this API, make sure that you understand the billing method and [price](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
      *
      * @param request - CreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1606,10 +1634,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraDB for ClickHouse cluster.
+     * Create an Alibaba Cloud ClickHouse cluster.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
+     * Before you call this API, make sure that you understand the billing method and [price](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
      *
      * @param request - CreateDBInstanceRequest
      *
@@ -1627,7 +1655,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
+     * Creates a monitoring data report.
      *
      * @param request - CreateMonitorDataReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1686,7 +1714,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a monitoring data report for an ApsaraDB for ClickHouse cluster.
+     * Creates a monitoring data report.
      *
      * @param request - CreateMonitorDataReportRequest
      *
@@ -1704,10 +1732,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a storage task for cold data.
+     * Creates a cold storage space.
      *
      * @remarks
-     * Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
+     * The tiered storage of hot and cold data feature is supported only by community-compatible clusters that run version 20.8 or later. For clusters that run an earlier version, you must migrate data to a cluster that runs version 20.8 or later before you can configure tiered storage. For more information about data migration, see [Data migration between ApsaraDB for ClickHouse instances](https://help.aliyun.com/document_detail/276926.html).
      *
      * @param request - CreateOSSStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1766,10 +1794,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a storage task for cold data.
+     * Creates a cold storage space.
      *
      * @remarks
-     * Only an ApsaraDB for ClickHouse cluster of V20.8 or later supports tiered storage of hot data and cold data. If your data is in an ApsaraDB for ClickHouse cluster of a version earlier than V20.8 and you want to use tiered storage of hot data and cold data to store the data, you can migrate the data to an ApsaraDB for ClickHouse cluster of V20.8 or later and use tiered storage of hot data and cold data. For more information about how to migrate data between ApsaraDB for ClickHouse clusters, see [Migrate data between ApsaraDB for ClickHouse clusters](https://help.aliyun.com/document_detail/276926.html).
+     * The tiered storage of hot and cold data feature is supported only by community-compatible clusters that run version 20.8 or later. For clusters that run an earlier version, you must migrate data to a cluster that runs version 20.8 or later before you can configure tiered storage. For more information about data migration, see [Data migration between ApsaraDB for ClickHouse instances](https://help.aliyun.com/document_detail/276926.html).
      *
      * @param request - CreateOSSStorageRequest
      *
@@ -1787,10 +1815,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
+     * Enables the MySQL or HTTPS port for a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+     * > You must manually enable the MySQL port for community-compatible clusters of version 20.8 or later that were created before December 1, 2021. For clusters created on or after this date, the MySQL port is enabled automatically.
      *
      * @param request - CreatePortsForClickHouseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1853,10 +1881,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Enables the MySQL port for an ApsaraDB for ClickHouse cluster.
+     * Enables the MySQL or HTTPS port for a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created before December 1, 2021, you must manually enable the MySQL port. For an ApsaraDB for ClickHouse cluster of V20.8 or later that was created after December 1, 2021, the MySQL port is automatically enabled.
+     * > You must manually enable the MySQL port for community-compatible clusters of version 20.8 or later that were created before December 1, 2021. For clusters created on or after this date, the MySQL port is enabled automatically.
      *
      * @param request - CreatePortsForClickHouseRequest
      *
@@ -1874,10 +1902,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+     * You can call the CreateRDSToClickhouseDb operation to create a sync task for an ApsaraDB for ClickHouse Community-Compatible Edition cluster.
      *
      * @remarks
-     * >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+     * > This operation applies only to ApsaraDB for ClickHouse Community-Compatible Edition clusters.
      *
      * @param request - CreateRDSToClickhouseDbRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1980,10 +2008,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a task to synchronize data from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+     * You can call the CreateRDSToClickhouseDb operation to create a sync task for an ApsaraDB for ClickHouse Community-Compatible Edition cluster.
      *
      * @remarks
-     * >  This operation is only applicable to ApsaraDB for ClickHouse clusters.
+     * > This operation applies only to ApsaraDB for ClickHouse Community-Compatible Edition clusters.
      *
      * @param request - CreateRDSToClickhouseDbRequest
      *
@@ -2001,11 +2029,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Mounts a Server Load Balancer (SLB) instance to an ApsaraDB for ClickHouse cluster.
+     * Calls the CreateSLB operation to attach a Server Load Balancer (SLB) instance to a specified ApsaraDB for ClickHouse Community-Compatible Edition cluster.
      *
      * @remarks
-     * ## [](#)Description
-     * An ApsaraDB for ClickHouse cluster is dependent on an SLB instance at the network layer. You can bind a domain name to the IP address of an ApsaraDB for ClickHouse node to provide external connectivity service and provide failover capabilities. The SLB instance forwards requests to the nodes in the ApsaraDB for ClickHouse cluster and balances the request traffic among the nodes. The SLB instance checks the availability of backend nodes. If the SLB instance detects that a node is unavailable by checking the health status of all nodes, the SLB instance automatically isolates the unavailable node. This ensures that the request traffic is balanced among available nodes.
+     * ## Usage notes
+     * An SLB instance is a network-layer dependency that provides services for external connections and supports failover. It attaches a domain name to the IP addresses of ClickHouse nodes. The SLB instance balances and forwards cluster requests to internal nodes to distribute traffic in a multi-node deployment. It also performs health checks on backend nodes. If a node becomes unavailable, the SLB instance checks its health status and automatically isolates it. This ensures that request traffic is distributed to active nodes.
      *
      * @param request - CreateSLBRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2052,11 +2080,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Mounts a Server Load Balancer (SLB) instance to an ApsaraDB for ClickHouse cluster.
+     * Calls the CreateSLB operation to attach a Server Load Balancer (SLB) instance to a specified ApsaraDB for ClickHouse Community-Compatible Edition cluster.
      *
      * @remarks
-     * ## [](#)Description
-     * An ApsaraDB for ClickHouse cluster is dependent on an SLB instance at the network layer. You can bind a domain name to the IP address of an ApsaraDB for ClickHouse node to provide external connectivity service and provide failover capabilities. The SLB instance forwards requests to the nodes in the ApsaraDB for ClickHouse cluster and balances the request traffic among the nodes. The SLB instance checks the availability of backend nodes. If the SLB instance detects that a node is unavailable by checking the health status of all nodes, the SLB instance automatically isolates the unavailable node. This ensures that the request traffic is balanced among available nodes.
+     * ## Usage notes
+     * An SLB instance is a network-layer dependency that provides services for external connections and supports failover. It attaches a domain name to the IP addresses of ClickHouse nodes. The SLB instance balances and forwards cluster requests to internal nodes to distribute traffic in a multi-node deployment. It also performs health checks on backend nodes. If a node becomes unavailable, the SLB instance checks its health status and automatically isolates it. This ensures that request traffic is distributed to active nodes.
      *
      * @param request - CreateSLBRequest
      *
@@ -2074,10 +2102,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
+     * Call the CreateSQLAccount operation to create a privileged or standard account for an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+     * > This operation applies only to community-compatible clusters that run version 20.8 or later and were created after December 1, 2021.
      *
      * @param request - CreateSQLAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2148,10 +2176,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a privileged account or a standard account for an ApsaraDB for ClickHouse cluster.
+     * Call the CreateSQLAccount operation to create a privileged or standard account for an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters of V20.8 or later that were created after December 1, 2021,
+     * > This operation applies only to community-compatible clusters that run version 20.8 or later and were created after December 1, 2021.
      *
      * @param request - CreateSQLAccountRequest
      *
@@ -2238,10 +2266,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes a database account of an ApsaraDB for ClickHouse cluster.
+     * Deletes a database account from an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+     * > After a database account is deleted, you cannot use it to connect to ApsaraDB for ClickHouse. Proceed with caution.
      *
      * @param request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2300,10 +2328,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes a database account of an ApsaraDB for ClickHouse cluster.
+     * Deletes a database account from an ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  After you delete a database account, you cannot use the account to log on to the ApsaraDB for ClickHouse cluster. Exercise caution when performing this operation.
+     * > After a database account is deleted, you cannot use it to connect to ApsaraDB for ClickHouse. Proceed with caution.
      *
      * @param request - DeleteAccountRequest
      *
@@ -2321,7 +2349,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 删除备份策略.
+     * Deletes the backup policy for a community-compatible ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * > The data backup feature is available only for ApsaraDB for ClickHouse clusters running version 21.8 or later.
      *
      * @param request - DeleteBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2376,7 +2407,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 删除备份策略.
+     * Deletes the backup policy for a community-compatible ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * > The data backup feature is available only for ApsaraDB for ClickHouse clusters running version 21.8 or later.
      *
      * @param request - DeleteBackupPolicyRequest
      *
@@ -2394,10 +2428,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
+     * Deletes a specified pay-as-you-go ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * *Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+     * >Warning:
+     * After a cluster is deleted, all data in the cluster is deleted and cannot be recovered. Proceed with caution.
      *
      * @param request - DeleteDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2452,10 +2487,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases a pay-as-you-go ApsaraDB for ClickHouse cluster.
+     * Deletes a specified pay-as-you-go ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * *Warning** After an ApsaraDB for ClickHouse cluster is deleted, all data in the cluster is deleted and cannot be recovered. Exercise caution when performing this operation.
+     * >Warning:
+     * After a cluster is deleted, all data in the cluster is deleted and cannot be recovered. Proceed with caution.
      *
      * @param request - DeleteDBClusterRequest
      *
@@ -2473,11 +2509,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Removes a Server Load Balancer (SLB) instance from an ApsaraDB for ClickHouse cluster.
+     * Releases a Server Load Balancer (SLB) instance for a specified ApsaraDB for ClickHouse Community-Compatible cluster.
      *
      * @remarks
-     * ## [](#)Description
-     * After an SLB instance is released, simple load balancing is performed on inbound traffic based on the domain name. The health status of all nodes is no longer checked. As a result, unavailable nodes may fail to be detected, and normal requests may be routed to the unavailable nodes. This causes the failures of some read and write requests.
+     * ## Usage notes
+     * After you release the SLB instance, the system performs simple load balancing based on the domain name. Health checks are no longer performed on nodes at the request routing layer. This may cause normal requests to be routed to unavailable nodes, which can result in read and write failures.
      *
      * @param request - DeleteSLBRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2520,11 +2556,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Removes a Server Load Balancer (SLB) instance from an ApsaraDB for ClickHouse cluster.
+     * Releases a Server Load Balancer (SLB) instance for a specified ApsaraDB for ClickHouse Community-Compatible cluster.
      *
      * @remarks
-     * ## [](#)Description
-     * After an SLB instance is released, simple load balancing is performed on inbound traffic based on the domain name. The health status of all nodes is no longer checked. As a result, unavailable nodes may fail to be detected, and normal requests may be routed to the unavailable nodes. This causes the failures of some read and write requests.
+     * ## Usage notes
+     * After you release the SLB instance, the system performs simple load balancing based on the domain name. Health checks are no longer performed on nodes at the request routing layer. This may cause normal requests to be routed to unavailable nodes, which can result in read and write failures.
      *
      * @param request - DeleteSLBRequest
      *
@@ -2542,7 +2578,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes a database used for data synchronization.
+     * Deletes a database synchronization task.
      *
      * @param request - DeleteSyndbRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2601,7 +2637,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes a database used for data synchronization.
+     * Deletes a database synchronization task.
      *
      * @param request - DeleteSyndbRequest
      *
@@ -2619,7 +2655,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the permissions of an account.
+     * Queries the permissions of a database account.
+     *
+     * @remarks
+     * This API applies only to clusters of v21.8 or earlier. For clusters running a later version, you must use a privileged account and execute SQL statements to modify the permissions of a regular user.
      *
      * @param request - DescribeAccountAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2682,7 +2721,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the permissions of an account.
+     * Queries the permissions of a database account.
+     *
+     * @remarks
+     * This API applies only to clusters of v21.8 or earlier. For clusters running a later version, you must use a privileged account and execute SQL statements to modify the permissions of a regular user.
      *
      * @param request - DescribeAccountAuthorityRequest
      *
@@ -2700,7 +2742,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about the database accounts of an ApsaraDB for ClickHouse cluster.
+     * Describes the database accounts of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2767,7 +2809,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about the database accounts of an ApsaraDB for ClickHouse cluster.
+     * Describes the database accounts of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeAccountsRequest
      *
@@ -2785,7 +2827,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 主动运维.
+     * Queries the active Operations and Maintenance (O&M) configuration of a ClickHouse instance.
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2840,7 +2882,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 主动运维.
+     * Queries the active Operations and Maintenance (O&M) configuration of a ClickHouse instance.
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
      *
@@ -2858,6 +2900,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Queries the active operation tasks of a ClickHouse instance.
+     *
      * @param request - DescribeActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2955,6 +2999,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Queries the active operation tasks of a ClickHouse instance.
+     *
      * @param request - DescribeActiveOperationTasksRequest
      *
      * @returns DescribeActiveOperationTasksResponse
@@ -2971,7 +3017,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
+     * Describes all databases, tables, and columns in an instance.
      *
      * @param request - DescribeAllDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3034,7 +3080,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries a list of databases, tables, and columns in an ApsaraDB for ClickHouse cluster.
+     * Describes all databases, tables, and columns in an instance.
      *
      * @param request - DescribeAllDataSourceRequest
      *
@@ -3052,7 +3098,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the data sources of an ApsaraDB for ClickHouse cluster.
+     * Queries the details of all data sources.
      *
      * @param request - DescribeAllDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3115,7 +3161,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the data sources of an ApsaraDB for ClickHouse cluster.
+     * Queries the details of all data sources.
      *
      * @param request - DescribeAllDataSourcesRequest
      *
@@ -3133,6 +3179,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Queries the auto-renewal status of a ClickHouse Community-Compatible cluster.
+     *
      * @param request - DescribeAutoRenewAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3198,6 +3246,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Queries the auto-renewal status of a ClickHouse Community-Compatible cluster.
+     *
      * @param request - DescribeAutoRenewAttributeRequest
      *
      * @returns DescribeAutoRenewAttributeResponse
@@ -3214,10 +3264,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the backup settings of an ApsaraDB for ClickHouse cluster.
+     * Queries the backup settings for a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     * > Data backup is supported for ApsaraDB for ClickHouse clusters running version 20.3, 20.8, or 21.8.
      *
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3272,10 +3322,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the backup settings of an ApsaraDB for ClickHouse cluster.
+     * Queries the backup settings for a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     * > Data backup is supported for ApsaraDB for ClickHouse clusters running version 20.3, 20.8, or 21.8.
      *
      * @param request - DescribeBackupPolicyRequest
      *
@@ -3293,10 +3343,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of an ApsaraDB for ClickHouse cluster.
+     * Queries the backup sets of a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is available only for ApsaraDB for ClickHouse clusters of version 21.8 and later.
+     * > The data backup feature is available only on ApsaraDB for ClickHouse clusters running version 21.8 or later.
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3371,10 +3421,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of an ApsaraDB for ClickHouse cluster.
+     * Queries the backup sets of a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is available only for ApsaraDB for ClickHouse clusters of version 21.8 and later.
+     * > The data backup feature is available only on ApsaraDB for ClickHouse clusters running version 21.8 or later.
      *
      * @param request - DescribeBackupsRequest
      *
@@ -3392,7 +3442,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries information about columns.
+     * You can view columns.
      *
      * @param request - DescribeColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3455,7 +3505,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries information about columns.
+     * You can view columns.
      *
      * @param request - DescribeColumnsRequest
      *
@@ -3473,10 +3523,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
+     * Call the DescribeConfigHistory operation to view the configuration parameter change history of a community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > This operation supports only community-compatible clusters that are created after December 1, 2021.
      *
      * @param request - DescribeConfigHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3511,10 +3561,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the change records of the configuration parameters of an ApsaraDB for ClickHouse cluster.
+     * Call the DescribeConfigHistory operation to view the configuration parameter change history of a community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > This operation supports only community-compatible clusters that are created after December 1, 2021.
      *
      * @param request - DescribeConfigHistoryRequest
      *
@@ -3532,10 +3582,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
+     * Call the DescribeConfigVersionDifference operation to compare the parameter values of an ApsaraDB for ClickHouse community-compatible cluster before and after a configuration change.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > This operation applies only to community-compatible clusters that were created after December 1, 2021.
      *
      * @param request - DescribeConfigVersionDifferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3570,10 +3620,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the values of the configuration parameters of an ApsaraDB for ClickHouse cluster before and after the values of the configuration parameters are changed.
+     * Call the DescribeConfigVersionDifference operation to compare the parameter values of an ApsaraDB for ClickHouse community-compatible cluster before and after a configuration change.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > This operation applies only to community-compatible clusters that were created after December 1, 2021.
      *
      * @param request - DescribeConfigVersionDifferenceRequest
      *
@@ -3591,7 +3641,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+     * Queries the IP address whitelist of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterAccessWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3646,7 +3696,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+     * Queries the IP address whitelist of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterAccessWhiteListRequest
      *
@@ -3664,7 +3714,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about an ApsaraDB for ClickHouse cluster.
+     * Retrieves details for a specific ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3719,7 +3769,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about an ApsaraDB for ClickHouse cluster.
+     * Retrieves details for a specific ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterAttributeRequest
      *
@@ -3737,7 +3787,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
+     * The DescribeDBClusterConfig operation queries the parameter configuration of a community-compatible ClickHouse cluster.
      *
      * @param request - DescribeDBClusterConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3796,7 +3846,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries information about the parameter settings of an ApsaraDB for ClickHouse cluster.
+     * The DescribeDBClusterConfig operation queries the parameter configuration of a community-compatible ClickHouse cluster.
      *
      * @param request - DescribeDBClusterConfigRequest
      *
@@ -3814,10 +3864,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
+     * You can call the DescribeDBClusterConfigInXML operation to query the configuration parameters of an ApsaraDB for ClickHouse Community-Compatible Edition cluster in XML format.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > This operation supports only Community-Compatible Edition clusters that are created after December 1, 2021.
      *
      * @param request - DescribeDBClusterConfigInXMLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3860,10 +3910,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the values of the configuration parameters in the config.xml file of an ApsaraDB for ClickHouse cluster.
+     * You can call the DescribeDBClusterConfigInXML operation to query the configuration parameters of an ApsaraDB for ClickHouse Community-Compatible Edition cluster in XML format.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > This operation supports only Community-Compatible Edition clusters that are created after December 1, 2021.
      *
      * @param request - DescribeDBClusterConfigInXMLRequest
      *
@@ -3881,7 +3931,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the network information about an ApsaraDB for ClickHouse cluster.
+     * Queries the network information for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterNetInfoItemsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3936,7 +3986,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the network information about an ApsaraDB for ClickHouse cluster.
+     * Queries the network information for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBClusterNetInfoItemsRequest
      *
@@ -3954,7 +4004,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 获取实例节点信息.
+     * Queries node information for a ClickHouse Community-Compatible instance.
      *
      * @param request - DescribeDBClusterNodeInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4021,7 +4071,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 获取实例节点信息.
+     * Queries node information for a ClickHouse Community-Compatible instance.
      *
      * @param request - DescribeDBClusterNodeInfosRequest
      *
@@ -4039,11 +4089,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries performance data about an ApsaraDB for ClickHouse cluster.
+     * Views the performance data of an ApsaraDB for ClickHouse Community-Compatible Edition cluster.
      *
      * @remarks
-     * You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+     * You can view the performance monitoring data for a specified cluster within a time range based on performance metrics. The data is collected every 30 seconds.
+     * > This operation supports only ApsaraDB for ClickHouse Community-Compatible Edition clusters that were created before December 1, 2021.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4110,11 +4160,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries performance data about an ApsaraDB for ClickHouse cluster.
+     * Views the performance data of an ApsaraDB for ClickHouse Community-Compatible Edition cluster.
      *
      * @remarks
-     * You can query the performance data of a specified cluster over a specific time range based on the performance metrics. The data is collected every 30 seconds.
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created before December 1, 2021.
+     * You can view the performance monitoring data for a specified cluster within a time range based on performance metrics. The data is collected every 30 seconds.
+     * > This operation supports only ApsaraDB for ClickHouse Community-Compatible Edition clusters that were created before December 1, 2021.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      *
@@ -4132,6 +4182,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * This operation queries the status set of a ClickHouse Community-Compatible Edition cluster.
+     *
      * @param request - DescribeDBClusterStatusSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4185,6 +4237,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * This operation queries the status set of a ClickHouse Community-Compatible Edition cluster.
+     *
      * @param request - DescribeDBClusterStatusSetRequest
      *
      * @returns DescribeDBClusterStatusSetResponse
@@ -4201,7 +4255,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about ApsaraDB for ClickHouse clusters in a region.
+     * Describes ApsaraDB for ClickHouse clusters in a specified region.
      *
      * @param request - DescribeDBClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4284,7 +4338,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about ApsaraDB for ClickHouse clusters in a region.
+     * Describes ApsaraDB for ClickHouse clusters in a specified region.
      *
      * @param request - DescribeDBClustersRequest
      *
@@ -4302,7 +4356,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries configuration information about an ApsaraDB for ClickHouse cluster.
+     * The DescribeDBConfig operation queries the configuration of a community-compatible cluster.
      *
      * @param request - DescribeDBConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4361,7 +4415,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries configuration information about an ApsaraDB for ClickHouse cluster.
+     * The DescribeDBConfig operation queries the configuration of a community-compatible cluster.
      *
      * @param request - DescribeDBConfigRequest
      *
@@ -4379,7 +4433,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * DescribeEventMetaInfo.
+     * Queries the metadata of Operations and Maintenance (O&M) events for a ClickHouse-compatible cluster.
      *
      * @param request - DescribeEventMetaInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4426,7 +4480,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * DescribeEventMetaInfo.
+     * Queries the metadata of Operations and Maintenance (O&M) events for a ClickHouse-compatible cluster.
      *
      * @param request - DescribeEventMetaInfoRequest
      *
@@ -4444,7 +4498,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the storage of cold data.
+     * Queries cold storage information.
      *
      * @param request - DescribeOSSStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4503,7 +4557,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the storage of cold data.
+     * Queries cold storage information.
      *
      * @param request - DescribeOSSStorageRequest
      *
@@ -4521,7 +4575,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
+     * Call the DescribeProcessList operation to retrieve running queries on an ApsaraDB for ClickHouse Community-Compatible cluster.
      *
      * @param request - DescribeProcessListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4608,7 +4662,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details of queries that are being executed in an ApsaraDB for ClickHouse cluster.
+     * Call the DescribeProcessList operation to retrieve running queries on an ApsaraDB for ClickHouse Community-Compatible cluster.
      *
      * @param request - DescribeProcessListRequest
      *
@@ -4626,7 +4680,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
+     * Queries the available regions and zones for ApsaraDB for ClickHouse.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4677,7 +4731,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about all regions and zones of ApsaraDB for ClickHouse clusters.
+     * Queries the available regions and zones for ApsaraDB for ClickHouse.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -4695,7 +4749,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
+     * Queries all databases in an instance.
      *
      * @param request - DescribeSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4750,7 +4804,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries a list of all databases in an ApsaraDB for ClickHouse cluster.
+     * Queries all databases in an instance.
      *
      * @param request - DescribeSchemasRequest
      *
@@ -4768,7 +4822,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details about slow query logs.
+     * Queries the details of slow query logs.
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4847,7 +4901,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details about slow query logs.
+     * Queries the details of slow query logs.
      *
      * @param request - DescribeSlowLogRecordsRequest
      *
@@ -4865,7 +4919,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+     * Queries statistics about the slow log trends for a cluster.
      *
      * @param request - DescribeSlowLogTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4936,7 +4990,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the trend of slow query logs for an ApsaraDB for ClickHouse cluster.
+     * Queries statistics about the slow log trends for a cluster.
      *
      * @param request - DescribeSlowLogTrendRequest
      *
@@ -4954,7 +5008,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+     * Queries synchronized databases and tables.
      *
      * @param request - DescribeSynDbTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5013,7 +5067,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries information about tables that are synchronized from an ApsaraDB RDS for MySQL instance to an ApsaraDB for ClickHouse cluster.
+     * Queries synchronized databases and tables.
      *
      * @param request - DescribeSynDbTablesRequest
      *
@@ -5031,7 +5085,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+     * Queries information about synchronized databases.
      *
      * @param request - DescribeSynDbsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5094,7 +5148,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about data synchronization between an ApsaraDB for ClickHouse cluster and an ApsaraDB RDS for MySQL instance.
+     * Queries information about synchronized databases.
      *
      * @param request - DescribeSynDbsRequest
      *
@@ -5112,7 +5166,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
+     * You can call the DescribeTables operation to query tables in a community-compatible cluster.
      *
      * @param request - DescribeTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5171,7 +5225,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the information about tables in a database of an ApsaraDB for ClickHouse cluster.
+     * You can call the DescribeTables operation to query tables in a community-compatible cluster.
      *
      * @param request - DescribeTablesRequest
      *
@@ -5189,10 +5243,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+     * View migration history.
      *
      * @remarks
-     * >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+     * > This API operation is used only to query data migrations between Alibaba Cloud ClickHouse clusters during version upgrades.
      *
      * @param request - DescribeTransferHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5247,10 +5301,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries information about data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+     * View migration history.
      *
      * @remarks
-     * >  You can call this operation to query information about only data migration from an ApsaraDB for ClickHouse cluster of an earlier version to an ApsaraDB for ClickHouse cluster of a later version.
+     * > This API operation is used only to query data migrations between Alibaba Cloud ClickHouse clusters during version upgrades.
      *
      * @param request - DescribeTransferHistoryRequest
      *
@@ -5268,6 +5322,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of your KMS keys.
+     *
      * @param request - DescribeUserEncryptionKeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5313,6 +5369,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of your KMS keys.
+     *
      * @param request - DescribeUserEncryptionKeyListRequest
      *
      * @returns DescribeUserEncryptionKeyListResponse
@@ -5329,7 +5387,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Zookeeper主动切主.
+     * Switches the ZooKeeper leader for a community-compatible ClickHouse instance.
      *
      * @param request - ElectZookeeperLeaderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5404,7 +5462,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Zookeeper主动切主.
+     * Switches the ZooKeeper leader for a community-compatible ClickHouse instance.
      *
      * @param request - ElectZookeeperLeaderRequest
      *
@@ -5422,7 +5480,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Terminates an ongoing task.
+     * Stops ongoing tasks.
      *
      * @param request - KillProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5485,7 +5543,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Terminates an ongoing task.
+     * Stops ongoing tasks.
      *
      * @param request - KillProcessRequest
      *
@@ -5503,7 +5561,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+     * Lists the tags that are attached to ApsaraDB for ClickHouse clusters.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5574,7 +5632,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to ApsaraDB for ClickHouse clusters.
+     * Lists the tags that are attached to ApsaraDB for ClickHouse clusters.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -5592,7 +5650,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the permissions of an account.
+     * Modifies the permissions of a database account.
+     *
+     * @remarks
+     * This API operation applies only to cluster versions 21.8 and earlier. For cluster versions later than 21.8, you must use a high-privilege account to run SQL statements to modify the permissions of standard users.
      *
      * @param request - ModifyAccountAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5679,7 +5740,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the permissions of an account.
+     * Modifies the permissions of a database account.
+     *
+     * @remarks
+     * This API operation applies only to cluster versions 21.8 and earlier. For cluster versions later than 21.8, you must use a high-privilege account to run SQL statements to modify the permissions of standard users.
      *
      * @param request - ModifyAccountAuthorityRequest
      *
@@ -5697,7 +5761,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account of an ApsaraDB for ClickHouse cluster.
+     * Modifies the description of a database account in an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5760,7 +5824,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a database account of an ApsaraDB for ClickHouse cluster.
+     * Modifies the description of a database account in an ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyAccountDescriptionRequest
      *
@@ -5778,7 +5842,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 修改主动运维设置.
+     * Modifies the configuration of active O&M tasks on a community-compatible ClickHouse cluster.
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5853,7 +5917,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 修改主动运维设置.
+     * Modifies the configuration of active O&M tasks on a community-compatible ClickHouse cluster.
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
      *
@@ -5871,6 +5935,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Modifies the switch time for operations and maintenance (O&M) events on a ClickHouse Community-compatible cluster.
+     *
      * @param request - ModifyActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5936,6 +6002,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Modifies the switch time for operations and maintenance (O&M) events on a ClickHouse Community-compatible cluster.
+     *
      * @param request - ModifyActiveOperationTasksRequest
      *
      * @returns ModifyActiveOperationTasksResponse
@@ -5952,6 +6020,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Modifies the auto-renewal status of a ClickHouse Community-Compatible cluster.
+     *
      * @param request - ModifyAutoRenewAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6021,6 +6091,8 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
+     * Modifies the auto-renewal status of a ClickHouse Community-Compatible cluster.
+     *
      * @param request - ModifyAutoRenewAttributeRequest
      *
      * @returns ModifyAutoRenewAttributeResponse
@@ -6037,10 +6109,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
+     * Modifies the backup settings of a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     * > Data backup is supported for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6107,10 +6179,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the backup settings of an ApsaraDB for ClickHouse cluster.
+     * Modifies the backup settings of a specified ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is available only for the ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8.
+     * > Data backup is supported for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
      *
      * @param request - ModifyBackupPolicyRequest
      *
@@ -6128,7 +6200,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
+     * Modifies the specifications of a cluster.
      *
      * @param request - ModifyDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6207,7 +6279,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades an ApsaraDB for ClickHouse cluster.
+     * Modifies the specifications of a cluster.
      *
      * @param request - ModifyDBClusterRequest
      *
@@ -6225,7 +6297,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+     * Modifies the IP address whitelist for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterAccessWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6296,7 +6368,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist of an ApsaraDB for ClickHouse cluster.
+     * Modifies the IP address whitelist for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterAccessWhiteListRequest
      *
@@ -6314,7 +6386,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+     * Modifies the configuration of a cluster.
      *
      * @param request - ModifyDBClusterConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6381,7 +6453,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+     * Modifies the configuration of a cluster.
      *
      * @param request - ModifyDBClusterConfigRequest
      *
@@ -6399,10 +6471,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Changes the configuration parameters of an ApsaraDB for ClickHouse cluster that runs Community-compatible Edition.
+     * Modifies the configuration parameters of a specified community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > This operation supports only community-compatible clusters created after December 1, 2021.
      *
      * @param request - ModifyDBClusterConfigInXMLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6453,10 +6525,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Changes the configuration parameters of an ApsaraDB for ClickHouse cluster that runs Community-compatible Edition.
+     * Modifies the configuration parameters of a specified community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were created after December 1, 2021.
+     * > This operation supports only community-compatible clusters created after December 1, 2021.
      *
      * @param request - ModifyDBClusterConfigInXMLRequest
      *
@@ -6474,7 +6546,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Changes the name of an ApsaraDB for ClickHouse cluster.
+     * Changes the description of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6533,7 +6605,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Changes the name of an ApsaraDB for ClickHouse cluster.
+     * Changes the description of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterDescriptionRequest
      *
@@ -6551,7 +6623,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
+     * Modifies the maintenance window for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterMaintainTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6610,7 +6682,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of an ApsaraDB for ClickHouse cluster.
+     * Modifies the maintenance window for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ModifyDBClusterMaintainTimeRequest
      *
@@ -6628,7 +6700,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
+     * The ModifyDBConfig operation modifies the dictionary configuration of a community-compatible cluster.
+     *
+     * @remarks
+     * >Notice:
+     * This API applies only to clusters with a kernel version of 20.8 or earlier.
      *
      * @param request - ModifyDBConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6691,7 +6767,11 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the dictionary configuration of an ApsaraDB for ClickHouse cluster.
+     * The ModifyDBConfig operation modifies the dictionary configuration of a community-compatible cluster.
+     *
+     * @remarks
+     * >Notice:
+     * This API applies only to clusters with a kernel version of 20.8 or earlier.
      *
      * @param request - ModifyDBConfigRequest
      *
@@ -6709,7 +6789,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the type of a minor version update in ApsaraDB for ClickHouse.
+     * Modifies the upgrade type for a ClickHouse minor version to automatic or manual.
      *
      * @param request - ModifyMinorVersionGreadeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6768,7 +6848,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the type of a minor version update in ApsaraDB for ClickHouse.
+     * Modifies the upgrade type for a ClickHouse minor version to automatic or manual.
      *
      * @param request - ModifyMinorVersionGreadeTypeRequest
      *
@@ -6786,10 +6866,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
+     * Modifies the sync task of a community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+     * > This operation applies only to community-compatible ApsaraDB for ClickHouse clusters.
      *
      * @param request - ModifyRDSToClickhouseDbRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6892,10 +6972,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the synchronization task of an ApsaraDB for ClickHouse cluster.
+     * Modifies the sync task of a community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  This operation is applicable only to ApsaraDB for ClickHouse clusters.
+     * > This operation applies only to community-compatible ApsaraDB for ClickHouse clusters.
      *
      * @param request - ModifyRDSToClickhouseDbRequest
      *
@@ -6913,7 +6993,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
+     * Releases the public endpoint of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ReleaseClusterPublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6968,7 +7048,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoint of an ApsaraDB for ClickHouse cluster.
+     * Releases the public endpoint of a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ReleaseClusterPublicConnectionRequest
      *
@@ -6986,7 +7066,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
+     * Resets the password of a database account in a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7049,7 +7129,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Resets the password of a database account for an ApsaraDB for ClickHouse cluster.
+     * Resets the password of a database account in a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - ResetAccountPasswordRequest
      *
@@ -7067,7 +7147,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Restarts an ApsaraDB for ClickHouse cluster.
+     * Restarts a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - RestartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7138,7 +7218,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Restarts an ApsaraDB for ClickHouse cluster.
+     * Restarts a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - RestartInstanceRequest
      *
@@ -7156,7 +7236,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 批量重启实例节点.
+     * Batch restart nodes of a ClickHouse Community-compatible Edition instance.
      *
      * @param tmpReq - RestartInstanceNodeListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7237,7 +7317,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 批量重启实例节点.
+     * Batch restart nodes of a ClickHouse Community-compatible Edition instance.
      *
      * @param request - RestartInstanceNodeListRequest
      *
@@ -7255,7 +7335,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+     * Creates and attaches tags to one or more ApsaraDB for ClickHouse clusters.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7322,7 +7402,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates tags for ApsaraDB for ClickHouse clusters and adds the tags to the ApsaraDB for ClickHouse clusters.
+     * Creates and attaches tags to one or more ApsaraDB for ClickHouse clusters.
      *
      * @param request - TagResourcesRequest
      *
@@ -7340,13 +7420,13 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
+     * Migration between versions.
      *
      * @remarks
-     * ## [](#)Prerequisites
-     * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
-     * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
-     * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
+     * ## Prerequisites
+     * - Add the IP addresses of the source cluster to the whitelist of the destination cluster.
+     * - Add the IP addresses of the destination cluster to the whitelist of the source cluster.
+     * > You can execute the `select * from system.clusters;` statement to retrieve the IP addresses of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - TransferVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7445,13 +7525,13 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Migrates the data of a source ApsaraDB for ClickHouse cluster to a destination ApsaraDB for ClickHouse cluster.
+     * Migration between versions.
      *
      * @remarks
-     * ## [](#)Prerequisites
-     * *   The IP address of the source ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the destination ApsaraDB for ClickHouse cluster.
-     * *   The IP address of the destination ApsaraDB for ClickHouse cluster is added to the IP address whitelist of the source ApsaraDB for ClickHouse cluster.
-     * >  You can execute the `select * from system.clusters;` statement to query the IP address of an ApsaraDB for ClickHouse cluster.
+     * ## Prerequisites
+     * - Add the IP addresses of the source cluster to the whitelist of the destination cluster.
+     * - Add the IP addresses of the destination cluster to the whitelist of the source cluster.
+     * > You can execute the `select * from system.clusters;` statement to retrieve the IP addresses of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - TransferVersionRequest
      *
@@ -7558,10 +7638,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
+     * The UpgradeMinorVersion operation upgrades the minor engine version of a specified community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+     * > Minor engine version upgrades are supported only for community-compatible clusters that are purchased after December 1, 2021.
      *
      * @param request - UpgradeMinorVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7628,10 +7708,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Updates the minor engine version of an ApsaraDB for ClickHouse cluster.
+     * The UpgradeMinorVersion operation upgrades the minor engine version of a specified community-compatible ApsaraDB for ClickHouse cluster.
      *
      * @remarks
-     * >  You can call this operation only for ApsaraDB for ClickHouse clusters that were purchased after December 1, 2021.
+     * > Minor engine version upgrades are supported only for community-compatible clusters that are purchased after December 1, 2021.
      *
      * @param request - UpgradeMinorVersionRequest
      *

@@ -1,3 +1,7 @@
+2026-06-23 Version: 4.2.5
+- Update API CheckScaleOutBalanced: add request parameters ScalingType.
+
+
 2026-04-24 Version: 4.2.4
 - Update API DescribeDBClusterAttribute: add response parameters Body.DBCluster.WebUISnatStatus.
 - Update API DescribeDBClusterAttribute: add response parameters Body.DBCluster.WebUIStatus.

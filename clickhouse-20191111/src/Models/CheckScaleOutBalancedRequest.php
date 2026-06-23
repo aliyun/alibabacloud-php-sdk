@@ -47,6 +47,11 @@ class CheckScaleOutBalancedRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $scalingType;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'ownerAccount' => 'OwnerAccount',
@@ -56,6 +61,7 @@ class CheckScaleOutBalancedRequest extends Model
         'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'scalingType' => 'ScalingType',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class CheckScaleOutBalancedRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->scalingType) {
+            $res['ScalingType'] = $this->scalingType;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class CheckScaleOutBalancedRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['ScalingType'])) {
+            $model->scalingType = $map['ScalingType'];
         }
 
         return $model;
