@@ -16,6 +16,21 @@ class DescribeClusterNodesRequest extends Model
     /**
      * @var string
      */
+    public $nodeIps;
+
+    /**
+     * @var string
+     */
+    public $nodeLabels;
+
+    /**
+     * @var string
+     */
+    public $nodeNames;
+
+    /**
+     * @var string
+     */
     public $nodepoolId;
 
     /**
@@ -34,6 +49,9 @@ class DescribeClusterNodesRequest extends Model
     public $state;
     protected $_name = [
         'instanceIds' => 'instanceIds',
+        'nodeIps' => 'nodeIps',
+        'nodeLabels' => 'nodeLabels',
+        'nodeNames' => 'nodeNames',
         'nodepoolId' => 'nodepool_id',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
@@ -50,6 +68,18 @@ class DescribeClusterNodesRequest extends Model
         $res = [];
         if (null !== $this->instanceIds) {
             $res['instanceIds'] = $this->instanceIds;
+        }
+
+        if (null !== $this->nodeIps) {
+            $res['nodeIps'] = $this->nodeIps;
+        }
+
+        if (null !== $this->nodeLabels) {
+            $res['nodeLabels'] = $this->nodeLabels;
+        }
+
+        if (null !== $this->nodeNames) {
+            $res['nodeNames'] = $this->nodeNames;
         }
 
         if (null !== $this->nodepoolId) {
@@ -81,6 +111,18 @@ class DescribeClusterNodesRequest extends Model
         $model = new self();
         if (isset($map['instanceIds'])) {
             $model->instanceIds = $map['instanceIds'];
+        }
+
+        if (isset($map['nodeIps'])) {
+            $model->nodeIps = $map['nodeIps'];
+        }
+
+        if (isset($map['nodeLabels'])) {
+            $model->nodeLabels = $map['nodeLabels'];
+        }
+
+        if (isset($map['nodeNames'])) {
+            $model->nodeNames = $map['nodeNames'];
         }
 
         if (isset($map['nodepool_id'])) {
