@@ -144,6 +144,14 @@ class BailianControl extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->order) {
+            @$query['order'] = $request->order;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
         if (null !== $request->skip) {
             @$query['skip'] = $request->skip;
         }

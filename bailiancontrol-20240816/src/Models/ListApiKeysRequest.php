@@ -29,6 +29,16 @@ class ListApiKeysRequest extends Model
     public $nextToken;
 
     /**
+     * @var string
+     */
+    public $order;
+
+    /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
      * @var int
      */
     public $skip;
@@ -47,6 +57,8 @@ class ListApiKeysRequest extends Model
         'description' => 'description',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'order' => 'order',
+        'orderBy' => 'orderBy',
         'skip' => 'skip',
         'uid' => 'uid',
         'workspaceId' => 'workspaceId',
@@ -74,6 +86,14 @@ class ListApiKeysRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->order) {
+            $res['order'] = $this->order;
+        }
+
+        if (null !== $this->orderBy) {
+            $res['orderBy'] = $this->orderBy;
         }
 
         if (null !== $this->skip) {
@@ -113,6 +133,14 @@ class ListApiKeysRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['order'])) {
+            $model->order = $map['order'];
+        }
+
+        if (isset($map['orderBy'])) {
+            $model->orderBy = $map['orderBy'];
         }
 
         if (isset($map['skip'])) {
