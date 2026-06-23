@@ -305,6 +305,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationResourceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationResourceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationRuleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationRuleResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationServerRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetAuthorizationServerResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetClientPublicKeyRequest;
@@ -425,6 +427,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesForUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationRulesResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationServersRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListAuthorizationServersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListBrandsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListClientPublicKeysRequest;
@@ -634,6 +638,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleUserAttachmentRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationRuleUserAttachmentResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationServerDescriptionRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationServerDescriptionResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationServerRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateAuthorizationServerResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateBrandRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateBrandResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateCloudAccountDescriptionRequest;
@@ -888,7 +896,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Assign terms to a brand.
+     * Adds terms to a brand.
      *
      * @param request - AddCustomPrivacyPoliciesToBrandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -935,7 +943,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Assign terms to a brand.
+     * Adds terms to a brand.
      *
      * @param request - AddCustomPrivacyPoliciesToBrandRequest
      *
@@ -1032,7 +1040,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Adds a user to an authorization rule.
+     * Adds an account to an authorization rule.
      *
      * @param request - AddUserToAuthorizationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1093,7 +1101,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Adds a user to an authorization rule.
+     * Adds an account to an authorization rule.
      *
      * @param request - AddUserToAuthorizationRuleRequest
      *
@@ -1801,7 +1809,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Binds a user to a third-party logon account.
+     * Associates a third-party logon account.
      *
      * @param request - BindUserAuthnSourceMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1852,7 +1860,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Binds a user to a third-party logon account.
+     * Associates a third-party logon account.
      *
      * @param request - BindUserAuthnSourceMappingRequest
      *
@@ -1935,10 +1943,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Checks if an instance can be deleted.
-     *
-     * @remarks
-     * Verify that the instance is no longer in use. Deleting an EIAM instance permanently removes all its associated data.
+     * Checks whether an instance can be deleted.
      *
      * @param request - CheckInstanceForDeleteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1977,10 +1982,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Checks if an instance can be deleted.
-     *
-     * @remarks
-     * Verify that the instance is no longer in use. Deleting an EIAM instance permanently removes all its associated data.
+     * Checks whether an instance can be deleted.
      *
      * @param request - CheckInstanceForDeleteRequest
      *
@@ -1998,10 +2000,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Determines whether an instance has a specific module feature.
-     *
-     * @remarks
-     * Ensure that your current instance is no longer in use. When you delete an EIAM instance, all related data is deleted.
+     * Determines whether an instance has the feature of a specific module.
      *
      * @param request - CheckInstanceModuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2052,10 +2051,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Determines whether an instance has a specific module feature.
-     *
-     * @remarks
-     * Ensure that your current instance is no longer in use. When you delete an EIAM instance, all related data is deleted.
+     * Determines whether an instance has the feature of a specific module.
      *
      * @param request - CheckInstanceModuleStatusRequest
      *
@@ -2920,10 +2916,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Create Conditional Access Policy.
+     * Creates a conditional access policy.
      *
      * @remarks
-     * Create Conditional Access Policy
+     * Creates a conditional access policy.
      *
      * @param request - CreateConditionalAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2998,10 +2994,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Create Conditional Access Policy.
+     * Creates a conditional access policy.
      *
      * @remarks
-     * Create Conditional Access Policy
+     * Creates a conditional access policy.
      *
      * @param request - CreateConditionalAccessPolicyRequest
      *
@@ -3205,7 +3201,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates an extension field.
+     * Creates an extended field.
      *
      * @param request - CreateCustomFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3292,7 +3288,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates an extension field.
+     * Creates an extended field.
      *
      * @param request - CreateCustomFieldRequest
      *
@@ -3918,7 +3914,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates a trial license for an instance.
+     * Creates a trial License for an instance.
      *
      * @param request - CreateInstanceTrialLicenseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3957,7 +3953,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates a trial license for an instance.
+     * Creates a trial License for an instance.
      *
      * @param request - CreateInstanceTrialLicenseRequest
      *
@@ -3975,7 +3971,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates a dedicated endpoint.
+     * Creates a network access endpoint.
      *
      * @param request - CreateNetworkAccessEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4034,7 +4030,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Creates a dedicated endpoint.
+     * Creates a network access endpoint.
      *
      * @param request - CreateNetworkAccessEndpointRequest
      *
@@ -4731,7 +4727,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an authorization resource.
+     * Deletes an authorized resource.
      *
      * @param request - DeleteAuthorizationResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4778,7 +4774,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an authorization resource.
+     * Deletes an authorized resource.
      *
      * @param request - DeleteAuthorizationResourceRequest
      *
@@ -4796,7 +4792,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an authorization rule. An authorization rule must be disabled before it can be deleted.
+     * Deletes an authorization rule. The authorization rule can be deleted only when it is in the disabled state.
      *
      * @param request - DeleteAuthorizationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4839,7 +4835,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an authorization rule. An authorization rule must be disabled before it can be deleted.
+     * Deletes an authorization rule. The authorization rule can be deleted only when it is in the disabled state.
      *
      * @param request - DeleteAuthorizationRuleRequest
      *
@@ -4857,7 +4853,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes a brand.
+     * Delete Brand.
      *
      * @param request - DeleteBrandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4900,7 +4896,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes a brand.
+     * Delete Brand.
      *
      * @param request - DeleteBrandRequest
      *
@@ -5118,7 +5114,7 @@ class Eiam extends OpenApiClient
      * Deletes a conditional access policy.
      *
      * @remarks
-     * Before you delete a conditional access policy, ensure that it is no longer in use. This action permanently deletes all of its configuration data, which cannot be recovered.
+     * Before you delete a conditional access policy, make sure that the policy is no longer in use. After the policy is deleted, all configuration data is permanently removed and cannot be recovered.
      *
      * @param request - DeleteConditionalAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5164,7 +5160,7 @@ class Eiam extends OpenApiClient
      * Deletes a conditional access policy.
      *
      * @remarks
-     * Before you delete a conditional access policy, ensure that it is no longer in use. This action permanently deletes all of its configuration data, which cannot be recovered.
+     * Before you delete a conditional access policy, make sure that the policy is no longer in use. After the policy is deleted, all configuration data is permanently removed and cannot be recovered.
      *
      * @param request - DeleteConditionalAccessPolicyRequest
      *
@@ -5304,7 +5300,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an extension field.
+     * Deletes an extended character field.
      *
      * @param request - DeleteCustomFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5347,7 +5343,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an extension field.
+     * Deletes an extended character field.
      *
      * @param request - DeleteCustomFieldRequest
      *
@@ -5365,7 +5361,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deleting custom clauses.
+     * Deletes a custom clause.
      *
      * @param request - DeleteCustomPrivacyPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5408,7 +5404,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deleting custom clauses.
+     * Deletes a custom clause.
      *
      * @param request - DeleteCustomPrivacyPolicyRequest
      *
@@ -5426,7 +5422,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes a custom domain name of an Employee Identity and Access Management (EIAM) instance. You cannot delete the initial domain name and default domain name of the instance.
+     * Deletes a custom domain name of a specified Employee Identity and Access Management (EIAM) instance. Deletion of the instance initialization domain name or default domain name is rejected.
      *
      * @param request - DeleteDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5469,7 +5465,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes a custom domain name of an Employee Identity and Access Management (EIAM) instance. You cannot delete the initial domain name and default domain name of the instance.
+     * Deletes a custom domain name of a specified Employee Identity and Access Management (EIAM) instance. Deletion of the instance initialization domain name or default domain name is rejected.
      *
      * @param request - DeleteDomainRequest
      *
@@ -5487,7 +5483,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. Only the proxy tokens in the disabled state can be deleted.
+     * Deletes a proxy token for a specified domain name of an EIAM instance. Only proxy tokens in the disabled state can be deleted.
      *
      * @param request - DeleteDomainProxyTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5534,7 +5530,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. Only the proxy tokens in the disabled state can be deleted.
+     * Deletes a proxy token for a specified domain name of an EIAM instance. Only proxy tokens in the disabled state can be deleted.
      *
      * @param request - DeleteDomainProxyTokenRequest
      *
@@ -5735,10 +5731,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+     * Deletes an Employee Identity and Access Management (EIAM) instance that you no longer use.
      *
      * @remarks
-     * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
+     * Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
      *
      * @param request - DeleteInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5777,10 +5773,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Deletes an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
+     * Deletes an Employee Identity and Access Management (EIAM) instance that you no longer use.
      *
      * @remarks
-     * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
+     * Make sure that the instance is no longer in use. After an EIAM instance is deleted, all related data is deleted.
      *
      * @param request - DeleteInstanceRequest
      *
@@ -5798,7 +5794,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Delete a network endpoint of a specific type.
+     * Deletes a dedicated network access endpoint.
      *
      * @param request - DeleteNetworkAccessEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5841,7 +5837,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Delete a network endpoint of a specific type.
+     * Deletes a dedicated network access endpoint.
      *
      * @param request - DeleteNetworkAccessEndpointRequest
      *
@@ -7136,7 +7132,7 @@ class Eiam extends OpenApiClient
      * Disables a conditional access policy.
      *
      * @remarks
-     * When you disable a conditional access policy, the policy no longer blocks access. Make sure that you are aware of the potential threats that may arise from this operation.
+     * When you change a conditional access policy from the enabled state to the disabled state, the policy no longer intercepts requests. Confirm that you are aware of the security risks that this operation may cause.
      *
      * @param request - DisableConditionalAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7182,7 +7178,7 @@ class Eiam extends OpenApiClient
      * Disables a conditional access policy.
      *
      * @remarks
-     * When you disable a conditional access policy, the policy no longer blocks access. Make sure that you are aware of the potential threats that may arise from this operation.
+     * When you change a conditional access policy from the enabled state to the disabled state, the policy no longer intercepts requests. Confirm that you are aware of the security risks that this operation may cause.
      *
      * @param request - DisableConditionalAccessPolicyRequest
      *
@@ -7326,7 +7322,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables a custom field.
+     * Disables a field.
      *
      * @param request - DisableCustomFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7369,7 +7365,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables a custom field.
+     * Disables a field.
      *
      * @param request - DisableCustomFieldRequest
      *
@@ -7387,7 +7383,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables a custom privacy policy.
+     * Disables a custom term.
      *
      * @param request - DisableCustomPrivacyPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7430,7 +7426,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables a custom privacy policy.
+     * Disables a custom term.
      *
      * @param request - DisableCustomPrivacyPolicyRequest
      *
@@ -7448,7 +7444,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. After the proxy token is disabled, the domain name may not be used as expected.
+     * Disables a specified domain proxy token for an EIAM instance. After the token is disabled, domain usage is affected.
      *
      * @param request - DisableDomainProxyTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7495,7 +7491,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. After the proxy token is disabled, the domain name may not be used as expected.
+     * Disables a specified domain proxy token for an EIAM instance. After the token is disabled, domain usage is affected.
      *
      * @param request - DisableDomainProxyTokenRequest
      *
@@ -7763,7 +7759,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance. After the feature is disabled, users who visit the portal page by using the initial domain name are not redirected to the default domain name.
+     * Disables automatic redirect from the initialization domain to the default domain for an EIAM instance. After disabling, accessing the portal via the initialization domain will no longer redirect to the default domain.
      *
      * @param request - DisableInitDomainAutoRedirectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7802,7 +7798,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Disables the feature of automatically redirecting the initial domain name to the default domain name for an Employee Identity and Access Management (EIAM) instance. After the feature is disabled, users who visit the portal page by using the initial domain name are not redirected to the default domain name.
+     * Disables automatic redirect from the initialization domain to the default domain for an EIAM instance. After disabling, accessing the portal via the initialization domain will no longer redirect to the default domain.
      *
      * @param request - DisableInitDomainAutoRedirectRequest
      *
@@ -8833,7 +8829,7 @@ class Eiam extends OpenApiClient
      * Enables a conditional access policy.
      *
      * @remarks
-     * When you disable a conditional access policy, it no longer blocks access. Be aware of the potential threats before you perform this operation.
+     * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Confirm that you are aware of the risks that this operation may cause.
      *
      * @param request - EnableConditionalAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8879,7 +8875,7 @@ class Eiam extends OpenApiClient
      * Enables a conditional access policy.
      *
      * @remarks
-     * When you disable a conditional access policy, it no longer blocks access. Be aware of the potential threats before you perform this operation.
+     * When you change a conditional access policy from enabled to disabled, the policy no longer intercepts requests. Confirm that you are aware of the risks that this operation may cause.
      *
      * @param request - EnableConditionalAccessPolicyRequest
      *
@@ -9023,10 +9019,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables a custom field.
+     * Enables a field.
      *
      * @remarks
-     * *Before you use this API, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) for IDaaS EIAM.**
+     * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**.
      *
      * @param request - EnableCustomFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9069,10 +9065,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables a custom field.
+     * Enables a field.
      *
      * @remarks
-     * *Before you use this API, make sure you understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) for IDaaS EIAM.**
+     * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**.
      *
      * @param request - EnableCustomFieldRequest
      *
@@ -9090,7 +9086,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enabling custom terms.
+     * Enables a custom clause.
      *
      * @param request - EnableCustomPrivacyPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9133,7 +9129,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enabling custom terms.
+     * Enables a custom clause.
      *
      * @param request - EnableCustomPrivacyPolicyRequest
      *
@@ -9151,7 +9147,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. The proxy token is used to verify the security of the domain name.
+     * Enables a domain proxy token for a specified EIAM instance domain name to verify domain security.
      *
      * @param request - EnableDomainProxyTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9198,7 +9194,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables a proxy token for a domain name of an Employee Identity and Access Management (EIAM) instance. The proxy token is used to verify the security of the domain name.
+     * Enables a domain proxy token for a specified EIAM instance domain name to verify domain security.
      *
      * @param request - EnableDomainProxyTokenRequest
      *
@@ -9466,7 +9462,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables automatic redirection from the initialization domain name to the default domain name for an EIAM instance. After this feature is enabled, portal access via the initialization domain name is redirected to the default domain name.
+     * Enables automatic redirection from the initialization domain to the default domain for an EIAM instance. After this feature is enabled, accessing the portal through the initialization domain will redirect to the default domain address.
      *
      * @param request - EnableInitDomainAutoRedirectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9505,7 +9501,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Enables automatic redirection from the initialization domain name to the default domain name for an EIAM instance. After this feature is enabled, portal access via the initialization domain name is redirected to the default domain name.
+     * Enables automatic redirection from the initialization domain to the default domain for an EIAM instance. After this feature is enabled, accessing the portal through the initialization domain will redirect to the default domain address.
      *
      * @param request - EnableInitDomainAutoRedirectRequest
      *
@@ -9779,7 +9775,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Generates a download URL for the result of a file import.
+     * Generates a download URL for file import results.
      *
      * @param request - GenerateDownloadUrlForSynchronizationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9822,7 +9818,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Generates a download URL for the result of a file import.
+     * Generates a download URL for file import results.
      *
      * @param request - GenerateDownloadUrlForSynchronizationJobRequest
      *
@@ -9970,7 +9966,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Generates an upload credential.
+     * Get Upload Authentication.
      *
      * @param request - GenerateUploadAuthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10017,7 +10013,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Generates an upload credential.
+     * Get Upload Authentication.
      *
      * @param request - GenerateUploadAuthRequest
      *
@@ -10714,7 +10710,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about an authorized resource.
+     * Queries information about an authorized resource.
      *
      * @param request - GetAuthorizationResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10761,7 +10757,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about an authorized resource.
+     * Queries information about an authorized resource.
      *
      * @param request - GetAuthorizationResourceRequest
      *
@@ -10840,7 +10836,68 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a brand.
+     * 查询授权服务器.
+     *
+     * @param request - GetAuthorizationServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuthorizationServerResponse
+     *
+     * @param GetAuthorizationServerRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetAuthorizationServerResponse
+     */
+    public function getAuthorizationServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationServerId) {
+            @$query['AuthorizationServerId'] = $request->authorizationServerId;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAuthorizationServer',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAuthorizationServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询授权服务器.
+     *
+     * @param request - GetAuthorizationServerRequest
+     *
+     * @returns GetAuthorizationServerResponse
+     *
+     * @param GetAuthorizationServerRequest $request
+     *
+     * @return GetAuthorizationServerResponse
+     */
+    public function getAuthorizationServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuthorizationServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get Brand Details.
      *
      * @param request - GetBrandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10883,7 +10940,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a brand.
+     * Get Brand Details.
      *
      * @param request - GetBrandRequest
      *
@@ -11092,10 +11149,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a conditional access policy.
+     * Get a conditional access policy.
      *
      * @remarks
-     * This operation retrieves a conditional access policy.
+     * Query a conditional access policy.
      *
      * @param request - GetConditionalAccessPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11138,10 +11195,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a conditional access policy.
+     * Get a conditional access policy.
      *
      * @remarks
-     * This operation retrieves a conditional access policy.
+     * Query a conditional access policy.
      *
      * @param request - GetConditionalAccessPolicyRequest
      *
@@ -11281,10 +11338,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves custom field information.
-     *
-     * @remarks
-     * *Before using this operation, review the IDaaS pricing model and [pricing details](https://www.aliyun.com/price/product#/ecs/detail).**
+     * Retrieves the information about an extended field.
      *
      * @param request - GetCustomFieldRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11327,10 +11381,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves custom field information.
-     *
-     * @remarks
-     * *Before using this operation, review the IDaaS pricing model and [pricing details](https://www.aliyun.com/price/product#/ecs/detail).**
+     * Retrieves the information about an extended field.
      *
      * @param request - GetCustomFieldRequest
      *
@@ -11348,7 +11399,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Obtaining custom terms.
+     * Retrieves a custom privacy policy.
      *
      * @param request - GetCustomPrivacyPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11391,7 +11442,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Obtaining custom terms.
+     * Retrieves a custom privacy policy.
      *
      * @param request - GetCustomPrivacyPolicyRequest
      *
@@ -11592,7 +11643,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the forgot-password configuration for a specified EIAM instance.
+     * Queries the forgot password policy of a specified EIAM instance.
      *
      * @param request - GetForgetPasswordConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11631,7 +11682,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the forgot-password configuration for a specified EIAM instance.
+     * Queries the forgot password policy of a specified EIAM instance.
      *
      * @param request - GetForgetPasswordConfigurationRequest
      *
@@ -12019,7 +12070,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information of an EIAM instance.
+     * Queries the details of an EIAM instance.
      *
      * @param request - GetInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12058,7 +12109,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information of an EIAM instance.
+     * Queries the details of an EIAM instance.
      *
      * @param request - GetInstanceRequest
      *
@@ -12076,7 +12127,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the control configuration for an instance.
+     * Queries instance control items.
      *
      * @param request - GetInstanceControlConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12119,7 +12170,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the control configuration for an instance.
+     * Queries instance control items.
      *
      * @param request - GetInstanceControlConfigurationRequest
      *
@@ -12137,10 +12188,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the language and time zone information for an instance.
-     *
-     * @remarks
-     * When you disable a conditional access policy, it no longer intercepts access requests. Confirm that you understand the security risks associated with this action.
+     * Retrieves the language and time zone information of an instance.
      *
      * @param request - GetInstanceGlobalizationConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12179,10 +12227,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the language and time zone information for an instance.
-     *
-     * @remarks
-     * When you disable a conditional access policy, it no longer intercepts access requests. Confirm that you understand the security risks associated with this action.
+     * Retrieves the language and time zone information of an instance.
      *
      * @param request - GetInstanceGlobalizationConfigRequest
      *
@@ -12263,7 +12308,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves information about all modules within a primary module.
+     * Retrieves all module information under a first-level module.
      *
      * @param request - GetInstanceModuleInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12306,7 +12351,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves information about all modules within a primary module.
+     * Retrieves all module information under a first-level module.
      *
      * @param request - GetInstanceModuleInfoRequest
      *
@@ -12324,7 +12369,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the quota of a specific type for an instance.
+     * Retrieves the quota of a single type for an instance.
      *
      * @param request - GetInstanceQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12367,7 +12412,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves the quota of a specific type for an instance.
+     * Retrieves the quota of a single type for an instance.
      *
      * @param request - GetInstanceQuotaRequest
      *
@@ -12442,7 +12487,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Configure the post-logon redirect application for a brand.
+     * Sets the post-logon redirect application for a brand.
      *
      * @param request - GetLoginRedirectApplicationForBrandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12485,7 +12530,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Configure the post-logon redirect application for a brand.
+     * Sets the post-logon redirect application for a brand.
      *
      * @param request - GetLoginRedirectApplicationForBrandRequest
      *
@@ -12503,7 +12548,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Get Network Endpoint Information.
+     * Queries the information about a specified network access endpoint.
      *
      * @param request - GetNetworkAccessEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12546,7 +12591,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Get Network Endpoint Information.
+     * Queries the information about a specified network access endpoint.
      *
      * @param request - GetNetworkAccessEndpointRequest
      *
@@ -12743,7 +12788,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Queries the password expiration policy of a specified EIAM instance.
      *
      * @param request - GetPasswordExpirationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12782,7 +12827,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Queries the password expiration policy of a specified EIAM instance.
      *
      * @param request - GetPasswordExpirationConfigurationRequest
      *
@@ -12800,7 +12845,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Queries the password history policy of a specified EIAM instance.
      *
      * @param request - GetPasswordHistoryConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12839,7 +12884,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Queries the password history policy of a specified EIAM instance.
      *
      * @param request - GetPasswordHistoryConfigurationRequest
      *
@@ -12857,7 +12902,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Queries the password initialization policy of Employee Identity and Access Management (EIAM).
      *
      * @param request - GetPasswordInitializationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12896,7 +12941,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Queries the password initialization policy of Employee Identity and Access Management (EIAM).
      *
      * @param request - GetPasswordInitializationConfigurationRequest
      *
@@ -12979,7 +13024,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     * Queries the root organizational unit information of EIAM.
      *
      * @param request - GetRootOrganizationalUnitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13018,7 +13063,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
+     * Queries the root organizational unit information of EIAM.
      *
      * @param request - GetRootOrganizationalUnitRequest
      *
@@ -13036,7 +13081,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a service quota.
+     * Retrieves the service quota.
      *
      * @param request - GetServiceQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13075,7 +13120,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a service quota.
+     * Retrieves the service quota.
      *
      * @param request - GetServiceQuotaRequest
      *
@@ -13939,7 +13984,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the applications that are associated with an authorization rule.
+     * Lists the applications associated with an authorization rule.
      *
      * @param request - ListApplicationsForAuthorizationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13994,7 +14039,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the applications that are associated with an authorization rule.
+     * Lists the applications associated with an authorization rule.
      *
      * @param request - ListApplicationsForAuthorizationRuleRequest
      *
@@ -14085,7 +14130,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the applications for a network access endpoint.
+     * Retrieves application information under a network access endpoint.
      *
      * @param request - ListApplicationsForNetworkAccessEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14136,7 +14181,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the applications for a network access endpoint.
+     * Retrieves application information under a network access endpoint.
      *
      * @param request - ListApplicationsForNetworkAccessEndpointRequest
      *
@@ -14154,7 +14199,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of applications associated with a network domain.
+     * Retrieves the list of applications associated with a network domain.
      *
      * @param request - ListApplicationsForNetworkZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14209,7 +14254,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of applications associated with a network domain.
+     * Retrieves the list of applications associated with a network domain.
      *
      * @param request - ListApplicationsForNetworkZoneRequest
      *
@@ -14383,7 +14428,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a list of authorized resources.
+     * Queries a list of authorization resource information.
      *
      * @param request - ListAuthorizationResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14438,7 +14483,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries a list of authorized resources.
+     * Queries a list of authorization resource information.
      *
      * @param request - ListAuthorizationResourcesRequest
      *
@@ -14663,7 +14708,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the authorization rules associated with a user.
+     * Lists the authorization rules associated with an account.
      *
      * @param request - ListAuthorizationRulesForUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14714,7 +14759,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the authorization rules associated with a user.
+     * Lists the authorization rules associated with an account.
      *
      * @param request - ListAuthorizationRulesForUserRequest
      *
@@ -14729,6 +14774,71 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAuthorizationRulesForUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a list of all authorization servers under an instance.
+     *
+     * @param request - ListAuthorizationServersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAuthorizationServersResponse
+     *
+     * @param ListAuthorizationServersRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAuthorizationServersResponse
+     */
+    public function listAuthorizationServersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAuthorizationServers',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAuthorizationServersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of all authorization servers under an instance.
+     *
+     * @param request - ListAuthorizationServersRequest
+     *
+     * @returns ListAuthorizationServersResponse
+     *
+     * @param ListAuthorizationServersRequest $request
+     *
+     * @return ListAuthorizationServersResponse
+     */
+    public function listAuthorizationServers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizationServersWithOptions($request, $runtime);
     }
 
     /**
@@ -15012,10 +15122,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List of Conditional Access Policies.
+     * List conditional access policies.
      *
      * @remarks
-     * Paginated query for the list of conditional access policies
+     * Query the list of conditional access policies with pagination.
      *
      * @param request - ListConditionalAccessPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15066,10 +15176,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List of Conditional Access Policies.
+     * List conditional access policies.
      *
      * @remarks
-     * Paginated query for the list of conditional access policies
+     * Query the list of conditional access policies with pagination.
      *
      * @param request - ListConditionalAccessPoliciesRequest
      *
@@ -15148,10 +15258,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List Conditional Access Policies Associated with Network Areas.
+     * Retrieves the list of conditional access policies associated with a network zone.
      *
      * @remarks
-     * List Conditional Access Policies Associated with Network Zones
+     * Retrieves the list of conditional access policies associated with a network zone.
      *
      * @param request - ListConditionalAccessPoliciesForNetworkZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15194,10 +15304,10 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * List Conditional Access Policies Associated with Network Areas.
+     * Retrieves the list of conditional access policies associated with a network zone.
      *
      * @remarks
-     * List Conditional Access Policies Associated with Network Zones
+     * Retrieves the list of conditional access policies associated with a network zone.
      *
      * @param request - ListConditionalAccessPoliciesForNetworkZoneRequest
      *
@@ -15215,7 +15325,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of conditional access policies that are associated with a user.
+     * Retrieves the list of conditional access policies associated with a user.
      *
      * @param request - ListConditionalAccessPoliciesForUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15258,7 +15368,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of conditional access policies that are associated with a user.
+     * Retrieves the list of conditional access policies associated with a user.
      *
      * @param request - ListConditionalAccessPoliciesForUserRequest
      *
@@ -15446,7 +15556,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of custom privacy policies.
+     * Queries the list of custom terms.
      *
      * @param request - ListCustomPrivacyPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15501,7 +15611,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of custom privacy policies.
+     * Queries the list of custom terms.
      *
      * @param request - ListCustomPrivacyPoliciesRequest
      *
@@ -15592,7 +15702,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of proxy tokens for a domain name in an EIAM instance.
+     * Queries a list of domain proxy tokens of an EIAM instance.
      *
      * @param request - ListDomainProxyTokensRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15635,7 +15745,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of proxy tokens for a domain name in an EIAM instance.
+     * Queries a list of domain proxy tokens of an EIAM instance.
      *
      * @param request - ListDomainProxyTokensRequest
      *
@@ -15714,7 +15824,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances.
+     * Queries the list of EIAM 2.0 and EIAM 1.0 instances.
      *
      * @param request - ListEiamInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15757,7 +15867,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the information about Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances.
+     * Queries the list of EIAM 2.0 and EIAM 1.0 instances.
      *
      * @param request - ListEiamInstancesRequest
      *
@@ -16471,7 +16581,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries information about one or more EIAM instances.
+     * Queries information about one or more Employee Identity and Access Management (EIAM) instances.
      *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16530,7 +16640,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries information about one or more EIAM instances.
+     * Queries information about one or more Employee Identity and Access Management (EIAM) instances.
      *
      * @param request - ListInstancesRequest
      *
@@ -16591,7 +16701,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the zones that support creating network endpoints for IDaaS in a specified region.
+     * Queries the list of zones that support the creation of network endpoints in a specified region for IDaaS EIAM.
      *
      * @param request - ListNetworkAccessEndpointAvailableZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16630,7 +16740,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Queries the zones that support creating network endpoints for IDaaS in a specified region.
+     * Queries the list of zones that support the creation of network endpoints in a specified region for IDaaS EIAM.
      *
      * @param request - ListNetworkAccessEndpointAvailableZonesRequest
      *
@@ -16729,7 +16839,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the access paths for a specified network endpoint.
+     * Queries the list of access paths under a specified network access endpoint.
      *
      * @param request - ListNetworkAccessPathsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16772,7 +16882,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the access paths for a specified network endpoint.
+     * Queries the list of access paths under a specified network access endpoint.
      *
      * @param request - ListNetworkAccessPathsRequest
      *
@@ -16790,7 +16900,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists network zone objects.
+     * Queries the list of network zone objects.
      *
      * @param request - ListNetworkZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16845,7 +16955,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists network zone objects.
+     * Queries the list of network zone objects.
      *
      * @param request - ListNetworkZonesRequest
      *
@@ -17368,13 +17478,13 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the details of synchronization tasks.
+     * Query the list of synchronization job details.
      *
      * @remarks
-     * You can view the returned data in one of the following two ways:
-     * - Method 1: To query the first page, set MaxResults to limit the number of entries to return. The NextToken value in the response is the token for the next page. To query subsequent pages, set NextToken to the value from the previous response and set MaxResults. If no more data is available, NextToken is not returned. The maximum value for MaxResults is 100.
-     * - Method 2: Set PageSize to specify the number of entries per page and PageNumber to specify the page number.
-     * You can use only one of these methods. Method 1 is recommended when many entries are returned. If you set MaxResults or NextToken, the PageSize and PageNumber parameters are ignored.
+     * The following two methods are supported for viewing returned data:
+     * - Method 1: When querying the first page, you only need to set MaxResults to limit the number of entries returned. The NextToken in the response serves as the credential for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query credential, and set MaxResults to limit the number of entries returned. If there are no more pages, NextToken is no longer returned. The maximum value of MaxResults is 100.
+     * - Method 2: Set the number of entries returned per page using PageSize, and set the page number using PageNumber.
+     * You can only choose one of the above two methods. When a large number of entries are returned, Method 1 is recommended. If the MaxResults or NextToken parameter is set, the PageSize and PageNumber request parameters become invalid.
      *
      * @param request - ListSynchronizationJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17457,13 +17567,13 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Lists the details of synchronization tasks.
+     * Query the list of synchronization job details.
      *
      * @remarks
-     * You can view the returned data in one of the following two ways:
-     * - Method 1: To query the first page, set MaxResults to limit the number of entries to return. The NextToken value in the response is the token for the next page. To query subsequent pages, set NextToken to the value from the previous response and set MaxResults. If no more data is available, NextToken is not returned. The maximum value for MaxResults is 100.
-     * - Method 2: Set PageSize to specify the number of entries per page and PageNumber to specify the page number.
-     * You can use only one of these methods. Method 1 is recommended when many entries are returned. If you set MaxResults or NextToken, the PageSize and PageNumber parameters are ignored.
+     * The following two methods are supported for viewing returned data:
+     * - Method 1: When querying the first page, you only need to set MaxResults to limit the number of entries returned. The NextToken in the response serves as the credential for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response as the query credential, and set MaxResults to limit the number of entries returned. If there are no more pages, NextToken is no longer returned. The maximum value of MaxResults is 100.
+     * - Method 2: Set the number of entries returned per page using PageSize, and set the page number using PageNumber.
+     * You can only choose one of the above two methods. When a large number of entries are returned, Method 1 is recommended. If the MaxResults or NextToken parameter is set, the PageSize and PageNumber request parameters become invalid.
      *
      * @param request - ListSynchronizationJobsRequest
      *
@@ -18393,7 +18503,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Removing a brand association.
+     * Removes custom terms associated with a brand.
      *
      * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18440,7 +18550,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Removing a brand association.
+     * Removes custom terms associated with a brand.
      *
      * @param request - RemoveCustomPrivacyPoliciesFromBrandRequest
      *
@@ -18718,7 +18828,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Renewing the Free Edition.
+     * Renews a Free Edition instance.
      *
      * @param request - RenewFreeLicenseEndTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18757,7 +18867,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Renewing the Free Edition.
+     * Renews a Free Edition instance.
      *
      * @param request - RenewFreeLicenseEndTimeRequest
      *
@@ -19901,7 +20011,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Sets the forgot password policy for an EIAM instance.
      *
      * @param request - SetForgetPasswordConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19948,7 +20058,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Sets the forgot password policy for an EIAM instance.
      *
      * @param request - SetForgetPasswordConfigurationRequest
      *
@@ -20213,7 +20323,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Configures the control settings for an instance.
+     * Sets the control elements of an instance.
      *
      * @param request - SetInstanceControlConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20256,7 +20366,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Configures the control settings for an instance.
+     * Sets the control elements of an instance.
      *
      * @param request - SetInstanceControlConfigurationRequest
      *
@@ -20274,7 +20384,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the language and time zone for an instance.
+     * Sets the language and time zone information for an instance.
      *
      * @param request - SetInstanceGlobalizationConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20321,7 +20431,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the language and time zone for an instance.
+     * Sets the language and time zone information for an instance.
      *
      * @param request - SetInstanceGlobalizationConfigRequest
      *
@@ -20339,7 +20449,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the post-logon redirect application for a brand.
+     * Set login redirect application for brand.
      *
      * @param request - SetLoginRedirectApplicationForBrandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20386,7 +20496,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the post-logon redirect application for a brand.
+     * Set login redirect application for brand.
      *
      * @param request - SetLoginRedirectApplicationForBrandRequest
      *
@@ -20473,7 +20583,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the password expiration policy for a specified EIAM instance.
+     * Sets the password expiration policy for a specified Enterprise Identity and Access Management (EIAM) instance.
      *
      * @param request - SetPasswordExpirationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20544,7 +20654,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the password expiration policy for a specified EIAM instance.
+     * Sets the password expiration policy for a specified Enterprise Identity and Access Management (EIAM) instance.
      *
      * @param request - SetPasswordExpirationConfigurationRequest
      *
@@ -20562,7 +20672,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Sets the password history policy for a specified Enterprise Identity and Access Management (EIAM) instance.
      *
      * @param request - SetPasswordHistoryConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20609,7 +20719,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Sets the password history policy for a specified Enterprise Identity and Access Management (EIAM) instance.
      *
      * @param request - SetPasswordHistoryConfigurationRequest
      *
@@ -20627,7 +20737,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Sets the password initialization policy for a specified EIAM instance.
      *
      * @param request - SetPasswordInitializationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20682,7 +20792,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Sets the password initialization policy for a specified EIAM instance.
      *
      * @param request - SetPasswordInitializationConfigurationRequest
      *
@@ -22096,7 +22206,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates the properties of the association between an authorization rule and a group.
+     * Updates the relationship properties between an authorization rule and a group.
      *
      * @param request - UpdateAuthorizationRuleGroupAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22157,7 +22267,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates the properties of the association between an authorization rule and a group.
+     * Updates the relationship properties between an authorization rule and a group.
      *
      * @param request - UpdateAuthorizationRuleGroupAttachmentRequest
      *
@@ -22175,7 +22285,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates the properties of an association between an authorization rule and a user.
+     * Updates the relationship properties between an authorization rule and an account.
      *
      * @param request - UpdateAuthorizationRuleUserAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22236,7 +22346,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates the properties of an association between an authorization rule and a user.
+     * Updates the relationship properties between an authorization rule and an account.
      *
      * @param request - UpdateAuthorizationRuleUserAttachmentRequest
      *
@@ -22254,7 +22364,157 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates a brand.
+     * Updates the configuration of an authorization server.
+     *
+     * @param request - UpdateAuthorizationServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthorizationServerResponse
+     *
+     * @param UpdateAuthorizationServerRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateAuthorizationServerResponse
+     */
+    public function updateAuthorizationServerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationServerId) {
+            @$query['AuthorizationServerId'] = $request->authorizationServerId;
+        }
+
+        if (null !== $request->authorizationServerName) {
+            @$query['AuthorizationServerName'] = $request->authorizationServerName;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->issuerDomain) {
+            @$query['IssuerDomain'] = $request->issuerDomain;
+        }
+
+        if (null !== $request->issuerMode) {
+            @$query['IssuerMode'] = $request->issuerMode;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAuthorizationServer',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAuthorizationServerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the configuration of an authorization server.
+     *
+     * @param request - UpdateAuthorizationServerRequest
+     *
+     * @returns UpdateAuthorizationServerResponse
+     *
+     * @param UpdateAuthorizationServerRequest $request
+     *
+     * @return UpdateAuthorizationServerResponse
+     */
+    public function updateAuthorizationServer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthorizationServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the description of an authorization server.
+     *
+     * @param request - UpdateAuthorizationServerDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAuthorizationServerDescriptionResponse
+     *
+     * @param UpdateAuthorizationServerDescriptionRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return UpdateAuthorizationServerDescriptionResponse
+     */
+    public function updateAuthorizationServerDescriptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authorizationServerId) {
+            @$query['AuthorizationServerId'] = $request->authorizationServerId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $body = [];
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAuthorizationServerDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAuthorizationServerDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the description of an authorization server.
+     *
+     * @param request - UpdateAuthorizationServerDescriptionRequest
+     *
+     * @returns UpdateAuthorizationServerDescriptionResponse
+     *
+     * @param UpdateAuthorizationServerDescriptionRequest $request
+     *
+     * @return UpdateAuthorizationServerDescriptionResponse
+     */
+    public function updateAuthorizationServerDescription($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthorizationServerDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a brand.
      *
      * @param request - UpdateBrandRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22301,7 +22561,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates a brand.
+     * Modifies a brand.
      *
      * @param request - UpdateBrandRequest
      *
@@ -23118,7 +23378,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates the ICP filing number for a domain name.
+     * Updates the ICP filing number of a domain.
      *
      * @param request - UpdateDomainIcpNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23165,7 +23425,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Updates the ICP filing number for a domain name.
+     * Updates the ICP filing number of a domain.
      *
      * @param request - UpdateDomainIcpNumberRequest
      *
@@ -23564,7 +23824,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Modifies the description of a specified EIAM instance.
      *
      * @param request - UpdateInstanceDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23607,7 +23867,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
+     * Modifies the description of a specified EIAM instance.
      *
      * @param request - UpdateInstanceDescriptionRequest
      *
