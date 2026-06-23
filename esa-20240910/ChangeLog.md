@@ -1,3 +1,10 @@
+2026-06-23 Version: 3.2.0
+- Support API DescribeDDoSBpsMax.
+- Support API DescribeDDoSEventMax.
+- Support API GetRoutineCodeVersionInfo.
+- Support API OpenEdgeContainer.
+
+
 2026-06-18 Version: 3.1.0
 - Support API DescribeBotPrice.
 - Support API DescribeCacheReservePrice.
