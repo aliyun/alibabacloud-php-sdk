@@ -15,6 +15,11 @@ class DeleteRouteTargetGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $forceDelete;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -30,6 +35,7 @@ class DeleteRouteTargetGroupRequest extends Model
     public $tag;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'forceDelete' => 'ForceDelete',
         'regionId' => 'RegionId',
         'routeTargetGroupId' => 'RouteTargetGroupId',
         'tag' => 'Tag',
@@ -48,6 +54,10 @@ class DeleteRouteTargetGroupRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->forceDelete) {
+            $res['ForceDelete'] = $this->forceDelete;
         }
 
         if (null !== $this->regionId) {
@@ -82,6 +92,10 @@ class DeleteRouteTargetGroupRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['ForceDelete'])) {
+            $model->forceDelete = $map['ForceDelete'];
         }
 
         if (isset($map['RegionId'])) {
