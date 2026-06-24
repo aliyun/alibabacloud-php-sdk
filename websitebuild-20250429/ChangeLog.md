@@ -8,6 +8,11 @@
 - Support API OnlineAppInstance.
 
 
+2026-06-24 Version: 2.29.0
+- Support API OfflineAppInstance.
+- Support API OnlineAppInstance.
+
+
 2026-06-18 Version: 2.28.1
 - Update API ListAppInstances: add request parameters BizIds.
 - Update API NotifyAppNotificationForAdmin: add request parameters Payload.
