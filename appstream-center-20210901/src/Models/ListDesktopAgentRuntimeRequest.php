@@ -79,6 +79,11 @@ class ListDesktopAgentRuntimeRequest extends Model
     public $includeRiskInfo;
 
     /**
+     * @var string
+     */
+    public $managementStatus;
+
+    /**
      * @var bool
      */
     public $modelConfigure;
@@ -122,6 +127,7 @@ class ListDesktopAgentRuntimeRequest extends Model
         'hasAuthUser' => 'HasAuthUser',
         'hasRisk' => 'HasRisk',
         'includeRiskInfo' => 'IncludeRiskInfo',
+        'managementStatus' => 'ManagementStatus',
         'modelConfigure' => 'ModelConfigure',
         'modelTemplateId' => 'ModelTemplateId',
         'pageNumber' => 'PageNumber',
@@ -255,6 +261,10 @@ class ListDesktopAgentRuntimeRequest extends Model
 
         if (null !== $this->includeRiskInfo) {
             $res['IncludeRiskInfo'] = $this->includeRiskInfo;
+        }
+
+        if (null !== $this->managementStatus) {
+            $res['ManagementStatus'] = $this->managementStatus;
         }
 
         if (null !== $this->modelConfigure) {
@@ -395,6 +405,10 @@ class ListDesktopAgentRuntimeRequest extends Model
 
         if (isset($map['IncludeRiskInfo'])) {
             $model->includeRiskInfo = $map['IncludeRiskInfo'];
+        }
+
+        if (isset($map['ManagementStatus'])) {
+            $model->managementStatus = $map['ManagementStatus'];
         }
 
         if (isset($map['ModelConfigure'])) {

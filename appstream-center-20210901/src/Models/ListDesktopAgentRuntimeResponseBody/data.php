@@ -58,6 +58,11 @@ class data extends Model
     public $hasAuthUser;
 
     /**
+     * @var string[]
+     */
+    public $managementStatuses;
+
+    /**
      * @var bool
      */
     public $modelConfigure;
@@ -116,6 +121,7 @@ class data extends Model
         'desktopName' => 'DesktopName',
         'desktopStatus' => 'DesktopStatus',
         'hasAuthUser' => 'HasAuthUser',
+        'managementStatuses' => 'ManagementStatuses',
         'modelConfigure' => 'ModelConfigure',
         'modelTemplateId' => 'ModelTemplateId',
         'modelTemplateName' => 'ModelTemplateName',
@@ -141,6 +147,9 @@ class data extends Model
         }
         if (\is_array($this->channelConfiguredList)) {
             Model::validateArray($this->channelConfiguredList);
+        }
+        if (\is_array($this->managementStatuses)) {
+            Model::validateArray($this->managementStatuses);
         }
         if (\is_array($this->qrCodeConfiguringList)) {
             Model::validateArray($this->qrCodeConfiguringList);
@@ -212,6 +221,17 @@ class data extends Model
 
         if (null !== $this->hasAuthUser) {
             $res['HasAuthUser'] = $this->hasAuthUser;
+        }
+
+        if (null !== $this->managementStatuses) {
+            if (\is_array($this->managementStatuses)) {
+                $res['ManagementStatuses'] = [];
+                $n1 = 0;
+                foreach ($this->managementStatuses as $item1) {
+                    $res['ManagementStatuses'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->modelConfigure) {
@@ -327,6 +347,17 @@ class data extends Model
 
         if (isset($map['HasAuthUser'])) {
             $model->hasAuthUser = $map['HasAuthUser'];
+        }
+
+        if (isset($map['ManagementStatuses'])) {
+            if (!empty($map['ManagementStatuses'])) {
+                $model->managementStatuses = [];
+                $n1 = 0;
+                foreach ($map['ManagementStatuses'] as $item1) {
+                    $model->managementStatuses[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ModelConfigure'])) {

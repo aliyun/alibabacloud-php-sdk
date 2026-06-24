@@ -19,6 +19,16 @@ class agentInstanceInfoList extends Model
     public $agentInstanceVersion;
 
     /**
+     * @var string
+     */
+    public $agentPlatform;
+
+    /**
+     * @var string
+     */
+    public $agentProvider;
+
+    /**
      * @var bool
      */
     public $channelConfigure;
@@ -45,6 +55,8 @@ class agentInstanceInfoList extends Model
     protected $_name = [
         'agentInstanceStatus' => 'AgentInstanceStatus',
         'agentInstanceVersion' => 'AgentInstanceVersion',
+        'agentPlatform' => 'AgentPlatform',
+        'agentProvider' => 'AgentProvider',
         'channelConfigure' => 'ChannelConfigure',
         'channelConfiguredList' => 'ChannelConfiguredList',
         'deploymentSource' => 'DeploymentSource',
@@ -69,6 +81,14 @@ class agentInstanceInfoList extends Model
 
         if (null !== $this->agentInstanceVersion) {
             $res['AgentInstanceVersion'] = $this->agentInstanceVersion;
+        }
+
+        if (null !== $this->agentPlatform) {
+            $res['AgentPlatform'] = $this->agentPlatform;
+        }
+
+        if (null !== $this->agentProvider) {
+            $res['AgentProvider'] = $this->agentProvider;
         }
 
         if (null !== $this->channelConfigure) {
@@ -115,6 +135,14 @@ class agentInstanceInfoList extends Model
 
         if (isset($map['AgentInstanceVersion'])) {
             $model->agentInstanceVersion = $map['AgentInstanceVersion'];
+        }
+
+        if (isset($map['AgentPlatform'])) {
+            $model->agentPlatform = $map['AgentPlatform'];
+        }
+
+        if (isset($map['AgentProvider'])) {
+            $model->agentProvider = $map['AgentProvider'];
         }
 
         if (isset($map['ChannelConfigure'])) {
