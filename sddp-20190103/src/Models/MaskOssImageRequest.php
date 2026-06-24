@@ -21,6 +21,11 @@ class MaskOssImageRequest extends Model
     /**
      * @var bool
      */
+    public $isCoverObject;
+
+    /**
+     * @var bool
+     */
     public $isSupportRestore;
 
     /**
@@ -45,6 +50,7 @@ class MaskOssImageRequest extends Model
     protected $_name = [
         'bucketName' => 'BucketName',
         'isAlwaysUpload' => 'IsAlwaysUpload',
+        'isCoverObject' => 'IsCoverObject',
         'isSupportRestore' => 'IsSupportRestore',
         'lang' => 'Lang',
         'maskRuleIdList' => 'MaskRuleIdList',
@@ -66,6 +72,10 @@ class MaskOssImageRequest extends Model
 
         if (null !== $this->isAlwaysUpload) {
             $res['IsAlwaysUpload'] = $this->isAlwaysUpload;
+        }
+
+        if (null !== $this->isCoverObject) {
+            $res['IsCoverObject'] = $this->isCoverObject;
         }
 
         if (null !== $this->isSupportRestore) {
@@ -105,6 +115,10 @@ class MaskOssImageRequest extends Model
 
         if (isset($map['IsAlwaysUpload'])) {
             $model->isAlwaysUpload = $map['IsAlwaysUpload'];
+        }
+
+        if (isset($map['IsCoverObject'])) {
+            $model->isCoverObject = $map['IsCoverObject'];
         }
 
         if (isset($map['IsSupportRestore'])) {

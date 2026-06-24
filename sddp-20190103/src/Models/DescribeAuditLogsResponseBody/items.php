@@ -141,6 +141,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $ramConsoleLink;
+
+    /**
+     * @var string
+     */
     public $ruleCategory;
 
     /**
@@ -209,6 +214,7 @@ class items extends Model
         'packageName' => 'PackageName',
         'productCode' => 'ProductCode',
         'productId' => 'ProductId',
+        'ramConsoleLink' => 'RamConsoleLink',
         'ruleCategory' => 'RuleCategory',
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
@@ -330,6 +336,10 @@ class items extends Model
 
         if (null !== $this->productId) {
             $res['ProductId'] = $this->productId;
+        }
+
+        if (null !== $this->ramConsoleLink) {
+            $res['RamConsoleLink'] = $this->ramConsoleLink;
         }
 
         if (null !== $this->ruleCategory) {
@@ -481,6 +491,10 @@ class items extends Model
 
         if (isset($map['ProductId'])) {
             $model->productId = $map['ProductId'];
+        }
+
+        if (isset($map['RamConsoleLink'])) {
+            $model->ramConsoleLink = $map['RamConsoleLink'];
         }
 
         if (isset($map['RuleCategory'])) {

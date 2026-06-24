@@ -19,7 +19,7 @@ class DescribeEventsRequest extends Model
     public $dealUserId;
 
     /**
-     * @var string
+     * @var int
      */
     public $endTime;
 
@@ -49,7 +49,7 @@ class DescribeEventsRequest extends Model
     public $productCode;
 
     /**
-     * @var string
+     * @var int
      */
     public $startTime;
 

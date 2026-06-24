@@ -18,6 +18,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $clusterType;
+
+    /**
+     * @var string
+     */
     public $comment;
 
     /**
@@ -191,6 +196,7 @@ class items extends Model
     public $templateName;
     protected $_name = [
         'categories' => 'Categories',
+        'clusterType' => 'ClusterType',
         'comment' => 'Comment',
         'dataType' => 'DataType',
         'dbName' => 'DbName',
@@ -254,6 +260,10 @@ class items extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
         }
 
         if (null !== $this->comment) {
@@ -430,6 +440,10 @@ class items extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
         }
 
         if (isset($map['Comment'])) {
