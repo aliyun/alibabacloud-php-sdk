@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookAndSubmitTaskResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetNotebookTaskStatusResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetSqlConsoleOperationLogRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetSqlConsoleOperationLogResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodePublishSettingRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodePublishSettingResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetWorkspaceCodeRequest;
@@ -3661,6 +3663,91 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Queries the operation logs of the SQL window.
+     *
+     * @param request - GetSqlConsoleOperationLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSqlConsoleOperationLogResponse
+     *
+     * @param GetSqlConsoleOperationLogRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetSqlConsoleOperationLogResponse
+     */
+    public function getSqlConsoleOperationLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->schema) {
+            @$query['Schema'] = $request->schema;
+        }
+
+        if (null !== $request->sqlType) {
+            @$query['SqlType'] = $request->sqlType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSqlConsoleOperationLog',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSqlConsoleOperationLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the operation logs of the SQL window.
+     *
+     * @param request - GetSqlConsoleOperationLogRequest
+     *
+     * @returns GetSqlConsoleOperationLogResponse
+     *
+     * @param GetSqlConsoleOperationLogRequest $request
+     *
+     * @return GetSqlConsoleOperationLogResponse
+     */
+    public function getSqlConsoleOperationLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSqlConsoleOperationLogWithOptions($request, $runtime);
+    }
+
+    /**
      * Reads the content of a code file in the workspace and returns the file content along with mtime (in the header).
      *
      * @remarks
@@ -4071,7 +4158,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieve a list of Data Agent session descriptions.
+     * Retrieves the list of historical session descriptions for a Data Agent.
      *
      * @param request - ListDataAgentSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4105,6 +4192,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->isSaved) {
             @$query['IsSaved'] = $request->isSaved;
+        }
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
 
         if (null !== $request->pageNumber) {
@@ -4146,7 +4237,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Retrieve a list of Data Agent session descriptions.
+     * Retrieves the list of historical session descriptions for a Data Agent.
      *
      * @param request - ListDataAgentSessionRequest
      *
@@ -6250,8 +6341,8 @@ class Dms extends OpenApiClient
      * @remarks
      * ## Request description
      * - `agent_id` and `session_id` are required fields.
-     * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
-     * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
+     * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
+     * - `reply_to` indicates which Agent message this message is responding to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
      * - `quoted_message` can be used to quote the content of a previous user message.
      * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.
@@ -6364,8 +6455,8 @@ class Dms extends OpenApiClient
      * @remarks
      * ## Request description
      * - `agent_id` and `session_id` are required fields.
-     * - `message_type` defaults to `primary`. Set it to `additional` when appending information or `cancel` when canceling a session.
-     * - `reply_to` indicates which Agent message this message responds to. The default value is `0`.
+     * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
+     * - `reply_to` indicates which Agent message this message is responding to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
      * - `quoted_message` can be used to quote the content of a previous user message.
      * - `data_source`, `dms_user`, `db_metadata`, `session_config`, and other fields are optional but provide more detailed context information.

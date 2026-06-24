@@ -34,6 +34,11 @@ class ListDataAgentSessionRequest extends Model
     public $isSaved;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -63,6 +68,7 @@ class ListDataAgentSessionRequest extends Model
         'customAgentId' => 'CustomAgentId',
         'DMSUnit' => 'DMSUnit',
         'isSaved' => 'IsSaved',
+        'mode' => 'Mode',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'queryType' => 'QueryType',
@@ -96,6 +102,10 @@ class ListDataAgentSessionRequest extends Model
 
         if (null !== $this->isSaved) {
             $res['IsSaved'] = $this->isSaved;
+        }
+
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
 
         if (null !== $this->pageNumber) {
@@ -147,6 +157,10 @@ class ListDataAgentSessionRequest extends Model
 
         if (isset($map['IsSaved'])) {
             $model->isSaved = $map['IsSaved'];
+        }
+
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
 
         if (isset($map['PageNumber'])) {
