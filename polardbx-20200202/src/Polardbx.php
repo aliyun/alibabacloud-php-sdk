@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateColdDataVolumeRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateColdDataVolumeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateMem0PublicConnectionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateMem0PublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AttachColumnarInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AttachColumnarInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CancelActiveOperationTasksRequest;
@@ -255,6 +257,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseColdDataVolumeRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseColdDataVolumeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseMem0PublicConnectionRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ReleaseMem0PublicConnectionResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ResetAccountPasswordRestrictRequest;
@@ -614,6 +618,81 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateInstancePublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables a public domain name for a Mem0 instance.
+     *
+     * @remarks
+     * This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+     *
+     * @param request - AllocateMem0PublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AllocateMem0PublicConnectionResponse
+     *
+     * @param AllocateMem0PublicConnectionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AllocateMem0PublicConnectionResponse
+     */
+    public function allocateMem0PublicConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionStringPrefix) {
+            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AllocateMem0PublicConnection',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AllocateMem0PublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables a public domain name for a Mem0 instance.
+     *
+     * @remarks
+     * This operation is used to confirm that no active connections exist before a rollback task, to ensure operation safety.
+     *
+     * @param request - AllocateMem0PublicConnectionRequest
+     *
+     * @returns AllocateMem0PublicConnectionResponse
+     *
+     * @param AllocateMem0PublicConnectionRequest $request
+     *
+     * @return AllocateMem0PublicConnectionResponse
+     */
+    public function allocateMem0PublicConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allocateMem0PublicConnectionWithOptions($request, $runtime);
     }
 
     /**
@@ -8968,10 +9047,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the whitelist of a memory engine instance.
+     * Modifies the whitelist of a memory engine.
      *
      * @remarks
-     * ***.
      *
      * @param request - ModifyMem0SecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9026,10 +9104,9 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * Modifies the whitelist of a memory engine instance.
+     * Modifies the whitelist of a memory engine.
      *
      * @remarks
-     * ***.
      *
      * @param request - ModifyMem0SecurityIpsRequest
      *
@@ -9458,6 +9535,77 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->releaseInstancePublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Releases the public domain name for a Mem0 instance.
+     *
+     * @remarks
+     * This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+     *
+     * @param request - ReleaseMem0PublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseMem0PublicConnectionResponse
+     *
+     * @param ReleaseMem0PublicConnectionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ReleaseMem0PublicConnectionResponse
+     */
+    public function releaseMem0PublicConnectionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentConnectionString) {
+            @$query['CurrentConnectionString'] = $request->currentConnectionString;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReleaseMem0PublicConnection',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleaseMem0PublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Releases the public domain name for a Mem0 instance.
+     *
+     * @remarks
+     * This operation is used to verify that no active connections exist before a rollback task to ensure operational safety.
+     *
+     * @param request - ReleaseMem0PublicConnectionRequest
+     *
+     * @returns ReleaseMem0PublicConnectionResponse
+     *
+     * @param ReleaseMem0PublicConnectionRequest $request
+     *
+     * @return ReleaseMem0PublicConnectionResponse
+     */
+    public function releaseMem0PublicConnection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseMem0PublicConnectionWithOptions($request, $runtime);
     }
 
     /**
