@@ -196,6 +196,10 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\MoveMaterialFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\MoveMaterialFileShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\NotifyAppNotificationForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\NotifyAppNotificationForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OfflineAppInstanceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OfflineAppInstanceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OnlineAppInstanceRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OnlineAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerRequest;
@@ -7057,6 +7061,120 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+     *
+     * @param request - OfflineAppInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OfflineAppInstanceResponse
+     *
+     * @param OfflineAppInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return OfflineAppInstanceResponse
+     */
+    public function offlineAppInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OfflineAppInstance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OfflineAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Delists a website: switches the CDN back-to-origin configuration for all domain names under the site to an offline page.
+     *
+     * @param request - OfflineAppInstanceRequest
+     *
+     * @returns OfflineAppInstanceResponse
+     *
+     * @param OfflineAppInstanceRequest $request
+     *
+     * @return OfflineAppInstanceResponse
+     */
+    public function offlineAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->offlineAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+     *
+     * @param request - OnlineAppInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OnlineAppInstanceResponse
+     *
+     * @param OnlineAppInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return OnlineAppInstanceResponse
+     */
+    public function onlineAppInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OnlineAppInstance',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OnlineAppInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resumes a website by restoring the CDN back-to-origin rewrite rules to the normal path for all domain names under the site.
+     *
+     * @param request - OnlineAppInstanceRequest
+     *
+     * @returns OnlineAppInstanceResponse
+     *
+     * @param OnlineAppInstanceRequest $request
+     *
+     * @return OnlineAppInstanceResponse
+     */
+    public function onlineAppInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->onlineAppInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Operates an application by a partner.
      *
      * @param request - OperateAppInstanceForPartnerRequest
@@ -9077,10 +9195,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Save requirements.
+     * Save Requirement.
      *
      * @remarks
-     * Obtain barcode generation plugin configuration information
+     * Get code generation plugin configuration information
      *
      * @param request - SaveAppRequirementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9125,10 +9243,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Save requirements.
+     * Save Requirement.
      *
      * @remarks
-     * Obtain barcode generation plugin configuration information
+     * Get code generation plugin configuration information
      *
      * @param request - SaveAppRequirementRequest
      *
@@ -9898,10 +10016,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Update file.
+     * Updates a file.
      *
      * @remarks
-     * Obtain the configuration information of the code generation plugin
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - UpdateAppFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9948,10 +10066,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Update file.
+     * Updates a file.
      *
      * @remarks
-     * Obtain the configuration information of the code generation plugin
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - UpdateAppFileRequest
      *
