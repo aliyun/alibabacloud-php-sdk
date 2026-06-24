@@ -17,6 +17,10 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateExchangeResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateInstanceShrinkRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateOpenSourceAccountRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateOpenSourceAccountResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateOpenSourcePermissionRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateOpenSourcePermissionResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateQueueRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateQueueResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\CreateVirtualHostRequest;
@@ -27,6 +31,10 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteBindingRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteBindingResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteExchangeRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteExchangeResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteOpenSourceAccountRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteOpenSourceAccountResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteOpenSourcePermissionRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteOpenSourcePermissionResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteQueueRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteQueueResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\DeleteVirtualHostRequest;
@@ -49,6 +57,10 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstanceWhiteListRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListInstanceWhiteListResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListOpenSourceAccountsRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListOpenSourceAccountsResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListOpenSourcePermissionsRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListOpenSourcePermissionsResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueueConsumersRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueueConsumersResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\ListQueuesRequest;
@@ -65,6 +77,10 @@ use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceServerlessSwitchRequest;
 use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateInstanceServerlessSwitchResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateOpenSourceAccountRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateOpenSourceAccountResponse;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateOpenSourcePermissionRequest;
+use AlibabaCloud\SDK\Amqpopen\V20191212\Models\UpdateOpenSourcePermissionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -636,6 +652,160 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
+     * Creates an open-source username and password.
+     *
+     * @param request - CreateOpenSourceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOpenSourceAccountResponse
+     *
+     * @param CreateOpenSourceAccountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateOpenSourceAccountResponse
+     */
+    public function createOpenSourceAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOpenSourceAccount',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOpenSourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an open-source username and password.
+     *
+     * @param request - CreateOpenSourceAccountRequest
+     *
+     * @returns CreateOpenSourceAccountResponse
+     *
+     * @param CreateOpenSourceAccountRequest $request
+     *
+     * @return CreateOpenSourceAccountResponse
+     */
+    public function createOpenSourceAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOpenSourceAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an open source permission.
+     *
+     * @param request - CreateOpenSourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOpenSourcePermissionResponse
+     *
+     * @param CreateOpenSourcePermissionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateOpenSourcePermissionResponse
+     */
+    public function createOpenSourcePermissionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->configure) {
+            @$query['Configure'] = $request->configure;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->read) {
+            @$query['Read'] = $request->read;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->vhost) {
+            @$query['Vhost'] = $request->vhost;
+        }
+
+        if (null !== $request->write) {
+            @$query['Write'] = $request->write;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOpenSourcePermission',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOpenSourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an open source permission.
+     *
+     * @param request - CreateOpenSourcePermissionRequest
+     *
+     * @returns CreateOpenSourcePermissionResponse
+     *
+     * @param CreateOpenSourcePermissionRequest $request
+     *
+     * @return CreateOpenSourcePermissionResponse
+     */
+    public function createOpenSourcePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOpenSourcePermissionWithOptions($request, $runtime);
+    }
+
+    /**
      * A queue is a buffer that stores messages. In ApsaraMQ for RabbitMQ, messages are sent to a specified exchange and then routed to a bound queue.
      *
      * @param request - CreateQueueRequest
@@ -1004,6 +1174,132 @@ class Amqpopen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteExchangeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the username and password of an open-source user.
+     *
+     * @param request - DeleteOpenSourceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOpenSourceAccountResponse
+     *
+     * @param DeleteOpenSourceAccountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteOpenSourceAccountResponse
+     */
+    public function deleteOpenSourceAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOpenSourceAccount',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOpenSourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the username and password of an open-source user.
+     *
+     * @param request - DeleteOpenSourceAccountRequest
+     *
+     * @returns DeleteOpenSourceAccountResponse
+     *
+     * @param DeleteOpenSourceAccountRequest $request
+     *
+     * @return DeleteOpenSourceAccountResponse
+     */
+    public function deleteOpenSourceAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOpenSourceAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an open source permission.
+     *
+     * @param request - DeleteOpenSourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOpenSourcePermissionResponse
+     *
+     * @param DeleteOpenSourcePermissionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteOpenSourcePermissionResponse
+     */
+    public function deleteOpenSourcePermissionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->vhost) {
+            @$query['Vhost'] = $request->vhost;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOpenSourcePermission',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOpenSourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an open source permission.
+     *
+     * @param request - DeleteOpenSourcePermissionRequest
+     *
+     * @returns DeleteOpenSourcePermissionResponse
+     *
+     * @param DeleteOpenSourcePermissionRequest $request
+     *
+     * @return DeleteOpenSourcePermissionResponse
+     */
+    public function deleteOpenSourcePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOpenSourcePermissionWithOptions($request, $runtime);
     }
 
     /**
@@ -1628,6 +1924,140 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
+     * Enumerates open-source usernames and passwords.
+     *
+     * @param request - ListOpenSourceAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOpenSourceAccountsResponse
+     *
+     * @param ListOpenSourceAccountsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListOpenSourceAccountsResponse
+     */
+    public function listOpenSourceAccountsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOpenSourceAccounts',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOpenSourceAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enumerates open-source usernames and passwords.
+     *
+     * @param request - ListOpenSourceAccountsRequest
+     *
+     * @returns ListOpenSourceAccountsResponse
+     *
+     * @param ListOpenSourceAccountsRequest $request
+     *
+     * @return ListOpenSourceAccountsResponse
+     */
+    public function listOpenSourceAccounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOpenSourceAccountsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists open source permissions.
+     *
+     * @param request - ListOpenSourcePermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOpenSourcePermissionsResponse
+     *
+     * @param ListOpenSourcePermissionsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListOpenSourcePermissionsResponse
+     */
+    public function listOpenSourcePermissionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOpenSourcePermissions',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOpenSourcePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists open source permissions.
+     *
+     * @param request - ListOpenSourcePermissionsRequest
+     *
+     * @returns ListOpenSourcePermissionsResponse
+     *
+     * @param ListOpenSourcePermissionsRequest $request
+     *
+     * @return ListOpenSourcePermissionsResponse
+     */
+    public function listOpenSourcePermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOpenSourcePermissionsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the online consumer clients of a specified queue.
      *
      * @remarks
@@ -2093,7 +2523,7 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Updates the elastic scaling switch of a serverless instance.
+     * Update serverless switch.
      *
      * @param request - UpdateInstanceServerlessSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2140,7 +2570,7 @@ class Amqpopen extends OpenApiClient
     }
 
     /**
-     * Updates the elastic scaling switch of a serverless instance.
+     * Update serverless switch.
      *
      * @param request - UpdateInstanceServerlessSwitchRequest
      *
@@ -2155,5 +2585,159 @@ class Amqpopen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateInstanceServerlessSwitchWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the username and password for open-source access.
+     *
+     * @param request - UpdateOpenSourceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOpenSourceAccountResponse
+     *
+     * @param UpdateOpenSourceAccountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateOpenSourceAccountResponse
+     */
+    public function updateOpenSourceAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOpenSourceAccount',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOpenSourceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the username and password for open-source access.
+     *
+     * @param request - UpdateOpenSourceAccountRequest
+     *
+     * @returns UpdateOpenSourceAccountResponse
+     *
+     * @param UpdateOpenSourceAccountRequest $request
+     *
+     * @return UpdateOpenSourceAccountResponse
+     */
+    public function updateOpenSourceAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOpenSourceAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates open source permissions.
+     *
+     * @param request - UpdateOpenSourcePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOpenSourcePermissionResponse
+     *
+     * @param UpdateOpenSourcePermissionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateOpenSourcePermissionResponse
+     */
+    public function updateOpenSourcePermissionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->configure) {
+            @$query['Configure'] = $request->configure;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->read) {
+            @$query['Read'] = $request->read;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->vhost) {
+            @$query['Vhost'] = $request->vhost;
+        }
+
+        if (null !== $request->write) {
+            @$query['Write'] = $request->write;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOpenSourcePermission',
+            'version' => '2019-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOpenSourcePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates open source permissions.
+     *
+     * @param request - UpdateOpenSourcePermissionRequest
+     *
+     * @returns UpdateOpenSourcePermissionResponse
+     *
+     * @param UpdateOpenSourcePermissionRequest $request
+     *
+     * @return UpdateOpenSourcePermissionResponse
+     */
+    public function updateOpenSourcePermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOpenSourcePermissionWithOptions($request, $runtime);
     }
 }
