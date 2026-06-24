@@ -14,6 +14,11 @@ class RunEvaluationRequest extends Model
     public $accountId;
 
     /**
+     * @var string
+     */
+    public $evaluationDomain;
+
+    /**
      * @var string[]
      */
     public $metricIds;
@@ -29,6 +34,7 @@ class RunEvaluationRequest extends Model
     public $scope;
     protected $_name = [
         'accountId' => 'AccountId',
+        'evaluationDomain' => 'EvaluationDomain',
         'metricIds' => 'MetricIds',
         'regionId' => 'RegionId',
         'scope' => 'Scope',
@@ -47,6 +53,10 @@ class RunEvaluationRequest extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+
+        if (null !== $this->evaluationDomain) {
+            $res['EvaluationDomain'] = $this->evaluationDomain;
         }
 
         if (null !== $this->metricIds) {
@@ -81,6 +91,10 @@ class RunEvaluationRequest extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+
+        if (isset($map['EvaluationDomain'])) {
+            $model->evaluationDomain = $map['EvaluationDomain'];
         }
 
         if (isset($map['MetricIds'])) {

@@ -21,6 +21,11 @@ class GenerateEvaluationReportRequest extends Model
     /**
      * @var string
      */
+    public $evaluationDomain;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -30,6 +35,7 @@ class GenerateEvaluationReportRequest extends Model
     protected $_name = [
         'accountId' => 'AccountId',
         'accountIds' => 'AccountIds',
+        'evaluationDomain' => 'EvaluationDomain',
         'regionId' => 'RegionId',
         'reportType' => 'ReportType',
     ];
@@ -58,6 +64,10 @@ class GenerateEvaluationReportRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->evaluationDomain) {
+            $res['EvaluationDomain'] = $this->evaluationDomain;
         }
 
         if (null !== $this->regionId) {
@@ -92,6 +102,10 @@ class GenerateEvaluationReportRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EvaluationDomain'])) {
+            $model->evaluationDomain = $map['EvaluationDomain'];
         }
 
         if (isset($map['RegionId'])) {

@@ -21,6 +21,11 @@ class ListEvaluationMetricDetailsRequest extends Model
     /**
      * @var string
      */
+    public $evaluationDomain;
+
+    /**
+     * @var string
+     */
     public $id;
 
     /**
@@ -50,6 +55,7 @@ class ListEvaluationMetricDetailsRequest extends Model
     protected $_name = [
         'accountId' => 'AccountId',
         'date' => 'Date',
+        'evaluationDomain' => 'EvaluationDomain',
         'id' => 'Id',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -72,6 +78,10 @@ class ListEvaluationMetricDetailsRequest extends Model
 
         if (null !== $this->date) {
             $res['Date'] = $this->date;
+        }
+
+        if (null !== $this->evaluationDomain) {
+            $res['EvaluationDomain'] = $this->evaluationDomain;
         }
 
         if (null !== $this->id) {
@@ -115,6 +125,10 @@ class ListEvaluationMetricDetailsRequest extends Model
 
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
+        }
+
+        if (isset($map['EvaluationDomain'])) {
+            $model->evaluationDomain = $map['EvaluationDomain'];
         }
 
         if (isset($map['Id'])) {

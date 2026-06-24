@@ -51,6 +51,12 @@ class Governance extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'eu-central-1' => 'governance.eu-central-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'governance.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-hangzhou' => 'governance.cn-hangzhou.aliyuncs.com',
+            'ap-southeast-1' => 'governance.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('governance', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -83,8 +89,8 @@ class Governance extends OpenApiClient
      * Applies an account baseline to multiple existing resource accounts at a time.
      *
      * @remarks
-     * You can call this operation to apply an account baseline to existing resource accounts.
-     * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
+     * Applies an account baseline to multiple existing resource accounts at a time.
+     * Account enrollment is an asynchronous process. After the accounts are enrolled, the account factory baseline is applied to each account. To query the enrollment details and check the baseline application result, call [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html).
      *
      * @param request - BatchEnrollAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -138,8 +144,8 @@ class Governance extends OpenApiClient
      * Applies an account baseline to multiple existing resource accounts at a time.
      *
      * @remarks
-     * You can call this operation to apply an account baseline to existing resource accounts.
-     * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
+     * Applies an account baseline to multiple existing resource accounts at a time.
+     * Account enrollment is an asynchronous process. After the accounts are enrolled, the account factory baseline is applied to each account. To query the enrollment details and check the baseline application result, call [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html).
      *
      * @param request - BatchEnrollAccountsRequest
      *
@@ -287,11 +293,11 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Enrolls an account. You can create a new account or manage an existing account in the account factory.
+     * Creates a new resource account or enrolls an existing resource account in Account Factory.
      *
      * @remarks
-     * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
-     * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+     * Creates a new resource account or enrolls an existing resource account, and applies the account factory baseline to the account.
+     * Account enrollment is an asynchronous process. After an account is created, the account factory baseline is applied to the account. To query the enrollment details and check the baseline application result, call [GetEnrolledAccount](~~GetEnrolledAccount~~).
      *
      * @param tmpReq - EnrollAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -372,11 +378,11 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Enrolls an account. You can create a new account or manage an existing account in the account factory.
+     * Creates a new resource account or enrolls an existing resource account in Account Factory.
      *
      * @remarks
-     * You can call this API operation to create a new account or manage an existing account and apply the account baseline to the account.
-     * Accounts are created in asynchronous mode. After you create an account, you can apply the account baseline to the account. You can call the [GetEnrolledAccount API](~~GetEnrolledAccount~~) operation to view the details about the account to obtain the result of applying the account baseline to the account.
+     * Creates a new resource account or enrolls an existing resource account, and applies the account factory baseline to the account.
+     * Account enrollment is an asynchronous process. After an account is created, the account factory baseline is applied to the account. To query the enrollment details and check the baseline application result, call [GetEnrolledAccount](~~GetEnrolledAccount~~).
      *
      * @param request - EnrollAccountRequest
      *
@@ -394,7 +400,12 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * 生成治理检测报告.
+     * Generate Governance Evaluation Report.
+     *
+     * @remarks
+     * Generates a governance evaluation report.
+     * >
+     * > - This is an asynchronous API. You can check the `Finished` field in the response to determine the report generation status.
      *
      * @param tmpReq - GenerateEvaluationReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -424,6 +435,10 @@ class Governance extends OpenApiClient
             @$query['AccountIds'] = $request->accountIdsShrink;
         }
 
+        if (null !== $request->evaluationDomain) {
+            @$query['EvaluationDomain'] = $request->evaluationDomain;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -451,7 +466,12 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * 生成治理检测报告.
+     * Generate Governance Evaluation Report.
+     *
+     * @remarks
+     * Generates a governance evaluation report.
+     * >
+     * > - This is an asynchronous API. You can check the `Finished` field in the response to determine the report generation status.
      *
      * @param request - GenerateEvaluationReportRequest
      *
@@ -798,7 +818,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
+     * Retrieves information about all available governance evaluation items, including names, IDs, descriptions, stages, resource detail metadata, and remediation guidance.
      *
      * @param request - ListEvaluationMetadataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -814,6 +834,10 @@ class Governance extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->evaluationDomain) {
+            @$query['EvaluationDomain'] = $request->evaluationDomain;
+        }
+
         if (null !== $request->language) {
             @$query['Language'] = $request->language;
         }
@@ -849,7 +873,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
+     * Retrieves information about all available governance evaluation items, including names, IDs, descriptions, stages, resource detail metadata, and remediation guidance.
      *
      * @param request - ListEvaluationMetadataRequest
      *
@@ -867,7 +891,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
+     * Retrieves non-compliant resource information for a specified check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
      *
      * @param request - ListEvaluationMetricDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -889,6 +913,10 @@ class Governance extends OpenApiClient
 
         if (null !== $request->date) {
             @$query['Date'] = $request->date;
+        }
+
+        if (null !== $request->evaluationDomain) {
+            @$query['EvaluationDomain'] = $request->evaluationDomain;
         }
 
         if (null !== $request->id) {
@@ -934,7 +962,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
+     * Retrieves non-compliant resource information for a specified check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
      *
      * @param request - ListEvaluationMetricDetailsRequest
      *
@@ -952,7 +980,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Queries the result and status of a governance check.
+     * Get governance evaluation results and status.
      *
      * @param request - ListEvaluationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -970,6 +998,10 @@ class Governance extends OpenApiClient
         $query = [];
         if (null !== $request->accountId) {
             @$query['AccountId'] = $request->accountId;
+        }
+
+        if (null !== $request->evaluationDomain) {
+            @$query['EvaluationDomain'] = $request->evaluationDomain;
         }
 
         if (null !== $request->filters) {
@@ -1015,7 +1047,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Queries the result and status of a governance check.
+     * Get governance evaluation results and status.
      *
      * @param request - ListEvaluationResultsRequest
      *
@@ -1033,7 +1065,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Queries the historical scores of a governance maturity check.
+     * Retrieves the historical scores of governance detection.
      *
      * @param request - ListEvaluationScoreHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1055,6 +1087,10 @@ class Governance extends OpenApiClient
 
         if (null !== $request->endDate) {
             @$query['EndDate'] = $request->endDate;
+        }
+
+        if (null !== $request->evaluationDomain) {
+            @$query['EvaluationDomain'] = $request->evaluationDomain;
         }
 
         if (null !== $request->regionId) {
@@ -1084,7 +1120,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Queries the historical scores of a governance maturity check.
+     * Retrieves the historical scores of governance detection.
      *
      * @param request - ListEvaluationScoreHistoryRequest
      *
@@ -1102,7 +1138,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Performs a governance maturity check.
+     * Runs a Cloud Governance Center governance check.
      *
      * @param tmpReq - RunEvaluationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1126,6 +1162,10 @@ class Governance extends OpenApiClient
         $query = [];
         if (null !== $request->accountId) {
             @$query['AccountId'] = $request->accountId;
+        }
+
+        if (null !== $request->evaluationDomain) {
+            @$query['EvaluationDomain'] = $request->evaluationDomain;
         }
 
         if (null !== $request->metricIdsShrink) {
@@ -1159,7 +1199,7 @@ class Governance extends OpenApiClient
     }
 
     /**
-     * Performs a governance maturity check.
+     * Runs a Cloud Governance Center governance check.
      *
      * @param request - RunEvaluationRequest
      *

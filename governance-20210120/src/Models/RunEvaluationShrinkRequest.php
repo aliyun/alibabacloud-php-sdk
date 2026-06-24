@@ -16,6 +16,11 @@ class RunEvaluationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $evaluationDomain;
+
+    /**
+     * @var string
+     */
     public $metricIdsShrink;
 
     /**
@@ -29,6 +34,7 @@ class RunEvaluationShrinkRequest extends Model
     public $scope;
     protected $_name = [
         'accountId' => 'AccountId',
+        'evaluationDomain' => 'EvaluationDomain',
         'metricIdsShrink' => 'MetricIds',
         'regionId' => 'RegionId',
         'scope' => 'Scope',
@@ -44,6 +50,10 @@ class RunEvaluationShrinkRequest extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+
+        if (null !== $this->evaluationDomain) {
+            $res['EvaluationDomain'] = $this->evaluationDomain;
         }
 
         if (null !== $this->metricIdsShrink) {
@@ -71,6 +81,10 @@ class RunEvaluationShrinkRequest extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+
+        if (isset($map['EvaluationDomain'])) {
+            $model->evaluationDomain = $map['EvaluationDomain'];
         }
 
         if (isset($map['MetricIds'])) {

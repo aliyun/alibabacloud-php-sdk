@@ -21,6 +21,11 @@ class GenerateEvaluationReportShrinkRequest extends Model
     /**
      * @var string
      */
+    public $evaluationDomain;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -30,6 +35,7 @@ class GenerateEvaluationReportShrinkRequest extends Model
     protected $_name = [
         'accountId' => 'AccountId',
         'accountIdsShrink' => 'AccountIds',
+        'evaluationDomain' => 'EvaluationDomain',
         'regionId' => 'RegionId',
         'reportType' => 'ReportType',
     ];
@@ -48,6 +54,10 @@ class GenerateEvaluationReportShrinkRequest extends Model
 
         if (null !== $this->accountIdsShrink) {
             $res['AccountIds'] = $this->accountIdsShrink;
+        }
+
+        if (null !== $this->evaluationDomain) {
+            $res['EvaluationDomain'] = $this->evaluationDomain;
         }
 
         if (null !== $this->regionId) {
@@ -75,6 +85,10 @@ class GenerateEvaluationReportShrinkRequest extends Model
 
         if (isset($map['AccountIds'])) {
             $model->accountIdsShrink = $map['AccountIds'];
+        }
+
+        if (isset($map['EvaluationDomain'])) {
+            $model->evaluationDomain = $map['EvaluationDomain'];
         }
 
         if (isset($map['RegionId'])) {

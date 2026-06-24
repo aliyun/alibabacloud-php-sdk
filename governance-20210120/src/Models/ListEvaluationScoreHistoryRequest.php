@@ -21,6 +21,11 @@ class ListEvaluationScoreHistoryRequest extends Model
     /**
      * @var string
      */
+    public $evaluationDomain;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -30,6 +35,7 @@ class ListEvaluationScoreHistoryRequest extends Model
     protected $_name = [
         'accountId' => 'AccountId',
         'endDate' => 'EndDate',
+        'evaluationDomain' => 'EvaluationDomain',
         'regionId' => 'RegionId',
         'startDate' => 'StartDate',
     ];
@@ -48,6 +54,10 @@ class ListEvaluationScoreHistoryRequest extends Model
 
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
+        }
+
+        if (null !== $this->evaluationDomain) {
+            $res['EvaluationDomain'] = $this->evaluationDomain;
         }
 
         if (null !== $this->regionId) {
@@ -75,6 +85,10 @@ class ListEvaluationScoreHistoryRequest extends Model
 
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
+        }
+
+        if (isset($map['EvaluationDomain'])) {
+            $model->evaluationDomain = $map['EvaluationDomain'];
         }
 
         if (isset($map['RegionId'])) {

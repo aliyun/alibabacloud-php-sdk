@@ -15,6 +15,11 @@ class ListEvaluationResultsRequest extends Model
     public $accountId;
 
     /**
+     * @var string
+     */
+    public $evaluationDomain;
+
+    /**
      * @var filters[]
      */
     public $filters;
@@ -45,6 +50,7 @@ class ListEvaluationResultsRequest extends Model
     public $topicCode;
     protected $_name = [
         'accountId' => 'AccountId',
+        'evaluationDomain' => 'EvaluationDomain',
         'filters' => 'Filters',
         'lensCode' => 'LensCode',
         'regionId' => 'RegionId',
@@ -66,6 +72,10 @@ class ListEvaluationResultsRequest extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+
+        if (null !== $this->evaluationDomain) {
+            $res['EvaluationDomain'] = $this->evaluationDomain;
         }
 
         if (null !== $this->filters) {
@@ -112,6 +122,10 @@ class ListEvaluationResultsRequest extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+
+        if (isset($map['EvaluationDomain'])) {
+            $model->evaluationDomain = $map['EvaluationDomain'];
         }
 
         if (isset($map['Filters'])) {

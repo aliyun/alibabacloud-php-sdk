@@ -11,6 +11,11 @@ class ListEvaluationMetadataRequest extends Model
     /**
      * @var string
      */
+    public $evaluationDomain;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -28,6 +33,7 @@ class ListEvaluationMetadataRequest extends Model
      */
     public $topicCode;
     protected $_name = [
+        'evaluationDomain' => 'EvaluationDomain',
         'language' => 'Language',
         'lensCode' => 'LensCode',
         'regionId' => 'RegionId',
@@ -42,6 +48,10 @@ class ListEvaluationMetadataRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->evaluationDomain) {
+            $res['EvaluationDomain'] = $this->evaluationDomain;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
@@ -69,6 +79,10 @@ class ListEvaluationMetadataRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EvaluationDomain'])) {
+            $model->evaluationDomain = $map['EvaluationDomain'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
