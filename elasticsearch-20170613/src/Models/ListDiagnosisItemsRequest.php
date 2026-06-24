@@ -11,8 +11,14 @@ class ListDiagnosisItemsRequest extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
     public $lang;
     protected $_name = [
+        'instanceId' => 'instanceId',
         'lang' => 'lang',
     ];
 
@@ -24,6 +30,10 @@ class ListDiagnosisItemsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['instanceId'] = $this->instanceId;
+        }
+
         if (null !== $this->lang) {
             $res['lang'] = $this->lang;
         }
@@ -39,6 +49,10 @@ class ListDiagnosisItemsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['instanceId'])) {
+            $model->instanceId = $map['instanceId'];
+        }
+
         if (isset($map['lang'])) {
             $model->lang = $map['lang'];
         }

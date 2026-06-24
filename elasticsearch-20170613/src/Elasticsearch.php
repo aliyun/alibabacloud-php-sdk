@@ -400,6 +400,31 @@ class Elasticsearch extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'elasticsearch.us-west-1.aliyuncs.com',
+            'us-east-1' => 'elasticsearch.us-east-1.aliyuncs.com',
+            'eu-west-1' => 'elasticsearch.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'elasticsearch.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'elasticsearch.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'elasticsearch.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'elasticsearch.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'elasticsearch.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'elasticsearch.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'elasticsearch.cn-qingdao.aliyuncs.com',
+            'cn-north-2-gov-1' => 'elasticsearch.cn-north-2-gov-1.aliyuncs.com',
+            'cn-hongkong' => 'elasticsearch.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou-finance' => 'elasticsearch.cn-hangzhou-finance.aliyuncs.com',
+            'cn-hangzhou' => 'elasticsearch.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'elasticsearch.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'elasticsearch.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'elasticsearch.cn-beijing.aliyuncs.com',
+            'ap-southeast-5' => 'elasticsearch.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'elasticsearch.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-2' => 'elasticsearch.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'elasticsearch.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'elasticsearch.ap-south-1.aliyuncs.com',
+            'ap-northeast-1' => 'elasticsearch.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('elasticsearch', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -429,7 +454,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+     * Resumes an offline zone. This operation is valid only for multi-zone instances.
      *
      * @param request - ActivateZonesRequest
      * @param headers - map
@@ -473,7 +498,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restores nodes in disabled zones. This operation is available only for multi-zone Elasticsearch clusters.
+     * Resumes an offline zone. This operation is valid only for multi-zone instances.
      *
      * @param request - ActivateZonesRequest
      *
@@ -493,7 +518,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Connects Elasticsearch clusters.
+     * Configures network connectivity to establish a connection between different instances.
      *
      * @param request - AddConnectableClusterRequest
      * @param headers - map
@@ -537,7 +562,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Connects Elasticsearch clusters.
+     * Configures network connectivity to establish a connection between different instances.
      *
      * @param request - AddConnectableClusterRequest
      *
@@ -557,7 +582,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+     * Creates a reference repository when setting up a cross-cluster OSS repository.
      *
      * @param request - AddSnapshotRepoRequest
      * @param headers - map
@@ -595,7 +620,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call the AddSnapshotRepo to create a reference repository when configuring a cross-cluster OSS repository.
+     * Creates a reference repository when setting up a cross-cluster OSS repository.
      *
      * @param request - AddSnapshotRepoRequest
      *
@@ -615,7 +640,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restores an Elasticsearch cluster that is frozen after it is released.
+     * Recovers a frozen Elasticsearch instance that was released.
      *
      * @param request - CancelDeletionRequest
      * @param headers - map
@@ -658,7 +683,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restores an Elasticsearch cluster that is frozen after it is released.
+     * Recovers a frozen Elasticsearch instance that was released.
      *
      * @param request - CancelDeletionRequest
      *
@@ -678,7 +703,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restores a Logstash cluster that is frozen after it is released.
+     * Resumes a frozen Logstash instance that was frozen after release.
      *
      * @param request - CancelLogstashDeletionRequest
      * @param headers - map
@@ -721,7 +746,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restores a Logstash cluster that is frozen after it is released.
+     * Resumes a frozen Logstash instance that was frozen after release.
      *
      * @param request - CancelLogstashDeletionRequest
      *
@@ -741,7 +766,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call CancelTask to cancel a data migration task.
+     * Cancels a running data migration task.
      *
      * @param request - CancelTaskRequest
      * @param headers - map
@@ -788,7 +813,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call CancelTask to cancel a data migration task.
+     * Cancels a running data migration task.
      *
      * @param request - CancelTaskRequest
      *
@@ -808,7 +833,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Capacity Planning.
+     * Recommends optimal cluster capacity planning configurations based on business scenarios, QPS, and log generation volume.
      *
      * @param request - CapacityPlanRequest
      * @param headers - map
@@ -862,7 +887,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Capacity Planning.
+     * Recommends optimal cluster capacity planning configurations based on business scenarios, QPS, and log generation volume.
      *
      * @param request - CapacityPlanRequest
      *
@@ -881,7 +906,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Disables the intelligent O\\&M feature for an Elasticsearch cluster.
+     * Disables the intelligent O&M feature for an instance.
      *
      * @param request - CloseDiagnosisRequest
      * @param headers - map
@@ -928,7 +953,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Disables the intelligent O\\&M feature for an Elasticsearch cluster.
+     * Disables the intelligent O&M feature for an instance.
      *
      * @param request - CloseDiagnosisRequest
      *
@@ -948,7 +973,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call CloseHttps to close the HTTPS protocol.
+     * Disables the HTTPS protocol for a cluster.
      *
      * @param request - CloseHttpsRequest
      * @param headers - map
@@ -991,7 +1016,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call CloseHttps to close the HTTPS protocol.
+     * Disables the HTTPS protocol for a cluster.
      *
      * @param request - CloseHttpsRequest
      *
@@ -1011,7 +1036,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Disable Managed Index.
+     * Disables the cloud managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
      *
      * @param request - CloseManagedIndexRequest
      * @param headers - map
@@ -1055,7 +1080,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Disable Managed Index.
+     * Disables the cloud managed feature for a specified index in an Indexing Service cluster. This operation is irreversible. After the feature is disabled, it cannot be enabled again.
      *
      * @param request - CloseManagedIndexRequest
      *
@@ -1076,7 +1101,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建收集器.
+     * Creates a collector to collect data from a specified service.
      *
      * @param request - CreateCollectorRequest
      * @param headers - map
@@ -1152,7 +1177,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建收集器.
+     * Creates a collector to collect data from a specified service.
      *
      * @param request - CreateCollectorRequest
      *
@@ -1171,7 +1196,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建Elasticsearch组合模板
+     * Creates an Elasticsearch composable template.
+     *
+     * @remarks
+     * For more information, see [Store large volumes of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param request - CreateComponentIndexRequest
      * @param headers - map
@@ -1219,7 +1247,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建Elasticsearch组合模板
+     * Creates an Elasticsearch composable template.
+     *
+     * @remarks
+     * For more information, see [Store large volumes of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param request - CreateComponentIndexRequest
      *
@@ -1240,7 +1271,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建数据流
+     * Creates a data stream to manage a set of indexes.
+     *
+     * @remarks
+     * > The data stream name you create must have a one-to-one correspondence with the index pattern in the index template, and the index template must have the data stream feature enabled. For example, if the index pattern in the index template is ds-\\*, the corresponding data stream name should be ds-.
      *
      * @param request - CreateDataStreamRequest
      * @param headers - map
@@ -1284,7 +1318,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建数据流
+     * Creates a data stream to manage a set of indexes.
+     *
+     * @remarks
+     * > The data stream name you create must have a one-to-one correspondence with the index pattern in the index template, and the index template must have the data stream feature enabled. For example, if the index pattern in the index template is ds-\\*, the corresponding data stream name should be ds-.
      *
      * @param request - CreateDataStreamRequest
      *
@@ -1304,7 +1341,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建索引生命周期策略.
+     * Creates an index lifecycle policy. If a policy with the specified name already exists, the existing policy is replaced and its version is incremented.
      *
      * @param request - CreateILMPolicyRequest
      * @param headers - map
@@ -1348,7 +1385,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建索引生命周期策略.
+     * Creates an index lifecycle policy. If a policy with the specified name already exists, the existing policy is replaced and its version is incremented.
      *
      * @param request - CreateILMPolicyRequest
      *
@@ -1368,7 +1405,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建索引模版.
+     * Creates a cluster index template that can be used for component-based index template settings.
      *
      * @param request - CreateIndexTemplateRequest
      * @param headers - map
@@ -1437,7 +1474,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建索引模版.
+     * Creates a cluster index template that can be used for component-based index template settings.
      *
      * @param request - CreateIndexTemplateRequest
      *
@@ -1457,7 +1494,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Creates a Logstash cluster.
+     * Creates a Logstash instance by calling CreateLogstash.
+     *
+     * @remarks
+     * Before calling this operation, note the following:
+     * - Make sure that you are familiar with the billing method and pricing of Logstash. <props="china"><ph>For more information, see [Billing](https://help.aliyun.com/document_detail/260882.html).</ph>
+     * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>.
      *
      * @param request - CreateLogstashRequest
      * @param headers - map
@@ -1533,7 +1575,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Creates a Logstash cluster.
+     * Creates a Logstash instance by calling CreateLogstash.
+     *
+     * @remarks
+     * Before calling this operation, note the following:
+     * - Make sure that you are familiar with the billing method and pricing of Logstash. <props="china"><ph>For more information, see [Billing](https://help.aliyun.com/document_detail/260882.html).</ph>
+     * - To create an instance, complete real-name verification. <props="china"><ph>For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>.
      *
      * @param request - CreateLogstashRequest
      *
@@ -1552,7 +1599,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Creates a pipeline in a Logstash cluster.
+     * Creates a Logstash pipeline to collect data.
      *
      * @param request - CreatePipelinesRequest
      * @param headers - map
@@ -1600,7 +1647,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Creates a pipeline in a Logstash cluster.
+     * Creates a Logstash pipeline to collect data.
      *
      * @param request - CreatePipelinesRequest
      *
@@ -1620,7 +1667,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call CreateSnapshot to manually back up a cluster snapshot.
+     * Calls CreateSnapshot to manually create a snapshot backup of a cluster.
      *
      * @param request - CreateSnapshotRequest
      * @param headers - map
@@ -1664,7 +1711,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call CreateSnapshot to manually back up a cluster snapshot.
+     * Calls CreateSnapshot to manually create a snapshot backup of a cluster.
      *
      * @param request - CreateSnapshotRequest
      *
@@ -1684,10 +1731,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建私网链接VPC终端节点.
+     * Creates a PrivateLink VPC endpoint to connect to an endpoint service created in a user VPC.
      *
      * @remarks
-     * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+     * For more information about this API operation, see [Configure private connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
      *
      * @param request - CreateVpcEndpointRequest
      * @param headers - map
@@ -1744,10 +1791,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 创建私网链接VPC终端节点.
+     * Creates a PrivateLink VPC endpoint to connect to an endpoint service created in a user VPC.
      *
      * @remarks
-     * 5FFD9ED4-C2EC-4E89-B22B-1ACB6FE1D\\*\\*\\*
+     * For more information about this API operation, see [Configure private connectivity for an instance](https://help.aliyun.com/document_detail/279559.html).
      *
      * @param request - CreateVpcEndpointRequest
      *
@@ -1767,7 +1814,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
+     * Takes part of the zones offline when multiple zones are available, and migrates the nodes in the offline zones to other zones.
      *
      * @param request - DeactivateZonesRequest
      * @param headers - map
@@ -1811,7 +1858,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Disables one or more zones where a multi-zone Elasticsearch cluster resides and migrates the nodes in the disabled zones to other zones.
+     * Takes part of the zones offline when multiple zones are available, and migrates the nodes in the offline zones to other zones.
      *
      * @param request - DeactivateZonesRequest
      *
@@ -1831,7 +1878,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes a shipper.
+     * Deletes a specified collector.
      *
      * @param request - DeleteCollectorRequest
      * @param headers - map
@@ -1874,7 +1921,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes a shipper.
+     * Deletes a specified collector.
      *
      * @param request - DeleteCollectorRequest
      *
@@ -1894,7 +1941,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 删除组合索引模板
+     * Deletes a component index template of Elasticsearch.
+     *
+     * @remarks
+     * For more information, see [Store massive amounts of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1929,7 +1979,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 删除组合索引模板
+     * Deletes a component index template of Elasticsearch.
+     *
+     * @remarks
+     * For more information, see [Store massive amounts of data by using OpenStore](https://help.aliyun.com/document_detail/317694.html).
      *
      * @returns DeleteComponentIndexResponse
      *
@@ -1947,7 +2000,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call DeleteConnectedCluster to remove the interconnected instance.
+     * Deletes the network connectivity between two instances.
      *
      * @param request - DeleteConnectedClusterRequest
      * @param headers - map
@@ -1994,7 +2047,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call DeleteConnectedCluster to remove the interconnected instance.
+     * Deletes the network connectivity between two instances.
      *
      * @param request - DeleteConnectedClusterRequest
      *
@@ -2014,7 +2067,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 删除数据流
+     * Deletes a specified cluster data stream.
+     *
+     * @remarks
+     * > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- When an index template has associated data streams, you must delete the data streams associated with the index template before you can delete the index template. On the data stream list page, view the data stream details to find the index template that matches the data stream.
      *
      * @param request - DeleteDataStreamRequest
      * @param headers - map
@@ -2058,7 +2114,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 删除数据流
+     * Deletes a specified cluster data stream.
+     *
+     * @remarks
+     * > - Deleting a data stream also deletes its backing indexes. Proceed with caution.- When an index template has associated data streams, you must delete the data streams associated with the index template before you can delete the index template. On the data stream list page, view the data stream details to find the index template that matches the data stream.
      *
      * @param request - DeleteDataStreamRequest
      *
@@ -2079,7 +2138,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete an index migration task.
+     * Deletes an Elasticsearch index migration task.
      *
      * @param request - DeleteDataTaskRequest
      * @param headers - map
@@ -2126,7 +2185,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete an index migration task.
+     * Deletes an Elasticsearch index migration task.
      *
      * @param request - DeleteDataTaskRequest
      *
@@ -2146,7 +2205,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 删除历史索引模板
+     * Deletes a historical index template.
+     *
+     * @remarks
+     * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2181,7 +2243,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 删除历史索引模板
+     * Deletes a historical index template.
+     *
+     * @remarks
+     * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
      *
      * @returns DeleteDeprecatedTemplateResponse
      *
@@ -2199,6 +2264,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Deletes a specified index lifecycle policy.
+     *
+     * @remarks
+     * > You cannot delete a policy that is currently in use. If the policy is being used to manage any index, the request fails and returns an error.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2232,6 +2302,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Deletes a specified index lifecycle policy.
+     *
+     * @remarks
+     * > You cannot delete a policy that is currently in use. If the policy is being used to manage any index, the request fails and returns an error.
+     *
      * @returns DeleteILMPolicyResponse
      *
      * @param string $InstanceId
@@ -2248,7 +2323,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes a top index template.
+     * Deletes a specified index template.
+     *
+     * @remarks
+     * > Before deleting an index template, delete the data streams associated with the index template. Otherwise, the index template cannot be deleted.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2283,7 +2361,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes a top index template.
+     * Deletes a specified index template.
+     *
+     * @remarks
+     * > Before deleting an index template, delete the data streams associated with the index template. Otherwise, the index template cannot be deleted.
      *
      * @returns DeleteIndexTemplateResponse
      *
@@ -2301,7 +2382,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+     * All physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, and the cloud disks mounted to the instance nodes along with their corresponding snapshots are released.
+     *
+     * @remarks
+     * Before you invoke this operation, note the following:
+     * Data cannot be recovered after the instance is released. Back up your data before releasing the instance. For more information, see [Snapshot backup and recovery commands](https://help.aliyun.com/document_detail/65675.html).
      *
      * @param request - DeleteInstanceRequest
      * @param headers - map
@@ -2348,7 +2433,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to release a pay-as-you-go Elasticsearch instance. After the instance is released, the physical resources of the instance is reclaimed. The data of the instance is deleted and cannot be recovered. The disks mounted to the instance nodes and the snapshots are released.
+     * All physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, and the cloud disks mounted to the instance nodes along with their corresponding snapshots are released.
+     *
+     * @remarks
+     * Before you invoke this operation, note the following:
+     * Data cannot be recovered after the instance is released. Back up your data before releasing the instance. For more information, see [Snapshot backup and recovery commands](https://help.aliyun.com/document_detail/65675.html).
      *
      * @param request - DeleteInstanceRequest
      *
@@ -2368,10 +2457,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Releases a Logstash cluster.
+     * Proactively releases a Logstash instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+     * Before calling this operation, note the following:
+     * After the instance is released, all physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, cloud disks mounted to the instance nodes are also released, and the corresponding snapshots are deleted.
      *
      * @param request - DeleteLogstashRequest
      * @param headers - map
@@ -2418,10 +2508,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Releases a Logstash cluster.
+     * Proactively releases a Logstash instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following information: After the cluster is released, the physical resources used by the cluster are reclaimed. The data stored in the cluster is deleted and cannot be recovered. The disks attached to the nodes in the cluster and the snapshots created for the cluster are released.
+     * Before calling this operation, note the following:
+     * After the instance is released, all physical resources used by the instance are reclaimed, all related data is permanently lost and cannot be recovered, cloud disks mounted to the instance nodes are also released, and the corresponding snapshots are deleted.
      *
      * @param request - DeleteLogstashRequest
      *
@@ -2441,7 +2532,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes a pipeline that is configured for a Logstash cluster.
+     * Deletes pipelines configured for a Logstash instance.
      *
      * @param request - DeletePipelinesRequest
      * @param headers - map
@@ -2488,7 +2579,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes a pipeline that is configured for a Logstash cluster.
+     * Deletes pipelines configured for a Logstash instance.
      *
      * @param request - DeletePipelinesRequest
      *
@@ -2508,7 +2599,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+     * Deletes a cross-cluster OSS reference repository from an instance.
      *
      * @param request - DeleteSnapshotRepoRequest
      * @param headers - map
@@ -2555,7 +2646,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call DeleteSnapshotRepo to delete a cross-cluster OSS repository.
+     * Deletes a cross-cluster OSS reference repository from an instance.
      *
      * @param request - DeleteSnapshotRepoRequest
      *
@@ -2575,7 +2666,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes an endpoint in the VPC within the Elasticsearch service account.
+     * Calls DeleteVpcEndpoint to delete a VPC endpoint under a service account.
      *
      * @param request - DeleteVpcEndpointRequest
      * @param headers - map
@@ -2619,7 +2710,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes an endpoint in the VPC within the Elasticsearch service account.
+     * Calls DeleteVpcEndpoint to delete a VPC endpoint under a service account.
      *
      * @param request - DeleteVpcEndpointRequest
      *
@@ -2640,10 +2731,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+     * Calls the DescribeAckOperator operation to query the Elasticsearch Operator information installed on a specified Container Service for Kubernetes (ACK) cluster.
      *
      * @remarks
-     * > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+     * > Before installing a collector on an ACK cluster, you can call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2677,10 +2768,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information of ES-operator that is installed for a specified Container Service for Kubernetes (ACK) cluster.
+     * Calls the DescribeAckOperator operation to query the Elasticsearch Operator information installed on a specified Container Service for Kubernetes (ACK) cluster.
      *
      * @remarks
-     * > Before you install a shipper on an ACK cluster, you can call this operation to query the installation status of ES-operator for the ACK cluster.
+     * > Before installing a collector on an ACK cluster, you can call this operation to check the installation status of the Elasticsearch Operator on the target cluster.
      *
      * @returns DescribeAckOperatorResponse
      *
@@ -2697,7 +2788,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information of a shipper.
+     * Retrieves the details of a collector instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2731,7 +2822,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information of a shipper.
+     * Retrieves the details of a collector instance.
      *
      * @returns DescribeCollectorResponse
      *
@@ -2748,7 +2839,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 查看组合索引模板详情.
+     * Queries the details of a composable index template in Elasticsearch.
+     *
+     * @remarks
+     * For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2783,7 +2877,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 查看组合索引模板详情.
+     * Queries the details of a composable index template in Elasticsearch.
+     *
+     * @remarks
+     * For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
      *
      * @returns DescribeComponentIndexResponse
      *
@@ -2801,7 +2898,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+     * Retrieves a list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
      *
      * @param request - DescribeConnectableClustersRequest
      * @param headers - map
@@ -2844,7 +2941,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the Elasticsearch clusters that can be connected to a specified Elasticsearch cluster.
+     * Retrieves a list of instances that can establish private network peering with the current instance. Instances that are already connected are not included.
      *
      * @param request - DescribeConnectableClustersRequest
      *
@@ -2864,7 +2961,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * DescribeDeprecatedTemplate.
+     * Queries the details of a historical index template.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2899,7 +2996,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * DescribeDeprecatedTemplate.
+     * Queries the details of a historical index template.
      *
      * @returns DescribeDeprecatedTemplateResponse
      *
@@ -2917,7 +3014,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a historical intelligent O\\&M report.
+     * Calls the DescribeDiagnoseReport operation to view historical reports of intelligent O&M.
      *
      * @param request - DescribeDiagnoseReportRequest
      * @param headers - map
@@ -2961,7 +3058,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a historical intelligent O\\&M report.
+     * Calls the DescribeDiagnoseReport operation to view historical reports of intelligent O&M.
      *
      * @param request - DescribeDiagnoseReportRequest
      *
@@ -2982,7 +3079,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+     * Calls the DescribeDiagnosisSettings operation to obtain the scenario settings of intelligent O&M.
      *
      * @param request - DescribeDiagnosisSettingsRequest
      * @param headers - map
@@ -3025,7 +3122,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call DescribeDiagnosisSettings to obtain the scenario settings of intelligent maintenance.
+     * Calls the DescribeDiagnosisSettings operation to obtain the scenario settings of intelligent O&M.
      *
      * @param request - DescribeDiagnosisSettingsRequest
      *
@@ -3045,7 +3142,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取集群动态指标.
+     * Retrieves dynamic metrics of a cluster.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3079,7 +3176,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取集群动态指标.
+     * Retrieves dynamic metrics of a cluster.
      *
      * @returns DescribeDynamicSettingsResponse
      *
@@ -3096,13 +3193,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Check the health status of the cluster and whether it is running normally.
+     * Queries the health status of a cluster to check whether it is running properly.
      *
      * @remarks
-     * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
-     * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
-     * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
-     * *   RED: Primary shards are not normally allocated.
+     * The instance health status. The following three states are supported:
+     * - GREEN: Primary and replica shards are allocated properly.
+     * - YELLOW: Primary shards are allocated properly, but replica shards are not allocated properly.
+     * - RED: Primary shards are not allocated properly.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3136,13 +3233,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Check the health status of the cluster and whether it is running normally.
+     * Queries the health status of a cluster to check whether it is running properly.
      *
      * @remarks
-     * An Elasticsearch cluster can be in a health state indicated by one of the following colors:
-     * *   GREEN: Primary shards and replica shards for the primary shards are normally allocated.
-     * *   YELLOW: Primary shards are normally allocated, but replica shards for the primary shards are not normally allocated.
-     * *   RED: Primary shards are not normally allocated.
+     * The instance health status. The following three states are supported:
+     * - GREEN: Primary and replica shards are allocated properly.
+     * - YELLOW: Primary shards are allocated properly, but replica shards are not allocated properly.
+     * - RED: Primary shards are not allocated properly.
      *
      * @returns DescribeElasticsearchHealthResponse
      *
@@ -3159,6 +3256,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Queries the details of a specified index lifecycle policy.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3192,6 +3291,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Queries the details of a specified index lifecycle policy.
+     *
      * @returns DescribeILMPolicyResponse
      *
      * @param string $InstanceId
@@ -3208,6 +3309,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Returns information about an index template.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3241,6 +3344,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Returns information about an index template.
+     *
      * @returns DescribeIndexTemplateResponse
      *
      * @param string $InstanceId
@@ -3257,7 +3362,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * The name of the dictionary file.
+     * Queries the details of a specified instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3291,7 +3396,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * The name of the dictionary file.
+     * Queries the details of a specified instance.
      *
      * @returns DescribeInstanceResponse
      *
@@ -3308,7 +3413,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Get the configuration of the Kibana node for the Elasticsearch cluster.
+     * Retrieves the Kibana node configuration of an Elasticsearch instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3342,7 +3447,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Get the configuration of the Kibana node for the Elasticsearch cluster.
+     * Retrieves the Kibana node configuration of an Elasticsearch instance.
      *
      * @returns DescribeKibanaSettingsResponse
      *
@@ -3359,7 +3464,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Logstash cluster.
+     * Queries the details of a Logstash instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3393,7 +3498,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Logstash cluster.
+     * Queries the details of a Logstash instance.
      *
      * @returns DescribeLogstashResponse
      *
@@ -3410,7 +3515,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about a pipeline in a Logstash cluster.
+     * Retrieves the pipeline information of a Logstash instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3445,7 +3550,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about a pipeline in a Logstash cluster.
+     * Retrieves the pipeline information of a Logstash instance.
      *
      * @returns DescribePipelineResponse
      *
@@ -3463,7 +3568,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the management configurations of pipelines in a Logstash cluster.
+     * Calls DescribePipelineManagementConfig to retrieve the pipeline management configuration of a Logstash instance.
      *
      * @param request - DescribePipelineManagementConfigRequest
      * @param headers - map
@@ -3506,7 +3611,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the management configurations of pipelines in a Logstash cluster.
+     * Calls DescribePipelineManagementConfig to retrieve the pipeline management configuration of a Logstash instance.
      *
      * @param request - DescribePipelineManagementConfigRequest
      *
@@ -3526,7 +3631,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Get the region information of Alibaba Cloud Elasticsearch.
+     * Retrieves the region information of Alibaba Cloud Elasticsearch.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3559,7 +3664,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Get the region information of Alibaba Cloud Elasticsearch.
+     * Retrieves the region information of Alibaba Cloud Elasticsearch.
      *
      * @returns DescribeRegionsResponse
      *
@@ -3574,7 +3679,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Get the snapshot backup settings of the cluster, backup cycle.
+     * Retrieves the snapshot backup settings and backup cycle of a cluster.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3608,7 +3713,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Get the snapshot backup settings of the cluster, backup cycle.
+     * Retrieves the snapshot backup settings and backup cycle of a cluster.
      *
      * @returns DescribeSnapshotSettingResponse
      *
@@ -3625,6 +3730,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Retrieves the scenario-specific template configuration and cluster settings of an instance.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3657,6 +3764,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Retrieves the scenario-specific template configuration and cluster settings of an instance.
+     *
      * @returns DescribeTemplatesResponse
      *
      * @param string $InstanceId
@@ -3672,7 +3781,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the X-Pack Monitoring configurations of a Logstash cluster.
+     * Retrieves the X-Pack monitoring configuration of a Logstash instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3706,7 +3815,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the X-Pack Monitoring configurations of a Logstash cluster.
+     * Retrieves the X-Pack monitoring configuration of a Logstash instance.
      *
      * @returns DescribeXpackMonitorConfigResponse
      *
@@ -3723,7 +3832,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Diagnoses an Elasticsearch cluster.
+     * Calls DiagnoseInstance to immediately diagnose an instance.
      *
      * @param request - DiagnoseInstanceRequest
      * @param headers - map
@@ -3784,7 +3893,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Diagnoses an Elasticsearch cluster.
+     * Calls DiagnoseInstance to immediately diagnose an instance.
      *
      * @param request - DiagnoseInstanceRequest
      *
@@ -3804,7 +3913,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Disable Private Network Access of Kibana.
+     * Disables Kibana private network access.
+     *
+     * @remarks
+     * This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3838,7 +3950,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Disable Private Network Access of Kibana.
+     * Disables Kibana private network access.
+     *
+     * @remarks
+     * This API operation supports only cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
      *
      * @returns DisableKibanaPvlNetworkResponse
      *
@@ -3855,7 +3970,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 开启v3 kibana私网.
+     * Invokes the EnableKibanaPvlNetwork operation to enable private network access for Kibana.
+     *
+     * @remarks
+     * 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+     * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
      *
      * @param request - EnableKibanaPvlNetworkRequest
      * @param headers - map
@@ -3916,7 +4035,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 开启v3 kibana私网.
+     * Invokes the EnableKibanaPvlNetwork operation to enable private network access for Kibana.
+     *
+     * @remarks
+     * 1. This API operation is supported only for cloud-native instances. For legacy architecture instances, use the TriggerNetwork method.
+     * 2. The Kibana specification must be greater than 1 vCPU and 2 GB of memory.
      *
      * @param request - EnableKibanaPvlNetworkRequest
      *
@@ -3936,7 +4059,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the estimated time that is required to restart a Logstash cluster.
+     * Retrieves the estimated restart time of a Logstash instance.
      *
      * @param request - EstimatedLogstashRestartTimeRequest
      * @param headers - map
@@ -3980,7 +4103,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the estimated time that is required to restart a Logstash cluster.
+     * Retrieves the estimated restart time of a Logstash instance.
      *
      * @param request - EstimatedLogstashRestartTimeRequest
      *
@@ -4000,7 +4123,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the estimated time that is required to restart an Elasticsearch cluster.
+     * Retrieves the estimated restart time for an instance.
      *
      * @param request - EstimatedRestartTimeRequest
      * @param headers - map
@@ -4044,7 +4167,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the estimated time that is required to restart an Elasticsearch cluster.
+     * Retrieves the estimated restart time for an instance.
      *
      * @param request - EstimatedRestartTimeRequest
      *
@@ -4064,7 +4187,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call GetClusterDataInformation to obtain the data information about the cluster.
+     * Retrieves index migration data information.
      *
      * @param request - GetClusterDataInformationRequest
      * @param headers - map
@@ -4101,7 +4224,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call GetClusterDataInformation to obtain the data information about the cluster.
+     * Retrieves index migration data information.
      *
      * @param request - GetClusterDataInformationRequest
      *
@@ -4120,6 +4243,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Retrieves the elastic scaling rules of a cluster. Elastic nodes must be purchased when the instance is created.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4152,6 +4277,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Retrieves the elastic scaling rules of a cluster. Elastic nodes must be purchased when the instance is created.
+     *
      * @returns GetElastictaskResponse
      *
      * @param string $InstanceId
@@ -4240,7 +4367,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取高级监控报警自定义Grafana监控报警项.
+     * Calls GetEmonGrafanaAlerts to retrieve the Grafana alert list.
      *
      * @param request - GetEmonGrafanaAlertsRequest
      * @param headers - map
@@ -4283,7 +4410,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取高级监控报警自定义Grafana监控报警项.
+     * Calls GetEmonGrafanaAlerts to retrieve the Grafana alert list.
      *
      * @param request - GetEmonGrafanaAlertsRequest
      *
@@ -4303,7 +4430,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取高级监控报警自定义Grafana监控大盘列表.
+     * Calls GetEmonGrafanaDashboards to retrieve the list of Grafana dashboards.
      *
      * @param request - GetEmonGrafanaDashboardsRequest
      * @param headers - map
@@ -4346,7 +4473,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取高级监控报警自定义Grafana监控大盘列表.
+     * Calls GetEmonGrafanaDashboards to retrieve the list of Grafana dashboards.
      *
      * @param request - GetEmonGrafanaDashboardsRequest
      *
@@ -4366,7 +4493,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * GetEmonMonitorData.
+     * Queries the Grafana metric monitoring data of an Elasticsearch instance.
      *
      * @param request - GetEmonMonitorDataRequest
      * @param headers - map
@@ -4409,7 +4536,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * GetEmonMonitorData.
+     * Queries the Grafana metric monitoring data of an Elasticsearch instance.
      *
      * @param request - GetEmonMonitorDataRequest
      *
@@ -4429,7 +4556,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取keystore信息.
+     * Retrieve keystore information.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4463,7 +4590,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取keystore信息.
+     * Retrieve keystore information.
      *
      * @returns GetKeystoresResponse
      *
@@ -4480,7 +4607,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * View the storage capacity and usage of the OpensStore instance.
+     * Queries the storage capacity and usage of an OpenStore instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4514,7 +4641,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * View the storage capacity and usage of the OpensStore instance.
+     * Queries the storage capacity and usage of an OpenStore instance.
      *
      * @returns GetOpenStoreUsageResponse
      *
@@ -4531,7 +4658,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about the current region.
+     * Retrieves the current region information.
      *
      * @param request - GetRegionConfigurationRequest
      * @param headers - map
@@ -4573,7 +4700,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about the current region.
+     * Retrieves the current region information.
      *
      * @param request - GetRegionConfigurationRequest
      *
@@ -4640,7 +4767,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
+     * Retrieves the nodes that can be removed based on the specified node type and quantity.
      *
      * @param request - GetSuggestShrinkableNodesRequest
      * @param headers - map
@@ -4691,7 +4818,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call GetSuggestShrinkableNodes to specify the type and number of nodes to obtain the nodes that can be removed.
+     * Retrieves the nodes that can be removed based on the specified node type and quantity.
      *
      * @param request - GetSuggestShrinkableNodesRequest
      *
@@ -4711,7 +4838,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
+     * Retrieves the nodes available for data migration based on the specified node type and count.
      *
      * @param request - GetTransferableNodesRequest
      * @param headers - map
@@ -4758,7 +4885,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call GetTransferableNodes to specify the type and number of nodes to obtain the nodes that can be migrated.
+     * Retrieves the nodes available for data migration based on the specified node type and count.
      *
      * @param request - GetTransferableNodesRequest
      *
@@ -4778,7 +4905,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 灰度完成继续变更.
+     * Continue restarting the remaining edge zones of the Elasticsearch instance after the phased release is completed.
      *
      * @param request - GrayPublishRequest
      * @param headers - map
@@ -4821,7 +4948,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 灰度完成继续变更.
+     * Continue restarting the remaining edge zones of the Elasticsearch instance after the phased release is completed.
      *
      * @param request - GrayPublishRequest
      *
@@ -4841,7 +4968,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 初始化ai模型.
+     * Initialize AI model.
      *
      * @param request - InitModelRequest
      * @param headers - map
@@ -4900,7 +5027,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 初始化ai模型.
+     * Initialize AI model.
      *
      * @param request - InitModelRequest
      *
@@ -4920,10 +5047,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role.
+     * Calls the InitializeOperationRole operation to create a service-linked role.
      *
      * @remarks
-     * > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+     * > Before you use a collector to collect logs from different data sources or perform elastic scaling tasks for a cluster (applicable only to the China site), you must create a service-linked role.
      *
      * @param request - InitializeOperationRoleRequest
      * @param headers - map
@@ -4966,10 +5093,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role.
+     * Calls the InitializeOperationRole operation to create a service-linked role.
      *
      * @remarks
-     * > Before you perform auto scaling for a cluster at the China site (aliyun.com) or you use shippers to collect logs, you must create a service-linked role.
+     * > Before you use a collector to collect logs from different data sources or perform elastic scaling tasks for a cluster (applicable only to the China site), you must create a service-linked role.
      *
      * @param request - InitializeOperationRoleRequest
      *
@@ -4988,10 +5115,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+     * Installs the ACK Operator on a specified Container Service cluster.
      *
      * @remarks
-     * > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+     * > Before installing a collector on an ACK cluster, call this operation to install the Elasticsearch Operator on the target cluster.
      *
      * @param request - InstallAckOperatorRequest
      * @param headers - map
@@ -5035,10 +5162,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Installs ES-operator for a Container Service for Kubernetes (ACK) cluster.
+     * Installs the ACK Operator on a specified Container Service cluster.
      *
      * @remarks
-     * > Before you install a shipper for an ACK cluster, you must call this operation to install ES-operator for the cluster.
+     * > Before installing a collector on an ACK cluster, call this operation to install the Elasticsearch Operator on the target cluster.
      *
      * @param request - InstallAckOperatorRequest
      *
@@ -5058,7 +5185,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+     * Installs preset plug-ins for Kibana. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
      *
      * @param request - InstallKibanaSystemPluginRequest
      * @param headers - map
@@ -5102,7 +5229,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call InstallKibanaSystemPlugin to install the Kibana plug-in. The Kibana specification must be 2-Core 4 GB or higher.
+     * Installs preset plug-ins for Kibana. The Kibana instance must have specifications of 2 vCPUs and 4 GB of memory or higher.
      *
      * @param request - InstallKibanaSystemPluginRequest
      *
@@ -5122,10 +5249,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Installs a plug-in.
+     * Installs system plugins for a specified Logstash instance.
      *
      * @remarks
-     * ls-cn-oew1qbgl\\*\\*\\*\\*
+     * Before calling this operation, note the following:
+     * The plugins to be installed must be included in the Alibaba Cloud Logstash [default system plugin list](https://help.aliyun.com/document_detail/139626.html). External open source plugins are not supported.
      *
      * @param request - InstallLogstashSystemPluginRequest
      * @param headers - map
@@ -5169,10 +5297,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Installs a plug-in.
+     * Installs system plugins for a specified Logstash instance.
      *
      * @remarks
-     * ls-cn-oew1qbgl\\*\\*\\*\\*
+     * Before calling this operation, note the following:
+     * The plugins to be installed must be included in the Alibaba Cloud Logstash [default system plugin list](https://help.aliyun.com/document_detail/139626.html). External open source plugins are not supported.
      *
      * @param request - InstallLogstashSystemPluginRequest
      *
@@ -5192,7 +5321,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call InstallSystemPlugin to install a system preset plug-in.
+     * Installs system plug-ins on an Elasticsearch instance.
      *
      * @param request - InstallSystemPluginRequest
      * @param headers - map
@@ -5236,7 +5365,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call InstallSystemPlugin to install a system preset plug-in.
+     * Installs system plug-ins on an Elasticsearch instance.
      *
      * @param request - InstallSystemPluginRequest
      *
@@ -5256,7 +5385,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Installs custom plug-ins that are uploaded to the Elasticsearch console.
+     * Installs custom plugins that have been uploaded to the Elasticsearch console.
+     *
+     * @remarks
+     * > The custom plugin installation feature is being upgraded internally and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
      *
      * @param request - InstallUserPluginsRequest
      * @param headers - map
@@ -5300,7 +5432,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Installs custom plug-ins that are uploaded to the Elasticsearch console.
+     * Installs custom plugins that have been uploaded to the Elasticsearch console.
+     *
+     * @remarks
+     * > The custom plugin installation feature is being upgraded internally and is temporarily unavailable. If you urgently need this feature, submit a ticket to contact us.
      *
      * @param request - InstallUserPluginsRequest
      *
@@ -5320,7 +5455,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+     * Interrupts an instance change task. This operation is valid only for instances in the Effecting state. After the interruption, the instance enters the suspended state.
      *
      * @param request - InterruptElasticsearchTaskRequest
      * @param headers - map
@@ -5363,7 +5498,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call InterruptElasticsearchTask to interrupt the Alibaba cloud elasticsearch instance in the change. This parameter is valid only for instances in the initializing state. When the instance is interrupted, it enters the suspended state.
+     * Interrupts an instance change task. This operation is valid only for instances in the Effecting state. After the interruption, the instance enters the suspended state.
      *
      * @param request - InterruptElasticsearchTaskRequest
      *
@@ -5383,7 +5518,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * After the task is suspended, the Logstash cluster is in the suspended state.
+     * After the interruption, the instance enters the suspended state.
      *
      * @param request - InterruptLogstashTaskRequest
      * @param headers - map
@@ -5426,7 +5561,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * After the task is suspended, the Logstash cluster is in the suspended state.
+     * After the interruption, the instance enters the suspended state.
      *
      * @param request - InterruptLogstashTaskRequest
      *
@@ -5446,7 +5581,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of Container Service for Kubernetes (ACK) clusters.
+     * Retrieves the list of Container Service for Kubernetes (ACK) clusters.
      *
      * @param request - ListAckClustersRequest
      * @param headers - map
@@ -5496,7 +5631,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of Container Service for Kubernetes (ACK) clusters.
+     * Retrieves the list of Container Service for Kubernetes (ACK) clusters.
      *
      * @param request - ListAckClustersRequest
      *
@@ -5515,10 +5650,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
+     * Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
      *
      * @remarks
-     * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+     * This operation is deprecated and will be taken offline soon.
      *
      * @param request - ListAckNamespacesRequest
      * @param headers - map
@@ -5565,10 +5700,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * View all namespaces of the specified Container Service for Kubernetes (ACK) cluster.
+     * Queries all namespaces in a specified Container Service for Kubernetes (ACK) cluster.
      *
      * @remarks
-     * > When you install a shipper on an ACK cluster, you must specify a namespace. You can call this operation to query all namespaces in the ACK cluster, and select a namespace based on your business requirements.
+     * This operation is deprecated and will be taken offline soon.
      *
      * @param request - ListAckNamespacesRequest
      *
@@ -5588,7 +5723,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 变更记录 变更详情.
+     * Release notes Release notes details.
      *
      * @param request - ListActionRecordsRequest
      * @param headers - map
@@ -5659,7 +5794,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 变更记录 变更详情.
+     * Release notes Release notes details.
      *
      * @param request - ListActionRecordsRequest
      *
@@ -5679,7 +5814,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information of all the nodes in an Elasticsearch cluster.
+     * Retrieves information about all nodes in an Elasticsearch cluster.
      *
      * @param request - ListAllNodeRequest
      * @param headers - map
@@ -5722,7 +5857,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information of all the nodes in an Elasticsearch cluster.
+     * Retrieves information about all nodes in an Elasticsearch cluster.
      *
      * @param request - ListAllNodeRequest
      *
@@ -5742,7 +5877,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
+     * Retrieves the OSS reference repositories that can be added to the current instance.
      *
      * @param request - ListAlternativeSnapshotReposRequest
      * @param headers - map
@@ -5785,7 +5920,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call ListAlternativeSnapshotRepos to get the OSS reference warehouses that can be added to the current instance.
+     * Retrieves the OSS reference repositories that can be added to the current instance.
      *
      * @param request - ListAlternativeSnapshotReposRequest
      *
@@ -5805,7 +5940,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+     * Retrieves a list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5839,7 +5974,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the Elasticsearch clusters that can be associated with a Logstash cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+     * Retrieves a list of available Elasticsearch instances when configuring X-Pack monitoring for a Logstash instance.
      *
      * @returns ListAvailableEsInstanceIdsResponse
      *
@@ -5856,7 +5991,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of shippers.
+     * Retrieves a list of collectors.
      *
      * @param request - ListCollectorsRequest
      * @param headers - map
@@ -5918,7 +6053,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of shippers.
+     * Retrieves a list of collectors.
      *
      * @param request - ListCollectorsRequest
      *
@@ -5937,7 +6072,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * ES集群组合索引列表.
+     * Retrieves the list of composable templates for an Elasticsearch instance.
+     *
+     * @remarks
+     * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param request - ListComponentIndicesRequest
      * @param headers - map
@@ -5988,7 +6126,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * ES集群组合索引列表.
+     * Retrieves the list of composable templates for an Elasticsearch instance.
+     *
+     * @remarks
+     * For more information, see [Store massive amounts of data through OpenStore](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param request - ListComponentIndicesRequest
      *
@@ -6008,7 +6149,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call ListConnectedClusters to query the instances that are interconnected with the current instance.
+     * Retrieves a list of instances that have established private network peering with the current instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6042,7 +6183,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call ListConnectedClusters to query the instances that are interconnected with the current instance.
+     * Retrieves a list of instances that have established private network peering with the current instance.
      *
      * @returns ListConnectedClustersResponse
      *
@@ -6059,7 +6200,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 查询数据流
+     * Retrieves the list of index data streams in an Elasticsearch cluster.
      *
      * @param request - ListDataStreamsRequest
      * @param headers - map
@@ -6106,7 +6247,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 查询数据流
+     * Retrieves the list of index data streams in an Elasticsearch cluster.
      *
      * @param request - ListDataStreamsRequest
      *
@@ -6126,7 +6267,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call ListDataTasks to obtain the information of a data migration task.
+     * Retrieves a list of data migration tasks between different Elasticsearch clusters.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6160,7 +6301,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call ListDataTasks to obtain the information of a data migration task.
+     * Retrieves a list of data migration tasks between different Elasticsearch clusters.
      *
      * @returns ListDataTasksResponse
      *
@@ -6177,7 +6318,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the default configuration files of shippers.
+     * Invokes the ListDefaultCollectorConfigurations operation to retrieve the default configuration file of a collector.
      *
      * @param request - ListDefaultCollectorConfigurationsRequest
      * @param headers - map
@@ -6227,7 +6368,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the default configuration files of shippers.
+     * Invokes the ListDefaultCollectorConfigurations operation to retrieve the default configuration file of a collector.
      *
      * @param request - ListDefaultCollectorConfigurationsRequest
      *
@@ -6246,7 +6387,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * ListDeprecatedTemplates.
+     * Queries the list of historical index templates.
+     *
+     * @remarks
+     * For more information, see [Use OpenStore to store large volumes of data](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param request - ListDeprecatedTemplatesRequest
      * @param headers - map
@@ -6297,7 +6441,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * ListDeprecatedTemplates.
+     * Queries the list of historical index templates.
+     *
+     * @remarks
+     * For more information, see [Use OpenStore to store large volumes of data](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param request - ListDeprecatedTemplatesRequest
      *
@@ -6317,7 +6464,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+     * Retrieves the diagnostic indexes from the intelligent O&M module for a specified instance.
      *
      * @param request - ListDiagnoseIndicesRequest
      * @param headers - map
@@ -6360,7 +6507,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the indexes for health diagnosis performed on an Elasticsearch cluster.
+     * Retrieves the diagnostic indexes from the intelligent O&M module for a specified instance.
      *
      * @param request - ListDiagnoseIndicesRequest
      *
@@ -6380,7 +6527,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
+     * Calls ListDiagnoseReport to retrieve historical reports of intelligent O&M.
      *
      * @param request - ListDiagnoseReportRequest
      * @param headers - map
@@ -6447,7 +6594,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the historical intelligent O\\&M reports of an Elasticsearch cluster.
+     * Calls ListDiagnoseReport to retrieve historical reports of intelligent O&M.
      *
      * @param request - ListDiagnoseReportRequest
      *
@@ -6467,7 +6614,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
+     * Retrieves all IDs of Intelligent O&M Center historical reports.
      *
      * @param request - ListDiagnoseReportIdsRequest
      * @param headers - map
@@ -6530,7 +6677,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the IDs of the historical intelligent O\\\\\\&M reports of an Elasticsearch cluster.
+     * Retrieves all IDs of Intelligent O&M Center historical reports.
      *
      * @param request - ListDiagnoseReportIdsRequest
      *
@@ -6550,7 +6697,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the intelligent diagnostic items of an Elasticsearch cluster.
+     * Lists the intelligent diagnostic items for an Elasticsearch instance.
      *
      * @param request - ListDiagnosisItemsRequest
      * @param headers - map
@@ -6568,6 +6715,10 @@ class Elasticsearch extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->instanceId) {
+            @$query['instanceId'] = $request->instanceId;
+        }
+
         if (null !== $request->lang) {
             @$query['lang'] = $request->lang;
         }
@@ -6592,7 +6743,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the intelligent diagnostic items of an Elasticsearch cluster.
+     * Lists the intelligent diagnostic items for an Elasticsearch instance.
      *
      * @param request - ListDiagnosisItemsRequest
      *
@@ -6611,7 +6762,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries information about a dictionary.
+     * Queries the information of a specified dictionary.
      *
      * @param request - ListDictInformationRequest
      * @param headers - map
@@ -6662,7 +6813,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries information about a dictionary.
+     * Queries the information of a specified dictionary.
      *
      * @param request - ListDictInformationRequest
      *
@@ -6682,7 +6833,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified type of dictionary.
+     * Queries the details of the dictionary list for a specified type.
      *
      * @param request - ListDictsRequest
      * @param headers - map
@@ -6729,7 +6880,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a specified type of dictionary.
+     * Queries the details of the dictionary list for a specified type.
      *
      * @param request - ListDictsRequest
      *
@@ -6749,10 +6900,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
+     * Retrieves the list of ECS instances under the current user\\"s VPC and vSwitch.
      *
      * @remarks
-     * *Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+     * >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+     * .
      *
      * @param request - ListEcsInstancesRequest
      * @param headers - map
@@ -6814,10 +6966,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * When you create a Beats collector, call the ListEcsInstances to obtain the list of ECS instances.
+     * Retrieves the list of ECS instances under the current user\\"s VPC and vSwitch.
      *
      * @remarks
-     * *Important** To call this operation, you must create the Aliyun Elasticsearch AccessingOOSRole and the system service role AliyunOOSAccessingECS 4ESRole to Elasticsearch the service account to obtain the ECS access permissions of the primary account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+     * >Notice:  Before calling this operation, create the AliyunElasticsearchAccessingOOSRole and AliyunOOSAccessingECS4ESRole service-linked roles. These roles allow the Elasticsearch service account to obtain ECS access permissions of the Alibaba Cloud account. For more information, see [Collect ECS service logs](https://help.aliyun.com/document_detail/146446.html).
+     * .
      *
      * @param request - ListEcsInstancesRequest
      *
@@ -6836,7 +6989,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取事件列表.
+     * Obtain Event List.
      *
      * @param request - ListEventRecordsRequest
      * @param headers - map
@@ -6899,7 +7052,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 获取事件列表.
+     * Obtain Event List.
      *
      * @param request - ListEventRecordsRequest
      *
@@ -6919,7 +7072,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the extended file configuration of a Logstash instance.
+     * Retrieves the extension file configuration of a Logstash instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6953,7 +7106,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the extended file configuration of a Logstash instance.
+     * Retrieves the extension file configuration of a Logstash instance.
      *
      * @returns ListExtendfilesResponse
      *
@@ -6970,6 +7123,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Queries the list of index lifecycle policies that have been created for a cluster.
+     *
      * @param request - ListILMPoliciesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7011,6 +7166,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Queries the list of index lifecycle policies that have been created for a cluster.
+     *
      * @param request - ListILMPoliciesRequest
      *
      * @returns ListILMPoliciesResponse
@@ -7029,6 +7186,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Queries a list of index templates.
+     *
      * @param request - ListIndexTemplatesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7078,6 +7237,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Queries a list of index templates.
+     *
      * @param request - ListIndexTemplatesRequest
      *
      * @returns ListIndexTemplatesResponse
@@ -7096,7 +7257,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of Elasticsearch clusters.
+     * Queries the information about Elasticsearch instances.
      *
      * @param request - ListInstanceRequest
      * @param headers - map
@@ -7182,7 +7343,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of Elasticsearch clusters.
+     * Queries the information about Elasticsearch instances.
      *
      * @param request - ListInstanceRequest
      *
@@ -7201,7 +7362,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 集群触发的硬件运维事件列表.
+     * Queries the list of hardware O&M events triggered by an Elasticsearch cluster.
      *
      * @param tmpReq - ListInstanceHistoryEventsRequest
      * @param headers - map
@@ -7306,7 +7467,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 集群触发的硬件运维事件列表.
+     * Queries the list of hardware O&M events triggered by an Elasticsearch cluster.
      *
      * @param request - ListInstanceHistoryEventsRequest
      *
@@ -7325,7 +7486,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the indexes stored on an Elasticsearch cluster.
+     * Filters system indexes from the index list of a cluster.
+     *
+     * @remarks
+     * The ListInstanceIndices operation is applicable only to Elasticsearch instances that have the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API
+     * ](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
      *
      * @param request - ListInstanceIndicesRequest
      * @param headers - map
@@ -7388,7 +7553,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the indexes stored on an Elasticsearch cluster.
+     * Filters system indexes from the index list of a cluster.
+     *
+     * @remarks
+     * The ListInstanceIndices operation is applicable only to Elasticsearch instances that have the indexing service enabled. Query index information by using the Elasticsearch API. For more information, see [cat indices API
+     * ](https://www.elastic.co/guide/en/elasticsearch/reference/current/cat-indices.html).
      *
      * @param request - ListInstanceIndicesRequest
      *
@@ -7408,7 +7577,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of Kibana plug-ins.
+     * Retrieves the list of plugins installed on the Kibana node of an Elasticsearch instance.
      *
      * @param request - ListKibanaPluginsRequest
      * @param headers - map
@@ -7455,7 +7624,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of Kibana plug-ins.
+     * Retrieves the list of plugins installed on the Kibana node of an Elasticsearch instance.
      *
      * @param request - ListKibanaPluginsRequest
      *
@@ -7475,7 +7644,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 查询kibana私网连接信息.
+     * Queries the details of the Kibana private network connection.
+     *
+     * @remarks
+     * This API operation supports only cloud-native instances.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7509,7 +7681,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 查询kibana私网连接信息.
+     * Queries the details of the Kibana private network connection.
+     *
+     * @remarks
+     * This API operation supports only cloud-native instances.
      *
      * @returns ListKibanaPvlNetworkResponse
      *
@@ -7526,7 +7701,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Logstash cluster or all Logstash clusters.
+     * Displays the details of all or specified Logstash instances in a list.
      *
      * @param request - ListLogstashRequest
      * @param headers - map
@@ -7592,7 +7767,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Logstash cluster or all Logstash clusters.
+     * Displays the details of all or specified Logstash instances in a list.
      *
      * @param request - ListLogstashRequest
      *
@@ -7611,7 +7786,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a Logstash cluster.
+     * Queries the logs of a Logstash instance.
      *
      * @param request - ListLogstashLogRequest
      * @param headers - map
@@ -7674,7 +7849,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a Logstash cluster.
+     * Queries the logs of a Logstash instance.
      *
      * @param request - ListLogstashLogRequest
      *
@@ -7694,7 +7869,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about a plug-in or all plug-ins.
+     * Calls ListLogstashPlugins to retrieve detailed information about all or specified plugins.
      *
      * @param request - ListLogstashPluginsRequest
      * @param headers - map
@@ -7749,7 +7924,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about a plug-in or all plug-ins.
+     * Calls ListLogstashPlugins to retrieve detailed information about all or specified plugins.
      *
      * @param request - ListLogstashPluginsRequest
      *
@@ -7769,7 +7944,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * The list of historical reports of Intelligent Maintenance.
+     * Historical report list of intelligent O&M.
      *
      * @param request - ListNodesRequest
      * @param headers - map
@@ -7828,7 +8003,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * The list of historical reports of Intelligent Maintenance.
+     * Historical report list of intelligent O&M.
      *
      * @param request - ListNodesRequest
      *
@@ -7848,7 +8023,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of pipelines.
+     * Retrieves the pipeline list of a Logstash instance.
      *
      * @param request - ListPipelineRequest
      * @param headers - map
@@ -7899,7 +8074,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of pipelines.
+     * Retrieves the pipeline list of a Logstash instance.
      *
      * @param request - ListPipelineRequest
      *
@@ -7919,7 +8094,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the IDs of pipelines for a Logstash cluster.
+     * Retrieves the list of pipeline IDs for a Logstash instance.
+     *
+     * @remarks
+     * > Pipeline management is divided into configuration file management and Kibana pipeline management. Kibana pipeline management is not available in the console for some regions.
      *
      * @param request - ListPipelineIdsRequest
      * @param headers - map
@@ -7957,7 +8135,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the IDs of pipelines for a Logstash cluster.
+     * Retrieves the list of pipeline IDs for a Logstash instance.
+     *
+     * @remarks
+     * > Pipeline management is divided into configuration file management and Kibana pipeline management. Kibana pipeline management is not available in the console for some regions.
      *
      * @param request - ListPipelineIdsRequest
      *
@@ -7977,7 +8158,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the plug-ins that are installed on a specified Elasticsearch cluster.
+     * Retrieves the plugin list of a specified Alibaba Cloud Elasticsearch instance.
      *
      * @param request - ListPluginsRequest
      * @param headers - map
@@ -8032,7 +8213,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the plug-ins that are installed on a specified Elasticsearch cluster.
+     * Retrieves the plugin list of a specified Alibaba Cloud Elasticsearch instance.
      *
      * @param request - ListPluginsRequest
      *
@@ -8052,7 +8233,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the logs of an Elasticsearch cluster.
+     * Queries logs of different types for an Elasticsearch instance.
      *
      * @param request - ListSearchLogRequest
      * @param headers - map
@@ -8115,7 +8296,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the logs of an Elasticsearch cluster.
+     * Queries logs of different types for an Elasticsearch instance.
      *
      * @param request - ListSearchLogRequest
      *
@@ -8135,10 +8316,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+     * Queries the data progress list of ongoing and completed shard recoveries. By default, only ongoing shard recovery information is returned.
      *
      * @remarks
-     * > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+     * > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard becomes available for search.
      *
      * @param request - ListShardRecoveriesRequest
      * @param headers - map
@@ -8181,10 +8362,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about shards that are being restored or shards that are restored. By default, this operation returns only the information about shards that are being restored after you call this operation.
+     * Queries the data progress list of ongoing and completed shard recoveries. By default, only ongoing shard recovery information is returned.
      *
      * @remarks
-     * > The restoration of a shard is a process of synchronizing data from a primary shard to a replica shard. After the restoration is complete, the replica shard is available for data searches.
+     * > Shard recovery is the process of synchronizing data from a primary shard to a replica shard. After recovery is complete, the replica shard becomes available for search.
      *
      * @param request - ListShardRecoveriesRequest
      *
@@ -8204,7 +8385,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
+     * Retrieves the list of cross-cluster OSS repository settings for the current instance.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8238,7 +8419,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call the ListSnapshotReposByInstanceId to get the cross-cluster OSS repositories of the current instance.
+     * Retrieves the list of cross-cluster OSS repository settings for the current instance.
      *
      * @returns ListSnapshotReposByInstanceIdResponse
      *
@@ -8255,7 +8436,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 统计事件记录.
+     * Statistics of management event records.
      *
      * @param request - ListStatsEventRecordsRequest
      * @param headers - map
@@ -8305,7 +8486,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 统计事件记录.
+     * Statistics of management event records.
      *
      * @param request - ListStatsEventRecordsRequest
      *
@@ -8324,7 +8505,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to one or more resources.
+     * Retrieves the relationships between all instances and tags.
      *
      * @param request - ListTagResourcesRequest
      * @param headers - map
@@ -8386,7 +8567,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are added to one or more resources.
+     * Retrieves the relationships between all instances and tags.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -8405,7 +8586,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * All tags created by the user in the current region.
+     * Queries all labels created by the user in the current region.
      *
      * @param request - ListTagsRequest
      * @param headers - map
@@ -8451,7 +8632,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * All tags created by the user in the current region.
+     * Queries all labels created by the user in the current region.
      *
      * @param request - ListTagsRequest
      *
@@ -8470,7 +8651,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 用户自定义插件列表.
+     * Custom plugin list.
      *
      * @param request - ListUserPluginRequest
      * @param headers - map
@@ -8521,7 +8702,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 用户自定义插件列表.
+     * Custom plugin list.
      *
      * @param request - ListUserPluginRequest
      *
@@ -8541,7 +8722,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+     * Queries the status of endpoints in the VPC of a service account.
      *
      * @param request - ListVpcEndpointsRequest
      * @param headers - map
@@ -8588,7 +8769,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
+     * Queries the status of endpoints in the VPC of a service account.
      *
      * @param request - ListVpcEndpointsRequest
      *
@@ -8608,14 +8789,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+     * Migrates nodes in a specified zone to a destination zone.
      *
      * @remarks
-     * If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
-     * *   The error message returned because the current account is in a zone that has sufficient resources.
-     *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
-     * *   The cluster is in the healthy state.
-     *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+     * When you upgrade the specifications of an instance and encounter insufficient inventory in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, make sure that:
+     * - Your account has a zone with sufficient resources.
+     *    After migrating nodes of the current specifications to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order first. For example, between ap-southeast-1e and ap-southeast-1h, select ap-southeast-1h first.
+     * - The cluster is in a healthy state.
+     *    You can run the `GET _cat/health?v` command to check the cluster health status.
      *
      * @param request - MigrateToOtherZoneRequest
      * @param headers - map
@@ -8659,14 +8840,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call the MigrateToOtherZone to migrate the nodes in the specified zone to the destination zone.
+     * Migrates nodes in a specified zone to a destination zone.
      *
      * @remarks
-     * If the specifications in your zone are insufficient, you can upgrade your instance to nodes in another zone. Before calling this interface, you must ensure that:
-     * *   The error message returned because the current account is in a zone that has sufficient resources.
-     *     After migrating nodes with current specifications to another zone, you need to manually [upgrade cluster](https://help.aliyun.com/document_detail/96650.html) because the cluster will not be upgraded during the migration process. Therefore, select a zone with sufficient resources to avoid cluster upgrade failure. We recommend that you choose new zones that are in lower alphabetical order. For example, for cn-hangzhou-e and cn-hangzhou-h zones, choose cn-hangzhou-h first.
-     * *   The cluster is in the healthy state.
-     *     Can be passed`  GET _cat/health?v  `command to view the health status of the cluster.
+     * When you upgrade the specifications of an instance and encounter insufficient inventory in the current zone, you can resolve this issue by migrating zone nodes. Before calling this operation, make sure that:
+     * - Your account has a zone with sufficient resources.
+     *    After migrating nodes of the current specifications to another zone, you must manually [upgrade the cluster](https://help.aliyun.com/document_detail/96650.html). The cluster is not upgraded during the migration. Therefore, select a zone with sufficient resources to avoid cluster upgrade failures. Select a zone with a later alphabetical order first. For example, between ap-southeast-1e and ap-southeast-1h, select ap-southeast-1h first.
+     * - The cluster is in a healthy state.
+     *    You can run the `GET _cat/health?v` command to check the cluster health status.
      *
      * @param request - MigrateToOtherZoneRequest
      *
@@ -8686,7 +8867,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+     * Updates the ECS instances on which a collector is installed.
      *
      * @param request - ModifyDeployMachineRequest
      * @param headers - map
@@ -8730,7 +8911,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Changes the Elastic Compute Service (ECS) instances on which a shipper is installed.
+     * Updates the ECS instances on which a collector is installed.
      *
      * @param request - ModifyDeployMachineRequest
      *
@@ -8750,6 +8931,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Updates the elastic scaling rules of a cluster.
+     *
      * @param request - ModifyElastictaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8786,6 +8969,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Updates the elastic scaling rules of a cluster.
+     *
      * @param request - ModifyElastictaskRequest
      *
      * @returns ModifyElastictaskResponse
@@ -8804,10 +8989,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Enables and modifies the maintenance window of an Elasticsearch cluster.
+     * Modifies and enables the maintenance window for an instance.
      *
      * @remarks
-     * es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+     * Before calling this operation, note the following:
+     * - Before the scheduled maintenance, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
+     * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters the Effective state before the maintenance window begins. While the instance is in this state, access to the cluster and query operations such as performance monitoring are not affected. However, cluster change operations such as cluster upgrades and restarts are temporarily unavailable.
+     * - During the maintenance window, transient disconnections may occur. Ensure that your application has a reconnection mechanism.
      *
      * @param request - ModifyInstanceMaintainTimeRequest
      * @param headers - map
@@ -8851,10 +9039,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Enables and modifies the maintenance window of an Elasticsearch cluster.
+     * Modifies and enables the maintenance window for an instance.
      *
      * @remarks
-     * es-cn-n6w1o1x0w001c\\*\\*\\*\\*
+     * Before calling this operation, note the following:
+     * - Before the scheduled maintenance, Alibaba Cloud sends SMS messages and emails to the contacts configured in your Alibaba Cloud account. Check your messages promptly.
+     * - On the day of instance maintenance, to ensure stability throughout the maintenance process, the instance enters the Effective state before the maintenance window begins. While the instance is in this state, access to the cluster and query operations such as performance monitoring are not affected. However, cluster change operations such as cluster upgrades and restarts are temporarily unavailable.
+     * - During the maintenance window, transient disconnections may occur. Ensure that your application has a reconnection mechanism.
      *
      * @param request - ModifyInstanceMaintainTimeRequest
      *
@@ -8874,7 +9065,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改计划执行时间.
+     * For O&M events in the Event Center, you can specify a restart event, and the system will restart the specified edge zone of the relevant instance at the scheduled time.
      *
      * @param request - ModifyScheduleExecuteTimeRequest
      * @param headers - map
@@ -8921,7 +9112,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改计划执行时间.
+     * For O&M events in the Event Center, you can specify a restart event, and the system will restart the specified edge zone of the relevant instance at the scheduled time.
      *
      * @param request - ModifyScheduleExecuteTimeRequest
      *
@@ -8941,10 +9132,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates an IP address whitelist of an Elasticsearch cluster.
+     * Calls ModifyWhiteIps to update the access whitelist of a specified instance.
      *
      * @remarks
-     * The ID of the cluster.
+     * ## Before you begin
+     * - You cannot update information for an instance whose instance status is activating, invalid, or freeze (inactive).
+     * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+     *     - IP whitelist list: whiteIpList, nodeType, networkType
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public network access whitelist does not support private network IP addresses, and the internal-facing whitelist does not support public IP addresses.
      *
      * @param request - ModifyWhiteIpsRequest
      * @param headers - map
@@ -9009,10 +9205,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates an IP address whitelist of an Elasticsearch cluster.
+     * Calls ModifyWhiteIps to update the access whitelist of a specified instance.
      *
      * @remarks
-     * The ID of the cluster.
+     * ## Before you begin
+     * - You cannot update information for an instance whose instance status is activating, invalid, or freeze (inactive).
+     * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+     *     - IP whitelist list: whiteIpList, nodeType, networkType
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public network access whitelist does not support private network IP addresses, and the internal-facing whitelist does not support public IP addresses.
      *
      * @param request - ModifyWhiteIpsRequest
      *
@@ -9032,7 +9233,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Migrates an Elasticsearch cluster to a specified resource group.
+     * Modifies the resource group to which an instance belongs.
      *
      * @param request - MoveResourceGroupRequest
      * @param headers - map
@@ -9076,7 +9277,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Migrates an Elasticsearch cluster to a specified resource group.
+     * Modifies the resource group to which an instance belongs.
      *
      * @param request - MoveResourceGroupRequest
      *
@@ -9096,7 +9297,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Enables the intelligent O\\\\\\&M feature for an instance.
+     * Enables the intelligent O&M feature for an instance.
      *
      * @param request - OpenDiagnosisRequest
      * @param headers - map
@@ -9143,7 +9344,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Enables the intelligent O\\\\\\&M feature for an instance.
+     * Enables the intelligent O&M feature for an instance.
      *
      * @param request - OpenDiagnosisRequest
      *
@@ -9163,10 +9364,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+     * Enables the HTTPS protocol. Before enabling HTTPS, make sure that you have purchased client nodes.
      *
      * @remarks
-     * >  To ensure data security, we recommend that you enable HTTPS.
+     * > - To ensure data security, enable the HTTPS protocol.
+     * - Except for versions 8.5 and 7.16<props="china"><ph> and version 7.10 in some regions</ph>, make sure that you have purchased client nodes before enabling HTTPS.
      *
      * @param request - OpenHttpsRequest
      * @param headers - map
@@ -9209,10 +9411,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call OpenHttps to enable the HTTPS protocol. Make sure that you have purchased a client node before enabling this feature.
+     * Enables the HTTPS protocol. Before enabling HTTPS, make sure that you have purchased client nodes.
      *
      * @remarks
-     * >  To ensure data security, we recommend that you enable HTTPS.
+     * > - To ensure data security, enable the HTTPS protocol.
+     * - Except for versions 8.5 and 7.16<props="china"><ph> and version 7.10 in some regions</ph>, make sure that you have purchased client nodes before enabling HTTPS.
      *
      * @param request - OpenHttpsRequest
      *
@@ -9232,7 +9435,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 自定义插件解析&上传接口.
+     * Upload a custom plugin to the plugin repository. After uploading, the plugin is in the pending installation status.
      *
      * @param request - PluginAnalysisRequest
      * @param headers - map
@@ -9276,7 +9479,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 自定义插件解析&上传接口.
+     * Upload a custom plugin to the plugin repository. After uploading, the plugin is in the pending installation status.
      *
      * @param request - PluginAnalysisRequest
      *
@@ -9296,7 +9499,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * PostEmonTryAlarmRule.
+     * Sends a test alert message by calling PostEmonTryAlarmRule.
+     *
+     * @remarks
+     * > This API operation can be called up to 10 times per hour.
      *
      * @param request - PostEmonTryAlarmRuleRequest
      * @param headers - map
@@ -9340,7 +9546,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * PostEmonTryAlarmRule.
+     * Sends a test alert message by calling PostEmonTryAlarmRule.
+     *
+     * @remarks
+     * > This API operation can be called up to 10 times per hour.
      *
      * @param request - PostEmonTryAlarmRuleRequest
      *
@@ -9361,6 +9570,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Calls RecommendTemplates to retrieve recommended cluster configurations.
+     *
      * @param request - RecommendTemplatesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9402,6 +9613,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Calls RecommendTemplates to retrieve recommended cluster configurations.
+     *
      * @param request - RecommendTemplatesRequest
      *
      * @returns RecommendTemplatesResponse
@@ -9420,7 +9633,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Installs a shipper that failed to be installed when you create the shipper.
+     * Retries the installation of a collector that failed to install during creation.
      *
      * @param request - ReinstallCollectorRequest
      * @param headers - map
@@ -9464,7 +9677,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Installs a shipper that failed to be installed when you create the shipper.
+     * Retries the installation of a collector that failed to install during creation.
      *
      * @param request - ReinstallCollectorRequest
      *
@@ -9484,7 +9697,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 从插件库中删除插件，区别于卸载插件.
+     * You can delete uploaded but uninstalled plugins from the plugin library.
      *
      * @param request - RemovePluginRequest
      * @param headers - map
@@ -9522,7 +9735,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 从插件库中删除插件，区别于卸载插件.
+     * You can delete uploaded but uninstalled plugins from the plugin library.
      *
      * @param request - RemovePluginRequest
      *
@@ -9542,7 +9755,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call RenewInstance to renew a subscription instance.
+     * Renews a subscription Elasticsearch instance.
      *
      * @param request - RenewInstanceRequest
      * @param headers - map
@@ -9586,7 +9799,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call RenewInstance to renew a subscription instance.
+     * Renews a subscription Elasticsearch instance.
      *
      * @param request - RenewInstanceRequest
      *
@@ -9606,7 +9819,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Renews a Logstash cluster.
+     * Renews a specified Logstash instance.
      *
      * @param request - RenewLogstashRequest
      * @param headers - map
@@ -9650,7 +9863,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Renews a Logstash cluster.
+     * Renews a specified Logstash instance.
      *
      * @param request - RenewLogstashRequest
      *
@@ -9670,7 +9883,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restarts a shipper.
+     * Restarts a collector to perform data collection.
      *
      * @param request - RestartCollectorRequest
      * @param headers - map
@@ -9713,7 +9926,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restarts a shipper.
+     * Restarts a collector to perform data collection.
      *
      * @param request - RestartCollectorRequest
      *
@@ -9733,10 +9946,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to restart a specified Elasticsearch instance.
+     * Restarts an Elasticsearch cluster.
      *
      * @remarks
-     * >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+     * > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
      *
      * @param request - RestartInstanceRequest
      * @param headers - map
@@ -9784,10 +9997,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to restart a specified Elasticsearch instance.
+     * Restarts an Elasticsearch cluster.
      *
      * @remarks
-     * >  After the instance is restarted, the instance enters the activating state. After the instance is restarted, its status changes to active. Alibaba Cloud Elasticsearch supports restarting a single node. Restarting a node can be divided into normal restart and blue-green restart.
+     * > After the restart, the instance enters the activating state. After the restart is complete, the instance status changes to active. Alibaba Cloud Elasticsearch supports single-node restarts. Node restarts are classified into normal restarts and blue-green restarts.
      *
      * @param request - RestartInstanceRequest
      *
@@ -9807,7 +10020,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
+     * Restarts a specified instance. After the restart, the instance enters the activating (activing) state.
      *
      * @param request - RestartLogstashRequest
      * @param headers - map
@@ -9876,7 +10089,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Restarts a specified Logstash cluster. After the cluster is restarted, it is in the activating state.
+     * Restarts a specified instance. After the restart, the instance enters the activating (activing) state.
      *
      * @param request - RestartLogstashRequest
      *
@@ -9896,7 +10109,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+     * Resumes an interrupted change task for an instance.
      *
      * @param request - ResumeElasticsearchTaskRequest
      * @param headers - map
@@ -9939,7 +10152,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call ResumeElasticsearchTask to resume interrupted change of Elasticsearch instance. After you resume or interrupt a change, the instance enters the activating state.
+     * Resumes an interrupted change task for an instance.
      *
      * @param request - ResumeElasticsearchTaskRequest
      *
@@ -9959,7 +10172,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+     * Resumes an interrupted instance change task. After the task is resumed, the instance enters the activating state.
      *
      * @param request - ResumeLogstashTaskRequest
      * @param headers - map
@@ -10002,7 +10215,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Resumes a change task of a Logstash cluster. After the task is resumed, the Logstash cluster is in the activating state.
+     * Resumes an interrupted instance change task. After the task is resumed, the instance enters the activating state.
      *
      * @param request - ResumeLogstashTaskRequest
      *
@@ -10022,7 +10235,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 滚动数据流，生成新索引.
+     * Creates a new index for a data stream or index alias.
      *
      * @param request - RolloverDataStreamRequest
      * @param headers - map
@@ -10066,7 +10279,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 滚动数据流，生成新索引.
+     * Creates a new index for a data stream or index alias.
      *
      * @param request - RolloverDataStreamRequest
      *
@@ -10087,7 +10300,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Runs pipelines in a Logstash cluster.
+     * Deploys Logstash pipelines immediately.
      *
      * @param request - RunPipelinesRequest
      * @param headers - map
@@ -10131,7 +10344,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Runs pipelines in a Logstash cluster.
+     * Deploys Logstash pipelines immediately.
      *
      * @param request - RunPipelinesRequest
      *
@@ -10151,7 +10364,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Removes nodes from an Elasticsearch cluster.
+     * Scales in nodes of a specified role in an Elasticsearch cluster.
+     *
+     * @remarks
+     * Note the following when you invoke this operation:
+     * Before scaling in data nodes of a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the scale-in operation.
      *
      * @param request - ShrinkNodeRequest
      * @param headers - map
@@ -10207,7 +10424,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Removes nodes from an Elasticsearch cluster.
+     * Scales in nodes of a specified role in an Elasticsearch cluster.
+     *
+     * @remarks
+     * Note the following when you invoke this operation:
+     * Before scaling in data nodes of a cluster, perform data migration from the nodes to be removed to other nodes. After you confirm that the nodes to be removed contain no data, proceed with the scale-in operation.
      *
      * @param request - ShrinkNodeRequest
      *
@@ -10290,7 +10511,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Stops a shipper.
+     * Calls StopCollector to stop a running collector.
      *
      * @param request - StopCollectorRequest
      * @param headers - map
@@ -10333,7 +10554,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Stops a shipper.
+     * Calls StopCollector to stop a running collector.
      *
      * @param request - StopCollectorRequest
      *
@@ -10353,7 +10574,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Stops pipelines in a Logstash cluster.
+     * Stops Logstash pipelines by calling StopPipelines.
      *
      * @param request - StopPipelinesRequest
      * @param headers - map
@@ -10397,7 +10618,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Stops pipelines in a Logstash cluster.
+     * Stops Logstash pipelines by calling StopPipelines.
      *
      * @param request - StopPipelinesRequest
      *
@@ -10417,7 +10638,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Adds tags to clusters.
+     * Creates tag-resource relationships for a specified instance.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -10467,7 +10688,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Adds tags to clusters.
+     * Creates tag-resource relationships for a specified instance.
      *
      * @param request - TagResourcesRequest
      *
@@ -10486,7 +10707,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Runs a data migration task for node scaling operations.
+     * Performs data migration on a node to facilitate node scale-in operations.
      *
      * @param request - TransferNodeRequest
      * @param headers - map
@@ -10534,7 +10755,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Runs a data migration task for node scaling operations.
+     * Performs data migration on a node to facilitate node scale-in operations.
      *
      * @param request - TransferNodeRequest
      *
@@ -10554,7 +10775,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
+     * Enables or shuts down public or private network access for an Elasticsearch or Kibana cluster.
      *
      * @param request - TriggerNetworkRequest
      * @param headers - map
@@ -10611,7 +10832,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable or disable public or private network access for a Elasticsearch or Kibana cluster.
+     * Enables or shuts down public or private network access for an Elasticsearch or Kibana cluster.
      *
      * @param request - TriggerNetworkRequest
      *
@@ -10631,7 +10852,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
+     * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+     *
+     * @remarks
+     * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
      *
      * @param request - TurnOffZoneRequest
      * @param headers - map
@@ -10678,7 +10902,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Multi-zone Instance: Shutting down an existing availability zone is only for disaster recovery drills. Proceed with caution!
+     * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+     *
+     * @remarks
+     * Disables an existing zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
      *
      * @param request - TurnOffZoneRequest
      *
@@ -10698,7 +10925,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
+     * Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+     *
+     * @remarks
+     * Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
      *
      * @param request - TurnOnZoneRequest
      * @param headers - map
@@ -10745,7 +10975,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Multi-zone Instance, reopening a zone that has been taken offline is only for disaster recovery drills. Please proceed with caution!
+     * Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
+     *
+     * @remarks
+     * Reopens an offline zone for a multi-zone instance. This operation is intended only for disaster recovery drills. Proceed with caution.
      *
      * @param request - TurnOnZoneRequest
      *
@@ -10765,7 +10998,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+     * Uninstalls plug-ins from the Kibana node of an Elasticsearch instance.
      *
      * @param request - UninstallKibanaPluginRequest
      * @param headers - map
@@ -10809,7 +11042,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call the UninstallKibanaPlugin to uninstall the Kibana plug-in.
+     * Uninstalls plug-ins from the Kibana node of an Elasticsearch instance.
      *
      * @param request - UninstallKibanaPluginRequest
      *
@@ -10829,7 +11062,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Removes one or more Logstash plug-ins.
+     * Uninstalls installed plug-ins from a Logstash instance.
      *
      * @param request - UninstallLogstashPluginRequest
      * @param headers - map
@@ -10873,7 +11106,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Removes one or more Logstash plug-ins.
+     * Uninstalls installed plug-ins from a Logstash instance.
      *
      * @param request - UninstallLogstashPluginRequest
      *
@@ -10893,7 +11126,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UninstallPlugin to uninstall the preset plug-in.
+     * Uninstalls system plug-ins from an Elasticsearch instance.
      *
      * @param request - UninstallPluginRequest
      * @param headers - map
@@ -10941,7 +11174,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UninstallPlugin to uninstall the preset plug-in.
+     * Uninstalls system plug-ins from an Elasticsearch instance.
      *
      * @param request - UninstallPluginRequest
      *
@@ -10961,13 +11194,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes a user resource tag relationship.
+     * Deletes user resource tag associations for a specified instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items:
-     * *   You can only delete user tags.
-     * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
-     * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+     * When calling this operation, note the following:
+     * - Only user tags can be deleted.
+     *
+     *     > User tags are tags that users manually add to instances. System tags are tags that Alibaba Cloud services add to user instances. System tags are classified into visible tags and invisible tags.
+     * - If a tag is not associated with any resource, the tag is also deleted when the resource tag association is deleted.
      *
      * @param request - UntagResourcesRequest
      * @param headers - map
@@ -11025,13 +11259,14 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Deletes a user resource tag relationship.
+     * Deletes user resource tag associations for a specified instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items:
-     * *   You can only delete user tags.
-     * > User labels are manually added to instances by users. A system Tag is a tag that Alibaba Cloud services add to instances. System labels are divided into visible labels and invisible labels.
-     * *   If you delete a resource tag relationship that is not associated with any resources, you must delete the tags.
+     * When calling this operation, note the following:
+     * - Only user tags can be deleted.
+     *
+     *     > User tags are tags that users manually add to instances. System tags are tags that Alibaba Cloud services add to user instances. System tags are classified into visible tags and invisible tags.
+     * - If a tag is not associated with any resource, the tag is also deleted when the resource tag association is deleted.
      *
      * @param request - UntagResourcesRequest
      *
@@ -11050,10 +11285,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
+     * Updates the password of the elastic account for a specified Elasticsearch instance.
      *
      * @remarks
-     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+     * When you invoke this operation, note the following:
+     * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdateAdminPasswordRequest
      * @param headers - map
@@ -11102,10 +11338,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to UpdateAdminPassword the password of the elastic account of the specified Elasticsearch instance.
+     * Updates the password of the elastic account for a specified Elasticsearch instance.
      *
      * @remarks
-     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+     * When you invoke this operation, note the following:
+     * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdateAdminPasswordRequest
      *
@@ -11125,7 +11362,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+     * Changes the garbage collector configuration of a specified Elasticsearch instance.
      *
      * @param request - UpdateAdvancedSettingRequest
      * @param headers - map
@@ -11169,7 +11406,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateAdvancedSetting to change the garbage collector configuration for the specified instance.
+     * Changes the garbage collector configuration of a specified Elasticsearch instance.
      *
      * @param request - UpdateAdvancedSettingRequest
      *
@@ -11189,13 +11426,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the dictionary file of the analysis-aliws plug-in.
+     * Updates the dictionary of the AliNLP tokenizer plugin (analysis-aliws).
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
-     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     * When calling this operation, note the following:
+     * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
+     * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
+     * - If a previously uploaded dictionary is not configured with ORIGIN, calling this operation will delete the dictionary file.
      *
      * @param request - UpdateAliwsDictRequest
      * @param headers - map
@@ -11239,13 +11476,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the dictionary file of the analysis-aliws plug-in.
+     * Updates the dictionary of the AliNLP tokenizer plugin (analysis-aliws).
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   Elasticsearch V5.X clusters do not support the analysis-aliws plug-in.
-     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     * When calling this operation, note the following:
+     * - Instances of version 5.x do not support the AliNLP tokenizer plugin.
+     * - If the dictionary file is sourced from OSS, ensure that the OSS bucket has public-read permission.
+     * - If a previously uploaded dictionary is not configured with ORIGIN, calling this operation will delete the dictionary file.
      *
      * @param request - UpdateAliwsDictRequest
      *
@@ -11265,7 +11502,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改ES实例访问黑名单，已废弃.
+     * Modifies the access blacklist of an Elasticsearch instance. This operation is deprecated.
      *
      * @deprecated OpenAPI UpdateBlackIps is deprecated
      *
@@ -11311,7 +11548,7 @@ class Elasticsearch extends OpenApiClient
 
     // Deprecated
     /**
-     * 修改ES实例访问黑名单，已废弃.
+     * Modifies the access blacklist of an Elasticsearch instance. This operation is deprecated.
      *
      * @deprecated OpenAPI UpdateBlackIps is deprecated
      *
@@ -11333,7 +11570,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of a shipper.
+     * Modifies the configuration of a collector.
      *
      * @param request - UpdateCollectorRequest
      * @param headers - map
@@ -11377,7 +11614,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of a shipper.
+     * Modifies the configuration of a collector.
      *
      * @param request - UpdateCollectorRequest
      *
@@ -11397,7 +11634,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Changes the name of a shipper.
+     * Calls UpdateCollectorName to modify the name of a collector.
      *
      * @param request - UpdateCollectorNameRequest
      * @param headers - map
@@ -11441,7 +11678,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Changes the name of a shipper.
+     * Calls UpdateCollectorName to modify the name of a collector.
      *
      * @param request - UpdateCollectorNameRequest
      *
@@ -11461,7 +11698,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改ES集群动态索引.
+     * Updates a composable index template for an Elasticsearch instance.
+     *
+     * @remarks
+     * For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param request - UpdateComponentIndexRequest
      * @param headers - map
@@ -11509,7 +11749,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改ES集群动态索引.
+     * Updates a composable index template for an Elasticsearch instance.
+     *
+     * @remarks
+     * For more information, see [Use OpenStore to store massive amounts of data](https://help.aliyun.com/document_detail/317694.html).
      *
      * @param request - UpdateComponentIndexRequest
      *
@@ -11530,7 +11773,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Changes the name of a specified Elasticsearch cluster.
+     * Changes the name of an Elasticsearch instance.
      *
      * @param request - UpdateDescriptionRequest
      * @param headers - map
@@ -11579,7 +11822,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Changes the name of a specified Elasticsearch cluster.
+     * Changes the name of an Elasticsearch instance.
      *
      * @param request - UpdateDescriptionRequest
      *
@@ -11599,7 +11842,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
+     * Modifies the intelligent O&M scenario settings of a specified Elasticsearch instance.
      *
      * @param request - UpdateDiagnosisSettingsRequest
      * @param headers - map
@@ -11647,7 +11890,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateDiagnosisSettings to update the instance of intelligent operation\\&maintenance (O\\&M) scene settings.
+     * Modifies the intelligent O&M scenario settings of a specified Elasticsearch instance.
      *
      * @param request - UpdateDiagnosisSettingsRequest
      *
@@ -11667,12 +11910,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates a dictionary of an Elasticsearch cluster.
+     * Updates the user dictionary of an Elasticsearch instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     * When calling this operation, note the following:
+     * - If the dictionary file originates from OSS, ensure that the OSS storage space is publicly readable.
+     * - If previously uploaded dictionaries are not configured with ORIGIN, the dictionary files will be deleted after this operation is called.
      *
      * @param request - UpdateDictRequest
      * @param headers - map
@@ -11716,12 +11959,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates a dictionary of an Elasticsearch cluster.
+     * Updates the user dictionary of an Elasticsearch instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     * When calling this operation, note the following:
+     * - If the dictionary file originates from OSS, ensure that the OSS storage space is publicly readable.
+     * - If previously uploaded dictionaries are not configured with ORIGIN, the dictionary files will be deleted after this operation is called.
      *
      * @param request - UpdateDictRequest
      *
@@ -11741,7 +11984,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改集群动态配置.
+     * Modify Cluster Dynamic Configuration.
      *
      * @param request - UpdateDynamicSettingsRequest
      * @param headers - map
@@ -11793,7 +12036,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改集群动态配置.
+     * Modify Cluster Dynamic Configuration.
      *
      * @param request - UpdateDynamicSettingsRequest
      *
@@ -11813,6 +12056,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Modifies the scenario-based configuration template of an Elasticsearch instance.
+     *
      * @param request - UpdateExtendConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11855,6 +12100,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Modifies the scenario-based configuration template of an Elasticsearch instance.
+     *
      * @param request - UpdateExtendConfigRequest
      *
      * @returns UpdateExtendConfigResponse
@@ -11873,10 +12120,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the driver files of a Logstash cluster.
+     * Updates the extension file configuration of a Logstash instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+     * When calling this operation, note the following: Currently, this operation only supports deleting extension files that have been uploaded through the console. To add or modify extension files, perform the operations in the console.
      *
      * @param request - UpdateExtendfilesRequest
      * @param headers - map
@@ -11920,10 +12167,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the driver files of a Logstash cluster.
+     * Updates the extension file configuration of a Logstash instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items: You can call this operation only to delete the driver files that are uploaded to a Logstash cluster in the Alibaba Cloud Management Console. You can add or modify driver files only in the Alibaba Cloud Management Console.
+     * When calling this operation, note the following: Currently, this operation only supports deleting extension files that have been uploaded through the console. To add or modify extension files, perform the operations in the console.
      *
      * @param request - UpdateExtendfilesRequest
      *
@@ -11943,7 +12190,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改FalconSeek配置.
+     * Toggle the FalconSeek cloud-native kernel attribute for instances of Version 8.17.
      *
      * @param request - UpdateFalconSeekRequest
      * @param headers - map
@@ -11986,7 +12233,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改FalconSeek配置.
+     * Toggle the FalconSeek cloud-native kernel attribute for instances of Version 8.17.
      *
      * @param request - UpdateFalconSeekRequest
      *
@@ -12006,12 +12253,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * null.
+     * Updates the IK hot-word dictionary of an Alibaba Cloud Elasticsearch instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     * When calling this operation, note the following:
+     * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+     * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
      *
      * @param request - UpdateHotIkDictsRequest
      * @param headers - map
@@ -12055,12 +12302,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * null.
+     * Updates the IK hot-word dictionary of an Alibaba Cloud Elasticsearch instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     * When calling this operation, note the following:
+     * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+     * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
      *
      * @param request - UpdateHotIkDictsRequest
      *
@@ -12080,7 +12327,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改ES集群索引生命周期策略.
+     * Modifies the lifecycle policy of an Elasticsearch index.
      *
      * @param request - UpdateILMPolicyRequest
      * @param headers - map
@@ -12125,7 +12372,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改ES集群索引生命周期策略.
+     * Modifies the lifecycle policy of an Elasticsearch index.
      *
      * @param request - UpdateILMPolicyRequest
      *
@@ -12146,7 +12393,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改ES集群索引模版配置.
+     * Modifies the template configuration of an Elasticsearch instance.
      *
      * @param request - UpdateIndexTemplateRequest
      * @param headers - map
@@ -12191,7 +12438,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 修改ES集群索引模版配置.
+     * Modifies the template configuration of an Elasticsearch instance.
      *
      * @param request - UpdateIndexTemplateRequest
      *
@@ -12212,10 +12459,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
+     * Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
      *
      * @remarks
-     * es-cn-n6w1ptcb30009\\*\\*\\*\\*
+     * When you call this operation, note the following items:
+     * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
      *
      * @param request - UpdateInstanceRequest
      * @param headers - map
@@ -12304,10 +12552,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the configurations of a cluster, such as the number of nodes, the number of roles, specifications, and disk configurations.
+     * Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
      *
      * @remarks
-     * es-cn-n6w1ptcb30009\\*\\*\\*\\*
+     * When you call this operation, note the following items:
+     * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
      *
      * @param request - UpdateInstanceRequest
      *
@@ -12327,7 +12576,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * null.
+     * Transforms the billing method of an Elasticsearch instance from pay-as-you-go to a subscription instance.
      *
      * @param request - UpdateInstanceChargeTypeRequest
      * @param headers - map
@@ -12380,7 +12629,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * null.
+     * Transforms the billing method of an Elasticsearch instance from pay-as-you-go to a subscription instance.
      *
      * @param request - UpdateInstanceChargeTypeRequest
      *
@@ -12400,11 +12649,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+     * Modifies the YML parameter settings of a specified Elasticsearch instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items:
-     * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+     * When you invoke this operation, note the following:
+     * You cannot update the configuration when the instance status is activating, invalid, or inactive (freeze).
      *
      * @param request - UpdateInstanceSettingsRequest
      * @param headers - map
@@ -12461,11 +12710,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateInstanceSettings to update the YML configuration of a specified instance.
+     * Modifies the YML parameter settings of a specified Elasticsearch instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items:
-     * When the instance is in the activating, invalid, or inactive state, you cannot update the configuration.
+     * When you invoke this operation, note the following:
+     * You cannot update the configuration when the instance status is activating, invalid, or inactive (freeze).
      *
      * @param request - UpdateInstanceSettingsRequest
      *
@@ -12485,7 +12734,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 更新keystore.
+     * Update keystore.
      *
      * @param request - UpdateKeystoresRequest
      * @param headers - map
@@ -12538,7 +12787,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 更新keystore.
+     * Update keystore.
      *
      * @param request - UpdateKeystoresRequest
      *
@@ -12558,7 +12807,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 更新kibana私网链接.
+     * Update Kibana private network access.
+     *
+     * @remarks
+     * 1. This API operation supports only cloud-native instances. For instances of the legacy architecture, use the TriggerNetwork operation.
+     * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
      *
      * @param request - UpdateKibanaPvlNetworkRequest
      * @param headers - map
@@ -12615,7 +12868,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 更新kibana私网链接.
+     * Update Kibana private network access.
+     *
+     * @remarks
+     * 1. This API operation supports only cloud-native instances. For instances of the legacy architecture, use the TriggerNetwork operation.
+     * 2. The Kibana specifications must be greater than 1 vCPU and 2 GB of memory.
      *
      * @param request - UpdateKibanaPvlNetworkRequest
      *
@@ -12635,7 +12892,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+     * Modifies the Kibana configuration. Currently, only the Kibana language configuration can be modified.
      *
      * @param request - UpdateKibanaSettingsRequest
      * @param headers - map
@@ -12679,7 +12936,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateKibanaSettings to modify the Kibana configuration. Currently, you can only modify the Kibana language configuration.
+     * Modifies the Kibana configuration. Currently, only the Kibana language configuration can be modified.
      *
      * @param request - UpdateKibanaSettingsRequest
      *
@@ -12699,7 +12956,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * UpdateKibanaSso.
+     * Enable or disable Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on with your Alibaba Cloud account before you can use Kibana features.
      *
      * @param request - UpdateKibanaSsoRequest
      * @param headers - map
@@ -12746,7 +13003,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * UpdateKibanaSso.
+     * Enable or disable Alibaba Cloud account authentication for Kibana. After Alibaba Cloud account authentication is enabled, you must log on with your Alibaba Cloud account before you can use Kibana features.
      *
      * @param request - UpdateKibanaSsoRequest
      *
@@ -12766,14 +13023,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+     * Updates the Kibana access whitelist of a specified Alibaba Cloud Elasticsearch instance.
      *
      * @remarks
-     *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
-     * *   You can update an IP address whitelist by using the following parameters:
-     *     *   kibanaIPWhitelist
-     *     *   modifyMode and whiteIpGroup
-     * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+     * ## Before you begin
+     * - When you invoke this operation, you cannot update information if the instance status is activating, invalid, or freeze (inactive).
+     * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters, as follows:
+     *     - IP whitelist list: kibanaIPWhitelist
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public network access whitelist does not support private IP addresses, and the internal-facing whitelist does not support public IP addresses.
      *
      * @param request - UpdateKibanaWhiteIpsRequest
      * @param headers - map
@@ -12830,14 +13088,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates an IP address whitelist for access to the Kibana console of a specified Elasticsearch cluster.
+     * Updates the Kibana access whitelist of a specified Alibaba Cloud Elasticsearch instance.
      *
      * @remarks
-     *   Before you call this operation, you must make sure that the cluster is not in the activating, invalid, or inactive state.
-     * *   You can update an IP address whitelist by using the following parameters:
-     *     *   kibanaIPWhitelist
-     *     *   modifyMode and whiteIpGroup
-     * *   You cannot specify private IP addresses for public IP address whitelists and cannot specify public IP addresses for private IP address whitelists.
+     * ## Before you begin
+     * - When you invoke this operation, you cannot update information if the instance status is activating, invalid, or freeze (inactive).
+     * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters, as follows:
+     *     - IP whitelist list: kibanaIPWhitelist
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public network access whitelist does not support private IP addresses, and the internal-facing whitelist does not support public IP addresses.
      *
      * @param request - UpdateKibanaWhiteIpsRequest
      *
@@ -12857,7 +13116,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
+     * Modifies some information about a specified instance, such as the number of nodes, quota, name, and disk size.
+     *
+     * @remarks
+     * ### Before you begin
+     * You cannot modify instance information when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdateLogstashRequest
      * @param headers - map
@@ -12910,7 +13173,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a specified Logstash cluster, such as the name, quota, disk size, and number of nodes.
+     * Modifies some information about a specified instance, such as the number of nodes, quota, name, and disk size.
+     *
+     * @remarks
+     * ### Before you begin
+     * You cannot modify instance information when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdateLogstashRequest
      *
@@ -12930,7 +13197,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+     * Converts a pay-as-you-go Alibaba Cloud Logstash instance to a subscription instance.
      *
      * @param request - UpdateLogstashChargeTypeRequest
      * @param headers - map
@@ -12974,7 +13241,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Switches the billing method of a Logstash cluster from pay-as-you-go to subscription.
+     * Converts a pay-as-you-go Alibaba Cloud Logstash instance to a subscription instance.
      *
      * @param request - UpdateLogstashChargeTypeRequest
      *
@@ -12994,10 +13261,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Changes the name of a specified Logstash cluster.
+     * Modifies the name of a specified Logstash instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+     * When you call this operation, take note of the following items:
+     * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdateLogstashDescriptionRequest
      * @param headers - map
@@ -13046,10 +13314,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Changes the name of a specified Logstash cluster.
+     * Modifies the name of a specified Logstash instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items: You cannot change the name of a cluster that is in the activating, invalid, or inactive state.
+     * When you call this operation, take note of the following items:
+     * You cannot modify the instance name when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdateLogstashDescriptionRequest
      *
@@ -13069,11 +13338,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of the specified Logstash instance.
+     * Updates the configuration of a specified Logstash instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items:
-     * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+     * When you invoke this operation, note the following: The instance configuration cannot be updated when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdateLogstashSettingsRequest
      * @param headers - map
@@ -13117,11 +13385,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of the specified Logstash instance.
+     * Updates the configuration of a specified Logstash instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items:
-     * If the instance is in the Active (activating), Invalid (invalid), and Inactive (inactive) state, the information cannot be updated.
+     * When you invoke this operation, note the following: The instance configuration cannot be updated when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdateLogstashSettingsRequest
      *
@@ -13141,7 +13408,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Modifies the pipeline management method of the specified Logstash cluster.
+     * Modifies the pipeline management method for a specified Logstash instance.
+     *
+     * @remarks
+     * > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
      *
      * @param request - UpdatePipelineManagementConfigRequest
      * @param headers - map
@@ -13210,7 +13480,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Modifies the pipeline management method of the specified Logstash cluster.
+     * Modifies the pipeline management method for a specified Logstash instance.
+     *
+     * @remarks
+     * > Pipeline management methods include configuration file management and Kibana pipeline management. The console no longer supports Kibana pipeline management. You can use this feature only through the API.
      *
      * @param request - UpdatePipelineManagementConfigRequest
      *
@@ -13230,7 +13503,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates a pipeline of a Logstash cluster.
+     * Calls UpdatePipelines to update Logstash pipeline information.
      *
      * @param request - UpdatePipelinesRequest
      * @param headers - map
@@ -13278,7 +13551,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates a pipeline of a Logstash cluster.
+     * Calls UpdatePipelines to update Logstash pipeline information.
      *
      * @param request - UpdatePipelinesRequest
      *
@@ -13298,10 +13571,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
+     * Updates the VPC private network access whitelist of a specified instance.
      *
      * @remarks
-     * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+     * ## Before you begin
+     * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
+     * - You can update the whitelist in two ways: by using an IP whitelist list or by using an IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+     *     - IP whitelist list: privateNetworkIpWhiteList
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
      *
      * @param request - UpdatePrivateNetworkWhiteIpsRequest
      * @param headers - map
@@ -13349,10 +13627,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * You can call this operation to update the VPC private network access whitelist of a specified Elasticsearch instance UpdatePrivateNetworkWhiteIps.
+     * Updates the VPC private network access whitelist of a specified instance.
      *
      * @remarks
-     * >  In the following returned example, only the parameters in the returned data list are guaranteed to be included, and the parameters not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+     * ## Before you begin
+     * - You cannot update the VPC private network access whitelist of an instance when the instance status is Activating (activating), Invalid (invalid), or Freeze (inactive).
+     * - You can update the whitelist in two ways: by using an IP whitelist list or by using an IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+     *     - IP whitelist list: privateNetworkIpWhiteList
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public network access whitelist does not support private IP addresses, and the private network access whitelist does not support public IP addresses.
      *
      * @param request - UpdatePrivateNetworkWhiteIpsRequest
      *
@@ -13372,11 +13655,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * null.
+     * Enables or disables the public network address for a specified Elasticsearch instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items:
-     * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+     * When you call this operation, note the following:
+     * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdatePublicNetworkRequest
      * @param headers - map
@@ -13420,11 +13703,11 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * null.
+     * Enables or disables the public network address for a specified Elasticsearch instance.
      *
      * @remarks
-     * When you call this operation, take note of the following items:
-     * When the instance is in the activating, invalid, or inactive state, its configuration cannot be updated.
+     * When you call this operation, note the following:
+     * You cannot update information when the instance status is activating, invalid, or freeze (inactive).
      *
      * @param request - UpdatePublicNetworkRequest
      *
@@ -13444,10 +13727,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * null.
+     * Updates the public endpoint access whitelist of a specified Elasticsearch instance.
      *
      * @remarks
-     * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+     * ## Before you begin
+     * - You cannot update the public endpoint access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
+     * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+     *     - IP whitelist list: publicIpWhitelist
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public network access whitelist does not support private network IP addresses, and the private network access whitelist does not support public network IP addresses.
      *
      * @param request - UpdatePublicWhiteIpsRequest
      * @param headers - map
@@ -13495,10 +13783,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * null.
+     * Updates the public endpoint access whitelist of a specified Elasticsearch instance.
      *
      * @remarks
-     * >  In the following example, only the parameters in the returned data list are guaranteed to be included. The parameters that are not mentioned are for reference only. For more information about the parameters, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force a dependency in a program to get these parameters.
+     * ## Before you begin
+     * - You cannot update the public endpoint access whitelist of an instance when the instance status is activating, invalid, or inactive (freeze).
+     * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time. In addition to InstanceId and clientToken, the two methods support different parameters:
+     *     - IP whitelist list: publicIpWhitelist
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public network access whitelist does not support private network IP addresses, and the private network access whitelist does not support public network IP addresses.
      *
      * @param request - UpdatePublicWhiteIpsRequest
      *
@@ -13518,7 +13811,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 更改ES集群高可用策略.
+     * Enables or disables the write high availability feature for a cluster. Currently, only instances in the China (Beijing) region are supported.
      *
      * @param request - UpdateReadWritePolicyRequest
      * @param headers - map
@@ -13562,7 +13855,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 更改ES集群高可用策略.
+     * Enables or disables the write high availability feature for a cluster. Currently, only instances in the China (Beijing) region are supported.
      *
      * @param request - UpdateReadWritePolicyRequest
      *
@@ -13582,7 +13875,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+     * Updates the data backup configuration of a specified instance.
      *
      * @param request - UpdateSnapshotSettingRequest
      * @param headers - map
@@ -13620,7 +13913,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Call UpdateSnapshotSetting to update the data backup configuration of the specified instance.
+     * Updates the data backup configuration of a specified instance.
      *
      * @param request - UpdateSnapshotSettingRequest
      *
@@ -13640,12 +13933,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the synonym dictionaries of an Elasticsearch cluster.
+     * Updates the synonym dictionary of an Alibaba Cloud Elasticsearch instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     * When calling this operation, note the following:
+     * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+     * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
      *
      * @param request - UpdateSynonymsDictsRequest
      * @param headers - map
@@ -13689,12 +13982,12 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the synonym dictionaries of an Elasticsearch cluster.
+     * Updates the synonym dictionary of an Alibaba Cloud Elasticsearch instance.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   If the dictionary file is stored in an Object Storage Service (OSS) bucket, you must make sure that the access control list (ACL) of the bucket is public read.
-     * *   If you do not set sourceType to ORIGIN for an uploaded dictionary file, the file will be deleted after you call this operation.
+     * When calling this operation, note the following:
+     * - If the dictionary file is sourced from OSS, make sure the OSS bucket has public-read permission.
+     * - If a previously uploaded dictionary is not configured with ORIGIN, the dictionary file will be deleted after this operation is called.
      *
      * @param request - UpdateSynonymsDictsRequest
      *
@@ -13714,6 +14007,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Modifies the scenario-specific template configuration of a cluster.
+     *
      * @param request - UpdateTemplateRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13757,6 +14052,8 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
+     * Modifies the scenario-specific template configuration of a cluster.
+     *
      * @param request - UpdateTemplateRequest
      *
      * @returns UpdateTemplateResponse
@@ -13776,10 +14073,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates a private IP address whitelist of an Elasticsearch cluster.
+     * Modifies the VPC internal-facing access whitelist of an Elasticsearch instance.
      *
      * @remarks
-     * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+     * ## Before you begin
+     * - You cannot update information when the instance status is activating, invalid, or freeze (inactive).
+     * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters besides InstanceId and clientToken. The details are as follows:
+     *     - IP whitelist list: esIPWhitelist
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public access whitelist does not support private network IP addresses, and the internal-facing access whitelist does not support public IP addresses.
      *
      * @param request - UpdateWhiteIpsRequest
      * @param headers - map
@@ -13836,10 +14138,15 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates a private IP address whitelist of an Elasticsearch cluster.
+     * Modifies the VPC internal-facing access whitelist of an Elasticsearch instance.
      *
      * @remarks
-     * > For more information about the parameters displayed in the following sample code but not provided in the preceding tables, see [ListInstance](https://help.aliyun.com/document_detail/142230.html). You cannot force your program to obtain these parameters.
+     * ## Before you begin
+     * - You cannot update information when the instance status is activating, invalid, or freeze (inactive).
+     * - You can update the whitelist in two ways: IP whitelist list and IP whitelist group. The two methods cannot be used at the same time, and they support different parameters besides InstanceId and clientToken. The details are as follows:
+     *     - IP whitelist list: esIPWhitelist
+     *     - IP whitelist group: modifyMode, whiteIpGroup
+     * - The public access whitelist does not support private network IP addresses, and the internal-facing access whitelist does not support public IP addresses.
      *
      * @param request - UpdateWhiteIpsRequest
      *
@@ -13859,7 +14166,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
+     * Updates the X-Pack monitoring and alerting configuration of a Logstash instance.
      *
      * @param request - UpdateXpackMonitorConfigRequest
      * @param headers - map
@@ -13920,7 +14227,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Updates the X-Pack monitoring and alert configuration of a Logstash cluster.
+     * Updates the X-Pack monitoring and alerting configuration of a Logstash instance.
      *
      * @param request - UpdateXpackMonitorConfigRequest
      *
@@ -13940,10 +14247,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Upgrades the version or kernel of an Elasticsearch cluster.
+     * Upgrades the version of an Elasticsearch instance. Both major version upgrades and kernel version upgrades are supported.
      *
      * @remarks
-     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+     * > The version upgrade feature currently supports only the following upgrade paths: 5.5.3 to 5.6.16, 5.6.16 to 6.3.2, and 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
      *
      * @param request - UpgradeEngineVersionRequest
      * @param headers - map
@@ -14008,10 +14315,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Upgrades the version or kernel of an Elasticsearch cluster.
+     * Upgrades the version of an Elasticsearch instance. Both major version upgrades and kernel version upgrades are supported.
      *
      * @remarks
-     * 5A2CFF0E-5718-45B5-9D4D-70B3FF\\*\\*\\*\\*
+     * > The version upgrade feature currently supports only the following upgrade paths: 5.5.3 to 5.6.16, 5.6.16 to 6.3.2, and 6.3.2 to 6.7.0. Upgrades between other versions are not supported. For more information, see [Upgrade version](https://help.aliyun.com/document_detail/148786.html).
      *
      * @param request - UpgradeEngineVersionRequest
      *
@@ -14031,7 +14338,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 查询是否有可升级的小版本.
+     * Query whether a minor version is available for upgrade.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14065,7 +14372,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * 查询是否有可升级的小版本.
+     * Query whether a minor version is available for upgrade.
      *
      * @returns UpgradeInfoResponse
      *
@@ -14082,10 +14389,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+     * Validates the connectivity of an Elasticsearch instance that provides X-Pack monitoring.
      *
      * @remarks
-     * > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+     * > To enable X-Pack monitoring for Logstash, configure an Elasticsearch instance. After the configuration, you can monitor the Logstash instance in the Kibana console of the corresponding Elasticsearch instance.
      *
      * @param request - ValidateConnectionRequest
      * @param headers - map
@@ -14129,10 +14436,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Tests the connectivity between a Logstash cluster and its associated Elasticsearch cluster when you configure the X-Pack Monitoring feature for the Logstash cluster.
+     * Validates the connectivity of an Elasticsearch instance that provides X-Pack monitoring.
      *
      * @remarks
-     * > Before you enable the X-Pack Monitoring feature for a Logstash cluster, you must associate the Logstash cluster with an Elasticsearch cluster. This way, you can view the monitoring data of the Logstash cluster in the Kibana console of the Elasticsearch cluster.
+     * > To enable X-Pack monitoring for Logstash, configure an Elasticsearch instance. After the configuration, you can monitor the Logstash instance in the Kibana console of the corresponding Elasticsearch instance.
      *
      * @param request - ValidateConnectionRequest
      *
@@ -14152,7 +14459,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
+     * Checks whether specific nodes in a specified instance can be scaled in.
      *
      * @param request - ValidateShrinkNodesRequest
      * @param headers - map
@@ -14204,7 +14511,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Checks whether specific nodes can be removed from a specified Elasticsearch cluster.
+     * Checks whether specific nodes in a specified instance can be scaled in.
      *
      * @param request - ValidateShrinkNodesRequest
      *
@@ -14224,7 +14531,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Verify the SLR permissions of the current account.
+     * Verifies the service-linked role (SLR) permission of the current account.
+     *
+     * @remarks
+     * > When you use a collector to collect logs from different data sources, you must first authorize the creation of a service-linked role. You can call this operation to check whether the service-linked role has been created.
      *
      * @param request - ValidateSlrPermissionRequest
      * @param headers - map
@@ -14270,7 +14580,10 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Verify the SLR permissions of the current account.
+     * Verifies the service-linked role (SLR) permission of the current account.
+     *
+     * @remarks
+     * > When you use a collector to collect logs from different data sources, you must first authorize the creation of a service-linked role. You can call this operation to check whether the service-linked role has been created.
      *
      * @param request - ValidateSlrPermissionRequest
      *
@@ -14289,7 +14602,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
+     * Validates whether data on specific nodes in a specified instance can be migrated.
      *
      * @param request - ValidateTransferableNodesRequest
      * @param headers - map
@@ -14333,7 +14646,7 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Checks whether the data on specific nodes in a specified Elasticsearch cluster can be migrated.
+     * Validates whether data on specific nodes in a specified instance can be migrated.
      *
      * @param request - ValidateTransferableNodesRequest
      *
@@ -14353,10 +14666,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Creates an Elasticsearch cluster.
+     * Creates an Elasticsearch instance.
      *
      * @remarks
-     * The configurations of warm nodes.
+     * ### Precautions
+     * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+     * - Real-name verification is required to create instances.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+     * - You do not need to specify a zone when creating an instance. By default, the instance is in the same zone as the selected VPC.
      *
      * @param request - CreateInstanceRequest
      * @param headers - map
@@ -14468,10 +14784,13 @@ class Elasticsearch extends OpenApiClient
     }
 
     /**
-     * Creates an Elasticsearch cluster.
+     * Creates an Elasticsearch instance.
      *
      * @remarks
-     * The configurations of warm nodes.
+     * ### Precautions
+     * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+     * - Real-name verification is required to create instances.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
+     * - You do not need to specify a zone when creating an instance. By default, the instance is in the same zone as the selected VPC.
      *
      * @param request - CreateInstanceRequest
      *

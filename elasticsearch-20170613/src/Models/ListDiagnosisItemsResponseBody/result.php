@@ -14,6 +14,11 @@ class result extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $esApiRequired;
+
+    /**
      * @var string
      */
     public $key;
@@ -24,6 +29,7 @@ class result extends Model
     public $name;
     protected $_name = [
         'description' => 'description',
+        'esApiRequired' => 'esApiRequired',
         'key' => 'key',
         'name' => 'name',
     ];
@@ -38,6 +44,10 @@ class result extends Model
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->esApiRequired) {
+            $res['esApiRequired'] = $this->esApiRequired;
         }
 
         if (null !== $this->key) {
@@ -61,6 +71,10 @@ class result extends Model
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['esApiRequired'])) {
+            $model->esApiRequired = $map['esApiRequired'];
         }
 
         if (isset($map['key'])) {
