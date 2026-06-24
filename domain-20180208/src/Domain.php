@@ -7,12 +7,17 @@ namespace AlibabaCloud\SDK\Domain\V20180208;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Domain\V20180208\Models\AcceptDemandRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\AcceptDemandResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\AcceptPushRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\AcceptPushResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BatchIntrudeDomainsRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BatchIntrudeDomainsResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BatchIntrudeDomainsShrinkRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BatchQueryPushStatusRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BatchQueryPushStatusResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BatchQueryPushStatusShrinkRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\BatchQueryReceivedPushStatusRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\BatchQueryReceivedPushStatusResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\BatchQueryReceivedPushStatusShrinkRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BatchRecallPushRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BatchRecallPushResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\BatchRecallPushShrinkRequest;
@@ -26,6 +31,8 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\CheckPushReceiverRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\CheckPushReceiverResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\CheckSelectedDomainStatusRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\CheckSelectedDomainStatusResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\CreateCloseoutOrderRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\CreateCloseoutOrderResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\CreateFixedPriceDemandOrderRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\CreateFixedPriceDemandOrderResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\CreateFixedPriceSelectedOrderRequest;
@@ -56,6 +63,10 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBrokerDemandResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBuyerDomainTradeRecordsRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBuyerDomainTradeRecordsResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryBuyerDomainTradeRecordsShrinkRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryCloseoutDomainInfoRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryCloseoutDomainInfoResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryCloseoutDomainListRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryCloseoutDomainListResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryDomainTransferStatusResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExchangeRateRequest;
@@ -65,12 +76,16 @@ use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportAuctionDetailResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryExportDomainExpireSnatchsShrinkRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPendingPushListRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPendingPushListResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\QueryPurchasedDomainsResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\RecordDemandRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\RecordDemandResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\RefuseDemandRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\RefuseDemandResponse;
+use AlibabaCloud\SDK\Domain\V20180208\Models\RejectPushRequest;
+use AlibabaCloud\SDK\Domain\V20180208\Models\RejectPushResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\RequestPayDemandRequest;
 use AlibabaCloud\SDK\Domain\V20180208\Models\RequestPayDemandResponse;
 use AlibabaCloud\SDK\Domain\V20180208\Models\ReserveDomainRequest;
@@ -99,7 +114,11 @@ class Domain extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'domain.aliyuncs.com',
+            'ap-southeast-1' => 'domain-intl.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('domain', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -183,6 +202,67 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->acceptDemandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 买家（接收方）确认接收带价PUSH，触发域名过户转移.
+     *
+     * @param request - AcceptPushRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AcceptPushResponse
+     *
+     * @param AcceptPushRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AcceptPushResponse
+     */
+    public function acceptPushWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactTemplateId) {
+            @$query['ContactTemplateId'] = $request->contactTemplateId;
+        }
+
+        if (null !== $request->pushNo) {
+            @$query['PushNo'] = $request->pushNo;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AcceptPush',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AcceptPushResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 买家（接收方）确认接收带价PUSH，触发域名过户转移.
+     *
+     * @param request - AcceptPushRequest
+     *
+     * @returns AcceptPushResponse
+     *
+     * @param AcceptPushRequest $request
+     *
+     * @return AcceptPushResponse
+     */
+    public function acceptPush($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->acceptPushWithOptions($request, $runtime);
     }
 
     /**
@@ -325,6 +405,77 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchQueryPushStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 买家视角批量查询Push接收状态
+     *
+     * @param tmpReq - BatchQueryReceivedPushStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchQueryReceivedPushStatusResponse
+     *
+     * @param BatchQueryReceivedPushStatusRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchQueryReceivedPushStatusResponse
+     */
+    public function batchQueryReceivedPushStatusWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchQueryReceivedPushStatusShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->pushNos) {
+            $request->pushNosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->pushNos, 'PushNos', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pushNosShrink) {
+            @$query['PushNos'] = $request->pushNosShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchQueryReceivedPushStatus',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchQueryReceivedPushStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 买家视角批量查询Push接收状态
+     *
+     * @param request - BatchQueryReceivedPushStatusRequest
+     *
+     * @returns BatchQueryReceivedPushStatusResponse
+     *
+     * @param BatchQueryReceivedPushStatusRequest $request
+     *
+     * @return BatchQueryReceivedPushStatusResponse
+     */
+    public function batchQueryReceivedPushStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchQueryReceivedPushStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -673,6 +824,67 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkSelectedDomainStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建清仓拍订单.
+     *
+     * @param request - CreateCloseoutOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCloseoutOrderResponse
+     *
+     * @param CreateCloseoutOrderRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateCloseoutOrderResponse
+     */
+    public function createCloseoutOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCloseoutOrder',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCloseoutOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建清仓拍订单.
+     *
+     * @param request - CreateCloseoutOrderRequest
+     *
+     * @returns CreateCloseoutOrderResponse
+     *
+     * @param CreateCloseoutOrderRequest $request
+     *
+     * @return CreateCloseoutOrderResponse
+     */
+    public function createCloseoutOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCloseoutOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -1639,6 +1851,124 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * 查询清仓拍域名信息.
+     *
+     * @param request - QueryCloseoutDomainInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCloseoutDomainInfoResponse
+     *
+     * @param QueryCloseoutDomainInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryCloseoutDomainInfoResponse
+     */
+    public function queryCloseoutDomainInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCloseoutDomainInfo',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCloseoutDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询清仓拍域名信息.
+     *
+     * @param request - QueryCloseoutDomainInfoRequest
+     *
+     * @returns QueryCloseoutDomainInfoResponse
+     *
+     * @param QueryCloseoutDomainInfoRequest $request
+     *
+     * @return QueryCloseoutDomainInfoResponse
+     */
+    public function queryCloseoutDomainInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCloseoutDomainInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询清仓拍域名列表.
+     *
+     * @param request - QueryCloseoutDomainListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCloseoutDomainListResponse
+     *
+     * @param QueryCloseoutDomainListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryCloseoutDomainListResponse
+     */
+    public function queryCloseoutDomainListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->currentId) {
+            @$query['CurrentId'] = $request->currentId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCloseoutDomainList',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCloseoutDomainListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询清仓拍域名列表.
+     *
+     * @param request - QueryCloseoutDomainListRequest
+     *
+     * @returns QueryCloseoutDomainListResponse
+     *
+     * @param QueryCloseoutDomainListRequest $request
+     *
+     * @return QueryCloseoutDomainListResponse
+     */
+    public function queryCloseoutDomainList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCloseoutDomainListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - QueryDomainTransferStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1889,6 +2219,75 @@ class Domain extends OpenApiClient
     }
 
     /**
+     * 查询当前账号待接收的Push列表（买家视角）.
+     *
+     * @param request - QueryPendingPushListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryPendingPushListResponse
+     *
+     * @param QueryPendingPushListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryPendingPushListResponse
+     */
+    public function queryPendingPushListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryPendingPushList',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryPendingPushListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询当前账号待接收的Push列表（买家视角）.
+     *
+     * @param request - QueryPendingPushListRequest
+     *
+     * @returns QueryPendingPushListResponse
+     *
+     * @param QueryPendingPushListRequest $request
+     *
+     * @return QueryPendingPushListResponse
+     */
+    public function queryPendingPushList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPendingPushListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - QueryPurchasedDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2085,6 +2484,63 @@ class Domain extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->refuseDemandWithOptions($request, $runtime);
+    }
+
+    /**
+     * 买家（接收方）拒绝接收带价PUSH.
+     *
+     * @param request - RejectPushRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RejectPushResponse
+     *
+     * @param RejectPushRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RejectPushResponse
+     */
+    public function rejectPushWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pushNo) {
+            @$query['PushNo'] = $request->pushNo;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RejectPush',
+            'version' => '2018-02-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RejectPushResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 买家（接收方）拒绝接收带价PUSH.
+     *
+     * @param request - RejectPushRequest
+     *
+     * @returns RejectPushResponse
+     *
+     * @param RejectPushRequest $request
+     *
+     * @return RejectPushResponse
+     */
+    public function rejectPush($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rejectPushWithOptions($request, $runtime);
     }
 
     /**
