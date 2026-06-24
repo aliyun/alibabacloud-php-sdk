@@ -48,6 +48,11 @@ class extendedAttribute extends Model
     /**
      * @var string
      */
+    public $initialNotBefore;
+
+    /**
+     * @var string
+     */
     public $metricName;
 
     /**
@@ -97,6 +102,7 @@ class extendedAttribute extends Model
         'hostId' => 'HostId',
         'hostType' => 'HostType',
         'inactiveDisks' => 'InactiveDisks',
+        'initialNotBefore' => 'InitialNotBefore',
         'metricName' => 'MetricName',
         'metricValue' => 'MetricValue',
         'migrationOptions' => 'MigrationOptions',
@@ -148,6 +154,10 @@ class extendedAttribute extends Model
 
         if (null !== $this->inactiveDisks) {
             $res['InactiveDisks'] = null !== $this->inactiveDisks ? $this->inactiveDisks->toArray($noStream) : $this->inactiveDisks;
+        }
+
+        if (null !== $this->initialNotBefore) {
+            $res['InitialNotBefore'] = $this->initialNotBefore;
         }
 
         if (null !== $this->metricName) {
@@ -223,6 +233,10 @@ class extendedAttribute extends Model
 
         if (isset($map['InactiveDisks'])) {
             $model->inactiveDisks = inactiveDisks::fromMap($map['InactiveDisks']);
+        }
+
+        if (isset($map['InitialNotBefore'])) {
+            $model->initialNotBefore = $map['InitialNotBefore'];
         }
 
         if (isset($map['MetricName'])) {
