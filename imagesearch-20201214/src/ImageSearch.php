@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\ImageSearch\V20201214\Models\IncreaseInstanceRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\IncreaseInstanceResponse;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\IncreaseListRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\IncreaseListResponse;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByFilterRequest;
+use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByFilterResponse;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByNameRequest;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByNameResponse;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicAdvanceRequest;
@@ -55,7 +57,19 @@ class ImageSearch extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'eu-central-1' => 'imagesearch.eu-central-1.aliyuncs.com',
+            'cn-shenzhen' => 'imagesearch.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'imagesearch.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'imagesearch.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'imagesearch.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'imagesearch.cn-beijing.aliyuncs.com',
+            'ap-southeast-2' => 'imagesearch.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'imagesearch.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'imagesearch.ap-south-1.aliyuncs.com',
+            'ap-northeast-1' => 'imagesearch.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('imagesearch', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -105,11 +119,13 @@ class ImageSearch extends OpenApiClient
             try {
                 $_request = new Request();
                 $boundary = FormUtil::getBoundary();
+                $tmp = '' . @$form['host'];
+                $host = '' . $bucketName . '.' . $tmp . '';
                 $_request->protocol = 'HTTPS';
                 $_request->method = 'POST';
                 $_request->pathname = '/';
                 $_request->headers = [
-                    'host' => '' . @$form['host'],
+                    'host' => $host,
                     'date' => Utils::getDateUTCString(),
                     'user-agent' => Utils::getUserAgent(''),
                 ];
@@ -180,13 +196,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * Adds an image to an Image Search instance.
+     * Describes the syntax and provides examples of the AddImage operation, which adds image information to an Image Search instance.
      *
      * @remarks
-     * You can call this operation to add an image to an Image Search instance.
-     * > If you want to obtain more information about the service and technical support, click [Online Consulting](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or join the DingTalk group (ID 35035130).
-     * ## QPS limits
-     * By default, the concurrency limit for adding an image to instances whose image capacity specifications are 0.1 million images is 1. This means that the system can process up to one request of adding an image every second. By default, the concurrency limit for adding an image to instances of other image capacity specifications is 5. This means that the system can process up to five requests of adding an image every second.
+     * ## Description
+     * This operation adds image information to an Image Search instance.
+     * ## QPS limit
+     * An instance with a maximum image capacity of 100,000 has a default concurrency of 1, which means that a maximum of 1 image addition request can be processed per second.
+     * Instances with other image capacities have a default concurrency of 5, which means that a maximum of 5 image addition requests can be processed per second.
      *
      * @param Request - AddImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -285,13 +302,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * Adds an image to an Image Search instance.
+     * Describes the syntax and provides examples of the AddImage operation, which adds image information to an Image Search instance.
      *
      * @remarks
-     * You can call this operation to add an image to an Image Search instance.
-     * > If you want to obtain more information about the service and technical support, click [Online Consulting](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or join the DingTalk group (ID 35035130).
-     * ## QPS limits
-     * By default, the concurrency limit for adding an image to instances whose image capacity specifications are 0.1 million images is 1. This means that the system can process up to one request of adding an image every second. By default, the concurrency limit for adding an image to instances of other image capacity specifications is 5. This means that the system can process up to five requests of adding an image every second.
+     * ## Description
+     * This operation adds image information to an Image Search instance.
+     * ## QPS limit
+     * An instance with a maximum image capacity of 100,000 has a default concurrency of 1, which means that a maximum of 1 image addition request can be processed per second.
+     * Instances with other image capacities have a default concurrency of 5, which means that a maximum of 5 image addition requests can be processed per second.
      *
      * @param Request - AddImageRequest
      *
@@ -385,7 +403,7 @@ class ImageSearch extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -402,6 +420,14 @@ class ImageSearch extends OpenApiClient
 
     /**
      * CheckImageExists.
+     *
+     * @remarks
+     * ## How-To
+     * This API is used to query image information in an Image Search instance based on an image.
+     * ## QPS Limit
+     * The default maximum queries per second (QPS) for query operations can be viewed in the console. It corresponds to the Visit Frequency (QPS) you selected when purchasing the instance. Supported QPS values are 1, 5, and 10.
+     * ### SDK Version Guide
+     * Upgrade the Image SDK to version V3.1.1 to use the "subject identification" and "similarity score" features. For more information, see [Java SDK](https://help.aliyun.com/document_detail/179188.html).
      *
      * @param Request - CheckImageExistsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -450,6 +476,14 @@ class ImageSearch extends OpenApiClient
     /**
      * CheckImageExists.
      *
+     * @remarks
+     * ## How-To
+     * This API is used to query image information in an Image Search instance based on an image.
+     * ## QPS Limit
+     * The default maximum queries per second (QPS) for query operations can be viewed in the console. It corresponds to the Visit Frequency (QPS) you selected when purchasing the instance. Supported QPS values are 1, 5, and 10.
+     * ### SDK Version Guide
+     * Upgrade the Image SDK to version V3.1.1 to use the "subject identification" and "similarity score" features. For more information, see [Java SDK](https://help.aliyun.com/document_detail/179188.html).
+     *
      * @param Request - CheckImageExistsRequest
      *
      * @returns CheckImageExistsResponse
@@ -466,7 +500,7 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * 对比图片相似值
+     * Compares two images and returns a similarity score.
      *
      * @param Request - CompareSimilarByImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -513,7 +547,7 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * 对比图片相似值
+     * Compares two images and returns a similarity score.
      *
      * @param Request - CompareSimilarByImageRequest
      *
@@ -607,7 +641,7 @@ class ImageSearch extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -630,7 +664,7 @@ class ImageSearch extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -646,13 +680,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the DeleteImage operation and provides examples of this operation. You can call this operation to delete images from an Image Search instance.
+     * This topic describes the syntax and examples of the DeleteImage operation, which is used to delete image information from an Image Search instance.
      *
      * @remarks
-     * This operation deletes images from an Image Search instance.
-     * >  A success response is returned even if the specified image does not exist on the instance. Therefore, you cannot determine whether the image exists on the instance based on the response.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
+     * ## Operation description
+     * This operation is used to delete image information from an Image Search instance.
+     * >- If the specified image does not exist in the Image Search instance, this operation still returns a success response. Do not use the response to determine whether the image exists.
+     * ## QPS limit
+     * The default concurrency for delete operations is 20, which means a maximum of 20 delete requests can be processed per second.
      *
      * @param Request - DeleteImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -707,13 +742,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the DeleteImage operation and provides examples of this operation. You can call this operation to delete images from an Image Search instance.
+     * This topic describes the syntax and examples of the DeleteImage operation, which is used to delete image information from an Image Search instance.
      *
      * @remarks
-     * This operation deletes images from an Image Search instance.
-     * >  A success response is returned even if the specified image does not exist on the instance. Therefore, you cannot determine whether the image exists on the instance based on the response.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
+     * ## Operation description
+     * This operation is used to delete image information from an Image Search instance.
+     * >- If the specified image does not exist in the Image Search instance, this operation still returns a success response. Do not use the response to determine whether the image exists.
+     * ## QPS limit
+     * The default concurrency for delete operations is 20, which means a maximum of 20 delete requests can be processed per second.
      *
      * @param Request - DeleteImageRequest
      *
@@ -731,12 +767,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the Detail operation and provides examples of this operation. You can call this operation to query instance details.
+     * This topic describes the syntax and examples of the Detail operation, which queries information about an Image Search instance by name.
      *
      * @remarks
-     * This operation queries instance details.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process only 1 request every second.
+     * ## Operation description
+     * This operation queries instance information from an Image Search instance.
+     * > For more product details or technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for query operations is 1, which means a maximum of 1 request is processed per second.
      *
      * @param Request - DetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -775,12 +813,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the Detail operation and provides examples of this operation. You can call this operation to query instance details.
+     * This topic describes the syntax and examples of the Detail operation, which queries information about an Image Search instance by name.
      *
      * @remarks
-     * This operation queries instance details.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process only 1 request every second.
+     * ## Operation description
+     * This operation queries instance information from an Image Search instance.
+     * > For more product details or technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for query operations is 1, which means a maximum of 1 request is processed per second.
      *
      * @param Request - DetailRequest
      *
@@ -798,12 +838,15 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the DumpMeta operation and provides examples of this operation. You can call this operation to create a task for exporting metadata from an Image Search instance.
+     * This topic describes the syntax and examples of the DumpMeta operation, which creates a metadata export task for Image Search by name.
      *
      * @remarks
-     * This operation creates a task for exporting metadata from an Image Search instance.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     * ## Operation description
+     * This operation submits a metadata export task to an Image Search instance.
+     * > For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for submit operations is 1, which means a maximum of 1 request is processed per second.
+     * > You cannot submit a new metadata export task while the previous metadata export task is still in progress.
      *
      * @param Request - DumpMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -842,12 +885,15 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the DumpMeta operation and provides examples of this operation. You can call this operation to create a task for exporting metadata from an Image Search instance.
+     * This topic describes the syntax and examples of the DumpMeta operation, which creates a metadata export task for Image Search by name.
      *
      * @remarks
-     * This operation creates a task for exporting metadata from an Image Search instance.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     * ## Operation description
+     * This operation submits a metadata export task to an Image Search instance.
+     * > For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for submit operations is 1, which means a maximum of 1 request is processed per second.
+     * > You cannot submit a new metadata export task while the previous metadata export task is still in progress.
      *
      * @param Request - DumpMetaRequest
      *
@@ -865,12 +911,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the DumpMetaList operation and provides examples of this operation. You can call this operation to query tasks that are used for exporting metadata from an Image Search instance.
+     * Describes the syntax and provides examples of the DumpMetaList operation, which queries the list of metadata export tasks in an Image Search instance.
      *
      * @remarks
-     * This operation queries tasks that are used for exporting metadata from an Image Search instance.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     * ## Operation description
+     * This operation queries metadata export tasks in an Image Search instance.
+     * > For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for query operations is 1, which means a maximum of 1 request is processed per second.
      *
      * @param Request - DumpMetaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -921,12 +969,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the DumpMetaList operation and provides examples of this operation. You can call this operation to query tasks that are used for exporting metadata from an Image Search instance.
+     * Describes the syntax and provides examples of the DumpMetaList operation, which queries the list of metadata export tasks in an Image Search instance.
      *
      * @remarks
-     * This operation queries tasks that are used for exporting metadata from an Image Search instance.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     * ## Operation description
+     * This operation queries metadata export tasks in an Image Search instance.
+     * > For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for query operations is 1, which means a maximum of 1 request is processed per second.
      *
      * @param Request - DumpMetaListRequest
      *
@@ -944,12 +994,15 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the IncreaseInstance operation and provides examples of this operation. You can call this operation to create a batch task on an Image Search instance.
+     * Describes the syntax and provides examples of the IncreaseInstance operation, which is used to create a batch task for an Image Search instance by name.
      *
      * @remarks
-     * This operation creates a batch task on an Image Search instance.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     * ## Operation description
+     * This operation is used to submit a batch task to an Image Search instance.
+     * > <props="china">For more information about the product or technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us by using DingTalk group 35035130.
+     * ## QPS limit
+     * Only one batch task can run at a time.
+     * > You cannot submit a new batch task until the previous batch task is complete.
      *
      * @param Request - IncreaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1000,12 +1053,15 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the IncreaseInstance operation and provides examples of this operation. You can call this operation to create a batch task on an Image Search instance.
+     * Describes the syntax and provides examples of the IncreaseInstance operation, which is used to create a batch task for an Image Search instance by name.
      *
      * @remarks
-     * This operation creates a batch task on an Image Search instance.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     * ## Operation description
+     * This operation is used to submit a batch task to an Image Search instance.
+     * > <props="china">For more information about the product or technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us by using DingTalk group 35035130.
+     * ## QPS limit
+     * Only one batch task can run at a time.
+     * > You cannot submit a new batch task until the previous batch task is complete.
      *
      * @param Request - IncreaseInstanceRequest
      *
@@ -1023,12 +1079,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the IncreaseList operation and provides examples of this operation. You can call this operation to query batch tasks on an Image Search instance.
+     * Queries the list of batch tasks in an Image Search instance by calling the IncreaseList operation. This topic describes the syntax and provides examples.
      *
      * @remarks
-     * This operation queries batch tasks on an Image Search instance.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     * ## Operation description
+     * This operation is used to query batch tasks in an Image Search instance.
+     * > For more product details or technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for query operations is 1, which means a maximum of 1 request is processed per second.
      *
      * @param Request - IncreaseListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1087,12 +1145,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the IncreaseList operation and provides examples of this operation. You can call this operation to query batch tasks on an Image Search instance.
+     * Queries the list of batch tasks in an Image Search instance by calling the IncreaseList operation. This topic describes the syntax and provides examples.
      *
      * @remarks
-     * This operation queries batch tasks on an Image Search instance.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 1. In this case, the system can process at most 1 request every second.
+     * ## Operation description
+     * This operation is used to query batch tasks in an Image Search instance.
+     * > For more product details or technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for query operations is 1, which means a maximum of 1 request is processed per second.
      *
      * @param Request - IncreaseListRequest
      *
@@ -1110,12 +1170,83 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the SearchByName operation and provides examples of this operation. You can call this operation to search for images by image name on an Image Search instance.
+     * This topic describes the syntax and examples of SearchImageByFilter, which is used to query image information in an Image Search instance based on filter conditions.
+     *
+     * @param Request - SearchImageByFilterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchImageByFilterResponse
+     *
+     * @param SearchImageByFilterRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SearchImageByFilterResponse
+     */
+    public function searchImageByFilterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->filter) {
+            @$body['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->num) {
+            @$body['Num'] = $request->num;
+        }
+
+        if (null !== $request->start) {
+            @$body['Start'] = $request->start;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SearchImageByFilter',
+            'version' => '2020-12-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchImageByFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * This topic describes the syntax and examples of SearchImageByFilter, which is used to query image information in an Image Search instance based on filter conditions.
+     *
+     * @param Request - SearchImageByFilterRequest
+     *
+     * @returns SearchImageByFilterResponse
+     *
+     * @param SearchImageByFilterRequest $request
+     *
+     * @return SearchImageByFilterResponse
+     */
+    public function searchImageByFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchImageByFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * This topic describes the syntax and examples of the SearchByName operation, which is used to query image information in an Image Search instance by name.
      *
      * @remarks
-     * This operation searches for images by image name on an Image Search instance.
-     * ## QPS limits
-     * The maximum number of queries per second is displayed in the Image Search console. The upper limit is specified when you purchase the instance. You can set the upper limit to 5 QPS or 10 QPS.
+     * ### Operation description
+     * This operation queries image information in an Image Search instance by name (ProductId and PicName).
+     * > For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ### QPS limit
+     * The default maximum query rate can be viewed in the console. It is the QPS value you selected at the time of purchase. Currently supported values are 1 QPS, 5 QPS, and 10 QPS.
      *
      * @param Request - SearchImageByNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1188,12 +1319,14 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the SearchByName operation and provides examples of this operation. You can call this operation to search for images by image name on an Image Search instance.
+     * This topic describes the syntax and examples of the SearchByName operation, which is used to query image information in an Image Search instance by name.
      *
      * @remarks
-     * This operation searches for images by image name on an Image Search instance.
-     * ## QPS limits
-     * The maximum number of queries per second is displayed in the Image Search console. The upper limit is specified when you purchase the instance. You can set the upper limit to 5 QPS or 10 QPS.
+     * ### Operation description
+     * This operation queries image information in an Image Search instance by name (ProductId and PicName).
+     * > For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ### QPS limit
+     * The default maximum query rate can be viewed in the console. It is the QPS value you selected at the time of purchase. Currently supported values are 1 QPS, 5 QPS, and 10 QPS.
      *
      * @param Request - SearchImageByNameRequest
      *
@@ -1211,14 +1344,16 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the SearchByPic operation and provides examples of this operation. You can call this operation to search for images by image on an Image Search Instance.
+     * This topic describes the syntax and examples of SearchByPic, which is used to search for image information in an Image Search instance by image.
      *
      * @remarks
-     * This operation searches for images by image name on an Image Search instance.
-     * ## QPS limits
-     * The maximum number of queries per second is displayed in the Image Search console. The upper limit is specified when you purchase the instance. You can set the upper limit to 5 QPS or 10 QPS.
-     * ## SDK release notes
-     * The Image Search SDK has been upgraded to version 3.1.1, which supports multi-subject recognition and similarity scores. For more information, see [Image Search SDK for Java](/help/en/image-search/latest/version-v3-java-sdk).
+     * ## Operation description
+     * This operation is used to search for image information in an Image Search instance by image.
+     * > <props="china">For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * You can view the default maximum access frequency for query operations in the console. The frequency is the QPS value that you selected when you made the purchase. The supported values are 1 QPS, 5 QPS, and 10 QPS.
+     * ### SDK version description
+     * Upgrade the Image Search SDK to V3.1.1 to use the multi-subject identification and similarity score features. For more information, see [Java SDK](https://help.aliyun.com/document_detail/179188.html).
      *
      * @param Request - SearchImageByPicRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1295,14 +1430,16 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the SearchByPic operation and provides examples of this operation. You can call this operation to search for images by image on an Image Search Instance.
+     * This topic describes the syntax and examples of SearchByPic, which is used to search for image information in an Image Search instance by image.
      *
      * @remarks
-     * This operation searches for images by image name on an Image Search instance.
-     * ## QPS limits
-     * The maximum number of queries per second is displayed in the Image Search console. The upper limit is specified when you purchase the instance. You can set the upper limit to 5 QPS or 10 QPS.
-     * ## SDK release notes
-     * The Image Search SDK has been upgraded to version 3.1.1, which supports multi-subject recognition and similarity scores. For more information, see [Image Search SDK for Java](/help/en/image-search/latest/version-v3-java-sdk).
+     * ## Operation description
+     * This operation is used to search for image information in an Image Search instance by image.
+     * > <props="china">For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through DingTalk group (35035130).
+     * ## QPS limit
+     * You can view the default maximum access frequency for query operations in the console. The frequency is the QPS value that you selected when you made the purchase. The supported values are 1 QPS, 5 QPS, and 10 QPS.
+     * ### SDK version description
+     * Upgrade the Image Search SDK to V3.1.1 to use the multi-subject identification and similarity score features. For more information, see [Java SDK](https://help.aliyun.com/document_detail/179188.html).
      *
      * @param Request - SearchImageByPicRequest
      *
@@ -1396,7 +1533,7 @@ class ImageSearch extends OpenApiClient
                 'contentType' => '',
             ]);
             $ossHeader = [
-                'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
                 'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                 'policy' => @$authResponseBody['EncodedPolicy'],
                 'Signature' => @$authResponseBody['Signature'],
@@ -1412,7 +1549,16 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * SearchImageByText.
+     * This topic describes the syntax and examples of SearchImageByText, which is used to search for image information in an Image Search instance based on text.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation is used to search for image information in an Image Search instance based on text. This operation is available only for instances whose service type is product multimodal search.
+     * > <props="china">For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through the DingTalk group (35035130).
+     * ## QPS limit
+     * You can view the default maximum access frequency for query operations in the console. The frequency is the QPS value you selected at the time of purchase. Currently supported values are 1 QPS, 5 QPS, and 10 QPS.
+     * ### SDK version description
+     * Upgrade the Image Search SDK to V3.1.1 to use the multi-subject identification and similarity score features. For more information, see [Java SDK](https://help.aliyun.com/document_detail/179188.html).
      *
      * @param Request - SearchImageByTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1477,7 +1623,16 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * SearchImageByText.
+     * This topic describes the syntax and examples of SearchImageByText, which is used to search for image information in an Image Search instance based on text.
+     *
+     * @remarks
+     * ## Operation description
+     * This operation is used to search for image information in an Image Search instance based on text. This operation is available only for instances whose service type is product multimodal search.
+     * > <props="china">For more product details and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through the DingTalk group (35035130).
+     * ## QPS limit
+     * You can view the default maximum access frequency for query operations in the console. The frequency is the QPS value you selected at the time of purchase. Currently supported values are 1 QPS, 5 QPS, and 10 QPS.
+     * ### SDK version description
+     * Upgrade the Image Search SDK to V3.1.1 to use the multi-subject identification and similarity score features. For more information, see [Java SDK](https://help.aliyun.com/document_detail/179188.html).
      *
      * @param Request - SearchImageByTextRequest
      *
@@ -1495,14 +1650,19 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the UpdateImage operation and provides examples of this operation. You can call this operation to update image information on an Image Search instance.
+     * Updates the image information in an Image Search instance.
      *
      * @remarks
-     * This operation updates image information on an Image Search instance.
-     * > *   Limits are imposed on the instance creation time.
-     * >*   This operation is supported by instances that are created in the Singapore (Singapore) region after December 2021. This operation is not supported in other regions.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
+     * ## Usage notes
+     * This operation updates the image information in an Image Search instance based on the product ID and image name.
+     * > - The instance must meet the creation date requirements.
+     * <props="china">
+     * - Instances created after June 2021 in the Shanghai and Hangzhou regions are supported. Instances in other regions can be used normally.
+     * <props="intl">
+     * - Instances created after December 2021 in the Singapore region are supported. Instances in other regions are currently unavailable.
+     * - For more information about the product and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through the DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for update operations is 20, which means that a maximum of 20 requests can be processed per second.
      *
      * @param Request - UpdateImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1587,14 +1747,19 @@ class ImageSearch extends OpenApiClient
     }
 
     /**
-     * This topic describes the syntax of the UpdateImage operation and provides examples of this operation. You can call this operation to update image information on an Image Search instance.
+     * Updates the image information in an Image Search instance.
      *
      * @remarks
-     * This operation updates image information on an Image Search instance.
-     * > *   Limits are imposed on the instance creation time.
-     * >*   This operation is supported by instances that are created in the Singapore (Singapore) region after December 2021. This operation is not supported in other regions.
-     * ## QPS limits
-     * By default, the maximum number of queries supported by this operation is 20. In this case, the system can process at most 20 requests every second.
+     * ## Usage notes
+     * This operation updates the image information in an Image Search instance based on the product ID and image name.
+     * > - The instance must meet the creation date requirements.
+     * <props="china">
+     * - Instances created after June 2021 in the Shanghai and Hangzhou regions are supported. Instances in other regions can be used normally.
+     * <props="intl">
+     * - Instances created after December 2021 in the Singapore region are supported. Instances in other regions are currently unavailable.
+     * - For more information about the product and technical support, click [Online Consultation](https://www.aliyun.com/core/online-consult?from=aZgW6LJHr2) or contact us through the DingTalk group (35035130).
+     * ## QPS limit
+     * The default concurrency for update operations is 20, which means that a maximum of 20 requests can be processed per second.
      *
      * @param Request - UpdateImageRequest
      *
