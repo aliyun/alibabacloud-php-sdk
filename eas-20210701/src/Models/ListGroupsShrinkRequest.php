@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListGroupsRequest extends Model
+class ListGroupsShrinkRequest extends Model
 {
     /**
      * @var string
@@ -14,9 +14,9 @@ class ListGroupsRequest extends Model
     public $filter;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $labels;
+    public $labelsShrink;
 
     /**
      * @var string
@@ -49,7 +49,7 @@ class ListGroupsRequest extends Model
     public $workspaceId;
     protected $_name = [
         'filter' => 'Filter',
-        'labels' => 'Labels',
+        'labelsShrink' => 'Labels',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -60,9 +60,6 @@ class ListGroupsRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->labels)) {
-            Model::validateArray($this->labels);
-        }
         parent::validate();
     }
 
@@ -73,13 +70,8 @@ class ListGroupsRequest extends Model
             $res['Filter'] = $this->filter;
         }
 
-        if (null !== $this->labels) {
-            if (\is_array($this->labels)) {
-                $res['Labels'] = [];
-                foreach ($this->labels as $key1 => $value1) {
-                    $res['Labels'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->labelsShrink) {
+            $res['Labels'] = $this->labelsShrink;
         }
 
         if (null !== $this->order) {
@@ -122,12 +114,7 @@ class ListGroupsRequest extends Model
         }
 
         if (isset($map['Labels'])) {
-            if (!empty($map['Labels'])) {
-                $model->labels = [];
-                foreach ($map['Labels'] as $key1 => $value1) {
-                    $model->labels[$key1] = $value1;
-                }
-            }
+            $model->labelsShrink = $map['Labels'];
         }
 
         if (isset($map['Order'])) {

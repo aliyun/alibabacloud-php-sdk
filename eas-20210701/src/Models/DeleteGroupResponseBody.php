@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateGroupResponseBody extends Model
+class DeleteGroupResponseBody extends Model
 {
     /**
      * @var string

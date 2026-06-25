@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateGroupResponseBody extends Model
+class DeleteGroupRequest extends Model
 {
     /**
      * @var string
      */
-    public $message;
-
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $cascadeDelete;
     protected $_name = [
-        'message' => 'Message',
-        'requestId' => 'RequestId',
+        'cascadeDelete' => 'CascadeDelete',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class UpdateGroupResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
-        }
-
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->cascadeDelete) {
+            $res['CascadeDelete'] = $this->cascadeDelete;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class UpdateGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
-        }
-
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CascadeDelete'])) {
+            $model->cascadeDelete = $map['CascadeDelete'];
         }
 
         return $model;

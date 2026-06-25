@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eas\V20210701\Models\Group\labels;
+use AlibabaCloud\SDK\Eas\V20210701\Models\Group\network;
 
 class Group extends Model
 {
@@ -12,6 +14,11 @@ class Group extends Model
      * @var string
      */
     public $accessToken;
+
+    /**
+     * @var string
+     */
+    public $callerUid;
 
     /**
      * @var string
@@ -34,9 +41,24 @@ class Group extends Model
     public $intranetEndpoint;
 
     /**
+     * @var labels[]
+     */
+    public $labels;
+
+    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var network
+     */
+    public $network;
+
+    /**
+     * @var string
+     */
+    public $parentUid;
 
     /**
      * @var string
@@ -54,11 +76,15 @@ class Group extends Model
     public $updateTime;
     protected $_name = [
         'accessToken' => 'AccessToken',
+        'callerUid' => 'CallerUid',
         'clusterId' => 'ClusterId',
         'createTime' => 'CreateTime',
         'internetEndpoint' => 'InternetEndpoint',
         'intranetEndpoint' => 'IntranetEndpoint',
+        'labels' => 'Labels',
         'name' => 'Name',
+        'network' => 'Network',
+        'parentUid' => 'ParentUid',
         'queueService' => 'QueueService',
         'trafficMode' => 'TrafficMode',
         'updateTime' => 'UpdateTime',
@@ -66,6 +92,12 @@ class Group extends Model
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (null !== $this->network) {
+            $this->network->validate();
+        }
         parent::validate();
     }
 
@@ -74,6 +106,10 @@ class Group extends Model
         $res = [];
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
+        }
+
+        if (null !== $this->callerUid) {
+            $res['CallerUid'] = $this->callerUid;
         }
 
         if (null !== $this->clusterId) {
@@ -92,8 +128,27 @@ class Group extends Model
             $res['IntranetEndpoint'] = $this->intranetEndpoint;
         }
 
+        if (null !== $this->labels) {
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->network) {
+            $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
+        }
+
+        if (null !== $this->parentUid) {
+            $res['ParentUid'] = $this->parentUid;
         }
 
         if (null !== $this->queueService) {
@@ -123,6 +178,10 @@ class Group extends Model
             $model->accessToken = $map['AccessToken'];
         }
 
+        if (isset($map['CallerUid'])) {
+            $model->callerUid = $map['CallerUid'];
+        }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
@@ -139,8 +198,27 @@ class Group extends Model
             $model->intranetEndpoint = $map['IntranetEndpoint'];
         }
 
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['Network'])) {
+            $model->network = network::fromMap($map['Network']);
+        }
+
+        if (isset($map['ParentUid'])) {
+            $model->parentUid = $map['ParentUid'];
         }
 
         if (isset($map['QueueService'])) {

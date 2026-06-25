@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eas\V20210701\Models;
+namespace AlibabaCloud\SDK\Eas\V20210701\Models\Group;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateGroupResponseBody extends Model
+class labels extends Model
 {
     /**
      * @var string
      */
-    public $message;
+    public $labelKey;
 
     /**
      * @var string
      */
-    public $requestId;
+    public $labelValue;
     protected $_name = [
-        'message' => 'Message',
-        'requestId' => 'RequestId',
+        'labelKey' => 'LabelKey',
+        'labelValue' => 'LabelValue',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class UpdateGroupResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->labelKey) {
+            $res['LabelKey'] = $this->labelKey;
         }
 
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->labelValue) {
+            $res['LabelValue'] = $this->labelValue;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class UpdateGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['LabelKey'])) {
+            $model->labelKey = $map['LabelKey'];
         }
 
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['LabelValue'])) {
+            $model->labelValue = $map['LabelValue'];
         }
 
         return $model;

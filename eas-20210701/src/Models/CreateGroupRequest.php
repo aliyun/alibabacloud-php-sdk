@@ -5,14 +5,19 @@
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Eas\V20210701\Models\UpdateGroupRequest\network;
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateGroupRequest\network;
 
-class UpdateGroupRequest extends Model
+class CreateGroupRequest extends Model
 {
     /**
      * @var string[]
      */
     public $labels;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var network
@@ -22,11 +27,12 @@ class UpdateGroupRequest extends Model
     /**
      * @var string
      */
-    public $trafficMode;
+    public $workSpaceId;
     protected $_name = [
         'labels' => 'Labels',
+        'name' => 'Name',
         'network' => 'Network',
-        'trafficMode' => 'TrafficMode',
+        'workSpaceId' => 'WorkSpaceId',
     ];
 
     public function validate()
@@ -52,12 +58,16 @@ class UpdateGroupRequest extends Model
             }
         }
 
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
         if (null !== $this->network) {
             $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
 
-        if (null !== $this->trafficMode) {
-            $res['TrafficMode'] = $this->trafficMode;
+        if (null !== $this->workSpaceId) {
+            $res['WorkSpaceId'] = $this->workSpaceId;
         }
 
         return $res;
@@ -80,12 +90,16 @@ class UpdateGroupRequest extends Model
             }
         }
 
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
         }
 
-        if (isset($map['TrafficMode'])) {
-            $model->trafficMode = $map['TrafficMode'];
+        if (isset($map['WorkSpaceId'])) {
+            $model->workSpaceId = $map['WorkSpaceId'];
         }
 
         return $model;
