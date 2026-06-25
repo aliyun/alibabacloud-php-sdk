@@ -324,6 +324,23 @@ class Sae extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'sae.us-west-1.aliyuncs.com',
+            'us-east-1' => 'sae.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'sae.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'sae.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'sae.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'sae.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'sae.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'sae.cn-hongkong.aliyuncs.com',
+            'cn-heyuan' => 'sae.cn-heyuan.aliyuncs.com',
+            'cn-hangzhou' => 'sae.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'sae.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'sae.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'sae.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'sae.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'sae.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('sae', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -414,7 +431,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Terminate a change order.
+     * This operation stops a change order.
      *
      * @param request - AbortChangeOrderRequest
      * @param headers - map
@@ -460,7 +477,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Terminate a change order.
+     * This operation stops a change order.
      *
      * @param request - AbortChangeOrderRequest
      *
@@ -682,7 +699,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Associates a Network Load Balancer (NLB) instance with an application.
+     * Binds a Network Load Balancer (NLB) instance to an application.
      *
      * @param request - BindNlbRequest
      * @param headers - map
@@ -740,7 +757,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Associates a Network Load Balancer (NLB) instance with an application.
+     * Binds a Network Load Balancer (NLB) instance to an application.
      *
      * @param request - BindNlbRequest
      *
@@ -909,7 +926,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates an application.
+     * Create an application.
      *
      * @param tmpReq - CreateApplicationRequest
      * @param headers - map
@@ -1311,7 +1328,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates an application.
+     * Create an application.
      *
      * @param request - CreateApplicationRequest
      *
@@ -1330,15 +1347,15 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates an auto scaling policy for an application.
+     * Create an application auto scaling policy.
      *
      * @remarks
-     * ## [](#)Precautions
-     * *   You can create up to five auto scaling policies for one application.
-     * *   You can create up to 20 trigger points within one day in a scheduled auto scaling policy.
-     * *   If an auto scaling policy is enabled for an application, you cannot manually manage the lifecycle of the application. For example, you cannot scale, deploy (including single-batch release, phased release, and canary release), stop, or restart the application, or change the instance type. If you want to perform the preceding operations on the application, disable the auto scaling policy and then manually perform the operations.
-     * *   If an application is in the process of scale-out, scale-in, deployment (including single-batch release, phased release, and canary release), instance type change, restart, or stop, you cannot add or enable an auto scaling policy for the application.
-     * *   If you want to configure more than 50 instances for an application, you must contact SAE technical support to add your account to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
+     * ## Usage notes
+     * - You can create up to five elasticity policies per application.
+     * - For each scheduled elasticity policy, you can create up to 20 trigger points per day.
+     * - While an elasticity policy is enabled, do not manually perform operations on the application, such as scaling, deployment, changing specifications, restarting, or stopping. To perform these operations, disable the policy first.
+     * - You cannot add or enable an elasticity policy for an application that is undergoing a scale-out, scale-in, deployment (single-batch, phased, or canary), specification change, restart, or stop.
+     * - To scale out an application to more than 50 instances, contact SAE technical support to be added to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
      *
      * @param request - CreateApplicationScalingRuleRequest
      * @param headers - map
@@ -1412,15 +1429,15 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates an auto scaling policy for an application.
+     * Create an application auto scaling policy.
      *
      * @remarks
-     * ## [](#)Precautions
-     * *   You can create up to five auto scaling policies for one application.
-     * *   You can create up to 20 trigger points within one day in a scheduled auto scaling policy.
-     * *   If an auto scaling policy is enabled for an application, you cannot manually manage the lifecycle of the application. For example, you cannot scale, deploy (including single-batch release, phased release, and canary release), stop, or restart the application, or change the instance type. If you want to perform the preceding operations on the application, disable the auto scaling policy and then manually perform the operations.
-     * *   If an application is in the process of scale-out, scale-in, deployment (including single-batch release, phased release, and canary release), instance type change, restart, or stop, you cannot add or enable an auto scaling policy for the application.
-     * *   If you want to configure more than 50 instances for an application, you must contact SAE technical support to add your account to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
+     * ## Usage notes
+     * - You can create up to five elasticity policies per application.
+     * - For each scheduled elasticity policy, you can create up to 20 trigger points per day.
+     * - While an elasticity policy is enabled, do not manually perform operations on the application, such as scaling, deployment, changing specifications, restarting, or stopping. To perform these operations, disable the policy first.
+     * - You cannot add or enable an elasticity policy for an application that is undergoing a scale-out, scale-in, deployment (single-batch, phased, or canary), specification change, restart, or stop.
+     * - To scale out an application to more than 50 instances, contact SAE technical support to be added to the whitelist. For more information, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
      *
      * @param request - CreateApplicationScalingRuleRequest
      *
@@ -1514,10 +1531,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates a canary release rule for a Spring Cloud or Dubbo application.
+     * Create a canary release rule for a Spring Cloud or Dubbo application.
      *
      * @remarks
-     * >  You can configure only one canary release rule for each application.
+     * > You can currently configure only one canary rule per application.
      *
      * @param request - CreateGreyTagRouteRequest
      * @param headers - map
@@ -1579,10 +1596,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates a canary release rule for a Spring Cloud or Dubbo application.
+     * Create a canary release rule for a Spring Cloud or Dubbo application.
      *
      * @remarks
-     * >  You can configure only one canary release rule for each application.
+     * > You can currently configure only one canary rule per application.
      *
      * @param request - CreateGreyTagRouteRequest
      *
@@ -1601,7 +1618,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates a routing rule.
+     * Create a routing rule.
      *
      * @param request - CreateIngressRequest
      * @param headers - map
@@ -1733,7 +1750,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates a routing rule.
+     * Create a routing rule.
      *
      * @param request - CreateIngressRequest
      *
@@ -1752,7 +1769,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Create a job template.
+     * This operation creates a job template.
      *
      * @param request - CreateJobRequest
      * @param headers - map
@@ -2016,7 +2033,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Create a job template.
+     * This operation creates a job template.
      *
      * @param request - CreateJobRequest
      *
@@ -2035,7 +2052,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Create a namespace.
+     * Creates a namespace.
      *
      * @param request - CreateNamespaceRequest
      * @param headers - map
@@ -2093,7 +2110,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Create a namespace.
+     * Creates a namespace.
      *
      * @param request - CreateNamespaceRequest
      *
@@ -2112,7 +2129,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates or updates a lane.
+     * Create or update a swimlane.
      *
      * @param tmpReq - CreateOrUpdateSwimmingLaneRequest
      * @param headers - map
@@ -2196,7 +2213,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates or updates a lane.
+     * Create or update a swimlane.
      *
      * @param request - CreateOrUpdateSwimmingLaneRequest
      *
@@ -2215,7 +2232,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates or updates a lane group.
+     * Creates or updates a swimming lane group.
      *
      * @param tmpReq - CreateOrUpdateSwimmingLaneGroupRequest
      * @param headers - map
@@ -2287,7 +2304,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Creates or updates a lane group.
+     * Creates or updates a swimming lane group.
      *
      * @param request - CreateOrUpdateSwimmingLaneGroupRequest
      *
@@ -2582,7 +2599,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 7171a6ca-d1cd-4928-8642-7d5cfe69\\\\*\\\\*\\\\*\\\\*.
+     * Deletes an Auto Scaling policy for an application.
      *
      * @param request - DeleteApplicationScalingRuleRequest
      * @param headers - map
@@ -2628,7 +2645,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * 7171a6ca-d1cd-4928-8642-7d5cfe69\\\\*\\\\*\\\\*\\\\*.
+     * Deletes an Auto Scaling policy for an application.
      *
      * @param request - DeleteApplicationScalingRuleRequest
      *
@@ -2647,7 +2664,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a ConfigMap.
+     * Deletes a ConfigMap instance.
      *
      * @param request - DeleteConfigMapRequest
      * @param headers - map
@@ -2689,7 +2706,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a ConfigMap.
+     * Deletes a ConfigMap instance.
      *
      * @param request - DeleteConfigMapRequest
      *
@@ -2708,7 +2725,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a canary release rule based on the specified rule ID.
+     * Deletes a grey tag route by the specified rule ID.
      *
      * @param request - DeleteGreyTagRouteRequest
      * @param headers - map
@@ -2750,7 +2767,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a canary release rule based on the specified rule ID.
+     * Deletes a grey tag route by the specified rule ID.
      *
      * @param request - DeleteGreyTagRouteRequest
      *
@@ -2834,7 +2851,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a routing rule.
+     * Deletes an ingress instance.
      *
      * @param request - DeleteIngressRequest
      * @param headers - map
@@ -2876,7 +2893,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a routing rule.
+     * Deletes an ingress instance.
      *
      * @param request - DeleteIngressRequest
      *
@@ -2895,7 +2912,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes an application instance.
+     * Deletes one or more application instances.
      *
      * @param request - DeleteInstancesRequest
      * @param headers - map
@@ -2941,7 +2958,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes an application instance.
+     * Deletes one or more application instances.
      *
      * @param request - DeleteInstancesRequest
      *
@@ -3021,7 +3038,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Delete a namespace.
+     * Deletes a namespace.
      *
      * @param request - DeleteNamespaceRequest
      * @param headers - map
@@ -3067,7 +3084,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Delete a namespace.
+     * Deletes a namespace.
      *
      * @param request - DeleteNamespaceRequest
      *
@@ -3086,7 +3103,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a Secret.
+     * Deletes a secret.
      *
      * @param request - DeleteSecretRequest
      * @param headers - map
@@ -3132,7 +3149,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a Secret.
+     * Deletes a secret.
      *
      * @param request - DeleteSecretRequest
      *
@@ -3151,7 +3168,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a lane group.
+     * Deletes a swimming lane group.
      *
      * @param request - DeleteSwimmingLaneGroupRequest
      * @param headers - map
@@ -3197,7 +3214,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deletes a lane group.
+     * Deletes a swimming lane group.
      *
      * @param request - DeleteSwimmingLaneGroupRequest
      *
@@ -3425,7 +3442,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deploys an application.
+     * Deploy an application.
      *
      * @param tmpReq - DeployApplicationRequest
      * @param headers - map
@@ -3819,7 +3836,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deploys an application.
+     * Deploy an application.
      *
      * @param request - DeployApplicationRequest
      *
@@ -3838,7 +3855,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the metadata details of the service of an application.
+     * Describes the metadata details of an application service.
      *
      * @param request - DescribeAppServiceDetailRequest
      * @param headers - map
@@ -3904,7 +3921,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the metadata details of the service of an application.
+     * Describes the metadata details of an application service.
      *
      * @param request - DescribeAppServiceDetailRequest
      *
@@ -3923,7 +3940,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an application.
+     * Retrieves the configuration of an application.
      *
      * @param request - DescribeApplicationConfigRequest
      * @param headers - map
@@ -3969,7 +3986,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an application.
+     * Retrieves the configuration of an application.
      *
      * @param request - DescribeApplicationConfigRequest
      *
@@ -3988,7 +4005,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the instance groups of an application.
+     * Use `DescribeApplicationGroups` to retrieve application instance groups.
      *
      * @param request - DescribeApplicationGroupsRequest
      * @param headers - map
@@ -4038,7 +4055,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the instance groups of an application.
+     * Use `DescribeApplicationGroups` to retrieve application instance groups.
      *
      * @param request - DescribeApplicationGroupsRequest
      *
@@ -4057,7 +4074,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the information about the image of an application.
+     * Retrieves information about an application image.
      *
      * @param request - DescribeApplicationImageRequest
      * @param headers - map
@@ -4103,7 +4120,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the information about the image of an application.
+     * Retrieves information about an application image.
      *
      * @param request - DescribeApplicationImageRequest
      *
@@ -4122,7 +4139,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of application instances.
+     * Retrieves a list of application instances.
      *
      * @param request - DescribeApplicationInstancesRequest
      * @param headers - map
@@ -4188,7 +4205,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of application instances.
+     * Retrieves a list of application instances.
      *
      * @param request - DescribeApplicationInstancesRequest
      *
@@ -4272,7 +4289,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the Network Load Balancer (NLB) instances bound to an application and their listeners.
+     * View the NLB configuration for the application.
      *
      * @param request - DescribeApplicationNlbsRequest
      * @param headers - map
@@ -4314,7 +4331,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the Network Load Balancer (NLB) instances bound to an application and their listeners.
+     * View the NLB configuration for the application.
      *
      * @param request - DescribeApplicationNlbsRequest
      *
@@ -4333,7 +4350,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries an Auto Scaling policy of an application.
+     * Describes a single auto scaling policy for an application.
      *
      * @param request - DescribeApplicationScalingRuleRequest
      * @param headers - map
@@ -4379,7 +4396,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries an Auto Scaling policy of an application.
+     * Describes a single auto scaling policy for an application.
      *
      * @param request - DescribeApplicationScalingRuleRequest
      *
@@ -4398,7 +4415,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the auto scaling policies of an application.
+     * Describes the Auto Scaling policies for an application.
      *
      * @param request - DescribeApplicationScalingRulesRequest
      * @param headers - map
@@ -4440,7 +4457,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the auto scaling policies of an application.
+     * Describes the Auto Scaling policies for an application.
      *
      * @param request - DescribeApplicationScalingRulesRequest
      *
@@ -4459,7 +4476,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Obtain the SLB configuration of an application.
+     * Queries the configurations of Server Load Balancer (SLB) instances for an application.
      *
      * @param request - DescribeApplicationSlbsRequest
      * @param headers - map
@@ -4501,7 +4518,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Obtain the SLB configuration of an application.
+     * Queries the configurations of Server Load Balancer (SLB) instances for an application.
      *
      * @param request - DescribeApplicationSlbsRequest
      *
@@ -4520,7 +4537,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the status of an application.
+     * Call the DescribeApplicationStatus API to get an application\\"s status.
      *
      * @param request - DescribeApplicationStatusRequest
      * @param headers - map
@@ -4562,7 +4579,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the status of an application.
+     * Call the DescribeApplicationStatus API to get an application\\"s status.
      *
      * @param request - DescribeApplicationStatusRequest
      *
@@ -4581,7 +4598,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the information of a change order.
+     * Call DescribeChangeOrder to get information about a change order.
      *
      * @param request - DescribeChangeOrderRequest
      * @param headers - map
@@ -4623,7 +4640,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the information of a change order.
+     * Call DescribeChangeOrder to get information about a change order.
      *
      * @param request - DescribeChangeOrderRequest
      *
@@ -4642,7 +4659,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the version of the component that is required when you create and deploy an application.
+     * Call the DescribeComponents API to retrieve the component versions required to create an application deployment.
      *
      * @param request - DescribeComponentsRequest
      * @param headers - map
@@ -4688,7 +4705,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the version of the component that is required when you create and deploy an application.
+     * Call the DescribeComponents API to retrieve the component versions required to create an application deployment.
      *
      * @param request - DescribeComponentsRequest
      *
@@ -4707,7 +4724,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the details of a ConfigMap.
+     * Queries the details of a ConfigMap instance.
      *
      * @param request - DescribeConfigMapRequest
      * @param headers - map
@@ -4749,7 +4766,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the details of a ConfigMap.
+     * Queries the details of a ConfigMap instance.
      *
      * @param request - DescribeConfigMapRequest
      *
@@ -4768,7 +4785,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query configuration price.
+     * Queries the price of a configuration.
      *
      * @param request - DescribeConfigurationPriceRequest
      * @param headers - map
@@ -4838,7 +4855,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query configuration price.
+     * Queries the price of a configuration.
      *
      * @param request - DescribeConfigurationPriceRequest
      *
@@ -4857,7 +4874,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the container components of a microservices application.
+     * Retrieves the microservice container components for an application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4890,7 +4907,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the container components of a microservices application.
+     * Retrieves the microservice container components for an application.
      *
      * @returns DescribeEdasContainersResponse
      *
@@ -4905,7 +4922,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the details of a canary release rule based on the specified rule ID.
+     * Gets a canary release rule by rule ID.
      *
      * @param request - DescribeGreyTagRouteRequest
      * @param headers - map
@@ -4947,7 +4964,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the details of a canary release rule based on the specified rule ID.
+     * Gets a canary release rule by rule ID.
      *
      * @param request - DescribeGreyTagRouteRequest
      *
@@ -4966,7 +4983,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Call the DescribeIngress operation to query the details of an Ingress.
+     * Queries the details of an Ingress.
      *
      * @param request - DescribeIngressRequest
      * @param headers - map
@@ -5008,7 +5025,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Call the DescribeIngress operation to query the details of an Ingress.
+     * Queries the details of an Ingress.
      *
      * @param request - DescribeIngressRequest
      *
@@ -5027,7 +5044,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a sidecar container instance.
+     * Retrieves the log of an instance.
      *
      * @param request - DescribeInstanceLogRequest
      * @param headers - map
@@ -5077,7 +5094,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a sidecar container instance.
+     * Retrieves the log of an instance.
      *
      * @param request - DescribeInstanceLogRequest
      *
@@ -5096,7 +5113,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries all instance types.
+     * Retrieves a list of available application instance specifications.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5129,7 +5146,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries all instance types.
+     * Retrieves a list of available application instance specifications.
      *
      * @returns DescribeInstanceSpecificationsResponse
      *
@@ -5144,7 +5161,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a job template.
+     * Calls the `DescribeJob` API to retrieve job template configuration.
      *
      * @param request - DescribeJobRequest
      * @param headers - map
@@ -5190,7 +5207,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a job template.
+     * Calls the `DescribeJob` API to retrieve job template configuration.
      *
      * @param request - DescribeJobRequest
      *
@@ -5477,7 +5494,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query the information about resources in a namespace.
+     * Queries the resources in a namespace.
      *
      * @param request - DescribeNamespaceResourcesRequest
      * @param headers - map
@@ -5523,7 +5540,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query the information about resources in a namespace.
+     * Queries the resources in a namespace.
      *
      * @param request - DescribeNamespaceResourcesRequest
      *
@@ -5668,7 +5685,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries available regions.
+     * Queries the available regions.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5701,7 +5718,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries available regions.
+     * Queries the available regions.
      *
      * @returns DescribeRegionsResponse
      *
@@ -5781,7 +5798,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries details about swimlanes.
+     * Retrieves the details of a swimlane.
      *
      * @param request - DescribeSwimmingLaneRequest
      * @param headers - map
@@ -5831,7 +5848,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries details about swimlanes.
+     * Retrieves the details of a swimlane.
      *
      * @param request - DescribeSwimmingLaneRequest
      *
@@ -6414,7 +6431,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Disables an auto scaling policy for an application.
+     * Disables an Auto Scaling policy for an application.
      *
      * @param request - DisableApplicationScalingRuleRequest
      * @param headers - map
@@ -6460,7 +6477,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Disables an auto scaling policy for an application.
+     * Disables an Auto Scaling policy for an application.
      *
      * @param request - DisableApplicationScalingRuleRequest
      *
@@ -6666,7 +6683,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Executes a job.
+     * Call ExecJob to run a job.
      *
      * @param request - ExecJobRequest
      * @param headers - map
@@ -6744,7 +6761,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Executes a job.
+     * Call ExecJob to run a job.
      *
      * @param request - ExecJobRequest
      *
@@ -6763,7 +6780,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of an application.
+     * Retrieves basic information about an application.
      *
      * @param request - GetApplicationRequest
      * @param headers - map
@@ -6813,7 +6830,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of an application.
+     * Retrieves basic information about an application.
      *
      * @param request - GetApplicationRequest
      *
@@ -6990,7 +7007,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries top N applications in abnormal change orders.
+     * To retrieve the top N applications with abnormal change orders, call the `GetChangeOrderMetric` API.
      *
      * @param request - GetChangeOrderMetricRequest
      * @param headers - map
@@ -7060,7 +7077,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries top N applications in abnormal change orders.
+     * To retrieve the top N applications with abnormal change orders, call the `GetChangeOrderMetric` API.
      *
      * @param request - GetChangeOrderMetricRequest
      *
@@ -7302,7 +7319,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries all lane groups.
+     * Returns a list of all swimlane groups.
      *
      * @param request - ListAllSwimmingLaneGroupsRequest
      * @param headers - map
@@ -7344,7 +7361,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries all lane groups.
+     * Returns a list of all swimlane groups.
      *
      * @param request - ListAllSwimmingLaneGroupsRequest
      *
@@ -7363,7 +7380,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries all swimlanes.
+     * Lists all swimlanes.
      *
      * @param request - ListAllSwimmingLanesRequest
      * @param headers - map
@@ -7409,7 +7426,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries all swimlanes.
+     * Lists all swimlanes.
      *
      * @param request - ListAllSwimmingLanesRequest
      *
@@ -7428,7 +7445,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the events that occurred in an application.
+     * To list application events, call the `ListAppEvents` API.
      *
      * @param request - ListAppEventsRequest
      * @param headers - map
@@ -7498,7 +7515,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the events that occurred in an application.
+     * To list application events, call the `ListAppEvents` API.
      *
      * @param request - ListAppEventsRequest
      *
@@ -7517,7 +7534,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the list of microservices.
+     * Lists microservices.
      *
      * @param request - ListAppServicesRequest
      * @param headers - map
@@ -7591,7 +7608,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the list of microservices.
+     * Lists microservices.
      *
      * @param request - ListAppServicesRequest
      *
@@ -7610,7 +7627,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the services of an application.
+     * Call `ListAppServicesPage` to get a list of application services.
      *
      * @param request - ListAppServicesPageRequest
      * @param headers - map
@@ -7664,7 +7681,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the services of an application.
+     * Call `ListAppServicesPage` to get a list of application services.
      *
      * @param request - ListAppServicesPageRequest
      *
@@ -7683,7 +7700,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the deployment versions of an application.
+     * Lists the historical versions of an application.
      *
      * @param request - ListAppVersionsRequest
      * @param headers - map
@@ -7725,7 +7742,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the deployment versions of an application.
+     * Lists the historical versions of an application.
      *
      * @param request - ListAppVersionsRequest
      *
@@ -7809,7 +7826,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query a list of applications.
+     * Get a list of applications.
      *
      * @param request - ListApplicationsRequest
      * @param headers - map
@@ -7895,7 +7912,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query a list of applications.
+     * Get a list of applications.
      *
      * @param request - ListApplicationsRequest
      *
@@ -7914,7 +7931,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Obtains the application list for the end-to-end grayscale pull application list.
+     * Retrieves a list of applications for full-link canary releases.
      *
      * @param request - ListApplicationsForSwimmingLaneRequest
      * @param headers - map
@@ -7964,7 +7981,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Obtains the application list for the end-to-end grayscale pull application list.
+     * Retrieves a list of applications for full-link canary releases.
      *
      * @param request - ListApplicationsForSwimmingLaneRequest
      *
@@ -7983,7 +8000,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query a list of change orders.
+     * Lists change orders.
      *
      * @param request - ListChangeOrdersRequest
      * @param headers - map
@@ -8053,7 +8070,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query a list of change orders.
+     * Lists change orders.
      *
      * @param request - ListChangeOrdersRequest
      *
@@ -8072,7 +8089,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of microservices that are subscribed.
+     * You can call the ListConsumedServices operation to retrieve a list of subscribed microservices.
      *
      * @param request - ListConsumedServicesRequest
      * @param headers - map
@@ -8114,7 +8131,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of microservices that are subscribed.
+     * You can call the ListConsumedServices operation to retrieve a list of subscribed microservices.
      *
      * @param request - ListConsumedServicesRequest
      *
@@ -8133,10 +8150,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the details of a canary release rule based on an application ID.
+     * Queries the details of a grayscale rule based on an application ID.
      *
      * @remarks
-     * >  You can configure only one canary release rule for each application.
+     * > You can configure only one grayscale rule for each application.
      *
      * @param request - ListGreyTagRouteRequest
      * @param headers - map
@@ -8178,10 +8195,10 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the details of a canary release rule based on an application ID.
+     * Queries the details of a grayscale rule based on an application ID.
      *
      * @remarks
-     * >  You can configure only one canary release rule for each application.
+     * > You can configure only one grayscale rule for each application.
      *
      * @param request - ListGreyTagRouteRequest
      *
@@ -8200,7 +8217,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Use ListIngress API call to query Ingress list.
+     * Retrieves a list of Ingresses.
      *
      * @param request - ListIngressesRequest
      * @param headers - map
@@ -8254,7 +8271,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Use ListIngress API call to query Ingress list.
+     * Retrieves a list of Ingresses.
      *
      * @param request - ListIngressesRequest
      *
@@ -8273,7 +8290,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the information about job templates.
+     * Retrieves a list of job templates.
      *
      * @param request - ListJobsRequest
      * @param headers - map
@@ -8351,7 +8368,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the information about job templates.
+     * Retrieves a list of job templates.
      *
      * @param request - ListJobsRequest
      *
@@ -8370,7 +8387,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of application logs.
+     * Returns a list of application logs.
      *
      * @param request - ListLogConfigsRequest
      * @param headers - map
@@ -8420,7 +8437,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of application logs.
+     * Returns a list of application logs.
      *
      * @param request - ListLogConfigsRequest
      *
@@ -8439,7 +8456,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of change orders in a namespace.
+     * Lists deployment orders in a namespace.
      *
      * @param request - ListNamespaceChangeOrdersRequest
      * @param headers - map
@@ -8501,7 +8518,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of change orders in a namespace.
+     * Lists deployment orders in a namespace.
      *
      * @param request - ListNamespaceChangeOrdersRequest
      *
@@ -8520,7 +8537,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the ConfigMap instances in a namespace.
+     * Lists ConfigMap instances in a namespace.
      *
      * @param request - ListNamespacedConfigMapsRequest
      * @param headers - map
@@ -8562,7 +8579,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the ConfigMap instances in a namespace.
+     * Lists ConfigMap instances in a namespace.
      *
      * @param request - ListNamespacedConfigMapsRequest
      *
@@ -8581,7 +8598,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of microservices that are published.
+     * Queries a list of published microservices.
      *
      * @param request - ListPublishedServicesRequest
      * @param headers - map
@@ -8623,7 +8640,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries a list of microservices that are published.
+     * Queries a list of published microservices.
      *
      * @param request - ListPublishedServicesRequest
      *
@@ -8642,7 +8659,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the information about Secrets in a namespace.
+     * Call ListSecrets to list Secrets in a namespace.
      *
      * @param request - ListSecretsRequest
      * @param headers - map
@@ -8684,7 +8701,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the information about Secrets in a namespace.
+     * Call ListSecrets to list Secrets in a namespace.
      *
      * @param request - ListSecretsRequest
      *
@@ -8703,7 +8720,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query the gateway routes that are available for a lane.
+     * Lists the gateway routes that can be associated with a swimming lane.
      *
      * @param request - ListSwimmingLaneGatewayRoutesRequest
      * @param headers - map
@@ -8749,7 +8766,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Query the gateway routes that are available for a lane.
+     * Lists the gateway routes that can be associated with a swimming lane.
      *
      * @param request - ListSwimmingLaneGatewayRoutesRequest
      *
@@ -8768,7 +8785,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries all lane tags.
+     * Lists all swimming lane tags.
      *
      * @param request - ListSwimmingLaneGroupTagsRequest
      * @param headers - map
@@ -8814,7 +8831,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries all lane tags.
+     * Lists all swimming lane tags.
      *
      * @param request - ListSwimmingLaneGroupTagsRequest
      *
@@ -8833,7 +8850,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the mapping relationships between applications and tags.
+     * Call the `ListTagResources` API to list the tags associated with your applications.
      *
      * @param request - ListTagResourcesRequest
      * @param headers - map
@@ -8891,7 +8908,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the mapping relationships between applications and tags.
+     * Call the `ListTagResources` API to list the tags associated with your applications.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -9441,7 +9458,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the resource usage of an application.
+     * Gets the resource usage for an application.
      *
      * @param request - QueryResourceStaticsRequest
      * @param headers - map
@@ -9483,7 +9500,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Queries the resource usage of an application.
+     * Gets the resource usage for an application.
      *
      * @param request - QueryResourceStaticsRequest
      *
@@ -9644,7 +9661,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Changes the instance specifications of an application.
+     * Changes the instance type of an application.
      *
      * @param request - RescaleApplicationVerticallyRequest
      * @param headers - map
@@ -9722,7 +9739,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Changes the instance specifications of an application.
+     * Changes the instance type of an application.
      *
      * @param request - RescaleApplicationVerticallyRequest
      *
@@ -9879,7 +9896,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
+     * Resumes traffic on an instance from Classic Load Balancer (CLB), Network Load Balancer (NLB), CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Service.
      *
      * @param request - ResumeTrafficRequest
      * @param headers - map
@@ -9925,7 +9942,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Resumes traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Services on an instance.
+     * Resumes traffic on an instance from Classic Load Balancer (CLB), Network Load Balancer (NLB), CLB gateway routing, Application Load Balancer (ALB) gateway routing, and Kubernetes Service.
      *
      * @param request - ResumeTrafficRequest
      *
@@ -10354,7 +10371,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
+     * Stops routing traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services to the specified instances.
      *
      * @param request - SuspendTrafficRequest
      * @param headers - map
@@ -10400,7 +10417,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Removes traffic routed from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services.
+     * Stops routing traffic from Classic Load Balancer (CLB) application access, Network Load Balancer (NLB) application access, CLB gateway routes, Application Load Balancer (ALB) gateway routes, or Kubernetes (K8s) services to the specified instances.
      *
      * @param request - SuspendTrafficRequest
      *
@@ -10419,7 +10436,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * Adds one or more tags to specified resources.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -10473,7 +10490,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Adds tags to resources.
+     * Adds one or more tags to specified resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -10492,7 +10509,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Calls the UnbindNlb operation to delete an NLB listener bound for application access.
+     * Unbinds an NLB listener from an application.
      *
      * @param request - UnbindNlbRequest
      * @param headers - map
@@ -10546,7 +10563,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Calls the UnbindNlb operation to delete an NLB listener bound for application access.
+     * Unbinds an NLB listener from an application.
      *
      * @param request - UnbindNlbRequest
      *
@@ -10565,7 +10582,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Disassociates an internal-facing or Internet-facing SLB instance from an application.
+     * Unbinds a public or private SLB instance from an application.
      *
      * @param request - UnbindSlbRequest
      * @param headers - map
@@ -10615,7 +10632,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Disassociates an internal-facing or Internet-facing SLB instance from an application.
+     * Unbinds a public or private SLB instance from an application.
      *
      * @param request - UnbindSlbRequest
      *
@@ -10634,7 +10651,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * Removes one or more tags from specified resources.
      *
      * @param request - UntagResourcesRequest
      * @param headers - map
@@ -10692,7 +10709,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Removes tags from resources.
+     * Removes one or more tags from specified resources.
      *
      * @param request - UntagResourcesRequest
      *
@@ -10711,7 +10728,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Application Idle Mode Update.
+     * Updates the idle mode for an application.
      *
      * @param request - UpdateAppModeRequest
      * @param headers - map
@@ -10769,7 +10786,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Application Idle Mode Update.
+     * Updates the idle mode for an application.
      *
      * @param request - UpdateAppModeRequest
      *
@@ -10788,7 +10805,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates the security group of an application.
+     * Updates an application security group.
      *
      * @param request - UpdateAppSecurityGroupRequest
      * @param headers - map
@@ -10834,7 +10851,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates the security group of an application.
+     * Updates an application security group.
      *
      * @param request - UpdateAppSecurityGroupRequest
      *
@@ -10918,11 +10935,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates the auto scaling policy of an application.
+     * Updating the application auto-scaling policy.
      *
      * @remarks
-     * ##
-     * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
+     * ## Usage notes
+     * To scale an application beyond 50 instances, contact SAE technical support to be added to the allowlist. For details, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
      *
      * @param request - UpdateApplicationScalingRuleRequest
      * @param headers - map
@@ -10992,11 +11009,11 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates the auto scaling policy of an application.
+     * Updating the application auto-scaling policy.
      *
      * @remarks
-     * ##
-     * If you want to configure more than 50 instances for an application, you must submit a [ticket](https://workorder.console.aliyun.com/#/ticket/createIndex) to add your account to the whitelist.
+     * ## Usage notes
+     * To scale an application beyond 50 instances, contact SAE technical support to be added to the allowlist. For details, see [Contact us](https://help.aliyun.com/document_detail/146530.html).
      *
      * @param request - UpdateApplicationScalingRuleRequest
      *
@@ -11015,7 +11032,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update the configuration of a vSwitch.
+     * Updates the vSwitch configuration for an application.
      *
      * @param request - UpdateApplicationVswitchesRequest
      * @param headers - map
@@ -11073,7 +11090,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update the configuration of a vSwitch.
+     * Updates the vSwitch configuration for an application.
      *
      * @param request - UpdateApplicationVswitchesRequest
      *
@@ -11092,7 +11109,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update a ConfigMap.
+     * Updates a ConfigMap instance.
      *
      * @param request - UpdateConfigMapRequest
      * @param headers - map
@@ -11144,7 +11161,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update a ConfigMap.
+     * Updates a ConfigMap instance.
      *
      * @param request - UpdateConfigMapRequest
      *
@@ -11163,7 +11180,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates a canary release rule.
+     * Updates a grey tag route.
      *
      * @param request - UpdateGreyTagRouteRequest
      * @param headers - map
@@ -11221,7 +11238,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates a canary release rule.
+     * Updates a grey tag route.
      *
      * @param request - UpdateGreyTagRouteRequest
      *
@@ -11240,7 +11257,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update the configurations of an Ingress instance.
+     * Update the configuration of an Ingress instance.
      *
      * @param request - UpdateIngressRequest
      * @param headers - map
@@ -11356,7 +11373,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update the configurations of an Ingress instance.
+     * Update the configuration of an Ingress instance.
      *
      * @param request - UpdateIngressRequest
      *
@@ -11375,7 +11392,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates a job template.
+     * Call the UpdateJob API to update a job template.
      *
      * @param request - UpdateJobRequest
      * @param headers - map
@@ -11603,7 +11620,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates a job template.
+     * Call the UpdateJob API to update a job template.
      *
      * @param request - UpdateJobRequest
      *
@@ -11699,7 +11716,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates the Simple Log Service configuration for a namespace.
+     * Updates the namespace-level SLS configuration.
      *
      * @param request - UpdateNamespaceSlsConfigsRequest
      * @param headers - map
@@ -11753,7 +11770,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Updates the Simple Log Service configuration for a namespace.
+     * Updates the namespace-level SLS configuration.
      *
      * @param request - UpdateNamespaceSlsConfigsRequest
      *
@@ -11772,7 +11789,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * cn-beijing:test.
+     * Updates the VPC that is attached to a namespace.
      *
      * @param request - UpdateNamespaceVpcRequest
      * @param headers - map
@@ -11822,7 +11839,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * cn-beijing:test.
+     * Updates the VPC that is attached to a namespace.
      *
      * @param request - UpdateNamespaceVpcRequest
      *
@@ -11841,11 +11858,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * The HTTP status code. Valid values:
-     * \\*   \\*\\*2xx\\*\\*: The call was successful.
-     * \\*   \\*\\*3xx\\*\\*: The call was redirected.
-     * \\*   \\*\\*4xx\\*\\*: The call failed.
-     * \\*   \\*\\*5xx\\*\\*: A server error occurred.
+     * Updates a Secret instance.
      *
      * @param tmpReq - UpdateSecretRequest
      * @param headers - map
@@ -11901,11 +11914,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * The HTTP status code. Valid values:
-     * \\*   \\*\\*2xx\\*\\*: The call was successful.
-     * \\*   \\*\\*3xx\\*\\*: The call was redirected.
-     * \\*   \\*\\*4xx\\*\\*: The call failed.
-     * \\*   \\*\\*5xx\\*\\*: A server error occurred.
+     * Updates a Secret instance.
      *
      * @param request - UpdateSecretRequest
      *
@@ -11924,7 +11933,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update the enabled property of the swimlane.
+     * Updates the enabled status of a swimming lane.
      *
      * @param request - UpdateSwimmingLaneEnableAttributeRequest
      * @param headers - map
@@ -11978,7 +11987,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Update the enabled property of the swimlane.
+     * Updates the enabled status of a swimming lane.
      *
      * @param request - UpdateSwimmingLaneEnableAttributeRequest
      *
