@@ -14,6 +14,11 @@ class models extends Model
     public $displayName;
 
     /**
+     * @var int
+     */
+    public $maxModelLength;
+
+    /**
      * @var string
      */
     public $model;
@@ -26,11 +31,30 @@ class models extends Model
     /**
      * @var bool
      */
+    public $supportReasoning;
+
+    /**
+     * @var bool
+     */
+    public $supportResponseSchema;
+
+    /**
+     * @var bool
+     */
+    public $supportVision;
+
+    /**
+     * @var bool
+     */
     public $toolCall;
     protected $_name = [
         'displayName' => 'DisplayName',
+        'maxModelLength' => 'MaxModelLength',
         'model' => 'Model',
         'modelType' => 'ModelType',
+        'supportReasoning' => 'SupportReasoning',
+        'supportResponseSchema' => 'SupportResponseSchema',
+        'supportVision' => 'SupportVision',
         'toolCall' => 'ToolCall',
     ];
 
@@ -46,12 +70,28 @@ class models extends Model
             $res['DisplayName'] = $this->displayName;
         }
 
+        if (null !== $this->maxModelLength) {
+            $res['MaxModelLength'] = $this->maxModelLength;
+        }
+
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
 
         if (null !== $this->modelType) {
             $res['ModelType'] = $this->modelType;
+        }
+
+        if (null !== $this->supportReasoning) {
+            $res['SupportReasoning'] = $this->supportReasoning;
+        }
+
+        if (null !== $this->supportResponseSchema) {
+            $res['SupportResponseSchema'] = $this->supportResponseSchema;
+        }
+
+        if (null !== $this->supportVision) {
+            $res['SupportVision'] = $this->supportVision;
         }
 
         if (null !== $this->toolCall) {
@@ -73,12 +113,28 @@ class models extends Model
             $model->displayName = $map['DisplayName'];
         }
 
+        if (isset($map['MaxModelLength'])) {
+            $model->maxModelLength = $map['MaxModelLength'];
+        }
+
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
 
         if (isset($map['ModelType'])) {
             $model->modelType = $map['ModelType'];
+        }
+
+        if (isset($map['SupportReasoning'])) {
+            $model->supportReasoning = $map['SupportReasoning'];
+        }
+
+        if (isset($map['SupportResponseSchema'])) {
+            $model->supportResponseSchema = $map['SupportResponseSchema'];
+        }
+
+        if (isset($map['SupportVision'])) {
+            $model->supportVision = $map['SupportVision'];
         }
 
         if (isset($map['ToolCall'])) {

@@ -24,6 +24,11 @@ class workspaces extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $displayName;
+
+    /**
      * @var string[]
      */
     public $envTypes;
@@ -71,6 +76,7 @@ class workspaces extends Model
         'adminNames' => 'AdminNames',
         'creator' => 'Creator',
         'description' => 'Description',
+        'displayName' => 'DisplayName',
         'envTypes' => 'EnvTypes',
         'extraInfos' => 'ExtraInfos',
         'gmtCreateTime' => 'GmtCreateTime',
@@ -116,6 +122,10 @@ class workspaces extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
         }
 
         if (null !== $this->envTypes) {
@@ -194,6 +204,10 @@ class workspaces extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
         }
 
         if (isset($map['EnvTypes'])) {

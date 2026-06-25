@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceRoleRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\CreateWorkspaceRoleResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteCodeSourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteConfigRequest;
@@ -100,6 +102,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceRolesRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\DeleteWorkspaceRolesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetCodeSourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetCodeSourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetConfigRequest;
@@ -124,6 +128,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetExperimentRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetExperimentResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetImageRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetImageResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetInstanceJobRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetInstanceJobResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetMemberRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetMemberResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetModelRequest;
@@ -137,6 +143,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetRunRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetRunResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceRoleRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\GetWorkspaceRoleResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListCodeSourcesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListConfigsRequest;
@@ -185,6 +193,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListRunsResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListUserConfigsRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListUserConfigsResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspaceRolesRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspaceRolesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ListWorkspaceUsersRequest;
@@ -241,6 +251,8 @@ use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceResourceRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceResourceResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceResponse;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceRoleRequest;
+use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\UpdateWorkspaceRoleResponse;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ValidateConnectionRequest;
 use AlibabaCloud\SDK\AIWorkSpace\V20210204\Models\ValidateConnectionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -295,6 +307,27 @@ class AIWorkSpace extends OpenApiClient
             'eu-west-1-oxs' => 'aiworkspace.aliyuncs.com',
             'me-east-1' => 'aiworkspace.aliyuncs.com',
             'rus-west-1-pop' => 'aiworkspace.aliyuncs.com',
+            'us-west-1' => 'aiworkspace.us-west-1.aliyuncs.com',
+            'us-southeast-1' => 'aiworkspace.us-southeast-1.aliyuncs.com',
+            'us-east-1' => 'aiworkspace.us-east-1.aliyuncs.com',
+            'na-south-1' => 'aiworkspace.na-south-1.aliyuncs.com',
+            'eu-central-1' => 'aiworkspace.eu-central-1.aliyuncs.com',
+            'cn-wulanchabu' => 'aiworkspace.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'aiworkspace.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'aiworkspace.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'aiworkspace.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'aiworkspace.cn-hongkong.aliyuncs.com',
+            'cn-heyuan' => 'aiworkspace.cn-heyuan.aliyuncs.com',
+            'cn-hangzhou' => 'aiworkspace.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'aiworkspace.cn-guangzhou.aliyuncs.com	',
+            'cn-beijing' => 'aiworkspace.cn-beijing.aliyuncs.com',
+            'ap-southeast-8' => 'aiworkspace.ap-southeast-8.aliyuncs.com',
+            'ap-southeast-7' => 'aiworkspace.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-3' => 'aiworkspace.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-1' => 'aiworkspace.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'aiworkspace.ap-south-1.aliyuncs.com',
+            'ap-northeast-2' => 'aiworkspace.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'aiworkspace.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aiworkspace', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -325,10 +358,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Receives and processes system event messages sent by DataWorks.
+     * PAI accepts and processes system event messages from DataWorks.
      *
      * @remarks
-     * This operation can be called only by the internal system and cannot be called by external users.
+     * This API is for internal system calls only.
      *
      * @param request - AcceptDataworksEventRequest
      * @param headers - map
@@ -374,10 +407,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Receives and processes system event messages sent by DataWorks.
+     * PAI accepts and processes system event messages from DataWorks.
      *
      * @remarks
-     * This operation can be called only by the internal system and cannot be called by external users.
+     * This API is for internal system calls only.
      *
      * @param request - AcceptDataworksEventRequest
      *
@@ -493,7 +526,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Adds tags to an image.
+     * Adds labels to a specified image.
      *
      * @param request - AddImageLabelsRequest
      * @param headers - map
@@ -536,7 +569,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Adds tags to an image.
+     * Adds labels to a specified image.
      *
      * @param request - AddImageLabelsRequest
      *
@@ -556,7 +589,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
+     * Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
      *
      * @param request - AddMemberRoleRequest
      * @param headers - map
@@ -595,7 +628,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
+     * Assigns a role to a member in a workspace, granting that member the role\\"s permissions.
      *
      * @param request - AddMemberRoleRequest
      *
@@ -617,7 +650,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a resource belongs based on the ID.
+     * Changes the resource group of a specified resource.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -667,7 +700,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Changes the resource group to which a resource belongs based on the ID.
+     * Changes the resource group of a specified resource.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -686,7 +719,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
+     * Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
      *
      * @param request - CreateCodeSourceRequest
      * @param headers - map
@@ -768,7 +801,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a code build in Platform for AI (PAI). You can configure Git branches and commit IDs. After the code build is created, you can reference the code build in a Deep Learning Containers (DLC) job.
+     * Creates a code configuration in PAI using a code branch and commit ID from a Git repository. This configuration can then be referenced in DLC jobs.
      *
      * @param request - CreateCodeSourceRequest
      *
@@ -787,7 +820,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
+     * Creates a connection to link PAI cloud services with your models, databases, and other services. This is useful for scenarios such as LangStudio and multimodal dataset retrieval.
      *
      * @param request - CreateConnectionRequest
      * @param headers - map
@@ -861,7 +894,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a connection. This API is used to connect Platform for AI (PAI) to customer models and databases in LangStudio and multimodal dataset search scenarios.
+     * Creates a connection to link PAI cloud services with your models, databases, and other services. This is useful for scenarios such as LangStudio and multimodal dataset retrieval.
      *
      * @param request - CreateConnectionRequest
      *
@@ -1037,7 +1070,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates the metadata records of multiple files in a dataset at a time.
+     * Creates file metadata records for a dataset in a batch.
      *
      * @param request - CreateDatasetFileMetasRequest
      * @param headers - map
@@ -1088,7 +1121,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates the metadata records of multiple files in a dataset at a time.
+     * Creates file metadata records for a dataset in a batch.
      *
      * @param request - CreateDatasetFileMetasRequest
      *
@@ -1191,7 +1224,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a job configuration for a dataset.
+     * Creates a dataset Job configuration.
      *
      * @param request - CreateDatasetJobConfigRequest
      * @param headers - map
@@ -1246,7 +1279,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a job configuration for a dataset.
+     * Creates a dataset Job configuration.
      *
      * @param request - CreateDatasetJobConfigRequest
      *
@@ -1266,12 +1299,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates tags for a dataset.
+     * Adds labels to a dataset.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
-     * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
+     * When you call this operation, note the following:
+     * - The key and value of a label must be a non-empty string with a maximum length of 128 characters.
+     * - A label key cannot start with aliyun, acs, http\\://, or https\\://.
      *
      * @param request - CreateDatasetLabelsRequest
      * @param headers - map
@@ -1314,12 +1347,12 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates tags for a dataset.
+     * Adds labels to a dataset.
      *
      * @remarks
-     * Before you call this operation, take note of the following items:
-     * *   The tag key and value are not empty strings and cannot exceed 128 characters in length.
-     * *   The tag key cannot start with any of the following strings: "aliyun", "acs", "http://", and "https://".
+     * When you call this operation, note the following:
+     * - The key and value of a label must be a non-empty string with a maximum length of 128 characters.
+     * - A label key cannot start with aliyun, acs, http\\://, or https\\://.
      *
      * @param request - CreateDatasetLabelsRequest
      *
@@ -1442,7 +1475,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates tags for a dataset version.
+     * Creates labels for a dataset version.
      *
      * @param request - CreateDatasetVersionLabelsRequest
      * @param headers - map
@@ -1486,7 +1519,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates tags for a dataset version.
+     * Creates labels for a dataset version.
      *
      * @param request - CreateDatasetVersionLabelsRequest
      *
@@ -1584,7 +1617,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建镜像构建任务
+     * Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+     *
+     * @remarks
+     * ## Description
      *
      * @param request - CreateImageBuildRequest
      * @param headers - map
@@ -1668,7 +1704,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 创建镜像构建任务
+     * Builds a custom image based on the specified configuration. After the image is successfully built, it is added to the list of custom images in the current workspace.
+     *
+     * @remarks
+     * ## Description
      *
      * @param request - CreateImageBuildRequest
      *
@@ -1687,7 +1726,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Adds a user to a workspace as a member. You can add multiple users as members.
+     * Adds one or more users to a workspace.
      *
      * @param request - CreateMemberRequest
      * @param headers - map
@@ -1730,7 +1769,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Adds a user to a workspace as a member. You can add multiple users as members.
+     * Adds one or more users to a workspace.
      *
      * @param request - CreateMemberRequest
      *
@@ -1750,7 +1789,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a model. A model is a collection of model versions. When you create a model, you must specify the model name and description.
+     * Creates a model, which is a collection of model versions. You must specify information such as the model name and description.
      *
      * @param request - CreateModelRequest
      * @param headers - map
@@ -1844,7 +1883,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a model. A model is a collection of model versions. When you create a model, you must specify the model name and description.
+     * Creates a model, which is a collection of model versions. You must specify information such as the model name and description.
      *
      * @param request - CreateModelRequest
      *
@@ -1863,7 +1902,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a tag for a model.
+     * Creates labels for a model.
      *
      * @param request - CreateModelLabelsRequest
      * @param headers - map
@@ -1906,7 +1945,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a tag for a model.
+     * Creates labels for a model.
      *
      * @param request - CreateModelLabelsRequest
      *
@@ -1926,7 +1965,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a new version for the specified model.
+     * Adds a new version to a specified model.
      *
      * @param request - CreateModelVersionRequest
      * @param headers - map
@@ -2033,7 +2072,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a new version for the specified model.
+     * Adds a new version to a specified model.
      *
      * @param request - CreateModelVersionRequest
      *
@@ -2053,7 +2092,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a tag for a model version.
+     * Creates labels for a model version.
      *
      * @param request - CreateModelVersionLabelsRequest
      * @param headers - map
@@ -2097,7 +2136,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a tag for a model version.
+     * Creates labels for a model version.
      *
      * @param request - CreateModelVersionLabelsRequest
      *
@@ -2118,7 +2157,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go order for DataWorks, OSS, PAI, or MaxCompute.
+     * Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
      *
      * @param request - CreateProductOrdersRequest
      * @param headers - map
@@ -2164,7 +2203,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a pay-as-you-go order for DataWorks, OSS, PAI, or MaxCompute.
+     * Purchases products. This operation supports pay-as-you-go purchases of DataWorks, OSS, PAI, and MaxCompute.
      *
      * @param request - CreateProductOrdersRequest
      *
@@ -2183,7 +2222,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a run. A run is an experiment that can be associated with a specific workload or simply a code execution.
+     * Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
      *
      * @param request - CreateRunRequest
      * @param headers - map
@@ -2245,7 +2284,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Creates a run. A run is an experiment that can be associated with a specific workload or simply a code execution.
+     * Creates a run for an experiment. The run can be associated with a specific workload or be a standalone code execution.
      *
      * @param request - CreateRunRequest
      *
@@ -2341,7 +2380,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Associates resources with a workspace.
+     * Add a resource reference to a workspace.
      *
      * @param request - CreateWorkspaceResourceRequest
      * @param headers - map
@@ -2388,7 +2427,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Associates resources with a workspace.
+     * Add a resource reference to a workspace.
      *
      * @param request - CreateWorkspaceResourceRequest
      *
@@ -2408,7 +2447,78 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a code source based on the provided ID.
+     * Creates a workspace role.
+     *
+     * @param request - CreateWorkspaceRoleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkspaceRoleResponse
+     *
+     * @param string                     $WorkspaceId
+     * @param CreateWorkspaceRoleRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateWorkspaceRoleResponse
+     */
+    public function createWorkspaceRoleWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->modulePermissions) {
+            @$body['ModulePermissions'] = $request->modulePermissions;
+        }
+
+        if (null !== $request->roleName) {
+            @$body['RoleName'] = $request->roleName;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkspaceRole',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/roles',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkspaceRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a workspace role.
+     *
+     * @param request - CreateWorkspaceRoleRequest
+     *
+     * @returns CreateWorkspaceRoleResponse
+     *
+     * @param string                     $WorkspaceId
+     * @param CreateWorkspaceRoleRequest $request
+     *
+     * @return CreateWorkspaceRoleResponse
+     */
+    public function createWorkspaceRole($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkspaceRoleWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a code source configuration by its ID.
      *
      * @param request - DeleteCodeSourceRequest
      * @param headers - map
@@ -2445,7 +2555,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a code source based on the provided ID.
+     * Deletes a code source configuration by its ID.
      *
      * @param request - DeleteCodeSourceRequest
      *
@@ -2465,7 +2575,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes workspace configurations.
+     * Deletes a workspace configuration.
      *
      * @param request - DeleteConfigRequest
      * @param headers - map
@@ -2513,7 +2623,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes workspace configurations.
+     * Deletes a workspace configuration.
      *
      * @param request - DeleteConfigRequest
      *
@@ -2648,7 +2758,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes the metadata records of multiple files in a dataset at a time.
+     * Deletes file metadata records from a dataset in batches.
      *
      * @param request - DeleteDatasetFileMetasRequest
      * @param headers - map
@@ -2699,7 +2809,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes the metadata records of multiple files in a dataset at a time.
+     * Deletes file metadata records from a dataset in batches.
      *
      * @param request - DeleteDatasetFileMetasRequest
      *
@@ -2719,7 +2829,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a dataset job.
+     * Deletes a dataset Job.
      *
      * @param request - DeleteDatasetJobRequest
      * @param headers - map
@@ -2757,7 +2867,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a dataset job.
+     * Deletes a dataset Job.
      *
      * @param request - DeleteDatasetJobRequest
      *
@@ -2778,7 +2888,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a job configuration for a dataset.
+     * Deletes a dataset job configuration.
      *
      * @param request - DeleteDatasetJobConfigRequest
      * @param headers - map
@@ -2822,7 +2932,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a job configuration for a dataset.
+     * Deletes a dataset job configuration.
      *
      * @param request - DeleteDatasetJobConfigRequest
      *
@@ -2843,7 +2953,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a dataset tag.
+     * Deletes labels from a dataset.
      *
      * @param request - DeleteDatasetLabelsRequest
      * @param headers - map
@@ -2886,7 +2996,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a dataset tag.
+     * Deletes labels from a dataset.
      *
      * @param request - DeleteDatasetLabelsRequest
      *
@@ -2906,7 +3016,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
+     * Deletes a specified version of a dataset. This operation cannot be used to delete version v1. Version v1 is deleted with the dataset when you call the DeleteDataset operation.
      *
      * @param request - DeleteDatasetVersionRequest
      * @param headers - map
@@ -2944,7 +3054,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
+     * Deletes a specified version of a dataset. This operation cannot be used to delete version v1. Version v1 is deleted with the dataset when you call the DeleteDataset operation.
      *
      * @param request - DeleteDatasetVersionRequest
      *
@@ -2965,7 +3075,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes tags for a dataset version.
+     * Deletes labels from a dataset version.
      *
      * @param request - DeleteDatasetVersionLabelsRequest
      * @param headers - map
@@ -3009,7 +3119,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes tags for a dataset version.
+     * Deletes labels from a dataset version.
      *
      * @param request - DeleteDatasetVersionLabelsRequest
      *
@@ -3087,7 +3197,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes an experiment tag.
+     * Deletes a label from an experiment.
      *
      * @param request - DeleteExperimentLabelRequest
      * @param headers - map
@@ -3125,7 +3235,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes an experiment tag.
+     * Deletes a label from an experiment.
      *
      * @param request - DeleteExperimentLabelRequest
      *
@@ -3146,7 +3256,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a member from a workspace.
+     * Deletes members from a workspace.
      *
      * @param request - DeleteMembersRequest
      * @param headers - map
@@ -3189,7 +3299,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a member from a workspace.
+     * Deletes members from a workspace.
      *
      * @param request - DeleteMembersRequest
      *
@@ -3266,7 +3376,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes the labels of a model.
+     * Deletes model labels.
      *
      * @param request - DeleteModelLabelsRequest
      * @param headers - map
@@ -3309,7 +3419,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes the labels of a model.
+     * Deletes model labels.
      *
      * @param request - DeleteModelLabelsRequest
      *
@@ -3388,7 +3498,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Delete a model version tag.
+     * Deletes labels from a model version.
      *
      * @param request - DeleteModelVersionLabelsRequest
      * @param headers - map
@@ -3432,7 +3542,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Delete a model version tag.
+     * Deletes labels from a model version.
      *
      * @param request - DeleteModelVersionLabelsRequest
      *
@@ -3510,7 +3620,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a tag that is added to a run.
+     * Deletes a label from a run.
      *
      * @param request - DeleteRunLabelRequest
      * @param headers - map
@@ -3548,7 +3658,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a tag that is added to a run.
+     * Deletes a label from a run.
      *
      * @param request - DeleteRunLabelRequest
      *
@@ -3569,7 +3679,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes user configurations.
+     * Deletes a user configuration.
      *
      * @param request - DeleteUserConfigRequest
      * @param headers - map
@@ -3616,7 +3726,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes user configurations.
+     * Deletes a user configuration.
      *
      * @param request - DeleteUserConfigRequest
      *
@@ -3636,7 +3746,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
+     * Deletes a workspace. This operation does not release associated resources. You must release them manually.
      *
      * @param request - DeleteWorkspaceRequest
      * @param headers - map
@@ -3673,7 +3783,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
+     * Deletes a workspace. This operation does not release associated resources. You must release them manually.
      *
      * @param request - DeleteWorkspaceRequest
      *
@@ -3693,7 +3803,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
+     * Detaches a resource from a workspace. This operation does not delete the underlying resource.
      *
      * @param request - DeleteWorkspaceResourceRequest
      * @param headers - map
@@ -3756,7 +3866,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Deletes a resource from a workspace. The resource is not deleted at the underlying layer.
+     * Detaches a resource from a workspace. This operation does not delete the underlying resource.
      *
      * @param request - DeleteWorkspaceResourceRequest
      *
@@ -3776,7 +3886,70 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a code source.
+     * Deletes one or more roles from a workspace.
+     *
+     * @param request - DeleteWorkspaceRolesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWorkspaceRolesResponse
+     *
+     * @param string                      $WorkspaceId
+     * @param DeleteWorkspaceRolesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteWorkspaceRolesResponse
+     */
+    public function deleteWorkspaceRolesWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->roleIds) {
+            @$body['RoleIds'] = $request->roleIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteWorkspaceRoles',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/roles/action/delete',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteWorkspaceRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes one or more roles from a workspace.
+     *
+     * @param request - DeleteWorkspaceRolesRequest
+     *
+     * @returns DeleteWorkspaceRolesResponse
+     *
+     * @param string                      $WorkspaceId
+     * @param DeleteWorkspaceRolesRequest $request
+     *
+     * @return DeleteWorkspaceRolesResponse
+     */
+    public function deleteWorkspaceRoles($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteWorkspaceRolesWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Gets the details of a specified code source configuration.
      *
      * @param request - GetCodeSourceRequest
      * @param headers - map
@@ -3813,7 +3986,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a code source.
+     * Gets the details of a specified code source configuration.
      *
      * @param request - GetCodeSourceRequest
      *
@@ -3833,7 +4006,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a workspace configuration item.
+     * Retrieves the configurations of a workspace.
      *
      * @param request - GetConfigRequest
      * @param headers - map
@@ -3884,7 +4057,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a workspace configuration item.
+     * Retrieves the configurations of a workspace.
      *
      * @param request - GetConfigRequest
      *
@@ -3904,7 +4077,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the connection details.
+     * Retrieves the details of a connection.
      *
      * @param request - GetConnectionRequest
      * @param headers - map
@@ -3947,7 +4120,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the connection details.
+     * Retrieves the details of a connection.
      *
      * @param request - GetConnectionRequest
      *
@@ -3967,7 +4140,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a dataset.
+     * Retrieves a dataset.
      *
      * @param request - GetDatasetRequest
      * @param headers - map
@@ -4004,7 +4177,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a dataset.
+     * Retrieves a dataset.
      *
      * @param request - GetDatasetRequest
      *
@@ -4024,7 +4197,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the metadata records of specific files in a dataset.
+     * Retrieves the metadata record of a specified file in a dataset.
      *
      * @param request - GetDatasetFileMetaRequest
      * @param headers - map
@@ -4072,7 +4245,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the metadata records of specific files in a dataset.
+     * Retrieves the metadata record of a specified file in a dataset.
      *
      * @param request - GetDatasetFileMetaRequest
      *
@@ -4093,7 +4266,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains metadata statistics of a dataset.
+     * Retrieves statistics for metadata in a dataset.
      *
      * @param request - GetDatasetFileMetasStatisticsRequest
      * @param headers - map
@@ -4148,7 +4321,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains metadata statistics of a dataset.
+     * Retrieves statistics for metadata in a dataset.
      *
      * @param request - GetDatasetFileMetasStatisticsRequest
      *
@@ -4168,7 +4341,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a dataset job.
+     * Retrieves a dataset job.
      *
      * @param request - GetDatasetJobRequest
      * @param headers - map
@@ -4216,7 +4389,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a dataset job.
+     * Retrieves a dataset job.
      *
      * @param request - GetDatasetJobRequest
      *
@@ -4237,7 +4410,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a job configuration for a dataset.
+     * Retrieves the configuration of a dataset job.
      *
      * @param request - GetDatasetJobConfigRequest
      * @param headers - map
@@ -4281,7 +4454,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a job configuration for a dataset.
+     * Retrieves the configuration of a dataset job.
      *
      * @param request - GetDatasetJobConfigRequest
      *
@@ -4302,7 +4475,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a specified version of a dataset.
+     * Retrieves information about a specific dataset version.
      *
      * @param request - GetDatasetVersionRequest
      * @param headers - map
@@ -4340,7 +4513,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a specified version of a dataset.
+     * Retrieves information about a specific dataset version.
      *
      * @param request - GetDatasetVersionRequest
      *
@@ -4361,7 +4534,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries information about the default workspace.
+     * Retrieves the details of the default workspace.
      *
      * @param request - GetDefaultWorkspaceRequest
      * @param headers - map
@@ -4403,7 +4576,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries information about the default workspace.
+     * Retrieves the details of the default workspace.
      *
      * @param request - GetDefaultWorkspaceRequest
      *
@@ -4422,7 +4595,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains an experiment.
+     * Retrieves an experiment.
      *
      * @param request - GetExperimentRequest
      * @param headers - map
@@ -4465,7 +4638,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains an experiment.
+     * Retrieves an experiment.
      *
      * @param request - GetExperimentRequest
      *
@@ -4485,7 +4658,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the information about an image.
+     * Retrieves the details of an image.
      *
      * @param request - GetImageRequest
      * @param headers - map
@@ -4528,7 +4701,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the information about an image.
+     * Retrieves the details of an image.
      *
      * @param request - GetImageRequest
      *
@@ -4548,7 +4721,64 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a member in a workspace.
+     * Gets the details of a job.
+     *
+     * @param request - GetInstanceJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceJobResponse
+     *
+     * @param string                $InstanceJobId
+     * @param GetInstanceJobRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetInstanceJobResponse
+     */
+    public function getInstanceJobWithOptions($InstanceJobId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceJob',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/instancejobs/' . Url::percentEncode($InstanceJobId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Gets the details of a job.
+     *
+     * @param request - GetInstanceJobRequest
+     *
+     * @returns GetInstanceJobResponse
+     *
+     * @param string                $InstanceJobId
+     * @param GetInstanceJobRequest $request
+     *
+     * @return GetInstanceJobResponse
+     */
+    public function getInstanceJob($InstanceJobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceJobWithOptions($InstanceJobId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves a member of a workspace.
      *
      * @param request - GetMemberRequest
      * @param headers - map
@@ -4595,7 +4825,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a member in a workspace.
+     * Retrieves a member of a workspace.
      *
      * @param request - GetMemberRequest
      *
@@ -4615,7 +4845,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specified model.
+     * Gets the details of a specified model.
      *
      * @param request - GetModelRequest
      * @param headers - map
@@ -4652,7 +4882,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a specified model.
+     * Gets the details of a specified model.
      *
      * @param request - GetModelRequest
      *
@@ -4672,7 +4902,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a model version.
+     * Retrieves a model version.
      *
      * @param request - GetModelVersionRequest
      * @param headers - map
@@ -4710,7 +4940,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a model version.
+     * Retrieves a model version.
      *
      * @param request - GetModelVersionRequest
      *
@@ -4731,7 +4961,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains permissions on a workspace.
+     * Retrieves the permissions of a workspace.
      *
      * @param tmpReq - GetPermissionRequest
      * @param headers - map
@@ -4809,7 +5039,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains permissions on a workspace.
+     * Retrieves the permissions of a workspace.
      *
      * @param request - GetPermissionRequest
      *
@@ -4830,7 +5060,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the run information.
+     * Retrieves run details.
      *
      * @param request - GetRunRequest
      * @param headers - map
@@ -4873,7 +5103,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the run information.
+     * Retrieves run details.
      *
      * @param request - GetRunRequest
      *
@@ -4893,7 +5123,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the details about a workspace.
+     * Retrieves the details of a workspace.
      *
      * @param request - GetWorkspaceRequest
      * @param headers - map
@@ -4936,7 +5166,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the details about a workspace.
+     * Retrieves the details of a workspace.
      *
      * @param request - GetWorkspaceRequest
      *
@@ -4956,7 +5186,66 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists code sources. Pagination, sorting, and filtering by condition are supported.
+     * Gets information about a specific role within a workspace.
+     *
+     * @param request - GetWorkspaceRoleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceRoleResponse
+     *
+     * @param string                  $WorkspaceId
+     * @param string                  $RoleId
+     * @param GetWorkspaceRoleRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetWorkspaceRoleResponse
+     */
+    public function getWorkspaceRoleWithOptions($WorkspaceId, $RoleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspaceRole',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/roles/' . Url::percentEncode($RoleId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Gets information about a specific role within a workspace.
+     *
+     * @param request - GetWorkspaceRoleRequest
+     *
+     * @returns GetWorkspaceRoleResponse
+     *
+     * @param string                  $WorkspaceId
+     * @param string                  $RoleId
+     * @param GetWorkspaceRoleRequest $request
+     *
+     * @return GetWorkspaceRoleResponse
+     */
+    public function getWorkspaceRole($WorkspaceId, $RoleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkspaceRoleWithOptions($WorkspaceId, $RoleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a list of code source configurations with support for paging, sorting, and filtering.
      *
      * @param request - ListCodeSourcesRequest
      * @param headers - map
@@ -5018,7 +5307,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists code sources. Pagination, sorting, and filtering by condition are supported.
+     * Queries a list of code source configurations with support for paging, sorting, and filtering.
      *
      * @param request - ListCodeSourcesRequest
      *
@@ -5037,7 +5326,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a list of workspace configurations.
+     * Lists the configurations for a workspace.
      *
      * @param request - ListConfigsRequest
      * @param headers - map
@@ -5092,7 +5381,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains a list of workspace configurations.
+     * Lists the configurations for a workspace.
      *
      * @param request - ListConfigsRequest
      *
@@ -5112,7 +5401,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists connections.
+     * Queries a list of connections.
      *
      * @param tmpReq - ListConnectionsRequest
      * @param headers - map
@@ -5220,7 +5509,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists connections.
+     * Queries a list of connections.
      *
      * @param request - ListConnectionsRequest
      *
@@ -5239,7 +5528,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of dataset files.
+     * Queries the files in a dataset.
      *
      * @param tmpReq - ListDatasetFileMetasRequest
      * @param headers - map
@@ -5416,7 +5705,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of dataset files.
+     * Queries the files in a dataset.
      *
      * @param request - ListDatasetFileMetasRequest
      *
@@ -5436,7 +5725,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the dataset job configurations at a time.
+     * Lists dataset job configurations in batches.
      *
      * @param request - ListDatasetJobConfigsRequest
      * @param headers - map
@@ -5495,7 +5784,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the dataset job configurations at a time.
+     * Lists dataset job configurations in batches.
      *
      * @param request - ListDatasetJobConfigsRequest
      *
@@ -5515,7 +5804,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists jobs in a dataset.
+     * Lists dataset jobs.
      *
      * @param request - ListDatasetJobsRequest
      * @param headers - map
@@ -5590,7 +5879,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists jobs in a dataset.
+     * Lists dataset jobs.
      *
      * @param request - ListDatasetJobsRequest
      *
@@ -5610,7 +5899,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists dataset versions.
+     * Retrieves a list of dataset versions.
      *
      * @param request - ListDatasetVersionsRequest
      * @param headers - map
@@ -5685,7 +5974,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists dataset versions.
+     * Retrieves a list of dataset versions.
      *
      * @param request - ListDatasetVersionsRequest
      *
@@ -5834,7 +6123,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists experiments.
+     * Retrieves a list of experiments.
      *
      * @param tmpReq - ListExperimentRequest
      * @param headers - map
@@ -5926,7 +6215,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists experiments.
+     * Retrieves a list of experiments.
      *
      * @param request - ListExperimentRequest
      *
@@ -5945,7 +6234,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of features.
+     * Retrieves a list of features.
      *
      * @param request - ListFeaturesRequest
      * @param headers - map
@@ -5987,7 +6276,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of features.
+     * Retrieves a list of features.
      *
      * @param request - ListFeaturesRequest
      *
@@ -6006,7 +6295,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists all tags of an image.
+     * Queries a list of image labels.
      *
      * @param request - ListImageLabelsRequest
      * @param headers - map
@@ -6064,7 +6353,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists all tags of an image.
+     * Queries a list of image labels.
      *
      * @param request - ListImageLabelsRequest
      *
@@ -6184,7 +6473,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the members in a workspace.
+     * Lists members in a workspace.
      *
      * @param request - ListMembersRequest
      * @param headers - map
@@ -6243,7 +6532,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the members in a workspace.
+     * Lists members in a workspace.
      *
      * @param request - ListMembersRequest
      *
@@ -6263,7 +6552,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of model versions.
+     * Retrieves a list of model versions.
      *
      * @param request - ListModelVersionsRequest
      * @param headers - map
@@ -6346,7 +6635,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of model versions.
+     * Retrieves a list of model versions.
      *
      * @param request - ListModelVersionsRequest
      *
@@ -6366,7 +6655,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of models.
+     * Retrieves a list of models.
      *
      * @param tmpReq - ListModelsRequest
      * @param headers - map
@@ -6478,7 +6767,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of models.
+     * Retrieves a list of models.
      *
      * @param request - ListModelsRequest
      *
@@ -6497,7 +6786,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the permissions that a user has in a workspace.
+     * Retrieves a list of user permissions in a workspace.
      *
      * @param request - ListPermissionsRequest
      * @param headers - map
@@ -6534,7 +6823,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the permissions that a user has in a workspace.
+     * Retrieves a list of user permissions in a workspace.
      *
      * @param request - ListPermissionsRequest
      *
@@ -6554,7 +6843,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举产品
+     * Lists products.
      *
      * @param request - ListProductsRequest
      * @param headers - map
@@ -6604,7 +6893,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 列举产品
+     * Lists products.
      *
      * @param request - ListProductsRequest
      *
@@ -6623,7 +6912,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the list of quotas.
+     * Retrieves a list of resource quotas.
      *
      * @param request - ListQuotasRequest
      * @param headers - map
@@ -6665,7 +6954,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Obtains the list of quotas.
+     * Retrieves a list of resource quotas.
      *
      * @param request - ListQuotasRequest
      *
@@ -6684,7 +6973,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the resources that are associated with a workspace.
+     * Lists resources associated with a workspace.
      *
      * @param request - ListResourcesRequest
      * @param headers - map
@@ -6770,7 +7059,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries the resources that are associated with a workspace.
+     * Lists resources associated with a workspace.
      *
      * @param request - ListResourcesRequest
      *
@@ -6789,7 +7078,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the metrics for a run.
+     * Retrieves a list of metric records for a run.
      *
      * @param request - ListRunMetricsRequest
      * @param headers - map
@@ -6840,7 +7129,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the metrics for a run.
+     * Retrieves a list of metric records for a run.
      *
      * @param request - ListRunMetricsRequest
      *
@@ -6860,7 +7149,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of runs.
+     * Retrieves a list of runs.
      *
      * @param request - ListRunsRequest
      * @param headers - map
@@ -6958,7 +7247,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries a list of runs.
+     * Retrieves a list of runs.
      *
      * @param request - ListRunsRequest
      *
@@ -6977,7 +7266,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries user information.
+     * Retrieves user configurations.
      *
      * @param request - ListUserConfigsRequest
      * @param headers - map
@@ -7023,7 +7312,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Queries user information.
+     * Retrieves user configurations.
      *
      * @param request - ListUserConfigsRequest
      *
@@ -7042,7 +7331,102 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
+     * Lists the roles in a specified workspace.
+     *
+     * @param request - ListWorkspaceRolesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWorkspaceRolesResponse
+     *
+     * @param string                    $WorkspaceId
+     * @param ListWorkspaceRolesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListWorkspaceRolesResponse
+     */
+    public function listWorkspaceRolesWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->roleIds) {
+            @$query['RoleIds'] = $request->roleIds;
+        }
+
+        if (null !== $request->roleName) {
+            @$query['RoleName'] = $request->roleName;
+        }
+
+        if (null !== $request->roleType) {
+            @$query['RoleType'] = $request->roleType;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->verboseFields) {
+            @$query['VerboseFields'] = $request->verboseFields;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListWorkspaceRoles',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/roles',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListWorkspaceRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the roles in a specified workspace.
+     *
+     * @param request - ListWorkspaceRolesRequest
+     *
+     * @returns ListWorkspaceRolesResponse
+     *
+     * @param string                    $WorkspaceId
+     * @param ListWorkspaceRolesRequest $request
+     *
+     * @return ListWorkspaceRolesResponse
+     */
+    public function listWorkspaceRoles($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkspaceRolesWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Lists users that can be added as members to a workspace.
      *
      * @param request - ListWorkspaceUsersRequest
      * @param headers - map
@@ -7089,7 +7473,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists the users who do not belong to a workspace. These users can be added to the workspace as members.
+     * Lists users that can be added as members to a workspace.
      *
      * @param request - ListWorkspaceUsersRequest
      *
@@ -7109,10 +7493,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists all workspaces in a region.
+     * Retrieves the list of workspaces in a specified region.
      *
      * @remarks
-     * You can use the option parameter to specify query options, so as to obtain different information about the workspaces.
+     * You can specify different query options by using the option parameter to retrieve different workspace-related information.
      *
      * @param request - ListWorkspacesRequest
      * @param headers - map
@@ -7202,10 +7586,10 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Lists all workspaces in a region.
+     * Retrieves the list of workspaces in a specified region.
      *
      * @remarks
-     * You can use the option parameter to specify query options, so as to obtain different information about the workspaces.
+     * You can specify different query options by using the option parameter to retrieve different workspace-related information.
      *
      * @param request - ListWorkspacesRequest
      *
@@ -7224,7 +7608,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Logs multiple metrics for a run at a time.
+     * Records the metrics of a run in a batch.
      *
      * @param request - LogRunMetricsRequest
      * @param headers - map
@@ -7267,7 +7651,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Logs multiple metrics for a run at a time.
+     * Records the metrics of a run in a batch.
      *
      * @param request - LogRunMetricsRequest
      *
@@ -7287,7 +7671,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Publishes a private code source to a workspace to make the code source publicly accessible.
+     * Publishes a private code source, making it public in a workspace.
      *
      * @param request - PublishCodeSourceRequest
      * @param headers - map
@@ -7324,7 +7708,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Publishes a private code source to a workspace to make the code source publicly accessible.
+     * Publishes a private code source, making it public in a workspace.
      *
      * @param request - PublishCodeSourceRequest
      *
@@ -7401,7 +7785,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
+     * Publishes an image and changes its visibility from PRIVATE to PUBLIC.
      *
      * @param request - PublishImageRequest
      * @param headers - map
@@ -7438,7 +7822,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
+     * Publishes an image and changes its visibility from PRIVATE to PUBLIC.
      *
      * @param request - PublishImageRequest
      *
@@ -7458,7 +7842,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Removes an image.
+     * Deletes an image.
      *
      * @param request - RemoveImageRequest
      * @param headers - map
@@ -7495,7 +7879,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Removes an image.
+     * Deletes an image.
      *
      * @param request - RemoveImageRequest
      *
@@ -7515,7 +7899,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Removes an image tag.
+     * Removes a label from an image.
      *
      * @param request - RemoveImageLabelsRequest
      * @param headers - map
@@ -7553,7 +7937,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Removes an image tag.
+     * Removes a label from an image.
      *
      * @param request - RemoveImageLabelsRequest
      *
@@ -7574,7 +7958,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Removes a member role.
+     * Removes a role from a member.
      *
      * @param request - RemoveMemberRoleRequest
      * @param headers - map
@@ -7613,7 +7997,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Removes a member role.
+     * Removes a role from a member.
      *
      * @param request - RemoveMemberRoleRequest
      *
@@ -7635,7 +8019,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a experiment tag.
+     * Updates the labels of an experiment.
      *
      * @param request - SetExperimentLabelsRequest
      * @param headers - map
@@ -7678,7 +8062,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a experiment tag.
+     * Updates the labels of an experiment.
      *
      * @param request - SetExperimentLabelsRequest
      *
@@ -7698,7 +8082,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the user configurations.
+     * Updates user configurations.
      *
      * @param request - SetUserConfigsRequest
      * @param headers - map
@@ -7740,7 +8124,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the user configurations.
+     * Updates user configurations.
      *
      * @param request - SetUserConfigsRequest
      *
@@ -7759,7 +8143,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Stops a dataset job.
+     * Stops a dataset Job.
      *
      * @param request - StopDatasetJobRequest
      * @param headers - map
@@ -7807,7 +8191,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Stops a dataset job.
+     * Stops a dataset Job.
      *
      * @param request - StopDatasetJobRequest
      *
@@ -7828,7 +8212,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a code build.
+     * Updates a code source.
      *
      * @param request - UpdateCodeSourceRequest
      * @param headers - map
@@ -7903,7 +8287,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a code build.
+     * Updates a code source.
      *
      * @param request - UpdateCodeSourceRequest
      *
@@ -7923,7 +8307,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates or adds a workspace configuration item.
+     * Updates or creates workspace configurations.
      *
      * @param request - UpdateConfigRequest
      * @param headers - map
@@ -7978,7 +8362,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates or adds a workspace configuration item.
+     * Updates or creates workspace configurations.
      *
      * @param request - UpdateConfigRequest
      *
@@ -7998,7 +8382,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates or adds workspace configurations in batches.
+     * Updates or creates workspace configurations in batches.
      *
      * @param request - UpdateConfigsRequest
      * @param headers - map
@@ -8041,7 +8425,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates or adds workspace configurations in batches.
+     * Updates or creates workspace configurations in batches.
      *
      * @param request - UpdateConfigsRequest
      *
@@ -8061,7 +8445,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a connection.
+     * Updates a connection configuration.
      *
      * @param request - UpdateConnectionRequest
      * @param headers - map
@@ -8116,7 +8500,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a connection.
+     * Updates a connection configuration.
      *
      * @param request - UpdateConnectionRequest
      *
@@ -8136,7 +8520,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the name, description, and other information about a dataset.
+     * Updates the properties of a dataset, such as its name and description.
      *
      * @param request - UpdateDatasetRequest
      * @param headers - map
@@ -8207,7 +8591,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the name, description, and other information about a dataset.
+     * Updates the properties of a dataset, such as its name and description.
      *
      * @param request - UpdateDatasetRequest
      *
@@ -8227,7 +8611,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the metadata records of multiple files in a dataset at a time.
+     * Updates multiple file metadata records in a dataset.
      *
      * @param request - UpdateDatasetFileMetasRequest
      * @param headers - map
@@ -8282,7 +8666,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the metadata records of multiple files in a dataset at a time.
+     * Updates multiple file metadata records in a dataset.
      *
      * @param request - UpdateDatasetFileMetasRequest
      *
@@ -8375,7 +8759,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a job configuration for a dataset.
+     * Updates a dataset job configuration.
      *
      * @param request - UpdateDatasetJobConfigRequest
      * @param headers - map
@@ -8427,7 +8811,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates a job configuration for a dataset.
+     * Updates a dataset job configuration.
      *
      * @param request - UpdateDatasetJobConfigRequest
      *
@@ -8448,7 +8832,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the information about a specified version of a dataset.
+     * Updates the information for a specific version of a dataset.
      *
      * @param request - UpdateDatasetVersionRequest
      * @param headers - map
@@ -8504,7 +8888,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the information about a specified version of a dataset.
+     * Updates the information for a specific version of a dataset.
      *
      * @param request - UpdateDatasetVersionRequest
      *
@@ -8525,7 +8909,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Specifies a workspace as the default workspace.
+     * Sets a workspace as the default.
      *
      * @param request - UpdateDefaultWorkspaceRequest
      * @param headers - map
@@ -8567,7 +8951,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Specifies a workspace as the default workspace.
+     * Sets a workspace as the default.
      *
      * @param request - UpdateDefaultWorkspaceRequest
      *
@@ -8653,7 +9037,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the basic configuration information about a model.
+     * Updates the basic configuration of a model.
      *
      * @param request - UpdateModelRequest
      * @param headers - map
@@ -8736,7 +9120,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the basic configuration information about a model.
+     * Updates the basic configuration of a model.
      *
      * @param request - UpdateModelRequest
      *
@@ -8865,7 +9249,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the run information.
+     * Updates the details of a run.
      *
      * @param request - UpdateRunRequest
      * @param headers - map
@@ -8916,7 +9300,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the run information.
+     * Updates the details of a run.
      *
      * @param request - UpdateRunRequest
      *
@@ -9003,7 +9387,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the resources of a workspace.
+     * Updates resources in a workspace.
      *
      * @param request - UpdateWorkspaceResourceRequest
      * @param headers - map
@@ -9070,7 +9454,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * Updates the resources of a workspace.
+     * Updates resources in a workspace.
      *
      * @param request - UpdateWorkspaceResourceRequest
      *
@@ -9090,7 +9474,76 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 验证连接.
+     * Updates a role in a workspace.
+     *
+     * @param request - UpdateWorkspaceRoleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWorkspaceRoleResponse
+     *
+     * @param string                     $WorkspaceId
+     * @param string                     $RoleId
+     * @param UpdateWorkspaceRoleRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateWorkspaceRoleResponse
+     */
+    public function updateWorkspaceRoleWithOptions($WorkspaceId, $RoleId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->modulePermissions) {
+            @$body['ModulePermissions'] = $request->modulePermissions;
+        }
+
+        if (null !== $request->roleName) {
+            @$body['RoleName'] = $request->roleName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateWorkspaceRole',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/roles/' . Url::percentEncode($RoleId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateWorkspaceRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a role in a workspace.
+     *
+     * @param request - UpdateWorkspaceRoleRequest
+     *
+     * @returns UpdateWorkspaceRoleResponse
+     *
+     * @param string                     $WorkspaceId
+     * @param string                     $RoleId
+     * @param UpdateWorkspaceRoleRequest $request
+     *
+     * @return UpdateWorkspaceRoleResponse
+     */
+    public function updateWorkspaceRole($WorkspaceId, $RoleId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateWorkspaceRoleWithOptions($WorkspaceId, $RoleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Validates a connection.
      *
      * @param request - ValidateConnectionRequest
      * @param headers - map
@@ -9152,7 +9605,7 @@ class AIWorkSpace extends OpenApiClient
     }
 
     /**
-     * 验证连接.
+     * Validates a connection.
      *
      * @param request - ValidateConnectionRequest
      *
