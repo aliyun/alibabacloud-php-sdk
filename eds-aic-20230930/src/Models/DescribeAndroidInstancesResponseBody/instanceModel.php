@@ -87,6 +87,11 @@ class instanceModel extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -178,6 +183,11 @@ class instanceModel extends Model
      * @var string
      */
     public $officeSiteId;
+
+    /**
+     * @var string
+     */
+    public $packageId;
 
     /**
      * @var string
@@ -283,6 +293,7 @@ class instanceModel extends Model
         'bindUserId' => 'BindUserId',
         'bizImageType' => 'BizImageType',
         'bizTags' => 'BizTags',
+        'channel' => 'Channel',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'disks' => 'Disks',
@@ -302,6 +313,7 @@ class instanceModel extends Model
         'networkInterfaceIpv6Address' => 'NetworkInterfaceIpv6Address',
         'networkType' => 'NetworkType',
         'officeSiteId' => 'OfficeSiteId',
+        'packageId' => 'PackageId',
         'persistentAppInstanceId' => 'PersistentAppInstanceId',
         'phoneDataInfo' => 'PhoneDataInfo',
         'policyGroupId' => 'PolicyGroupId',
@@ -411,6 +423,10 @@ class instanceModel extends Model
             }
         }
 
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
+        }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
@@ -492,6 +508,10 @@ class instanceModel extends Model
 
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
+        }
+
+        if (null !== $this->packageId) {
+            $res['PackageId'] = $this->packageId;
         }
 
         if (null !== $this->persistentAppInstanceId) {
@@ -647,6 +667,10 @@ class instanceModel extends Model
             }
         }
 
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
+        }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
@@ -728,6 +752,10 @@ class instanceModel extends Model
 
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+
+        if (isset($map['PackageId'])) {
+            $model->packageId = $map['PackageId'];
         }
 
         if (isset($map['PersistentAppInstanceId'])) {

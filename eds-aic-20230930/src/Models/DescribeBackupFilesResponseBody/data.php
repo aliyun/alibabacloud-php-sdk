@@ -41,6 +41,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -114,6 +119,7 @@ class data extends Model
         'backupFileId' => 'BackupFileId',
         'backupFileName' => 'BackupFileName',
         'backupFilePath' => 'BackupFilePath',
+        'channel' => 'Channel',
         'description' => 'Description',
         'endUserId' => 'EndUserId',
         'fileSize' => 'FileSize',
@@ -166,6 +172,10 @@ class data extends Model
 
         if (null !== $this->backupFilePath) {
             $res['BackupFilePath'] = $this->backupFilePath;
+        }
+
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
 
         if (null !== $this->description) {
@@ -271,6 +281,10 @@ class data extends Model
 
         if (isset($map['BackupFilePath'])) {
             $model->backupFilePath = $map['BackupFilePath'];
+        }
+
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
 
         if (isset($map['Description'])) {

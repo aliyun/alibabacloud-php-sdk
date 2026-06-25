@@ -49,6 +49,11 @@ class instanceGroupModel extends Model
     /**
      * @var string
      */
+    public $channel;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -154,6 +159,11 @@ class instanceGroupModel extends Model
     /**
      * @var string
      */
+    public $packageId;
+
+    /**
+     * @var string
+     */
     public $policyGroupId;
 
     /**
@@ -208,6 +218,7 @@ class instanceGroupModel extends Model
         'bandwidthPackageStatus' => 'BandwidthPackageStatus',
         'bandwidthPackageType' => 'BandwidthPackageType',
         'bindQosRules' => 'BindQosRules',
+        'channel' => 'Channel',
         'chargeType' => 'ChargeType',
         'cpu' => 'Cpu',
         'disks' => 'Disks',
@@ -229,6 +240,7 @@ class instanceGroupModel extends Model
         'networkType' => 'NetworkType',
         'numberOfInstances' => 'NumberOfInstances',
         'officeSiteId' => 'OfficeSiteId',
+        'packageId' => 'PackageId',
         'policyGroupId' => 'PolicyGroupId',
         'regionId' => 'RegionId',
         'renderingType' => 'RenderingType',
@@ -284,6 +296,10 @@ class instanceGroupModel extends Model
 
         if (null !== $this->bindQosRules) {
             $res['BindQosRules'] = null !== $this->bindQosRules ? $this->bindQosRules->toArray($noStream) : $this->bindQosRules;
+        }
+
+        if (null !== $this->channel) {
+            $res['Channel'] = $this->channel;
         }
 
         if (null !== $this->chargeType) {
@@ -377,6 +393,10 @@ class instanceGroupModel extends Model
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
 
+        if (null !== $this->packageId) {
+            $res['PackageId'] = $this->packageId;
+        }
+
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
@@ -461,6 +481,10 @@ class instanceGroupModel extends Model
 
         if (isset($map['BindQosRules'])) {
             $model->bindQosRules = bindQosRules::fromMap($map['BindQosRules']);
+        }
+
+        if (isset($map['Channel'])) {
+            $model->channel = $map['Channel'];
         }
 
         if (isset($map['ChargeType'])) {
@@ -552,6 +576,10 @@ class instanceGroupModel extends Model
 
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
+        }
+
+        if (isset($map['PackageId'])) {
+            $model->packageId = $map['PackageId'];
         }
 
         if (isset($map['PolicyGroupId'])) {
