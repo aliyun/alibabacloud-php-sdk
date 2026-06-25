@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class config extends Model
 {
     /**
-     * @var string[]
+     * @var mixed[]
      */
     public $customConfig;
     protected $_name = [
