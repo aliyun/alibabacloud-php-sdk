@@ -112,6 +112,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerQuotaRulesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerQuotaRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsRequest;
@@ -3382,7 +3384,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains the information of a consumer.
+     * Retrieves an API consumer.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3416,7 +3418,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains the information of a consumer.
+     * Retrieves an API consumer.
      *
      * @returns GetConsumerResponse
      *
@@ -4086,10 +4088,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Get the MCP server.
+     * Get MCP Server.
      *
      * @remarks
-     * This API supports creating multiple services.
+     * The API supports creating multiple services.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4123,10 +4125,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Get the MCP server.
+     * Get MCP Server.
      *
      * @remarks
-     * This API supports creating multiple services.
+     * The API supports creating multiple services.
      *
      * @returns GetMcpServerResponse
      *
@@ -4882,6 +4884,81 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listConsumerAuthorizationRulesWithOptions($consumerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询消费者配额限流规则列表.
+     *
+     * @param request - ListConsumerQuotaRulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConsumerQuotaRulesResponse
+     *
+     * @param string                        $consumerId
+     * @param ListConsumerQuotaRulesRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListConsumerQuotaRulesResponse
+     */
+    public function listConsumerQuotaRulesWithOptions($consumerId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConsumerQuotaRules',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumers/' . Url::percentEncode($consumerId) . '/quota-rules',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConsumerQuotaRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消费者配额限流规则列表.
+     *
+     * @param request - ListConsumerQuotaRulesRequest
+     *
+     * @returns ListConsumerQuotaRulesResponse
+     *
+     * @param string                        $consumerId
+     * @param ListConsumerQuotaRulesRequest $request
+     *
+     * @return ListConsumerQuotaRulesResponse
+     */
+    public function listConsumerQuotaRules($consumerId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConsumerQuotaRulesWithOptions($consumerId, $request, $headers, $runtime);
     }
 
     /**
