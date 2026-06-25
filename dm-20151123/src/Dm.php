@@ -84,6 +84,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteReceiverRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteReceiverResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteTagRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteTagResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteTemplateRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteTemplateResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteValidateFileRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteValidateFileResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescAccountSummaryRequest;
@@ -126,6 +128,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyPWByDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyPWByDomainResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyTagRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyTagResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyTemplateRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\ModifyTemplateResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\OpenSendifyTrialServiceResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryDomainByParamRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryDomainByParamResponse;
@@ -2779,6 +2783,79 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * Queries template information.
+     *
+     * @param Request - DeleteTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTemplateResponse
+     *
+     * @param DeleteTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTemplateResponse
+     */
+    public function deleteTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromType) {
+            @$query['FromType'] = $request->fromType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTemplate',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries template information.
+     *
+     * @param Request - DeleteTemplateRequest
+     *
+     * @returns DeleteTemplateResponse
+     *
+     * @param DeleteTemplateRequest $request
+     *
+     * @return DeleteTemplateResponse
+     */
+    public function deleteTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes the verification file after the verification process is complete.
      *
      * @param Request - DeleteValidateFileRequest
@@ -2974,10 +3051,10 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the information about an email template.
+     * Queries template information.
      *
      * @remarks
-     * Retrieves information about a specific email template, including its name, creation time, and content.
+     * Queries template information.
      *
      * @param Request - DescTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3032,10 +3109,10 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Retrieves the information about an email template.
+     * Queries template information.
      *
      * @remarks
-     * Retrieves information about a specific email template, including its name, creation time, and content.
+     * Queries template information.
      *
      * @param Request - DescTemplateRequest
      *
@@ -4386,6 +4463,107 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * Modifies an email template.
+     *
+     * @param Request - ModifyTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyTemplateResponse
+     *
+     * @param ModifyTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyTemplateResponse
+     */
+    public function modifyTemplateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fromType) {
+            @$query['FromType'] = $request->fromType;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->smsContent) {
+            @$query['SmsContent'] = $request->smsContent;
+        }
+
+        if (null !== $request->smsType) {
+            @$query['SmsType'] = $request->smsType;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        if (null !== $request->templateNickName) {
+            @$query['TemplateNickName'] = $request->templateNickName;
+        }
+
+        if (null !== $request->templateSubject) {
+            @$query['TemplateSubject'] = $request->templateSubject;
+        }
+
+        if (null !== $request->templateText) {
+            @$query['TemplateText'] = $request->templateText;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyTemplate',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies an email template.
+     *
+     * @param Request - ModifyTemplateRequest
+     *
+     * @returns ModifyTemplateResponse
+     *
+     * @param ModifyTemplateRequest $request
+     *
+     * @return ModifyTemplateResponse
+     */
+    public function modifyTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * 免费试用Sendify.
      *
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5002,10 +5180,10 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve a list of templates.
+     * Queries template list information by paging.
      *
      * @remarks
-     * Performs a paged query to retrieve a list of templates.
+     * Queries template list information by paging.
      *
      * @param Request - QueryTemplateByParamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5072,10 +5250,10 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve a list of templates.
+     * Queries template list information by paging.
      *
      * @remarks
-     * Performs a paged query to retrieve a list of templates.
+     * Queries template list information by paging.
      *
      * @param Request - QueryTemplateByParamRequest
      *
