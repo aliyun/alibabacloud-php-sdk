@@ -76,6 +76,11 @@ class SendChatMessageRequest extends Model
      * @var taskConfig
      */
     public $taskConfig;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'agentId' => 'AgentId',
         'DMSUnit' => 'DMSUnit',
@@ -90,6 +95,7 @@ class SendChatMessageRequest extends Model
         'sessionConfig' => 'SessionConfig',
         'sessionId' => 'SessionId',
         'taskConfig' => 'TaskConfig',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -171,6 +177,10 @@ class SendChatMessageRequest extends Model
             $res['TaskConfig'] = null !== $this->taskConfig ? $this->taskConfig->toArray($noStream) : $this->taskConfig;
         }
 
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
+        }
+
         return $res;
     }
 
@@ -239,6 +249,10 @@ class SendChatMessageRequest extends Model
 
         if (isset($map['TaskConfig'])) {
             $model->taskConfig = taskConfig::fromMap($map['TaskConfig']);
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

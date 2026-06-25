@@ -72,6 +72,11 @@ class SendChatMessageShrinkRequest extends Model
      * @var string
      */
     public $taskConfigShrink;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'agentId' => 'AgentId',
         'DMSUnit' => 'DMSUnit',
@@ -86,6 +91,7 @@ class SendChatMessageShrinkRequest extends Model
         'sessionConfigShrink' => 'SessionConfig',
         'sessionId' => 'SessionId',
         'taskConfigShrink' => 'TaskConfig',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -146,6 +152,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (null !== $this->taskConfigShrink) {
             $res['TaskConfig'] = $this->taskConfigShrink;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -209,6 +219,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (isset($map['TaskConfig'])) {
             $model->taskConfigShrink = $map['TaskConfig'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;
