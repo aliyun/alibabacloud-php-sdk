@@ -45,6 +45,11 @@ class CreateClusterShrinkRequest extends Model
     public $pricingCycle;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -66,6 +71,7 @@ class CreateClusterShrinkRequest extends Model
         'duration' => 'Duration',
         'engineType' => 'EngineType',
         'pricingCycle' => 'PricingCycle',
+        'source' => 'Source',
         'tag' => 'Tag',
         'vSwitchesShrink' => 'VSwitches',
         'vpcId' => 'VpcId',
@@ -108,6 +114,10 @@ class CreateClusterShrinkRequest extends Model
 
         if (null !== $this->pricingCycle) {
             $res['PricingCycle'] = $this->pricingCycle;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->tag) {
@@ -166,6 +176,10 @@ class CreateClusterShrinkRequest extends Model
 
         if (isset($map['PricingCycle'])) {
             $model->pricingCycle = $map['PricingCycle'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['Tag'])) {

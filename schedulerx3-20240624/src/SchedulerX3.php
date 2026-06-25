@@ -213,7 +213,21 @@ class SchedulerX3 extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'eu-central-1' => 'schedulerx3.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'schedulerx3.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen' => 'schedulerx3.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'schedulerx3.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'schedulerx3.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'schedulerx3.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'schedulerx3.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'schedulerx3.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'schedulerx3.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'schedulerx3.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'schedulerx3.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'schedulerx3.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('schedulerx3', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -243,7 +257,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Creates an application.
+     * Creates an app.
      *
      * @param request - CreateAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -310,7 +324,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Creates an application.
+     * Creates an app.
      *
      * @param request - CreateAppRequest
      *
@@ -328,7 +342,10 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建日历.
+     * Creates a custom calendar.
+     *
+     * @remarks
+     * Creates a custom calendar for SchedulerX.
      *
      * @param request - CreateCalendarRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -383,7 +400,10 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建日历.
+     * Creates a custom calendar.
+     *
+     * @remarks
+     * Creates a custom calendar for SchedulerX.
      *
      * @param request - CreateCalendarRequest
      *
@@ -456,6 +476,10 @@ class SchedulerX3 extends OpenApiClient
             @$body['PricingCycle'] = $request->pricingCycle;
         }
 
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
+        }
+
         if (null !== $request->vSwitchesShrink) {
             @$body['VSwitches'] = $request->vSwitchesShrink;
         }
@@ -502,7 +526,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建数据源.
+     * Create a data source.
      *
      * @param request - CreateDatasourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -561,7 +585,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建数据源.
+     * Create a data source.
      *
      * @param request - CreateDatasourceRequest
      *
@@ -580,6 +604,9 @@ class SchedulerX3 extends OpenApiClient
 
     /**
      * 添加执行器组.
+     *
+     * @remarks
+     * 手动导入执行器
      *
      * @param request - CreateExecutorGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -668,6 +695,9 @@ class SchedulerX3 extends OpenApiClient
     /**
      * 添加执行器组.
      *
+     * @remarks
+     * 手动导入执行器
+     *
      * @param request - CreateExecutorGroupRequest
      *
      * @returns CreateExecutorGroupResponse
@@ -684,7 +714,10 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 添加执行器.
+     * Imports one or more executors.
+     *
+     * @remarks
+     * Imports one or more executors.
      *
      * @param request - CreateExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -735,7 +768,10 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 添加执行器.
+     * Imports one or more executors.
+     *
+     * @remarks
+     * Imports one or more executors.
      *
      * @param request - CreateExecutorsRequest
      *
@@ -753,7 +789,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Creates a job.
+     * Creates a node.
      *
      * @param tmpReq - CreateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -914,7 +950,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Creates a job.
+     * Creates a node.
      *
      * @param request - CreateJobRequest
      *
@@ -932,7 +968,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates a workflow.
      *
      * @param request - CreateWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1011,7 +1047,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 创建应用.
+     * Creates a workflow.
      *
      * @param request - CreateWorkflowRequest
      *
@@ -1029,7 +1065,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Deletes an application group.
+     * Deletes an App Group.
      *
      * @param request - DeleteAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1072,7 +1108,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Deletes an application group.
+     * Deletes an App Group.
      *
      * @param request - DeleteAppRequest
      *
@@ -1090,7 +1126,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 删除日历.
+     * Deletes the specified calendar.
      *
      * @param request - DeleteCalendarRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1137,7 +1173,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 删除日历.
+     * Deletes the specified calendar.
      *
      * @param request - DeleteCalendarRequest
      *
@@ -1212,7 +1248,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 删除数据源.
+     * Delete data source.
      *
      * @param request - DeleteDatasourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1255,7 +1291,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 删除数据源.
+     * Delete data source.
      *
      * @param request - DeleteDatasourceRequest
      *
@@ -1338,7 +1374,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Deletes multiple jobs at a time.
+     * Deletes multiple jobs in a batch.
      *
      * @param tmpReq - DeleteJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1391,7 +1427,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Deletes multiple jobs at a time.
+     * Deletes multiple jobs in a batch.
      *
      * @param request - DeleteJobsRequest
      *
@@ -1409,7 +1445,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 删除工作流
+     * Deletes a Workflow.
      *
      * @param request - DeleteWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1460,7 +1496,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 删除工作流
+     * Deletes a Workflow.
      *
      * @param request - DeleteWorkflowRequest
      *
@@ -1478,7 +1514,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量删除工作流
+     * Deletes one or more workflows.
      *
      * @param tmpReq - DeleteWorkflowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1535,7 +1571,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量删除工作流
+     * Deletes one or more workflows.
      *
      * @param request - DeleteWorkflowsRequest
      *
@@ -1553,7 +1589,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Exports the information about jobs at a time.
+     * Exports job information in bulk.
      *
      * @param tmpReq - ExportJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1610,7 +1646,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Exports the information about jobs at a time.
+     * Exports job information in bulk.
      *
      * @param request - ExportJobsRequest
      *
@@ -1628,7 +1664,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量导出工作流信息.
+     * Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
      *
      * @param tmpReq - ExportWorkflowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1681,7 +1717,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量导出工作流信息.
+     * Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
      *
      * @param request - ExportWorkflowsRequest
      *
@@ -1699,7 +1735,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取指定应用.
+     * Retrieves the details of a specified application.
      *
      * @param request - GetAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1742,7 +1778,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取指定应用.
+     * Retrieves the details of a specified application.
      *
      * @param request - GetAppRequest
      *
@@ -1760,7 +1796,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取日历信息.
+     * Retrieves the details of a specified calendar.
      *
      * @param request - GetCalendarRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1807,7 +1843,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取日历信息.
+     * Retrieves the details of a specified calendar.
      *
      * @param request - GetCalendarRequest
      *
@@ -1825,7 +1861,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cluster.
+     * Obtains the details of a cluster.
      *
      * @param request - GetClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1860,7 +1896,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cluster.
+     * Obtains the details of a cluster.
      *
      * @param request - GetClusterRequest
      *
@@ -1878,7 +1914,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a specified machine.
+     * Retrieves the designation information for a job.
      *
      * @param request - GetDesigateInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1913,7 +1949,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a specified machine.
+     * Retrieves the designation information for a job.
      *
      * @param request - GetDesigateInfoRequest
      *
@@ -1931,7 +1967,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询执行器配置信息.
+     * Retrieves the configuration for a specified Executor.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+     * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
+     * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - GetExecutorConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1974,7 +2016,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询执行器配置信息.
+     * Retrieves the configuration for a specified Executor.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+     * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
+     * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - GetExecutorConfigRequest
      *
@@ -1992,7 +2040,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务执行的详细信息.
+     * Returns the details of a Task Execution.
      *
      * @param request - GetJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2043,7 +2091,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务执行的详细信息.
+     * Returns the details of a Task Execution.
      *
      * @param request - GetJobExecutionRequest
      *
@@ -2061,7 +2109,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains the execution details of a job.
+     * Gets the details of a sharding task execution.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
+     * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
+     * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - GetJobExecutionProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2096,7 +2150,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains the execution details of a job.
+     * Gets the details of a sharding task execution.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
+     * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
+     * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - GetJobExecutionProgressRequest
      *
@@ -2114,7 +2174,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询任务的线程堆栈.
+     * Retrieves the thread dump for a specific job execution.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
+     * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
+     * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - GetJobExecutionThreadDumpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2149,7 +2215,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询任务的线程堆栈.
+     * Retrieves the thread dump for a specific job execution.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
+     * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
+     * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - GetJobExecutionThreadDumpRequest
      *
@@ -2167,7 +2239,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries logs.
+     * Retrieves log entries.
      *
      * @param request - GetLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2202,7 +2274,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries logs.
+     * Retrieves log entries.
      *
      * @param request - GetLogRequest
      *
@@ -2220,7 +2292,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询事件.
+     * Query Events.
      *
      * @param request - GetLogEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2255,7 +2327,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询事件.
+     * Query Events.
      *
      * @param request - GetLogEventRequest
      *
@@ -2274,6 +2346,12 @@ class SchedulerX3 extends OpenApiClient
 
     /**
      * 获取分页日志.
+     *
+     * @remarks
+     * # 引入增强插件
+     * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+     * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+     * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - GetPageLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2354,6 +2432,12 @@ class SchedulerX3 extends OpenApiClient
     /**
      * 获取分页日志.
      *
+     * @remarks
+     * # 引入增强插件
+     * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+     * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+     * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+     *
      * @param request - GetPageLogRequest
      *
      * @returns GetPageLogResponse
@@ -2370,7 +2454,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流
+     * Retrieves the basic information for a specified workflow.
      *
      * @param request - GetWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2417,7 +2501,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流
+     * Retrieves the basic information for a specified workflow.
      *
      * @param request - GetWorkflowRequest
      *
@@ -2435,7 +2519,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流的DAG信息.
+     * Gets the Directed Acyclic Graph (DAG) of a workflow.
      *
      * @param request - GetWorkflowDAGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2482,7 +2566,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流的DAG信息.
+     * Gets the Directed Acyclic Graph (DAG) of a workflow.
      *
      * @param request - GetWorkflowDAGRequest
      *
@@ -2500,7 +2584,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流的DAG信息.
+     * Gets the DAG for a previous workflow version.
      *
      * @param request - GetWorkflowDAGPreviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2551,7 +2635,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流的DAG信息.
+     * Gets the DAG for a previous workflow version.
      *
      * @param request - GetWorkflowDAGPreviewRequest
      *
@@ -2569,7 +2653,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流实例DAG信息.
+     * Retrieve the DAG information for a workflow instance.
      *
      * @param request - GetWorkflowExecutionDAGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2616,7 +2700,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流实例DAG信息.
+     * Retrieve the DAG information for a workflow instance.
      *
      * @param request - GetWorkflowExecutionDAGRequest
      *
@@ -2703,7 +2787,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Imports jobs at a time.
+     * Imports jobs in bulk.
      *
      * @param request - ImportJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2754,7 +2838,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Imports jobs at a time.
+     * Imports jobs in bulk.
      *
      * @param request - ImportJobsRequest
      *
@@ -2772,7 +2856,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量导入工作流
+     * Imports one or more workflows.
      *
      * @param request - ImportWorkflowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2823,7 +2907,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量导入工作流
+     * Imports one or more workflows.
      *
      * @param request - ImportWorkflowsRequest
      *
@@ -2841,7 +2925,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of alert events.
+     * Retrieves alert events.
      *
      * @param request - ListAlarmEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2876,7 +2960,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of alert events.
+     * Retrieves alert events.
      *
      * @param request - ListAlarmEventRequest
      *
@@ -2894,7 +2978,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of application names.
+     * Returns a list of application names.
      *
      * @param request - ListAppNamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2929,7 +3013,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of application names.
+     * Returns a list of application names.
      *
      * @param request - ListAppNamesRequest
      *
@@ -2947,7 +3031,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
+     * Get the list of applications.
      *
      * @param request - ListAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2982,7 +3066,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
+     * Get the list of applications.
      *
      * @param request - ListAppsRequest
      *
@@ -3000,7 +3084,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of calendar names.
+     * Lists all Calendar names.
      *
      * @param request - ListCalendarNamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3035,7 +3119,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of calendar names.
+     * Lists all Calendar names.
      *
      * @param request - ListCalendarNamesRequest
      *
@@ -3053,7 +3137,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询日历.
+     * Retrieves a list of calendars.
      *
      * @param request - ListCalendarsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3112,7 +3196,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 查询日历.
+     * Retrieves a list of calendars.
      *
      * @param request - ListCalendarsRequest
      *
@@ -3130,7 +3214,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Query the list of instances.
      *
      * @param request - ListClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3165,7 +3249,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * Query the list of instances.
      *
      * @param request - ListClustersRequest
      *
@@ -3183,7 +3267,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取数据源列表.
+     * Retrieve the data source list.
      *
      * @param request - ListDatasourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3246,7 +3330,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取数据源列表.
+     * Retrieve the data source list.
      *
      * @param request - ListDatasourcesRequest
      *
@@ -3265,6 +3349,12 @@ class SchedulerX3 extends OpenApiClient
 
     /**
      * 获取执行器组列表.
+     *
+     * @remarks
+     * # 引入增强插件
+     * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+     * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+     * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - ListExecutorGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3329,6 +3419,12 @@ class SchedulerX3 extends OpenApiClient
     /**
      * 获取执行器组列表.
      *
+     * @remarks
+     * # 引入增强插件
+     * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+     * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+     * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+     *
      * @param request - ListExecutorGroupRequest
      *
      * @returns ListExecutorGroupResponse
@@ -3345,7 +3441,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a list of executors.
+     * Lists executors.
      *
      * @param request - ListExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3380,7 +3476,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a list of executors.
+     * Lists executors.
      *
      * @param request - ListExecutorsRequest
      *
@@ -3398,7 +3494,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of job instances.
+     * Returns a list of task instances.
      *
      * @param request - ListJobExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3477,7 +3573,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of job instances.
+     * Returns a list of task instances.
      *
      * @param request - ListJobExecutionsRequest
      *
@@ -3495,7 +3591,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务脚本历史列表.
+     * Lists the script history for a job.
      *
      * @param request - ListJobScriptHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3550,7 +3646,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取任务脚本历史列表.
+     * Lists the script history for a job.
      *
      * @param request - ListJobScriptHistoryRequest
      *
@@ -3568,7 +3664,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a list of jobs.
+     * Returns a task list.
      *
      * @param request - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3643,7 +3739,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries a list of jobs.
+     * Returns a task list.
      *
      * @param request - ListJobsRequest
      *
@@ -3661,7 +3757,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取k8s资源列表.
+     * Lists k8s resources.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+     * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
+     * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - ListK8sResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3716,7 +3818,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取k8s资源列表.
+     * Lists k8s resources.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
+     * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
+     * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - ListK8sResourceRequest
      *
@@ -3734,7 +3842,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of tags of an executor.
+     * Retrieves a list of labels for an Executor.
      *
      * @param request - ListLablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3769,7 +3877,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of tags of an executor.
+     * Retrieves a list of labels for an Executor.
      *
      * @param request - ListLablesRequest
      *
@@ -3787,7 +3895,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of zones.
+     * Obtain the zone list.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3816,7 +3924,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of zones.
+     * Obtain the zone list.
      *
      * @returns ListRegionZoneResponse
      *
@@ -3830,7 +3938,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of all regions.
+     * Obtain the List of all Regions.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3859,7 +3967,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains a list of all regions.
+     * Obtain the List of all Regions.
      *
      * @returns ListRegionsResponse
      *
@@ -3873,7 +3981,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries scheduling events.
+     * Lists scheduled events.
      *
      * @param request - ListScheduleEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3908,7 +4016,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Queries scheduling events.
+     * Lists scheduled events.
      *
      * @param request - ListScheduleEventRequest
      *
@@ -3926,7 +4034,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
+     * Retrieves the next five scheduled times based on the specified time type and time expression.
      *
      * @param request - ListScheduleTimesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3961,7 +4069,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
+     * Retrieves the next five scheduled times based on the specified time type and time expression.
      *
      * @param request - ListScheduleTimesRequest
      *
@@ -3979,7 +4087,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取流程实例列表.
+     * Retrieves a list of workflow instances.
      *
      * @param request - ListWorkflowExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4062,7 +4170,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取流程实例列表.
+     * Retrieves a list of workflow instances.
      *
      * @param request - ListWorkflowExecutionsRequest
      *
@@ -4080,7 +4188,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取当前工作流版本列表.
+     * Lists the versions for a specified workflow.
      *
      * @param request - ListWorkflowVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4135,7 +4243,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取当前工作流版本列表.
+     * Lists the versions for a specified workflow.
      *
      * @param request - ListWorkflowVersionsRequest
      *
@@ -4153,7 +4261,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流列表.
+     * Lists your workflows.
      *
      * @param request - ListWorkflowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4228,7 +4336,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 获取工作流列表.
+     * Lists your workflows.
      *
      * @param request - ListWorkflowsRequest
      *
@@ -4246,7 +4354,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 补数工作流
+     * Backfills historical data for a specified workflow.
      *
      * @param request - OperateBackfillWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4301,7 +4409,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 补数工作流
+     * Backfills historical data for a specified workflow.
      *
      * @param request - OperateBackfillWorkflowRequest
      *
@@ -4319,7 +4427,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 连接数据源.
+     * Connect to a data source.
      *
      * @param request - OperateConnectDatasourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4370,7 +4478,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 连接数据源.
+     * Connect to a data source.
      *
      * @param request - OperateConnectDatasourceRequest
      *
@@ -4388,7 +4496,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Designates executors.
+     * Designates one or more executors for a job.
      *
      * @param tmpReq - OperateDesignateExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4453,7 +4561,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Designates executors.
+     * Designates one or more executors for a job.
      *
      * @param request - OperateDesignateExecutorsRequest
      *
@@ -4471,7 +4579,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Disables multiple jobs at a time.
+     * Disables multiple jobs.
      *
      * @param tmpReq - OperateDisableJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4524,7 +4632,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Disables multiple jobs at a time.
+     * Disables multiple jobs.
      *
      * @param request - OperateDisableJobsRequest
      *
@@ -4542,7 +4650,10 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量禁用工作流
+     * Disables one or more workflows.
+     *
+     * @remarks
+     * Disables one or more specified workflows.
      *
      * @param tmpReq - OperateDisableWorkflowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4595,7 +4706,10 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量禁用工作流
+     * Disables one or more workflows.
+     *
+     * @remarks
+     * Disables one or more specified workflows.
      *
      * @param request - OperateDisableWorkflowsRequest
      *
@@ -4613,7 +4727,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Enables multiple jobs at a time.
+     * Enables multiple jobs in a batch.
      *
      * @param tmpReq - OperateEnableJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4666,7 +4780,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Enables multiple jobs at a time.
+     * Enables multiple jobs in a batch.
      *
      * @param request - OperateEnableJobsRequest
      *
@@ -4684,7 +4798,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量启用工作流
+     * Enables one or more workflows.
      *
      * @param tmpReq - OperateEnableWorkflowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4737,7 +4851,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 批量启用工作流
+     * Enables one or more workflows.
      *
      * @param request - OperateEnableWorkflowsRequest
      *
@@ -4755,7 +4869,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Runs a job once.
+     * Executes a job on demand.
      *
      * @param request - OperateExecuteJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4814,7 +4928,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Runs a job once.
+     * Executes a job on demand.
      *
      * @param request - OperateExecuteJobRequest
      *
@@ -4832,7 +4946,10 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 运行一次工作流
+     * Executes a workflow.
+     *
+     * @remarks
+     * This operation starts a new workflow instance.
      *
      * @param request - OperateExecuteWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4879,7 +4996,10 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 运行一次工作流
+     * Executes a workflow.
+     *
+     * @remarks
+     * This operation starts a new workflow instance.
      *
      * @param request - OperateExecuteWorkflowRequest
      *
@@ -4897,7 +5017,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Hold住任务实例.
+     * Holds a pending job execution.
      *
      * @param request - OperateHoldJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4944,7 +5064,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Hold住任务实例.
+     * Holds a pending job execution.
      *
      * @param request - OperateHoldJobExecutionRequest
      *
@@ -4962,7 +5082,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将工作流中未开始的节点置为Held状态
+     * Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
      *
      * @param request - OperateHoldWorkflowExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5009,7 +5129,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将工作流中未开始的节点置为Held状态
+     * Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
      *
      * @param request - OperateHoldWorkflowExecutionRequest
      *
@@ -5027,7 +5147,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 标记任务实例为成功状态
+     * Marks a job execution as successful.
      *
      * @param request - OperateMarkSuccessJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5074,7 +5194,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 标记任务实例为成功状态
+     * Marks a job execution as successful.
      *
      * @param request - OperateMarkSuccessJobExecutionRequest
      *
@@ -5092,7 +5212,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将工作流实例标记为成功
+     * Marks a workflow execution as successful.
      *
      * @param request - OperateMarkSuccessWorkflowExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5139,7 +5259,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将工作流实例标记为成功
+     * Marks a workflow execution as successful.
      *
      * @param request - OperateMarkSuccessWorkflowExecutionRequest
      *
@@ -5157,7 +5277,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Reprocesses the historical data of a job.
+     * Reruns historical data for a job within a specified time range.
      *
      * @param request - OperateRerunJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5216,7 +5336,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Reprocesses the historical data of a job.
+     * Reruns historical data for a job within a specified time range.
      *
      * @param request - OperateRerunJobRequest
      *
@@ -5234,7 +5354,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Reruns failed job instances.
+     * Retries a failed Job Instance.
      *
      * @param tmpReq - OperateRetryJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5295,7 +5415,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Reruns failed job instances.
+     * Retries a failed Job Instance.
      *
      * @param request - OperateRetryJobExecutionRequest
      *
@@ -5313,7 +5433,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 重跑工作流实例.
+     * Retries a workflow execution.
      *
      * @param request - OperateRetryWorkflowExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5364,7 +5484,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 重跑工作流实例.
+     * Retries a workflow execution.
      *
      * @param request - OperateRetryWorkflowExecutionRequest
      *
@@ -5382,7 +5502,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 跳过任务实例.
+     * Skips a job execution.
      *
      * @param request - OperateSkipJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5429,7 +5549,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 跳过任务实例.
+     * Skips a job execution.
      *
      * @param request - OperateSkipJobExecutionRequest
      *
@@ -5447,7 +5567,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Stops running instances.
+     * Stops a running Job Execution.
      *
      * @param tmpReq - OperateStopJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5504,7 +5624,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Stops running instances.
+     * Stops a running Job Execution.
      *
      * @param request - OperateStopJobExecutionRequest
      *
@@ -5522,7 +5642,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 停止正在运行的工作流实例.
+     * Stops a running workflow execution.
      *
      * @param request - OperateStopWorkflowExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5569,7 +5689,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 停止正在运行的工作流实例.
+     * Stops a running workflow execution.
      *
      * @param request - OperateStopWorkflowExecutionRequest
      *
@@ -5587,7 +5707,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将held状态的任务恢复.
+     * Resumes a Job Execution that is in the Hold state.
      *
      * @param request - OperateUnholdJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5634,7 +5754,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将held状态的任务恢复.
+     * Resumes a Job Execution that is in the Hold state.
      *
      * @param request - OperateUnholdJobExecutionRequest
      *
@@ -5652,7 +5772,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将工作流中held状态的节点恢复.
+     * Resumes a workflow execution that is on hold.
      *
      * @param request - OperateUnholdWorkflowExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5699,7 +5819,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将工作流中held状态的节点恢复.
+     * Resumes a workflow execution that is on hold.
      *
      * @param request - OperateUnholdWorkflowExecutionRequest
      *
@@ -5717,7 +5837,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将skipped状态的任务恢复.
+     * Resumes a skipped job execution.
      *
      * @param request - OperateUnskipJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5764,7 +5884,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 将skipped状态的任务恢复.
+     * Resumes a skipped job execution.
      *
      * @param request - OperateUnskipJobExecutionRequest
      *
@@ -5782,7 +5902,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 同步任务
+     * Synchronizes jobs.
      *
      * @param tmpReq - SyncJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5843,7 +5963,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 同步任务
+     * Synchronizes jobs.
      *
      * @param request - SyncJobsRequest
      *
@@ -5946,7 +6066,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新日历.
+     * Updates a calendar.
      *
      * @param request - UpdateCalendarRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6005,7 +6125,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新日历.
+     * Updates a calendar.
      *
      * @param request - UpdateCalendarRequest
      *
@@ -6088,7 +6208,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新数据源.
+     * Update data source.
      *
      * @param request - UpdateDatasourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6147,7 +6267,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新数据源.
+     * Update data source.
      *
      * @param request - UpdateDatasourceRequest
      *
@@ -6166,6 +6286,12 @@ class SchedulerX3 extends OpenApiClient
 
     /**
      * 更新执行器组.
+     *
+     * @remarks
+     * # 引入增强插件
+     * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+     * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+     * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - UpdateExecutorGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6254,6 +6380,12 @@ class SchedulerX3 extends OpenApiClient
     /**
      * 更新执行器组.
      *
+     * @remarks
+     * # 引入增强插件
+     * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
+     * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
+     * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+     *
      * @param request - UpdateExecutorGroupRequest
      *
      * @returns UpdateExecutorGroupResponse
@@ -6270,7 +6402,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新执行器.
+     * Updates the configuration of one or more Executors.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
+     * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
+     * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
      *
      * @param request - UpdateExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6321,7 +6459,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新执行器.
+     * Updates the configuration of one or more Executors.
+     *
+     * @remarks
+     * # Add the enhancement plugin
+     * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
+     * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
+     * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
      *
      * @param request - UpdateExecutorsRequest
      *
@@ -6339,7 +6483,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Updates the job information.
+     * Update task details.
      *
      * @param tmpReq - UpdateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6488,7 +6632,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Updates the job information.
+     * Update task details.
      *
      * @param request - UpdateJobRequest
      *
@@ -6506,7 +6650,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新任务实例.
+     * Update task instance.
      *
      * @param request - UpdateJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6557,7 +6701,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新任务实例.
+     * Update task instance.
      *
      * @param request - UpdateJobExecutionRequest
      *
@@ -6575,7 +6719,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新任务脚本内容.
+     * Updates a job script.
      *
      * @param request - UpdateJobScriptRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6630,7 +6774,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新任务脚本内容.
+     * Updates a job script.
      *
      * @param request - UpdateJobScriptRequest
      *
@@ -6648,7 +6792,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新工作流
+     * Updates an existing workflow.
      *
      * @param request - UpdateWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6727,7 +6871,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新工作流
+     * Updates an existing workflow.
      *
      * @param request - UpdateWorkflowRequest
      *
@@ -6745,7 +6889,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新工作流DAG.
+     * Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
      *
      * @param tmpReq - UpdateWorkflowDAGRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6806,7 +6950,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 更新工作流DAG.
+     * Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
      *
      * @param request - UpdateWorkflowDAGRequest
      *
@@ -6824,7 +6968,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 切换工作流DAG版本.
+     * Updates the Directed Acyclic Graph (DAG) version for a Workflow.
      *
      * @param request - UpdateWorkflowDAGVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6875,7 +7019,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * 切换工作流DAG版本.
+     * Updates the Directed Acyclic Graph (DAG) version for a Workflow.
      *
      * @param request - UpdateWorkflowDAGVersionRequest
      *

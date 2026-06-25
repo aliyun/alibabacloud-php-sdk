@@ -95,6 +95,11 @@ class data extends Model
     public $productType;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @var int
      */
     public $spm;
@@ -156,6 +161,7 @@ class data extends Model
         'maxJobNum' => 'MaxJobNum',
         'maxWorkflowNum' => 'MaxWorkflowNum',
         'productType' => 'ProductType',
+        'source' => 'Source',
         'spm' => 'Spm',
         'status' => 'Status',
         'tags' => 'Tags',
@@ -250,6 +256,10 @@ class data extends Model
 
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->spm) {
@@ -384,6 +394,10 @@ class data extends Model
 
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['Spm'])) {

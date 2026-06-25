@@ -72,6 +72,11 @@ class records extends Model
     /**
      * @var string
      */
+    public $source;
+
+    /**
+     * @var string
+     */
     public $spInstanceId;
 
     /**
@@ -111,6 +116,7 @@ class records extends Model
         'internetDomain' => 'InternetDomain',
         'intranetDomain' => 'IntranetDomain',
         'productType' => 'ProductType',
+        'source' => 'Source',
         'spInstanceId' => 'SpInstanceId',
         'status' => 'Status',
         'tags' => 'Tags',
@@ -179,6 +185,10 @@ class records extends Model
 
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         if (null !== $this->spInstanceId) {
@@ -274,6 +284,10 @@ class records extends Model
 
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         if (isset($map['SpInstanceId'])) {
