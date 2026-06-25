@@ -10708,7 +10708,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Upgrades the kubelet version (recommended to match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
+     * Upgrades the kubelet version (which should match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
      *
      * @remarks
      * Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you call the UpgradeClusterNodepool operation, the API returns a task_id for the upgrade task. You can manage the task by calling the following task API operations:
@@ -10735,6 +10735,10 @@ class CS extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->ignoreWarningCheck) {
+            @$body['ignore_warning_check'] = $request->ignoreWarningCheck;
+        }
+
         if (null !== $request->imageId) {
             @$body['image_id'] = $request->imageId;
         }
@@ -10783,7 +10787,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Upgrades the kubelet version (recommended to match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
+     * Upgrades the kubelet version (which should match the control plane version), operating system version, or container runtime version of a specified cluster node pool.
      *
      * @remarks
      * Upgrades the Kubernetes version, operating system version, or container runtime version of nodes in a specified cluster node pool. After you call the UpgradeClusterNodepool operation, the API returns a task_id for the upgrade task. You can manage the task by calling the following task API operations:

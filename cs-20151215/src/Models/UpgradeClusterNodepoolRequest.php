@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\CS\V20151215\Models\UpgradeClusterNodepoolRequest\rollingPo
 class UpgradeClusterNodepoolRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $ignoreWarningCheck;
+
+    /**
      * @var string
      */
     public $imageId;
@@ -44,6 +49,7 @@ class UpgradeClusterNodepoolRequest extends Model
      */
     public $useReplace;
     protected $_name = [
+        'ignoreWarningCheck' => 'ignore_warning_check',
         'imageId' => 'image_id',
         'kubernetesVersion' => 'kubernetes_version',
         'nodeNames' => 'node_names',
@@ -67,6 +73,10 @@ class UpgradeClusterNodepoolRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ignoreWarningCheck) {
+            $res['ignore_warning_check'] = $this->ignoreWarningCheck;
+        }
+
         if (null !== $this->imageId) {
             $res['image_id'] = $this->imageId;
         }
@@ -113,6 +123,10 @@ class UpgradeClusterNodepoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ignore_warning_check'])) {
+            $model->ignoreWarningCheck = $map['ignore_warning_check'];
+        }
+
         if (isset($map['image_id'])) {
             $model->imageId = $map['image_id'];
         }
