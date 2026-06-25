@@ -31,6 +31,11 @@ class DescribeTTSDemoRequest extends Model
     /**
      * @var string
      */
+    public $extParams;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -77,6 +82,7 @@ class DescribeTTSDemoRequest extends Model
         'aliCustomizedVoice' => 'AliCustomizedVoice',
         'appKey' => 'AppKey',
         'engine' => 'Engine',
+        'extParams' => 'ExtParams',
         'instanceId' => 'InstanceId',
         'nlsServiceType' => 'NlsServiceType',
         'pitchRate' => 'PitchRate',
@@ -110,6 +116,10 @@ class DescribeTTSDemoRequest extends Model
 
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+
+        if (null !== $this->extParams) {
+            $res['ExtParams'] = $this->extParams;
         }
 
         if (null !== $this->instanceId) {
@@ -173,6 +183,10 @@ class DescribeTTSDemoRequest extends Model
 
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+
+        if (isset($map['ExtParams'])) {
+            $model->extParams = $map['ExtParams'];
         }
 
         if (isset($map['InstanceId'])) {

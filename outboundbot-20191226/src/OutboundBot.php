@@ -351,6 +351,9 @@ class OutboundBot extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shanghai' => 'outboundbot.cn-shanghai.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('outboundbot', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -4323,7 +4326,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Preview text-to-speech (TTS) audio.
+     * TTS preview.
      *
      * @param request - DescribeTTSDemoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4353,6 +4356,10 @@ class OutboundBot extends OpenApiClient
 
         if (null !== $request->engine) {
             @$query['Engine'] = $request->engine;
+        }
+
+        if (null !== $request->extParams) {
+            @$query['ExtParams'] = $request->extParams;
         }
 
         if (null !== $request->instanceId) {
@@ -4410,7 +4417,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Preview text-to-speech (TTS) audio.
+     * TTS preview.
      *
      * @param request - DescribeTTSDemoRequest
      *
@@ -5924,7 +5931,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the public key for an asymmetric encryption algorithm.
+     * Obtains the public key of the asymmetric encryption algorithm.
      *
      * @param request - GetPublicKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5956,7 +5963,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Retrieves the public key for an asymmetric encryption algorithm.
+     * Obtains the public key of the asymmetric encryption algorithm.
      *
      * @param request - GetPublicKeyRequest
      *
@@ -7181,7 +7188,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists Outbound Calling Bot service instances.
+     * Queries the list of Outbound Bot service instances.
      *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7236,7 +7243,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Lists Outbound Calling Bot service instances.
+     * Queries the list of Outbound Bot service instances.
      *
      * @param request - ListInstancesRequest
      *
@@ -7980,7 +7987,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the variables used in a script.
+     * Queries the variables that are currently used in a scenario.
      *
      * @param request - ListScriptVariablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8027,7 +8034,7 @@ class OutboundBot extends OpenApiClient
     }
 
     /**
-     * Queries the variables used in a script.
+     * Queries the variables that are currently used in a scenario.
      *
      * @param request - ListScriptVariablesRequest
      *
