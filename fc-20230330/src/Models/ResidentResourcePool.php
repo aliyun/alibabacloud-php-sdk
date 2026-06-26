@@ -16,6 +16,11 @@ class ResidentResourcePool extends Model
     /**
      * @var string
      */
+    public $associatedPoolId;
+
+    /**
+     * @var string
+     */
     public $createdTime;
 
     /**
@@ -27,6 +32,11 @@ class ResidentResourcePool extends Model
      * @var string
      */
     public $lastModifiedTime;
+
+    /**
+     * @var string
+     */
+    public $poolType;
 
     /**
      * @var string
@@ -47,15 +57,23 @@ class ResidentResourcePool extends Model
      * @var ResidentResourceCapacity
      */
     public $resourcePoolConfig;
+
+    /**
+     * @var TimedPoolConfig
+     */
+    public $timedConfig;
     protected $_name = [
         'allocationStatus' => 'allocationStatus',
+        'associatedPoolId' => 'associatedPoolId',
         'createdTime' => 'createdTime',
         'expireTime' => 'expireTime',
         'lastModifiedTime' => 'lastModifiedTime',
+        'poolType' => 'poolType',
         'residentResourcePoolId' => 'residentResourcePoolId',
         'residentResourcePoolName' => 'residentResourcePoolName',
         'resourcePoolCapacity' => 'resourcePoolCapacity',
         'resourcePoolConfig' => 'resourcePoolConfig',
+        'timedConfig' => 'timedConfig',
     ];
 
     public function validate()
@@ -69,6 +87,9 @@ class ResidentResourcePool extends Model
         if (null !== $this->resourcePoolConfig) {
             $this->resourcePoolConfig->validate();
         }
+        if (null !== $this->timedConfig) {
+            $this->timedConfig->validate();
+        }
         parent::validate();
     }
 
@@ -77,6 +98,10 @@ class ResidentResourcePool extends Model
         $res = [];
         if (null !== $this->allocationStatus) {
             $res['allocationStatus'] = null !== $this->allocationStatus ? $this->allocationStatus->toArray($noStream) : $this->allocationStatus;
+        }
+
+        if (null !== $this->associatedPoolId) {
+            $res['associatedPoolId'] = $this->associatedPoolId;
         }
 
         if (null !== $this->createdTime) {
@@ -89,6 +114,10 @@ class ResidentResourcePool extends Model
 
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
+        }
+
+        if (null !== $this->poolType) {
+            $res['poolType'] = $this->poolType;
         }
 
         if (null !== $this->residentResourcePoolId) {
@@ -107,6 +136,10 @@ class ResidentResourcePool extends Model
             $res['resourcePoolConfig'] = null !== $this->resourcePoolConfig ? $this->resourcePoolConfig->toArray($noStream) : $this->resourcePoolConfig;
         }
 
+        if (null !== $this->timedConfig) {
+            $res['timedConfig'] = null !== $this->timedConfig ? $this->timedConfig->toArray($noStream) : $this->timedConfig;
+        }
+
         return $res;
     }
 
@@ -122,6 +155,10 @@ class ResidentResourcePool extends Model
             $model->allocationStatus = ResidentResourceAllocationStatus::fromMap($map['allocationStatus']);
         }
 
+        if (isset($map['associatedPoolId'])) {
+            $model->associatedPoolId = $map['associatedPoolId'];
+        }
+
         if (isset($map['createdTime'])) {
             $model->createdTime = $map['createdTime'];
         }
@@ -132,6 +169,10 @@ class ResidentResourcePool extends Model
 
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];
+        }
+
+        if (isset($map['poolType'])) {
+            $model->poolType = $map['poolType'];
         }
 
         if (isset($map['residentResourcePoolId'])) {
@@ -148,6 +189,10 @@ class ResidentResourcePool extends Model
 
         if (isset($map['resourcePoolConfig'])) {
             $model->resourcePoolConfig = ResidentResourceCapacity::fromMap($map['resourcePoolConfig']);
+        }
+
+        if (isset($map['timedConfig'])) {
+            $model->timedConfig = TimedPoolConfig::fromMap($map['timedConfig']);
         }
 
         return $model;

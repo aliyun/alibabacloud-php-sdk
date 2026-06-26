@@ -119,6 +119,11 @@ class UpdateFunctionInput extends Model
     public $memorySize;
 
     /**
+     * @var MicroSandboxConfig
+     */
+    public $microSandboxConfig;
+
+    /**
      * @var NASConfig
      */
     public $nasConfig;
@@ -190,6 +195,7 @@ class UpdateFunctionInput extends Model
         'layers' => 'layers',
         'logConfig' => 'logConfig',
         'memorySize' => 'memorySize',
+        'microSandboxConfig' => 'microSandboxConfig',
         'nasConfig' => 'nasConfig',
         'ossMountConfig' => 'ossMountConfig',
         'polarFsConfig' => 'polarFsConfig',
@@ -233,6 +239,9 @@ class UpdateFunctionInput extends Model
         }
         if (null !== $this->logConfig) {
             $this->logConfig->validate();
+        }
+        if (null !== $this->microSandboxConfig) {
+            $this->microSandboxConfig->validate();
         }
         if (null !== $this->nasConfig) {
             $this->nasConfig->validate();
@@ -353,6 +362,10 @@ class UpdateFunctionInput extends Model
 
         if (null !== $this->memorySize) {
             $res['memorySize'] = $this->memorySize;
+        }
+
+        if (null !== $this->microSandboxConfig) {
+            $res['microSandboxConfig'] = null !== $this->microSandboxConfig ? $this->microSandboxConfig->toArray($noStream) : $this->microSandboxConfig;
         }
 
         if (null !== $this->nasConfig) {
@@ -504,6 +517,10 @@ class UpdateFunctionInput extends Model
 
         if (isset($map['memorySize'])) {
             $model->memorySize = $map['memorySize'];
+        }
+
+        if (isset($map['microSandboxConfig'])) {
+            $model->microSandboxConfig = MicroSandboxConfig::fromMap($map['microSandboxConfig']);
         }
 
         if (isset($map['nasConfig'])) {
