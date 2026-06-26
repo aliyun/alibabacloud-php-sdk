@@ -11,7 +11,17 @@ class commodities extends Model
     /**
      * @var string
      */
+    public $actionType;
+
+    /**
+     * @var string
+     */
     public $commodityCode;
+
+    /**
+     * @var string
+     */
+    public $description;
 
     /**
      * @var string[]
@@ -36,20 +46,34 @@ class commodities extends Model
     /**
      * @var string
      */
+    public $recommendType;
+
+    /**
+     * @var string
+     */
     public $redirectUrl;
 
     /**
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $title;
     protected $_name = [
+        'actionType' => 'ActionType',
         'commodityCode' => 'CommodityCode',
+        'description' => 'Description',
         'extend' => 'Extend',
         'orderType' => 'OrderType',
         'priority' => 'Priority',
         'promotionCommodityId' => 'PromotionCommodityId',
+        'recommendType' => 'RecommendType',
         'redirectUrl' => 'RedirectUrl',
         'status' => 'Status',
+        'title' => 'Title',
     ];
 
     public function validate()
@@ -63,8 +87,16 @@ class commodities extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->actionType) {
+            $res['ActionType'] = $this->actionType;
+        }
+
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->extend) {
@@ -88,12 +120,20 @@ class commodities extends Model
             $res['PromotionCommodityId'] = $this->promotionCommodityId;
         }
 
+        if (null !== $this->recommendType) {
+            $res['RecommendType'] = $this->recommendType;
+        }
+
         if (null !== $this->redirectUrl) {
             $res['RedirectUrl'] = $this->redirectUrl;
         }
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         return $res;
@@ -107,8 +147,16 @@ class commodities extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActionType'])) {
+            $model->actionType = $map['ActionType'];
+        }
+
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['Extend'])) {
@@ -132,12 +180,20 @@ class commodities extends Model
             $model->promotionCommodityId = $map['PromotionCommodityId'];
         }
 
+        if (isset($map['RecommendType'])) {
+            $model->recommendType = $map['RecommendType'];
+        }
+
         if (isset($map['RedirectUrl'])) {
             $model->redirectUrl = $map['RedirectUrl'];
         }
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         return $model;
