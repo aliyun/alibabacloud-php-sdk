@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterShareResourcesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterShareResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterTableRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterTableResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterTableSchemaRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\AlterTableSchemaResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\BatchGrantPermissionsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\BatchGrantPermissionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\BatchRevokePermissionsRequest;
@@ -87,6 +89,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergSnapshotsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergSnapshotsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergTableDetailsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergTableDetailsResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionsByNamesRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionsByNamesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesRequest;
@@ -141,7 +145,21 @@ class DlfNext extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'dlfnext.us-west-1.aliyuncs.com',
+            'us-east-1' => 'dlfnext.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'dlfnext.eu-central-1.aliyuncs.com',
+            'cn-wulanchabu' => 'dlfnext.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'dlfnext.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'dlfnext.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'dlfnext.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'dlfnext.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'dlfnext.cn-beijing.aliyuncs.com',
+            'ap-southeast-5' => 'dlfnext.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-1' => 'dlfnext.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'dlfnext.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dlfnext', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -171,7 +189,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新数据目录.
+     * Updates a catalog.
      *
      * @param request - AlterCatalogRequest
      * @param headers - map
@@ -218,7 +236,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新数据目录.
+     * Updates a catalog.
      *
      * @param request - AlterCatalogRequest
      *
@@ -238,7 +256,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新数据库.
+     * Updates a database.
      *
      * @param request - AlterDatabaseRequest
      * @param headers - map
@@ -286,7 +304,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新数据库.
+     * Updates a database.
      *
      * @param request - AlterDatabaseRequest
      *
@@ -307,7 +325,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新接收者.
+     * Updates a sink.
      *
      * @param request - AlterReceiverRequest
      * @param headers - map
@@ -354,7 +372,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新接收者.
+     * Updates a sink.
      *
      * @param request - AlterReceiverRequest
      *
@@ -374,7 +392,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新共享.
+     * Updates a share.
      *
      * @param request - AlterShareRequest
      * @param headers - map
@@ -425,7 +443,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新共享.
+     * Updates a share.
      *
      * @param request - AlterShareRequest
      *
@@ -445,7 +463,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新共享中的接收者.
+     * Updates the receivers of a share.
      *
      * @param request - AlterShareReceiversRequest
      * @param headers - map
@@ -492,7 +510,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新共享中的接收者.
+     * Updates the receivers of a share.
      *
      * @param request - AlterShareReceiversRequest
      *
@@ -512,7 +530,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更改共享资源.
+     * Modifies shared resources.
      *
      * @param request - AlterShareResourcesRequest
      * @param headers - map
@@ -559,7 +577,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更改共享资源.
+     * Modifies shared resources.
      *
      * @param request - AlterShareResourcesRequest
      *
@@ -579,7 +597,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更改Table.
+     * Updates a table.
      *
      * @param request - AlterTableRequest
      * @param headers - map
@@ -624,7 +642,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更改Table.
+     * Updates a table.
      *
      * @param request - AlterTableRequest
      *
@@ -646,7 +664,74 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量授权.
+     * Changes the table schema.
+     *
+     * @param request - AlterTableSchemaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AlterTableSchemaResponse
+     *
+     * @param string                  $catalogId
+     * @param string                  $database
+     * @param string                  $table
+     * @param AlterTableSchemaRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AlterTableSchemaResponse
+     */
+    public function alterTableSchemaWithOptions($catalogId, $database, $table, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->schema) {
+            @$body['schema'] = $request->schema;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AlterTableSchema',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($table) . '/schema',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+
+        return AlterTableSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Changes the table schema.
+     *
+     * @param request - AlterTableSchemaRequest
+     *
+     * @returns AlterTableSchemaResponse
+     *
+     * @param string                  $catalogId
+     * @param string                  $database
+     * @param string                  $table
+     * @param AlterTableSchemaRequest $request
+     *
+     * @return AlterTableSchemaResponse
+     */
+    public function alterTableSchema($catalogId, $database, $table, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->alterTableSchemaWithOptions($catalogId, $database, $table, $request, $headers, $runtime);
+    }
+
+    /**
+     * Grants permissions to one or more DLF users or roles.
      *
      * @param request - BatchGrantPermissionsRequest
      * @param headers - map
@@ -689,7 +774,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量授权.
+     * Grants permissions to one or more DLF users or roles.
      *
      * @param request - BatchGrantPermissionsRequest
      *
@@ -709,7 +794,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量取消授权.
+     * Revokes permissions in a batch.
      *
      * @param request - BatchRevokePermissionsRequest
      * @param headers - map
@@ -752,7 +837,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量取消授权.
+     * Revokes permissions in a batch.
      *
      * @param request - BatchRevokePermissionsRequest
      *
@@ -772,7 +857,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据目录.
+     * Creates a catalog.
      *
      * @param request - CreateCatalogRequest
      * @param headers - map
@@ -830,7 +915,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据目录.
+     * Creates a catalog.
      *
      * @param request - CreateCatalogRequest
      *
@@ -849,7 +934,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据库.
+     * Creates a database.
      *
      * @param request - CreateDatabaseRequest
      * @param headers - map
@@ -896,7 +981,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建数据库.
+     * Creates a database.
      *
      * @param request - CreateDatabaseRequest
      *
@@ -916,7 +1001,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建接收者.
+     * Creates a receiver.
      *
      * @param request - CreateReceiverRequest
      * @param headers - map
@@ -966,7 +1051,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建接收者.
+     * Creates a receiver.
      *
      * @param request - CreateReceiverRequest
      *
@@ -985,7 +1070,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建角色.
+     * Creates a DLF role.
      *
      * @param request - CreateRoleRequest
      * @param headers - map
@@ -1035,7 +1120,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建角色.
+     * Creates a DLF role.
      *
      * @param request - CreateRoleRequest
      *
@@ -1054,7 +1139,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建共享.
+     * Creates a share.
      *
      * @param request - CreateShareRequest
      * @param headers - map
@@ -1104,7 +1189,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建共享.
+     * Creates a share.
      *
      * @param request - CreateShareRequest
      *
@@ -1123,7 +1208,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建表.
+     * Creates a table.
      *
      * @param request - CreateTableRequest
      * @param headers - map
@@ -1171,7 +1256,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 创建表.
+     * Creates a table.
      *
      * @param request - CreateTableRequest
      *
@@ -1192,7 +1277,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除角色.
+     * Deletes a DLF role.
      *
      * @param request - DeleteRoleRequest
      * @param headers - map
@@ -1234,7 +1319,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除角色.
+     * Deletes a DLF role.
      *
      * @param request - DeleteRoleRequest
      *
@@ -1253,7 +1338,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查询 DLF 开通地域
+     * Retrieves the regions where DLF is activated.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1286,7 +1371,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查询 DLF 开通地域
+     * Retrieves the regions where DLF is activated.
      *
      * @returns DescribeRegionsResponse
      *
@@ -1301,7 +1386,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除数据湖Catalog.
+     * Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1335,7 +1420,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除数据湖Catalog.
+     * Deletes a data lake data catalog. The following conditions must be met, otherwise the deletion will fail: all tables and user-created databases under the catalog have been deleted; the databases and tables have been deleted for at least 24 hours.
      *
      * @returns DropCatalogResponse
      *
@@ -1352,7 +1437,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除数据库.
+     * Drops a database.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1387,7 +1472,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除数据库.
+     * Drops a database.
      *
      * @returns DropDatabaseResponse
      *
@@ -1405,7 +1490,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除接收者.
+     * Removes a receiver.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1439,7 +1524,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除接收者.
+     * Removes a receiver.
      *
      * @returns DropReceiverResponse
      *
@@ -1456,7 +1541,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除共享.
+     * Deletes a share.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1490,7 +1575,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除共享.
+     * Deletes a share.
      *
      * @returns DropShareResponse
      *
@@ -1507,7 +1592,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除表.
+     * Drops a table.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1543,7 +1628,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 删除表.
+     * Drops a table.
      *
      * @returns DropTableResponse
      *
@@ -1562,7 +1647,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据湖Catalog.
+     * Retrieves the details of a catalog.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1596,7 +1681,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据湖Catalog.
+     * Retrieves the details of a catalog.
      *
      * @returns GetCatalogResponse
      *
@@ -1613,7 +1698,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据湖Catalog.
+     * Retrieves the details of a catalog.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1647,7 +1732,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据湖Catalog.
+     * Retrieves the details of a catalog.
      *
      * @returns GetCatalogByIdResponse
      *
@@ -1664,7 +1749,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the storage overview of a data catalog.
      *
      * @param request - GetCatalogSummaryRequest
      * @param headers - map
@@ -1707,7 +1792,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the storage overview of a data catalog.
      *
      * @param request - GetCatalogSummaryRequest
      *
@@ -1727,7 +1812,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the storage overview trend for a catalog.
      *
      * @param request - GetCatalogSummaryTrendRequest
      * @param headers - map
@@ -1774,7 +1859,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the storage overview trend for a catalog.
      *
      * @param request - GetCatalogSummaryTrendRequest
      *
@@ -1794,7 +1879,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取数据湖Catalog的临时访问凭证
+     * Obtains a temporary access credential (token) for a catalog.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1828,7 +1913,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取数据湖Catalog的临时访问凭证
+     * Obtains a temporary access credential (token) for a catalog.
      *
      * @returns GetCatalogTokenResponse
      *
@@ -1845,7 +1930,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据库.
+     * Retrieves the details of a database.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1880,7 +1965,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据库.
+     * Retrieves the details of a database.
      *
      * @returns GetDatabaseResponse
      *
@@ -1898,7 +1983,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * You can view an inventory overview.
      *
      * @param request - GetDatabaseSummaryRequest
      * @param headers - map
@@ -1942,7 +2027,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * You can view an inventory overview.
      *
      * @param request - GetDatabaseSummaryRequest
      *
@@ -1963,7 +2048,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看iceberg数据库.
+     * Retrieves information about an Iceberg namespace.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1998,7 +2083,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看iceberg数据库.
+     * Retrieves information about an Iceberg namespace.
      *
      * @returns GetIcebergNamespaceResponse
      *
@@ -2016,7 +2101,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the details of a table.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2052,7 +2137,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the details of a table.
      *
      * @returns GetIcebergTableResponse
      *
@@ -2071,7 +2156,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取接收者.
+     * Retrieves a receiver.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2105,7 +2190,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取接收者.
+     * Retrieves a receiver.
      *
      * @returns GetReceiverResponse
      *
@@ -2122,7 +2207,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查询 DLF 当前地域开通状态
+     * Queries the DLF activation status of in a region.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2155,7 +2240,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查询 DLF 当前地域开通状态
+     * Queries the DLF activation status of in a region.
      *
      * @returns GetRegionStatusResponse
      *
@@ -2170,7 +2255,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色.
+     * Retrieves a role.
      *
      * @param request - GetRoleRequest
      * @param headers - map
@@ -2212,7 +2297,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色.
+     * Retrieves a role.
      *
      * @param request - GetRoleRequest
      *
@@ -2231,7 +2316,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取共享.
+     * Retrieves the details of a share.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2265,7 +2350,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取共享.
+     * Retrieves the details of a share.
      *
      * @returns GetShareResponse
      *
@@ -2282,7 +2367,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the details of a table in a data lake.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2318,7 +2403,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the details of a table in a data lake.
      *
      * @returns GetTableResponse
      *
@@ -2337,7 +2422,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表Compaction详情.
+     * Retrieves the compaction details of a table.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2373,7 +2458,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表Compaction详情.
+     * Retrieves the compaction details of a table.
      *
      * @returns GetTableCompactionResponse
      *
@@ -2392,7 +2477,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表快照.
+     * Queries a table snapshot.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2428,7 +2513,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表快照.
+     * Queries a table snapshot.
      *
      * @returns GetTableSnapshotResponse
      *
@@ -2447,7 +2532,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the storage summary for a table.
      *
      * @param request - GetTableSummaryRequest
      * @param headers - map
@@ -2492,7 +2577,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves the storage summary for a table.
      *
      * @param request - GetTableSummaryRequest
      *
@@ -2514,7 +2599,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取数据湖表的临时访问凭证
+     * Obtains a temporary access credential for a data lake table.
      *
      * @param request - GetTableTokenRequest
      * @param headers - map
@@ -2559,7 +2644,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取数据湖表的临时访问凭证
+     * Obtains a temporary access credential for a data lake table.
      *
      * @param request - GetTableTokenRequest
      *
@@ -2581,7 +2666,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户.
+     * Retrieves a user.
      *
      * @param request - GetUserRequest
      * @param headers - map
@@ -2623,7 +2708,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户.
+     * Retrieves a user.
      *
      * @param request - GetUserRequest
      *
@@ -2642,7 +2727,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取可信 VPC 配置.
+     * Obtain the VPC configuration.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2675,7 +2760,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取可信 VPC 配置.
+     * Obtain the VPC configuration.
      *
      * @returns GetVpcConfigResponse
      *
@@ -2690,7 +2775,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量授予角色权限给用户.
+     * Grants a role to one or more users.
      *
      * @param request - GrantRoleToUsersRequest
      * @param headers - map
@@ -2736,7 +2821,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量授予角色权限给用户.
+     * Grants a role to one or more users.
      *
      * @param request - GrantRoleToUsersRequest
      *
@@ -2755,7 +2840,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据目录列表.
+     * Lists catalogs.
      *
      * @param request - ListCatalogsRequest
      * @param headers - map
@@ -2805,7 +2890,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据目录列表.
+     * Lists catalogs.
      *
      * @param request - ListCatalogsRequest
      *
@@ -2824,7 +2909,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据库列表.
+     * Retrieves database details.
      *
      * @param request - ListDatabaseDetailsRequest
      * @param headers - map
@@ -2875,7 +2960,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据库列表.
+     * Retrieves database details.
      *
      * @param request - ListDatabaseDetailsRequest
      *
@@ -2895,7 +2980,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据库列表.
+     * Retrieves databases.
      *
      * @param request - ListDatabasesRequest
      * @param headers - map
@@ -2946,7 +3031,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看数据库列表.
+     * Retrieves databases.
      *
      * @param request - ListDatabasesRequest
      *
@@ -2966,7 +3051,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看函数列表.
+     * Lists functions.
      *
      * @param request - ListFunctionsRequest
      * @param headers - map
@@ -3018,7 +3103,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看函数列表.
+     * Lists functions.
      *
      * @param request - ListFunctionsRequest
      *
@@ -3039,7 +3124,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看iceberg数据库列表.
+     * Lists Iceberg namespaces.
      *
      * @param request - ListIcebergNamespaceDetailsRequest
      * @param headers - map
@@ -3090,7 +3175,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看iceberg数据库列表.
+     * Lists Iceberg namespaces.
      *
      * @param request - ListIcebergNamespaceDetailsRequest
      *
@@ -3110,7 +3195,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看iceberg表快照列表.
+     * Lists the snapshots of an Iceberg table.
      *
      * @param request - ListIcebergSnapshotsRequest
      * @param headers - map
@@ -3159,7 +3244,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看iceberg表快照列表.
+     * Lists the snapshots of an Iceberg table.
      *
      * @param request - ListIcebergSnapshotsRequest
      *
@@ -3181,7 +3266,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看iceberg表详情列表.
+     * Lists the details of Iceberg tables.
      *
      * @param request - ListIcebergTableDetailsRequest
      * @param headers - map
@@ -3233,7 +3318,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看iceberg表详情列表.
+     * Lists the details of Iceberg tables.
      *
      * @param request - ListIcebergTableDetailsRequest
      *
@@ -3254,7 +3339,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves storage overview for partitions.
      *
      * @param request - ListPartitionSummariesRequest
      * @param headers - map
@@ -3307,7 +3392,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表.
+     * Retrieves storage overview for partitions.
      *
      * @param request - ListPartitionSummariesRequest
      *
@@ -3329,7 +3414,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * listPartitions.
+     * Lists partitions.
      *
      * @param request - ListPartitionsRequest
      * @param headers - map
@@ -3382,7 +3467,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * listPartitions.
+     * Lists partitions.
      *
      * @param request - ListPartitionsRequest
      *
@@ -3404,7 +3489,74 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取指定资源或指定Principal的权限信息.
+     * Retrieves a list of partitions by their names.
+     *
+     * @param request - ListPartitionsByNamesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPartitionsByNamesResponse
+     *
+     * @param string                       $catalogId
+     * @param string                       $database
+     * @param string                       $table
+     * @param ListPartitionsByNamesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListPartitionsByNamesResponse
+     */
+    public function listPartitionsByNamesWithOptions($catalogId, $database, $table, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->specs) {
+            @$body['specs'] = $request->specs;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListPartitionsByNames',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dlf/v1/' . Url::percentEncode($catalogId) . '/databases/' . Url::percentEncode($database) . '/tables/' . Url::percentEncode($table) . '/partitions/list-by-names',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPartitionsByNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of partitions by their names.
+     *
+     * @param request - ListPartitionsByNamesRequest
+     *
+     * @returns ListPartitionsByNamesResponse
+     *
+     * @param string                       $catalogId
+     * @param string                       $database
+     * @param string                       $table
+     * @param ListPartitionsByNamesRequest $request
+     *
+     * @return ListPartitionsByNamesResponse
+     */
+    public function listPartitionsByNames($catalogId, $database, $table, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPartitionsByNamesWithOptions($catalogId, $database, $table, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the permissions for a resource or principal.
      *
      * @param request - ListPermissionsRequest
      * @param headers - map
@@ -3475,7 +3627,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取指定资源或指定Principal的权限信息.
+     * Retrieves the permissions for a resource or principal.
      *
      * @param request - ListPermissionsRequest
      *
@@ -3495,7 +3647,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取提供的共享列表.
+     * Retrieves shares.
      *
      * @param request - ListProvidedSharesRequest
      * @param headers - map
@@ -3541,7 +3693,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取提供的共享列表.
+     * Retrieves shares.
      *
      * @param request - ListProvidedSharesRequest
      *
@@ -3560,7 +3712,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取接收的共享列表.
+     * Retrieves received shares.
      *
      * @param request - ListReceivedSharesRequest
      * @param headers - map
@@ -3606,7 +3758,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取接收的共享列表.
+     * Retrieves received shares.
      *
      * @param request - ListReceivedSharesRequest
      *
@@ -3625,7 +3777,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取接收者列表.
+     * Queries a list of receivers.
      *
      * @param request - ListReceiversRequest
      * @param headers - map
@@ -3675,7 +3827,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取接收者列表.
+     * Queries a list of receivers.
      *
      * @param request - ListReceiversRequest
      *
@@ -3694,7 +3846,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色用户列表.
+     * Retrieves the users for a role.
      *
      * @param request - ListRoleUsersRequest
      * @param headers - map
@@ -3744,7 +3896,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色用户列表.
+     * Retrieves the users for a role.
      *
      * @param request - ListRoleUsersRequest
      *
@@ -3763,7 +3915,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色列表.
+     * Retrieves roles.
      *
      * @param request - ListRolesRequest
      * @param headers - map
@@ -3813,7 +3965,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取角色列表.
+     * Retrieves roles.
      *
      * @param request - ListRolesRequest
      *
@@ -3832,7 +3984,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取共享中的接收者列表.
+     * Gets the receivers of a share.
      *
      * @param request - ListShareReceiversRequest
      * @param headers - map
@@ -3879,7 +4031,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取共享中的接收者列表.
+     * Gets the receivers of a share.
      *
      * @param request - ListShareReceiversRequest
      *
@@ -3899,7 +4051,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取共享资源列表.
+     * Retrieves shared resources.
      *
      * @param request - ListShareResourcesRequest
      * @param headers - map
@@ -3946,7 +4098,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取共享资源列表.
+     * Retrieves shared resources.
      *
      * @param request - ListShareResourcesRequest
      *
@@ -3966,7 +4118,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表快照列表.
+     * Returns a list of table snapshots.
      *
      * @param request - ListSnapshotsRequest
      * @param headers - map
@@ -4015,7 +4167,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表快照列表.
+     * Returns a list of table snapshots.
      *
      * @param request - ListSnapshotsRequest
      *
@@ -4037,7 +4189,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表详情列表.
+     * Lists the details of one or more tables.
      *
      * @param request - ListTableDetailsRequest
      * @param headers - map
@@ -4093,7 +4245,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表详情列表.
+     * Lists the details of one or more tables.
      *
      * @param request - ListTableDetailsRequest
      *
@@ -4114,7 +4266,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表详情列表.
+     * Retrieves a list of tables.
      *
      * @param request - ListTablesRequest
      * @param headers - map
@@ -4166,7 +4318,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看表详情列表.
+     * Retrieves a list of tables.
      *
      * @param request - ListTablesRequest
      *
@@ -4187,7 +4339,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户角色列表.
+     * Retrieves the roles assigned to a user.
      *
      * @param request - ListUserRolesRequest
      * @param headers - map
@@ -4237,7 +4389,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户角色列表.
+     * Retrieves the roles assigned to a user.
      *
      * @param request - ListUserRolesRequest
      *
@@ -4256,7 +4408,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户列表.
+     * Retrieves a list of users.
      *
      * @param request - ListUsersRequest
      * @param headers - map
@@ -4310,7 +4462,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 获取用户列表.
+     * Retrieves a list of users.
      *
      * @param request - ListUsersRequest
      *
@@ -4329,7 +4481,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看视图详情列表.
+     * Lists the details of one or more views.
      *
      * @param request - ListViewDetailsRequest
      * @param headers - map
@@ -4381,7 +4533,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看视图详情列表.
+     * Lists the details of one or more views.
      *
      * @param request - ListViewDetailsRequest
      *
@@ -4402,7 +4554,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看视图详情列表.
+     * Returns the names of views.
      *
      * @param request - ListViewsRequest
      * @param headers - map
@@ -4454,7 +4606,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 查看视图详情列表.
+     * Returns the names of views.
      *
      * @param request - ListViewsRequest
      *
@@ -4475,7 +4627,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 刷新用户同步.
+     * Syncs users.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4508,7 +4660,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 刷新用户同步.
+     * Syncs users.
      *
      * @returns RefreshUserSyncResponse
      *
@@ -4523,7 +4675,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量取消授予角色权限给用户.
+     * Revokes a role from one or more users.
      *
      * @param request - RevokeRoleFromUsersRequest
      * @param headers - map
@@ -4569,7 +4721,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 批量取消授予角色权限给用户.
+     * Revokes a role from one or more users.
      *
      * @param request - RevokeRoleFromUsersRequest
      *
@@ -4588,7 +4740,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 回滚表.
+     * Rolls back a table.
      *
      * @param request - RollbackTableRequest
      * @param headers - map
@@ -4633,7 +4785,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 回滚表.
+     * Rolls back a table.
      *
      * @param request - RollbackTableRequest
      *
@@ -4655,7 +4807,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 订阅当前地域的 DLF.
+     * Subscribes to DLF in the current region.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4688,7 +4840,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 订阅当前地域的 DLF.
+     * Subscribes to DLF in the current region.
      *
      * @returns SubscribeResponse
      *
@@ -4703,7 +4855,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新角色.
+     * Updates a DLF role.
      *
      * @param request - UpdateRoleRequest
      * @param headers - map
@@ -4753,7 +4905,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新角色.
+     * Updates a DLF role.
      *
      * @param request - UpdateRoleRequest
      *
@@ -4772,7 +4924,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新角色用户.
+     * Updates the users for a role.
      *
      * @param request - UpdateRoleUsersRequest
      * @param headers - map
@@ -4818,7 +4970,7 @@ class DlfNext extends OpenApiClient
     }
 
     /**
-     * 更新角色用户.
+     * Updates the users for a role.
      *
      * @param request - UpdateRoleUsersRequest
      *
