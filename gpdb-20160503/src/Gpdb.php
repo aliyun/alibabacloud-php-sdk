@@ -498,6 +498,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseDataRedistributeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseDataRedistributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseSaasServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseSaasServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseSupabaseProjectRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataRequest;
@@ -533,6 +535,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSaasServiceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSaasServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSupabaseProjectRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSupabaseProjectResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetDataShareInstanceRequest;
@@ -1266,14 +1270,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Combines a knowledge base with a large language model for intelligent Q&A.
+     * Provides intelligent Q&A services by combining knowledge bases with large models.
      *
      * @remarks
-     * This API lets you interact with a large language model using specific knowledge base collections to ensure responses are grounded in their content. You can customize requests by configuring parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API provides a default system prompt template and supports custom system prompts.
-     * - **DBInstanceId**: Required. Specifies the ID of the database instance.
-     * - **KnowledgeParams**: Optional. Contains parameters for knowledge retrieval, such as retrieval content and merge policies.
-     * - **ModelParams**: Required. Contains parameters for model inference, such as the message list and the model name.
-     * - **PromptTemplate**: Optional. Specifies a custom system prompt template.
+     * This API allows users to interact with a large model through specified knowledge base collections to obtain answers based on knowledge base content. It supports configuring various parameters to customize requests, including but not limited to database instance ID, knowledge retrieval parameters, model inference parameters, etc. Additionally, it provides a default system prompt template and allows users to customize system prompts.
+     * - **DBInstanceId**: Required. Specifies the database instance ID.
+     * - **KnowledgeParams**: Optional. Contains parameters related to knowledge retrieval, such as retrieval content, merge strategies, etc.
+     * - **ModelParams**: Required. Contains parameters related to model inference, such as message list, model name, etc.
+     * - **PromptTemplate**: Optional. Used to customize the system prompt template.
      *
      * @param tmpReq - ChatWithKnowledgeBaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1346,14 +1350,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Combines a knowledge base with a large language model for intelligent Q&A.
+     * Provides intelligent Q&A services by combining knowledge bases with large models.
      *
      * @remarks
-     * This API lets you interact with a large language model using specific knowledge base collections to ensure responses are grounded in their content. You can customize requests by configuring parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API provides a default system prompt template and supports custom system prompts.
-     * - **DBInstanceId**: Required. Specifies the ID of the database instance.
-     * - **KnowledgeParams**: Optional. Contains parameters for knowledge retrieval, such as retrieval content and merge policies.
-     * - **ModelParams**: Required. Contains parameters for model inference, such as the message list and the model name.
-     * - **PromptTemplate**: Optional. Specifies a custom system prompt template.
+     * This API allows users to interact with a large model through specified knowledge base collections to obtain answers based on knowledge base content. It supports configuring various parameters to customize requests, including but not limited to database instance ID, knowledge retrieval parameters, model inference parameters, etc. Additionally, it provides a default system prompt template and allows users to customize system prompts.
+     * - **DBInstanceId**: Required. Specifies the database instance ID.
+     * - **KnowledgeParams**: Optional. Contains parameters related to knowledge retrieval, such as retrieval content, merge strategies, etc.
+     * - **ModelParams**: Required. Contains parameters related to model inference, such as message list, model name, etc.
+     * - **PromptTemplate**: Optional. Used to customize the system prompt template.
      *
      * @param Request - ChatWithKnowledgeBaseRequest
      *
@@ -1371,14 +1375,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
+     * Provides AI chat services by combining knowledge bases with large language models. This is a streaming API called through SSE or the Java asynchronous SDK.
      *
      * @remarks
-     * Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
-     * - DBInstanceId: Required. The ID of the database instance.
-     * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
-     * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
-     * - PromptTemplate: Optional. A custom system prompt template.
+     * This API allows you to interact with a large language model by using specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. A default system prompt template is provided, and you can also customize the system prompt.
+     * - DBInstanceId: Required. Specifies the database instance ID.
+     * - KnowledgeParams: Optional. Contains knowledge retrieval parameters such as retrieval content and merge strategy.
+     * - ModelParams: Required. Contains model inference parameters such as the message list and model name.
+     * - PromptTemplate: Optional. Specifies a custom system prompt template.
      *
      * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1464,14 +1468,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
+     * Provides AI chat services by combining knowledge bases with large language models. This is a streaming API called through SSE or the Java asynchronous SDK.
      *
      * @remarks
-     * Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
-     * - DBInstanceId: Required. The ID of the database instance.
-     * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
-     * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
-     * - PromptTemplate: Optional. A custom system prompt template.
+     * This API allows you to interact with a large language model by using specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. A default system prompt template is provided, and you can also customize the system prompt.
+     * - DBInstanceId: Required. Specifies the database instance ID.
+     * - KnowledgeParams: Optional. Contains knowledge retrieval parameters such as retrieval content and merge strategy.
+     * - ModelParams: Required. Contains model inference parameters such as the message list and model name.
+     * - PromptTemplate: Optional. Specifies a custom system prompt template.
      *
      * @param tmpReq - ChatWithKnowledgeBaseStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1544,14 +1548,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This service combines a knowledge base with a large model to provide intelligent Q&A. You can access the streaming interface using Server-Sent Events (SSE) or the Java asynchronous SDK.
+     * Provides AI chat services by combining knowledge bases with large language models. This is a streaming API called through SSE or the Java asynchronous SDK.
      *
      * @remarks
-     * Use this API to retrieve answers from a large language model based on content from a specified knowledge base. You can customize the request by configuring various parameters, including the database instance ID, knowledge retrieval parameters, and model inference parameters. The API includes a default system prompt template, and you can also specify a custom one.
-     * - DBInstanceId: Required. The ID of the database instance.
-     * - KnowledgeParams: Optional. Parameters for knowledge retrieval, such as retrieval content and the merge policy.
-     * - ModelParams: Required. Parameters for model inference, such as the message list and the model name.
-     * - PromptTemplate: Optional. A custom system prompt template.
+     * This API allows you to interact with a large language model by using specified knowledge base collections to obtain answers based on knowledge base content. You can configure various parameters to customize requests, including but not limited to the database instance ID, knowledge retrieval parameters, and model inference parameters. A default system prompt template is provided, and you can also customize the system prompt.
+     * - DBInstanceId: Required. Specifies the database instance ID.
+     * - KnowledgeParams: Optional. Contains knowledge retrieval parameters such as retrieval content and merge strategy.
+     * - ModelParams: Required. Contains model inference parameters such as the message list and model name.
+     * - PromptTemplate: Optional. Specifies a custom system prompt template.
      *
      * @param Request - ChatWithKnowledgeBaseStreamRequest
      *
@@ -19522,6 +19526,73 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 暂停SaaS服务
+     *
+     * @remarks
+     * 删除模型服务。
+     *
+     * @param Request - PauseSaasServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseSaasServiceResponse
+     *
+     * @param PauseSaasServiceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PauseSaasServiceResponse
+     */
+    public function pauseSaasServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PauseSaasService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PauseSaasServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 暂停SaaS服务
+     *
+     * @remarks
+     * 删除模型服务。
+     *
+     * @param Request - PauseSaasServiceRequest
+     *
+     * @returns PauseSaasServiceResponse
+     *
+     * @param PauseSaasServiceRequest $request
+     *
+     * @return PauseSaasServiceResponse
+     */
+    public function pauseSaasService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pauseSaasServiceWithOptions($request, $runtime);
+    }
+
+    /**
      * Pauses a Supabase instance.
      *
      * @remarks
@@ -19746,7 +19817,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query a document collection with natural language to retrieve vectors and metadata.
+     * Retrieves vectors and metadata from a specified document collection using natural language queries.
      *
      * @param tmpReq - QueryContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19905,7 +19976,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query a document collection with natural language to retrieve vectors and metadata.
+     * Retrieves vectors and metadata from a specified document collection using natural language queries.
      *
      * @param Request - QueryContentRequest
      *
@@ -20015,7 +20086,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieve vectors and metadata from specified knowledge bases using a natural-language query, returning the merged results from a multi-channel recall.
+     * Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
      *
      * @param tmpReq - QueryKnowledgeBasesContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20104,7 +20175,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieve vectors and metadata from specified knowledge bases using a natural-language query, returning the merged results from a multi-channel recall.
+     * Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
      *
      * @param Request - QueryKnowledgeBasesContentRequest
      *
@@ -20904,6 +20975,73 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 恢复SaaS服务
+     *
+     * @remarks
+     * 删除模型服务。
+     *
+     * @param Request - ResumeSaasServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumeSaasServiceResponse
+     *
+     * @param ResumeSaasServiceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ResumeSaasServiceResponse
+     */
+    public function resumeSaasServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$query['ServiceId'] = $request->serviceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResumeSaasService',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumeSaasServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 恢复SaaS服务
+     *
+     * @remarks
+     * 删除模型服务。
+     *
+     * @param Request - ResumeSaasServiceRequest
+     *
+     * @returns ResumeSaasServiceResponse
+     *
+     * @param ResumeSaasServiceRequest $request
+     *
+     * @return ResumeSaasServiceResponse
+     */
+    public function resumeSaasService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resumeSaasServiceWithOptions($request, $runtime);
     }
 
     /**

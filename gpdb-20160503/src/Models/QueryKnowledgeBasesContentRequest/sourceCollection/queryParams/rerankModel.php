@@ -17,9 +17,15 @@ class rerankModel extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $rerankMetadataFields;
     protected $_name = [
         'instruct' => 'Instruct',
         'name' => 'Name',
+        'rerankMetadataFields' => 'RerankMetadataFields',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class rerankModel extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->rerankMetadataFields) {
+            $res['RerankMetadataFields'] = $this->rerankMetadataFields;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class rerankModel extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['RerankMetadataFields'])) {
+            $model->rerankMetadataFields = $map['RerankMetadataFields'];
         }
 
         return $model;
