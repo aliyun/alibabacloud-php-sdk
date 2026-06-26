@@ -31,6 +31,11 @@ class ModifyTTSConfigRequest extends Model
     /**
      * @var string
      */
+    public $extParams;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -67,6 +72,7 @@ class ModifyTTSConfigRequest extends Model
         'appKey' => 'AppKey',
         'engine' => 'Engine',
         'engineXunfei' => 'EngineXunfei',
+        'extParams' => 'ExtParams',
         'instanceId' => 'InstanceId',
         'nlsServiceType' => 'NlsServiceType',
         'pitchRate' => 'PitchRate',
@@ -98,6 +104,10 @@ class ModifyTTSConfigRequest extends Model
 
         if (null !== $this->engineXunfei) {
             $res['EngineXunfei'] = $this->engineXunfei;
+        }
+
+        if (null !== $this->extParams) {
+            $res['ExtParams'] = $this->extParams;
         }
 
         if (null !== $this->instanceId) {
@@ -153,6 +163,10 @@ class ModifyTTSConfigRequest extends Model
 
         if (isset($map['EngineXunfei'])) {
             $model->engineXunfei = $map['EngineXunfei'];
+        }
+
+        if (isset($map['ExtParams'])) {
+            $model->extParams = $map['ExtParams'];
         }
 
         if (isset($map['InstanceId'])) {

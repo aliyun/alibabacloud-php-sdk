@@ -31,6 +31,11 @@ class DescribeTTSConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $extParams;
+
+    /**
+     * @var string
+     */
     public $nlsServiceType;
 
     /**
@@ -67,6 +72,7 @@ class DescribeTTSConfigResponseBody extends Model
         'appKey' => 'AppKey',
         'engine' => 'Engine',
         'engineXunfei' => 'EngineXunfei',
+        'extParams' => 'ExtParams',
         'nlsServiceType' => 'NlsServiceType',
         'pitchRate' => 'PitchRate',
         'requestId' => 'RequestId',
@@ -98,6 +104,10 @@ class DescribeTTSConfigResponseBody extends Model
 
         if (null !== $this->engineXunfei) {
             $res['EngineXunfei'] = $this->engineXunfei;
+        }
+
+        if (null !== $this->extParams) {
+            $res['ExtParams'] = $this->extParams;
         }
 
         if (null !== $this->nlsServiceType) {
@@ -153,6 +163,10 @@ class DescribeTTSConfigResponseBody extends Model
 
         if (isset($map['EngineXunfei'])) {
             $model->engineXunfei = $map['EngineXunfei'];
+        }
+
+        if (isset($map['ExtParams'])) {
+            $model->extParams = $map['ExtParams'];
         }
 
         if (isset($map['NlsServiceType'])) {

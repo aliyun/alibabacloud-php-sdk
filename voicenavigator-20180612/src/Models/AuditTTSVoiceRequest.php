@@ -26,6 +26,11 @@ class AuditTTSVoiceRequest extends Model
     /**
      * @var string
      */
+    public $extParams;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -61,6 +66,7 @@ class AuditTTSVoiceRequest extends Model
         'accessKey' => 'AccessKey',
         'appKey' => 'AppKey',
         'engine' => 'Engine',
+        'extParams' => 'ExtParams',
         'instanceId' => 'InstanceId',
         'pitchRate' => 'PitchRate',
         'secretKey' => 'SecretKey',
@@ -88,6 +94,10 @@ class AuditTTSVoiceRequest extends Model
 
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
+        }
+
+        if (null !== $this->extParams) {
+            $res['ExtParams'] = $this->extParams;
         }
 
         if (null !== $this->instanceId) {
@@ -139,6 +149,10 @@ class AuditTTSVoiceRequest extends Model
 
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
+        }
+
+        if (isset($map['ExtParams'])) {
+            $model->extParams = $map['ExtParams'];
         }
 
         if (isset($map['InstanceId'])) {
