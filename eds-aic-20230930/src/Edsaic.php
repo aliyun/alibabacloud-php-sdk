@@ -7349,7 +7349,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Triggers an Agent on a mobile node to run an AI-powered automation task.
+     * Triggers an Agent on Mobile nodes to execute an AI automation task.
      *
      * @param request - RunAgentTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7375,6 +7375,14 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->maxSteps) {
             @$query['MaxSteps'] = $request->maxSteps;
+        }
+
+        if (null !== $request->scheduleId) {
+            @$query['ScheduleId'] = $request->scheduleId;
+        }
+
+        if (null !== $request->taskConfigId) {
+            @$query['TaskConfigId'] = $request->taskConfigId;
         }
 
         if (null !== $request->timeoutSeconds) {
@@ -7404,7 +7412,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Triggers an Agent on a mobile node to run an AI-powered automation task.
+     * Triggers an Agent on Mobile nodes to execute an AI automation task.
      *
      * @param request - RunAgentTaskRequest
      *

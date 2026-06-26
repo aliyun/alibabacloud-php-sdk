@@ -24,6 +24,16 @@ class RunAgentTaskRequest extends Model
     public $maxSteps;
 
     /**
+     * @var string
+     */
+    public $scheduleId;
+
+    /**
+     * @var string
+     */
+    public $taskConfigId;
+
+    /**
      * @var int
      */
     public $timeoutSeconds;
@@ -36,6 +46,8 @@ class RunAgentTaskRequest extends Model
         'bizRegionId' => 'BizRegionId',
         'instanceIds' => 'InstanceIds',
         'maxSteps' => 'MaxSteps',
+        'scheduleId' => 'ScheduleId',
+        'taskConfigId' => 'TaskConfigId',
         'timeoutSeconds' => 'TimeoutSeconds',
         'userPrompt' => 'UserPrompt',
     ];
@@ -68,6 +80,14 @@ class RunAgentTaskRequest extends Model
 
         if (null !== $this->maxSteps) {
             $res['MaxSteps'] = $this->maxSteps;
+        }
+
+        if (null !== $this->scheduleId) {
+            $res['ScheduleId'] = $this->scheduleId;
+        }
+
+        if (null !== $this->taskConfigId) {
+            $res['TaskConfigId'] = $this->taskConfigId;
         }
 
         if (null !== $this->timeoutSeconds) {
@@ -106,6 +126,14 @@ class RunAgentTaskRequest extends Model
 
         if (isset($map['MaxSteps'])) {
             $model->maxSteps = $map['MaxSteps'];
+        }
+
+        if (isset($map['ScheduleId'])) {
+            $model->scheduleId = $map['ScheduleId'];
+        }
+
+        if (isset($map['TaskConfigId'])) {
+            $model->taskConfigId = $map['TaskConfigId'];
         }
 
         if (isset($map['TimeoutSeconds'])) {
