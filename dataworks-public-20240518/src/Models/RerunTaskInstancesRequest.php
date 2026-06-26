@@ -17,9 +17,15 @@ class RerunTaskInstancesRequest extends Model
      * @var int[]
      */
     public $ids;
+
+    /**
+     * @var bool
+     */
+    public $useLatestConfig;
     protected $_name = [
         'comment' => 'Comment',
         'ids' => 'Ids',
+        'useLatestConfig' => 'UseLatestConfig',
     ];
 
     public function validate()
@@ -48,6 +54,10 @@ class RerunTaskInstancesRequest extends Model
             }
         }
 
+        if (null !== $this->useLatestConfig) {
+            $res['UseLatestConfig'] = $this->useLatestConfig;
+        }
+
         return $res;
     }
 
@@ -72,6 +82,10 @@ class RerunTaskInstancesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['UseLatestConfig'])) {
+            $model->useLatestConfig = $map['UseLatestConfig'];
         }
 
         return $model;

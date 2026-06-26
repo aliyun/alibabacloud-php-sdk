@@ -17,9 +17,15 @@ class RerunTaskInstancesShrinkRequest extends Model
      * @var string
      */
     public $idsShrink;
+
+    /**
+     * @var bool
+     */
+    public $useLatestConfig;
     protected $_name = [
         'comment' => 'Comment',
         'idsShrink' => 'Ids',
+        'useLatestConfig' => 'UseLatestConfig',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class RerunTaskInstancesShrinkRequest extends Model
 
         if (null !== $this->idsShrink) {
             $res['Ids'] = $this->idsShrink;
+        }
+
+        if (null !== $this->useLatestConfig) {
+            $res['UseLatestConfig'] = $this->useLatestConfig;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class RerunTaskInstancesShrinkRequest extends Model
 
         if (isset($map['Ids'])) {
             $model->idsShrink = $map['Ids'];
+        }
+
+        if (isset($map['UseLatestConfig'])) {
+            $model->useLatestConfig = $map['UseLatestConfig'];
         }
 
         return $model;
