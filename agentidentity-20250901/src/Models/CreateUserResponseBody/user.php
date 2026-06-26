@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserResponseBody;
+namespace AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateUserResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
 class user extends Model
 {
-    /**
-     * @var string
-     */
-    public $createTime;
-
     /**
      * @var string
      */
@@ -41,11 +36,6 @@ class user extends Model
     /**
      * @var string
      */
-    public $updateTime;
-
-    /**
-     * @var string
-     */
     public $userId;
 
     /**
@@ -53,13 +43,11 @@ class user extends Model
      */
     public $userName;
     protected $_name = [
-        'createTime' => 'CreateTime',
         'description' => 'Description',
         'displayName' => 'DisplayName',
         'email' => 'Email',
         'status' => 'Status',
         'type' => 'Type',
-        'updateTime' => 'UpdateTime',
         'userId' => 'UserId',
         'userName' => 'UserName',
     ];
@@ -72,10 +60,6 @@ class user extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -94,10 +78,6 @@ class user extends Model
 
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-
-        if (null !== $this->updateTime) {
-            $res['UpdateTime'] = $this->updateTime;
         }
 
         if (null !== $this->userId) {
@@ -119,10 +99,6 @@ class user extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -141,10 +117,6 @@ class user extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-
-        if (isset($map['UpdateTime'])) {
-            $model->updateTime = $map['UpdateTime'];
         }
 
         if (isset($map['UserId'])) {

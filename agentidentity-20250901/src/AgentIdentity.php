@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateUserPoolClientResponse
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateUserPoolClientShrinkRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateUserPoolRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateUserPoolResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateUserRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateUserResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateWorkloadIdentityRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateWorkloadIdentityResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\CreateWorkloadIdentityShrinkRequest;
@@ -75,6 +77,8 @@ use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetGatewayPolicyConfigReques
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetGatewayPolicyConfigResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetIdentityProviderRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetIdentityProviderResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetLoginPreferenceRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetLoginPreferenceResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetOAuth2CredentialProviderRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetOAuth2CredentialProviderResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetPolicyRequest;
@@ -87,12 +91,16 @@ use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetSAMLIdentityProviderReque
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetSAMLIdentityProviderResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetSAMLServiceProviderInfoRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetSAMLServiceProviderInfoResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetSpecificIdentityProviderRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetSpecificIdentityProviderResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetTokenVaultRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetTokenVaultResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserPoolClientRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserPoolClientResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserPoolRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserPoolResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserPoolSyncJobRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserPoolSyncJobResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetWorkloadIdentityRequest;
@@ -123,13 +131,21 @@ use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListUserPoolClientsRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListUserPoolClientsResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListUserPoolsRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListUserPoolsResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListUserPoolSyncJobsRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListUserPoolSyncJobsResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListUsersRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListUsersResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListWorkloadIdentitiesRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\ListWorkloadIdentitiesResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\RunUserPoolSyncJobRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\RunUserPoolSyncJobResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\SetSAMLIdentityProviderRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\SetSAMLIdentityProviderResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\SetSAMLIdentityProviderShrinkRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\SetSpecificIdentityProviderRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\SetSpecificIdentityProviderResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\SetUserPasswordRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\SetUserPasswordResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateAPIKeyCredentialProviderRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateAPIKeyCredentialProviderResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateGatewayPolicyConfigRequest;
@@ -137,6 +153,9 @@ use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateGatewayPolicyConfigRes
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateIdentityProviderRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateIdentityProviderResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateIdentityProviderShrinkRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateLoginPreferenceRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateLoginPreferenceResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateLoginPreferenceShrinkRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateOAuth2CredentialProviderRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateOAuth2CredentialProviderResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateOAuth2CredentialProviderShrinkRequest;
@@ -154,6 +173,8 @@ use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateUserPoolClientResponse
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateUserPoolClientShrinkRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateUserPoolRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateUserPoolResponse;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateUserRequest;
+use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateWorkloadIdentityRequest;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateWorkloadIdentityResponse;
 use AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateWorkloadIdentityShrinkRequest;
@@ -961,6 +982,83 @@ class AgentIdentity extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTokenVaultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建用户池用户.
+     *
+     * @param request - CreateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateUserResponse
+     */
+    public function createUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->email) {
+            @$body['Email'] = $request->email;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateUser',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建用户池用户.
+     *
+     * @param request - CreateUserRequest
+     *
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     *
+     * @return CreateUserResponse
+     */
+    public function createUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createUserWithOptions($request, $runtime);
     }
 
     /**
@@ -2301,6 +2399,63 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
+     * 获取用户池登录相关配置.
+     *
+     * @param request - GetLoginPreferenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLoginPreferenceResponse
+     *
+     * @param GetLoginPreferenceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetLoginPreferenceResponse
+     */
+    public function getLoginPreferenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetLoginPreference',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLoginPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户池登录相关配置.
+     *
+     * @param request - GetLoginPreferenceRequest
+     *
+     * @returns GetLoginPreferenceResponse
+     *
+     * @param GetLoginPreferenceRequest $request
+     *
+     * @return GetLoginPreferenceResponse
+     */
+    public function getLoginPreference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLoginPreferenceWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询 OAuth2 凭证提供商.
      *
      * @param request - GetOAuth2CredentialProviderRequest
@@ -2655,6 +2810,67 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
+     * 获取指定的身份提供商.
+     *
+     * @param request - GetSpecificIdentityProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSpecificIdentityProviderResponse
+     *
+     * @param GetSpecificIdentityProviderRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetSpecificIdentityProviderResponse
+     */
+    public function getSpecificIdentityProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->identityProviderType) {
+            @$body['IdentityProviderType'] = $request->identityProviderType;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetSpecificIdentityProvider',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSpecificIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定的身份提供商.
+     *
+     * @param request - GetSpecificIdentityProviderRequest
+     *
+     * @returns GetSpecificIdentityProviderResponse
+     *
+     * @param GetSpecificIdentityProviderRequest $request
+     *
+     * @return GetSpecificIdentityProviderResponse
+     */
+    public function getSpecificIdentityProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSpecificIdentityProviderWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取指定凭证库的详细配置。
      *
      * @param request - GetTokenVaultRequest
@@ -2888,6 +3104,67 @@ class AgentIdentity extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUserPoolClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取UserPool.
+     *
+     * @param request - GetUserPoolSyncJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserPoolSyncJobResponse
+     *
+     * @param GetUserPoolSyncJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetUserPoolSyncJobResponse
+     */
+    public function getUserPoolSyncJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->synchronizationJobId) {
+            @$body['SynchronizationJobId'] = $request->synchronizationJobId;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserPoolSyncJob',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserPoolSyncJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取UserPool.
+     *
+     * @param request - GetUserPoolSyncJobRequest
+     *
+     * @returns GetUserPoolSyncJobResponse
+     *
+     * @param GetUserPoolSyncJobRequest $request
+     *
+     * @return GetUserPoolSyncJobResponse
+     */
+    public function getUserPoolSyncJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserPoolSyncJobWithOptions($request, $runtime);
     }
 
     /**
@@ -3722,6 +3999,71 @@ class AgentIdentity extends OpenApiClient
     /**
      * 列出IdentityProvider.
      *
+     * @param request - ListUserPoolSyncJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserPoolSyncJobsResponse
+     *
+     * @param ListUserPoolSyncJobsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListUserPoolSyncJobsResponse
+     */
+    public function listUserPoolSyncJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListUserPoolSyncJobs',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListUserPoolSyncJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出IdentityProvider.
+     *
+     * @param request - ListUserPoolSyncJobsRequest
+     *
+     * @returns ListUserPoolSyncJobsResponse
+     *
+     * @param ListUserPoolSyncJobsRequest $request
+     *
+     * @return ListUserPoolSyncJobsResponse
+     */
+    public function listUserPoolSyncJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserPoolSyncJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列出IdentityProvider.
+     *
      * @param request - ListUserPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3907,6 +4249,71 @@ class AgentIdentity extends OpenApiClient
     }
 
     /**
+     * 创建UserPool.
+     *
+     * @param request - RunUserPoolSyncJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunUserPoolSyncJobResponse
+     *
+     * @param RunUserPoolSyncJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RunUserPoolSyncJobResponse
+     */
+    public function runUserPoolSyncJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->identityProviderType) {
+            @$body['IdentityProviderType'] = $request->identityProviderType;
+        }
+
+        if (null !== $request->maxSyncUsers) {
+            @$body['MaxSyncUsers'] = $request->maxSyncUsers;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunUserPoolSyncJob',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RunUserPoolSyncJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建UserPool.
+     *
+     * @param request - RunUserPoolSyncJobRequest
+     *
+     * @returns RunUserPoolSyncJobResponse
+     *
+     * @param RunUserPoolSyncJobRequest $request
+     *
+     * @return RunUserPoolSyncJobResponse
+     */
+    public function runUserPoolSyncJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runUserPoolSyncJobWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建WorkloadIdentity.
      *
      * @param tmpReq - SetSAMLIdentityProviderRequest
@@ -3995,6 +4402,144 @@ class AgentIdentity extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setSAMLIdentityProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 通用IdP配置.
+     *
+     * @param request - SetSpecificIdentityProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetSpecificIdentityProviderResponse
+     *
+     * @param SetSpecificIdentityProviderRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetSpecificIdentityProviderResponse
+     */
+    public function setSpecificIdentityProviderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->IDPMetadata) {
+            @$body['IDPMetadata'] = $request->IDPMetadata;
+        }
+
+        if (null !== $request->identityProviderType) {
+            @$body['IdentityProviderType'] = $request->identityProviderType;
+        }
+
+        if (null !== $request->SSOStatus) {
+            @$body['SSOStatus'] = $request->SSOStatus;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetSpecificIdentityProvider',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetSpecificIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 通用IdP配置.
+     *
+     * @param request - SetSpecificIdentityProviderRequest
+     *
+     * @returns SetSpecificIdentityProviderResponse
+     *
+     * @param SetSpecificIdentityProviderRequest $request
+     *
+     * @return SetSpecificIdentityProviderResponse
+     */
+    public function setSpecificIdentityProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSpecificIdentityProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改用户登录密码
+     *
+     * @param request - SetUserPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetUserPasswordResponse
+     *
+     * @param SetUserPasswordRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetUserPasswordResponse
+     */
+    public function setUserPasswordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->generateRandomPassword) {
+            @$body['GenerateRandomPassword'] = $request->generateRandomPassword;
+        }
+
+        if (null !== $request->password) {
+            @$body['Password'] = $request->password;
+        }
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SetUserPassword',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改用户登录密码
+     *
+     * @param request - SetUserPasswordRequest
+     *
+     * @returns SetUserPasswordResponse
+     *
+     * @param SetUserPasswordRequest $request
+     *
+     * @return SetUserPasswordResponse
+     */
+    public function setUserPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setUserPasswordWithOptions($request, $runtime);
     }
 
     /**
@@ -4204,6 +4749,75 @@ class AgentIdentity extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIdentityProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新用户池登录配置.
+     *
+     * @param tmpReq - UpdateLoginPreferenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLoginPreferenceResponse
+     *
+     * @param UpdateLoginPreferenceRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateLoginPreferenceResponse
+     */
+    public function updateLoginPreferenceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateLoginPreferenceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->loginPreference) {
+            $request->loginPreferenceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->loginPreference, 'LoginPreference', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->loginPreferenceShrink) {
+            @$query['LoginPreference'] = $request->loginPreferenceShrink;
+        }
+
+        $body = [];
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLoginPreference',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLoginPreferenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新用户池登录配置.
+     *
+     * @param request - UpdateLoginPreferenceRequest
+     *
+     * @returns UpdateLoginPreferenceResponse
+     *
+     * @param UpdateLoginPreferenceRequest $request
+     *
+     * @return UpdateLoginPreferenceResponse
+     */
+    public function updateLoginPreference($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLoginPreferenceWithOptions($request, $runtime);
     }
 
     /**
@@ -4553,6 +5167,83 @@ class AgentIdentity extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateTokenVaultWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新用户池用户.
+     *
+     * @param request - UpdateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateUserResponse
+     */
+    public function updateUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
+        }
+
+        if (null !== $request->email) {
+            @$body['Email'] = $request->email;
+        }
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
+        }
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->userPoolName) {
+            @$body['UserPoolName'] = $request->userPoolName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUser',
+            'version' => '2025-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新用户池用户.
+     *
+     * @param request - UpdateUserRequest
+     *
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
+     */
+    public function updateUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserWithOptions($request, $runtime);
     }
 
     /**

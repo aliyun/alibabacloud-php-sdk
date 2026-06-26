@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\AgentIdentity\V20250901\Models\GetUserPoolResponseBody;
+namespace AlibabaCloud\SDK\AgentIdentity\V20250901\Models\UpdateUserResponseBody;
 
 use AlibabaCloud\Dara\Model;
 
-class userPool extends Model
+class user extends Model
 {
     /**
      * @var string
@@ -21,7 +21,22 @@ class userPool extends Model
     /**
      * @var string
      */
-    public $sourcePlatform;
+    public $displayName;
+
+    /**
+     * @var string
+     */
+    public $email;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
 
     /**
      * @var string
@@ -31,19 +46,22 @@ class userPool extends Model
     /**
      * @var string
      */
-    public $userPoolId;
+    public $userId;
 
     /**
      * @var string
      */
-    public $userPoolName;
+    public $userName;
     protected $_name = [
         'createTime' => 'CreateTime',
         'description' => 'Description',
-        'sourcePlatform' => 'SourcePlatform',
+        'displayName' => 'DisplayName',
+        'email' => 'Email',
+        'status' => 'Status',
+        'type' => 'Type',
         'updateTime' => 'UpdateTime',
-        'userPoolId' => 'UserPoolId',
-        'userPoolName' => 'UserPoolName',
+        'userId' => 'UserId',
+        'userName' => 'UserName',
     ];
 
     public function validate()
@@ -62,20 +80,32 @@ class userPool extends Model
             $res['Description'] = $this->description;
         }
 
-        if (null !== $this->sourcePlatform) {
-            $res['SourcePlatform'] = $this->sourcePlatform;
+        if (null !== $this->displayName) {
+            $res['DisplayName'] = $this->displayName;
+        }
+
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
 
-        if (null !== $this->userPoolId) {
-            $res['UserPoolId'] = $this->userPoolId;
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
-        if (null !== $this->userPoolName) {
-            $res['UserPoolName'] = $this->userPoolName;
+        if (null !== $this->userName) {
+            $res['UserName'] = $this->userName;
         }
 
         return $res;
@@ -97,20 +127,32 @@ class userPool extends Model
             $model->description = $map['Description'];
         }
 
-        if (isset($map['SourcePlatform'])) {
-            $model->sourcePlatform = $map['SourcePlatform'];
+        if (isset($map['DisplayName'])) {
+            $model->displayName = $map['DisplayName'];
+        }
+
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
 
-        if (isset($map['UserPoolId'])) {
-            $model->userPoolId = $map['UserPoolId'];
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
-        if (isset($map['UserPoolName'])) {
-            $model->userPoolName = $map['UserPoolName'];
+        if (isset($map['UserName'])) {
+            $model->userName = $map['UserName'];
         }
 
         return $model;

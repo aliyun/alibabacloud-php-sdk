@@ -21,6 +21,11 @@ class userPool extends Model
     /**
      * @var string
      */
+    public $sourcePlatform;
+
+    /**
+     * @var string
+     */
     public $updateTime;
 
     /**
@@ -35,6 +40,7 @@ class userPool extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'description' => 'Description',
+        'sourcePlatform' => 'SourcePlatform',
         'updateTime' => 'UpdateTime',
         'userPoolId' => 'UserPoolId',
         'userPoolName' => 'UserPoolName',
@@ -54,6 +60,10 @@ class userPool extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->sourcePlatform) {
+            $res['SourcePlatform'] = $this->sourcePlatform;
         }
 
         if (null !== $this->updateTime) {
@@ -85,6 +95,10 @@ class userPool extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['SourcePlatform'])) {
+            $model->sourcePlatform = $map['SourcePlatform'];
         }
 
         if (isset($map['UpdateTime'])) {

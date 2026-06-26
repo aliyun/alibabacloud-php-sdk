@@ -32,6 +32,11 @@ class clients extends Model
     /**
      * @var string
      */
+    public $clientType;
+
+    /**
+     * @var string
+     */
     public $createTime;
 
     /**
@@ -68,6 +73,7 @@ class clients extends Model
         'clientId' => 'ClientId',
         'clientName' => 'ClientName',
         'clientScopes' => 'ClientScopes',
+        'clientType' => 'ClientType',
         'createTime' => 'CreateTime',
         'enforcePKCE' => 'EnforcePKCE',
         'redirectURIs' => 'RedirectURIs',
@@ -112,6 +118,10 @@ class clients extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->clientType) {
+            $res['ClientType'] = $this->clientType;
         }
 
         if (null !== $this->createTime) {
@@ -181,6 +191,10 @@ class clients extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ClientType'])) {
+            $model->clientType = $map['ClientType'];
         }
 
         if (isset($map['CreateTime'])) {

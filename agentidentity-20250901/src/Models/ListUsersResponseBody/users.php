@@ -26,6 +26,21 @@ class users extends Model
     /**
      * @var string
      */
+    public $email;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @var string
+     */
     public $updateTime;
 
     /**
@@ -41,6 +56,9 @@ class users extends Model
         'createTime' => 'CreateTime',
         'description' => 'Description',
         'displayName' => 'DisplayName',
+        'email' => 'Email',
+        'status' => 'Status',
+        'type' => 'Type',
         'updateTime' => 'UpdateTime',
         'userId' => 'UserId',
         'userName' => 'UserName',
@@ -64,6 +82,18 @@ class users extends Model
 
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+
+        if (null !== $this->email) {
+            $res['Email'] = $this->email;
+        }
+
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         if (null !== $this->updateTime) {
@@ -99,6 +129,18 @@ class users extends Model
 
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+
+        if (isset($map['Email'])) {
+            $model->email = $map['Email'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         if (isset($map['UpdateTime'])) {
