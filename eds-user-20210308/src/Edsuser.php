@@ -638,6 +638,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
         if (null !== $request->businessChannel) {
             @$query['BusinessChannel'] = $request->businessChannel;
         }
@@ -1341,7 +1345,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * View resource groups.
+     * Queries resource groups.
      *
      * @param request - DescribeResourceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1357,6 +1361,10 @@ class Edsuser extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agentType) {
+            @$query['AgentType'] = $request->agentType;
+        }
+
         if (null !== $request->aliyunResourceGroupIds) {
             @$query['AliyunResourceGroupIds'] = $request->aliyunResourceGroupIds;
         }
@@ -1412,7 +1420,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * View resource groups.
+     * Queries resource groups.
      *
      * @param request - DescribeResourceGroupsRequest
      *

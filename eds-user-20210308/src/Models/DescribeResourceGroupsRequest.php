@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DescribeResourceGroupsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $agentType;
+
+    /**
      * @var string[]
      */
     public $aliyunResourceGroupIds;
@@ -53,6 +58,7 @@ class DescribeResourceGroupsRequest extends Model
      */
     public $resourceGroupName;
     protected $_name = [
+        'agentType' => 'AgentType',
         'aliyunResourceGroupIds' => 'AliyunResourceGroupIds',
         'businessChannel' => 'BusinessChannel',
         'needContainResourceGroupWithOfficeSite' => 'NeedContainResourceGroupWithOfficeSite',
@@ -78,6 +84,10 @@ class DescribeResourceGroupsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->aliyunResourceGroupIds) {
             if (\is_array($this->aliyunResourceGroupIds)) {
                 $res['AliyunResourceGroupIds'] = [];
@@ -139,6 +149,10 @@ class DescribeResourceGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['AliyunResourceGroupIds'])) {
             if (!empty($map['AliyunResourceGroupIds'])) {
                 $model->aliyunResourceGroupIds = [];

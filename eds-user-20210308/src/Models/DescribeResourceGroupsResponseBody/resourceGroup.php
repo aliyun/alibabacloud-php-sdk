@@ -14,6 +14,11 @@ class resourceGroup extends Model
     /**
      * @var string
      */
+    public $agentType;
+
+    /**
+     * @var string
+     */
     public $aliyunResourceGroupId;
 
     /**
@@ -56,6 +61,7 @@ class resourceGroup extends Model
      */
     public $timers;
     protected $_name = [
+        'agentType' => 'AgentType',
         'aliyunResourceGroupId' => 'AliyunResourceGroupId',
         'appRules' => 'AppRules',
         'authCount' => 'AuthCount',
@@ -84,6 +90,10 @@ class resourceGroup extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->aliyunResourceGroupId) {
             $res['AliyunResourceGroupId'] = $this->aliyunResourceGroupId;
         }
@@ -152,6 +162,10 @@ class resourceGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['AliyunResourceGroupId'])) {
             $model->aliyunResourceGroupId = $map['AliyunResourceGroupId'];
         }

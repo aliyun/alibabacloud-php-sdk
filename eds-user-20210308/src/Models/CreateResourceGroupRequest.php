@@ -11,6 +11,11 @@ class CreateResourceGroupRequest extends Model
     /**
      * @var string
      */
+    public $agentType;
+
+    /**
+     * @var string
+     */
     public $businessChannel;
 
     /**
@@ -38,6 +43,7 @@ class CreateResourceGroupRequest extends Model
      */
     public $resourceGroupName;
     protected $_name = [
+        'agentType' => 'AgentType',
         'businessChannel' => 'BusinessChannel',
         'enableAliyunResourceGroup' => 'EnableAliyunResourceGroup',
         'isResourceGroupWithOfficeSite' => 'IsResourceGroupWithOfficeSite',
@@ -54,6 +60,10 @@ class CreateResourceGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->businessChannel) {
             $res['BusinessChannel'] = $this->businessChannel;
         }
@@ -89,6 +99,10 @@ class CreateResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['BusinessChannel'])) {
             $model->businessChannel = $map['BusinessChannel'];
         }
