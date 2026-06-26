@@ -19,7 +19,7 @@ class HttpApiApiInfoDeployCntMapValue extends Model
     public $cnt;
     protected $_name = [
         'deployedCnt' => 'deployedCnt',
-        'cnt' => 'Cnt',
+        'cnt' => 'cnt',
     ];
 
     public function validate()
@@ -35,7 +35,7 @@ class HttpApiApiInfoDeployCntMapValue extends Model
         }
 
         if (null !== $this->cnt) {
-            $res['Cnt'] = $this->cnt;
+            $res['cnt'] = $this->cnt;
         }
 
         return $res;
@@ -53,8 +53,8 @@ class HttpApiApiInfoDeployCntMapValue extends Model
             $model->deployedCnt = $map['deployedCnt'];
         }
 
-        if (isset($map['Cnt'])) {
-            $model->cnt = $map['Cnt'];
+        if (isset($map['cnt'])) {
+            $model->cnt = $map['cnt'];
         }
 
         return $model;

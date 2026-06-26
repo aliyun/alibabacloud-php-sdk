@@ -48,7 +48,7 @@ class HttpApiApiInfo extends Model
     /**
      * @var bool
      */
-    public $enabelAuth;
+    public $enableAuth;
 
     /**
      * @var environments[]
@@ -107,7 +107,7 @@ class HttpApiApiInfo extends Model
         'deployCntMap' => 'deployCntMap',
         'deployConfigs' => 'deployConfigs',
         'description' => 'description',
-        'enabelAuth' => 'enabelAuth',
+        'enableAuth' => 'enableAuth',
         'environments' => 'environments',
         'gatewayId' => 'gatewayId',
         'httpApiId' => 'httpApiId',
@@ -209,8 +209,8 @@ class HttpApiApiInfo extends Model
             $res['description'] = $this->description;
         }
 
-        if (null !== $this->enabelAuth) {
-            $res['enabelAuth'] = $this->enabelAuth;
+        if (null !== $this->enableAuth) {
+            $res['enableAuth'] = $this->enableAuth;
         }
 
         if (null !== $this->environments) {
@@ -332,8 +332,8 @@ class HttpApiApiInfo extends Model
             $model->description = $map['description'];
         }
 
-        if (isset($map['enabelAuth'])) {
-            $model->enabelAuth = $map['enabelAuth'];
+        if (isset($map['enableAuth'])) {
+            $model->enableAuth = $map['enableAuth'];
         }
 
         if (isset($map['environments'])) {

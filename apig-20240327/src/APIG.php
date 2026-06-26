@@ -401,7 +401,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Adds a security group that authorizes an instance to access services.
+     * Authorizes a security group to allow gateway access to services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      * @param headers - map
@@ -452,7 +452,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Adds a security group that authorizes an instance to access services.
+     * Authorizes a security group to allow gateway access to services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      *
@@ -472,7 +472,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Removes consumer authentication rules.
+     * Revokes API consumer authorization rules in batches.
      *
      * @param request - BatchDeleteConsumerAuthorizationRuleRequest
      * @param headers - map
@@ -514,7 +514,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Removes consumer authentication rules.
+     * Revokes API consumer authorization rules in batches.
      *
      * @param request - BatchDeleteConsumerAuthorizationRuleRequest
      *
@@ -1216,7 +1216,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * $.parameters[0].schema.properties.ingressConfig.example.
+     * Creates an HTTP API.
      *
      * @param request - CreateHttpApiRequest
      * @param headers - map
@@ -1330,7 +1330,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * $.parameters[0].schema.properties.ingressConfig.example.
+     * Creates an HTTP API.
      *
      * @param request - CreateHttpApiRequest
      *
@@ -4575,7 +4575,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the tracing configurations of a Cloud-native API Gateway instance.
+     * Retrieves the Tracing Analysis configuration.
      *
      * @param request - GetTraceConfigRequest
      * @param headers - map
@@ -4618,7 +4618,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the tracing configurations of a Cloud-native API Gateway instance.
+     * Retrieves the Tracing Analysis configuration.
      *
      * @param request - GetTraceConfigRequest
      *
