@@ -30,6 +30,16 @@ class UpdatePolarClawAgentRequest extends Model
     public $files;
 
     /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
+     * @var bool
+     */
+    public $keepWorkspaceFiles;
+
+    /**
      * @var string
      */
     public $model;
@@ -53,6 +63,8 @@ class UpdatePolarClawAgentRequest extends Model
         'applicationId' => 'ApplicationId',
         'avatar' => 'Avatar',
         'files' => 'Files',
+        'isDefault' => 'IsDefault',
+        'keepWorkspaceFiles' => 'KeepWorkspaceFiles',
         'model' => 'Model',
         'name' => 'Name',
         'restart' => 'Restart',
@@ -91,6 +103,14 @@ class UpdatePolarClawAgentRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
+
+        if (null !== $this->keepWorkspaceFiles) {
+            $res['KeepWorkspaceFiles'] = $this->keepWorkspaceFiles;
         }
 
         if (null !== $this->model) {
@@ -141,6 +161,14 @@ class UpdatePolarClawAgentRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
+
+        if (isset($map['KeepWorkspaceFiles'])) {
+            $model->keepWorkspaceFiles = $map['KeepWorkspaceFiles'];
         }
 
         if (isset($map['Model'])) {

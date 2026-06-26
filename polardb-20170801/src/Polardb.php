@@ -84,6 +84,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBackupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBatchConsumerRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBatchConsumerResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBatchTaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBatchTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateBatchTaskShrinkRequest;
@@ -266,6 +268,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApikeyAttributeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApikeyAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationLogsRequest;
@@ -402,6 +406,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeExtensionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeExtensionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeFirewallRulesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayApikeyListRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayApikeyListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeGatewayListRequest;
@@ -4275,6 +4281,79 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createBackupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates API keys in batches.
+     *
+     * @param request - CreateBatchConsumerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBatchConsumerResponse
+     *
+     * @param CreateBatchConsumerRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateBatchConsumerResponse
+     */
+    public function createBatchConsumerWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->consumerGroupId) {
+            @$query['ConsumerGroupId'] = $request->consumerGroupId;
+        }
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
+        }
+
+        if (null !== $request->gwClusterId) {
+            @$query['GwClusterId'] = $request->gwClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBatchConsumer',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBatchConsumerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates API keys in batches.
+     *
+     * @param request - CreateBatchConsumerRequest
+     *
+     * @returns CreateBatchConsumerResponse
+     *
+     * @param CreateBatchConsumerRequest $request
+     *
+     * @return CreateBatchConsumerResponse
+     */
+    public function createBatchConsumer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBatchConsumerWithOptions($request, $runtime);
     }
 
     /**
@@ -10780,7 +10859,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Gets the details of a custom instance.
+     * Queries the details of a custom instance.
      *
      * @param request - DescribeAIDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10835,7 +10914,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Gets the details of a custom instance.
+     * Queries the details of a custom instance.
      *
      * @param request - DescribeAIDBClusterAttributeRequest
      *
@@ -12076,6 +12155,75 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询该apikey的详细信息.
+     *
+     * @param request - DescribeApikeyAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApikeyAttributeResponse
+     *
+     * @param DescribeApikeyAttributeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeApikeyAttributeResponse
+     */
+    public function describeApikeyAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApikeyAttribute',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApikeyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询该apikey的详细信息.
+     *
+     * @param request - DescribeApikeyAttributeRequest
+     *
+     * @returns DescribeApikeyAttributeResponse
+     *
+     * @param DescribeApikeyAttributeRequest $request
+     *
+     * @return DescribeApikeyAttributeResponse
+     */
+    public function describeApikeyAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApikeyAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -17630,6 +17778,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries all API keys under the current UID.
+     *
+     * @param request - DescribeGatewayApikeyListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGatewayApikeyListResponse
+     *
+     * @param DescribeGatewayApikeyListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeGatewayApikeyListResponse
+     */
+    public function describeGatewayApikeyListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGatewayApikeyList',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeGatewayApikeyListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries all API keys under the current UID.
+     *
+     * @param request - DescribeGatewayApikeyListRequest
+     *
+     * @returns DescribeGatewayApikeyListResponse
+     *
+     * @param DescribeGatewayApikeyListRequest $request
+     *
+     * @return DescribeGatewayApikeyListResponse
+     */
+    public function describeGatewayApikeyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGatewayApikeyListWithOptions($request, $runtime);
+    }
+
+    /**
      * Viewing gateway instance details.
      *
      * @param request - DescribeGatewayAttributeRequest
@@ -20077,7 +20290,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of agents installed in a specified application.
+     * Queries all installed plug-ins and their status information under a specified application.
      *
      * @param tmpReq - DescribePolarClawAgentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20126,7 +20339,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of agents installed in a specified application.
+     * Queries all installed plug-ins and their status information under a specified application.
      *
      * @param request - DescribePolarClawAgentsRequest
      *
@@ -20493,7 +20706,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Gets the details of a PolarFS instance.
+     * Retrieves the details of a PolarLakebase instance.
      *
      * @param request - DescribePolarFsAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20540,7 +20753,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Gets the details of a PolarFS instance.
+     * Retrieves the details of a PolarLakebase instance.
      *
      * @param request - DescribePolarFsAttributeRequest
      *
@@ -20558,14 +20771,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the files and subdirectories at a specified path.
+     * Lists the files and subdirectories under a specified path.
      *
      * @remarks
-     * ## Usage notes
-     * - The **Path** parameter must be an absolute path.
-     * - The **Recursive** parameter defaults to `false`. If set to `true`, the operation recursively lists the contents of all subdirectories.
-     * - The **Depth** parameter limits the recursive depth. The default value is `1`.
-     * - The **Filter** parameter supports filtering with wildcards or regular expressions.
+     * ## 请求说明
+     * - **Path** 参数必须提供一个绝对路径。
+     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+     * - **Filter** 参数支持通配符或正则表达式过滤结果。
      *
      * @param request - DescribePolarFsObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20608,14 +20821,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the files and subdirectories at a specified path.
+     * Lists the files and subdirectories under a specified path.
      *
      * @remarks
-     * ## Usage notes
-     * - The **Path** parameter must be an absolute path.
-     * - The **Recursive** parameter defaults to `false`. If set to `true`, the operation recursively lists the contents of all subdirectories.
-     * - The **Depth** parameter limits the recursive depth. The default value is `1`.
-     * - The **Filter** parameter supports filtering with wildcards or regular expressions.
+     * ## 请求说明
+     * - **Path** 参数必须提供一个绝对路径。
+     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+     * - **Filter** 参数支持通配符或正则表达式过滤结果。
      *
      * @param request - DescribePolarFsObjectsRequest
      *
@@ -33829,6 +34042,14 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->filesShrink) {
             @$query['Files'] = $request->filesShrink;
+        }
+
+        if (null !== $request->isDefault) {
+            @$query['IsDefault'] = $request->isDefault;
+        }
+
+        if (null !== $request->keepWorkspaceFiles) {
+            @$query['KeepWorkspaceFiles'] = $request->keepWorkspaceFiles;
         }
 
         if (null !== $request->model) {

@@ -93,6 +93,11 @@ class DescribePolarFsAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $metaInstanceName;
+
+    /**
+     * @var string
+     */
     public $metaUrl;
 
     /**
@@ -206,6 +211,7 @@ class DescribePolarFsAttributeResponseBody extends Model
         'expired' => 'Expired',
         'fileSystemId' => 'FileSystemId',
         'lockMode' => 'LockMode',
+        'metaInstanceName' => 'MetaInstanceName',
         'metaUrl' => 'MetaUrl',
         'minorVersion' => 'MinorVersion',
         'mountInfo' => 'MountInfo',
@@ -311,6 +317,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (null !== $this->lockMode) {
             $res['LockMode'] = $this->lockMode;
+        }
+
+        if (null !== $this->metaInstanceName) {
+            $res['MetaInstanceName'] = $this->metaInstanceName;
         }
 
         if (null !== $this->metaUrl) {
@@ -473,6 +483,10 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (isset($map['LockMode'])) {
             $model->lockMode = $map['LockMode'];
+        }
+
+        if (isset($map['MetaInstanceName'])) {
+            $model->metaInstanceName = $map['MetaInstanceName'];
         }
 
         if (isset($map['MetaUrl'])) {

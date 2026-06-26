@@ -74,6 +74,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $gatewayId;
+
+    /**
+     * @var string
+     */
     public $internalIp;
 
     /**
@@ -173,6 +178,7 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'endpointList' => 'EndpointList',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
+        'gatewayId' => 'GatewayId',
         'internalIp' => 'InternalIp',
         'KVCacheInstanceId' => 'KVCacheInstanceId',
         'kubeClusterId' => 'KubeClusterId',
@@ -270,6 +276,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
+        }
+
+        if (null !== $this->gatewayId) {
+            $res['GatewayId'] = $this->gatewayId;
         }
 
         if (null !== $this->internalIp) {
@@ -422,6 +432,10 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
 
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
+        }
+
+        if (isset($map['GatewayId'])) {
+            $model->gatewayId = $map['GatewayId'];
         }
 
         if (isset($map['InternalIp'])) {

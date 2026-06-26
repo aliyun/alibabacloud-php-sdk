@@ -29,6 +29,16 @@ class UpdatePolarClawAgentShrinkRequest extends Model
     public $filesShrink;
 
     /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
+     * @var bool
+     */
+    public $keepWorkspaceFiles;
+
+    /**
      * @var string
      */
     public $model;
@@ -52,6 +62,8 @@ class UpdatePolarClawAgentShrinkRequest extends Model
         'applicationId' => 'ApplicationId',
         'avatar' => 'Avatar',
         'filesShrink' => 'Files',
+        'isDefault' => 'IsDefault',
+        'keepWorkspaceFiles' => 'KeepWorkspaceFiles',
         'model' => 'Model',
         'name' => 'Name',
         'restart' => 'Restart',
@@ -80,6 +92,14 @@ class UpdatePolarClawAgentShrinkRequest extends Model
 
         if (null !== $this->filesShrink) {
             $res['Files'] = $this->filesShrink;
+        }
+
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
+        }
+
+        if (null !== $this->keepWorkspaceFiles) {
+            $res['KeepWorkspaceFiles'] = $this->keepWorkspaceFiles;
         }
 
         if (null !== $this->model) {
@@ -123,6 +143,14 @@ class UpdatePolarClawAgentShrinkRequest extends Model
 
         if (isset($map['Files'])) {
             $model->filesShrink = $map['Files'];
+        }
+
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
+        }
+
+        if (isset($map['KeepWorkspaceFiles'])) {
+            $model->keepWorkspaceFiles = $map['KeepWorkspaceFiles'];
         }
 
         if (isset($map['Model'])) {
