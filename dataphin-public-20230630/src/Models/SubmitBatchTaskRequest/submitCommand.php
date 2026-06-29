@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskReques
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\customScheduleConfig;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\offlineCodeTemplateParams;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\paramList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\sparkClientInfo;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest\submitCommand\upStreamList;
@@ -16,6 +17,11 @@ class submitCommand extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var int
+     */
+    public $codeTemplateVersion;
 
     /**
      * @var string
@@ -63,6 +69,16 @@ class submitCommand extends Model
     public $nodeStatus;
 
     /**
+     * @var string
+     */
+    public $offlineCodeTemplateId;
+
+    /**
+     * @var offlineCodeTemplateParams[]
+     */
+    public $offlineCodeTemplateParams;
+
+    /**
      * @var paramList[]
      */
     public $paramList;
@@ -98,6 +114,7 @@ class submitCommand extends Model
     public $upStreamList;
     protected $_name = [
         'code' => 'Code',
+        'codeTemplateVersion' => 'CodeTemplateVersion',
         'comment' => 'Comment',
         'cronExpression' => 'CronExpression',
         'customScheduleConfig' => 'CustomScheduleConfig',
@@ -107,6 +124,8 @@ class submitCommand extends Model
         'nodeDescription' => 'NodeDescription',
         'nodeOutputNameList' => 'NodeOutputNameList',
         'nodeStatus' => 'NodeStatus',
+        'offlineCodeTemplateId' => 'OfflineCodeTemplateId',
+        'offlineCodeTemplateParams' => 'OfflineCodeTemplateParams',
         'paramList' => 'ParamList',
         'priority' => 'Priority',
         'projectId' => 'ProjectId',
@@ -123,6 +142,9 @@ class submitCommand extends Model
         }
         if (\is_array($this->nodeOutputNameList)) {
             Model::validateArray($this->nodeOutputNameList);
+        }
+        if (\is_array($this->offlineCodeTemplateParams)) {
+            Model::validateArray($this->offlineCodeTemplateParams);
         }
         if (\is_array($this->paramList)) {
             Model::validateArray($this->paramList);
@@ -144,6 +166,10 @@ class submitCommand extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+
+        if (null !== $this->codeTemplateVersion) {
+            $res['CodeTemplateVersion'] = $this->codeTemplateVersion;
         }
 
         if (null !== $this->comment) {
@@ -187,6 +213,21 @@ class submitCommand extends Model
 
         if (null !== $this->nodeStatus) {
             $res['NodeStatus'] = $this->nodeStatus;
+        }
+
+        if (null !== $this->offlineCodeTemplateId) {
+            $res['OfflineCodeTemplateId'] = $this->offlineCodeTemplateId;
+        }
+
+        if (null !== $this->offlineCodeTemplateParams) {
+            if (\is_array($this->offlineCodeTemplateParams)) {
+                $res['OfflineCodeTemplateParams'] = [];
+                $n1 = 0;
+                foreach ($this->offlineCodeTemplateParams as $item1) {
+                    $res['OfflineCodeTemplateParams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->paramList) {
@@ -253,6 +294,10 @@ class submitCommand extends Model
             $model->code = $map['Code'];
         }
 
+        if (isset($map['CodeTemplateVersion'])) {
+            $model->codeTemplateVersion = $map['CodeTemplateVersion'];
+        }
+
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
@@ -294,6 +339,21 @@ class submitCommand extends Model
 
         if (isset($map['NodeStatus'])) {
             $model->nodeStatus = $map['NodeStatus'];
+        }
+
+        if (isset($map['OfflineCodeTemplateId'])) {
+            $model->offlineCodeTemplateId = $map['OfflineCodeTemplateId'];
+        }
+
+        if (isset($map['OfflineCodeTemplateParams'])) {
+            if (!empty($map['OfflineCodeTemplateParams'])) {
+                $model->offlineCodeTemplateParams = [];
+                $n1 = 0;
+                foreach ($map['OfflineCodeTemplateParams'] as $item1) {
+                    $model->offlineCodeTemplateParams[$n1] = offlineCodeTemplateParams::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ParamList'])) {

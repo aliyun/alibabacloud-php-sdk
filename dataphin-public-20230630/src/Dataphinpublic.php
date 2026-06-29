@@ -806,7 +806,14 @@ class Dataphinpublic extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shenzhen' => 'dataphin-public.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'dataphin-public.cn-shanghai.aliyuncs.com',
+            'cn-hangzhou' => 'dataphin-public.cn-hangzhou.aliyuncs.com',
+            'cn-chengdu' => 'dataphin-public.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'dataphin-public.cn-beijing.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dataphin-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -836,7 +843,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新增数据服务应用的普通成员。
+     * Adds a regular member to a data service application. Only the application owner can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param tmpReq - AddDataServiceAppMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -887,7 +895,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新增数据服务应用的普通成员。
+     * Adds a regular member to a data service application. Only the application owner can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - AddDataServiceAppMemberRequest
      *
@@ -905,7 +914,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 添加数据服务项目用户并设置角色。
+     * Adds users to a data service project and assigns roles to them.
      *
      * @param tmpReq - AddDataServiceProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -960,7 +969,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 添加数据服务项目用户并设置角色。
+     * Adds users to a data service project and assigns roles to them.
      *
      * @param request - AddDataServiceProjectMemberRequest
      *
@@ -978,7 +987,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 增加项目成员。
+     * Adds members to a project.
      *
      * @param tmpReq - AddProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1033,7 +1042,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 增加项目成员。
+     * Adds members to a project.
      *
      * @param request - AddProjectMemberRequest
      *
@@ -1051,7 +1060,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新增注册血缘。
+     * Registers data lineage. Available since version v5.4.0.
      *
      * @param tmpReq - AddRegisterLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1102,7 +1111,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新增注册血缘。
+     * Registers data lineage. Available since version v5.4.0.
      *
      * @param request - AddRegisterLineageRequest
      *
@@ -1120,7 +1129,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新增租户成员.
+     * Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
      *
      * @param tmpReq - AddTenantMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1171,7 +1180,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新增租户成员.
+     * Adds users to a tenant in batches. Only super administrators (SuperAdmin) and system administrators can invoke this API operation.
      *
      * @param request - AddTenantMembersRequest
      *
@@ -1189,7 +1198,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过原始用户添加租户成员.
+     * Adds tenant members by using original user identities.
      *
      * @param tmpReq - AddTenantMembersBySourceUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1240,7 +1249,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过原始用户添加租户成员.
+     * Adds tenant members by using original user identities.
      *
      * @param request - AddTenantMembersBySourceUserRequest
      *
@@ -1258,7 +1267,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 添加用户组成员.
+     * Adds members to a user group.
      *
      * @param tmpReq - AddUserGroupMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1309,7 +1318,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 添加用户组成员.
+     * Adds members to a user group.
      *
      * @param request - AddUserGroupMemberRequest
      *
@@ -1327,7 +1336,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 申请API权限。
+     * Applies for API permissions.
      *
      * @param tmpReq - ApplyDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1382,7 +1391,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 申请API权限。
+     * Applies for API permissions.
      *
      * @param request - ApplyDataServiceApiRequest
      *
@@ -1400,7 +1409,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 申请应用权限。
+     * Applies for application permissions.
      *
      * @param tmpReq - ApplyDataServiceAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1455,7 +1464,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 申请应用权限。
+     * Applies for application permissions.
      *
      * @param request - ApplyDataServiceAppRequest
      *
@@ -1473,7 +1482,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 指定质量规则和调度设置进行绑定。
+     * Binds specified quality rules to schedule settings.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - AssignQualityRuleOfAllRuleScopeSchedulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1524,7 +1534,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 指定质量规则和调度设置进行绑定。
+     * Binds specified quality rules to schedule settings.
+     * Release version: v5.4.2.
      *
      * @param request - AssignQualityRuleOfAllRuleScopeSchedulesRequest
      *
@@ -1542,7 +1553,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 项目计算源连通性检查。
+     * Checks the connectivity of a compute source.
      *
      * @param tmpReq - CheckComputeSourceConnectivityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1593,7 +1604,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 项目计算源连通性检查。
+     * Checks the connectivity of a compute source.
      *
      * @param request - CheckComputeSourceConnectivityRequest
      *
@@ -1611,7 +1622,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 计算源连通性检查。
+     * Checks the connectivity of an existing compute source by compute source ID.
      *
      * @param request - CheckComputeSourceConnectivityByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1654,7 +1665,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 计算源连通性检查。
+     * Checks the connectivity of an existing compute source by compute source ID.
      *
      * @param request - CheckComputeSourceConnectivityByIdRequest
      *
@@ -1672,7 +1683,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 检查数据源连通性.
+     * Checks the connectivity of a data source.
      *
      * @param tmpReq - CheckDataSourceConnectivityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1723,7 +1734,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 检查数据源连通性.
+     * Checks the connectivity of a data source.
      *
      * @param request - CheckDataSourceConnectivityRequest
      *
@@ -1741,7 +1752,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 检查已创建的数据源是否正常连通.
+     * Checks the connectivity of a data source.
      *
      * @param request - CheckDataSourceConnectivityByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1784,7 +1795,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 检查已创建的数据源是否正常连通.
+     * Checks the connectivity of a data source.
      *
      * @param request - CheckDataSourceConnectivityByIdRequest
      *
@@ -1802,7 +1813,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 检查项目是否存在依赖。
+     * Checks whether a project has data dependencies such as tasks.
      *
      * @param request - CheckProjectHasDependencyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1845,7 +1856,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 检查项目是否存在依赖。
+     * Checks whether a project has data dependencies such as tasks.
      *
      * @param request - CheckProjectHasDependencyRequest
      *
@@ -1863,7 +1874,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 校验用户是否有指定资源权限点.
+     * Checks whether a user has the permission on a specified resource.
      *
      * @param tmpReq - CheckResourcePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1914,7 +1925,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 校验用户是否有指定资源权限点.
+     * Checks whether a user has the permission on a specified resource.
      *
      * @param request - CheckResourcePermissionRequest
      *
@@ -1932,7 +1943,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建即席查询文件.
+     * Creates an ad hoc query file.
      *
      * @param tmpReq - CreateAdHocFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1983,7 +1994,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建即席查询文件.
+     * Creates an ad hoc query file.
      *
      * @param request - CreateAdHocFileRequest
      *
@@ -2001,7 +2012,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建离线计算任务。
+     * Creates a batch task.
      *
      * @param tmpReq - CreateBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2052,7 +2063,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建离线计算任务。
+     * Creates a batch task.
      *
      * @param request - CreateBatchTaskRequest
      *
@@ -2070,7 +2081,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建业务实体。
+     * Creates a business entity.
      *
      * @param tmpReq - CreateBizEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2121,7 +2132,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建业务实体。
+     * Creates a business entity.
      *
      * @param request - CreateBizEntityRequest
      *
@@ -2139,7 +2150,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建业务指标.
+     * Creates a business metric.
+     * Release version: v5.5.0.
      *
      * @param tmpReq - CreateBizMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2190,7 +2202,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建业务指标.
+     * Creates a business metric.
+     * Release version: v5.5.0.
      *
      * @param request - CreateBizMetricRequest
      *
@@ -2208,7 +2221,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据板块。
+     * Creates a data domain.
      *
      * @param tmpReq - CreateBizUnitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2259,7 +2272,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据板块。
+     * Creates a data domain.
      *
      * @param request - CreateBizUnitRequest
      *
@@ -2277,7 +2290,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建计算源。
+     * Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
      *
      * @param tmpReq - CreateComputeSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2328,7 +2341,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建计算源。
+     * Creates a compute source. Business unit administrators and project administrators have permissions to perform this operation.
      *
      * @param request - CreateComputeSourceRequest
      *
@@ -2346,7 +2359,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建主题域。
+     * Creates a data domain.
      *
      * @param tmpReq - CreateDataDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2397,7 +2410,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建主题域。
+     * Creates a data domain.
      *
      * @param request - CreateDataDomainRequest
      *
@@ -2415,7 +2428,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建新的数据服务API并提交。
+     * Creates a data service API and submits it.
      *
      * @param tmpReq - CreateDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2466,7 +2479,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建新的数据服务API并提交。
+     * Creates a data service API and submits it.
      *
      * @param request - CreateDataServiceApiRequest
      *
@@ -2484,7 +2497,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据服务应用。
+     * Creates a data service application. Only super administrators or system administrators can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param tmpReq - CreateDataServiceAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2535,7 +2549,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据服务应用。
+     * Creates a data service application. Only super administrators or system administrators can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - CreateDataServiceAppRequest
      *
@@ -2553,7 +2568,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据服务应用分组。
+     * Creates a data service application group. Only superusers and system administrators can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - CreateDataServiceAppGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2596,7 +2612,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据服务应用分组。
+     * Creates a data service application group. Only superusers and system administrators can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - CreateDataServiceAppGroupRequest
      *
@@ -2614,7 +2631,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建数据源.
+     * Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
      *
      * @param tmpReq - CreateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2665,7 +2682,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建数据源.
+     * Create Data Source: Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permission to perform this operation.
      *
      * @param request - CreateDataSourceRequest
      *
@@ -2683,7 +2700,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建菜单树文件目录.
+     * Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
      *
      * @param tmpReq - CreateDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2734,7 +2751,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建菜单树文件目录.
+     * Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
      *
      * @param request - CreateDirectoryRequest
      *
@@ -2752,7 +2769,9 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用.
+     * General-purpose backfill API that supports both list-mode and bulk-mode backfill:
+     * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
+     * 2. Task execution will incur computing costs and storage costs.
      *
      * @param tmpReq - CreateNodeSupplementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2807,7 +2826,9 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通用补数据接口 1.会生成补数据实例运行：影响相关产产出表数据 2.会进行任务运行：造成计算的费用以及存储的费用.
+     * General-purpose backfill API that supports both list-mode and bulk-mode backfill:
+     * 1. Backfill instances will be generated and executed, affecting the data output of related tables.
+     * 2. Task execution will incur computing costs and storage costs.
      *
      * @param request - CreateNodeSupplementRequest
      *
@@ -2825,7 +2846,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建集成管道任务。
+     * Create an integration pipeline/unstructured workflow task.
      *
      * @param tmpReq - CreatePipelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2884,7 +2905,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建集成管道任务。
+     * Create an integration pipeline/unstructured workflow task.
      *
      * @param request - CreatePipelineRequest
      *
@@ -2902,7 +2923,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 异步创建集成管道任务。
+     * Asynchronously create a pipeline/unstructured workflow.
      *
      * @param tmpReq - CreatePipelineByAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2961,7 +2982,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 异步创建集成管道任务。
+     * Asynchronously create a pipeline/unstructured workflow.
      *
      * @param request - CreatePipelineByAsyncRequest
      *
@@ -2979,7 +3000,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据集成任务。
+     * Creates a data integration task. Note: This operation is deprecated starting from Dataphin v5.3.1. Use CreatePipeline instead.
      *
      * @param tmpReq - CreatePipelineNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3030,7 +3051,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据集成任务。
+     * Creates a data integration task. Note: This operation is deprecated starting from Dataphin v5.3.1. Use CreatePipeline instead.
      *
      * @param request - CreatePipelineNodeRequest
      *
@@ -3048,7 +3069,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建资源文件。
+     * Creates a resource file.
      *
      * @param tmpReq - CreateResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3099,7 +3120,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建资源文件。
+     * Creates a resource file.
      *
      * @param request - CreateResourceRequest
      *
@@ -3117,7 +3138,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建行级权限.
+     * Creates a row-level permission.
+     *
+     * @remarks
+     * You can query detailed information about published APIs based on the appKey.
      *
      * @param tmpReq - CreateRowPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3168,7 +3192,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建行级权限.
+     * Creates a row-level permission.
+     *
+     * @remarks
+     * You can query detailed information about published APIs based on the appKey.
      *
      * @param request - CreateRowPermissionRequest
      *
@@ -3186,7 +3213,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建数据分类。
+     * Creates a data classification. Available since v5.4.2.
      *
      * @param tmpReq - CreateSecurityClassifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3237,7 +3264,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建数据分类。
+     * Creates a data classification. Available since v5.4.2.
      *
      * @param request - CreateSecurityClassifyRequest
      *
@@ -3255,7 +3282,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建数据分类目录。
+     * Creates a data classification folder. Available since v5.4.2.
      *
      * @param tmpReq - CreateSecurityClassifyCatalogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3306,7 +3333,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建数据分类目录。
+     * Creates a data classification folder. Available since v5.4.2.
      *
      * @param request - CreateSecurityClassifyCatalogRequest
      *
@@ -3324,7 +3351,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建安全识别结果。
+     * Creates a security identification result.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - CreateSecurityIdentifyResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3375,7 +3403,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建安全识别结果。
+     * Creates a security identification result.
+     * Release version: v5.4.2.
      *
      * @param request - CreateSecurityIdentifyResultRequest
      *
@@ -3393,7 +3422,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建数据分级。
+     * Creates a data classification level. Available since v5.4.2.
      *
      * @param tmpReq - CreateSecurityLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3444,7 +3473,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建数据分级。
+     * Creates a data classification level. Available since v5.4.2.
      *
      * @param request - CreateSecurityLevelRequest
      *
@@ -3462,7 +3491,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建标准。
+     * Creates a standard.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - CreateStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3513,7 +3543,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建标准。
+     * Creates a standard.
+     * Release version: v5.4.2.
      *
      * @param request - CreateStandardRequest
      *
@@ -3531,7 +3562,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据标准码表。
+     * Creates a data standard lookup table.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - CreateStandardLookupTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3582,7 +3614,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据标准码表。
+     * Creates a data standard lookup table.
+     * Release version: v5.4.2.
      *
      * @param request - CreateStandardLookupTableRequest
      *
@@ -3600,7 +3633,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建标准映射关系, 包括有效映射和无效映射。
+     * Creates standard mapping relationships, including valid mappings and invalid mappings.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - CreateStandardMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3651,7 +3685,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建标准映射关系, 包括有效映射和无效映射。
+     * Creates standard mapping relationships, including valid mappings and invalid mappings.
+     * Release version: v5.4.2.
      *
      * @param request - CreateStandardMappingRequest
      *
@@ -3669,7 +3704,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建标准关联关系。
+     * Creates a standard association. Release version: v5.4.2.
      *
      * @param tmpReq - CreateStandardRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3720,7 +3755,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建标准关联关系。
+     * Creates a standard association. Release version: v5.4.2.
      *
      * @param request - CreateStandardRelationsRequest
      *
@@ -3738,7 +3773,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建标准集。
+     * Creates a standard set.
+     * Available since: v5.4.2.
      *
      * @param tmpReq - CreateStandardSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3789,7 +3825,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建标准集。
+     * Creates a standard set.
+     * Available since: v5.4.2.
      *
      * @param request - CreateStandardSetRequest
      *
@@ -3807,7 +3844,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据标准模板。
+     * Create a data standard template.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - CreateStandardTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3858,7 +3896,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据标准模板。
+     * Create a data standard template.
+     * Release version: v5.4.2.
      *
      * @param request - CreateStandardTemplateRequest
      *
@@ -3876,7 +3915,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据标准词根。
+     * Creates a data standard root word.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - CreateStandardWordRootRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3927,7 +3967,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建数据标准词根。
+     * Creates a data standard root word.
+     * Release version: v5.4.2.
      *
      * @param request - CreateStandardWordRootRequest
      *
@@ -3945,7 +3986,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建流批一体任务
+     * Creates a stream-batch integrated node.
      *
      * @param tmpReq - CreateStreamBatchJobMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3996,7 +4037,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建流批一体任务
+     * Creates a stream-batch integrated node.
      *
      * @param request - CreateStreamBatchJobMappingRequest
      *
@@ -4014,7 +4055,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建自定义函数。
+     * Creates a user-defined function.
      *
      * @param tmpReq - CreateUdfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4065,7 +4106,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 创建自定义函数。
+     * Creates a user-defined function.
      *
      * @param request - CreateUdfRequest
      *
@@ -4083,7 +4124,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建用户组.
+     * Creates a user group.
      *
      * @param tmpReq - CreateUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4134,7 +4175,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建用户组.
+     * Creates a user group.
      *
      * @param request - CreateUserGroupRequest
      *
@@ -4152,7 +4193,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除菜单树即席查询文件.
+     * Deletes an ad hoc query file from the menu tree.
      *
      * @param request - DeleteAdHocFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4199,7 +4240,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除菜单树即席查询文件.
+     * Deletes an ad hoc query file from the menu tree.
      *
      * @param request - DeleteAdHocFileRequest
      *
@@ -4217,7 +4258,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除离线计算任务，如果任务还没下线需要先下线再删除。
+     * Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
      *
      * @param tmpReq - DeleteBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4268,7 +4309,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除离线计算任务，如果任务还没下线需要先下线再删除。
+     * Deletes a batch task. If the node has not been offlined, you must offline it before deleting it.
      *
      * @param request - DeleteBatchTaskRequest
      *
@@ -4286,7 +4327,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除业务实体。
+     * Deletes a business entity.
      *
      * @param request - DeleteBizEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4337,7 +4378,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除业务实体。
+     * Deletes a business entity.
      *
      * @param request - DeleteBizEntityRequest
      *
@@ -4355,7 +4396,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除业务指标.
+     * Deletes a business metric.
+     * Release version: v5.5.0.
      *
      * @param tmpReq - DeleteBizMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4406,7 +4448,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除业务指标.
+     * Deletes a business metric.
+     * Release version: v5.5.0.
      *
      * @param request - DeleteBizMetricRequest
      *
@@ -4424,7 +4467,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据板块。
+     * Deletes a data domain.
      *
      * @param request - DeleteBizUnitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4467,7 +4510,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据板块。
+     * Deletes a data domain.
      *
      * @param request - DeleteBizUnitRequest
      *
@@ -4485,7 +4528,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除计算源。
+     * Deletes a compute source.
      *
      * @param request - DeleteComputeSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4528,7 +4571,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除计算源。
+     * Deletes a compute source.
      *
      * @param request - DeleteComputeSourceRequest
      *
@@ -4546,7 +4589,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除主题域。
+     * Deletes a subject domain.
      *
      * @param request - DeleteDataDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4593,7 +4636,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除主题域。
+     * Deletes a subject domain.
      *
      * @param request - DeleteDataDomainRequest
      *
@@ -4611,7 +4654,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据服务应用。
+     * Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - DeleteDataServiceAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4654,7 +4698,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据服务应用。
+     * Deletes a data service application. Only superusers, system administrators, or application owners can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - DeleteDataServiceAppRequest
      *
@@ -4672,7 +4717,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据服务应用分组。
+     * Deletes a data service application group. Only superusers and system administrators can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - DeleteDataServiceAppGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4715,7 +4761,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据服务应用分组。
+     * Deletes a data service application group. Only superusers and system administrators can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - DeleteDataServiceAppGroupRequest
      *
@@ -4733,7 +4780,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据源.
+     * Deletes a data source.
      *
      * @param tmpReq - DeleteDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4784,7 +4831,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据源.
+     * Deletes a data source.
      *
      * @param request - DeleteDataSourceRequest
      *
@@ -4802,7 +4849,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除菜单树文件目录.
+     * Deletes a file directory from the menu tree.
      *
      * @param request - DeleteDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4849,7 +4896,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除菜单树文件目录.
+     * Deletes a file directory from the menu tree.
      *
      * @param request - DeleteDirectoryRequest
      *
@@ -4867,7 +4914,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量规则对象。
+     * Deletes quality rule objects in batches.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - DeleteQualityRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4918,7 +4966,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量规则对象。
+     * Deletes quality rule objects in batches.
+     * Release version: v5.4.2.
      *
      * @param request - DeleteQualityRulesRequest
      *
@@ -4936,7 +4985,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量调度对象。
+     * Deletes quality scheduling objects in batches.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - DeleteQualitySchedulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4987,7 +5037,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量调度对象。
+     * Deletes quality scheduling objects in batches.
+     * Release version: v5.4.2.
      *
      * @param request - DeleteQualitySchedulesRequest
      *
@@ -5005,7 +5056,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量模板对象。
+     * Deletes quality template objects in batches.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - DeleteQualityTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5056,7 +5108,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量模板对象。
+     * Deletes quality template objects in batches.
+     * Online version: v5.4.2.
      *
      * @param request - DeleteQualityTemplatesRequest
      *
@@ -5074,7 +5127,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量监控对象。
+     * Deletes monitored objects in batches.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - DeleteQualityWatchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5125,7 +5179,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量监控对象。
+     * Deletes monitored objects in batches.
+     * Release version: v5.4.2.
      *
      * @param request - DeleteQualityWatchesRequest
      *
@@ -5143,7 +5198,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除注册血缘。
+     * Deletes registered lineage. Available since version v5.4.0.
      *
      * @param tmpReq - DeleteRegisterLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5194,7 +5249,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除注册血缘。
+     * Deletes registered lineage. Available since version v5.4.0.
      *
      * @param request - DeleteRegisterLineageRequest
      *
@@ -5212,7 +5267,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除资源文件。
+     * Delete a resource file.
      *
      * @param request - DeleteResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5263,7 +5318,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除资源文件。
+     * Delete a resource file.
      *
      * @param request - DeleteResourceRequest
      *
@@ -5281,7 +5336,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除行级权限.
+     * Deletes a row-level permission.
      *
      * @param tmpReq - DeleteRowPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5332,7 +5387,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除行级权限.
+     * Deletes a row-level permission.
      *
      * @param request - DeleteRowPermissionRequest
      *
@@ -5350,7 +5405,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据分类。
+     * Deletes a data categorization. Available since v5.4.2.
      *
      * @param tmpReq - DeleteSecurityClassifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5401,7 +5456,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据分类。
+     * Deletes a data categorization. Available since v5.4.2.
      *
      * @param request - DeleteSecurityClassifyRequest
      *
@@ -5419,7 +5474,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据分类目录。
+     * Deletes a data classification catalog. Release version: v5.4.2.
      *
      * @param tmpReq - DeleteSecurityClassifyCatalogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5470,7 +5525,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据分类目录。
+     * Deletes a data classification catalog. Release version: v5.4.2.
      *
      * @param request - DeleteSecurityClassifyCatalogRequest
      *
@@ -5488,7 +5543,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除安全识别结果。
+     * Deletes security identification results in batches. Release version: v5.4.2.
      *
      * @param tmpReq - DeleteSecurityIdentifyResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5539,7 +5594,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除安全识别结果。
+     * Deletes security identification results in batches. Release version: v5.4.2.
      *
      * @param request - DeleteSecurityIdentifyResultsRequest
      *
@@ -5557,7 +5612,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据分级。
+     * Deletes a data classification level. Available since v5.4.2.
      *
      * @param tmpReq - DeleteSecurityLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5608,7 +5663,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据分级。
+     * Deletes a data classification level. Available since v5.4.2.
      *
      * @param request - DeleteSecurityLevelRequest
      *
@@ -5626,7 +5681,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除标准。
+     * Deletes a standard.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - DeleteStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5677,7 +5733,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除标准。
+     * Deletes a standard.
+     * Online version: v5.4.2.
      *
      * @param request - DeleteStandardRequest
      *
@@ -5695,7 +5752,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除无效映射关系。
+     * Deletes invalid mapping relationships.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - DeleteStandardInValidMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5746,7 +5804,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除无效映射关系。
+     * Deletes invalid mapping relationships.
+     * Online version: v5.4.2.
      *
      * @param request - DeleteStandardInValidMappingRequest
      *
@@ -5764,7 +5823,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据标准码表。
+     * Deletes a data standard lookup table. Release version: v5.4.2.
      *
      * @param request - DeleteStandardLookupTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5807,7 +5866,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据标准码表。
+     * Deletes a data standard lookup table. Release version: v5.4.2.
      *
      * @param request - DeleteStandardLookupTableRequest
      *
@@ -5825,7 +5884,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除标准关联关系。
+     * Deletes standard associations in batches.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - DeleteStandardRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5876,7 +5936,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除标准关联关系。
+     * Deletes standard associations in batches.
+     * Release version: v5.4.2.
      *
      * @param request - DeleteStandardRelationsRequest
      *
@@ -5894,7 +5955,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除标准集。
+     * Deletes a standard set.
+     * Online version: v5.4.2.
      *
      * @param request - DeleteStandardSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5937,7 +5999,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除标准集。
+     * Deletes a standard set.
+     * Online version: v5.4.2.
      *
      * @param request - DeleteStandardSetRequest
      *
@@ -5955,7 +6018,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除有效映射关系。
+     * Deletes valid mapping relationships.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - DeleteStandardValidMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6006,7 +6070,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除有效映射关系。
+     * Deletes valid mapping relationships.
+     * Release version: v5.4.2.
      *
      * @param request - DeleteStandardValidMappingRequest
      *
@@ -6024,7 +6089,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据标准词根。
+     * Deletes a data standard root word.
+     * Online version: v5.4.2.
      *
      * @param request - DeleteStandardWordRootRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6067,7 +6133,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据标准词根。
+     * Deletes a data standard root word.
+     * Online version: v5.4.2.
      *
      * @param request - DeleteStandardWordRootRequest
      *
@@ -6085,7 +6152,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除自定义函数。
+     * Deletes a user-defined function.
      *
      * @param request - DeleteUdfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6136,7 +6203,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除自定义函数。
+     * Deletes a user-defined function.
      *
      * @param request - DeleteUdfRequest
      *
@@ -6154,7 +6221,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除用户组.
+     * Deletes a user group.
      *
      * @param request - DeleteUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6197,7 +6264,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除用户组.
+     * Deletes a user group.
      *
      * @param request - DeleteUserGroupRequest
      *
@@ -6215,7 +6282,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 执行即席查询任务。
+     * Executes an ad hoc query task.
      *
      * @param tmpReq - ExecuteAdHocTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6266,7 +6333,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 执行即席查询任务。
+     * Executes an ad hoc query task.
      *
      * @param request - ExecuteAdHocTaskRequest
      *
@@ -6284,7 +6351,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运行手动调度节点。
+     * Runs a manually scheduled node.
      *
      * @param tmpReq - ExecuteManualNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6339,7 +6406,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运行手动调度节点。
+     * Runs a manually scheduled node.
      *
      * @param request - ExecuteManualNodeRequest
      *
@@ -6357,7 +6424,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运行触发式节点。
+     * Runs a trigger-based node.
      *
      * @param request - ExecuteTriggerNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6416,7 +6483,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运行触发式节点。
+     * Runs a trigger-based node.
      *
      * @param request - ExecuteTriggerNodeRequest
      *
@@ -6434,7 +6501,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出.
+     * Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
      *
      * @param tmpReq - FixDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6489,7 +6556,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 重跑下游(修复链路数据), 支持强制重跑下游。影响范围: 1. 会产生计算成本；2. 会影响数据产出.
+     * Reruns downstream nodes to fix data link issues. Supports forced rerun of downstream nodes. Impact: incurs compute costs and affects data output.
      *
      * @param request - FixDataRequest
      *
@@ -6507,7 +6574,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据行级权限ID获取某一行级权限下的所有授权账号.
+     * Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
      *
      * @param tmpReq - GetAccountByRowPermissionIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6558,7 +6625,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据行级权限ID获取某一行级权限下的所有授权账号.
+     * Retrieves all authorized accounts under a specific row-level permission by row-level permission ID.
      *
      * @param request - GetAccountByRowPermissionIdRequest
      *
@@ -6576,7 +6643,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询即席查询文件。
+     * Queries a custom query file in the directory tree.
      *
      * @param request - GetAdHocFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6623,7 +6690,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询即席查询文件。
+     * Queries a custom query file in the directory tree.
      *
      * @param request - GetAdHocFileRequest
      *
@@ -6641,7 +6708,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取即席查询任务运行日志。
+     * Retrieves the runtime logs of an ad hoc query task.
      *
      * @param request - GetAdHocTaskLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6696,7 +6763,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取即席查询任务运行日志。
+     * Retrieves the runtime logs of an ad hoc query task.
      *
      * @param request - GetAdHocTaskLogRequest
      *
@@ -6714,7 +6781,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取即席查询的任务运行结果。
+     * Retrieves the task execution result of an ad hoc query.
      *
      * @param request - GetAdHocTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6765,7 +6832,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取即席查询的任务运行结果。
+     * Retrieves the task execution result of an ad hoc query.
      *
      * @param request - GetAdHocTaskResultRequest
      *
@@ -6783,7 +6850,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取告警事件详情.
+     * Retrieves the details of an alert event.
      *
      * @param request - GetAlertEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6826,7 +6893,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取告警事件详情.
+     * Retrieves the details of an alert event.
      *
      * @param request - GetAlertEventRequest
      *
@@ -6844,7 +6911,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据资产对象GUID查询映射关系。
+     * Queries mapping relationships by asset object GUID.
+     * Available since: v5.4.2.
      *
      * @param tmpReq - GetAssetMappingRelationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6895,7 +6963,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据资产对象GUID查询映射关系。
+     * Queries mapping relationships by asset object GUID.
+     * Available since: v5.4.2.
      *
      * @param request - GetAssetMappingRelationsRequest
      *
@@ -6913,7 +6982,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取离线计算任务详情。
+     * Retrieves the details of an offline compute node.
      *
      * @param request - GetBatchTaskInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6968,7 +7037,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取离线计算任务详情。
+     * Retrieves the details of an offline compute node.
      *
      * @param request - GetBatchTaskInfoRequest
      *
@@ -6986,7 +7055,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取离线计算任务指定版本任务详情。
+     * Retrieves the details of a specified version of a batch task.
      *
      * @param request - GetBatchTaskInfoByVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7037,7 +7106,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取离线计算任务指定版本任务详情。
+     * Retrieves the details of a specified version of a batch task.
      *
      * @param request - GetBatchTaskInfoByVersionRequest
      *
@@ -7055,7 +7124,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取离线任务自定义血缘。
+     * Obtains the custom lineage of an offline task.
      *
      * @param request - GetBatchTaskUdfLineagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7102,7 +7171,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取离线任务自定义血缘。
+     * Obtains the custom lineage of an offline task.
      *
      * @param request - GetBatchTaskUdfLineagesRequest
      *
@@ -7120,7 +7189,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取离线计算任务版本列表。
+     * Retrieves the version list of a batch task.
      *
      * @param request - GetBatchTaskVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7167,7 +7236,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取离线计算任务版本列表。
+     * Retrieves the version list of a batch task.
      *
      * @param request - GetBatchTaskVersionsRequest
      *
@@ -7185,7 +7254,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据归属资产GUID查询映射关系。
+     * Query mapping relationships by belonging asset GUID.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - GetBelongAssetMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7236,7 +7306,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据归属资产GUID查询映射关系。
+     * Query mapping relationships by belonging asset GUID.
+     * Release version: v5.4.2.
      *
      * @param request - GetBelongAssetMappingRequest
      *
@@ -7254,7 +7325,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取业务实体详情。
+     * Retrieves the details of a business entity.
      *
      * @param request - GetBizEntityInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7301,7 +7372,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取业务实体详情。
+     * Retrieves the details of a business entity.
      *
      * @param request - GetBizEntityInfoRequest
      *
@@ -7319,7 +7390,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询指定版本的业务实体的详情。
+     * Queries the details of a business entity of a specified version.
      *
      * @param request - GetBizEntityInfoByVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7370,7 +7441,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询指定版本的业务实体的详情。
+     * Queries the details of a business entity of a specified version.
      *
      * @param request - GetBizEntityInfoByVersionRequest
      *
@@ -7388,7 +7459,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询业务指标详情.
+     * Query business metric details by name.
+     * Release version: v5.5.0.
      *
      * @param tmpReq - GetBizMetricByNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7439,7 +7511,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询业务指标详情.
+     * Query business metric details by name.
+     * Release version: v5.5.0.
      *
      * @param request - GetBizMetricByNameRequest
      *
@@ -7457,7 +7530,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据板块详情。
+     * Retrieves the details of a data domain.
      *
      * @param request - GetBizUnitInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7500,7 +7573,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据板块详情。
+     * Retrieves the details of a data domain.
      *
      * @param request - GetBizUnitInfoRequest
      *
@@ -7518,7 +7591,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据目录资产详情。
+     * Queries asset details. Release version: v6.1.0.
      *
      * @param tmpReq - GetCatalogAssetDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7569,7 +7642,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据目录资产详情。
+     * Queries asset details. Release version: v6.1.0.
      *
      * @param request - GetCatalogAssetDetailsRequest
      *
@@ -7587,7 +7660,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据源连通性检查任务。
+     * Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
+     * Release version: v5.5.0.
+     *
+     * @remarks
+     * Queries the details of connectivity tasks that have been tested for a specified data source ID.
      *
      * @param request - GetCheckConnectivityJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7630,7 +7707,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据源连通性检查任务。
+     * Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
+     * Release version: v5.5.0.
+     *
+     * @remarks
+     * Queries the details of connectivity tasks that have been tested for a specified data source ID.
      *
      * @param request - GetCheckConnectivityJobsRequest
      *
@@ -7648,7 +7729,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据环境获取集群信息.
+     * Retrieves cluster information based on the environment.
      *
      * @param request - GetClusterQueueInfoByEnvRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7699,7 +7780,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据环境获取集群信息.
+     * Retrieves cluster information based on the environment.
      *
      * @param request - GetClusterQueueInfoByEnvRequest
      *
@@ -7717,7 +7798,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取计算源详情。
+     * Retrieves the details of a compute source by compute source ID.
      *
      * @param request - GetComputeSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7760,7 +7841,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取计算源详情。
+     * Retrieves the details of a compute source by compute source ID.
      *
      * @param request - GetComputeSourceRequest
      *
@@ -7778,7 +7859,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取主题域详情。
+     * Retrieves the details of a data domain.
      *
      * @param request - GetDataDomainInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7821,7 +7902,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取主题域详情。
+     * Retrieves the details of a data domain.
      *
      * @param request - GetDataDomainInfoRequest
      *
@@ -7839,7 +7920,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运维监控Api调用汇总统计。
+     * Service Monitoring: Retrieves the aggregate statistics of API calls.
      *
      * @param request - GetDataServiceApiCallSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7890,7 +7971,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运维监控Api调用汇总统计。
+     * Service Monitoring: Retrieves the aggregate statistics of API calls.
      *
      * @param request - GetDataServiceApiCallSummaryRequest
      *
@@ -7908,7 +7989,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运维监控Api访问趋势分析。
+     * Service Monitoring: Analyzes API access trends.
      *
      * @param request - GetDataServiceApiCallTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7959,7 +8040,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运维监控Api访问趋势分析。
+     * Service Monitoring: Analyzes API access trends.
      *
      * @param request - GetDataServiceApiCallTrendRequest
      *
@@ -7977,7 +8058,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取API文档。
+     * Retrieves API documentation.
      *
      * @param request - GetDataServiceApiDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8024,7 +8105,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取API文档。
+     * Retrieves API documentation.
      *
      * @param request - GetDataServiceApiDocumentRequest
      *
@@ -8042,7 +8123,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取API异常影响汇总。
+     * Retrieves the summary of API exception impacts.
      *
      * @param request - GetDataServiceApiErrorImpactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8093,7 +8174,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取API异常影响汇总。
+     * Retrieves the summary of API exception impacts.
      *
      * @param request - GetDataServiceApiErrorImpactRequest
      *
@@ -8111,7 +8192,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据服务API分组列表。
+     * Queries the list of API groups in Data Service.
      *
      * @param request - GetDataServiceApiGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8154,7 +8235,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据服务API分组列表。
+     * Queries the list of API groups in Data Service.
      *
      * @param request - GetDataServiceApiGroupsRequest
      *
@@ -8172,7 +8253,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据服务应用详情。
+     * Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
+     * Release version: v6.0.0.
      *
      * @param request - GetDataServiceAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8215,7 +8297,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据服务应用详情。
+     * Queries the details of a data service application, including the project, application name, authentication information, and IP whitelist. Only application members can view the details.
+     * Release version: v6.0.0.
      *
      * @param request - GetDataServiceAppRequest
      *
@@ -8233,7 +8316,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取应用有权限的用户列表。
+     * Retrieves the list of users who have permissions on an application.
      *
      * @param request - GetDataServiceAppAuthorizedUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8280,7 +8363,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取应用有权限的用户列表。
+     * Retrieves the list of users who have permissions on an application.
      *
      * @param request - GetDataServiceAppAuthorizedUsersRequest
      *
@@ -8298,7 +8381,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据服务项目的应用分组列表。
+     * Queries the list of application groups for a data service project.
      *
      * @param request - GetDataServiceAppGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8341,7 +8424,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据服务项目的应用分组列表。
+     * Queries the list of application groups for a data service project.
      *
      * @param request - GetDataServiceAppGroupsRequest
      *
@@ -8359,7 +8442,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据服务应用的成员列表。
+     * Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
+     * Online version: v6.0.0.
      *
      * @param request - GetDataServiceAppMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8402,7 +8486,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据服务应用的成员列表。
+     * Queries the member list of a data service application, including regular members and owners. Only application owners can call this operation.
+     * Online version: v6.0.0.
      *
      * @param request - GetDataServiceAppMembersRequest
      *
@@ -8420,7 +8505,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询分组下应用列表。
+     * Queries the list of applications in a group.
      *
      * @param request - GetDataServiceAppsByGroupIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8467,7 +8552,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询分组下应用列表。
+     * Queries the list of applications in a group.
      *
      * @param request - GetDataServiceAppsByGroupIdRequest
      *
@@ -8485,7 +8570,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据App分组Id查询账号有权限的应用列表。
+     * Queries the list of applications that the account has permissions to access based on the app group ID.
      *
      * @param request - GetDataServiceAuthorizedAppsByGroupIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8532,7 +8617,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据App分组Id查询账号有权限的应用列表。
+     * Queries the list of applications that the account has permissions to access based on the app group ID.
      *
      * @param request - GetDataServiceAuthorizedAppsByGroupIdRequest
      *
@@ -8550,7 +8635,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询有权限的项目列表。
+     * Queries the list of projects that the current user has permissions to access.
      *
      * @param request - GetDataServiceAuthorizedProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8589,7 +8674,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询有权限的项目列表。
+     * Queries the list of projects that the current user has permissions to access.
      *
      * @param request - GetDataServiceAuthorizedProjectsRequest
      *
@@ -8607,7 +8692,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 当前登录当前用户作为负责人的项目列表。
+     * Retrieves the list of projects for which the current user is the owner.
      *
      * @param request - GetDataServiceMyProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8646,7 +8731,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 当前登录当前用户作为负责人的项目列表。
+     * Retrieves the list of projects for which the current user is the owner.
      *
      * @param request - GetDataServiceMyProjectsRequest
      *
@@ -8664,7 +8749,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取可添加到项目成员的用户列表。
+     * Retrieves the list of users who can be added as project members.
      *
      * @param request - GetDataServiceProjectAddableUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8707,7 +8792,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取可添加到项目成员的用户列表。
+     * Retrieves the list of users who can be added as project members.
      *
      * @param request - GetDataServiceProjectAddableUsersRequest
      *
@@ -8725,7 +8810,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据源变更影响的集成任务及数据库SQL任务。
+     * Queries the integration tasks and database SQL tasks affected by data source changes.
      *
      * @param request - GetDataSourceDependenciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8768,7 +8853,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据源变更影响的集成任务及数据库SQL任务。
+     * Queries the integration tasks and database SQL tasks affected by data source changes.
      *
      * @param request - GetDataSourceDependenciesRequest
      *
@@ -8786,7 +8871,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询开发态对象上游依赖。
+     * Query upstream dependencies of development objects.
      *
      * @param request - GetDevObjectDependencyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8841,7 +8926,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询开发态对象上游依赖。
+     * Query upstream dependencies of development objects.
      *
      * @param request - GetDevObjectDependencyRequest
      *
@@ -8859,7 +8944,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取文件夹目录树.
+     * Retrieves the folder directory tree.
      *
      * @param request - GetDirectoryTreeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8906,7 +8991,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取文件夹目录树.
+     * Retrieves the folder directory tree.
      *
      * @param request - GetDirectoryTreeRequest
      *
@@ -8924,7 +9009,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取文件存储临时读写授权。
+     * Obtains temporary read/write authorization for file storage.
      *
      * @param request - GetFileStorageCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8975,7 +9060,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取文件存储临时读写授权。
+     * Obtains temporary read/write authorization for file storage.
      *
      * @param request - GetFileStorageCredentialRequest
      *
@@ -8993,7 +9078,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据起始的实例查询该实例的下游.
+     * Queries the downstream instances of a specified instance.
      *
      * @param tmpReq - GetInstanceDownStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9056,7 +9141,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据起始的实例查询该实例的下游.
+     * Queries the downstream instances of a specified instance.
      *
      * @param request - GetInstanceDownStreamRequest
      *
@@ -9074,7 +9159,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询实例的上下游，支持逻辑表和代码任务。
+     * Queries the dag of an instance. Logical tables and code nodes are supported.
      *
      * @param tmpReq - GetInstanceUpDownStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9141,7 +9226,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询实例的上下游，支持逻辑表和代码任务。
+     * Queries the dag of an instance. Logical tables and code nodes are supported.
      *
      * @param request - GetInstanceUpDownStreamRequest
      *
@@ -9159,7 +9244,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取最新的待发布记录详情.
+     * Retrieves the details of the latest pending submit record.
      *
      * @param tmpReq - GetLatestSubmitDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9210,7 +9295,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取最新的待发布记录详情.
+     * Retrieves the details of the latest pending submit record.
      *
      * @param request - GetLatestSubmitDetailRequest
      *
@@ -9228,7 +9313,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取用户角色列表.
+     * Retrieves the list of roles for the current user.
      *
      * @param request - GetMyRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9267,7 +9352,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取用户角色列表.
+     * Retrieves the list of roles for the current user.
      *
      * @param request - GetMyRolesRequest
      *
@@ -9285,7 +9370,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取当前用户归属租户.
+     * Retrieves the tenants to which the current user belongs.
      *
      * @param tmpReq - GetMyTenantsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9336,7 +9421,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取当前用户归属租户.
+     * Retrieves the tenants to which the current user belongs.
      *
      * @param request - GetMyTenantsRequest
      *
@@ -9354,7 +9439,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通用查询节点上下游接口.
+     * Queries the dag of a node. This is a general-purpose operation.
      *
      * @param tmpReq - GetNodeUpDownStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9421,7 +9506,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通用查询节点上下游接口.
+     * Queries the dag of a node. This is a general-purpose operation.
      *
      * @param request - GetNodeUpDownStreamRequest
      *
@@ -9439,7 +9524,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询补数据提交的状态
+     * Queries the submit status of a data backfill request.
      *
      * @param request - GetOperationSubmitStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9486,7 +9571,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询补数据提交的状态
+     * Queries the submit status of a data backfill request.
      *
      * @param request - GetOperationSubmitStatusRequest
      *
@@ -9504,7 +9589,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询脚本的实例信息, 包括实例状态、运行时间等信息.
+     * Gets instance information.
      *
      * @param request - GetPhysicalInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9555,7 +9640,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询脚本的实例信息, 包括实例状态、运行时间等信息.
+     * Gets instance information.
      *
      * @param request - GetPhysicalInstanceRequest
      *
@@ -9573,7 +9658,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取实例执行的日志，如果实例重跑了多次，则会有多条日志.
+     * Retrieves the execution logs of an instance. If the instance has been rerun multiple times, multiple log entries are returned.
      *
      * @param request - GetPhysicalInstanceLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9624,7 +9709,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取实例执行的日志，如果实例重跑了多次，则会有多条日志.
+     * Retrieves the execution logs of an instance. If the instance has been rerun multiple times, multiple log entries are returned.
      *
      * @param request - GetPhysicalInstanceLogRequest
      *
@@ -9642,7 +9727,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询物理调度节点。
+     * Queries a physical schedule resource.
      *
      * @param request - GetPhysicalNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9689,7 +9774,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询物理调度节点。
+     * Queries a physical schedule resource.
      *
      * @param request - GetPhysicalNodeRequest
      *
@@ -9707,7 +9792,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据输出名查询对应的物理节点。
+     * Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
      *
      * @param request - GetPhysicalNodeByOutputNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9754,7 +9839,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据输出名查询对应的物理节点。
+     * Queries a physical node by output name. Only offline code nodes and integration task nodes are supported.
      *
      * @param request - GetPhysicalNodeByOutputNameRequest
      *
@@ -9772,7 +9857,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询调度节点代码内容。
+     * Queries the code content of a schedule resource node.
      *
      * @param request - GetPhysicalNodeContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9819,7 +9904,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询调度节点代码内容。
+     * Queries the code content of a schedule resource node.
      *
      * @param request - GetPhysicalNodeContentRequest
      *
@@ -9837,7 +9922,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询节点的操作日志。
+     * Queries the operation logs of a node.
      *
      * @param request - GetPhysicalNodeOperationLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9884,7 +9969,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询节点的操作日志。
+     * Queries the operation logs of a node.
      *
      * @param request - GetPhysicalNodeOperationLogRequest
      *
@@ -9902,7 +9987,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询异步操作管道任务的执行结果。
+     * Queries the execution result of an asynchronous pipeline task.
      *
      * @param tmpReq - GetPipelineAsyncResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9957,7 +10042,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询异步操作管道任务的执行结果。
+     * Queries the execution result of an asynchronous pipeline task.
      *
      * @param request - GetPipelineAsyncResultRequest
      *
@@ -9975,7 +10060,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据管道任务id查询管道任务。
+     * Queries a pipeline task by pipeline task ID.
      *
      * @param tmpReq - GetPipelineByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10034,7 +10119,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据管道任务id查询管道任务。
+     * Queries a pipeline task by pipeline task ID.
      *
      * @param request - GetPipelineByIdRequest
      *
@@ -10052,7 +10137,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目详情。
+     * Get project details by project ID.
      *
      * @param request - GetProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10099,7 +10184,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目详情。
+     * Get project details by project ID.
      *
      * @param request - GetProjectRequest
      *
@@ -10117,7 +10202,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过项目名获取项目详情。
+     * Retrieves project details by project name.
      *
      * @param request - GetProjectByNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10160,7 +10245,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过项目名获取项目详情。
+     * Retrieves project details by project name.
      *
      * @param request - GetProjectByNameRequest
      *
@@ -10178,7 +10263,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目生产账号.
+     * Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
      *
      * @param request - GetProjectProduceUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10221,7 +10306,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目生产账号.
+     * Retrieves the production account of a project. Only a super administrator (SuperAdmin) can call this API operation.
      *
      * @param request - GetProjectProduceUserRequest
      *
@@ -10239,7 +10324,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目白名单。
+     * Retrieves the whitelist of a project.
      *
      * @param request - GetProjectWhiteListsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10282,7 +10367,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目白名单。
+     * Retrieves the whitelist of a project.
      *
      * @param request - GetProjectWhiteListsRequest
      *
@@ -10300,7 +10385,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过监控对象ID获取告警设置。
+     * Retrieves alert settings by monitored object ID. Release version: v5.4.2.
      *
      * @param request - GetQualityAlertOfAllRuleScopeByWatchIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10343,7 +10428,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过监控对象ID获取告警设置。
+     * Retrieves alert settings by monitored object ID. Release version: v5.4.2.
      *
      * @param request - GetQualityAlertOfAllRuleScopeByWatchIdRequest
      *
@@ -10361,7 +10446,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量规则对象。
+     * Retrieves a quality rule object.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10404,7 +10490,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量规则对象。
+     * Retrieves a quality rule object.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityRuleRequest
      *
@@ -10422,7 +10509,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量任务对象详情。
+     * Retrieves the details of a quality node task object. Online version: v5.4.2.
      *
      * @param request - GetQualityRuleTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10465,7 +10552,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量任务对象详情。
+     * Retrieves the details of a quality node task object. Online version: v5.4.2.
      *
      * @param request - GetQualityRuleTaskRequest
      *
@@ -10483,7 +10570,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量任务对象日志内容。
+     * Retrieves the log content of a quality node task object.
+     * Online version: v5.4.2.
      *
      * @param request - GetQualityRuleTaskLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10526,7 +10614,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量任务对象日志内容。
+     * Retrieves the log content of a quality node task object.
+     * Online version: v5.4.2.
      *
      * @param request - GetQualityRuleTaskLogRequest
      *
@@ -10544,7 +10633,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量调度对象。
+     * Retrieves a quality schedule object.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10587,7 +10677,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量调度对象。
+     * Retrieves a quality schedule object.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityScheduleRequest
      *
@@ -10605,7 +10696,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过监控对象ID获取调度设置列表。
+     * Retrieves a list of schedule settings by monitored object ID.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualitySchedulesByWatchIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10648,7 +10740,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过监控对象ID获取调度设置列表。
+     * Retrieves a list of schedule settings by monitored object ID.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualitySchedulesByWatchIdRequest
      *
@@ -10666,7 +10759,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量模板对象。
+     * Retrieves a quality template object.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10709,7 +10803,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量模板对象。
+     * Retrieves a quality template object.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityTemplateRequest
      *
@@ -10727,7 +10822,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量监控对象。
+     * Retrieves a quality monitored object.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityWatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10770,7 +10866,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取质量监控对象。
+     * Retrieves a quality monitored object.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityWatchRequest
      *
@@ -10788,7 +10885,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+     * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityWatchByObjectIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10835,7 +10933,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过监控对象原始ID获取监控对象记录，例如：数据源、表、指标等的ID。
+     * Retrieves a quality watchtask record by the original ID of the monitored object, such as the ID of a datasource, table, or metric.
+     * Release version: v5.4.2.
      *
      * @param request - GetQualityWatchByObjectIdRequest
      *
@@ -10853,7 +10952,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取监控任务对象。
+     * Retrieves a monitoring node task object.
+     * Online version: v5.4.2.
      *
      * @param request - GetQualityWatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10896,7 +10996,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取监控任务对象。
+     * Retrieves a monitoring node task object.
+     * Online version: v5.4.2.
      *
      * @param request - GetQualityWatchTaskRequest
      *
@@ -10914,7 +11015,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取监控任务对象的日志内容。
+     * Retrieves the log content of a monitoring task object.
+     * Online version: v5.4.2.
      *
      * @param request - GetQualityWatchTaskLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10957,7 +11059,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取监控任务对象的日志内容。
+     * Retrieves the log content of a monitoring task object.
+     * Online version: v5.4.2.
      *
      * @param request - GetQualityWatchTaskLogRequest
      *
@@ -10975,7 +11078,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据集群ID获取集群版本.
+     * Retrieves the cluster version based on the cluster ID.
      *
      * @param request - GetQueueEngineVersionByEnvRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11034,7 +11137,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据集群ID获取集群版本.
+     * Retrieves the cluster version based on the cluster ID.
      *
      * @param request - GetQueueEngineVersionByEnvRequest
      *
@@ -11052,7 +11155,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取资源文件详情。
+     * Retrieves the details of a resource file.
      *
      * @param request - GetResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11099,7 +11202,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取资源文件详情。
+     * Retrieves the details of a resource file.
      *
      * @param request - GetResourceRequest
      *
@@ -11117,7 +11220,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取资源文件指定版本详情。
+     * Gets the details of a specified version of a resource file.
      *
      * @param request - GetResourceByVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11168,7 +11271,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取资源文件指定版本详情。
+     * Gets the details of a specified version of a resource file.
      *
      * @param request - GetResourceByVersionRequest
      *
@@ -11186,7 +11289,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据表Guid检索行级权限.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - GetRowPermissionByTableGuidsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11237,7 +11340,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据表Guid检索行级权限.
+     * Release version: v5.4.2.
      *
      * @param request - GetRowPermissionByTableGuidsRequest
      *
@@ -11255,7 +11358,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据分类详情。
+     * Retrieves the details of a data classification. Release version: v5.4.2.
      *
      * @param request - GetSecurityClassifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11298,7 +11401,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据分类详情。
+     * Retrieves the details of a data classification. Release version: v5.4.2.
      *
      * @param request - GetSecurityClassifyRequest
      *
@@ -11316,7 +11419,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取识别结果详情。
+     * Retrieves the details of an identification result.
+     * Release version: v5.4.2.
      *
      * @param request - GetSecurityIdentifyResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11359,7 +11463,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取识别结果详情。
+     * Retrieves the details of an identification result.
+     * Release version: v5.4.2.
      *
      * @param request - GetSecurityIdentifyResultRequest
      *
@@ -11377,7 +11482,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据分级详情。
+     * Retrieves the details of a data classification level. Available since v5.4.2.
      *
      * @param request - GetSecurityLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11420,7 +11525,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据分级详情。
+     * Retrieves the details of a data classification level. Available since v5.4.2.
      *
      * @param request - GetSecurityLevelRequest
      *
@@ -11438,7 +11543,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过密钥名称获取密钥值。
+     * Retrieves a key value by key name. Online version: v5.4.2.
      *
      * @param request - GetSecuritySecretKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11481,7 +11586,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过密钥名称获取密钥值。
+     * Retrieves a key value by key name. Online version: v5.4.2.
      *
      * @param request - GetSecuritySecretKeyRequest
      *
@@ -11499,7 +11604,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取计算源对应集群的spark客户信息.
+     * Retrieves the Spark client information of the cluster associated with a compute source.
      *
      * @param request - GetSparkLocalClientInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11546,7 +11651,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取计算源对应集群的spark客户信息.
+     * Retrieves the Spark client information of the cluster associated with a compute source.
      *
      * @param request - GetSparkLocalClientInfoRequest
      *
@@ -11564,7 +11669,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取标准详情。
+     * Retrieves the details of a standard.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - GetStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11615,7 +11721,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取标准详情。
+     * Retrieves the details of a standard.
+     * Release version: v5.4.2.
      *
      * @param request - GetStandardRequest
      *
@@ -11633,7 +11740,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据标准码表详情。
+     * Retrieves the details of a data standard lookup table.
+     * Online version: v5.4.2.
      *
      * @param request - GetStandardLookupTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11680,7 +11788,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据标准码表详情。
+     * Retrieves the details of a data standard lookup table.
+     * Online version: v5.4.2.
      *
      * @param request - GetStandardLookupTableRequest
      *
@@ -11698,7 +11807,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取标准集详情。
+     * Retrieves the details of a standard set.
+     * Release version: v5.4.2.
      *
      * @param request - GetStandardSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11745,7 +11855,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取标准集详情。
+     * Retrieves the details of a standard set.
+     * Release version: v5.4.2.
      *
      * @param request - GetStandardSetRequest
      *
@@ -11763,7 +11874,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询目录下按照标准类型统计标准数目。
+     * Queries the number of standards grouped by standard type under a specified folder.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - GetStandardStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11814,7 +11926,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询目录下按照标准类型统计标准数目。
+     * Queries the number of standards grouped by standard type under a specified folder.
+     * Online version: v5.4.2.
      *
      * @param request - GetStandardStatisticsRequest
      *
@@ -11832,7 +11945,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据标准模板详情。
+     * Retrieves the details of a data standard template.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - GetStandardTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11891,7 +12005,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据标准模板详情。
+     * Retrieves the details of a data standard template.
+     * Online version: v5.4.2.
      *
      * @param request - GetStandardTemplateRequest
      *
@@ -11909,7 +12024,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据标准词根详情。
+     * Retrieves the details of a data standard word root.
+     * Online version: v5.4.2.
      *
      * @param request - GetStandardWordRootRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11956,7 +12072,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取数据标准词根详情。
+     * Retrieves the details of a data standard word root.
+     * Online version: v5.4.2.
      *
      * @param request - GetStandardWordRootRequest
      *
@@ -11974,7 +12091,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取dataphin实时研发任务集合.
+     * Retrieves the list of real-time development nodes.
      *
      * @param request - GetStreamJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12021,7 +12138,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取dataphin实时研发任务集合.
+     * Retrieves the list of real-time development nodes.
      *
      * @param request - GetStreamJobsRequest
      *
@@ -12039,7 +12156,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取补数据工作流所有业务日期的Dagrun信息。
+     * Retrieves dagrun information for all business dates of a data backfill instance workflow.
      *
      * @param request - GetSupplementDagrunRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12086,7 +12203,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取补数据工作流所有业务日期的Dagrun信息。
+     * Retrieves dagrun information for all business dates of a data backfill instance workflow.
      *
      * @param request - GetSupplementDagrunRequest
      *
@@ -12104,7 +12221,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 列出补数据工作流下具体一个业务日期的所有节点的实例。
+     * Lists the instances of all nodes for a specific business date in a data backfill workflow.
      *
      * @param request - GetSupplementDagrunInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12151,7 +12268,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 列出补数据工作流下具体一个业务日期的所有节点的实例。
+     * Lists the instances of all nodes for a specific business date in a data backfill workflow.
      *
      * @param request - GetSupplementDagrunInstanceRequest
      *
@@ -12169,7 +12286,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询表字段血缘信息.
+     * Queries table column lineage information.
      *
      * @param tmpReq - GetTableColumnLineageByTaskIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12220,7 +12337,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询表字段血缘信息.
+     * Queries table column lineage information.
      *
      * @param request - GetTableColumnLineageByTaskIdRequest
      *
@@ -12238,7 +12355,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询资产表字段血缘信息。
+     * Queries the column-level data lineage of an asset table.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - GetTableColumnLineagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12293,7 +12411,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询资产表字段血缘信息。
+     * Queries the column-level data lineage of an asset table.
+     * Online version: v5.4.2.
      *
      * @param request - GetTableColumnLineagesRequest
      *
@@ -12311,7 +12430,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询资产清单中Dataphin表的字段。
+     * Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
+     * Release version: v5.4.2.
      *
      * @param request - GetTableColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12358,7 +12478,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询资产清单中Dataphin表的字段。
+     * Queries columns of a Dataphin table in the asset inventory. Supported table types: dimension logical table, fact logical table, aggregate logical table, tag logical table, logical table view, physical table, physical view, and materialized view.
+     * Release version: v5.4.2.
      *
      * @param request - GetTableColumnsRequest
      *
@@ -12376,7 +12497,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询表血缘信息.
+     * Queries table lineage information.
      *
      * @param tmpReq - GetTableLineageByTaskIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12427,7 +12548,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询表血缘信息.
+     * Queries table lineage information.
      *
      * @param request - GetTableLineageByTaskIdRequest
      *
@@ -12445,7 +12566,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询资产表血缘信息。
+     * Queries lineage information of an asset table.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - GetTableLineagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12500,7 +12622,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询资产表血缘信息。
+     * Queries lineage information of an asset table.
+     * Release version: v5.4.2.
      *
      * @param request - GetTableLineagesRequest
      *
@@ -12518,7 +12641,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据转交任务ID查询转交任务的进度.
+     * Queries the progress of a transfer task by transfer task ID.
      *
      * @param request - GetTransferInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12561,7 +12684,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据转交任务ID查询转交任务的进度.
+     * Queries the progress of a transfer task by transfer task ID.
      *
      * @param request - GetTransferInfoRequest
      *
@@ -12579,7 +12702,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取自定义函数详情。
+     * Retrieves the details of a user-defined function.
      *
      * @param request - GetUdfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12626,7 +12749,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取自定义函数详情。
+     * Retrieves the details of a user-defined function.
      *
      * @param request - GetUdfRequest
      *
@@ -12644,7 +12767,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询自定义函数版本详情。
+     * Queries the details of a specific version of a user-defined function.
      *
      * @param request - GetUdfByVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12695,7 +12818,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询自定义函数版本详情。
+     * Queries the details of a specific version of a user-defined function.
      *
      * @param request - GetUdfByVersionRequest
      *
@@ -12713,7 +12836,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过用户原始Id（如阿里云Id）获取用户详情.
+     * Retrieves user details by original user ID.
      *
      * @param request - GetUserBySourceIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12756,7 +12879,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过用户原始Id（如阿里云Id）获取用户详情.
+     * Retrieves user details by original user ID.
      *
      * @param request - GetUserBySourceIdRequest
      *
@@ -12774,7 +12897,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取用户组详情.
+     * Retrieves the details of a user group.
      *
      * @param request - GetUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12817,7 +12940,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取用户组详情.
+     * Retrieves the details of a user group.
      *
      * @param request - GetUserGroupRequest
      *
@@ -12835,7 +12958,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取用户详情.
+     * Retrieves user information in batches by user ID.
      *
      * @param tmpReq - GetUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12886,7 +13009,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取用户详情.
+     * Retrieves user information in batches by user ID.
      *
      * @param request - GetUsersRequest
      *
@@ -12904,7 +13027,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * API授权。
+     * Grants API authorization.
      *
      * @param tmpReq - GrantDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12959,7 +13082,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * API授权。
+     * Grants API authorization.
      *
      * @param request - GrantDataServiceApiRequest
      *
@@ -12977,7 +13100,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过资源点对用户授权.
+     * Grants permissions on resources to users by resource point.
      *
      * @param tmpReq - GrantResourcePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13028,7 +13151,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过资源点对用户授权.
+     * Grants permissions on resources to users by resource point.
      *
      * @param request - GrantResourcePermissionRequest
      *
@@ -13046,7 +13169,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取用户角色列表.
+     * Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
      *
      * @param request - ListAddableRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13085,7 +13208,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取用户角色列表.
+     * Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
      *
      * @param request - ListAddableRolesRequest
      *
@@ -13103,7 +13226,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取可加入租户成员列表的用户.
+     * Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
      *
      * @param tmpReq - ListAddableUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13154,7 +13277,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取可加入租户成员列表的用户.
+     * Queries users that can be added to a tenant. Only the super administrator (SuperAdmin) and system administrator can call this operation. The users must already exist in the Dataphin instance member list but have not yet been added to the tenant member list.
      *
      * @param request - ListAddableUsersRequest
      *
@@ -13172,7 +13295,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据条件查询多个告警事件.
+     * Performs a conditional query to list multiple alerting events.
      *
      * @param tmpReq - ListAlertEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13223,7 +13346,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据条件查询多个告警事件.
+     * Performs a conditional query to list multiple alerting events.
      *
      * @param request - ListAlertEventsRequest
      *
@@ -13241,7 +13364,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据条件查询多个推送记录.
+     * Performs a conditional query to list multiple push records.
      *
      * @param tmpReq - ListAlertNotificationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13292,7 +13415,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据条件查询多个推送记录.
+     * Performs a conditional query to list multiple push records.
      *
      * @param request - ListAlertNotificationsRequest
      *
@@ -13310,7 +13433,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据app查询api列表.
+     * Queries the list of APIs by application.
+     *
+     * @remarks
+     * Queries the detailed information of published APIs by appKey.
      *
      * @param tmpReq - ListApiByAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13361,7 +13487,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据app查询api列表.
+     * Queries the list of APIs by application.
+     *
+     * @remarks
+     * Queries the detailed information of published APIs by appKey.
      *
      * @param request - ListApiByAppRequest
      *
@@ -13379,7 +13508,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询应用已申请的API的具体的字段列表.
+     * Queries the list of specific fields for APIs that an application has requested.
      *
      * @param tmpReq - ListAuthorizedDataServiceApiDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13430,7 +13559,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询应用已申请的API的具体的字段列表.
+     * Queries the list of specific fields for APIs that an application has requested.
      *
      * @param request - ListAuthorizedDataServiceApiDetailsRequest
      *
@@ -13448,7 +13577,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询业务实体列表。
+     * Queries a list of business entities.
      *
      * @param tmpReq - ListBizEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13499,7 +13628,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询业务实体列表。
+     * Queries a list of business entities.
      *
      * @param request - ListBizEntitiesRequest
      *
@@ -13517,7 +13646,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取当前租户下的所有数据板块.
+     * Retrieves all business units under the current tenant.
      *
      * @param request - ListBizUnitsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13556,7 +13685,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取当前租户下的所有数据板块.
+     * Retrieves all business units under the current tenant.
      *
      * @param request - ListBizUnitsRequest
      *
@@ -13574,7 +13703,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据目录资产列表。
+     * Queries the list of asset catalog entries. Online version: v6.1.0.
      *
      * @param tmpReq - ListCatalogAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13625,7 +13754,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询数据目录资产列表。
+     * Queries the list of asset catalog entries. Online version: v6.1.0.
      *
      * @param request - ListCatalogAssetsRequest
      *
@@ -13643,7 +13772,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询计算源列表。
+     * Query the list of compute sources.
      *
      * @param tmpReq - ListComputeSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13694,7 +13823,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询计算源列表。
+     * Query the list of compute sources.
      *
      * @param request - ListComputeSourcesRequest
      *
@@ -13712,7 +13841,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取主题域列表。
+     * Retrieves a list of data domains.
      *
      * @param tmpReq - ListDataDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13763,7 +13892,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取主题域列表。
+     * Retrieves a list of data domains.
      *
      * @param request - ListDataDomainsRequest
      *
@@ -13781,7 +13910,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询API运维统计信息。
+     * O&M analysis: API call statistics.
      *
      * @param tmpReq - ListDataServiceApiCallStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13836,7 +13965,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询API运维统计信息。
+     * O&M analysis: API call statistics.
      *
      * @param request - ListDataServiceApiCallStatisticsRequest
      *
@@ -13854,7 +13983,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询数据服务调用日志。
+     * Queries data service call logs with pagination.
      *
      * @param tmpReq - ListDataServiceApiCallsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13909,7 +14038,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询数据服务调用日志。
+     * Queries data service call logs with pagination.
      *
      * @param request - ListDataServiceApiCallsRequest
      *
@@ -13927,7 +14056,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * API影响分析列表。
+     * Operations analysis: analyzes the impact of abnormal API calls.
      *
      * @param tmpReq - ListDataServiceApiImpactsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13982,7 +14111,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * API影响分析列表。
+     * Operations analysis: analyzes the impact of abnormal API calls.
      *
      * @param request - ListDataServiceApiImpactsRequest
      *
@@ -14000,7 +14129,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询租户下所有的应用列表。
+     * Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
+     * Release version: v6.0.0.
      *
      * @param tmpReq - ListDataServiceAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14051,7 +14181,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询租户下所有的应用列表。
+     * Queries the list of all applications under a data service tenant. All tenant members can perform this operation.
+     * Release version: v6.0.0.
      *
      * @param request - ListDataServiceAppsRequest
      *
@@ -14069,7 +14200,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询当前用户有权限的应用列表。
+     * Queries the list of applications that the current user has permissions to access.
      *
      * @param tmpReq - ListDataServiceAuthorizedAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14124,7 +14255,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询当前用户有权限的应用列表。
+     * Queries the list of applications that the current user has permissions to access.
      *
      * @param request - ListDataServiceAuthorizedAppsRequest
      *
@@ -14142,7 +14273,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取我管理的API权限列表。
+     * Obtain the list of API permissions managed by me.
      *
      * @param tmpReq - ListDataServiceMyApiPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14197,7 +14328,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取我管理的API权限列表。
+     * Obtain the list of API permissions managed by me.
      *
      * @param request - ListDataServiceMyApiPermissionsRequest
      *
@@ -14215,7 +14346,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询当前用户有权限的应用。
+     * Queries the applications that the current user has permissions to access.
      *
      * @param tmpReq - ListDataServiceMyAppPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14270,7 +14401,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询当前用户有权限的应用。
+     * Queries the applications that the current user has permissions to access.
      *
      * @param request - ListDataServiceMyAppPermissionsRequest
      *
@@ -14288,7 +14419,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询已发布的API列表。
+     * Queries the list of published APIs by page.
      *
      * @param tmpReq - ListDataServicePublishedApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14343,7 +14474,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询已发布的API列表。
+     * Queries the list of published APIs by page.
      *
      * @param request - ListDataServicePublishedApisRequest
      *
@@ -14361,7 +14492,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 搜索数据源，所属结果包含数据源配置项.
+     * Search for data sources. The results include data source configuration items.
      *
      * @param tmpReq - ListDataSourceWithConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14412,7 +14543,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 搜索数据源，所属结果包含数据源配置项.
+     * Search for data sources. The results include data source configuration items.
      *
      * @param request - ListDataSourceWithConfigRequest
      *
@@ -14430,7 +14561,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 遍历菜单树目录文件。
+     * Query the directory tree file list.
      *
      * @param tmpReq - ListFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14481,7 +14612,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 遍历菜单树目录文件。
+     * Query the directory tree file list.
      *
      * @param request - ListFilesRequest
      *
@@ -14499,7 +14630,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询实例。
+     * Paginate and query instances.
      *
      * @param tmpReq - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14554,7 +14685,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询实例。
+     * Paginate and query instances.
      *
      * @param request - ListInstancesRequest
      *
@@ -14572,7 +14703,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询节点下游，创建补数据工作流时可以作为数据参考.
+     * Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
      *
      * @param tmpReq - ListNodeDownStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14627,7 +14758,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询节点下游，创建补数据工作流时可以作为数据参考.
+     * Queries the downstream nodes of a node. The query results can be used as a data reference when you create a data backfill workflow.
      *
      * @param request - ListNodeDownStreamRequest
      *
@@ -14645,7 +14776,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询调度节点列表。
+     * Retrieves a list of scheduling nodes.
      *
      * @param tmpReq - ListNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14700,7 +14831,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询调度节点列表。
+     * Retrieves a list of scheduling nodes.
      *
      * @param request - ListNodesRequest
      *
@@ -14718,7 +14849,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目成员列表。
+     * Queries the list of project members.
      *
      * @param tmpReq - ListProjectMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14773,7 +14904,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目成员列表。
+     * Queries the list of project members.
      *
      * @param request - ListProjectMembersRequest
      *
@@ -14791,7 +14922,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目列表。
+     * Retrieves a list of projects.
      *
      * @param tmpReq - ListProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14842,7 +14973,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取项目列表。
+     * Retrieves a list of projects.
      *
      * @param request - ListProjectsRequest
      *
@@ -14860,7 +14991,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页获取发布记录列表.
+     * Retrieves a paginated list of publish records.
      *
      * @param tmpReq - ListPublishRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14911,7 +15042,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页获取发布记录列表.
+     * Retrieves a paginated list of publish records.
      *
      * @param request - ListPublishRecordsRequest
      *
@@ -14929,7 +15060,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量规则任务。
+     * Queries quality rule tasks by paging.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - ListQualityRuleTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14980,7 +15112,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量规则任务。
+     * Queries quality rule tasks by paging.
+     * Online version: v5.4.2.
      *
      * @param request - ListQualityRuleTasksRequest
      *
@@ -14998,7 +15131,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量规则。
+     * Queries quality rules by paging.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - ListQualityRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15049,7 +15183,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量规则。
+     * Queries quality rules by paging.
+     * Online version: v5.4.2.
      *
      * @param request - ListQualityRulesRequest
      *
@@ -15067,7 +15202,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量模板。
+     * Queries quality templates by paging.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - ListQualityTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15118,7 +15254,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量模板。
+     * Queries quality templates by paging.
+     * Online version: v5.4.2.
      *
      * @param request - ListQualityTemplatesRequest
      *
@@ -15136,7 +15273,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量监控任务。
+     * Queries quality monitoring nodes by paged query.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - ListQualityWatchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15187,7 +15325,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量监控任务。
+     * Queries quality monitoring nodes by paged query.
+     * Online version: v5.4.2.
      *
      * @param request - ListQualityWatchTasksRequest
      *
@@ -15205,7 +15344,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量监控对象。
+     * Performs a paged query of quality monitored objects.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - ListQualityWatchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15256,7 +15396,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询质量监控对象。
+     * Performs a paged query of quality monitored objects.
+     * Online version: v5.4.2.
      *
      * @param request - ListQualityWatchesRequest
      *
@@ -15274,7 +15415,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页获取权限操作列表.
+     * Retrieves a paginated list of permission operation logs.
      *
      * @param tmpReq - ListResourcePermissionOperationLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15325,7 +15466,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页获取权限操作列表.
+     * Retrieves a paginated list of permission operation logs.
      *
      * @param request - ListResourcePermissionOperationLogRequest
      *
@@ -15343,7 +15484,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页获取权限记录列表.
+     * Retrieves permission authorization records with pagination.
      *
      * @param tmpReq - ListResourcePermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15394,7 +15535,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页获取权限记录列表.
+     * Retrieves permission authorization records with pagination.
      *
      * @param request - ListResourcePermissionsRequest
      *
@@ -15412,7 +15553,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询行级权限.
+     * Performs a paged query of row-level permissions.
      *
      * @param tmpReq - ListRowPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15463,7 +15604,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询行级权限.
+     * Performs a paged query of row-level permissions.
      *
      * @param request - ListRowPermissionRequest
      *
@@ -15481,7 +15622,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询指定用户行级权限.
+     * Queries row-level permissions of a specified user by paging.
      *
      * @param tmpReq - ListRowPermissionByUserIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15532,7 +15673,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询指定用户行级权限.
+     * Queries row-level permissions of a specified user by paging.
      *
      * @param request - ListRowPermissionByUserIdRequest
      *
@@ -15550,7 +15691,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询安全识别结果的识别记录。
+     * Queries identification records of security identification results by paging.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - ListSecurityIdentifyRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15601,7 +15743,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询安全识别结果的识别记录。
+     * Queries identification records of security identification results by paging.
+     * Online version: v5.4.2.
      *
      * @param request - ListSecurityIdentifyRecordsRequest
      *
@@ -15619,7 +15762,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询安全识别结果。
+     * Query security identification results by page.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - ListSecurityIdentifyResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15670,7 +15814,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询安全识别结果。
+     * Query security identification results by page.
+     * Release version: v5.4.2.
      *
      * @param request - ListSecurityIdentifyResultsRequest
      *
@@ -15688,7 +15833,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询标准列表。
+     * Query the standard list by page.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - ListStandardsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15739,7 +15885,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询标准列表。
+     * Query the standard list by page.
+     * Release version: v5.4.2.
      *
      * @param request - ListStandardsRequest
      *
@@ -15757,7 +15904,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页获取待发布记录列表.
+     * Paginate and retrieve the list of pending deployment records.
      *
      * @param tmpReq - ListSubmitRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15808,7 +15955,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页获取待发布记录列表.
+     * Paginate and retrieve the list of pending deployment records.
      *
      * @param request - ListSubmitRecordsRequest
      *
@@ -15826,7 +15973,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询查询资产表元数据。
+     * Performs a paged query to retrieve asset table metadata.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - ListTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15877,7 +16025,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 分页查询查询资产表元数据。
+     * Performs a paged query to retrieve asset table metadata.
+     * Online version: v5.4.2.
      *
      * @param request - ListTablesRequest
      *
@@ -15895,7 +16044,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询租户成员列表.
+     * Queries the list of tenant members.
      *
      * @param tmpReq - ListTenantMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15946,7 +16095,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 查询租户成员列表.
+     * Queries the list of tenant members.
      *
      * @param request - ListTenantMembersRequest
      *
@@ -15964,7 +16113,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 用户组成员列表分页查询.
+     * Performs a paging query of user group members.
      *
      * @param tmpReq - ListUserGroupMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16015,7 +16164,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 用户组成员列表分页查询.
+     * Performs a paging query of user group members.
      *
      * @param request - ListUserGroupMembersRequest
      *
@@ -16033,7 +16182,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 用户组列表分页查询.
+     * Queries user groups by paging.
      *
      * @param tmpReq - ListUserGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16084,7 +16233,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 用户组列表分页查询.
+     * Queries user groups by paging.
      *
      * @param request - ListUserGroupsRequest
      *
@@ -16102,7 +16251,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 下线离线计算任务。
+     * Offlines a batch task.
      *
      * @param request - OfflineBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16153,7 +16302,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 下线离线计算任务。
+     * Offlines a batch task.
      *
      * @param request - OfflineBatchTaskRequest
      *
@@ -16171,7 +16320,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 下线业务实体、
+     * Offline a business entity.
      *
      * @param tmpReq - OfflineBizEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16222,7 +16371,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 下线业务实体、
+     * Offline a business entity.
      *
      * @param request - OfflineBizEntityRequest
      *
@@ -16240,7 +16389,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 下线集成管道任务。
+     * Offlines an integration pipeline node.
      *
      * @param tmpReq - OfflinePipelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16299,7 +16448,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 下线集成管道任务。
+     * Offlines an integration pipeline node.
      *
      * @param request - OfflinePipelineRequest
      *
@@ -16317,7 +16466,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 异步下线集成管道任务。
+     * Asynchronously offlines an integration pipeline node.
      *
      * @param tmpReq - OfflinePipelineByAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16376,7 +16525,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 异步下线集成管道任务。
+     * Asynchronously offlines an integration pipeline node.
      *
      * @param request - OfflinePipelineByAsyncRequest
      *
@@ -16394,7 +16543,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 下线标准。
+     * Offlines a standard.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - OfflineStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16445,7 +16595,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 下线标准。
+     * Offlines a standard.
+     * Online version: v5.4.2.
      *
      * @param request - OfflineStandardRequest
      *
@@ -16463,7 +16614,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 上线业务实体。
+     * Brings a business entity online.
      *
      * @param tmpReq - OnlineBizEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16514,7 +16665,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 上线业务实体。
+     * Brings a business entity online.
      *
      * @param request - OnlineBizEntityRequest
      *
@@ -16532,7 +16683,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运维实例。
+     * Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
      *
      * @param tmpReq - OperateInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16587,7 +16738,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 运维实例。
+     * Performs batch O&M operations on instances. Both physical instances and logical table instances are supported.
      *
      * @param request - OperateInstanceRequest
      *
@@ -16605,7 +16756,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+     * Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
      *
      * @param tmpReq - ParseBatchTaskDependencyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16656,7 +16807,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+     * Parses the logical table dependencies of an offline compute node. The parsing result may contain self-dependent nodes in the upstream dependency information, where the upstream node ID is the same as the node ID of the parsed code. You must handle such cases on your own.
      *
      * @param request - ParseBatchTaskDependencyRequest
      *
@@ -16674,7 +16825,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 暂停物理节点调度。
+     * Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
      *
      * @param tmpReq - PausePhysicalNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16729,7 +16880,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 暂停物理节点调度。
+     * Pauses the scheduling of physical nodes. This stops the scheduling of nodes, and downstream nodes cannot be triggered. Currently, only offline code nodes and integration nodes are supported.
      *
      * @param request - PausePhysicalNodeRequest
      *
@@ -16747,7 +16898,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 发布数据服务API到生产环境。
+     * Publishes a data service API to the production environment.
      *
      * @param request - PublishDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16798,7 +16949,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 发布数据服务API到生产环境。
+     * Publishes a data service API to the production environment.
      *
      * @param request - PublishDataServiceApiRequest
      *
@@ -16816,7 +16967,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量发布对象
+     * Publishes objects in batches.
      *
      * @param tmpReq - PublishObjectListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16867,7 +17018,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量发布对象
+     * Publishes objects in batches.
      *
      * @param request - PublishObjectListRequest
      *
@@ -16885,7 +17036,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 发布标准。
+     * Publishes a standard.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - PublishStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16936,7 +17088,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 发布标准。
+     * Publishes a standard.
+     * Release version: v5.4.2.
      *
      * @param request - PublishStandardRequest
      *
@@ -16954,7 +17107,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据服务应用的普通成员。
+     * Remove regular members from a data service application. Only the application owner can perform this operation.
+     * Released version: v6.0.0.
      *
      * @param tmpReq - RemoveDataServiceAppMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17005,7 +17159,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除数据服务应用的普通成员。
+     * Remove regular members from a data service application. Only the application owner can perform this operation.
+     * Released version: v6.0.0.
      *
      * @param request - RemoveDataServiceAppMemberRequest
      *
@@ -17023,7 +17178,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除项目成员。
+     * Deletes a project member.
      *
      * @param tmpReq - RemoveProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17078,7 +17233,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除项目成员。
+     * Deletes a project member.
      *
      * @param request - RemoveProjectMemberRequest
      *
@@ -17096,7 +17251,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量规则和调度的绑定关系。
+     * Deletes the bindings between quality rules and schedules in batches.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - RemoveQualityRuleSchedulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17147,7 +17303,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量删除质量规则和调度的绑定关系。
+     * Deletes the bindings between quality rules and schedules in batches.
+     * Release version: v5.4.2.
      *
      * @param request - RemoveQualityRuleSchedulesRequest
      *
@@ -17165,7 +17322,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除租户成员.
+     * Removes a tenant member. Only superusers and system administrators can call this API operation.
      *
      * @param tmpReq - RemoveTenantMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17216,7 +17373,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 删除租户成员.
+     * Removes a tenant member. Only superusers and system administrators can call this API operation.
      *
      * @param request - RemoveTenantMemberRequest
      *
@@ -17234,7 +17391,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 移除用户组成员.
+     * Removes members from a user group.
      *
      * @param tmpReq - RemoveUserGroupMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17285,7 +17442,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 移除用户组成员.
+     * Removes members from a user group.
      *
      * @param request - RemoveUserGroupMemberRequest
      *
@@ -17303,7 +17460,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新项目白名单。
+     * Updates the whitelist of a project.
      *
      * @param tmpReq - ReplaceProjectWhiteListsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17358,7 +17515,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新项目白名单。
+     * Updates the whitelist of a project.
      *
      * @param request - ReplaceProjectWhiteListsRequest
      *
@@ -17376,7 +17533,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 重置数据服务应用密钥。
+     * Reset the Data Service application key. Only the application owner can perform this operation.
+     * Release version: v6.0.0.
      *
      * @param tmpReq - ResetDataServiceAppSecretRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17427,7 +17585,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 重置数据服务应用密钥。
+     * Reset the Data Service application key. Only the application owner can perform this operation.
+     * Release version: v6.0.0.
      *
      * @param request - ResetDataServiceAppSecretRequest
      *
@@ -17445,7 +17604,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 恢复物理节点调度。
+     * Resume physical node scheduling.
      *
      * @param tmpReq - ResumePhysicalNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17500,7 +17659,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 恢复物理节点调度。
+     * Resume physical node scheduling.
      *
      * @param request - ResumePhysicalNodeRequest
      *
@@ -17518,7 +17677,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 重新转交运行失败的转交任务
+     * Retransfers a failed transfer task.
      *
      * @param tmpReq - RetryTransferOwnershipRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17569,7 +17728,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 重新转交运行失败的转交任务
+     * Retransfers a failed transfer task.
      *
      * @param request - RetryTransferOwnershipRequest
      *
@@ -17587,7 +17746,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 回收API授权。
+     * Revokes API authorization.
      *
      * @param tmpReq - RevokeDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17642,7 +17801,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 回收API授权。
+     * Revokes API authorization.
      *
      * @param request - RevokeDataServiceApiRequest
      *
@@ -17660,7 +17819,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 回收用户资源授权.
+     * Revokes resource authorization from a user.
      *
      * @param tmpReq - RevokeResourcePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17711,7 +17870,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 回收用户资源授权.
+     * Revokes resource authorization from a user.
      *
      * @param request - RevokeResourcePermissionRequest
      *
@@ -17729,7 +17888,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 终止即席查询任务。
+     * Stops an ad hoc query task.
      *
      * @param request - StopAdHocTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17776,7 +17935,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 终止即席查询任务。
+     * Stops an ad hoc query task.
      *
      * @param request - StopAdHocTaskRequest
      *
@@ -17794,7 +17953,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 提交离线计算任务。
+     * Submits a batch task.
      *
      * @param tmpReq - SubmitBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17845,7 +18004,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 提交离线计算任务。
+     * Submits a batch task.
      *
      * @param request - SubmitBatchTaskRequest
      *
@@ -17863,7 +18022,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量提交规则任务,支持试跑。
+     * Batch submit rule tasks with support for test runs.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - SubmitQualityRuleTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17914,7 +18074,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量提交规则任务,支持试跑。
+     * Batch submit rule tasks with support for test runs.
+     * Release version: v5.4.2.
      *
      * @param request - SubmitQualityRuleTasksRequest
      *
@@ -17932,7 +18093,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量提交监控对象校验任务。
+     * Submits quality watchtask check tasks in batches.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - SubmitQualityWatchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17983,7 +18145,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量提交监控对象校验任务。
+     * Submits quality watchtask check tasks in batches.
+     * Online version: v5.4.2.
      *
      * @param request - SubmitQualityWatchTasksRequest
      *
@@ -18001,7 +18164,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 同步部门信息。
+     * Synchronizes department information.
+     *
+     * @remarks
+     * Queries the details of a published API operation by AppKey.
      *
      * @param tmpReq - SyncDepartmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18052,7 +18218,10 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 同步部门信息。
+     * Synchronizes department information.
+     *
+     * @remarks
+     * Queries the details of a published API operation by AppKey.
      *
      * @param request - SyncDepartmentRequest
      *
@@ -18070,7 +18239,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 同步部门成员信息.
+     * Synchronizes department member information.
      *
      * @param tmpReq - SyncDepartmentUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18121,7 +18290,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 同步部门成员信息.
+     * Synchronizes department member information.
      *
      * @param request - SyncDepartmentUserRequest
      *
@@ -18139,7 +18308,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 一键转交负责人.
+     * Transfers ownership to a new owner in one click.
      *
      * @param tmpReq - TransferOwnershipForAllObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18190,7 +18359,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 一键转交负责人.
+     * Transfers ownership to a new owner in one click.
      *
      * @param request - TransferOwnershipForAllObjectRequest
      *
@@ -18208,7 +18377,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑即席查询文件。
+     * Modifies an ad hoc query file.
      *
      * @param tmpReq - UpdateAdHocFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18259,7 +18428,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑即席查询文件。
+     * Modifies an ad hoc query file.
      *
      * @param request - UpdateAdHocFileRequest
      *
@@ -18277,7 +18446,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑离线计算任务。
+     * Updates an offline compute node.
      *
      * @param tmpReq - UpdateBatchTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18328,7 +18497,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑离线计算任务。
+     * Updates an offline compute node.
      *
      * @param request - UpdateBatchTaskRequest
      *
@@ -18346,7 +18515,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑离线计算任务自定义血缘。
+     * Edits the custom data lineage of a batch task.
      *
      * @param tmpReq - UpdateBatchTaskUdfLineagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18397,7 +18566,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑离线计算任务自定义血缘。
+     * Edits the custom data lineage of a batch task.
      *
      * @param request - UpdateBatchTaskUdfLineagesRequest
      *
@@ -18415,7 +18584,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新业务实体、
+     * Updates a business entity.
      *
      * @param tmpReq - UpdateBizEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18466,7 +18635,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新业务实体、
+     * Updates a business entity.
      *
      * @param request - UpdateBizEntityRequest
      *
@@ -18484,7 +18653,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新业务指标.
+     * Update a business metric.
+     * Release version: v5.5.0.
      *
      * @param tmpReq - UpdateBizMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18535,7 +18705,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新业务指标.
+     * Update a business metric.
+     * Release version: v5.5.0.
      *
      * @param request - UpdateBizMetricRequest
      *
@@ -18553,7 +18724,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据板块。
+     * Updates a data domain.
      *
      * @param tmpReq - UpdateBizUnitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18604,7 +18775,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据板块。
+     * Updates a data domain.
      *
      * @param request - UpdateBizUnitRequest
      *
@@ -18622,7 +18793,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改计算源。
+     * Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
      *
      * @param tmpReq - UpdateComputeSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18673,7 +18844,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改计算源。
+     * Edits a compute source. Business unit administrators and project administrators have permissions to perform this operation.
      *
      * @param request - UpdateComputeSourceRequest
      *
@@ -18691,7 +18862,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新主题域。
+     * Updates a data domain.
      *
      * @param tmpReq - UpdateDataDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18742,7 +18913,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新主题域。
+     * Updates a data domain.
      *
      * @param request - UpdateDataDomainRequest
      *
@@ -18760,7 +18931,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据服务应用。
+     * Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
+     * Release version: v6.0.0.
      *
      * @param tmpReq - UpdateDataServiceAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18811,7 +18983,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据服务应用。
+     * Updates a data service application. Only super administrators, system administrators, and application owners can perform this operation.
+     * Release version: v6.0.0.
      *
      * @param request - UpdateDataServiceAppRequest
      *
@@ -18829,7 +19002,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据服务应用分组。
+     * Updates a data service application group. Only superusers and system administrators can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param tmpReq - UpdateDataServiceAppGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18880,7 +19054,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据服务应用分组。
+     * Updates a data service application group. Only superusers and system administrators can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - UpdateDataServiceAppGroupRequest
      *
@@ -18898,7 +19073,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据服务应用的普通成员。
+     * Updates the regular members of a data service application. Only the application owner can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param tmpReq - UpdateDataServiceAppMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18949,7 +19125,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据服务应用的普通成员。
+     * Updates the regular members of a data service application. Only the application owner can perform this operation.
+     * Online version: v6.0.0.
      *
      * @param request - UpdateDataServiceAppMemberRequest
      *
@@ -18967,7 +19144,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑数据源基本信息.
+     * Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
      *
      * @param tmpReq - UpdateDataSourceBasicInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19018,7 +19195,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑数据源基本信息.
+     * Edits the basic information of a data source. Tenant administrators, data administrators, business segment administrators, project administrators, and operations administrators have permissions to perform this operation.
      *
      * @param request - UpdateDataSourceBasicInfoRequest
      *
@@ -19036,7 +19213,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑数据源连接配置项.
+     * Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
      *
      * @param tmpReq - UpdateDataSourceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19087,7 +19264,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑数据源连接配置项.
+     * Edits the connection configuration items of a data source. Tenant administrators, data administrators, business unit administrators, project administrators, and operations administrators have permissions to perform this operation.
      *
      * @param request - UpdateDataSourceConfigRequest
      *
@@ -19105,7 +19282,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改菜单树文件所在目录.
+     * Moves the file position in the menu tree.
      *
      * @param request - UpdateFileDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19156,7 +19333,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改菜单树文件所在目录.
+     * Moves the file position in the menu tree.
      *
      * @param request - UpdateFileDirectoryRequest
      *
@@ -19174,7 +19351,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改菜单树文件名称.
+     * Updates a file name.
      *
      * @param request - UpdateFileNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19225,7 +19402,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改菜单树文件名称.
+     * Updates a file name.
      *
      * @param request - UpdateFileNameRequest
      *
@@ -19243,7 +19420,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新集成管道任务。
+     * Updates an integration pipeline or unstructured workflow node.
      *
      * @param tmpReq - UpdatePipelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19302,7 +19479,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新集成管道任务。
+     * Updates an integration pipeline or unstructured workflow node.
      *
      * @param request - UpdatePipelineRequest
      *
@@ -19320,7 +19497,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 异步更新集成管道任务。
+     * Asynchronously updates a pipeline or unstructured workflow node.
      *
      * @param tmpReq - UpdatePipelineByAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19379,7 +19556,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 异步更新集成管道任务。
+     * Asynchronously updates a pipeline or unstructured workflow node.
      *
      * @param request - UpdatePipelineByAsyncRequest
      *
@@ -19397,7 +19574,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 增加项目成员。
+     * Edits project members.
      *
      * @param tmpReq - UpdateProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19452,7 +19629,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 增加项目成员。
+     * Edits project members.
      *
      * @param request - UpdateProjectMemberRequest
      *
@@ -19470,7 +19647,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量开启或关闭质量规则。
+     * Enables or disables quality rules in batches.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpdateQualityRuleSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19521,7 +19699,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量开启或关闭质量规则。
+     * Enables or disables quality rules in batches.
+     * Release version: v5.4.2.
      *
      * @param request - UpdateQualityRuleSwitchRequest
      *
@@ -19539,7 +19718,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量开启或关闭质量监控对象。
+     * Starts or stops quality monitored objects in batches.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpdateQualityWatchSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19590,7 +19770,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 批量开启或关闭质量监控对象。
+     * Starts or stops quality monitored objects in batches.
+     * Release version: v5.4.2.
      *
      * @param request - UpdateQualityWatchSwitchRequest
      *
@@ -19608,7 +19789,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑资源文件。
+     * Edits a resource file.
      *
      * @param tmpReq - UpdateResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19659,7 +19840,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑资源文件。
+     * Edits a resource file.
      *
      * @param request - UpdateResourceRequest
      *
@@ -19677,7 +19858,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新行级权限.
+     * Updates a row-level permission.
      *
      * @param tmpReq - UpdateRowPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19728,7 +19909,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新行级权限.
+     * Updates a row-level permission.
      *
      * @param request - UpdateRowPermissionRequest
      *
@@ -19746,7 +19927,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据分类。
+     * Updates a data classification.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpdateSecurityClassifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19797,7 +19979,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据分类。
+     * Updates a data classification.
+     * Release version: v5.4.2.
      *
      * @param request - UpdateSecurityClassifyRequest
      *
@@ -19815,7 +19998,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据分类目录。
+     * Updates a data classification folder. Release version: v5.4.2.
      *
      * @param tmpReq - UpdateSecurityClassifyCatalogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19866,7 +20049,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据分类目录。
+     * Updates a data classification folder. Release version: v5.4.2.
      *
      * @param request - UpdateSecurityClassifyCatalogRequest
      *
@@ -19884,7 +20067,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新安全识别结果的生效状态。
+     * Updates the effective status of security identification results.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpdateSecurityIdentifyResultStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19935,7 +20119,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新安全识别结果的生效状态。
+     * Updates the effective status of security identification results.
+     * Release version: v5.4.2.
      *
      * @param request - UpdateSecurityIdentifyResultStatusRequest
      *
@@ -19953,7 +20138,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过分级顺序更新数据分级。
+     * Updates data classification.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - UpdateSecurityLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20004,7 +20190,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 通过分级顺序更新数据分级。
+     * Updates data classification.
+     * Online version: v5.4.2.
      *
      * @param request - UpdateSecurityLevelRequest
      *
@@ -20022,7 +20209,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新标准。
+     * Updates a standard.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpdateStandardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20073,7 +20261,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新标准。
+     * Updates a standard.
+     * Release version: v5.4.2.
      *
      * @param request - UpdateStandardRequest
      *
@@ -20091,7 +20280,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据标准码表。
+     * Updates a data standard lookup table.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpdateStandardLookupTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20142,7 +20332,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据标准码表。
+     * Updates a data standard lookup table.
+     * Release version: v5.4.2.
      *
      * @param request - UpdateStandardLookupTableRequest
      *
@@ -20160,7 +20351,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 将标准映射关系置为无效映射。
+     * Sets the standard mapping relationship to invalid mapping.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpdateStandardMappingToInvalidRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20211,7 +20403,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 将标准映射关系置为无效映射。
+     * Sets the standard mapping relationship to invalid mapping.
+     * Release version: v5.4.2.
      *
      * @param request - UpdateStandardMappingToInvalidRequest
      *
@@ -20229,7 +20422,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新标准集。
+     * Update standard set.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpdateStandardSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20280,7 +20474,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新标准集。
+     * Update standard set.
+     * Release version: v5.4.2.
      *
      * @param request - UpdateStandardSetRequest
      *
@@ -20298,7 +20493,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据标准模板。
+     * Updates a data standard template.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpdateStandardTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20349,7 +20545,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据标准模板。
+     * Updates a data standard template.
+     * Release version: v5.4.2.
      *
      * @param request - UpdateStandardTemplateRequest
      *
@@ -20367,7 +20564,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据标准词根。
+     * Updates a data standard root word.
+     * Online version: v5.4.2.
      *
      * @param tmpReq - UpdateStandardWordRootRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20418,7 +20616,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 更新数据标准词根。
+     * Updates a data standard root word.
+     * Online version: v5.4.2.
      *
      * @param request - UpdateStandardWordRootRequest
      *
@@ -20436,7 +20635,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改租户计算设置。
+     * Modifies the compute settings of a tenant.
      *
      * @param tmpReq - UpdateTenantComputeEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20487,7 +20686,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 修改租户计算设置。
+     * Modifies the compute settings of a tenant.
      *
      * @param request - UpdateTenantComputeEngineRequest
      *
@@ -20505,7 +20704,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑租户成员.
+     * Edits tenant members.
      *
      * @param tmpReq - UpdateTenantMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20556,7 +20755,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑租户成员.
+     * Edits tenant members.
      *
      * @param request - UpdateTenantMemberRequest
      *
@@ -20574,7 +20773,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑自定义函数。
+     * Edits a user-defined function.
      *
      * @param tmpReq - UpdateUdfRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20625,7 +20824,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑自定义函数。
+     * Edits a user-defined function.
      *
      * @param request - UpdateUdfRequest
      *
@@ -20643,7 +20842,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑用户组.
+     * Edits a user group.
      *
      * @param tmpReq - UpdateUserGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20694,7 +20893,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑用户组.
+     * Edits a user group.
      *
      * @param request - UpdateUserGroupRequest
      *
@@ -20712,7 +20911,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑用户组启用开关.
+     * Modifies the enabled status of a user group.
      *
      * @param request - UpdateUserGroupSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20759,7 +20958,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 编辑用户组启用开关.
+     * Modifies the enabled status of a user group.
      *
      * @param request - UpdateUserGroupSwitchRequest
      *
@@ -20777,7 +20976,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或者修改质量规则。
+     * Create or modify a quality rule.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpsertQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20828,7 +21028,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或者修改质量规则。
+     * Create or modify a quality rule.
+     * Release version: v5.4.2.
      *
      * @param request - UpsertQualityRuleRequest
      *
@@ -20846,7 +21047,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或者修改调度设置。
+     * Creates or updates scheduling settings.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpsertQualityScheduleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20897,7 +21099,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或者修改调度设置。
+     * Creates or updates scheduling settings.
+     * Release version: v5.4.2.
      *
      * @param request - UpsertQualityScheduleRequest
      *
@@ -20915,7 +21118,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或者修改质量模板。
+     * Creates or updates a quality template.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpsertQualityTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20966,7 +21170,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或者修改质量模板。
+     * Creates or updates a quality template.
+     * Release version: v5.4.2.
      *
      * @param request - UpsertQualityTemplateRequest
      *
@@ -20984,7 +21189,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+     * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpsertQualityWatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21035,7 +21241,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或更改质量监控对象, 支持添加多种类型的质量监控对象，包括：Dataphin表，全域表，数据源，指标，实时元表。
+     * Creates or updates a quality monitored object. You can add multiple types of quality monitored objects, including Dataphin tables, global tables, data sources, metrics, and real-time meta tables.
+     * Release version: v5.4.2.
      *
      * @param request - UpsertQualityWatchRequest
      *
@@ -21053,7 +21260,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或者修改监控对象告警设置。
+     * Creates or updates alert settings for a monitored object.
+     * Release version: v5.4.2.
      *
      * @param tmpReq - UpsertQualityWatchAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21104,7 +21312,8 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 新建或者修改监控对象告警设置。
+     * Creates or updates alert settings for a monitored object.
+     * Release version: v5.4.2.
      *
      * @param request - UpsertQualityWatchAlertRequest
      *
