@@ -11,10 +11,14 @@ use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckInstancePolicyRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckInstancePolicyResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateAgentStorageRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateAgentStorageResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateVCUInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateVCUInstanceResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteAgentStorageRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteAgentStorageResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstancePolicyRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstancePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstanceRequest;
@@ -23,8 +27,13 @@ use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteVCUInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteVCUInstanceResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\GetAgentStorageRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\GetAgentStorageResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\GetInstanceResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListAgentStoragesRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListAgentStoragesResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListAgentStoragesShrinkRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListClusterTypeResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListInstancesResponse;
@@ -42,6 +51,8 @@ use AlibabaCloud\SDK\Tablestore\V20201209\Models\UnbindInstance2VpcRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UnbindInstance2VpcResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateAgentStorageRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateAgentStorageResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceElasticVCUUpperLimitRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceElasticVCUUpperLimitResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstancePolicyRequest;
@@ -58,7 +69,35 @@ class Tablestore extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'tablestore.us-west-1.aliyuncs.com',
+            'us-east-1' => 'tablestore.us-east-1.aliyuncs.com',
+            'me-east-1' => 'tablestore.me-east-1.aliyuncs.com',
+            'me-central-1' => 'tablestore.me-central-1.aliyuncs.com',
+            'eu-west-1' => 'tablestore.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'tablestore.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'tablestore.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'tablestore.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'tablestore.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'tablestore.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'tablestore.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'tablestore.cn-qingdao.aliyuncs.com',
+            'cn-huhehaote' => 'tablestore.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'tablestore.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'tablestore.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'tablestore.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'tablestore.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'tablestore.cn-beijing.aliyuncs.com',
+            'ap-southeast-7' => 'tablestore.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-6' => 'tablestore.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'tablestore.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'tablestore.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-2' => 'tablestore.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'tablestore.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'tablestore.ap-south-1.aliyuncs.com',
+            'ap-northeast-1' => 'tablestore.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('tablestore', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -88,7 +127,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 绑定vpc.
+     * Binds an instance to a VPC.
      *
      * @param request - BindInstance2VpcRequest
      * @param headers - map
@@ -142,7 +181,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 绑定vpc.
+     * Binds an instance to a VPC.
      *
      * @param request - BindInstance2VpcRequest
      *
@@ -291,6 +330,107 @@ class Tablestore extends OpenApiClient
     }
 
     /**
+     * Creates an agent storage instance.
+     *
+     * @remarks
+     * - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
+     * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+     * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+     *
+     * @param request - CreateAgentStorageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentStorageResponse
+     *
+     * @param CreateAgentStorageRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAgentStorageResponse
+     */
+    public function createAgentStorageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentStorageDescription) {
+            @$body['AgentStorageDescription'] = $request->agentStorageDescription;
+        }
+
+        if (null !== $request->agentStorageName) {
+            @$body['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        if (null !== $request->network) {
+            @$body['Network'] = $request->network;
+        }
+
+        if (null !== $request->networkSourceACL) {
+            @$body['NetworkSourceACL'] = $request->networkSourceACL;
+        }
+
+        if (null !== $request->networkTypeACL) {
+            @$body['NetworkTypeACL'] = $request->networkTypeACL;
+        }
+
+        if (null !== $request->policy) {
+            @$body['Policy'] = $request->policy;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgentStorage',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/createagentstorage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an agent storage instance.
+     *
+     * @remarks
+     * - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
+     * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+     * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+     *
+     * @param request - CreateAgentStorageRequest
+     *
+     * @returns CreateAgentStorageResponse
+     *
+     * @param CreateAgentStorageRequest $request
+     *
+     * @return CreateAgentStorageResponse
+     */
+    public function createAgentStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAgentStorageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates an instance.
      *
      * @remarks
@@ -398,7 +538,12 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 创建VCU实例.
+     * Creates a VCU instance.
+     *
+     * @remarks
+     * - **Before you call this operation, ensure that you understand the billing methods and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * - An Alibaba Cloud account can create a maximum of 10 instances. The instance names must be unique within the same region.
+     * - The cluster type (instance type) cannot be changed after an instance is created. Select the cluster type with caution.
      *
      * @param request - CreateVCUInstanceRequest
      * @param headers - map
@@ -480,7 +625,12 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 创建VCU实例.
+     * Creates a VCU instance.
+     *
+     * @remarks
+     * - **Before you call this operation, ensure that you understand the billing methods and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * - An Alibaba Cloud account can create a maximum of 10 instances. The instance names must be unique within the same region.
+     * - The cluster type (instance type) cannot be changed after an instance is created. Select the cluster type with caution.
      *
      * @param request - CreateVCUInstanceRequest
      *
@@ -496,6 +646,75 @@ class Tablestore extends OpenApiClient
         $headers = [];
 
         return $this->createVCUInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an agent store.
+     *
+     * @remarks
+     * - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
+     * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+     *
+     * @param request - DeleteAgentStorageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentStorageResponse
+     *
+     * @param DeleteAgentStorageRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteAgentStorageResponse
+     */
+    public function deleteAgentStorageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentStorageName) {
+            @$body['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgentStorage',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/deleteagentstorage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an agent store.
+     *
+     * @remarks
+     * - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
+     * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+     *
+     * @param request - DeleteAgentStorageRequest
+     *
+     * @returns DeleteAgentStorageResponse
+     *
+     * @param DeleteAgentStorageRequest $request
+     *
+     * @return DeleteAgentStorageResponse
+     */
+    public function deleteAgentStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAgentStorageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -643,7 +862,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 删除VCU实例.
+     * Deletes a VCU instance.
      *
      * @param request - DeleteVCUInstanceRequest
      * @param headers - map
@@ -685,7 +904,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 删除VCU实例.
+     * Deletes a VCU instance.
      *
      * @param request - DeleteVCUInstanceRequest
      *
@@ -704,7 +923,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Queries supported regions.
+     * Retrieves a list of available regions.
      *
      * @param request - DescribeRegionsRequest
      * @param headers - map
@@ -746,7 +965,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Queries supported regions.
+     * Retrieves a list of available regions.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -762,6 +981,67 @@ class Tablestore extends OpenApiClient
         $headers = [];
 
         return $this->describeRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves agent storage.
+     *
+     * @param request - GetAgentStorageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentStorageResponse
+     *
+     * @param GetAgentStorageRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetAgentStorageResponse
+     */
+    public function getAgentStorageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentStorageName) {
+            @$query['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentStorage',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/getagentstorage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves agent storage.
+     *
+     * @param request - GetAgentStorageRequest
+     *
+     * @returns GetAgentStorageResponse
+     *
+     * @param GetAgentStorageRequest $request
+     *
+     * @return GetAgentStorageResponse
+     */
+    public function getAgentStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAgentStorageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -826,7 +1106,102 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 列举集群类型.
+     * Lists agent storages.
+     *
+     * @param tmpReq - ListAgentStoragesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentStoragesResponse
+     *
+     * @param ListAgentStoragesRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAgentStoragesResponse
+     */
+    public function listAgentStoragesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListAgentStoragesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentStorageNameList) {
+            $request->agentStorageNameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentStorageNameList, 'AgentStorageNameList', 'simple');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentStorageName) {
+            @$query['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        if (null !== $request->agentStorageNameListShrink) {
+            @$query['AgentStorageNameList'] = $request->agentStorageNameListShrink;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAgentStorages',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/listagentstorages',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAgentStoragesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists agent storages.
+     *
+     * @param request - ListAgentStoragesRequest
+     *
+     * @returns ListAgentStoragesResponse
+     *
+     * @param ListAgentStoragesRequest $request
+     *
+     * @return ListAgentStoragesResponse
+     */
+    public function listAgentStorages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAgentStoragesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Lists the supported cluster types in the current region.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -859,7 +1234,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 列举集群类型.
+     * Lists the supported cluster types in the current region.
      *
      * @returns ListClusterTypeResponse
      *
@@ -1056,7 +1431,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 获取实例的vpcInfo列表.
+     * Retrieves a list of VPC information for an instance.
      *
      * @param request - ListVpcInfoByInstanceRequest
      * @param headers - map
@@ -1106,7 +1481,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 获取实例的vpcInfo列表.
+     * Retrieves a list of VPC information for an instance.
      *
      * @param request - ListVpcInfoByInstanceRequest
      *
@@ -1125,7 +1500,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 获取实例的vpcInfo列表.
+     * Retrieves a list of VpcInfo objects for a specified Virtual Private Cloud (VPC).
      *
      * @param request - ListVpcInfoByVpcRequest
      * @param headers - map
@@ -1175,7 +1550,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 获取实例的vpcInfo列表.
+     * Retrieves a list of VpcInfo objects for a specified Virtual Private Cloud (VPC).
      *
      * @param request - ListVpcInfoByVpcRequest
      *
@@ -1263,7 +1638,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 解绑vpc.
+     * Detaches an instance from a VPC.
      *
      * @param request - UnbindInstance2VpcRequest
      * @param headers - map
@@ -1309,7 +1684,7 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * 解绑vpc.
+     * Detaches an instance from a VPC.
      *
      * @param request - UnbindInstance2VpcRequest
      *
@@ -1407,6 +1782,87 @@ class Tablestore extends OpenApiClient
     }
 
     /**
+     * Updates agent storage.
+     *
+     * @param request - UpdateAgentStorageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentStorageResponse
+     *
+     * @param UpdateAgentStorageRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateAgentStorageResponse
+     */
+    public function updateAgentStorageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentStorageDescription) {
+            @$body['AgentStorageDescription'] = $request->agentStorageDescription;
+        }
+
+        if (null !== $request->agentStorageName) {
+            @$body['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        if (null !== $request->aliasName) {
+            @$body['AliasName'] = $request->aliasName;
+        }
+
+        if (null !== $request->network) {
+            @$body['Network'] = $request->network;
+        }
+
+        if (null !== $request->networkSourceACL) {
+            @$body['NetworkSourceACL'] = $request->networkSourceACL;
+        }
+
+        if (null !== $request->networkTypeACL) {
+            @$body['NetworkTypeACL'] = $request->networkTypeACL;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgentStorage',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/updateagentstorage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates agent storage.
+     *
+     * @param request - UpdateAgentStorageRequest
+     *
+     * @returns UpdateAgentStorageResponse
+     *
+     * @param UpdateAgentStorageRequest $request
+     *
+     * @return UpdateAgentStorageResponse
+     */
+    public function updateAgentStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAgentStorageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Updates instance information.
      *
      * @param request - UpdateInstanceRequest
@@ -1491,9 +1947,9 @@ class Tablestore extends OpenApiClient
      * Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
      *
      * @remarks
-     *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-     * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
-     * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+     * - **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * - After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+     * - To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
      *
      * @param request - UpdateInstanceElasticVCUUpperLimitRequest
      * @param headers - map
@@ -1542,9 +1998,9 @@ class Tablestore extends OpenApiClient
      * Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
      *
      * @remarks
-     *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-     * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
-     * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+     * - **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * - After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+     * - To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
      *
      * @param request - UpdateInstanceElasticVCUUpperLimitRequest
      *
