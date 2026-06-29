@@ -1,3 +1,8 @@
+2026-06-29 Version: 3.3.0
+- Support API DescribeDDoSOverseasAttackCount.
+- Support API GetDcvDelegation.
+
+
 2026-06-23 Version: 3.2.0
 - Support API DescribeDDoSBpsMax.
 - Support API DescribeDDoSEventMax.
