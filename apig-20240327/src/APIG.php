@@ -154,6 +154,9 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListServicesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesResponse;
@@ -163,10 +166,15 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ResetGatewayQuotaRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\RestartGatewayResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\SyncMCPServersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UndeployHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UnDeployMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UninstallPluginResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleRequest;
@@ -606,7 +614,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates and associates a policy.
+     * Creates and attaches a policy.
      *
      * @param request - CreateAndAttachPolicyRequest
      * @param headers - map
@@ -676,7 +684,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates and associates a policy.
+     * Creates and attaches a policy.
      *
      * @param request - CreateAndAttachPolicyRequest
      *
@@ -859,7 +867,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Create consumer authorization rules.
+     * Creates consumer authorization rules.
      *
      * @param request - CreateConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -901,7 +909,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Create consumer authorization rules.
+     * Creates consumer authorization rules.
      *
      * @param request - CreateConsumerAuthorizationRulesRequest
      *
@@ -1115,7 +1123,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * The zone information.
+     * Creates a cloud-native gateway.
      *
      * @param request - CreateGatewayRequest
      * @param headers - map
@@ -1197,7 +1205,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * The zone information.
+     * Creates a cloud-native gateway.
      *
      * @param request - CreateGatewayRequest
      *
@@ -1507,7 +1515,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an MCP server.
+     * Creates a Model Context Protocol (MCP) server.
      *
      * @param request - CreateMcpServerRequest
      * @param headers - map
@@ -1601,7 +1609,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates an MCP server.
+     * Creates a Model Context Protocol (MCP) server.
      *
      * @param request - CreateMcpServerRequest
      *
@@ -1620,7 +1628,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Attaches a plug-in.
+     * Mounts a plug-in.
      *
      * @param request - CreatePluginAttachmentRequest
      * @param headers - map
@@ -1686,7 +1694,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Attaches a plug-in.
+     * Mounts a plug-in.
      *
      * @param request - CreatePluginAttachmentRequest
      *
@@ -1939,7 +1947,7 @@ class APIG extends OpenApiClient
      * Creates a service.
      *
      * @remarks
-     * You can call this operation to create multiple services at a time.
+     * This operation supports creating multiple services.
      *
      * @param request - CreateServiceRequest
      * @param headers - map
@@ -2002,7 +2010,7 @@ class APIG extends OpenApiClient
      * Creates a service.
      *
      * @remarks
-     * You can call this operation to create multiple services at a time.
+     * This operation supports creating multiple services.
      *
      * @param request - CreateServiceRequest
      *
@@ -2088,7 +2096,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Create a source.
+     * Creates a source.
      *
      * @param request - CreateSourceRequest
      * @param headers - map
@@ -2146,7 +2154,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Create a source.
+     * Creates a source.
      *
      * @param request - CreateSourceRequest
      *
@@ -2165,7 +2173,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a consumer.
+     * Deletes an API consumer.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2199,7 +2207,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a consumer.
+     * Deletes an API consumer.
      *
      * @returns DeleteConsumerResponse
      *
@@ -2216,7 +2224,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a consumer authorization rule.
+     * Deletes an API consumer authorization rule.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2251,7 +2259,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a consumer authorization rule.
+     * Deletes an API consumer authorization rule.
      *
      * @returns DeleteConsumerAuthorizationRuleResponse
      *
@@ -2376,7 +2384,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a Cloud-native API Gateway instance.
+     * Deletes a gateway.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2410,7 +2418,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a Cloud-native API Gateway instance.
+     * Deletes a gateway.
      *
      * @returns DeleteGatewayResponse
      *
@@ -2492,7 +2500,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a security group rule from a Cloud-native API Gateway instance.
+     * Deletes a gateway security group rule.
      *
      * @param request - DeleteGatewaySecurityGroupRuleRequest
      * @param headers - map
@@ -2536,7 +2544,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a security group rule from a Cloud-native API Gateway instance.
+     * Deletes a gateway security group rule.
      *
      * @param request - DeleteGatewaySecurityGroupRuleRequest
      *
@@ -2608,7 +2616,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes an operation from an HTTP API.
+     * Deletes a specified operation.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2643,7 +2651,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes an operation from an HTTP API.
+     * Deletes a specified operation.
      *
      * @returns DeleteHttpApiOperationResponse
      *
@@ -2765,7 +2773,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a plug-in attachment.
+     * Deletes a plugin mount.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2799,7 +2807,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a plug-in attachment.
+     * Deletes a plugin mount.
      *
      * @returns DeletePluginAttachmentResponse
      *
@@ -3079,7 +3087,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete a service source.
+     * Deletes a service source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3113,7 +3121,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Delete a service source.
+     * Deletes a service source.
      *
      * @returns DeleteSourceResponse
      *
@@ -3130,7 +3138,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deploy an HTTP API, including REST and HTTP API routes.
+     * Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
      *
      * @param request - DeployHttpApiRequest
      * @param headers - map
@@ -3181,7 +3189,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deploy an HTTP API, including REST and HTTP API routes.
+     * Publishes an HTTP API. This includes REST APIs and routes within HTTP APIs.
      *
      * @param request - DeployHttpApiRequest
      *
@@ -3313,7 +3321,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Exports the specified HTTP API.
+     * Exports a specified HTTP API.
      *
      * @param request - ExportHttpApiRequest
      * @param headers - map
@@ -3364,7 +3372,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Exports the specified HTTP API.
+     * Exports a specified HTTP API.
      *
      * @param request - ExportHttpApiRequest
      *
@@ -3488,7 +3496,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains data from dashboards.
+     * Retrieves the monitoring log dashboard.
      *
      * @param tmpReq - GetDashboardRequest
      * @param headers - map
@@ -3569,7 +3577,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Obtains data from dashboards.
+     * Retrieves the monitoring log dashboard.
      *
      * @param request - GetDashboardRequest
      *
@@ -3982,7 +3990,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Get Operation.
+     * Retrieves operation information.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4017,7 +4025,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Get Operation.
+     * Retrieves operation information.
      *
      * @returns GetHttpApiOperationResponse
      *
@@ -4196,7 +4204,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a policy.
+     * Retrieves a policy.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4230,7 +4238,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a policy.
+     * Retrieves a policy.
      *
      * @returns GetPolicyResponse
      *
@@ -4473,7 +4481,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a service.
+     * Gets service details.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4507,7 +4515,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a service.
+     * Gets service details.
      *
      * @returns GetServiceResponse
      *
@@ -4524,7 +4532,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a service source.
+     * Retrieves the details of a service source.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4558,7 +4566,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the details of a service source.
+     * Retrieves the details of a service source.
      *
      * @returns GetSourceResponse
      *
@@ -6354,7 +6362,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries policy templates.
+     * Retrieves policy templates.
      *
      * @param request - ListPolicyClassesRequest
      * @param headers - map
@@ -6420,7 +6428,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries policy templates.
+     * Retrieves policy templates.
      *
      * @param request - ListPolicyClassesRequest
      *
@@ -6591,7 +6599,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of services.
+     * Retrieves a list of services.
      *
      * @param request - ListServicesRequest
      * @param headers - map
@@ -6657,7 +6665,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of services.
+     * Retrieves a list of services.
      *
      * @param request - ListServicesRequest
      *
@@ -6746,6 +6754,89 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listSslCertsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查标签接口.
+     *
+     * @param tmpReq - ListTagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListTagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
+        }
+
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['ResourceId'] = $request->resourceIdShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/tags',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查标签接口.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7192,6 +7283,75 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 打标签接口.
+     *
+     * @param request - TagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->resourceId) {
+            @$body['resourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$body['resourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$body['tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/tags',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 打标签接口.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Undeploys an MCP server.
      *
      * @param headers - map
@@ -7369,7 +7529,90 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates and associates a policy.
+     * 删标签接口.
+     *
+     * @param tmpReq - UntagResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $tmpReq
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UntagResourcesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceId) {
+            $request->resourceIdShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceId, 'ResourceId', 'json');
+        }
+
+        if (null !== $tmpReq->tagKey) {
+            $request->tagKeyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tagKey, 'TagKey', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->resourceIdShrink) {
+            @$query['ResourceId'] = $request->resourceIdShrink;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKeyShrink) {
+            @$query['TagKey'] = $request->tagKeyShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/tags',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删标签接口.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Updates and mounts a policy.
      *
      * @param request - UpdateAndAttachPolicyRequest
      * @param headers - map
@@ -7436,7 +7679,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Updates and associates a policy.
+     * Updates and mounts a policy.
      *
      * @param request - UpdateAndAttachPolicyRequest
      *
@@ -7611,7 +7854,7 @@ class APIG extends OpenApiClient
      * Updates a domain name.
      *
      * @remarks
-     * Only sources of the **Container Service** type can update the listener Ingress configuration.
+     * Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
      *
      * @param request - UpdateDomainRequest
      * @param headers - map
@@ -7697,7 +7940,7 @@ class APIG extends OpenApiClient
      * Updates a domain name.
      *
      * @remarks
-     * Only sources of the **Container Service** type can update the listener Ingress configuration.
+     * Only sources of the **Container Service** type allow you to update the listener Ingress configuration.
      *
      * @param request - UpdateDomainRequest
      *
@@ -7856,6 +8099,8 @@ class APIG extends OpenApiClient
     /**
      * The response message returned.
      *
+     * @deprecated OpenAPI UpdateGatewayName is deprecated
+     *
      * @param request - UpdateGatewayNameRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7896,8 +8141,11 @@ class APIG extends OpenApiClient
         return UpdateGatewayNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * The response message returned.
+     *
+     * @deprecated OpenAPI UpdateGatewayName is deprecated
      *
      * @param request - UpdateGatewayNameRequest
      *
