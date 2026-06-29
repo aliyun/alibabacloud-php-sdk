@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\Aidge\V20260428\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ImageTranslationProRequest extends Model
+class ImageTranslationPlusRequest extends Model
 {
-    /**
-     * @var bool
-     */
-    public $async;
-
     /**
      * @var string
      */
@@ -48,7 +43,6 @@ class ImageTranslationProRequest extends Model
      */
     public $useImageEditor;
     protected $_name = [
-        'async' => 'Async',
         'glossary' => 'Glossary',
         'imageUrl' => 'ImageUrl',
         'includingProductArea' => 'IncludingProductArea',
@@ -66,10 +60,6 @@ class ImageTranslationProRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->async) {
-            $res['Async'] = $this->async;
-        }
-
         if (null !== $this->glossary) {
             $res['Glossary'] = $this->glossary;
         }
@@ -109,10 +99,6 @@ class ImageTranslationProRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Async'])) {
-            $model->async = $map['Async'];
-        }
-
         if (isset($map['Glossary'])) {
             $model->glossary = $map['Glossary'];
         }
