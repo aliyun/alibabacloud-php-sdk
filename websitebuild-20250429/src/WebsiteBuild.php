@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppNotificationSceneReq
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppNotificationSceneResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateInspirationRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateInspirationResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateMaterialDirectoryRequest;
@@ -1861,6 +1863,87 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAppTokenServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a resource plan.
+     *
+     * @param request - CreateInspirationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInspirationResponse
+     *
+     * @param CreateInspirationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateInspirationResponse
+     */
+    public function createInspirationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->amountspec) {
+            @$query['Amountspec'] = $request->amountspec;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
+        }
+
+        if (null !== $request->pricingCycle) {
+            @$query['PricingCycle'] = $request->pricingCycle;
+        }
+
+        if (null !== $request->quantity) {
+            @$query['Quantity'] = $request->quantity;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInspiration',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInspirationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a resource plan.
+     *
+     * @param request - CreateInspirationRequest
+     *
+     * @returns CreateInspirationResponse
+     *
+     * @param CreateInspirationRequest $request
+     *
+     * @return CreateInspirationResponse
+     */
+    public function createInspiration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInspirationWithOptions($request, $runtime);
     }
 
     /**
