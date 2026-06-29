@@ -521,6 +521,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\RerankResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RerankShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetAccountPasswordResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetBranchRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetBranchResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetIMVMonitorDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetIMVMonitorDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResetSupabaseProjectPasswordRequest;
@@ -529,6 +531,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartSupabaseProjectRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestartSupabaseProjectResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestoreBranchRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestoreBranchResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestoreSnapshotRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RestoreSnapshotResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeDataRedistributeRequest;
@@ -539,6 +543,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSaasServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSaasServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSupabaseProjectRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ResumeSupabaseProjectResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetAsDefaultBranchRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetAsDefaultBranchResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetDataShareInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetDataShareInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SetDataShareInstanceShrinkRequest;
@@ -562,6 +568,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagSupabaseProjectRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagSupabaseProjectResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateBranchRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateBranchResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataShrinkRequest;
@@ -20485,6 +20493,77 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * Resets a Supabase branch.
+     *
+     * @remarks
+     * Resets a child branch to the latest data of its parent branch. The main branch, branches without a parent branch, branches with child branches, and protected branches cannot be reset.
+     *
+     * @param Request - ResetBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetBranchResponse
+     *
+     * @param ResetBranchRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ResetBranchResponse
+     */
+    public function resetBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetBranch',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resets a Supabase branch.
+     *
+     * @remarks
+     * Resets a child branch to the latest data of its parent branch. The main branch, branches without a parent branch, branches with child branches, and protected branches cannot be reset.
+     *
+     * @param Request - ResetBranchRequest
+     *
+     * @returns ResetBranchResponse
+     *
+     * @param ResetBranchRequest $request
+     *
+     * @return ResetBranchResponse
+     */
+    public function resetBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetBranchWithOptions($request, $runtime);
+    }
+
+    /**
      * Resets the IMV statistics.
      *
      * @param Request - ResetIMVMonitorDataRequest
@@ -20752,6 +20831,97 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartSupabaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Recovers a Supabase branch.
+     *
+     * @remarks
+     * Recovers a target branch to a specified point in time or LSN of the source branch. Before recovery, you can specify a backup branch name to preserve the original target branch.
+     *
+     * @param Request - RestoreBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestoreBranchResponse
+     *
+     * @param RestoreBranchRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RestoreBranchResponse
+     */
+    public function restoreBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->preserveUnderName) {
+            @$query['PreserveUnderName'] = $request->preserveUnderName;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sourceBranchId) {
+            @$query['SourceBranchId'] = $request->sourceBranchId;
+        }
+
+        if (null !== $request->sourceBranchLsn) {
+            @$query['SourceBranchLsn'] = $request->sourceBranchLsn;
+        }
+
+        if (null !== $request->sourceBranchTimestamp) {
+            @$query['SourceBranchTimestamp'] = $request->sourceBranchTimestamp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestoreBranch',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestoreBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Recovers a Supabase branch.
+     *
+     * @remarks
+     * Recovers a target branch to a specified point in time or LSN of the source branch. Before recovery, you can specify a backup branch name to preserve the original target branch.
+     *
+     * @param Request - RestoreBranchRequest
+     *
+     * @returns RestoreBranchResponse
+     *
+     * @param RestoreBranchRequest $request
+     *
+     * @return RestoreBranchResponse
+     */
+    public function restoreBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restoreBranchWithOptions($request, $runtime);
     }
 
     /**
@@ -21109,6 +21279,77 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeSupabaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Sets the default branch for a Supabase project.
+     *
+     * @remarks
+     * Sets a specified branch as the default branch for a Supabase project.
+     *
+     * @param Request - SetAsDefaultBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAsDefaultBranchResponse
+     *
+     * @param SetAsDefaultBranchRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetAsDefaultBranchResponse
+     */
+    public function setAsDefaultBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetAsDefaultBranch',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetAsDefaultBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Sets the default branch for a Supabase project.
+     *
+     * @remarks
+     * Sets a specified branch as the default branch for a Supabase project.
+     *
+     * @param Request - SetAsDefaultBranchRequest
+     *
+     * @returns SetAsDefaultBranchResponse
+     *
+     * @param SetAsDefaultBranchRequest $request
+     *
+     * @return SetAsDefaultBranchResponse
+     */
+    public function setAsDefaultBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAsDefaultBranchWithOptions($request, $runtime);
     }
 
     /**
@@ -21899,6 +22140,101 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagSupabaseProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates Supabase branch information.
+     *
+     * @remarks
+     * This operation modifies the branch name, description, tags, protection status, and automatic deletion time upon expiration.
+     *
+     * @param Request - UpdateBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBranchResponse
+     *
+     * @param UpdateBranchRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateBranchResponse
+     */
+    public function updateBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
+        if (null !== $request->clearExpiresAt) {
+            @$query['ClearExpiresAt'] = $request->clearExpiresAt;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->expiresAt) {
+            @$query['ExpiresAt'] = $request->expiresAt;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->protected) {
+            @$query['Protected'] = $request->protected;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBranch',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates Supabase branch information.
+     *
+     * @remarks
+     * This operation modifies the branch name, description, tags, protection status, and automatic deletion time upon expiration.
+     *
+     * @param Request - UpdateBranchRequest
+     *
+     * @returns UpdateBranchResponse
+     *
+     * @param UpdateBranchRequest $request
+     *
+     * @return UpdateBranchResponse
+     */
+    public function updateBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBranchWithOptions($request, $runtime);
     }
 
     /**
