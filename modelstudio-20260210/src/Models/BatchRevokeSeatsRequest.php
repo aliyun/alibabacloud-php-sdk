@@ -5,33 +5,28 @@
 namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\BatchRevokeSeatsRequest\items;
 
-class BatchAssignSeatsRequest extends Model
+class BatchRevokeSeatsRequest extends Model
 {
     /**
-     * @var string[]
+     * @var items[]
      */
-    public $accountIds;
+    public $items;
 
     /**
      * @var string
      */
     public $locale;
-
-    /**
-     * @var string
-     */
-    public $seatType;
     protected $_name = [
-        'accountIds' => 'AccountIds',
+        'items' => 'Items',
         'locale' => 'Locale',
-        'seatType' => 'SeatType',
     ];
 
     public function validate()
     {
-        if (\is_array($this->accountIds)) {
-            Model::validateArray($this->accountIds);
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
         }
         parent::validate();
     }
@@ -39,12 +34,12 @@ class BatchAssignSeatsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accountIds) {
-            if (\is_array($this->accountIds)) {
-                $res['AccountIds'] = [];
+        if (null !== $this->items) {
+            if (\is_array($this->items)) {
+                $res['Items'] = [];
                 $n1 = 0;
-                foreach ($this->accountIds as $item1) {
-                    $res['AccountIds'][$n1] = $item1;
+                foreach ($this->items as $item1) {
+                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -52,10 +47,6 @@ class BatchAssignSeatsRequest extends Model
 
         if (null !== $this->locale) {
             $res['Locale'] = $this->locale;
-        }
-
-        if (null !== $this->seatType) {
-            $res['SeatType'] = $this->seatType;
         }
 
         return $res;
@@ -69,12 +60,12 @@ class BatchAssignSeatsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountIds'])) {
-            if (!empty($map['AccountIds'])) {
-                $model->accountIds = [];
+        if (isset($map['Items'])) {
+            if (!empty($map['Items'])) {
+                $model->items = [];
                 $n1 = 0;
-                foreach ($map['AccountIds'] as $item1) {
-                    $model->accountIds[$n1] = $item1;
+                foreach ($map['Items'] as $item1) {
+                    $model->items[$n1] = items::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -82,10 +73,6 @@ class BatchAssignSeatsRequest extends Model
 
         if (isset($map['Locale'])) {
             $model->locale = $map['Locale'];
-        }
-
-        if (isset($map['SeatType'])) {
-            $model->seatType = $map['SeatType'];
         }
 
         return $model;

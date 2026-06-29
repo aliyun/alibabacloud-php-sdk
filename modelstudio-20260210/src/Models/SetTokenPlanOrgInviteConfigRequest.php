@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateTokenPlanKeyRequest extends Model
+class SetTokenPlanOrgInviteConfigRequest extends Model
 {
     /**
      * @var string
      */
-    public $accountId;
+    public $defaultRoleId;
 
     /**
      * @var string
      */
-    public $description;
+    public $seatAssignStrategy;
     protected $_name = [
-        'accountId' => 'AccountId',
-        'description' => 'Description',
+        'defaultRoleId' => 'DefaultRoleId',
+        'seatAssignStrategy' => 'SeatAssignStrategy',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class CreateTokenPlanKeyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
+        if (null !== $this->defaultRoleId) {
+            $res['DefaultRoleId'] = $this->defaultRoleId;
         }
 
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->seatAssignStrategy) {
+            $res['SeatAssignStrategy'] = $this->seatAssignStrategy;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class CreateTokenPlanKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
+        if (isset($map['DefaultRoleId'])) {
+            $model->defaultRoleId = $map['DefaultRoleId'];
         }
 
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['SeatAssignStrategy'])) {
+            $model->seatAssignStrategy = $map['SeatAssignStrategy'];
         }
 
         return $model;

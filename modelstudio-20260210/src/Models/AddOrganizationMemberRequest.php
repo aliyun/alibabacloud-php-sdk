@@ -16,21 +16,6 @@ class AddOrganizationMemberRequest extends Model
     /**
      * @var string
      */
-    public $callerUacAccountId;
-
-    /**
-     * @var string
-     */
-    public $namespaceId;
-
-    /**
-     * @var string
-     */
-    public $orgId;
-
-    /**
-     * @var string
-     */
     public $orgRoleCode;
 
     /**
@@ -39,9 +24,6 @@ class AddOrganizationMemberRequest extends Model
     public $specType;
     protected $_name = [
         'accountName' => 'AccountName',
-        'callerUacAccountId' => 'CallerUacAccountId',
-        'namespaceId' => 'NamespaceId',
-        'orgId' => 'OrgId',
         'orgRoleCode' => 'OrgRoleCode',
         'specType' => 'SpecType',
     ];
@@ -56,18 +38,6 @@ class AddOrganizationMemberRequest extends Model
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
-        }
-
-        if (null !== $this->callerUacAccountId) {
-            $res['CallerUacAccountId'] = $this->callerUacAccountId;
-        }
-
-        if (null !== $this->namespaceId) {
-            $res['NamespaceId'] = $this->namespaceId;
-        }
-
-        if (null !== $this->orgId) {
-            $res['OrgId'] = $this->orgId;
         }
 
         if (null !== $this->orgRoleCode) {
@@ -91,18 +61,6 @@ class AddOrganizationMemberRequest extends Model
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
-        }
-
-        if (isset($map['CallerUacAccountId'])) {
-            $model->callerUacAccountId = $map['CallerUacAccountId'];
-        }
-
-        if (isset($map['NamespaceId'])) {
-            $model->namespaceId = $map['NamespaceId'];
-        }
-
-        if (isset($map['OrgId'])) {
-            $model->orgId = $map['OrgId'];
         }
 
         if (isset($map['OrgRoleCode'])) {

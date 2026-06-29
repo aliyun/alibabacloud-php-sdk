@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateTokenPlanKeyRequest extends Model
+class CreateTokenPlanInviteLinkRequest extends Model
 {
     /**
      * @var string
      */
-    public $accountId;
+    public $expireType;
 
     /**
      * @var string
      */
-    public $description;
+    public $ssoSource;
     protected $_name = [
-        'accountId' => 'AccountId',
-        'description' => 'Description',
+        'expireType' => 'ExpireType',
+        'ssoSource' => 'SsoSource',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class CreateTokenPlanKeyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
+        if (null !== $this->expireType) {
+            $res['ExpireType'] = $this->expireType;
         }
 
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->ssoSource) {
+            $res['SsoSource'] = $this->ssoSource;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class CreateTokenPlanKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
+        if (isset($map['ExpireType'])) {
+            $model->expireType = $map['ExpireType'];
         }
 
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['SsoSource'])) {
+            $model->ssoSource = $map['SsoSource'];
         }
 
         return $model;

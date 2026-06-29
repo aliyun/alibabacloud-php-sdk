@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class BatchAssignSeatsRequest extends Model
+class UpdateOrganizationMemberRequest extends Model
 {
     /**
      * @var string[]
@@ -16,16 +16,10 @@ class BatchAssignSeatsRequest extends Model
     /**
      * @var string
      */
-    public $locale;
-
-    /**
-     * @var string
-     */
-    public $seatType;
+    public $newRoleCode;
     protected $_name = [
         'accountIds' => 'AccountIds',
-        'locale' => 'Locale',
-        'seatType' => 'SeatType',
+        'newRoleCode' => 'NewRoleCode',
     ];
 
     public function validate()
@@ -50,12 +44,8 @@ class BatchAssignSeatsRequest extends Model
             }
         }
 
-        if (null !== $this->locale) {
-            $res['Locale'] = $this->locale;
-        }
-
-        if (null !== $this->seatType) {
-            $res['SeatType'] = $this->seatType;
+        if (null !== $this->newRoleCode) {
+            $res['NewRoleCode'] = $this->newRoleCode;
         }
 
         return $res;
@@ -80,12 +70,8 @@ class BatchAssignSeatsRequest extends Model
             }
         }
 
-        if (isset($map['Locale'])) {
-            $model->locale = $map['Locale'];
-        }
-
-        if (isset($map['SeatType'])) {
-            $model->seatType = $map['SeatType'];
+        if (isset($map['NewRoleCode'])) {
+            $model->newRoleCode = $map['NewRoleCode'];
         }
 
         return $model;

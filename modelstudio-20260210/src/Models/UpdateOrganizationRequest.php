@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateTokenPlanKeyRequest extends Model
+class UpdateOrganizationRequest extends Model
 {
     /**
      * @var string
      */
-    public $accountId;
+    public $description;
 
     /**
      * @var string
      */
-    public $description;
+    public $name;
     protected $_name = [
-        'accountId' => 'AccountId',
         'description' => 'Description',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class CreateTokenPlanKeyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['AccountId'] = $this->accountId;
-        }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class CreateTokenPlanKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccountId'])) {
-            $model->accountId = $map['AccountId'];
-        }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         return $model;

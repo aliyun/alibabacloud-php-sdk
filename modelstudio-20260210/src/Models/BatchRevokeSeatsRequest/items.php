@@ -2,24 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models;
+namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models\BatchRevokeSeatsRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateTokenPlanKeyRequest extends Model
+class items extends Model
 {
     /**
      * @var string
      */
     public $accountId;
-
-    /**
-     * @var string
-     */
-    public $description;
     protected $_name = [
         'accountId' => 'AccountId',
-        'description' => 'Description',
     ];
 
     public function validate()
@@ -32,10 +26,6 @@ class CreateTokenPlanKeyRequest extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
-        }
-
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
         }
 
         return $res;
@@ -51,10 +41,6 @@ class CreateTokenPlanKeyRequest extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
-        }
-
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
         }
 
         return $model;

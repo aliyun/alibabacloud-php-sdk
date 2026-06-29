@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetSubscriptionSeatDetailsRequest extends Model
+class ListSubscriptionSharedPackagesRequest extends Model
 {
     /**
      * @var int
@@ -19,30 +19,12 @@ class GetSubscriptionSeatDetailsRequest extends Model
     public $pageSize;
 
     /**
-     * @var bool
-     */
-    public $queryAssigned;
-
-    /**
-     * @var string
-     */
-    public $seatId;
-
-    /**
-     * @var string
-     */
-    public $seatType;
-
-    /**
      * @var string[]
      */
     public $statusList;
     protected $_name = [
         'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'queryAssigned' => 'QueryAssigned',
-        'seatId' => 'SeatId',
-        'seatType' => 'SeatType',
         'statusList' => 'StatusList',
     ];
 
@@ -63,18 +45,6 @@ class GetSubscriptionSeatDetailsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-
-        if (null !== $this->queryAssigned) {
-            $res['QueryAssigned'] = $this->queryAssigned;
-        }
-
-        if (null !== $this->seatId) {
-            $res['SeatId'] = $this->seatId;
-        }
-
-        if (null !== $this->seatType) {
-            $res['SeatType'] = $this->seatType;
         }
 
         if (null !== $this->statusList) {
@@ -105,18 +75,6 @@ class GetSubscriptionSeatDetailsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-
-        if (isset($map['QueryAssigned'])) {
-            $model->queryAssigned = $map['QueryAssigned'];
-        }
-
-        if (isset($map['SeatId'])) {
-            $model->seatId = $map['SeatId'];
-        }
-
-        if (isset($map['SeatType'])) {
-            $model->seatType = $map['SeatType'];
         }
 
         if (isset($map['StatusList'])) {

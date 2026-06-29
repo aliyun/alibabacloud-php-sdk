@@ -10,8 +10,13 @@ use AlibabaCloud\SDK\ModelStudio\V20260210\Models\AddOrganizationMemberRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\AddOrganizationMemberResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\BatchAssignSeatsRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\BatchAssignSeatsResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\BatchRevokeSeatsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\BatchRevokeSeatsResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\BatchRevokeSeatsShrinkRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateTokenPlanInviteLinkRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateTokenPlanInviteLinkResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateTokenPlanKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateTokenPlanKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateWorkspaceRequest;
@@ -24,16 +29,44 @@ use AlibabaCloud\SDK\ModelStudio\V20260210\Models\DisableApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\EnableApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\EnableApiKeyResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetOrganizationMemberSeatStatsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetOrganizationMemberSeatStatsResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetOrganizationRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetOrganizationResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetSubscriptionSeatDetailsRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetSubscriptionSeatDetailsResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetSubscriptionStatsRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetSubscriptionStatsResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetTokenPlanAccountDetailRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetTokenPlanAccountDetailResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetTokenPlanInviteLinkRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetTokenPlanInviteLinkResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetTokenPlanOrgInviteConfigRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\GetTokenPlanOrgInviteConfigResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListApiKeysRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListApiKeysResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListOrganizationMembersRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListOrganizationMembersResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListSubscriptionSharedPackagesRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListSubscriptionSharedPackagesResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ListWorkspacesResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\RemoveOrganizationMemberRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\RemoveOrganizationMemberResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ResetApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\ResetApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\RevokeTokenPlanInviteLinkRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\RevokeTokenPlanInviteLinkResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\RotateTokenPlanKeyRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\RotateTokenPlanKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\SetTokenPlanOrgInviteConfigRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\SetTokenPlanOrgInviteConfigResponse;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateApiKeyRequest;
 use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateApiKeyResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationMemberRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationMemberResponse;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationRequest;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\UpdateOrganizationResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -102,18 +135,6 @@ class ModelStudio extends OpenApiClient
             @$query['AccountName'] = $request->accountName;
         }
 
-        if (null !== $request->callerUacAccountId) {
-            @$query['CallerUacAccountId'] = $request->callerUacAccountId;
-        }
-
-        if (null !== $request->namespaceId) {
-            @$query['NamespaceId'] = $request->namespaceId;
-        }
-
-        if (null !== $request->orgId) {
-            @$query['OrgId'] = $request->orgId;
-        }
-
         if (null !== $request->orgRoleCode) {
             @$query['OrgRoleCode'] = $request->orgRoleCode;
         }
@@ -161,7 +182,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Assigns seats in bulk to the member level.
+     * Assigns seats in batches to the member level.
      *
      * @param request - BatchAssignSeatsRequest
      * @param headers - map
@@ -183,28 +204,12 @@ class ModelStudio extends OpenApiClient
             @$query['AccountIds'] = $request->accountIds;
         }
 
-        if (null !== $request->accountIdsStr) {
-            @$query['AccountIdsStr'] = $request->accountIdsStr;
-        }
-
-        if (null !== $request->callerUacAccountId) {
-            @$query['CallerUacAccountId'] = $request->callerUacAccountId;
-        }
-
         if (null !== $request->locale) {
             @$query['Locale'] = $request->locale;
         }
 
-        if (null !== $request->namespaceId) {
-            @$query['NamespaceId'] = $request->namespaceId;
-        }
-
         if (null !== $request->seatType) {
             @$query['SeatType'] = $request->seatType;
-        }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
@@ -227,7 +232,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Assigns seats in bulk to the member level.
+     * Assigns seats in batches to the member level.
      *
      * @param request - BatchAssignSeatsRequest
      *
@@ -243,6 +248,77 @@ class ModelStudio extends OpenApiClient
         $headers = [];
 
         return $this->batchAssignSeatsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Revokes member-level seats in batches.
+     *
+     * @param tmpReq - BatchRevokeSeatsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchRevokeSeatsResponse
+     *
+     * @param BatchRevokeSeatsRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BatchRevokeSeatsResponse
+     */
+    public function batchRevokeSeatsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchRevokeSeatsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->items) {
+            $request->itemsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->items, 'Items', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->itemsShrink) {
+            @$query['Items'] = $request->itemsShrink;
+        }
+
+        if (null !== $request->locale) {
+            @$query['Locale'] = $request->locale;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchRevokeSeats',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/subscription/seat-revocations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchRevokeSeatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Revokes member-level seats in batches.
+     *
+     * @param request - BatchRevokeSeatsRequest
+     *
+     * @returns BatchRevokeSeatsResponse
+     *
+     * @param BatchRevokeSeatsRequest $request
+     *
+     * @return BatchRevokeSeatsResponse
+     */
+    public function batchRevokeSeats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchRevokeSeatsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -317,6 +393,87 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
+     * Creates a TokenPlan member invitation link.
+     *
+     * @remarks
+     * A user can have only one valid invitation link at a time.
+     * If the user already has a valid invitation link, this operation returns the existing link.
+     * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
+     * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+     * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
+     * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+     *
+     * @param request - CreateTokenPlanInviteLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTokenPlanInviteLinkResponse
+     *
+     * @param CreateTokenPlanInviteLinkRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateTokenPlanInviteLinkResponse
+     */
+    public function createTokenPlanInviteLinkWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->expireType) {
+            @$query['ExpireType'] = $request->expireType;
+        }
+
+        if (null !== $request->ssoSource) {
+            @$query['SsoSource'] = $request->ssoSource;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTokenPlanInviteLink',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/invite/link/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTokenPlanInviteLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a TokenPlan member invitation link.
+     *
+     * @remarks
+     * A user can have only one valid invitation link at a time.
+     * If the user already has a valid invitation link, this operation returns the existing link.
+     * To create a new link, call the RevokeTokenPlanInviteLink operation to invalidate the current link first.
+     * This operation returns only the generated token. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+     * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
+     * * For the China site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+     *
+     * @param request - CreateTokenPlanInviteLinkRequest
+     *
+     * @returns CreateTokenPlanInviteLinkResponse
+     *
+     * @param CreateTokenPlanInviteLinkRequest $request
+     *
+     * @return CreateTokenPlanInviteLinkResponse
+     */
+    public function createTokenPlanInviteLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTokenPlanInviteLinkWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Creates a UAC API key.
      *
      * @param request - CreateTokenPlanKeyRequest
@@ -339,20 +496,8 @@ class ModelStudio extends OpenApiClient
             @$query['AccountId'] = $request->accountId;
         }
 
-        if (null !== $request->callerUacAccountId) {
-            @$query['CallerUacAccountId'] = $request->callerUacAccountId;
-        }
-
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
-        }
-
-        if (null !== $request->namespaceId) {
-            @$query['NamespaceId'] = $request->namespaceId;
-        }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
@@ -758,6 +903,122 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
+     * Retrieves information about a specified organization.
+     *
+     * @remarks
+     * Retrieves information about a specified organization by OrgId.
+     *
+     * @param request - GetOrganizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOrganizationResponse
+     *
+     * @param GetOrganizationRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetOrganizationResponse
+     */
+    public function getOrganizationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetOrganization',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/organization',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOrganizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves information about a specified organization.
+     *
+     * @remarks
+     * Retrieves information about a specified organization by OrgId.
+     *
+     * @param request - GetOrganizationRequest
+     *
+     * @returns GetOrganizationResponse
+     *
+     * @param GetOrganizationRequest $request
+     *
+     * @return GetOrganizationResponse
+     */
+    public function getOrganization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOrganizationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+     *
+     * @param request - GetOrganizationMemberSeatStatsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOrganizationMemberSeatStatsResponse
+     *
+     * @param GetOrganizationMemberSeatStatsRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetOrganizationMemberSeatStatsResponse
+     */
+    public function getOrganizationMemberSeatStatsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetOrganizationMemberSeatStats',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/organization/member-seat-stats',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOrganizationMemberSeatStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries organization member statistics information, including the total number of members, the number of administrators, the number of regular members, the number of members with allocated seats, and the number of members without allocated seats.
+     *
+     * @param request - GetOrganizationMemberSeatStatsRequest
+     *
+     * @returns GetOrganizationMemberSeatStatsResponse
+     *
+     * @param GetOrganizationMemberSeatStatsRequest $request
+     *
+     * @return GetOrganizationMemberSeatStatsResponse
+     */
+    public function getOrganizationMemberSeatStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getOrganizationMemberSeatStatsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries seat details by paging.
      *
      * @param request - GetSubscriptionSeatDetailsRequest
@@ -776,14 +1037,6 @@ class ModelStudio extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->callerUacAccountId) {
-            @$query['CallerUacAccountId'] = $request->callerUacAccountId;
-        }
-
-        if (null !== $request->namespaceId) {
-            @$query['NamespaceId'] = $request->namespaceId;
-        }
-
         if (null !== $request->pageNo) {
             @$query['PageNo'] = $request->pageNo;
         }
@@ -806,10 +1059,6 @@ class ModelStudio extends OpenApiClient
 
         if (null !== $request->statusList) {
             @$query['StatusList'] = $request->statusList;
-        }
-
-        if (null !== $request->statusListStr) {
-            @$query['StatusListStr'] = $request->statusListStr;
         }
 
         $req = new OpenApiRequest([
@@ -851,7 +1100,243 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Obtain the list of authentication credential API Key information.
+     * Queries the number of members and seats for member management.
+     *
+     * @param request - GetSubscriptionStatsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSubscriptionStatsResponse
+     *
+     * @param GetSubscriptionStatsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSubscriptionStatsResponse
+     */
+    public function getSubscriptionStatsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetSubscriptionStats',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/subscription/stats',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSubscriptionStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the number of members and seats for member management.
+     *
+     * @param request - GetSubscriptionStatsRequest
+     *
+     * @returns GetSubscriptionStatsResponse
+     *
+     * @param GetSubscriptionStatsRequest $request
+     *
+     * @return GetSubscriptionStatsResponse
+     */
+    public function getSubscriptionStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSubscriptionStatsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the TokenPlan account details and organization information.
+     *
+     * @remarks
+     * Retrieves the TokenPlan management platform account information when the user is logged in.
+     *
+     * @param request - GetTokenPlanAccountDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTokenPlanAccountDetailResponse
+     *
+     * @param GetTokenPlanAccountDetailRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetTokenPlanAccountDetailResponse
+     */
+    public function getTokenPlanAccountDetailWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTokenPlanAccountDetail',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/account',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTokenPlanAccountDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the TokenPlan account details and organization information.
+     *
+     * @remarks
+     * Retrieves the TokenPlan management platform account information when the user is logged in.
+     *
+     * @param request - GetTokenPlanAccountDetailRequest
+     *
+     * @returns GetTokenPlanAccountDetailResponse
+     *
+     * @param GetTokenPlanAccountDetailRequest $request
+     *
+     * @return GetTokenPlanAccountDetailResponse
+     */
+    public function getTokenPlanAccountDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTokenPlanAccountDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the TokenPlan member invitation link.
+     *
+     * @remarks
+     * This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+     * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
+     * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+     *
+     * @param request - GetTokenPlanInviteLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTokenPlanInviteLinkResponse
+     *
+     * @param GetTokenPlanInviteLinkRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetTokenPlanInviteLinkResponse
+     */
+    public function getTokenPlanInviteLinkWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTokenPlanInviteLink',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/invite/link/get',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTokenPlanInviteLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the TokenPlan member invitation link.
+     *
+     * @remarks
+     * This operation returns only the generated token and expiration time. The invitation link is assembled in the following format: `https://{host}/accept-invite?token=[token]&orgId=[orgId]`
+     * * For the China site, the host is tokenplan-enterprise.bailian.aliyunportal.com.
+     * * For the international site, the host is tokenplan-enterprise.modelstudio.aliyunportal.com.
+     *
+     * @param request - GetTokenPlanInviteLinkRequest
+     *
+     * @returns GetTokenPlanInviteLinkResponse
+     *
+     * @param GetTokenPlanInviteLinkRequest $request
+     *
+     * @return GetTokenPlanInviteLinkResponse
+     */
+    public function getTokenPlanInviteLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTokenPlanInviteLinkWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the TokenPlan member invitation configuration.
+     *
+     * @param request - GetTokenPlanOrgInviteConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTokenPlanOrgInviteConfigResponse
+     *
+     * @param GetTokenPlanOrgInviteConfigRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetTokenPlanOrgInviteConfigResponse
+     */
+    public function getTokenPlanOrgInviteConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetTokenPlanOrgInviteConfig',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/invite/config/get',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTokenPlanOrgInviteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the TokenPlan member invitation configuration.
+     *
+     * @param request - GetTokenPlanOrgInviteConfigRequest
+     *
+     * @returns GetTokenPlanOrgInviteConfigResponse
+     *
+     * @param GetTokenPlanOrgInviteConfigRequest $request
+     *
+     * @return GetTokenPlanOrgInviteConfigResponse
+     */
+    public function getTokenPlanOrgInviteConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTokenPlanOrgInviteConfigWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves a list of API key authentication credentials.
      *
      * @param request - ListApiKeysRequest
      * @param headers - map
@@ -885,6 +1370,14 @@ class ModelStudio extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->order) {
+            @$query['order'] = $request->order;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['workspaceId'] = $request->workspaceId;
         }
@@ -909,7 +1402,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Obtain the list of authentication credential API Key information.
+     * Retrieves a list of API key authentication credentials.
      *
      * @param request - ListApiKeysRequest
      *
@@ -925,6 +1418,152 @@ class ModelStudio extends OpenApiClient
         $headers = [];
 
         return $this->listApiKeysWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+     *
+     * @param request - ListOrganizationMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOrganizationMembersResponse
+     *
+     * @param ListOrganizationMembersRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListOrganizationMembersResponse
+     */
+    public function listOrganizationMembersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->hasSeat) {
+            @$query['HasSeat'] = $request->hasSeat;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListOrganizationMembers',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/organization/members',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOrganizationMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of organization members including seat information. Supports filtering by name, status, and seat assignment, and supports pagination.
+     *
+     * @param request - ListOrganizationMembersRequest
+     *
+     * @returns ListOrganizationMembersResponse
+     *
+     * @param ListOrganizationMembersRequest $request
+     *
+     * @return ListOrganizationMembersResponse
+     */
+    public function listOrganizationMembers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listOrganizationMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the details of shared packages by paging.
+     *
+     * @param request - ListSubscriptionSharedPackagesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubscriptionSharedPackagesResponse
+     *
+     * @param ListSubscriptionSharedPackagesRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListSubscriptionSharedPackagesResponse
+     */
+    public function listSubscriptionSharedPackagesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSubscriptionSharedPackages',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/subscription/shared-packages',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSubscriptionSharedPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of shared packages by paging.
+     *
+     * @param request - ListSubscriptionSharedPackagesRequest
+     *
+     * @returns ListSubscriptionSharedPackagesResponse
+     *
+     * @param ListSubscriptionSharedPackagesRequest $request
+     *
+     * @return ListSubscriptionSharedPackagesResponse
+     */
+    public function listSubscriptionSharedPackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSubscriptionSharedPackagesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1001,6 +1640,71 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
+     * Removes organization members. Before removal, checks whether the member holds a seat. If the member holds a seat, the removal is rejected.
+     *
+     * @param request - RemoveOrganizationMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveOrganizationMemberResponse
+     *
+     * @param RemoveOrganizationMemberRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RemoveOrganizationMemberResponse
+     */
+    public function removeOrganizationMemberWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountIds) {
+            @$query['AccountIds'] = $request->accountIds;
+        }
+
+        if (null !== $request->locale) {
+            @$query['Locale'] = $request->locale;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RemoveOrganizationMember',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/organization/member-removals',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes organization members. Before removal, checks whether the member holds a seat. If the member holds a seat, the removal is rejected.
+     *
+     * @param request - RemoveOrganizationMemberRequest
+     *
+     * @returns RemoveOrganizationMemberResponse
+     *
+     * @param RemoveOrganizationMemberRequest $request
+     *
+     * @return RemoveOrganizationMemberResponse
+     */
+    public function removeOrganizationMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeOrganizationMemberWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Resets an API key.
      *
      * @remarks
@@ -1061,6 +1765,193 @@ class ModelStudio extends OpenApiClient
         $headers = [];
 
         return $this->resetApiKeyWithOptions($apiKeyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Revokes a TokenPlan member invitation link.
+     *
+     * @param request - RevokeTokenPlanInviteLinkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeTokenPlanInviteLinkResponse
+     *
+     * @param RevokeTokenPlanInviteLinkRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RevokeTokenPlanInviteLinkResponse
+     */
+    public function revokeTokenPlanInviteLinkWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'RevokeTokenPlanInviteLink',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/invite/link/revoke',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeTokenPlanInviteLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Revokes a TokenPlan member invitation link.
+     *
+     * @param request - RevokeTokenPlanInviteLinkRequest
+     *
+     * @returns RevokeTokenPlanInviteLinkResponse
+     *
+     * @param RevokeTokenPlanInviteLinkRequest $request
+     *
+     * @return RevokeTokenPlanInviteLinkResponse
+     */
+    public function revokeTokenPlanInviteLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->revokeTokenPlanInviteLinkWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Resets a UAC API key.
+     *
+     * @remarks
+     * Only the API Key value changes. The API Key ID remains unchanged.
+     *
+     * @param request - RotateTokenPlanKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RotateTokenPlanKeyResponse
+     *
+     * @param RotateTokenPlanKeyRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RotateTokenPlanKeyResponse
+     */
+    public function rotateTokenPlanKeyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['ApiKeyId'] = $request->apiKeyId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RotateTokenPlanKey',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/api-key-rotations',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RotateTokenPlanKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resets a UAC API key.
+     *
+     * @remarks
+     * Only the API Key value changes. The API Key ID remains unchanged.
+     *
+     * @param request - RotateTokenPlanKeyRequest
+     *
+     * @returns RotateTokenPlanKeyResponse
+     *
+     * @param RotateTokenPlanKeyRequest $request
+     *
+     * @return RotateTokenPlanKeyResponse
+     */
+    public function rotateTokenPlanKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->rotateTokenPlanKeyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Configures the member invitation settings for a TokenPlan.
+     *
+     * @param request - SetTokenPlanOrgInviteConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetTokenPlanOrgInviteConfigResponse
+     *
+     * @param SetTokenPlanOrgInviteConfigRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetTokenPlanOrgInviteConfigResponse
+     */
+    public function setTokenPlanOrgInviteConfigWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->defaultRoleId) {
+            @$query['DefaultRoleId'] = $request->defaultRoleId;
+        }
+
+        if (null !== $request->seatAssignStrategy) {
+            @$query['SeatAssignStrategy'] = $request->seatAssignStrategy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetTokenPlanOrgInviteConfig',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/invite/config/set',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SetTokenPlanOrgInviteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Configures the member invitation settings for a TokenPlan.
+     *
+     * @param request - SetTokenPlanOrgInviteConfigRequest
+     *
+     * @returns SetTokenPlanOrgInviteConfigResponse
+     *
+     * @param SetTokenPlanOrgInviteConfigRequest $request
+     *
+     * @return SetTokenPlanOrgInviteConfigResponse
+     */
+    public function setTokenPlanOrgInviteConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->setTokenPlanOrgInviteConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1130,5 +2021,135 @@ class ModelStudio extends OpenApiClient
         $headers = [];
 
         return $this->updateApiKeyWithOptions($apiKeyId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies organization information.
+     *
+     * @param request - UpdateOrganizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOrganizationResponse
+     *
+     * @param UpdateOrganizationRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateOrganizationResponse
+     */
+    public function updateOrganizationWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOrganization',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/organization',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOrganizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies organization information.
+     *
+     * @param request - UpdateOrganizationRequest
+     *
+     * @returns UpdateOrganizationResponse
+     *
+     * @param UpdateOrganizationRequest $request
+     *
+     * @return UpdateOrganizationResponse
+     */
+    public function updateOrganization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOrganizationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies the roles of organization members.
+     *
+     * @param request - UpdateOrganizationMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOrganizationMemberResponse
+     *
+     * @param UpdateOrganizationMemberRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateOrganizationMemberResponse
+     */
+    public function updateOrganizationMemberWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accountIds) {
+            @$query['AccountIds'] = $request->accountIds;
+        }
+
+        if (null !== $request->newRoleCode) {
+            @$query['NewRoleCode'] = $request->newRoleCode;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOrganizationMember',
+            'version' => '2026-02-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/tokenplan/organization/members/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the roles of organization members.
+     *
+     * @param request - UpdateOrganizationMemberRequest
+     *
+     * @returns UpdateOrganizationMemberResponse
+     *
+     * @param UpdateOrganizationMemberRequest $request
+     *
+     * @return UpdateOrganizationMemberResponse
+     */
+    public function updateOrganizationMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateOrganizationMemberWithOptions($request, $headers, $runtime);
     }
 }
