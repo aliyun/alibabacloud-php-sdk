@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTaskWorkforceRequest extends Model
 {
@@ -18,17 +18,22 @@ class UpdateTaskWorkforceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->workforce)) {
+            Model::validateArray($this->workforce);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workforce) {
-            $res['Workforce'] = [];
-            if (null !== $this->workforce && \is_array($this->workforce)) {
-                $n = 0;
-                foreach ($this->workforce as $item) {
-                    $res['Workforce'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workforce)) {
+                $res['Workforce'] = [];
+                $n1 = 0;
+                foreach ($this->workforce as $item1) {
+                    $res['Workforce'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +41,21 @@ class UpdateTaskWorkforceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTaskWorkforceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Workforce'])) {
             if (!empty($map['Workforce'])) {
                 $model->workforce = [];
-                $n                = 0;
-                foreach ($map['Workforce'] as $item) {
-                    $model->workforce[$n++] = null !== $item ? SimpleWorkforce::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Workforce'] as $item1) {
+                    $model->workforce[$n1] = SimpleWorkforce::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

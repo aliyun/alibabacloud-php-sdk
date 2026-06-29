@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TaskAssginConfig extends Model
 {
@@ -28,28 +28,32 @@ class TaskAssginConfig extends Model
      */
     public $assignType;
     protected $_name = [
-        'assignCount'        => 'AssignCount',
-        'assignField'        => 'AssignField',
+        'assignCount' => 'AssignCount',
+        'assignField' => 'AssignField',
         'assignSubTaskCount' => 'AssignSubTaskCount',
-        'assignType'         => 'AssignType',
+        'assignType' => 'AssignType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assignCount) {
             $res['AssignCount'] = $this->assignCount;
         }
+
         if (null !== $this->assignField) {
             $res['AssignField'] = $this->assignField;
         }
+
         if (null !== $this->assignSubTaskCount) {
             $res['AssignSubTaskCount'] = $this->assignSubTaskCount;
         }
+
         if (null !== $this->assignType) {
             $res['AssignType'] = $this->assignType;
         }
@@ -57,23 +61,26 @@ class TaskAssginConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TaskAssginConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssignCount'])) {
             $model->assignCount = $map['AssignCount'];
         }
+
         if (isset($map['AssignField'])) {
             $model->assignField = $map['AssignField'];
         }
+
         if (isset($map['AssignSubTaskCount'])) {
             $model->assignSubTaskCount = $map['AssignSubTaskCount'];
         }
+
         if (isset($map['AssignType'])) {
             $model->assignType = $map['AssignType'];
         }

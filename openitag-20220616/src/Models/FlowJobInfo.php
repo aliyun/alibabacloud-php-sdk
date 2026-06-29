@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FlowJobInfo extends Model
 {
@@ -38,36 +38,42 @@ class FlowJobInfo extends Model
      */
     public $taskId;
     protected $_name = [
-        'display'     => 'Display',
-        'jobId'       => 'JobId',
-        'jobType'     => 'JobType',
-        'messageId'   => 'MessageId',
+        'display' => 'Display',
+        'jobId' => 'JobId',
+        'jobType' => 'JobType',
+        'messageId' => 'MessageId',
         'processType' => 'ProcessType',
-        'taskId'      => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->display) {
             $res['Display'] = $this->display;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
+
         if (null !== $this->processType) {
             $res['ProcessType'] = $this->processType;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -75,29 +81,34 @@ class FlowJobInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FlowJobInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Display'])) {
             $model->display = $map['Display'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
+
         if (isset($map['ProcessType'])) {
             $model->processType = $map['ProcessType'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

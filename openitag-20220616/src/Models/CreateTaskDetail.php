@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\CreateTaskDetail\admins;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\CreateTaskDetail\taskWorkflow;
-use AlibabaCloud\Tea\Model;
 
 class CreateTaskDetail extends Model
 {
@@ -21,15 +21,11 @@ class CreateTaskDetail extends Model
     public $allowAppendData;
 
     /**
-     * @description This parameter is required.
-     *
      * @var TaskAssginConfig
      */
     public $assignConfig;
 
     /**
-     * @description This parameter is required.
-     *
      * @var DatasetProxyConfig[]
      */
     public $datasetProxyRelations;
@@ -45,8 +41,6 @@ class CreateTaskDetail extends Model
     public $tags;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $taskName;
@@ -57,22 +51,16 @@ class CreateTaskDetail extends Model
     public $taskTemplateConfig;
 
     /**
-     * @description This parameter is required.
-     *
      * @var taskWorkflow[]
      */
     public $taskWorkflow;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $templateId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $UUID;
@@ -82,77 +70,127 @@ class CreateTaskDetail extends Model
      */
     public $voteConfigs;
     protected $_name = [
-        'admins'                => 'Admins',
-        'allowAppendData'       => 'AllowAppendData',
-        'assignConfig'          => 'AssignConfig',
+        'admins' => 'Admins',
+        'allowAppendData' => 'AllowAppendData',
+        'assignConfig' => 'AssignConfig',
         'datasetProxyRelations' => 'DatasetProxyRelations',
-        'exif'                  => 'Exif',
-        'tags'                  => 'Tags',
-        'taskName'              => 'TaskName',
-        'taskTemplateConfig'    => 'TaskTemplateConfig',
-        'taskWorkflow'          => 'TaskWorkflow',
-        'templateId'            => 'TemplateId',
-        'UUID'                  => 'UUID',
-        'voteConfigs'           => 'VoteConfigs',
+        'exif' => 'Exif',
+        'tags' => 'Tags',
+        'taskName' => 'TaskName',
+        'taskTemplateConfig' => 'TaskTemplateConfig',
+        'taskWorkflow' => 'TaskWorkflow',
+        'templateId' => 'TemplateId',
+        'UUID' => 'UUID',
+        'voteConfigs' => 'VoteConfigs',
     ];
 
     public function validate()
     {
+        if (null !== $this->admins) {
+            $this->admins->validate();
+        }
+        if (null !== $this->assignConfig) {
+            $this->assignConfig->validate();
+        }
+        if (\is_array($this->datasetProxyRelations)) {
+            Model::validateArray($this->datasetProxyRelations);
+        }
+        if (\is_array($this->exif)) {
+            Model::validateArray($this->exif);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        if (null !== $this->taskTemplateConfig) {
+            $this->taskTemplateConfig->validate();
+        }
+        if (\is_array($this->taskWorkflow)) {
+            Model::validateArray($this->taskWorkflow);
+        }
+        if (\is_array($this->voteConfigs)) {
+            Model::validateArray($this->voteConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->admins) {
-            $res['Admins'] = null !== $this->admins ? $this->admins->toMap() : null;
+            $res['Admins'] = null !== $this->admins ? $this->admins->toArray($noStream) : $this->admins;
         }
+
         if (null !== $this->allowAppendData) {
             $res['AllowAppendData'] = $this->allowAppendData;
         }
+
         if (null !== $this->assignConfig) {
-            $res['AssignConfig'] = null !== $this->assignConfig ? $this->assignConfig->toMap() : null;
+            $res['AssignConfig'] = null !== $this->assignConfig ? $this->assignConfig->toArray($noStream) : $this->assignConfig;
         }
+
         if (null !== $this->datasetProxyRelations) {
-            $res['DatasetProxyRelations'] = [];
-            if (null !== $this->datasetProxyRelations && \is_array($this->datasetProxyRelations)) {
-                $n = 0;
-                foreach ($this->datasetProxyRelations as $item) {
-                    $res['DatasetProxyRelations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->datasetProxyRelations)) {
+                $res['DatasetProxyRelations'] = [];
+                $n1 = 0;
+                foreach ($this->datasetProxyRelations as $item1) {
+                    $res['DatasetProxyRelations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->exif) {
-            $res['Exif'] = $this->exif;
+            if (\is_array($this->exif)) {
+                $res['Exif'] = [];
+                foreach ($this->exif as $key1 => $value1) {
+                    $res['Exif'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
+
         if (null !== $this->taskTemplateConfig) {
-            $res['TaskTemplateConfig'] = null !== $this->taskTemplateConfig ? $this->taskTemplateConfig->toMap() : null;
+            $res['TaskTemplateConfig'] = null !== $this->taskTemplateConfig ? $this->taskTemplateConfig->toArray($noStream) : $this->taskTemplateConfig;
         }
+
         if (null !== $this->taskWorkflow) {
-            $res['TaskWorkflow'] = [];
-            if (null !== $this->taskWorkflow && \is_array($this->taskWorkflow)) {
-                $n = 0;
-                foreach ($this->taskWorkflow as $item) {
-                    $res['TaskWorkflow'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskWorkflow)) {
+                $res['TaskWorkflow'] = [];
+                $n1 = 0;
+                foreach ($this->taskWorkflow as $item1) {
+                    $res['TaskWorkflow'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->UUID) {
             $res['UUID'] = $this->UUID;
         }
+
         if (null !== $this->voteConfigs) {
-            $res['VoteConfigs'] = [];
-            if (null !== $this->voteConfigs && \is_array($this->voteConfigs)) {
-                foreach ($this->voteConfigs as $key => $val) {
-                    $res['VoteConfigs'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->voteConfigs)) {
+                $res['VoteConfigs'] = [];
+                foreach ($this->voteConfigs as $key1 => $value1) {
+                    $res['VoteConfigs'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
@@ -160,63 +198,91 @@ class CreateTaskDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTaskDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Admins'])) {
             $model->admins = admins::fromMap($map['Admins']);
         }
+
         if (isset($map['AllowAppendData'])) {
             $model->allowAppendData = $map['AllowAppendData'];
         }
+
         if (isset($map['AssignConfig'])) {
             $model->assignConfig = TaskAssginConfig::fromMap($map['AssignConfig']);
         }
+
         if (isset($map['DatasetProxyRelations'])) {
             if (!empty($map['DatasetProxyRelations'])) {
                 $model->datasetProxyRelations = [];
-                $n                            = 0;
-                foreach ($map['DatasetProxyRelations'] as $item) {
-                    $model->datasetProxyRelations[$n++] = null !== $item ? DatasetProxyConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DatasetProxyRelations'] as $item1) {
+                    $model->datasetProxyRelations[$n1] = DatasetProxyConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Exif'])) {
-            $model->exif = $map['Exif'];
-        }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = $map['Tags'];
+            if (!empty($map['Exif'])) {
+                $model->exif = [];
+                foreach ($map['Exif'] as $key1 => $value1) {
+                    $model->exif[$key1] = $value1;
+                }
             }
         }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
+
         if (isset($map['TaskTemplateConfig'])) {
             $model->taskTemplateConfig = TaskTemplateConfig::fromMap($map['TaskTemplateConfig']);
         }
+
         if (isset($map['TaskWorkflow'])) {
             if (!empty($map['TaskWorkflow'])) {
                 $model->taskWorkflow = [];
-                $n                   = 0;
-                foreach ($map['TaskWorkflow'] as $item) {
-                    $model->taskWorkflow[$n++] = null !== $item ? taskWorkflow::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskWorkflow'] as $item1) {
+                    $model->taskWorkflow[$n1] = taskWorkflow::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['UUID'])) {
             $model->UUID = $map['UUID'];
         }
+
         if (isset($map['VoteConfigs'])) {
-            $model->voteConfigs = $map['VoteConfigs'];
+            if (!empty($map['VoteConfigs'])) {
+                $model->voteConfigs = [];
+                foreach ($map['VoteConfigs'] as $key1 => $value1) {
+                    $model->voteConfigs[$key1] = CreateTaskDetailVoteInfo::fromMap($value1);
+                }
+            }
         }
 
         return $model;

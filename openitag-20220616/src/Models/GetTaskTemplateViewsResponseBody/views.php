@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models\GetTaskTemplateViewsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\ViewPlugin;
-use AlibabaCloud\Tea\Model;
 
 class views extends Model
 {
@@ -19,17 +19,22 @@ class views extends Model
 
     public function validate()
     {
+        if (\is_array($this->viewPlugins)) {
+            Model::validateArray($this->viewPlugins);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->viewPlugins) {
-            $res['ViewPlugins'] = [];
-            if (null !== $this->viewPlugins && \is_array($this->viewPlugins)) {
-                $n = 0;
-                foreach ($this->viewPlugins as $item) {
-                    $res['ViewPlugins'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->viewPlugins)) {
+                $res['ViewPlugins'] = [];
+                $n1 = 0;
+                foreach ($this->viewPlugins as $item1) {
+                    $res['ViewPlugins'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class views extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return views
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ViewPlugins'])) {
             if (!empty($map['ViewPlugins'])) {
                 $model->viewPlugins = [];
-                $n                  = 0;
-                foreach ($map['ViewPlugins'] as $item) {
-                    $model->viewPlugins[$n++] = null !== $item ? ViewPlugin::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ViewPlugins'] as $item1) {
+                    $model->viewPlugins[$n1] = ViewPlugin::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

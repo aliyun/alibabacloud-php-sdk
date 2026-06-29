@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveWorkNodeWorkforceRequest extends Model
 {
@@ -18,29 +18,45 @@ class RemoveWorkNodeWorkforceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->userIds)) {
+            Model::validateArray($this->userIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userIds) {
-            $res['UserIds'] = $this->userIds;
+            if (\is_array($this->userIds)) {
+                $res['UserIds'] = [];
+                $n1 = 0;
+                foreach ($this->userIds as $item1) {
+                    $res['UserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveWorkNodeWorkforceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
-                $model->userIds = $map['UserIds'];
+                $model->userIds = [];
+                $n1 = 0;
+                foreach ($map['UserIds'] as $item1) {
+                    $model->userIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

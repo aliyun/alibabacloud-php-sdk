@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models\TemplateView;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\TemplateView\fields\visitInfo;
-use AlibabaCloud\Tea\Model;
 
 class fields extends Model
 {
     /**
-     * @example True
-     *
      * @var bool
      */
     public $displayOriImg;
 
     /**
-     * @example url
-     *
      * @var string
      */
     public $fieldName;
 
     /**
-     * @example IMG
-     *
      * @var string
      */
     public $type;
@@ -36,51 +30,61 @@ class fields extends Model
     public $visitInfo;
     protected $_name = [
         'displayOriImg' => 'DisplayOriImg',
-        'fieldName'     => 'FieldName',
-        'type'          => 'Type',
-        'visitInfo'     => 'VisitInfo',
+        'fieldName' => 'FieldName',
+        'type' => 'Type',
+        'visitInfo' => 'VisitInfo',
     ];
 
     public function validate()
     {
+        if (null !== $this->visitInfo) {
+            $this->visitInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayOriImg) {
             $res['DisplayOriImg'] = $this->displayOriImg;
         }
+
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->visitInfo) {
-            $res['VisitInfo'] = null !== $this->visitInfo ? $this->visitInfo->toMap() : null;
+            $res['VisitInfo'] = null !== $this->visitInfo ? $this->visitInfo->toArray($noStream) : $this->visitInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fields
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayOriImg'])) {
             $model->displayOriImg = $map['DisplayOriImg'];
         }
+
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['VisitInfo'])) {
             $model->visitInfo = visitInfo::fromMap($map['VisitInfo']);
         }

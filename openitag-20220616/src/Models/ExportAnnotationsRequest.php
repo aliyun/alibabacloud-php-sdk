@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportAnnotationsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example oss://***-hz-oss.oss-cn-hangzhou.aliyuncs.com/output/
-     *
      * @var string
      */
     public $ossPath;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $registerDataset;
 
     /**
-     * @example PAI
-     *
      * @var string
      */
     public $target;
     protected $_name = [
-        'ossPath'         => 'OssPath',
+        'ossPath' => 'OssPath',
         'registerDataset' => 'RegisterDataset',
-        'target'          => 'Target',
+        'target' => 'Target',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ossPath) {
             $res['OssPath'] = $this->ossPath;
         }
+
         if (null !== $this->registerDataset) {
             $res['RegisterDataset'] = $this->registerDataset;
         }
+
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
@@ -56,20 +51,22 @@ class ExportAnnotationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportAnnotationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OssPath'])) {
             $model->ossPath = $map['OssPath'];
         }
+
         if (isset($map['RegisterDataset'])) {
             $model->registerDataset = $map['RegisterDataset'];
         }
+
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTaskStatisticsRequest extends Model
 {
     /**
-     * @example Item
-     *
      * @var string
      */
     public $statType;
@@ -20,9 +18,10 @@ class GetTaskStatisticsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->statType) {
@@ -32,11 +31,11 @@ class GetTaskStatisticsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTaskStatisticsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SingleTenant extends Model
 {
@@ -34,31 +34,36 @@ class SingleTenant extends Model
     public $UUID;
     protected $_name = [
         'description' => 'Description',
-        'status'      => 'Status',
-        'tenantId'    => 'TenantId',
-        'tenantName'  => 'TenantName',
-        'UUID'        => 'UUID',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
+        'tenantName' => 'TenantName',
+        'UUID' => 'UUID',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->tenantName) {
             $res['TenantName'] = $this->tenantName;
         }
+
         if (null !== $this->UUID) {
             $res['UUID'] = $this->UUID;
         }
@@ -66,26 +71,30 @@ class SingleTenant extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SingleTenant
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['TenantName'])) {
             $model->tenantName = $map['TenantName'];
         }
+
         if (isset($map['UUID'])) {
             $model->UUID = $map['UUID'];
         }

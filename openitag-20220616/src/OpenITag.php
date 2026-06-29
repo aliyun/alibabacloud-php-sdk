@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\AddWorkNodeWorkforceRequest;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\AddWorkNodeWorkforceResponse;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\AppendAllDataToTaskRequest;
@@ -67,18 +67,23 @@ use AlibabaCloud\SDK\OpenITag\V20220616\Models\UpdateTenantRequest;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\UpdateTenantResponse;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\UpdateUserResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class OpenITag extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shenzhen' => 'openitag.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'openitag.cn-shanghai.aliyuncs.com',
+            'cn-hangzhou' => 'openitag.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'openitag.cn-beijing.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('openitag', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -96,63 +101,75 @@ class OpenITag extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 增加结点任务人力
-     *  *
+     * Assign personnel to the worker nodes (annotation, quality inspection, and validation) of an annotation job.
+     *
+     * @param request - AddWorkNodeWorkforceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddWorkNodeWorkforceResponse
+     *
      * @param string                      $TenantId
      * @param string                      $TaskId
      * @param string                      $WorkNodeId
-     * @param AddWorkNodeWorkforceRequest $request    AddWorkNodeWorkforceRequest
-     * @param string[]                    $headers    map
-     * @param RuntimeOptions              $runtime    runtime options for this request RuntimeOptions
+     * @param AddWorkNodeWorkforceRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return AddWorkNodeWorkforceResponse AddWorkNodeWorkforceResponse
+     * @return AddWorkNodeWorkforceResponse
      */
     public function addWorkNodeWorkforceWithOptions($TenantId, $TaskId, $WorkNodeId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->userIds)) {
-            $body['UserIds'] = $request->userIds;
+        if (null !== $request->userIds) {
+            @$body['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddWorkNodeWorkforce',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/worknodes/' . OpenApiUtilClient::getEncodeParam($WorkNodeId) . '/workforce',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddWorkNodeWorkforce',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/worknodes/' . Url::percentEncode($WorkNodeId) . '/workforce',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddWorkNodeWorkforceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 增加结点任务人力
-     *  *
+     * Assign personnel to the worker nodes (annotation, quality inspection, and validation) of an annotation job.
+     *
+     * @param request - AddWorkNodeWorkforceRequest
+     *
+     * @returns AddWorkNodeWorkforceResponse
+     *
      * @param string                      $TenantId
      * @param string                      $TaskId
      * @param string                      $WorkNodeId
-     * @param AddWorkNodeWorkforceRequest $request    AddWorkNodeWorkforceRequest
+     * @param AddWorkNodeWorkforceRequest $request
      *
-     * @return AddWorkNodeWorkforceResponse AddWorkNodeWorkforceResponse
+     * @return AddWorkNodeWorkforceResponse
      */
     public function addWorkNodeWorkforce($TenantId, $TaskId, $WorkNodeId, $request)
     {
@@ -163,46 +180,56 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 数据追加
-     *  *
+     * Append data to a job.
+     *
+     * @param request - AppendAllDataToTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AppendAllDataToTaskResponse
+     *
      * @param string                     $TenantId
      * @param string                     $TaskId
-     * @param AppendAllDataToTaskRequest $request  AppendAllDataToTaskRequest
-     * @param string[]                   $headers  map
-     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
+     * @param AppendAllDataToTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return AppendAllDataToTaskResponse AppendAllDataToTaskResponse
+     * @return AppendAllDataToTaskResponse
      */
     public function appendAllDataToTaskWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'AppendAllDataToTask',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/appendAllDataToTask',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AppendAllDataToTask',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/appendAllDataToTask',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AppendAllDataToTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 数据追加
-     *  *
+     * Append data to a job.
+     *
+     * @param request - AppendAllDataToTaskRequest
+     *
+     * @returns AppendAllDataToTaskResponse
+     *
      * @param string                     $TenantId
      * @param string                     $TaskId
-     * @param AppendAllDataToTaskRequest $request  AppendAllDataToTaskRequest
+     * @param AppendAllDataToTaskRequest $request
      *
-     * @return AppendAllDataToTaskResponse AppendAllDataToTaskResponse
+     * @return AppendAllDataToTaskResponse
      */
     public function appendAllDataToTask($TenantId, $TaskId, $request)
     {
@@ -213,44 +240,54 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 创建标注任务
-     *  *
-     * @param string            $TenantId
-     * @param CreateTaskRequest $request  CreateTaskRequest
-     * @param string[]          $headers  map
-     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
+     * Create an annotation job for the current tenant.
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @param request - CreateTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTaskResponse
+     *
+     * @param string            $TenantId
+     * @param CreateTaskRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateTaskResponse
      */
     public function createTaskWithOptions($TenantId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTask',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTask',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建标注任务
-     *  *
-     * @param string            $TenantId
-     * @param CreateTaskRequest $request  CreateTaskRequest
+     * Create an annotation job for the current tenant.
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @param request - CreateTaskRequest
+     *
+     * @returns CreateTaskResponse
+     *
+     * @param string            $TenantId
+     * @param CreateTaskRequest $request
+     *
+     * @return CreateTaskResponse
      */
     public function createTask($TenantId, $request)
     {
@@ -261,44 +298,54 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 创建标注模版
-     *  *
-     * @param string                $TenantId
-     * @param CreateTemplateRequest $request  CreateTemplateRequest
-     * @param string[]              $headers  map
-     * @param RuntimeOptions        $runtime  runtime options for this request RuntimeOptions
+     * You can add a new template for the current tenant and customize the annotation template based on your business requirements.
      *
-     * @return CreateTemplateResponse CreateTemplateResponse
+     * @param request - CreateTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param string                $TenantId
+     * @param CreateTemplateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTemplateResponse
      */
     public function createTemplateWithOptions($TenantId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTemplate',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/templates',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTemplate',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/templates',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建标注模版
-     *  *
-     * @param string                $TenantId
-     * @param CreateTemplateRequest $request  CreateTemplateRequest
+     * You can add a new template for the current tenant and customize the annotation template based on your business requirements.
      *
-     * @return CreateTemplateResponse CreateTemplateResponse
+     * @param request - CreateTemplateRequest
+     *
+     * @returns CreateTemplateResponse
+     *
+     * @param string                $TenantId
+     * @param CreateTemplateRequest $request
+     *
+     * @return CreateTemplateResponse
      */
     public function createTemplate($TenantId, $request)
     {
@@ -309,57 +356,71 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 创建租户内用户
-     *  *
-     * @param string            $TenantId
-     * @param CreateUserRequest $request  CreateUserRequest
-     * @param string[]          $headers  map
-     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
+     * Add a member to the tenant.
      *
-     * @return CreateUserResponse CreateUserResponse
+     * @param request - CreateUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserResponse
+     *
+     * @param string            $TenantId
+     * @param CreateUserRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateUserResponse
      */
     public function createUserWithOptions($TenantId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountNo)) {
-            $body['AccountNo'] = $request->accountNo;
+        if (null !== $request->accountNo) {
+            @$body['AccountNo'] = $request->accountNo;
         }
-        if (!Utils::isUnset($request->accountType)) {
-            $body['AccountType'] = $request->accountType;
+
+        if (null !== $request->accountType) {
+            @$body['AccountType'] = $request->accountType;
         }
-        if (!Utils::isUnset($request->role)) {
-            $body['Role'] = $request->role;
+
+        if (null !== $request->role) {
+            @$body['Role'] = $request->role;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateUser',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/users',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateUser',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/users',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建租户内用户
-     *  *
-     * @param string            $TenantId
-     * @param CreateUserRequest $request  CreateUserRequest
+     * Add a member to the tenant.
      *
-     * @return CreateUserResponse CreateUserResponse
+     * @param request - CreateUserRequest
+     *
+     * @returns CreateUserResponse
+     *
+     * @param string            $TenantId
+     * @param CreateUserRequest $request
+     *
+     * @return CreateUserResponse
      */
     public function createUser($TenantId, $request)
     {
@@ -370,14 +431,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 删除任务
-     *  *
+     * Delete a job under the current tenant.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTaskResponse
+     *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteTaskResponse DeleteTaskResponse
+     * @return DeleteTaskResponse
      */
     public function deleteTaskWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -385,27 +451,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteTask',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteTask',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除任务
-     *  *
+     * Delete a job under the current tenant.
+     *
+     * @returns DeleteTaskResponse
+     *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return DeleteTaskResponse DeleteTaskResponse
+     * @return DeleteTaskResponse
      */
     public function deleteTask($TenantId, $TaskId)
     {
@@ -416,14 +484,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 删除租户下的单个模板
-     *  *
+     * Delete the template under the current tenant.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTemplateResponse
+     *
      * @param string         $TenantId
      * @param string         $TemplateId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteTemplateResponse DeleteTemplateResponse
+     * @return DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($TenantId, $TemplateId, $headers, $runtime)
     {
@@ -431,27 +504,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteTemplate',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteTemplate',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/templates/' . Url::percentEncode($TemplateId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除租户下的单个模板
-     *  *
+     * Delete the template under the current tenant.
+     *
+     * @returns DeleteTemplateResponse
+     *
      * @param string $TenantId
      * @param string $TemplateId
      *
-     * @return DeleteTemplateResponse DeleteTemplateResponse
+     * @return DeleteTemplateResponse
      */
     public function deleteTemplate($TenantId, $TemplateId)
     {
@@ -462,14 +537,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户
-     *  *
+     * Delete a member within a tenant.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteUserResponse
+     *
      * @param string         $TenantId
      * @param string         $UserId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @return DeleteUserResponse
      */
     public function deleteUserWithOptions($TenantId, $UserId, $headers, $runtime)
     {
@@ -477,27 +557,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteUser',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/users/' . OpenApiUtilClient::getEncodeParam($UserId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteUser',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/users/' . Url::percentEncode($UserId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除用户
-     *  *
+     * Delete a member within a tenant.
+     *
+     * @returns DeleteUserResponse
+     *
      * @param string $TenantId
      * @param string $UserId
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @return DeleteUserResponse
      */
     public function deleteUser($TenantId, $UserId)
     {
@@ -508,56 +590,69 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务导出结果
-     *  *
+     * Export the result data of an annotation job.
+     *
+     * @param request - ExportAnnotationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportAnnotationsResponse
+     *
      * @param string                   $TenantId
      * @param string                   $TaskId
-     * @param ExportAnnotationsRequest $request  ExportAnnotationsRequest
-     * @param string[]                 $headers  map
-     * @param RuntimeOptions           $runtime  runtime options for this request RuntimeOptions
+     * @param ExportAnnotationsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return ExportAnnotationsResponse ExportAnnotationsResponse
+     * @return ExportAnnotationsResponse
      */
     public function exportAnnotationsWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ossPath)) {
-            $query['OssPath'] = $request->ossPath;
+        if (null !== $request->ossPath) {
+            @$query['OssPath'] = $request->ossPath;
         }
-        if (!Utils::isUnset($request->registerDataset)) {
-            $query['RegisterDataset'] = $request->registerDataset;
+
+        if (null !== $request->registerDataset) {
+            @$query['RegisterDataset'] = $request->registerDataset;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExportAnnotations',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/annotations/export',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ExportAnnotations',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/annotations/export',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExportAnnotationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务导出结果
-     *  *
+     * Export the result data of an annotation job.
+     *
+     * @param request - ExportAnnotationsRequest
+     *
+     * @returns ExportAnnotationsResponse
+     *
      * @param string                   $TenantId
      * @param string                   $TaskId
-     * @param ExportAnnotationsRequest $request  ExportAnnotationsRequest
+     * @param ExportAnnotationsRequest $request
      *
-     * @return ExportAnnotationsResponse ExportAnnotationsResponse
+     * @return ExportAnnotationsResponse
      */
     public function exportAnnotations($TenantId, $TaskId, $request)
     {
@@ -568,50 +663,61 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取异步任务Job
-     *  *
+     * Query the information of a single annotation export result.
+     *
+     * @param request - GetJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetJobResponse
+     *
      * @param string         $TenantId
      * @param string         $JobId
-     * @param GetJobRequest  $request  GetJobRequest
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param GetJobRequest  $request
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetJobResponse GetJobResponse
+     * @return GetJobResponse
      */
     public function getJobWithOptions($TenantId, $JobId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobType)) {
-            $query['JobType'] = $request->jobType;
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJob',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetJob',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/jobs/' . Url::percentEncode($JobId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取异步任务Job
-     *  *
+     * Query the information of a single annotation export result.
+     *
+     * @param request - GetJobRequest
+     *
+     * @returns GetJobResponse
+     *
      * @param string        $TenantId
      * @param string        $JobId
-     * @param GetJobRequest $request  GetJobRequest
+     * @param GetJobRequest $request
      *
-     * @return GetJobResponse GetJobResponse
+     * @return GetJobResponse
      */
     public function getJob($TenantId, $JobId, $request)
     {
@@ -622,15 +728,20 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取单个子任务信息
-     *  *
+     * Query the information of a single subtask package.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSubtaskResponse
+     *
      * @param string         $TenantId
      * @param string         $TaskID
      * @param string         $SubtaskId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetSubtaskResponse GetSubtaskResponse
+     * @return GetSubtaskResponse
      */
     public function getSubtaskWithOptions($TenantId, $TaskID, $SubtaskId, $headers, $runtime)
     {
@@ -638,28 +749,30 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSubtask',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskID) . '/subtasks/' . OpenApiUtilClient::getEncodeParam($SubtaskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSubtask',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskID) . '/subtasks/' . Url::percentEncode($SubtaskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSubtaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取单个子任务信息
-     *  *
+     * Query the information of a single subtask package.
+     *
+     * @returns GetSubtaskResponse
+     *
      * @param string $TenantId
      * @param string $TaskID
      * @param string $SubtaskId
      *
-     * @return GetSubtaskResponse GetSubtaskResponse
+     * @return GetSubtaskResponse
      */
     public function getSubtask($TenantId, $TaskID, $SubtaskId)
     {
@@ -670,16 +783,21 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取子任务单个ITEM信息
-     *  *
+     * Query a single annotated data item in a subtask package.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSubtaskItemResponse
+     *
      * @param string         $TenantId
      * @param string         $TaskId
      * @param string         $SubtaskId
      * @param string         $ItemId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetSubtaskItemResponse GetSubtaskItemResponse
+     * @return GetSubtaskItemResponse
      */
     public function getSubtaskItemWithOptions($TenantId, $TaskId, $SubtaskId, $ItemId, $headers, $runtime)
     {
@@ -687,29 +805,31 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetSubtaskItem',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/subtasks/' . OpenApiUtilClient::getEncodeParam($SubtaskId) . '/items/' . OpenApiUtilClient::getEncodeParam($ItemId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetSubtaskItem',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/subtasks/' . Url::percentEncode($SubtaskId) . '/items/' . Url::percentEncode($ItemId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetSubtaskItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取子任务单个ITEM信息
-     *  *
+     * Query a single annotated data item in a subtask package.
+     *
+     * @returns GetSubtaskItemResponse
+     *
      * @param string $TenantId
      * @param string $TaskId
      * @param string $SubtaskId
      * @param string $ItemId
      *
-     * @return GetSubtaskItemResponse GetSubtaskItemResponse
+     * @return GetSubtaskItemResponse
      */
     public function getSubtaskItem($TenantId, $TaskId, $SubtaskId, $ItemId)
     {
@@ -720,14 +840,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务状态信息
-     *  *
+     * Query the information of a single annotation job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskResponse
+     *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @return GetTaskResponse
      */
     public function getTaskWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -735,27 +860,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTask',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTask',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务状态信息
-     *  *
+     * Query the information of a single annotation job.
+     *
+     * @returns GetTaskResponse
+     *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskResponse GetTaskResponse
+     * @return GetTaskResponse
      */
     public function getTask($TenantId, $TaskId)
     {
@@ -766,50 +893,61 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务统计信息
-     *  *
+     * Query the current statistics information of a job.
+     *
+     * @param request - GetTaskStatisticsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskStatisticsResponse
+     *
      * @param string                   $TenantId
      * @param string                   $TaskId
-     * @param GetTaskStatisticsRequest $request  GetTaskStatisticsRequest
-     * @param string[]                 $headers  map
-     * @param RuntimeOptions           $runtime  runtime options for this request RuntimeOptions
+     * @param GetTaskStatisticsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return GetTaskStatisticsResponse GetTaskStatisticsResponse
+     * @return GetTaskStatisticsResponse
      */
     public function getTaskStatisticsWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->statType)) {
-            $query['StatType'] = $request->statType;
+        if (null !== $request->statType) {
+            @$query['StatType'] = $request->statType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTaskStatistics',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/statistics',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskStatistics',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/statistics',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务统计信息
-     *  *
+     * Query the current statistics information of a job.
+     *
+     * @param request - GetTaskStatisticsRequest
+     *
+     * @returns GetTaskStatisticsResponse
+     *
      * @param string                   $TenantId
      * @param string                   $TaskId
-     * @param GetTaskStatisticsRequest $request  GetTaskStatisticsRequest
+     * @param GetTaskStatisticsRequest $request
      *
-     * @return GetTaskStatisticsResponse GetTaskStatisticsResponse
+     * @return GetTaskStatisticsResponse
      */
     public function getTaskStatistics($TenantId, $TaskId, $request)
     {
@@ -820,14 +958,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务状态信息
-     *  *
+     * Query the current status of a job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskStatusResponse
+     *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTaskStatusResponse GetTaskStatusResponse
+     * @return GetTaskStatusResponse
      */
     public function getTaskStatusWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -835,27 +978,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTaskStatus',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/status',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskStatus',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/status',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务状态信息
-     *  *
+     * Query the current status of a job.
+     *
+     * @returns GetTaskStatusResponse
+     *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskStatusResponse GetTaskStatusResponse
+     * @return GetTaskStatusResponse
      */
     public function getTaskStatus($TenantId, $TaskId)
     {
@@ -866,14 +1011,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务模版信息
-     *  *
+     * Query the current template information of a job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskTemplateResponse
+     *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTaskTemplateResponse GetTaskTemplateResponse
+     * @return GetTaskTemplateResponse
      */
     public function getTaskTemplateWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -881,27 +1031,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTaskTemplate',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/template',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskTemplate',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/template',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务模版信息
-     *  *
+     * Query the current template information of a job.
+     *
+     * @returns GetTaskTemplateResponse
+     *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskTemplateResponse GetTaskTemplateResponse
+     * @return GetTaskTemplateResponse
      */
     public function getTaskTemplate($TenantId, $TaskId)
     {
@@ -912,14 +1064,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务题目信息
-     *  *
+     * Query job template questions.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskTemplateQuestionsResponse
+     *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTaskTemplateQuestionsResponse GetTaskTemplateQuestionsResponse
+     * @return GetTaskTemplateQuestionsResponse
      */
     public function getTaskTemplateQuestionsWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -927,27 +1084,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTaskTemplateQuestions',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/template/questions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskTemplateQuestions',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/template/questions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskTemplateQuestionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务题目信息
-     *  *
+     * Query job template questions.
+     *
+     * @returns GetTaskTemplateQuestionsResponse
+     *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskTemplateQuestionsResponse GetTaskTemplateQuestionsResponse
+     * @return GetTaskTemplateQuestionsResponse
      */
     public function getTaskTemplateQuestions($TenantId, $TaskId)
     {
@@ -958,14 +1117,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务题目信息
-     *  *
+     * Query the data display information in the job template.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskTemplateViewsResponse
+     *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTaskTemplateViewsResponse GetTaskTemplateViewsResponse
+     * @return GetTaskTemplateViewsResponse
      */
     public function getTaskTemplateViewsWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -973,27 +1137,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTaskTemplateViews',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/template/views',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskTemplateViews',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/template/views',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskTemplateViewsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务题目信息
-     *  *
+     * Query the data display information in the job template.
+     *
+     * @returns GetTaskTemplateViewsResponse
+     *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskTemplateViewsResponse GetTaskTemplateViewsResponse
+     * @return GetTaskTemplateViewsResponse
      */
     public function getTaskTemplateViews($TenantId, $TaskId)
     {
@@ -1004,14 +1170,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务人力
-     *  *
+     * Query the personnel configuration information of each node in a job.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskWorkforceResponse
+     *
      * @param string         $TenantId
      * @param string         $TaskId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTaskWorkforceResponse GetTaskWorkforceResponse
+     * @return GetTaskWorkforceResponse
      */
     public function getTaskWorkforceWithOptions($TenantId, $TaskId, $headers, $runtime)
     {
@@ -1019,27 +1190,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTaskWorkforce',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/workforce',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskWorkforce',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/workforce',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskWorkforceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务人力
-     *  *
+     * Query the personnel configuration information of each node in a job.
+     *
+     * @returns GetTaskWorkforceResponse
+     *
      * @param string $TenantId
      * @param string $TaskId
      *
-     * @return GetTaskWorkforceResponse GetTaskWorkforceResponse
+     * @return GetTaskWorkforceResponse
      */
     public function getTaskWorkforce($TenantId, $TaskId)
     {
@@ -1050,56 +1223,69 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务人力统计信息
-     *  *
+     * Query statistics of each member in a job.
+     *
+     * @param request - GetTaskWorkforceStatisticRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTaskWorkforceStatisticResponse
+     *
      * @param string                           $TenantId
      * @param string                           $TaskId
-     * @param GetTaskWorkforceStatisticRequest $request  GetTaskWorkforceStatisticRequest
-     * @param string[]                         $headers  map
-     * @param RuntimeOptions                   $runtime  runtime options for this request RuntimeOptions
+     * @param GetTaskWorkforceStatisticRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
      *
-     * @return GetTaskWorkforceStatisticResponse GetTaskWorkforceStatisticResponse
+     * @return GetTaskWorkforceStatisticResponse
      */
     public function getTaskWorkforceStatisticWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->statType)) {
-            $query['StatType'] = $request->statType;
+
+        if (null !== $request->statType) {
+            @$query['StatType'] = $request->statType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTaskWorkforceStatistic',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/workforce/statistic',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskWorkforceStatistic',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/workforce/statistic',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTaskWorkforceStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务人力统计信息
-     *  *
+     * Query statistics of each member in a job.
+     *
+     * @param request - GetTaskWorkforceStatisticRequest
+     *
+     * @returns GetTaskWorkforceStatisticResponse
+     *
      * @param string                           $TenantId
      * @param string                           $TaskId
-     * @param GetTaskWorkforceStatisticRequest $request  GetTaskWorkforceStatisticRequest
+     * @param GetTaskWorkforceStatisticRequest $request
      *
-     * @return GetTaskWorkforceStatisticResponse GetTaskWorkforceStatisticResponse
+     * @return GetTaskWorkforceStatisticResponse
      */
     public function getTaskWorkforceStatistic($TenantId, $TaskId, $request)
     {
@@ -1110,14 +1296,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户下单个模板
-     *  *
+     * Query template information under a tenant.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTemplateResponse
+     *
      * @param string         $TenantId
      * @param string         $TemplateId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTemplateResponse GetTemplateResponse
+     * @return GetTemplateResponse
      */
     public function getTemplateWithOptions($TenantId, $TemplateId, $headers, $runtime)
     {
@@ -1125,27 +1316,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTemplate',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTemplate',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/templates/' . Url::percentEncode($TemplateId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户下单个模板
-     *  *
+     * Query template information under a tenant.
+     *
+     * @returns GetTemplateResponse
+     *
      * @param string $TenantId
      * @param string $TemplateId
      *
-     * @return GetTemplateResponse GetTemplateResponse
+     * @return GetTemplateResponse
      */
     public function getTemplate($TenantId, $TemplateId)
     {
@@ -1156,14 +1349,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户下单个模板问题
-     *  *
+     * Query question information such as Radio and Multiple Choice in a template.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTemplateQuestionsResponse
+     *
      * @param string         $TenantId
      * @param string         $TemplateId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTemplateQuestionsResponse GetTemplateQuestionsResponse
+     * @return GetTemplateQuestionsResponse
      */
     public function getTemplateQuestionsWithOptions($TenantId, $TemplateId, $headers, $runtime)
     {
@@ -1171,27 +1369,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTemplateQuestions',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '/questions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTemplateQuestions',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/templates/' . Url::percentEncode($TemplateId) . '/questions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTemplateQuestionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户下单个模板问题
-     *  *
+     * Query question information such as Radio and Multiple Choice in a template.
+     *
+     * @returns GetTemplateQuestionsResponse
+     *
      * @param string $TenantId
      * @param string $TemplateId
      *
-     * @return GetTemplateQuestionsResponse GetTemplateQuestionsResponse
+     * @return GetTemplateQuestionsResponse
      */
     public function getTemplateQuestions($TenantId, $TemplateId)
     {
@@ -1202,14 +1402,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户下模板视图
-     *  *
+     * Query the display information such as images, text, and audio in the template.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTemplateViewResponse
+     *
      * @param string         $TenantId
      * @param string         $TemplateId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetTemplateViewResponse GetTemplateViewResponse
+     * @return GetTemplateViewResponse
      */
     public function getTemplateViewWithOptions($TenantId, $TemplateId, $headers, $runtime)
     {
@@ -1217,27 +1422,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTemplateView',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '/views',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTemplateView',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/templates/' . Url::percentEncode($TemplateId) . '/views',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTemplateViewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户下模板视图
-     *  *
+     * Query the display information such as images, text, and audio in the template.
+     *
+     * @returns GetTemplateViewResponse
+     *
      * @param string $TenantId
      * @param string $TemplateId
      *
-     * @return GetTemplateViewResponse GetTemplateViewResponse
+     * @return GetTemplateViewResponse
      */
     public function getTemplateView($TenantId, $TemplateId)
     {
@@ -1248,13 +1455,18 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户信息
-     *  *
-     * @param string         $TenantId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * Query information about the iTAG tenant.
      *
-     * @return GetTenantResponse GetTenantResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTenantResponse
+     *
+     * @param string         $TenantId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTenantResponse
      */
     public function getTenantWithOptions($TenantId, $headers, $runtime)
     {
@@ -1262,26 +1474,28 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTenant',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTenant',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetTenantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户信息
-     *  *
+     * Query information about the iTAG tenant.
+     *
+     * @returns GetTenantResponse
+     *
      * @param string $TenantId
      *
-     * @return GetTenantResponse GetTenantResponse
+     * @return GetTenantResponse
      */
     public function getTenant($TenantId)
     {
@@ -1292,14 +1506,19 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户
-     *  *
+     * Query the details of a single member in a tenant.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserResponse
+     *
      * @param string         $TenantId
      * @param string         $UserId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetUserResponse GetUserResponse
+     * @return GetUserResponse
      */
     public function getUserWithOptions($TenantId, $UserId, $headers, $runtime)
     {
@@ -1307,27 +1526,29 @@ class OpenITag extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetUser',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/users/' . OpenApiUtilClient::getEncodeParam($UserId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetUser',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/users/' . Url::percentEncode($UserId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户
-     *  *
+     * Query the details of a single member in a tenant.
+     *
+     * @returns GetUserResponse
+     *
      * @param string $TenantId
      * @param string $UserId
      *
-     * @return GetUserResponse GetUserResponse
+     * @return GetUserResponse
      */
     public function getUser($TenantId, $UserId)
     {
@@ -1338,54 +1559,67 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取异步任务Job列表
-     *  *
-     * @param string          $TenantId
-     * @param ListJobsRequest $request  ListJobsRequest
-     * @param string[]        $headers  map
-     * @param RuntimeOptions  $runtime  runtime options for this request RuntimeOptions
+     * Displays a list of all exported annotation results.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListJobsResponse
+     *
+     * @param string          $TenantId
+     * @param ListJobsRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListJobsResponse
      */
     public function listJobsWithOptions($TenantId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobType)) {
-            $query['JobType'] = $request->jobType;
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobs',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/jobs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListJobs',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/jobs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取异步任务Job列表
-     *  *
-     * @param string          $TenantId
-     * @param ListJobsRequest $request  ListJobsRequest
+     * Displays a list of all exported annotation results.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     *
+     * @returns ListJobsResponse
+     *
+     * @param string          $TenantId
+     * @param ListJobsRequest $request
+     *
+     * @return ListJobsResponse
      */
     public function listJobs($TenantId, $request)
     {
@@ -1396,55 +1630,67 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取子任务ITEM列表页信息
-     *  *
+     * Display the annotation data of a single subtask package.
+     *
+     * @param request - ListSubtaskItemsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubtaskItemsResponse
+     *
      * @param string                  $TenantId
      * @param string                  $TaskID
      * @param string                  $SubtaskId
-     * @param ListSubtaskItemsRequest $request   ListSubtaskItemsRequest
-     * @param string[]                $headers   map
-     * @param RuntimeOptions          $runtime   runtime options for this request RuntimeOptions
+     * @param ListSubtaskItemsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return ListSubtaskItemsResponse ListSubtaskItemsResponse
+     * @return ListSubtaskItemsResponse
      */
     public function listSubtaskItemsWithOptions($TenantId, $TaskID, $SubtaskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSubtaskItems',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskID) . '/subtasks/' . OpenApiUtilClient::getEncodeParam($SubtaskId) . '/items',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSubtaskItems',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskID) . '/subtasks/' . Url::percentEncode($SubtaskId) . '/items',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSubtaskItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取子任务ITEM列表页信息
-     *  *
+     * Display the annotation data of a single subtask package.
+     *
+     * @param request - ListSubtaskItemsRequest
+     *
+     * @returns ListSubtaskItemsResponse
+     *
      * @param string                  $TenantId
      * @param string                  $TaskID
      * @param string                  $SubtaskId
-     * @param ListSubtaskItemsRequest $request   ListSubtaskItemsRequest
+     * @param ListSubtaskItemsRequest $request
      *
-     * @return ListSubtaskItemsResponse ListSubtaskItemsResponse
+     * @return ListSubtaskItemsResponse
      */
     public function listSubtaskItems($TenantId, $TaskID, $SubtaskId, $request)
     {
@@ -1455,53 +1701,65 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取子任务列表页信息
-     *  *
+     * Displays the list of subtask packages.
+     *
+     * @param request - ListSubtasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSubtasksResponse
+     *
      * @param string              $TenantId
      * @param string              $TaskID
-     * @param ListSubtasksRequest $request  ListSubtasksRequest
-     * @param string[]            $headers  map
-     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
+     * @param ListSubtasksRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return ListSubtasksResponse ListSubtasksResponse
+     * @return ListSubtasksResponse
      */
     public function listSubtasksWithOptions($TenantId, $TaskID, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSubtasks',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskID) . '/subtasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListSubtasks',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskID) . '/subtasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListSubtasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取子任务列表页信息
-     *  *
+     * Displays the list of subtask packages.
+     *
+     * @param request - ListSubtasksRequest
+     *
+     * @returns ListSubtasksResponse
+     *
      * @param string              $TenantId
      * @param string              $TaskID
-     * @param ListSubtasksRequest $request  ListSubtasksRequest
+     * @param ListSubtasksRequest $request
      *
-     * @return ListSubtasksResponse ListSubtasksResponse
+     * @return ListSubtasksResponse
      */
     public function listSubtasks($TenantId, $TaskID, $request)
     {
@@ -1512,51 +1770,63 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务列表页信息
-     *  *
-     * @param string           $TenantId
-     * @param ListTasksRequest $request  ListTasksRequest
-     * @param string[]         $headers  map
-     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
+     * Displays the list of annotation jobs for the current tenant.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param request - ListTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTasksResponse
+     *
+     * @param string           $TenantId
+     * @param ListTasksRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTasksResponse
      */
     public function listTasksWithOptions($TenantId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTasks',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTasks',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取任务列表页信息
-     *  *
-     * @param string           $TenantId
-     * @param ListTasksRequest $request  ListTasksRequest
+     * Displays the list of annotation jobs for the current tenant.
      *
-     * @return ListTasksResponse ListTasksResponse
+     * @param request - ListTasksRequest
+     *
+     * @returns ListTasksResponse
+     *
+     * @param string           $TenantId
+     * @param ListTasksRequest $request
+     *
+     * @return ListTasksResponse
      */
     public function listTasks($TenantId, $request)
     {
@@ -1567,62 +1837,77 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户模板信息列表
-     *  *
-     * @param string               $TenantId
-     * @param ListTemplatesRequest $tmpReq   ListTemplatesRequest
-     * @param string[]             $headers  map
-     * @param RuntimeOptions       $runtime  runtime options for this request RuntimeOptions
+     * Display the template list of the current tenant.
      *
-     * @return ListTemplatesResponse ListTemplatesResponse
+     * @param tmpReq - ListTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTemplatesResponse
+     *
+     * @param string               $TenantId
+     * @param ListTemplatesRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTemplatesResponse
      */
     public function listTemplatesWithOptions($TenantId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTemplatesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->types)) {
-            $request->typesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->types) {
+            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'Types', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->typesShrink)) {
-            $query['Types'] = $request->typesShrink;
+
+        if (null !== $request->typesShrink) {
+            @$query['Types'] = $request->typesShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTemplates',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/templates',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTemplates',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/templates',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户模板信息列表
-     *  *
-     * @param string               $TenantId
-     * @param ListTemplatesRequest $request  ListTemplatesRequest
+     * Display the template list of the current tenant.
      *
-     * @return ListTemplatesResponse ListTemplatesResponse
+     * @param request - ListTemplatesRequest
+     *
+     * @returns ListTemplatesResponse
+     *
+     * @param string               $TenantId
+     * @param ListTemplatesRequest $request
+     *
+     * @return ListTemplatesResponse
      */
     public function listTemplates($TenantId, $request)
     {
@@ -1633,49 +1918,61 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户列表
-     *  *
-     * @param ListTenantsRequest $request ListTenantsRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Query iTAG tenants under an Alibaba Cloud account.
      *
-     * @return ListTenantsResponse ListTenantsResponse
+     * @param request - ListTenantsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTenantsResponse
+     *
+     * @param ListTenantsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTenantsResponse
      */
     public function listTenantsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTenants',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTenants',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户列表
-     *  *
-     * @param ListTenantsRequest $request ListTenantsRequest
+     * Query iTAG tenants under an Alibaba Cloud account.
      *
-     * @return ListTenantsResponse ListTenantsResponse
+     * @param request - ListTenantsRequest
+     *
+     * @returns ListTenantsResponse
+     *
+     * @param ListTenantsRequest $request
+     *
+     * @return ListTenantsResponse
      */
     public function listTenants($request)
     {
@@ -1686,51 +1983,63 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户列表
-     *  *
-     * @param string           $TenantId
-     * @param ListUsersRequest $request  ListUsersRequest
-     * @param string[]         $headers  map
-     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
+     * Displays all annotate members under the current tenant.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param request - ListUsersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUsersResponse
+     *
+     * @param string           $TenantId
+     * @param ListUsersRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListUsersResponse
      */
     public function listUsersWithOptions($TenantId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListUsers',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/users',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListUsers',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/users',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取用户列表
-     *  *
-     * @param string           $TenantId
-     * @param ListUsersRequest $request  ListUsersRequest
+     * Displays all annotate members under the current tenant.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param request - ListUsersRequest
+     *
+     * @returns ListUsersResponse
+     *
+     * @param string           $TenantId
+     * @param ListUsersRequest $request
+     *
+     * @return ListUsersResponse
      */
     public function listUsers($TenantId, $request)
     {
@@ -1741,52 +2050,63 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 删除结点人力
-     *  *
+     * Delete Node Personnel.
+     *
+     * @param request - RemoveWorkNodeWorkforceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveWorkNodeWorkforceResponse
+     *
      * @param string                         $TenantId
      * @param string                         $TaskId
      * @param string                         $WorkNodeId
-     * @param RemoveWorkNodeWorkforceRequest $request    RemoveWorkNodeWorkforceRequest
-     * @param string[]                       $headers    map
-     * @param RuntimeOptions                 $runtime    runtime options for this request RuntimeOptions
+     * @param RemoveWorkNodeWorkforceRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return RemoveWorkNodeWorkforceResponse RemoveWorkNodeWorkforceResponse
+     * @return RemoveWorkNodeWorkforceResponse
      */
     public function removeWorkNodeWorkforceWithOptions($TenantId, $TaskId, $WorkNodeId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->userIds)) {
-            $body['UserIds'] = $request->userIds;
+        if (null !== $request->userIds) {
+            @$body['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveWorkNodeWorkforce',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/worknodes/' . OpenApiUtilClient::getEncodeParam($WorkNodeId) . '/workforce',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveWorkNodeWorkforce',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/worknodes/' . Url::percentEncode($WorkNodeId) . '/workforce',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveWorkNodeWorkforceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除结点人力
-     *  *
+     * Delete Node Personnel.
+     *
+     * @param request - RemoveWorkNodeWorkforceRequest
+     *
+     * @returns RemoveWorkNodeWorkforceResponse
+     *
      * @param string                         $TenantId
      * @param string                         $TaskId
      * @param string                         $WorkNodeId
-     * @param RemoveWorkNodeWorkforceRequest $request    RemoveWorkNodeWorkforceRequest
+     * @param RemoveWorkNodeWorkforceRequest $request
      *
-     * @return RemoveWorkNodeWorkforceResponse RemoveWorkNodeWorkforceResponse
+     * @return RemoveWorkNodeWorkforceResponse
      */
     public function removeWorkNodeWorkforce($TenantId, $TaskId, $WorkNodeId, $request)
     {
@@ -1797,46 +2117,56 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 更新标注任务基础信息
-     *  *
+     * Modify a job under the current tenant.
+     *
+     * @param request - UpdateTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTaskResponse
+     *
      * @param string            $TenantId
      * @param string            $TaskId
-     * @param UpdateTaskRequest $request  UpdateTaskRequest
-     * @param string[]          $headers  map
-     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
+     * @param UpdateTaskRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
-     * @return UpdateTaskResponse UpdateTaskResponse
+     * @return UpdateTaskResponse
      */
     public function updateTaskWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTask',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateTask',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新标注任务基础信息
-     *  *
+     * Modify a job under the current tenant.
+     *
+     * @param request - UpdateTaskRequest
+     *
+     * @returns UpdateTaskResponse
+     *
      * @param string            $TenantId
      * @param string            $TaskId
-     * @param UpdateTaskRequest $request  UpdateTaskRequest
+     * @param UpdateTaskRequest $request
      *
-     * @return UpdateTaskResponse UpdateTaskResponse
+     * @return UpdateTaskResponse
      */
     public function updateTask($TenantId, $TaskId, $request)
     {
@@ -1847,50 +2177,61 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 更新任务人力
-     *  *
+     * Update job members.
+     *
+     * @param request - UpdateTaskWorkforceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTaskWorkforceResponse
+     *
      * @param string                     $TenantId
      * @param string                     $TaskId
-     * @param UpdateTaskWorkforceRequest $request  UpdateTaskWorkforceRequest
-     * @param string[]                   $headers  map
-     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
+     * @param UpdateTaskWorkforceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdateTaskWorkforceResponse UpdateTaskWorkforceResponse
+     * @return UpdateTaskWorkforceResponse
      */
     public function updateTaskWorkforceWithOptions($TenantId, $TaskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->workforce)) {
-            $body['Workforce'] = $request->workforce;
+        if (null !== $request->workforce) {
+            @$body['Workforce'] = $request->workforce;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTaskWorkforce',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/workforce',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateTaskWorkforce',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/tasks/' . Url::percentEncode($TaskId) . '/workforce',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTaskWorkforceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新任务人力
-     *  *
+     * Update job members.
+     *
+     * @param request - UpdateTaskWorkforceRequest
+     *
+     * @returns UpdateTaskWorkforceResponse
+     *
      * @param string                     $TenantId
      * @param string                     $TaskId
-     * @param UpdateTaskWorkforceRequest $request  UpdateTaskWorkforceRequest
+     * @param UpdateTaskWorkforceRequest $request
      *
-     * @return UpdateTaskWorkforceResponse UpdateTaskWorkforceResponse
+     * @return UpdateTaskWorkforceResponse
      */
     public function updateTaskWorkforce($TenantId, $TaskId, $request)
     {
@@ -1901,46 +2242,56 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 更新标注模版
-     *  *
+     * Modify the template under the current tenant.
+     *
+     * @param request - UpdateTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTemplateResponse
+     *
      * @param string                $TenantId
      * @param string                $TemplateId
-     * @param UpdateTemplateRequest $request    UpdateTemplateRequest
-     * @param string[]              $headers    map
-     * @param RuntimeOptions        $runtime    runtime options for this request RuntimeOptions
+     * @param UpdateTemplateRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdateTemplateResponse UpdateTemplateResponse
+     * @return UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($TenantId, $TemplateId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTemplate',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/templates/' . OpenApiUtilClient::getEncodeParam($TemplateId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateTemplate',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/templates/' . Url::percentEncode($TemplateId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新标注模版
-     *  *
+     * Modify the template under the current tenant.
+     *
+     * @param request - UpdateTemplateRequest
+     *
+     * @returns UpdateTemplateResponse
+     *
      * @param string                $TenantId
      * @param string                $TemplateId
-     * @param UpdateTemplateRequest $request    UpdateTemplateRequest
+     * @param UpdateTemplateRequest $request
      *
-     * @return UpdateTemplateResponse UpdateTemplateResponse
+     * @return UpdateTemplateResponse
      */
     public function updateTemplate($TenantId, $TemplateId, $request)
     {
@@ -1951,51 +2302,63 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 更新租户信息
-     *  *
-     * @param string              $TenantId
-     * @param UpdateTenantRequest $request  UpdateTenantRequest
-     * @param string[]            $headers  map
-     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
+     * Modify the information of an iTAG tenant.
      *
-     * @return UpdateTenantResponse UpdateTenantResponse
+     * @param request - UpdateTenantRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTenantResponse
+     *
+     * @param string              $TenantId
+     * @param UpdateTenantRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateTenantResponse
      */
     public function updateTenantWithOptions($TenantId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->tenantName)) {
-            $body['TenantName'] = $request->tenantName;
+
+        if (null !== $request->tenantName) {
+            @$body['TenantName'] = $request->tenantName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTenant',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateTenant',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateTenantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新租户信息
-     *  *
-     * @param string              $TenantId
-     * @param UpdateTenantRequest $request  UpdateTenantRequest
+     * Modify the information of an iTAG tenant.
      *
-     * @return UpdateTenantResponse UpdateTenantResponse
+     * @param request - UpdateTenantRequest
+     *
+     * @returns UpdateTenantResponse
+     *
+     * @param string              $TenantId
+     * @param UpdateTenantRequest $request
+     *
+     * @return UpdateTenantResponse
      */
     public function updateTenant($TenantId, $request)
     {
@@ -2006,53 +2369,65 @@ class OpenITag extends OpenApiClient
     }
 
     /**
-     * @summary 更新用户信息
-     *  *
+     * Update member information within a tenant.
+     *
+     * @param request - UpdateUserRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserResponse
+     *
      * @param string            $TenantId
      * @param string            $UserId
-     * @param UpdateUserRequest $request  UpdateUserRequest
-     * @param string[]          $headers  map
-     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
+     * @param UpdateUserRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @return UpdateUserResponse
      */
     public function updateUserWithOptions($TenantId, $UserId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->role)) {
-            $body['Role'] = $request->role;
+        if (null !== $request->role) {
+            @$body['Role'] = $request->role;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUser',
-            'version'     => '2022-06-16',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/openapi/api/v1/tenants/' . OpenApiUtilClient::getEncodeParam($TenantId) . '/users/' . OpenApiUtilClient::getEncodeParam($UserId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateUser',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/api/v1/tenants/' . Url::percentEncode($TenantId) . '/users/' . Url::percentEncode($UserId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新用户信息
-     *  *
+     * Update member information within a tenant.
+     *
+     * @param request - UpdateUserRequest
+     *
+     * @returns UpdateUserResponse
+     *
      * @param string            $TenantId
      * @param string            $UserId
-     * @param UpdateUserRequest $request  UpdateUserRequest
+     * @param UpdateUserRequest $request
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @return UpdateUserResponse
      */
     public function updateUser($TenantId, $UserId, $request)
     {

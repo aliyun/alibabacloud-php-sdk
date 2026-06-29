@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTemplatesRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example demo
-     *
      * @var string
      */
     public $searchKey;
@@ -35,54 +29,76 @@ class ListTemplatesRequest extends Model
     public $types;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'searchKey'  => 'SearchKey',
-        'types'      => 'Types',
+        'pageSize' => 'PageSize',
+        'searchKey' => 'SearchKey',
+        'types' => 'Types',
     ];
 
     public function validate()
     {
+        if (\is_array($this->types)) {
+            Model::validateArray($this->types);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->searchKey) {
             $res['SearchKey'] = $this->searchKey;
         }
+
         if (null !== $this->types) {
-            $res['Types'] = $this->types;
+            if (\is_array($this->types)) {
+                $res['Types'] = [];
+                $n1 = 0;
+                foreach ($this->types as $item1) {
+                    $res['Types'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SearchKey'])) {
             $model->searchKey = $map['SearchKey'];
         }
+
         if (isset($map['Types'])) {
             if (!empty($map['Types'])) {
-                $model->types = $map['Types'];
+                $model->types = [];
+                $n1 = 0;
+                foreach ($map['Types'] as $item1) {
+                    $model->types[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

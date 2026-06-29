@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TaskTemplateConfig extends Model
 {
@@ -33,37 +33,63 @@ class TaskTemplateConfig extends Model
      */
     public $templateRelationId;
     protected $_name = [
-        'exif'               => 'Exif',
-        'resourceKey'        => 'ResourceKey',
-        'selectQuestions'    => 'SelectQuestions',
-        'templateOptionMap'  => 'TemplateOptionMap',
+        'exif' => 'Exif',
+        'resourceKey' => 'ResourceKey',
+        'selectQuestions' => 'SelectQuestions',
+        'templateOptionMap' => 'TemplateOptionMap',
         'templateRelationId' => 'TemplateRelationId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->exif)) {
+            Model::validateArray($this->exif);
+        }
+        if (\is_array($this->selectQuestions)) {
+            Model::validateArray($this->selectQuestions);
+        }
+        if (\is_array($this->templateOptionMap)) {
+            Model::validateArray($this->templateOptionMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exif) {
-            $res['Exif'] = $this->exif;
-        }
-        if (null !== $this->resourceKey) {
-            $res['ResourceKey'] = $this->resourceKey;
-        }
-        if (null !== $this->selectQuestions) {
-            $res['SelectQuestions'] = $this->selectQuestions;
-        }
-        if (null !== $this->templateOptionMap) {
-            $res['TemplateOptionMap'] = [];
-            if (null !== $this->templateOptionMap && \is_array($this->templateOptionMap)) {
-                foreach ($this->templateOptionMap as $key => $val) {
-                    $res['TemplateOptionMap'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->exif)) {
+                $res['Exif'] = [];
+                foreach ($this->exif as $key1 => $value1) {
+                    $res['Exif'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->resourceKey) {
+            $res['ResourceKey'] = $this->resourceKey;
+        }
+
+        if (null !== $this->selectQuestions) {
+            if (\is_array($this->selectQuestions)) {
+                $res['SelectQuestions'] = [];
+                $n1 = 0;
+                foreach ($this->selectQuestions as $item1) {
+                    $res['SelectQuestions'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->templateOptionMap) {
+            if (\is_array($this->templateOptionMap)) {
+                $res['TemplateOptionMap'] = [];
+                foreach ($this->templateOptionMap as $key1 => $value1) {
+                    $res['TemplateOptionMap'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
+        }
+
         if (null !== $this->templateRelationId) {
             $res['TemplateRelationId'] = $this->templateRelationId;
         }
@@ -71,28 +97,47 @@ class TaskTemplateConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TaskTemplateConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Exif'])) {
-            $model->exif = $map['Exif'];
+            if (!empty($map['Exif'])) {
+                $model->exif = [];
+                foreach ($map['Exif'] as $key1 => $value1) {
+                    $model->exif[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ResourceKey'])) {
             $model->resourceKey = $map['ResourceKey'];
         }
+
         if (isset($map['SelectQuestions'])) {
             if (!empty($map['SelectQuestions'])) {
-                $model->selectQuestions = $map['SelectQuestions'];
+                $model->selectQuestions = [];
+                $n1 = 0;
+                foreach ($map['SelectQuestions'] as $item1) {
+                    $model->selectQuestions[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TemplateOptionMap'])) {
-            $model->templateOptionMap = $map['TemplateOptionMap'];
+            if (!empty($map['TemplateOptionMap'])) {
+                $model->templateOptionMap = [];
+                foreach ($map['TemplateOptionMap'] as $key1 => $value1) {
+                    $model->templateOptionMap[$key1] = TaskTemplateOptionConfig::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['TemplateRelationId'])) {
             $model->templateRelationId = $map['TemplateRelationId'];
         }

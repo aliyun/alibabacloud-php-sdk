@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateUserRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ADMIN
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example user1
-     *
      * @var string
      */
     public $userName;
     protected $_name = [
-        'role'     => 'Role',
+        'role' => 'Role',
         'userName' => 'UserName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -47,17 +41,18 @@ class UpdateUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

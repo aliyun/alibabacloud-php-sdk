@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models\ViewPlugin;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class visitInfo extends Model
 {
@@ -19,39 +19,68 @@ class visitInfo extends Model
     public $ossConf;
     protected $_name = [
         'aftsConf' => 'aftsConf',
-        'ossConf'  => 'ossConf',
+        'ossConf' => 'ossConf',
     ];
 
     public function validate()
     {
+        if (\is_array($this->aftsConf)) {
+            Model::validateArray($this->aftsConf);
+        }
+        if (\is_array($this->ossConf)) {
+            Model::validateArray($this->ossConf);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aftsConf) {
-            $res['aftsConf'] = $this->aftsConf;
+            if (\is_array($this->aftsConf)) {
+                $res['aftsConf'] = [];
+                foreach ($this->aftsConf as $key1 => $value1) {
+                    $res['aftsConf'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->ossConf) {
-            $res['ossConf'] = $this->ossConf;
+            if (\is_array($this->ossConf)) {
+                $res['ossConf'] = [];
+                foreach ($this->ossConf as $key1 => $value1) {
+                    $res['ossConf'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return visitInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aftsConf'])) {
-            $model->aftsConf = $map['aftsConf'];
+            if (!empty($map['aftsConf'])) {
+                $model->aftsConf = [];
+                foreach ($map['aftsConf'] as $key1 => $value1) {
+                    $model->aftsConf[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ossConf'])) {
-            $model->ossConf = $map['ossConf'];
+            if (!empty($map['ossConf'])) {
+                $model->ossConf = [];
+                foreach ($map['ossConf'] as $key1 => $value1) {
+                    $model->ossConf[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

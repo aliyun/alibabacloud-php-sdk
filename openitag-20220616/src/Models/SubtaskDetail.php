@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OpenITag\V20220616\Models\SubtaskDetail\items;
-use AlibabaCloud\Tea\Model;
 
 class SubtaskDetail extends Model
 {
@@ -25,8 +25,6 @@ class SubtaskDetail extends Model
     public $canRelease;
 
     /**
-     * @example MARK
-     *
      * @var string
      */
     public $currentWorkNode;
@@ -42,15 +40,11 @@ class SubtaskDetail extends Model
     public $items;
 
     /**
-     * @example FINISHED
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example 1500682457270333440
-     *
      * @var string
      */
     public $subtaskId;
@@ -66,8 +60,6 @@ class SubtaskDetail extends Model
     public $weight;
 
     /**
-     * @example FINISHED
-     *
      * @var string
      */
     public $workNodeState;
@@ -77,72 +69,92 @@ class SubtaskDetail extends Model
      */
     public $workforce;
     protected $_name = [
-        'canDiscard'      => 'CanDiscard',
-        'canReassign'     => 'CanReassign',
-        'canRelease'      => 'CanRelease',
+        'canDiscard' => 'CanDiscard',
+        'canReassign' => 'CanReassign',
+        'canRelease' => 'CanRelease',
         'currentWorkNode' => 'CurrentWorkNode',
-        'extConfigs'      => 'ExtConfigs',
-        'items'           => 'Items',
-        'status'          => 'Status',
-        'subtaskId'       => 'SubtaskId',
-        'taskId'          => 'TaskId',
-        'weight'          => 'Weight',
-        'workNodeState'   => 'WorkNodeState',
-        'workforce'       => 'Workforce',
+        'extConfigs' => 'ExtConfigs',
+        'items' => 'Items',
+        'status' => 'Status',
+        'subtaskId' => 'SubtaskId',
+        'taskId' => 'TaskId',
+        'weight' => 'Weight',
+        'workNodeState' => 'WorkNodeState',
+        'workforce' => 'Workforce',
     ];
 
     public function validate()
     {
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        if (\is_array($this->workforce)) {
+            Model::validateArray($this->workforce);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canDiscard) {
             $res['CanDiscard'] = $this->canDiscard;
         }
+
         if (null !== $this->canReassign) {
             $res['CanReassign'] = $this->canReassign;
         }
+
         if (null !== $this->canRelease) {
             $res['CanRelease'] = $this->canRelease;
         }
+
         if (null !== $this->currentWorkNode) {
             $res['CurrentWorkNode'] = $this->currentWorkNode;
         }
+
         if (null !== $this->extConfigs) {
             $res['ExtConfigs'] = $this->extConfigs;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = [];
-            if (null !== $this->items && \is_array($this->items)) {
-                $n = 0;
-                foreach ($this->items as $item) {
-                    $res['Items'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->items)) {
+                $res['Items'] = [];
+                $n1 = 0;
+                foreach ($this->items as $item1) {
+                    $res['Items'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->subtaskId) {
             $res['SubtaskId'] = $this->subtaskId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
+
         if (null !== $this->workNodeState) {
             $res['WorkNodeState'] = $this->workNodeState;
         }
+
         if (null !== $this->workforce) {
-            $res['Workforce'] = [];
-            if (null !== $this->workforce && \is_array($this->workforce)) {
-                $n = 0;
-                foreach ($this->workforce as $item) {
-                    $res['Workforce'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workforce)) {
+                $res['Workforce'] = [];
+                $n1 = 0;
+                foreach ($this->workforce as $item1) {
+                    $res['Workforce'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,59 +162,72 @@ class SubtaskDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubtaskDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanDiscard'])) {
             $model->canDiscard = $map['CanDiscard'];
         }
+
         if (isset($map['CanReassign'])) {
             $model->canReassign = $map['CanReassign'];
         }
+
         if (isset($map['CanRelease'])) {
             $model->canRelease = $map['CanRelease'];
         }
+
         if (isset($map['CurrentWorkNode'])) {
             $model->currentWorkNode = $map['CurrentWorkNode'];
         }
+
         if (isset($map['ExtConfigs'])) {
             $model->extConfigs = $map['ExtConfigs'];
         }
+
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n            = 0;
-                foreach ($map['Items'] as $item) {
-                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Items'] as $item1) {
+                    $model->items[$n1] = items::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SubtaskId'])) {
             $model->subtaskId = $map['SubtaskId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }
+
         if (isset($map['WorkNodeState'])) {
             $model->workNodeState = $map['WorkNodeState'];
         }
+
         if (isset($map['Workforce'])) {
             if (!empty($map['Workforce'])) {
                 $model->workforce = [];
-                $n                = 0;
-                foreach ($map['Workforce'] as $item) {
-                    $model->workforce[$n++] = null !== $item ? Workforce::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Workforce'] as $item1) {
+                    $model->workforce[$n1] = Workforce::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

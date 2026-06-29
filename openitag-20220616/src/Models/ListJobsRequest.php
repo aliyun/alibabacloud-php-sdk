@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\OpenITag\V20220616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListJobsRequest extends Model
 {
     /**
-     * @example DOWNLOWD_MARKRESULT_FLOW
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'jobType'    => 'JobType',
+        'jobType' => 'JobType',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -54,20 +51,22 @@ class ListJobsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListJobsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
