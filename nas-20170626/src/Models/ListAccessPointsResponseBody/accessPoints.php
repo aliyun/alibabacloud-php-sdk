@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointResponseBody;
+namespace AlibabaCloud\SDK\NAS\V20170626\Models\ListAccessPointsResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointResponseBody\accessPoint\posixUser;
-use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointResponseBody\accessPoint\rootPathPermission;
-use AlibabaCloud\SDK\NAS\V20170626\Models\DescribeAccessPointResponseBody\accessPoint\tags;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListAccessPointsResponseBody\accessPoints\posixUser;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListAccessPointsResponseBody\accessPoints\rootPathPermission;
+use AlibabaCloud\SDK\NAS\V20170626\Models\ListAccessPointsResponseBody\accessPoints\tags;
 
-class accessPoint extends Model
+class accessPoints extends Model
 {
     /**
      * @var string
@@ -79,11 +79,6 @@ class accessPoint extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $rootPath;
 
     /**
@@ -129,7 +124,6 @@ class accessPoint extends Model
         'modifyTime' => 'ModifyTime',
         'modifyTimeUtc' => 'ModifyTimeUtc',
         'posixUser' => 'PosixUser',
-        'regionId' => 'RegionId',
         'rootPath' => 'RootPath',
         'rootPathPermission' => 'RootPathPermission',
         'rootPathStatus' => 'RootPathStatus',
@@ -206,10 +200,6 @@ class accessPoint extends Model
 
         if (null !== $this->posixUser) {
             $res['PosixUser'] = null !== $this->posixUser ? $this->posixUser->toArray($noStream) : $this->posixUser;
-        }
-
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->rootPath) {
@@ -308,10 +298,6 @@ class accessPoint extends Model
 
         if (isset($map['PosixUser'])) {
             $model->posixUser = posixUser::fromMap($map['PosixUser']);
-        }
-
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['RootPath'])) {

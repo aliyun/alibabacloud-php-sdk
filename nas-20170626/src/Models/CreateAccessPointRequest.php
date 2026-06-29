@@ -20,6 +20,11 @@ class CreateAccessPointRequest extends Model
     public $accessPointName;
 
     /**
+     * @var string
+     */
+    public $agenticSpaceId;
+
+    /**
      * @var bool
      */
     public $enabledRam;
@@ -81,6 +86,7 @@ class CreateAccessPointRequest extends Model
     protected $_name = [
         'accessGroup' => 'AccessGroup',
         'accessPointName' => 'AccessPointName',
+        'agenticSpaceId' => 'AgenticSpaceId',
         'enabledRam' => 'EnabledRam',
         'fileSystemId' => 'FileSystemId',
         'ownerGroupId' => 'OwnerGroupId',
@@ -112,6 +118,10 @@ class CreateAccessPointRequest extends Model
 
         if (null !== $this->accessPointName) {
             $res['AccessPointName'] = $this->accessPointName;
+        }
+
+        if (null !== $this->agenticSpaceId) {
+            $res['AgenticSpaceId'] = $this->agenticSpaceId;
         }
 
         if (null !== $this->enabledRam) {
@@ -186,6 +196,10 @@ class CreateAccessPointRequest extends Model
 
         if (isset($map['AccessPointName'])) {
             $model->accessPointName = $map['AccessPointName'];
+        }
+
+        if (isset($map['AgenticSpaceId'])) {
+            $model->agenticSpaceId = $map['AgenticSpaceId'];
         }
 
         if (isset($map['EnabledRam'])) {
