@@ -12,8 +12,14 @@ class options extends Model
      * @var string
      */
     public $igmpv2Support;
+
+    /**
+     * @var string
+     */
+    public $strictSourceControl;
     protected $_name = [
         'igmpv2Support' => 'Igmpv2Support',
+        'strictSourceControl' => 'StrictSourceControl',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class options extends Model
         $res = [];
         if (null !== $this->igmpv2Support) {
             $res['Igmpv2Support'] = $this->igmpv2Support;
+        }
+
+        if (null !== $this->strictSourceControl) {
+            $res['StrictSourceControl'] = $this->strictSourceControl;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class options extends Model
         $model = new self();
         if (isset($map['Igmpv2Support'])) {
             $model->igmpv2Support = $map['Igmpv2Support'];
+        }
+
+        if (isset($map['StrictSourceControl'])) {
+            $model->strictSourceControl = $map['StrictSourceControl'];
         }
 
         return $model;
