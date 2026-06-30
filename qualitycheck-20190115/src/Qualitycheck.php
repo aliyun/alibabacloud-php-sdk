@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleCategoryResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleV4Response;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AnalyzeLabelRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AnalyzeLabelResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ApplyWsTokenRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ApplyWsTokenResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerBySessionGroupRequest;
@@ -19,6 +21,10 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AssignReviewerResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\BatchSubmitReviewInfoRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\BatchSubmitReviewInfoResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAgentRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAgentResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAgentTaskRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAgentTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateAsrVocabResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateCheckTypeToSchemeRequest;
@@ -31,6 +37,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSchemeTaskConfigRequest
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSchemeTaskConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateSkillGroupConfigResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTagRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTagResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTaskAssignRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateTaskAssignRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateUserRequest;
@@ -39,6 +47,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningStrategyConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\CreateWarningStrategyConfigResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteAgentRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteAgentResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteAsrVocabResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteBusinessCategoryRequest;
@@ -61,6 +71,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSchemeTaskConfigRequest
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSchemeTaskConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteSkillGroupConfigResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteTagRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteTagResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteTaskAssignRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteTaskAssignRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningConfigRequest;
@@ -69,12 +81,24 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningStrategyConfigRe
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DelRuleCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DelRuleCategoryResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ExecuteAgentRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ExecuteAgentResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GenerateLabelRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GenerateLabelResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAsrVocabResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetBusinessCategoryListRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetBusinessCategoryListResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetCustomizationConfigListRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetCustomizationConfigListResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetLabelAnalysisResultRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetLabelAnalysisResultResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetLabelGeneratedResultRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetLabelGeneratedResultResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetMiningTaskResultRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetMiningTaskResultResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyRequest;
@@ -107,6 +131,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetTagRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetTagResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetWarningStrategyConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\HandleComplaintRequest;
@@ -131,6 +157,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSessionGroupRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSessionGroupResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSkillGroupConfigResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTagRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTagResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListUsersRequest;
@@ -162,6 +190,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SyncQualityCheckResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\TestRuleV4Response;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAgentRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAgentResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateAsrVocabResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateCheckTypeToSchemeRequest;
@@ -184,6 +214,8 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSkillGroupConfigRequest
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSyncQualityCheckDataRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateSyncQualityCheckDataResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateTagRequest;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateTagResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateTaskAssignRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateTaskAssignRuleResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateUserRequest;
@@ -218,7 +250,10 @@ class Qualitycheck extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'qualitycheck.cn-hangzhou.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('qualitycheck', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -248,6 +283,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Adds a business category.
+     *
      * @param request - AddBusinessCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -289,6 +326,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Adds a business category.
+     *
      * @param request - AddBusinessCategoryRequest
      *
      * @returns AddBusinessCategoryResponse
@@ -305,6 +344,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Add a rule category.
+     *
      * @param request - AddRuleCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -346,6 +387,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Add a rule category.
+     *
      * @param request - AddRuleCategoryRequest
      *
      * @returns AddRuleCategoryResponse
@@ -362,7 +405,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4创建规则.
+     * This operation creates a rule on the Quality Inspection Rule Configuration page. For Apsara Stack, the URL is ip:port/api/client/UpdateRuleById.json.
      *
      * @param request - AddRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -411,7 +454,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4创建规则.
+     * This operation creates a rule on the Quality Inspection Rule Configuration page. For Apsara Stack, the URL is ip:port/api/client/UpdateRuleById.json.
      *
      * @param request - AddRuleV4Request
      *
@@ -429,7 +472,68 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 申领实时语音所需token.
+     * Performs tag categorization.
+     *
+     * @param request - AnalyzeLabelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AnalyzeLabelResponse
+     *
+     * @param AnalyzeLabelRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return AnalyzeLabelResponse
+     */
+    public function analyzeLabelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AnalyzeLabel',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AnalyzeLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs tag categorization.
+     *
+     * @param request - AnalyzeLabelRequest
+     *
+     * @returns AnalyzeLabelResponse
+     *
+     * @param AnalyzeLabelRequest $request
+     *
+     * @return AnalyzeLabelResponse
+     */
+    public function analyzeLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->analyzeLabelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Apply for the token required for real-time speech processing.
      *
      * @param request - ApplyWsTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -472,7 +576,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 申领实时语音所需token.
+     * Apply for the token required for real-time speech processing.
      *
      * @param request - ApplyWsTokenRequest
      *
@@ -490,6 +594,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Manually assign quality reviewers.
+     *
+     * @remarks
+     * You can manually assign files that have completed quality inspection to reviewers. Assignments can be made one file at a time or in batches:
+     * Single-file assignment: Assign a specific file to a specified reviewer.
+     * Batch assignment: Assign multiple filtered files to one or more reviewers. You can specify how many files each reviewer receives, or let the system distribute the files evenly among reviewers.
+     *
      * @param request - AssignReviewerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -531,6 +642,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Manually assign quality reviewers.
+     *
+     * @remarks
+     * You can manually assign files that have completed quality inspection to reviewers. Assignments can be made one file at a time or in batches:
+     * Single-file assignment: Assign a specific file to a specified reviewer.
+     * Batch assignment: Assign multiple filtered files to one or more reviewers. You can specify how many files each reviewer receives, or let the system distribute the files evenly among reviewers.
+     *
      * @param request - AssignReviewerRequest
      *
      * @returns AssignReviewerResponse
@@ -547,7 +665,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 会话组批量分配.
+     * Frontend location: Quality Check Plan Management > Task Results > Session Groups > Batch Assign. Apsara Stack URL: ip:port/api/job/AssignReviewerBySessionGroup.json.
      *
      * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
      *
@@ -593,7 +711,7 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
-     * 会话组批量分配.
+     * Frontend location: Quality Check Plan Management > Task Results > Session Groups > Batch Assign. Apsara Stack URL: ip:port/api/job/AssignReviewerBySessionGroup.json.
      *
      * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
      *
@@ -613,7 +731,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 批量复核.
+     * This operation implements the Batch Review feature, which is available in the frontend under Task Management > Task Result.
+     * For private cloud deployments, use the URL: ip:port/api/qcsBatchSubmitReviewInfo.json.
+     * You can use this operation to perform a batch review on all filtered data.
+     * Note: This operation updates a large volume of data. The changes may take some time to appear.
      *
      * @param request - BatchSubmitReviewInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -656,7 +777,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 批量复核.
+     * This operation implements the Batch Review feature, which is available in the frontend under Task Management > Task Result.
+     * For private cloud deployments, use the URL: ip:port/api/qcsBatchSubmitReviewInfo.json.
+     * You can use this operation to perform a batch review on all filtered data.
+     * Note: This operation updates a large volume of data. The changes may take some time to appear.
      *
      * @param request - BatchSubmitReviewInfoRequest
      *
@@ -674,7 +798,132 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 创建热词模型.
+     * Creates an agent.
+     *
+     * @param request - CreateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgent',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an agent.
+     *
+     * @param request - CreateAgentRequest
+     *
+     * @returns CreateAgentResponse
+     *
+     * @param CreateAgentRequest $request
+     *
+     * @return CreateAgentResponse
+     */
+    public function createAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+     *
+     * @param request - CreateAgentTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgentTaskResponse
+     *
+     * @param CreateAgentTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAgentTaskResponse
+     */
+    public function createAgentTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgentTask',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgentTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an Agent batch task for conversation analysis. The application call supports HTTP calls to complete the customer response.
+     *
+     * @param request - CreateAgentTaskRequest
+     *
+     * @returns CreateAgentTaskResponse
+     *
+     * @param CreateAgentTaskRequest $request
+     *
+     * @return CreateAgentTaskResponse
+     */
+    public function createAgentTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgentTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Uploads a set of speech hotwords to the server and obtains the hotword ID in the response.
+     *
+     * @remarks
+     * > Hotwords help improve recognition accuracy for specific terms, such as names, place names, or technical terms. [Learn more](https://help.aliyun.com/document_detail/213249.html).
      *
      * @param request - CreateAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -717,7 +966,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 创建热词模型.
+     * Uploads a set of speech hotwords to the server and obtains the hotword ID in the response.
+     *
+     * @remarks
+     * > Hotwords help improve recognition accuracy for specific terms, such as names, place names, or technical terms. [Learn more](https://help.aliyun.com/document_detail/213249.html).
      *
      * @param request - CreateAsrVocabRequest
      *
@@ -735,7 +987,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 创建质检方案中的质检维度.
+     * UI path: Quality Check Plan Management > Add or Edit Quality Check Dimension > Add Quality Check Dimension. Apsara Stack API endpoint: ip:port/api/qcs/CreateCheckTypeToScheme.json.
      *
      * @param request - CreateCheckTypeToSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -778,7 +1030,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 创建质检方案中的质检维度.
+     * UI path: Quality Check Plan Management > Add or Edit Quality Check Dimension > Add Quality Check Dimension. Apsara Stack API endpoint: ip:port/api/qcs/CreateCheckTypeToScheme.json.
      *
      * @param request - CreateCheckTypeToSchemeRequest
      *
@@ -796,7 +1048,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 创建标签挖掘任务
+     * Creates a label mining task.
      *
      * @param request - CreateMiningTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -853,7 +1105,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 创建标签挖掘任务
+     * Creates a label mining task.
      *
      * @param request - CreateMiningTaskRequest
      *
@@ -871,7 +1123,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 新增质检方案.
+     * You can access this operation from the Quality Check Plan Management page in the console. The Apsara Stack endpoint is ip:port/api/qcs/CreateQualityCheckScheme.json.
      *
      * @param request - CreateQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -914,7 +1166,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 新增质检方案.
+     * You can access this operation from the Quality Check Plan Management page in the console. The Apsara Stack endpoint is ip:port/api/qcs/CreateQualityCheckScheme.json.
      *
      * @param request - CreateQualityCheckSchemeRequest
      *
@@ -932,7 +1184,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 新建质检任务
+     * Corresponding frontend feature location: Plan Management > Create Quality Inspection Job. Apsara Stack URL: ip:port/api/task/CreateSchemeTaskConfig.json.
      *
      * @param request - CreateSchemeTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -975,7 +1227,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 新建质检任务
+     * Corresponding frontend feature location: Plan Management > Create Quality Inspection Job. Apsara Stack URL: ip:port/api/task/CreateSchemeTaskConfig.json.
      *
      * @param request - CreateSchemeTaskConfigRequest
      *
@@ -993,6 +1245,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Create a configuration.
+     *
      * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
      *
      * @param request - CreateSkillGroupConfigRequest
@@ -1037,6 +1291,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Create a configuration.
+     *
      * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
      *
      * @param request - CreateSkillGroupConfigRequest
@@ -1055,6 +1311,69 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Creates a label node.
+     *
+     * @param request - CreateTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTagResponse
+     *
+     * @param CreateTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateTagResponse
+     */
+    public function createTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateTag',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a label node.
+     *
+     * @param request - CreateTagRequest
+     *
+     * @returns CreateTagResponse
+     *
+     * @param CreateTagRequest $request
+     *
+     * @return CreateTagResponse
+     */
+    public function createTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an automatic allocation rule for quality review tasks.
+     *
      * @param request - CreateTaskAssignRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1096,6 +1415,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Creates an automatic allocation rule for quality review tasks.
+     *
      * @param request - CreateTaskAssignRuleRequest
      *
      * @returns CreateTaskAssignRuleResponse
@@ -1112,7 +1433,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 创建用户.
+     * Create a user.
+     *
+     * @remarks
+     * Alibaba Cloud uses Resource Access Management (RAM) for unified account management. Before you create a user in Smart Conversation Analysis, first create the user in [RAM](https://ram.console.aliyun.com). Then, obtain the user’s UID, username, and display name. Finally, add the RAM user to Smart Conversation Analysis to grant them access to the Smart Conversation Analysis service.
      *
      * @param request - CreateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1155,7 +1479,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 创建用户.
+     * Create a user.
+     *
+     * @remarks
+     * Alibaba Cloud uses Resource Access Management (RAM) for unified account management. Before you create a user in Smart Conversation Analysis, first create the user in [RAM](https://ram.console.aliyun.com). Then, obtain the user’s UID, username, and display name. Finally, add the RAM user to Smart Conversation Analysis to grant them access to the Smart Conversation Analysis service.
      *
      * @param request - CreateUserRequest
      *
@@ -1173,6 +1500,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Create a warning configuration.
+     *
      * @param request - CreateWarningConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1214,6 +1543,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Create a warning configuration.
+     *
      * @param request - CreateWarningConfigRequest
      *
      * @returns CreateWarningConfigResponse
@@ -1291,6 +1622,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a rule category.
+     *
      * @param request - DelRuleCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1332,6 +1665,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a rule category.
+     *
      * @param request - DelRuleCategoryRequest
      *
      * @returns DelRuleCategoryResponse
@@ -1348,6 +1683,69 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes an agent.
+     *
+     * @param request - DeleteAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteAgentResponse
+     */
+    public function deleteAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgent',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an agent.
+     *
+     * @param request - DeleteAgentRequest
+     *
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     *
+     * @return DeleteAgentResponse
+     */
+    public function deleteAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a hotword group.
+     *
      * @param request - DeleteAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1389,6 +1787,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a hotword group.
+     *
      * @param request - DeleteAsrVocabRequest
      *
      * @returns DeleteAsrVocabResponse
@@ -1405,6 +1805,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a business category.
+     *
      * @param request - DeleteBusinessCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1446,6 +1848,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a business category.
+     *
      * @param request - DeleteBusinessCategoryRequest
      *
      * @returns DeleteBusinessCategoryResponse
@@ -1462,7 +1866,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 删除质检唯独.
+     * Deletes a dimension from a quality inspection scheme.
      *
      * @param request - DeleteCheckTypeToSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1505,7 +1909,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 删除质检唯独.
+     * Deletes a dimension from a quality inspection scheme.
      *
      * @param request - DeleteCheckTypeToSchemeRequest
      *
@@ -1523,6 +1927,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a language model.
+     *
      * @param request - DeleteCustomizationConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1564,6 +1970,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a language model.
+     *
      * @param request - DeleteCustomizationConfigRequest
      *
      * @returns DeleteCustomizationConfigResponse
@@ -1580,6 +1988,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a dataset.
+     *
      * @deprecated OpenAPI DeleteDataSet is deprecated
      *
      * @param request - DeleteDataSetRequest
@@ -1624,6 +2034,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Deletes a dataset.
+     *
      * @deprecated OpenAPI DeleteDataSet is deprecated
      *
      * @param request - DeleteDataSetRequest
@@ -1642,6 +2054,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Delete a speech recognition quality check task.
+     *
      * @param request - DeletePrecisionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1683,6 +2097,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Delete a speech recognition quality check task.
+     *
      * @param request - DeletePrecisionTaskRequest
      *
      * @returns DeletePrecisionTaskResponse
@@ -1699,7 +2115,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 删除质检方案.
+     * You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
      *
      * @param request - DeleteQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1742,7 +2158,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 删除质检方案.
+     * You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
      *
      * @param request - DeleteQualityCheckSchemeRequest
      *
@@ -1760,7 +2176,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 删除规则.
+     * This operation deletes a quality check rule. You can access it from the Quality Check Rule Configuration page in the Apsara Stack console. The API endpoint is ip:port/api/client/DeleteRule.json.
      *
      * @deprecated openAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
      *
@@ -1816,7 +2232,7 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
-     * 删除规则.
+     * This operation deletes a quality check rule. You can access it from the Quality Check Rule Configuration page in the Apsara Stack console. The API endpoint is ip:port/api/client/DeleteRule.json.
      *
      * @deprecated openAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
      *
@@ -1836,7 +2252,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4删除规则.
+     * Frontend feature location: Quality Inspection Rule Configuration — Delete. Apsara Stack URL: ip:port/api/client/DeleteRule.json.
      *
      * @param request - DeleteRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1885,7 +2301,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4删除规则.
+     * Frontend feature location: Quality Inspection Rule Configuration — Delete. Apsara Stack URL: ip:port/api/client/DeleteRule.json.
      *
      * @param request - DeleteRuleV4Request
      *
@@ -1903,7 +2319,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 删除质检任务
+     * This feature is not available on the frontend. The Apsara Stack API endpoint is ip:port/api/task/DeleteSchemeTaskConfig.json.
      *
      * @param request - DeleteSchemeTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1946,7 +2362,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 删除质检任务
+     * This feature is not available on the frontend. The Apsara Stack API endpoint is ip:port/api/task/DeleteSchemeTaskConfig.json.
      *
      * @param request - DeleteSchemeTaskConfigRequest
      *
@@ -1964,6 +2380,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Delete a configuration.
+     *
      * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
      *
      * @param request - DeleteSkillGroupConfigRequest
@@ -2008,6 +2426,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Delete a configuration.
+     *
      * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
      *
      * @param request - DeleteSkillGroupConfigRequest
@@ -2026,6 +2446,69 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a label node.
+     *
+     * @param request - DeleteTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTagResponse
+     *
+     * @param DeleteTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteTagResponse
+     */
+    public function deleteTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteTag',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a label node.
+     *
+     * @param request - DeleteTagRequest
+     *
+     * @returns DeleteTagResponse
+     *
+     * @param DeleteTagRequest $request
+     *
+     * @return DeleteTagResponse
+     */
+    public function deleteTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an automatic allocation rule for review tasks.
+     *
      * @param request - DeleteTaskAssignRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2067,6 +2550,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes an automatic allocation rule for review tasks.
+     *
      * @param request - DeleteTaskAssignRuleRequest
      *
      * @returns DeleteTaskAssignRuleResponse
@@ -2083,6 +2568,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a warning configuration.
+     *
      * @param request - DeleteWarningConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2124,6 +2611,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Deletes a warning configuration.
+     *
      * @param request - DeleteWarningConfigRequest
      *
      * @returns DeleteWarningConfigResponse
@@ -2201,6 +2690,316 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Runs an agent.
+     *
+     * @param request - ExecuteAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteAgentResponse
+     *
+     * @param ExecuteAgentRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ExecuteAgentResponse
+     */
+    public function executeAgentWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteAgent',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ExecuteAgentResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Runs an agent.
+     *
+     * @param request - ExecuteAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteAgentResponse
+     *
+     * @param ExecuteAgentRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ExecuteAgentResponse
+     */
+    public function executeAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteAgent',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Runs an agent.
+     *
+     * @param request - ExecuteAgentRequest
+     *
+     * @returns ExecuteAgentResponse
+     *
+     * @param ExecuteAgentRequest $request
+     *
+     * @return ExecuteAgentResponse
+     */
+    public function executeAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Generates labels.
+     *
+     * @param request - GenerateLabelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateLabelResponse
+     *
+     * @param GenerateLabelRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GenerateLabelResponse
+     */
+    public function generateLabelWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GenerateLabel',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GenerateLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Generates labels.
+     *
+     * @param request - GenerateLabelRequest
+     *
+     * @returns GenerateLabelResponse
+     *
+     * @param GenerateLabelRequest $request
+     *
+     * @return GenerateLabelResponse
+     */
+    public function generateLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateLabelWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of an agent.
+     *
+     * @param request - GetAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetAgentResponse
+     */
+    public function getAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgent',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an agent.
+     *
+     * @param request - GetAgentRequest
+     *
+     * @returns GetAgentResponse
+     *
+     * @param GetAgentRequest $request
+     *
+     * @return GetAgentResponse
+     */
+    public function getAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the task result of an agent node.
+     *
+     * @param request - GetAgentTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgentTaskResultResponse
+     *
+     * @param GetAgentTaskResultRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAgentTaskResultResponse
+     */
+    public function getAgentTaskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgentTaskResult',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgentTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the task result of an agent node.
+     *
+     * @param request - GetAgentTaskResultRequest
+     *
+     * @returns GetAgentTaskResultResponse
+     *
+     * @param GetAgentTaskResultRequest $request
+     *
+     * @return GetAgentTaskResultResponse
+     */
+    public function getAgentTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentTaskResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves details for a specified hotword group.
+     *
      * @param request - GetAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2242,6 +3041,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves details for a specified hotword group.
+     *
      * @param request - GetAsrVocabRequest
      *
      * @returns GetAsrVocabResponse
@@ -2258,6 +3059,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Obtain the list of applicable businesses.
+     *
      * @param request - GetBusinessCategoryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2299,6 +3102,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Obtain the list of applicable businesses.
+     *
      * @param request - GetBusinessCategoryListRequest
      *
      * @returns GetBusinessCategoryListResponse
@@ -2315,7 +3120,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取语音模型列表.
+     * Retrieves a list of language models.
      *
      * @param request - GetCustomizationConfigListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2358,7 +3163,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取语音模型列表.
+     * Retrieves a list of language models.
      *
      * @param request - GetCustomizationConfigListRequest
      *
@@ -2376,7 +3181,129 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取标签挖掘任务结果.
+     * Queries the results of tag categorization analysis.
+     *
+     * @param request - GetLabelAnalysisResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLabelAnalysisResultResponse
+     *
+     * @param GetLabelAnalysisResultRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetLabelAnalysisResultResponse
+     */
+    public function getLabelAnalysisResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLabelAnalysisResult',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLabelAnalysisResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the results of tag categorization analysis.
+     *
+     * @param request - GetLabelAnalysisResultRequest
+     *
+     * @returns GetLabelAnalysisResultResponse
+     *
+     * @param GetLabelAnalysisResultRequest $request
+     *
+     * @return GetLabelAnalysisResultResponse
+     */
+    public function getLabelAnalysisResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLabelAnalysisResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the result of a label generation task.
+     *
+     * @param request - GetLabelGeneratedResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLabelGeneratedResultResponse
+     *
+     * @param GetLabelGeneratedResultRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetLabelGeneratedResultResponse
+     */
+    public function getLabelGeneratedResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLabelGeneratedResult',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLabelGeneratedResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the result of a label generation task.
+     *
+     * @param request - GetLabelGeneratedResultRequest
+     *
+     * @returns GetLabelGeneratedResultResponse
+     *
+     * @param GetLabelGeneratedResultRequest $request
+     *
+     * @return GetLabelGeneratedResultResponse
+     */
+    public function getLabelGeneratedResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLabelGeneratedResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieve the result of a tag mining task.
      *
      * @param request - GetMiningTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2419,7 +3346,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取标签挖掘任务结果.
+     * Retrieve the result of a tag mining task.
      *
      * @param request - GetMiningTaskResultRequest
      *
@@ -2437,6 +3364,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieve the next file details for manual verification.
+     *
      * @param request - GetNextResultToVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2478,6 +3407,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieve the next file details for manual verification.
+     *
      * @param request - GetNextResultToVerifyRequest
      *
      * @returns GetNextResultToVerifyResponse
@@ -2494,6 +3425,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a (speech recognition) detection task.
+     *
      * @param request - GetPrecisionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2535,6 +3468,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves the details of a (speech recognition) detection task.
+     *
      * @param request - GetPrecisionTaskRequest
      *
      * @returns GetPrecisionTaskResponse
@@ -2551,7 +3486,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检方案.
+     * This operation implements the query feature in quality check plan management on the frontend. The Apsara Stack URL is ip:port/api/qcs/GetQualityCheckScheme.json.
      *
      * @param request - GetQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2594,7 +3529,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检方案.
+     * This operation implements the query feature in quality check plan management on the frontend. The Apsara Stack URL is ip:port/api/qcs/GetQualityCheckScheme.json.
      *
      * @param request - GetQualityCheckSchemeRequest
      *
@@ -2612,7 +3547,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检结果.
+     * Query quality inspection results. Some fields require the requiredFields parameter to be explicitly specified in the request. Set the service endpoint (Region) to Hangzhou (cn-hangzhou).
+     *
+     * @remarks
+     * You can query data uploaded using [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html). You can also query data from dataset-based quality inspection tasks created with [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can search by task ID (taskId) or by time range.
      *
      * @param request - GetResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2655,7 +3593,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检结果.
+     * Query quality inspection results. Some fields require the requiredFields parameter to be explicitly specified in the request. Set the service endpoint (Region) to Hangzhou (cn-hangzhou).
+     *
+     * @remarks
+     * You can query data uploaded using [UploadAudioData](https://help.aliyun.com/document_detail/139399.html) or [UploadData](https://help.aliyun.com/document_detail/111394.html). You can also query data from dataset-based quality inspection tasks created with [SubmitQualityCheckTask](https://help.aliyun.com/document_detail/158890.html). You can search by task ID (taskId) or by time range.
      *
      * @param request - GetResultRequest
      *
@@ -2673,7 +3614,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检结果详情用于复核.
+     * Retrieves the quality inspection results for a specified file. The response includes the transcript, audio URL, and details of detected rule hits. You can use this information to review the file by listening to the audio, reading the transcript, and locating where rules were triggered.
      *
      * @param request - GetResultToReviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2716,7 +3657,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检结果详情用于复核.
+     * Retrieves the quality inspection results for a specified file. The response includes the transcript, audio URL, and details of detected rule hits. You can use this information to review the file by listening to the audio, reading the transcript, and locating where rules were triggered.
      *
      * @param request - GetResultToReviewRequest
      *
@@ -2734,6 +3675,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves basic information about rules.
+     *
+     * @remarks
+     * > This operation returns basic rule information such as the **id** and **name**. You can use this information with [GetRuleDetails](https://help.aliyun.com/document_detail/142310.html).
+     *
      * @deprecated openAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
      * @param request - GetRuleRequest
@@ -2778,6 +3724,11 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Retrieves basic information about rules.
+     *
+     * @remarks
+     * > This operation returns basic rule information such as the **id** and **name**. You can use this information with [GetRuleDetails](https://help.aliyun.com/document_detail/142310.html).
+     *
      * @deprecated openAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
      * @param request - GetRuleRequest
@@ -2796,7 +3747,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取规则.
+     * Retrieves the details of a specific quality inspection rule. It corresponds to the **Edit** action on the **Quality Inspection Rule Configuration** page. The URL for this operation in a private cloud is `ip:port/api/client/GetRuleById.json`.
      *
      * @deprecated openAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
@@ -2844,7 +3795,7 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
-     * 获取规则.
+     * Retrieves the details of a specific quality inspection rule. It corresponds to the **Edit** action on the **Quality Inspection Rule Configuration** page. The URL for this operation in a private cloud is `ip:port/api/client/GetRuleById.json`.
      *
      * @deprecated openAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
@@ -2864,6 +3815,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of rule types.
+     *
      * @param request - GetRuleCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2905,6 +3858,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of rule types.
+     *
      * @param request - GetRuleCategoryRequest
      *
      * @returns GetRuleCategoryResponse
@@ -2921,6 +3876,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves the detailed information of a rule.
+     *
+     * @remarks
+     * > This operation is used in conjunction with [Get basic rule information](https://help.aliyun.com/document_detail/142333.html). First, call the GetRule operation to obtain the rule ID. Then, use the rule ID as a parameter to call the **GetRuleDetail** operation.
+     *
      * @deprecated openAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
      * @param request - GetRuleDetailRequest
@@ -2965,6 +3925,11 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Retrieves the detailed information of a rule.
+     *
+     * @remarks
+     * > This operation is used in conjunction with [Get basic rule information](https://help.aliyun.com/document_detail/142333.html). First, call the GetRule operation to obtain the rule ID. Then, use the rule ID as a parameter to call the **GetRuleDetail** operation.
+     *
      * @deprecated openAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
      * @param request - GetRuleDetailRequest
@@ -2983,7 +3948,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4获取规则.
+     * This API is located in the frontend at Quality Check Rule Configuration > Query. The Apsara Stack URL is ip:port/api/client/GetRuleById.json.
      *
      * @param request - GetRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3022,7 +3987,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4获取规则.
+     * This API is located in the frontend at Quality Check Rule Configuration > Query. The Apsara Stack URL is ip:port/api/client/GetRuleById.json.
      *
      * @param request - GetRuleV4Request
      *
@@ -3040,7 +4005,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获得规则列表.
+     * Corresponds to the frontend feature location: Quality Inspection Rule Configuration > List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
      *
      * @param request - GetRulesCountListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3181,7 +4146,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获得规则列表.
+     * Corresponds to the frontend feature location: Quality Inspection Rule Configuration > List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
      *
      * @param request - GetRulesCountListRequest
      *
@@ -3199,7 +4164,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检任务配置详情.
+     * Obtain the configuration details of a quality inspection task.
      *
      * @param request - GetSchemeTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3242,7 +4207,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检任务配置详情.
+     * Obtain the configuration details of a quality inspection task.
      *
      * @param request - GetSchemeTaskConfigRequest
      *
@@ -3260,6 +4225,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves information about all scoring items.
+     *
      * @deprecated OpenAPI GetScoreInfo is deprecated
      *
      * @param request - GetScoreInfoRequest
@@ -3304,6 +4271,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Retrieves information about all scoring items.
+     *
      * @deprecated OpenAPI GetScoreInfo is deprecated
      *
      * @param request - GetScoreInfoRequest
@@ -3322,6 +4291,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves the configuration that is specified by its ID.
+     *
      * @deprecated OpenAPI GetSkillGroupConfig is deprecated
      *
      * @param request - GetSkillGroupConfigRequest
@@ -3366,6 +4337,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Retrieves the configuration that is specified by its ID.
+     *
      * @deprecated OpenAPI GetSkillGroupConfig is deprecated
      *
      * @param request - GetSkillGroupConfigRequest
@@ -3384,6 +4357,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * You can obtain the real-time quality inspection result of the hotline.
+     *
      * @deprecated openAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead
      *
      * @param request - GetSyncResultRequest
@@ -3428,6 +4403,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * You can obtain the real-time quality inspection result of the hotline.
+     *
      * @deprecated openAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead
      *
      * @param request - GetSyncResultRequest
@@ -3443,6 +4420,67 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSyncResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a label node.
+     *
+     * @param request - GetTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTagResponse
+     *
+     * @param GetTagRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTagResponse
+     */
+    public function getTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetTag',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a label node.
+     *
+     * @param request - GetTagRequest
+     *
+     * @returns GetTagResponse
+     *
+     * @param GetTagRequest $request
+     *
+     * @return GetTagResponse
+     */
+    public function getTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTagWithOptions($request, $runtime);
     }
 
     /**
@@ -3507,6 +4545,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Handles a complaint.
+     *
+     * @remarks
+     * Only quality checkers or administrators can call this operation.
+     *
      * @param request - HandleComplaintRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3548,6 +4591,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Handles a complaint.
+     *
+     * @remarks
+     * Only quality checkers or administrators can call this operation.
+     *
      * @param request - HandleComplaintRequest
      *
      * @returns HandleComplaintResponse
@@ -3564,6 +4612,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Delete rules.
+     *
      * @deprecated openAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
      *
      * @param request - InvalidRuleRequest
@@ -3608,6 +4658,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Delete rules.
+     *
      * @deprecated openAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
      *
      * @param request - InvalidRuleRequest
@@ -3626,7 +4678,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取热词模型列表.
+     * Retrieves a list of vocabulary groups without their specific content.
      *
      * @param request - ListAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3669,7 +4721,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取热词模型列表.
+     * Retrieves a list of vocabulary groups without their specific content.
      *
      * @param request - ListAsrVocabRequest
      *
@@ -3687,7 +4739,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取数据集列表.
+     * This feature is located in the Dataset management section of the frontend. The Apsara Stack URL is ip:port/api/dataset/ListDataSet.json.
      *
      * @deprecated OpenAPI ListDataSet is deprecated
      *
@@ -3733,7 +4785,7 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
-     * 获取数据集列表.
+     * This feature is located in the Dataset management section of the frontend. The Apsara Stack URL is ip:port/api/dataset/ListDataSet.json.
      *
      * @deprecated OpenAPI ListDataSet is deprecated
      *
@@ -3753,6 +4805,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
+     *
      * @param request - ListPrecisionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3794,6 +4848,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
+     *
      * @param request - ListPrecisionTaskRequest
      *
      * @returns ListPrecisionTaskResponse
@@ -3810,7 +4866,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 质检方案列表.
+     * Retrieves a list of quality check schemes.
      *
      * @param request - ListQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3853,7 +4909,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 质检方案列表.
+     * Retrieves a list of quality check schemes.
      *
      * @param request - ListQualityCheckSchemeRequest
      *
@@ -3871,6 +4927,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Lists rules.
+     *
      * @deprecated openAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead
      *
      * @param request - ListRulesRequest
@@ -3915,6 +4973,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Lists rules.
+     *
      * @deprecated openAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead
      *
      * @param request - ListRulesRequest
@@ -3933,7 +4993,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4获得规则列表.
+     * Frontend location: Quality inspection rule configuration — List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
      *
      * @param request - ListRulesV4Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4074,7 +5134,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4获得规则列表.
+     * Frontend location: Quality inspection rule configuration — List. Apsara Stack URL: ip:port/api/rule/GetRulesCountList.json.
      *
      * @param request - ListRulesV4Request
      *
@@ -4092,7 +5152,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检任务列表.
+     * This operation is used for the Task Management feature on the frontend. The Apsara Stack URL is ip:port/api/task/ListSchemeTaskInfo.json.
      *
      * @param request - ListSchemeTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4135,7 +5195,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取质检任务列表.
+     * This operation is used for the Task Management feature on the frontend. The Apsara Stack URL is ip:port/api/task/ListSchemeTaskInfo.json.
      *
      * @param request - ListSchemeTaskConfigRequest
      *
@@ -4153,7 +5213,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 获取会话组列表.
+     * This API corresponds to the frontend location: Task Management > View Results > Task Result > Session Group Results tab. The Apsara Stack URL is: ip:port/api/session/group/ListSessionGroup.json. It aggregates multi-turn sessions by their session group ID for unified management. You must pass the `sessionGroupId` field. For more information, see the UploadData and UploadAudioData API documentation.
      *
      * @deprecated OpenAPI ListSessionGroup is deprecated
      *
@@ -4199,7 +5259,7 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
-     * 获取会话组列表.
+     * This API corresponds to the frontend location: Task Management > View Results > Task Result > Session Group Results tab. The Apsara Stack URL is: ip:port/api/session/group/ListSessionGroup.json. It aggregates multi-turn sessions by their session group ID for unified management. You must pass the `sessionGroupId` field. For more information, see the UploadData and UploadAudioData API documentation.
      *
      * @deprecated OpenAPI ListSessionGroup is deprecated
      *
@@ -4219,6 +5279,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * You can call ListSkillGroupConfig to obtain the configuration list.
+     *
      * @deprecated OpenAPI ListSkillGroupConfig is deprecated
      *
      * @param request - ListSkillGroupConfigRequest
@@ -4263,6 +5325,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * You can call ListSkillGroupConfig to obtain the configuration list.
+     *
      * @deprecated OpenAPI ListSkillGroupConfig is deprecated
      *
      * @param request - ListSkillGroupConfigRequest
@@ -4281,6 +5345,69 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Queries the list of label nodes.
+     *
+     * @param request - ListTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResponse
+     *
+     * @param ListTagRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListTagResponse
+     */
+    public function listTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTag',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of label nodes.
+     *
+     * @param request - ListTagRequest
+     *
+     * @returns ListTagResponse
+     *
+     * @param ListTagRequest $request
+     *
+     * @return ListTagResponse
+     */
+    public function listTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists automatic allocation rules for review tasks.
+     *
      * @param request - ListTaskAssignRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4322,6 +5449,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Lists automatic allocation rules for review tasks.
+     *
      * @param request - ListTaskAssignRulesRequest
      *
      * @returns ListTaskAssignRulesResponse
@@ -4338,6 +5467,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of users. Set the service endpoint to China (Hangzhou) (cn-hangzhou).
+     *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4379,6 +5510,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of users. Set the service endpoint to China (Hangzhou) (cn-hangzhou).
+     *
      * @param request - ListUsersRequest
      *
      * @returns ListUsersResponse
@@ -4395,6 +5528,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Lists warning configurations.
+     *
      * @param request - ListWarningConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4436,6 +5571,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Lists warning configurations.
+     *
      * @param request - ListWarningConfigRequest
      *
      * @returns ListWarningConfigResponse
@@ -4513,7 +5650,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 批量回收.
+     * Frontend location: Task Management > Task Results > Batch Revoke. Apsara Stack URL: ip:port/api/job/RevertAssignedSession.json.
      *
      * @param request - RevertAssignedSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4556,7 +5693,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 批量回收.
+     * Frontend location: Task Management > Task Results > Batch Revoke. Apsara Stack URL: ip:port/api/job/RevertAssignedSession.json.
      *
      * @param request - RevertAssignedSessionRequest
      *
@@ -4574,7 +5711,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 会话组批量回收.
+     * You can use this feature in the frontend console under Plan Management > Task Result > Session Group > Batch Revoke. The Apsara Stack URL for this operation is `ip:port/api/job/RevertAssignedSessionGroup.json`.
      *
      * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
      *
@@ -4620,7 +5757,7 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
-     * 会话组批量回收.
+     * You can use this feature in the frontend console under Plan Management > Task Result > Session Group > Batch Revoke. The Apsara Stack URL for this operation is `ip:port/api/job/RevertAssignedSessionGroup.json`.
      *
      * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
      *
@@ -4640,7 +5777,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 使用原生Prompt调用通义晓蜜.
+     * This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
      *
      * @param tmpReq - RunCompletionMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4706,7 +5843,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 使用原生Prompt调用通义晓蜜.
+     * This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
      *
      * @param tmpReq - RunCompletionMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4759,7 +5896,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 使用原生Prompt调用通义晓蜜.
+     * This operation calls a large model using the message protocol to generate a response. You can make calls using standard HTTP for a complete response or use Server-Sent Events (SSE) for a streaming response.
      *
      * @param request - RunCompletionMessageRequest
      *
@@ -4777,6 +5914,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Saves the speaker role configuration for a dataset.
+     *
      * @deprecated OpenAPI SaveConfigDataSet is deprecated
      *
      * @param request - SaveConfigDataSetRequest
@@ -4821,6 +5960,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Saves the speaker role configuration for a dataset.
+     *
      * @deprecated OpenAPI SaveConfigDataSet is deprecated
      *
      * @param request - SaveConfigDataSetRequest
@@ -4839,6 +5980,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Submits a complaint.
+     *
      * @param request - SubmitComplaintRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4880,6 +6023,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Submits a complaint.
+     *
      * @param request - SubmitComplaintRequest
      *
      * @returns SubmitComplaintResponse
@@ -4896,6 +6041,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
+     *
      * @param request - SubmitPrecisionTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4937,6 +6084,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
+     *
      * @param request - SubmitPrecisionTaskRequest
      *
      * @returns SubmitPrecisionTaskResponse
@@ -4953,6 +6102,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Create a new dataset quality check task.
+     *
      * @param request - SubmitQualityCheckTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4994,6 +6145,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Create a new dataset quality check task.
+     *
      * @param request - SubmitQualityCheckTaskRequest
      *
      * @returns SubmitQualityCheckTaskResponse
@@ -5010,6 +6163,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Save review results. This is only supported by the legacy Smart Conversation Analysis.
+     *
+     * @remarks
+     * You can manually review files after quality inspection. After completing the review, call this API to save the review results. This involves manually reviewing rules identified by the system as hits to determine if they are true hits or false positives. Refer to the file review feature on the console page. For more information, see [File Review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
+     *
      * @param request - SubmitReviewInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5051,6 +6209,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Save review results. This is only supported by the legacy Smart Conversation Analysis.
+     *
+     * @remarks
+     * You can manually review files after quality inspection. After completing the review, call this API to save the review results. This involves manually reviewing rules identified by the system as hits to determine if they are true hits or false positives. Refer to the file review feature on the console page. For more information, see [File Review](https://help.aliyun.com/document_detail/139653.html#h2-u6587u4EF6u590Du68385).
+     *
      * @param request - SubmitReviewInfoRequest
      *
      * @returns SubmitReviewInfoResponse
@@ -5067,7 +6230,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 提交复核结果v4.
+     * Review quality inspection results.
      *
      * @param request - SubmitReviewInfoV4Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5110,7 +6273,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 提交复核结果v4.
+     * Review quality inspection results.
      *
      * @param request - SubmitReviewInfoV4Request
      *
@@ -5128,6 +6291,22 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Perform real-time quality inspection for hotlines.
+     *
+     * @remarks
+     * Real-time hotline quality inspection transcribes spoken dialogue into text during a call. It sends the text to the Smart Conversation Analysis system for real-time quality inspection to detect potential issues or risks. You can display the dialogue text and inspection results in real time on the customer service representative\\"s workbench (a third-party system). This differs from offline quality inspection, which uses UploadAudioData for inspection or dataset inspection. For details, see the developer guide. Offline quality inspection occurs after the call ends and the recording file is generated.
+     * **Usage Flow**
+     * You can implement real-time transcription of audio streams to text during calls, or use Alibaba Cloud Call Center (CC) directly. CC integrates deeply with Smart Conversation Analysis, enabling real-time quality inspection during calls without API integration.
+     * If you implement audio-to-text conversion yourself, invoke the SyncQualityCheck API for real-time quality inspection after a speaker finishes a sentence and generates dialogue text. This returns the inspection result for that sentence synchronously.
+     * You should include skill group information when uploading data. Then, you can use the Call Center Quality Inspection - Configuration Management feature to configure different quality inspection rules for calls from different skill groups.
+     * After the call ends, you can store the recording file on a storage server accessible over the public network. You can invoke the recording information maintenance API: UpdateSyncQualityCheckData. You can submit the recording name, recording file URL, and other details to the Smart Conversation Analysis service. This lets quality inspectors play back the recording during review.
+     * After the call ends, you can view the quality inspection results in Call Center Quality Inspection - Result Display - Real-time Quality Inspection Results. You can also invoke the real-time quality inspection result query API: GetSyncResult to retrieve the results. You can use Score Dashboard - Real-time Dashboard to view data charts for customer service representatives, skill groups, and scoring items.
+     * **Full-Text Quality Inspection**
+     * Quality inspection rules include dozens of operators. Some operators require dialogue context (multi-turn conversations between customer service representatives and customers) for analysis. However, real-time quality inspection occurs during a call and typically uses text from only one sentence spoken by a single speaker. Some operators are not suitable for real-time quality inspection. Therefore, quality inspection rules are divided into real-time quality inspection rules and full-text quality inspection rules:
+     * **Real-time quality inspection rules**: Rules used for real-time quality inspection. They support a limited number of operator types. They do not support specifying the detection range for operators.
+     * **Full-text quality inspection rules**: Rules used for offline quality inspection. They support all operator types. They support custom detection ranges for operators.
+     * For calls that underwent real-time quality inspection, you can apply full-text quality inspection rules to the complete dialogue text after the call ends. To enable full-text quality inspection after real-time inspection, see the full-text quality inspection description in Call Center Quality Inspection - Configuration Management.
+     *
      * @param request - SyncQualityCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5169,6 +6348,22 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Perform real-time quality inspection for hotlines.
+     *
+     * @remarks
+     * Real-time hotline quality inspection transcribes spoken dialogue into text during a call. It sends the text to the Smart Conversation Analysis system for real-time quality inspection to detect potential issues or risks. You can display the dialogue text and inspection results in real time on the customer service representative\\"s workbench (a third-party system). This differs from offline quality inspection, which uses UploadAudioData for inspection or dataset inspection. For details, see the developer guide. Offline quality inspection occurs after the call ends and the recording file is generated.
+     * **Usage Flow**
+     * You can implement real-time transcription of audio streams to text during calls, or use Alibaba Cloud Call Center (CC) directly. CC integrates deeply with Smart Conversation Analysis, enabling real-time quality inspection during calls without API integration.
+     * If you implement audio-to-text conversion yourself, invoke the SyncQualityCheck API for real-time quality inspection after a speaker finishes a sentence and generates dialogue text. This returns the inspection result for that sentence synchronously.
+     * You should include skill group information when uploading data. Then, you can use the Call Center Quality Inspection - Configuration Management feature to configure different quality inspection rules for calls from different skill groups.
+     * After the call ends, you can store the recording file on a storage server accessible over the public network. You can invoke the recording information maintenance API: UpdateSyncQualityCheckData. You can submit the recording name, recording file URL, and other details to the Smart Conversation Analysis service. This lets quality inspectors play back the recording during review.
+     * After the call ends, you can view the quality inspection results in Call Center Quality Inspection - Result Display - Real-time Quality Inspection Results. You can also invoke the real-time quality inspection result query API: GetSyncResult to retrieve the results. You can use Score Dashboard - Real-time Dashboard to view data charts for customer service representatives, skill groups, and scoring items.
+     * **Full-Text Quality Inspection**
+     * Quality inspection rules include dozens of operators. Some operators require dialogue context (multi-turn conversations between customer service representatives and customers) for analysis. However, real-time quality inspection occurs during a call and typically uses text from only one sentence spoken by a single speaker. Some operators are not suitable for real-time quality inspection. Therefore, quality inspection rules are divided into real-time quality inspection rules and full-text quality inspection rules:
+     * **Real-time quality inspection rules**: Rules used for real-time quality inspection. They support a limited number of operator types. They do not support specifying the detection range for operators.
+     * **Full-text quality inspection rules**: Rules used for offline quality inspection. They support all operator types. They support custom detection ranges for operators.
+     * For calls that underwent real-time quality inspection, you can apply full-text quality inspection rules to the complete dialogue text after the call ends. To enable full-text quality inspection after real-time inspection, see the full-text quality inspection description in Call Center Quality Inspection - Configuration Management.
+     *
      * @param request - SyncQualityCheckRequest
      *
      * @returns SyncQualityCheckResponse
@@ -5185,7 +6380,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 测试规则.
+     * Frontend location: Quality Check Rule Configuration > Test. Apsara Stack URL: http://<ip>:<port>/api/client/TestRule.json.
      *
      * @param request - TestRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5228,7 +6423,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 测试规则.
+     * Frontend location: Quality Check Rule Configuration > Test. Apsara Stack URL: http://<ip>:<port>/api/client/TestRule.json.
      *
      * @param request - TestRuleV4Request
      *
@@ -5246,6 +6441,69 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Modifies an agent.
+     *
+     * @param request - UpdateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgent',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies an agent.
+     *
+     * @param request - UpdateAgentRequest
+     *
+     * @returns UpdateAgentResponse
+     *
+     * @param UpdateAgentRequest $request
+     *
+     * @return UpdateAgentResponse
+     */
+    public function updateAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the hotword vocabulary.
+     *
      * @param request - UpdateAsrVocabRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5287,6 +6545,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Updates the hotword vocabulary.
+     *
      * @param request - UpdateAsrVocabRequest
      *
      * @returns UpdateAsrVocabResponse
@@ -5303,7 +6563,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新质检方案中的质检维度.
+     * You can access this operation from the frontend by navigating to Plan Management > Create Quality Inspection Task or Edit > Edit icon next to the quality inspection dimension name. The Apsara Stack endpoint is ip:port/api/qcs/UpdateCheckTypeToScheme.json.
      *
      * @param request - UpdateCheckTypeToSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5346,7 +6606,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新质检方案中的质检维度.
+     * You can access this operation from the frontend by navigating to Plan Management > Create Quality Inspection Task or Edit > Edit icon next to the quality inspection dimension name. The Apsara Stack endpoint is ip:port/api/qcs/UpdateCheckTypeToScheme.json.
      *
      * @param request - UpdateCheckTypeToSchemeRequest
      *
@@ -5364,7 +6624,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新会话随录数据.
+     * Update session recording data (third-party business fields) to facilitate statistics and queries across more business dimensions.
      *
      * @param request - UpdateQualityCheckDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5407,7 +6667,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新会话随录数据.
+     * Update session recording data (third-party business fields) to facilitate statistics and queries across more business dimensions.
      *
      * @param request - UpdateQualityCheckDataRequest
      *
@@ -5425,7 +6685,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新质检方案.
+     * Updates a quality check scheme.
      *
      * @param request - UpdateQualityCheckSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5468,7 +6728,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新质检方案.
+     * Updates a quality check scheme.
      *
      * @param request - UpdateQualityCheckSchemeRequest
      *
@@ -5486,6 +6746,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Update rule information.
+     *
+     * @remarks
+     * > Update an existing rule. You can modify its conditions and operators as needed. The rule ID (rid) remains unchanged, but condition IDs and operator IDs may change.
+     *
      * @deprecated openAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
      *
      * @param request - UpdateRuleRequest
@@ -5530,6 +6795,11 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * Update rule information.
+     *
+     * @remarks
+     * > Update an existing rule. You can modify its conditions and operators as needed. The rule ID (rid) remains unchanged, but condition IDs and operator IDs may change.
+     *
      * @deprecated openAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
      *
      * @param request - UpdateRuleRequest
@@ -5548,7 +6818,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新规则.
+     * This API maps to the frontend function location: Quality Inspection Rule Configuration - Create & Update. The Apsara Stack URL is: ip:port/api/client/UpdateRuleById.json.
      *
      * @deprecated openAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
      *
@@ -5608,7 +6878,7 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
-     * 更新规则.
+     * This API maps to the frontend function location: Quality Inspection Rule Configuration - Create & Update. The Apsara Stack URL is: ip:port/api/client/UpdateRuleById.json.
      *
      * @deprecated openAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
      *
@@ -5628,7 +6898,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新质检方案的规则.
+     * Frontend location: Quality Check Plan Management > Create or edit a quality check task > Associate quality check rules. Apsara Stack URL: ip:port/api/qcs/UpdateRuleToScheme.json.
      *
      * @param request - UpdateRuleToSchemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5671,7 +6941,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新质检方案的规则.
+     * Frontend location: Quality Check Plan Management > Create or edit a quality check task > Associate quality check rules. Apsara Stack URL: ip:port/api/qcs/UpdateRuleToScheme.json.
      *
      * @param request - UpdateRuleToSchemeRequest
      *
@@ -5689,7 +6959,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4更新规则.
+     * Corresponding frontend feature location: Rule Configuration - Update. Apsara Stack URL: ip:port/api/client/UpdateRuleById.json.
      *
      * @param request - UpdateRuleV4Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5738,7 +7008,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * V4更新规则.
+     * Corresponding frontend feature location: Rule Configuration - Update. Apsara Stack URL: ip:port/api/client/UpdateRuleById.json.
      *
      * @param request - UpdateRuleV4Request
      *
@@ -5756,7 +7026,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新质检任务
+     * Frontend path: Task Management > Edit any data on the right. Apsara Stack URL: ip:port/api/task/UpdateSchemeTaskConfig.json.
+     *
+     * @remarks
+     * Updates quality inspection task information.
      *
      * @param request - UpdateSchemeTaskConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5799,7 +7072,10 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 更新质检任务
+     * Frontend path: Task Management > Edit any data on the right. Apsara Stack URL: ip:port/api/task/UpdateSchemeTaskConfig.json.
+     *
+     * @remarks
+     * Updates quality inspection task information.
      *
      * @param request - UpdateSchemeTaskConfigRequest
      *
@@ -5817,6 +7093,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * You can call UpdateSkillGroupConfig to update a configuration.
+     *
      * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
      *
      * @param request - UpdateSkillGroupConfigRequest
@@ -5861,6 +7139,8 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
+     * You can call UpdateSkillGroupConfig to update a configuration.
+     *
      * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
      *
      * @param request - UpdateSkillGroupConfigRequest
@@ -5879,6 +7159,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Maintain the recording information after real-time quality inspection is completed, which is used to play back the recording during review. After the recording information is maintained, the task status will change to Succeeded.
+     *
      * @param request - UpdateSyncQualityCheckDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5920,6 +7202,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Maintain the recording information after real-time quality inspection is completed, which is used to play back the recording during review. After the recording information is maintained, the task status will change to Succeeded.
+     *
      * @param request - UpdateSyncQualityCheckDataRequest
      *
      * @returns UpdateSyncQualityCheckDataResponse
@@ -5936,6 +7220,69 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Updates a label node.
+     *
+     * @param request - UpdateTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTagResponse
+     *
+     * @param UpdateTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateTagResponse
+     */
+    public function updateTagWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
+        }
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateTag',
+            'version' => '2019-01-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateTagResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a label node.
+     *
+     * @param request - UpdateTagRequest
+     *
+     * @returns UpdateTagResponse
+     *
+     * @param UpdateTagRequest $request
+     *
+     * @return UpdateTagResponse
+     */
+    public function updateTag($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * Update the automatic allocation rule for quality review tasks.
+     *
      * @param request - UpdateTaskAssignRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5977,6 +7324,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Update the automatic allocation rule for quality review tasks.
+     *
      * @param request - UpdateTaskAssignRuleRequest
      *
      * @returns UpdateTaskAssignRuleResponse
@@ -5993,6 +7342,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Update users by modifying their roles in batches.
+     *
+     * @remarks
+     * When you update users, you can modify only their roles. You cannot modify other account information because all Alibaba Cloud products use a unified account management system. Smart Conversation Analysis uses these accounts. To modify account information, go to [Resource Access Management (RAM)](https://ram.console.aliyun.com/).
+     *
      * @param request - UpdateUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6034,6 +7388,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Update users by modifying their roles in batches.
+     *
+     * @remarks
+     * When you update users, you can modify only their roles. You cannot modify other account information because all Alibaba Cloud products use a unified account management system. Smart Conversation Analysis uses these accounts. To modify account information, go to [Resource Access Management (RAM)](https://ram.console.aliyun.com/).
+     *
      * @param request - UpdateUserRequest
      *
      * @returns UpdateUserResponse
@@ -6050,6 +7409,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Updates the warning configuration.
+     *
      * @param request - UpdateWarningConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6091,6 +7452,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Updates the warning configuration.
+     *
      * @param request - UpdateWarningConfigRequest
      *
      * @returns UpdateWarningConfigResponse
@@ -6168,6 +7531,33 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Uploads offline audio data—such as recorded call session files—for quality inspection. This operation supports two call center agent scenarios.
+     * Scenario 1: Native integration with Alibaba Cloud Call Center (CC). No development is required. You can push call data to Smart Conversation Analysis (SCA) with a single click.
+     * Scenario 2: Integration with your own call center system. Each time a recording is generated, the call center pushes it to SCA for analysis.
+     *
+     * @remarks
+     * ### Process description
+     * The process is as follows: An API call uploads the audio file for quality inspection → The audio file is converted to text → The transcribed text is separated by speaker role (agent and customer), based on the specified channel separation method → The role-separated text is analyzed using quality inspection rules → Quality inspection completes.
+     * ### Task execution efficiency
+     * Task execution speed depends on how quickly the audio file is transcribed. A 5-minute audio file is typically transcribed in about 2 minutes. However, if the transcription service queue is long, a waiting period occurs. Transcription usually completes within 6 hours, except when large volumes of data are uploaded simultaneously—more than 500 hours of audio within 30 minutes. After transcription, quality inspection analysis completes in milliseconds.
+     * ### Audio file URL requirements
+     * - Supports single-channel or dual-channel audio files in WAV or MP3 format. File size must be less than 512 MB.
+     * - The URL must be accessible over HTTP. Local files are not supported. The audio file must have public access permissions.
+     * - The URL must use a domain name, not an IP address. The URL cannot contain spaces or Chinese characters.
+     * - After transcription, the system deletes the downloaded audio file. No copy of the recording is retained.
+     * - If your audio URL has an expiration period—such as a presigned URL for an audio file stored in Alibaba Cloud Object Storage Service (OSS)—set the validity period to at least 12 hours. Ideally, set it to 24 hours. Because transcription may involve queuing, the audio file is downloaded only when transcription begins. A longer validity period prevents the URL from expiring before download starts.
+     * - After quality inspection completes, the provided URL is used for playback when you review the file in the console. Ensure the URL remains valid long-term. Otherwise, audio playback fails.
+     * ### Role separation
+     * After transcription, the system automatically separates the text into two speaker roles but cannot determine which role corresponds to the agent and which to the customer. You must define rules for role separation. Role separation accuracy is critical because many quality inspection rules apply to a specific role—for example, checking only agent or only customer utterances. Incorrect role separation significantly reduces quality inspection accuracy.
+     * Audio files are typically either single-channel (mono) or dual-channel (stereo):
+     * - Single-channel recording: The voices of the agent and customer are mixed on one channel. After transcription, the system uses a built-in algorithm to separate dialogue into two roles. You can provide a list of keywords commonly spoken by agents. The system analyzes the transcribed text sentence by sentence. When a sentence contains a keyword, that speaker is identified as the agent, and the other speaker is identified as the customer. For more information, see the recognizeRoleDataSetId and serviceChannelKeywords request parameters. Because conversations can be unpredictable—for example, speakers may talk over each other—role separation for single-channel recordings cannot achieve 100% accuracy. We strongly recommend saving recordings as dual-channel audio.
+     * - Dual-channel recording: The voices of the agent and customer are stored on separate channels. Even if speakers talk over each other, transcription accurately distinguishes between them. Specify the agent and customer channels using the serviceChannel and clientChannel request parameters.
+     * ### Retrieve quality inspection results
+     * Because audio analysis is asynchronous, you must retrieve results asynchronously. You can retrieve results in one of the following three ways:
+     * - Message notification: For more information, see [Message Queue](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult operation to retrieve detailed results. (Recommended)
+     * - Callback: Specify a callbackUrl in the request parameters. The system initiates a callback after the task completes. After you receive the callback, call the GetResult operation to retrieve detailed results.
+     * - Polling: The operation returns a task ID (taskId). Use the taskId to poll the getResult operation and retrieve the result asynchronously. Check the `status` parameter in the response to determine whether the task is complete. We recommend a polling interval of 30 seconds or longer because analysis typically completes within a few minutes. (Not recommended)
+     *
      * @param request - UploadAudioDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6209,6 +7599,33 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Uploads offline audio data—such as recorded call session files—for quality inspection. This operation supports two call center agent scenarios.
+     * Scenario 1: Native integration with Alibaba Cloud Call Center (CC). No development is required. You can push call data to Smart Conversation Analysis (SCA) with a single click.
+     * Scenario 2: Integration with your own call center system. Each time a recording is generated, the call center pushes it to SCA for analysis.
+     *
+     * @remarks
+     * ### Process description
+     * The process is as follows: An API call uploads the audio file for quality inspection → The audio file is converted to text → The transcribed text is separated by speaker role (agent and customer), based on the specified channel separation method → The role-separated text is analyzed using quality inspection rules → Quality inspection completes.
+     * ### Task execution efficiency
+     * Task execution speed depends on how quickly the audio file is transcribed. A 5-minute audio file is typically transcribed in about 2 minutes. However, if the transcription service queue is long, a waiting period occurs. Transcription usually completes within 6 hours, except when large volumes of data are uploaded simultaneously—more than 500 hours of audio within 30 minutes. After transcription, quality inspection analysis completes in milliseconds.
+     * ### Audio file URL requirements
+     * - Supports single-channel or dual-channel audio files in WAV or MP3 format. File size must be less than 512 MB.
+     * - The URL must be accessible over HTTP. Local files are not supported. The audio file must have public access permissions.
+     * - The URL must use a domain name, not an IP address. The URL cannot contain spaces or Chinese characters.
+     * - After transcription, the system deletes the downloaded audio file. No copy of the recording is retained.
+     * - If your audio URL has an expiration period—such as a presigned URL for an audio file stored in Alibaba Cloud Object Storage Service (OSS)—set the validity period to at least 12 hours. Ideally, set it to 24 hours. Because transcription may involve queuing, the audio file is downloaded only when transcription begins. A longer validity period prevents the URL from expiring before download starts.
+     * - After quality inspection completes, the provided URL is used for playback when you review the file in the console. Ensure the URL remains valid long-term. Otherwise, audio playback fails.
+     * ### Role separation
+     * After transcription, the system automatically separates the text into two speaker roles but cannot determine which role corresponds to the agent and which to the customer. You must define rules for role separation. Role separation accuracy is critical because many quality inspection rules apply to a specific role—for example, checking only agent or only customer utterances. Incorrect role separation significantly reduces quality inspection accuracy.
+     * Audio files are typically either single-channel (mono) or dual-channel (stereo):
+     * - Single-channel recording: The voices of the agent and customer are mixed on one channel. After transcription, the system uses a built-in algorithm to separate dialogue into two roles. You can provide a list of keywords commonly spoken by agents. The system analyzes the transcribed text sentence by sentence. When a sentence contains a keyword, that speaker is identified as the agent, and the other speaker is identified as the customer. For more information, see the recognizeRoleDataSetId and serviceChannelKeywords request parameters. Because conversations can be unpredictable—for example, speakers may talk over each other—role separation for single-channel recordings cannot achieve 100% accuracy. We strongly recommend saving recordings as dual-channel audio.
+     * - Dual-channel recording: The voices of the agent and customer are stored on separate channels. Even if speakers talk over each other, transcription accurately distinguishes between them. Specify the agent and customer channels using the serviceChannel and clientChannel request parameters.
+     * ### Retrieve quality inspection results
+     * Because audio analysis is asynchronous, you must retrieve results asynchronously. You can retrieve results in one of the following three ways:
+     * - Message notification: For more information, see [Message Queue](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult operation to retrieve detailed results. (Recommended)
+     * - Callback: Specify a callbackUrl in the request parameters. The system initiates a callback after the task completes. After you receive the callback, call the GetResult operation to retrieve detailed results.
+     * - Polling: The operation returns a task ID (taskId). Use the taskId to poll the getResult operation and retrieve the result asynchronously. Check the `status` parameter in the response to determine whether the task is complete. We recommend a polling interval of 30 seconds or longer because analysis typically completes within a few minutes. (Not recommended)
+     *
      * @param request - UploadAudioDataRequest
      *
      * @returns UploadAudioDataResponse
@@ -6225,7 +7642,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+     * Upload offline plain text quality inspection data (plain text sessions). This applies to online agent scenarios. Use the UploadDataV4 API. Differences between UploadDataV4 and UploadData include the following: UploadDataV4 supports only POST requests, and it supports longer JsonStr values.
+     *
+     * @remarks
+     * You can call UploadData.json to upload text-based quality inspection data. Text typically originates from online customer service interactions or tickets. The API returns a task ID. You can retrieve results in one of three ways:
+     * - Message notification: For details, see [message queues](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult API to retrieve detailed results. (Recommended)
+     * - Callback: Specify a callback URL in your request parameters. After the task completes, the system sends a callback to that URL. Then call the GetResult API to retrieve detailed results.
+     * - Polling: Use the returned task ID to poll the GetResult API asynchronously. Check whether the status field in the response indicates completion. (Not recommended)
      *
      * @deprecated openAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead
      *
@@ -6271,7 +7694,13 @@ class Qualitycheck extends OpenApiClient
 
     // Deprecated
     /**
-     * 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+     * Upload offline plain text quality inspection data (plain text sessions). This applies to online agent scenarios. Use the UploadDataV4 API. Differences between UploadDataV4 and UploadData include the following: UploadDataV4 supports only POST requests, and it supports longer JsonStr values.
+     *
+     * @remarks
+     * You can call UploadData.json to upload text-based quality inspection data. Text typically originates from online customer service interactions or tickets. The API returns a task ID. You can retrieve results in one of three ways:
+     * - Message notification: For details, see [message queues](https://help.aliyun.com/document_detail/213237.html). After you receive a message, call the GetResult API to retrieve detailed results. (Recommended)
+     * - Callback: Specify a callback URL in your request parameters. After the task completes, the system sends a callback to that URL. Then call the GetResult API to retrieve detailed results.
+     * - Polling: Use the returned task ID to poll the GetResult API asynchronously. Check whether the status field in the response indicates completion. (Not recommended)
      *
      * @deprecated openAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead
      *
@@ -6291,7 +7720,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * http_hsf.
+     * Real-time text quality check.
+     *
+     * @remarks
+     * This API pushes text data to SCA for real-time quality inspection based on specified rules and synchronously returns the analysis results. Unlike post-call quality inspection, which requires uploading the full transcript after a dialogue ends, real-time quality inspection offers lower latency by analyzing text immediately after a speaker completes one or more utterances.
+     * - If you push a single utterance from one speaker, some rule operators may fail because the required dialogue context is missing. Examples include the context repetition check, speech interruption check, and call mute check.
+     * - SCA returns analysis results synchronously and does not save call records, so you cannot query the results later via an API.
      *
      * @param request - UploadDataSyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6334,7 +7768,12 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * http_hsf.
+     * Real-time text quality check.
+     *
+     * @remarks
+     * This API pushes text data to SCA for real-time quality inspection based on specified rules and synchronously returns the analysis results. Unlike post-call quality inspection, which requires uploading the full transcript after a dialogue ends, real-time quality inspection offers lower latency by analyzing text immediately after a speaker completes one or more utterances.
+     * - If you push a single utterance from one speaker, some rule operators may fail because the required dialogue context is missing. Examples include the context repetition check, speech interruption check, and call mute check.
+     * - SCA returns analysis results synchronously and does not save call records, so you cannot query the results later via an API.
      *
      * @param request - UploadDataSyncRequest
      *
@@ -6372,12 +7811,14 @@ class Qualitycheck extends OpenApiClient
             @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
 
+        $body = [];
         if (null !== $request->jsonStr) {
-            @$query['JsonStr'] = $request->jsonStr;
+            @$body['JsonStr'] = $request->jsonStr;
         }
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UploadDataSyncForLLM',
@@ -6413,7 +7854,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * UploadDataV4.
+     * Uploads offline plain text conversation data for quality inspection in online agent scenarios. We recommend that you use the UploadDataV4 API. Compared to the UploadData API, UploadDataV4 supports only POST requests and allows a longer JsonStr.
+     *
+     * @remarks
+     * You can call the UploadData.json operation to upload text data for quality inspection. The text usually comes from sources such as online customer service and tickets. The API returns a task ID. You can retrieve the results in one of the following three ways:
+     * - Message notifications: After you receive a notification, call the GetResult API to obtain the detailed results. For more information, see [Message Queue](https://help.aliyun.com/document_detail/213237.html). (Recommended)
+     * - Callbacks: Specify a callbackUrl in the request parameters. The system automatically initiates a callback after the task is complete. After you receive the callback, call the GetResult API to retrieve the detailed results.
+     * - Polling: Use the task ID returned by this API to poll the GetResult API and asynchronously retrieve the results. Check the status in the response to determine whether the task is complete. (Not recommended)
      *
      * @param request - UploadDataV4Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6456,7 +7903,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * UploadDataV4.
+     * Uploads offline plain text conversation data for quality inspection in online agent scenarios. We recommend that you use the UploadDataV4 API. Compared to the UploadData API, UploadDataV4 supports only POST requests and allows a longer JsonStr.
+     *
+     * @remarks
+     * You can call the UploadData.json operation to upload text data for quality inspection. The text usually comes from sources such as online customer service and tickets. The API returns a task ID. You can retrieve the results in one of the following three ways:
+     * - Message notifications: After you receive a notification, call the GetResult API to obtain the detailed results. For more information, see [Message Queue](https://help.aliyun.com/document_detail/213237.html). (Recommended)
+     * - Callbacks: Specify a callbackUrl in the request parameters. The system automatically initiates a callback after the task is complete. After you receive the callback, call the GetResult API to retrieve the detailed results.
+     * - Polling: Use the task ID returned by this API to poll the GetResult API and asynchronously retrieve the results. Check the status in the response to determine whether the task is complete. (Not recommended)
      *
      * @param request - UploadDataV4Request
      *
@@ -6474,6 +7927,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Creates a rule. You can use this operation to provide your own rule editing interface.
+     *
+     * @remarks
+     * > For more information, see [Rule configuration](https://help.aliyun.com/document_detail/213225.html).
+     *
      * @param request - UploadRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6515,6 +7973,11 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Creates a rule. You can use this operation to provide your own rule editing interface.
+     *
+     * @remarks
+     * > For more information, see [Rule configuration](https://help.aliyun.com/document_detail/213225.html).
+     *
      * @param request - UploadRuleRequest
      *
      * @returns UploadRuleResponse
@@ -6531,6 +7994,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Saves the verification result of a single file.
+     *
      * @param request - VerifyFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6572,6 +8037,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Saves the verification result of a single file.
+     *
      * @param request - VerifyFileRequest
      *
      * @returns VerifyFileResponse
@@ -6588,6 +8055,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Save the verification result for a single sentence.
+     *
      * @param request - VerifySentenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6629,6 +8098,8 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * Save the verification result for a single sentence.
+     *
      * @param request - VerifySentenceRequest
      *
      * @returns VerifySentenceResponse
