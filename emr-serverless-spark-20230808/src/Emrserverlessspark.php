@@ -71,6 +71,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetLivyComputeTokenResp
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRayJobRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRayJobResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRayLogRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRayLogResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRunConfigurationRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetRunConfigurationResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterRequest;
@@ -113,6 +115,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayJobRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayJobResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayJobShrinkRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayLogsRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListRayLogsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListReleaseVersionsResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListSessionClustersRequest;
@@ -177,7 +181,24 @@ class Emrserverlessspark extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'emr-serverless-spark.us-west-1.aliyuncs.com',
+            'us-east-1' => 'emr-serverless-spark.us-east-1.aliyuncs.com',
+            'na-south-1' => 'emr-serverless-spark.na-south-1.aliyuncs.com',
+            'eu-central-1' => 'emr-serverless-spark.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'emr-serverless-spark.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'emr-serverless-spark.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'emr-serverless-spark.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'emr-serverless-spark.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'emr-serverless-spark.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'emr-serverless-spark.cn-hangzhou.aliyuncs.com',
+            'cn-chengdu' => 'emr-serverless-spark.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'emr-serverless-spark.cn-beijing.aliyuncs.com',
+            'ap-southeast-5' => 'emr-serverless-spark.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-1' => 'emr-serverless-spark.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'emr-serverless-spark.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('emr-serverless-spark', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -2167,7 +2188,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取CacheCluster详情.
+     * Retrieves the details of a Cache cluster.
      *
      * @param request - GetCacheClusterRequest
      * @param headers - map
@@ -2210,7 +2231,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * 获取CacheCluster详情.
+     * Retrieves the details of a Cache cluster.
      *
      * @param request - GetCacheClusterRequest
      *
@@ -2798,6 +2819,75 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getRayJobWithOptions($workspaceId, $submissionId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the log of a Ray job.
+     *
+     * @param request - GetRayLogRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRayLogResponse
+     *
+     * @param string           $workspaceId
+     * @param string           $instanceId
+     * @param GetRayLogRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetRayLogResponse
+     */
+    public function getRayLogWithOptions($workspaceId, $instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucketName) {
+            @$query['bucketName'] = $request->bucketName;
+        }
+
+        if (null !== $request->path) {
+            @$query['path'] = $request->path;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRayLog',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceId) . '/ray/' . Url::percentEncode($instanceId) . '/log',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRayLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the log of a Ray job.
+     *
+     * @param request - GetRayLogRequest
+     *
+     * @returns GetRayLogResponse
+     *
+     * @param string           $workspaceId
+     * @param string           $instanceId
+     * @param GetRayLogRequest $request
+     *
+     * @return GetRayLogResponse
+     */
+    public function getRayLog($workspaceId, $instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getRayLogWithOptions($workspaceId, $instanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -4312,6 +4402,87 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->listRayJobWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Lists Ray logs.
+     *
+     * @param request - ListRayLogsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRayLogsResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $instanceId
+     * @param ListRayLogsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRayLogsResponse
+     */
+    public function listRayLogsWithOptions($workspaceId, $instanceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bucketName) {
+            @$query['bucketName'] = $request->bucketName;
+        }
+
+        if (null !== $request->delimiter) {
+            @$query['delimiter'] = $request->delimiter;
+        }
+
+        if (null !== $request->marker) {
+            @$query['marker'] = $request->marker;
+        }
+
+        if (null !== $request->maxKeys) {
+            @$query['maxKeys'] = $request->maxKeys;
+        }
+
+        if (null !== $request->prefix) {
+            @$query['prefix'] = $request->prefix;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRayLogs',
+            'version' => '2023-08-08',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/interactive/v1/workspace/' . Url::percentEncode($workspaceId) . '/ray/' . Url::percentEncode($instanceId) . '/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRayLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists Ray logs.
+     *
+     * @param request - ListRayLogsRequest
+     *
+     * @returns ListRayLogsResponse
+     *
+     * @param string             $workspaceId
+     * @param string             $instanceId
+     * @param ListRayLogsRequest $request
+     *
+     * @return ListRayLogsResponse
+     */
+    public function listRayLogs($workspaceId, $instanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listRayLogsWithOptions($workspaceId, $instanceId, $request, $headers, $runtime);
     }
 
     /**
