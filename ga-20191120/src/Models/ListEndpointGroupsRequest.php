@@ -27,6 +27,11 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @var string
      */
+    public $endpointGroupRegion;
+
+    /**
+     * @var string
+     */
     public $endpointGroupType;
 
     /**
@@ -57,6 +62,7 @@ class ListEndpointGroupsRequest extends Model
         'acceleratorId' => 'AcceleratorId',
         'accessLogSwitch' => 'AccessLogSwitch',
         'endpointGroupId' => 'EndpointGroupId',
+        'endpointGroupRegion' => 'EndpointGroupRegion',
         'endpointGroupType' => 'EndpointGroupType',
         'listenerId' => 'ListenerId',
         'pageNumber' => 'PageNumber',
@@ -86,6 +92,10 @@ class ListEndpointGroupsRequest extends Model
 
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
+        }
+
+        if (null !== $this->endpointGroupRegion) {
+            $res['EndpointGroupRegion'] = $this->endpointGroupRegion;
         }
 
         if (null !== $this->endpointGroupType) {
@@ -140,6 +150,10 @@ class ListEndpointGroupsRequest extends Model
 
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];
+        }
+
+        if (isset($map['EndpointGroupRegion'])) {
+            $model->endpointGroupRegion = $map['EndpointGroupRegion'];
         }
 
         if (isset($map['EndpointGroupType'])) {
