@@ -1,3 +1,7 @@
+2026-06-30 Version: 2.47.0
+- Support API DisableSceneGroupTemplate.
+
+
 2026-06-04 Version: 2.46.1
 - Generated php 2023-04-26 for aliding.
 

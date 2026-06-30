@@ -380,6 +380,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceMembersShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DisableSceneGroupTemplateHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DisableSceneGroupTemplateRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DisableSceneGroupTemplateResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DisableSceneGroupTemplateShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DisableSceneGroupTemplateShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksDeleteHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksDeleteRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocBlocksDeleteResponse;
@@ -9325,6 +9330,96 @@ class Aliding extends OpenApiClient
         $headers = new DeleteWorkspaceMembersHeaders([]);
 
         return $this->deleteWorkspaceMembersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 停用群模版（场景群降级为普通群）.
+     *
+     * @param tmpReq - DisableSceneGroupTemplateRequest
+     * @param tmpHeader - DisableSceneGroupTemplateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSceneGroupTemplateResponse
+     *
+     * @param DisableSceneGroupTemplateRequest $tmpReq
+     * @param DisableSceneGroupTemplateHeaders $tmpHeader
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableSceneGroupTemplateResponse
+     */
+    public function disableSceneGroupTemplateWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DisableSceneGroupTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new DisableSceneGroupTemplateShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->openConversationId) {
+            @$body['OpenConversationId'] = $request->openConversationId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DisableSceneGroupTemplate',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/disableSceneGroupTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableSceneGroupTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 停用群模版（场景群降级为普通群）.
+     *
+     * @param request - DisableSceneGroupTemplateRequest
+     *
+     * @returns DisableSceneGroupTemplateResponse
+     *
+     * @param DisableSceneGroupTemplateRequest $request
+     *
+     * @return DisableSceneGroupTemplateResponse
+     */
+    public function disableSceneGroupTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DisableSceneGroupTemplateHeaders([]);
+
+        return $this->disableSceneGroupTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
