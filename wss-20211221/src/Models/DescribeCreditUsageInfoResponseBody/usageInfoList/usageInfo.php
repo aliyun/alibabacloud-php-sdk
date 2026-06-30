@@ -55,9 +55,19 @@ class usageInfo extends Model
     public $remainCredit;
 
     /**
+     * @var string
+     */
+    public $todayUsed;
+
+    /**
      * @var int
      */
     public $totalCredit;
+
+    /**
+     * @var string
+     */
+    public $totalUsed;
 
     /**
      * @var int
@@ -83,7 +93,9 @@ class usageInfo extends Model
         'periodTotalCredit' => 'PeriodTotalCredit',
         'periodUsedCredit' => 'PeriodUsedCredit',
         'remainCredit' => 'RemainCredit',
+        'todayUsed' => 'TodayUsed',
         'totalCredit' => 'TotalCredit',
+        'totalUsed' => 'TotalUsed',
         'totalUsedCredit' => 'TotalUsedCredit',
         'warnPercent' => 'WarnPercent',
         'weekUsedCredit' => 'WeekUsedCredit',
@@ -143,8 +155,16 @@ class usageInfo extends Model
             $res['RemainCredit'] = $this->remainCredit;
         }
 
+        if (null !== $this->todayUsed) {
+            $res['TodayUsed'] = $this->todayUsed;
+        }
+
         if (null !== $this->totalCredit) {
             $res['TotalCredit'] = $this->totalCredit;
+        }
+
+        if (null !== $this->totalUsed) {
+            $res['TotalUsed'] = $this->totalUsed;
         }
 
         if (null !== $this->totalUsedCredit) {
@@ -213,8 +233,16 @@ class usageInfo extends Model
             $model->remainCredit = $map['RemainCredit'];
         }
 
+        if (isset($map['TodayUsed'])) {
+            $model->todayUsed = $map['TodayUsed'];
+        }
+
         if (isset($map['TotalCredit'])) {
             $model->totalCredit = $map['TotalCredit'];
+        }
+
+        if (isset($map['TotalUsed'])) {
+            $model->totalUsed = $map['TotalUsed'];
         }
 
         if (isset($map['TotalUsedCredit'])) {
