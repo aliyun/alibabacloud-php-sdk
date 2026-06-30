@@ -61,6 +61,11 @@ class data extends Model
     public $prefixCacheEnabled;
 
     /**
+     * @var string[]
+     */
+    public $sessionIds;
+
+    /**
      * @var int
      */
     public $startTime;
@@ -90,6 +95,7 @@ class data extends Model
         'instanceId' => 'InstanceId',
         'keyUsageList' => 'KeyUsageList',
         'prefixCacheEnabled' => 'PrefixCacheEnabled',
+        'sessionIds' => 'SessionIds',
         'startTime' => 'StartTime',
         'status' => 'Status',
         'totalQuota' => 'TotalQuota',
@@ -103,6 +109,9 @@ class data extends Model
         }
         if (\is_array($this->keyUsageList)) {
             Model::validateArray($this->keyUsageList);
+        }
+        if (\is_array($this->sessionIds)) {
+            Model::validateArray($this->sessionIds);
         }
         parent::validate();
     }
@@ -162,6 +171,17 @@ class data extends Model
 
         if (null !== $this->prefixCacheEnabled) {
             $res['PrefixCacheEnabled'] = $this->prefixCacheEnabled;
+        }
+
+        if (null !== $this->sessionIds) {
+            if (\is_array($this->sessionIds)) {
+                $res['SessionIds'] = [];
+                $n1 = 0;
+                foreach ($this->sessionIds as $item1) {
+                    $res['SessionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->startTime) {
@@ -243,6 +263,17 @@ class data extends Model
 
         if (isset($map['PrefixCacheEnabled'])) {
             $model->prefixCacheEnabled = $map['PrefixCacheEnabled'];
+        }
+
+        if (isset($map['SessionIds'])) {
+            if (!empty($map['SessionIds'])) {
+                $model->sessionIds = [];
+                $n1 = 0;
+                foreach ($map['SessionIds'] as $item1) {
+                    $model->sessionIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['StartTime'])) {

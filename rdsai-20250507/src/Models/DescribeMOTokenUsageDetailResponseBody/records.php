@@ -14,6 +14,11 @@ class records extends Model
     public $consumerName;
 
     /**
+     * @var string
+     */
+    public $extraInfo;
+
+    /**
      * @var float
      */
     public $inputTokens;
@@ -49,6 +54,7 @@ class records extends Model
     public $totalTokens;
     protected $_name = [
         'consumerName' => 'ConsumerName',
+        'extraInfo' => 'ExtraInfo',
         'inputTokens' => 'InputTokens',
         'instanceId' => 'InstanceId',
         'model' => 'Model',
@@ -68,6 +74,10 @@ class records extends Model
         $res = [];
         if (null !== $this->consumerName) {
             $res['ConsumerName'] = $this->consumerName;
+        }
+
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
 
         if (null !== $this->inputTokens) {
@@ -111,6 +121,10 @@ class records extends Model
         $model = new self();
         if (isset($map['ConsumerName'])) {
             $model->consumerName = $map['ConsumerName'];
+        }
+
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
 
         if (isset($map['InputTokens'])) {

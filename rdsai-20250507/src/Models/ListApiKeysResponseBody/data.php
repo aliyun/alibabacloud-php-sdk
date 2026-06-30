@@ -20,6 +20,11 @@ class data extends Model
     public $customKeyList;
 
     /**
+     * @var int
+     */
+    public $dailyTokenQuota;
+
+    /**
      * @var bool
      */
     public $isRateLimited;
@@ -51,6 +56,7 @@ class data extends Model
     protected $_name = [
         'baseUrl' => 'BaseUrl',
         'customKeyList' => 'CustomKeyList',
+        'dailyTokenQuota' => 'DailyTokenQuota',
         'isRateLimited' => 'IsRateLimited',
         'page' => 'Page',
         'pageSize' => 'PageSize',
@@ -83,6 +89,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dailyTokenQuota) {
+            $res['DailyTokenQuota'] = $this->dailyTokenQuota;
         }
 
         if (null !== $this->isRateLimited) {
@@ -133,6 +143,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DailyTokenQuota'])) {
+            $model->dailyTokenQuota = $map['DailyTokenQuota'];
         }
 
         if (isset($map['IsRateLimited'])) {

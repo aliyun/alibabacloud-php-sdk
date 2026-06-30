@@ -14,6 +14,11 @@ class customKeyList extends Model
     public $apiKey;
 
     /**
+     * @var int
+     */
+    public $dailyTokenQuota;
+
+    /**
      * @var bool
      */
     public $isRateLimited;
@@ -44,6 +49,7 @@ class customKeyList extends Model
     public $tokenQuota;
     protected $_name = [
         'apiKey' => 'ApiKey',
+        'dailyTokenQuota' => 'DailyTokenQuota',
         'isRateLimited' => 'IsRateLimited',
         'keyName' => 'KeyName',
         'limitRate' => 'LimitRate',
@@ -62,6 +68,10 @@ class customKeyList extends Model
         $res = [];
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
+        }
+
+        if (null !== $this->dailyTokenQuota) {
+            $res['DailyTokenQuota'] = $this->dailyTokenQuota;
         }
 
         if (null !== $this->isRateLimited) {
@@ -101,6 +111,10 @@ class customKeyList extends Model
         $model = new self();
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
+        }
+
+        if (isset($map['DailyTokenQuota'])) {
+            $model->dailyTokenQuota = $map['DailyTokenQuota'];
         }
 
         if (isset($map['IsRateLimited'])) {

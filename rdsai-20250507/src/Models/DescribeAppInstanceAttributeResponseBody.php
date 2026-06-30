@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeResponseBody\components;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeAppInstanceAttributeResponseBody\uploadKeyList;
 
 class DescribeAppInstanceAttributeResponseBody extends Model
 {
@@ -57,6 +58,11 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $loginToken;
+
+    /**
+     * @var string
+     */
     public $natCreatedBy;
 
     /**
@@ -87,7 +93,27 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $retentionHours;
+
+    /**
+     * @var string
+     */
+    public $sqlExtendMoInstanceId;
+
+    /**
+     * @var string
+     */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $uploadKey;
+
+    /**
+     * @var uploadKeyList[]
+     */
+    public $uploadKeyList;
 
     /**
      * @var string
@@ -113,13 +139,18 @@ class DescribeAppInstanceAttributeResponseBody extends Model
         'instanceClass' => 'InstanceClass',
         'instanceMinorVersion' => 'InstanceMinorVersion',
         'instanceName' => 'InstanceName',
+        'loginToken' => 'LoginToken',
         'natCreatedBy' => 'NatCreatedBy',
         'natGatewayId' => 'NatGatewayId',
         'natStatus' => 'NatStatus',
         'publicConnectionString' => 'PublicConnectionString',
         'regionId' => 'RegionId',
         'requestId' => 'RequestId',
+        'retentionHours' => 'RetentionHours',
+        'sqlExtendMoInstanceId' => 'SqlExtendMoInstanceId',
         'status' => 'Status',
+        'uploadKey' => 'UploadKey',
+        'uploadKeyList' => 'UploadKeyList',
         'vSwitchId' => 'VSwitchId',
         'vpcConnectionString' => 'VpcConnectionString',
         'zoneId' => 'ZoneId',
@@ -129,6 +160,9 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     {
         if (\is_array($this->components)) {
             Model::validateArray($this->components);
+        }
+        if (\is_array($this->uploadKeyList)) {
+            Model::validateArray($this->uploadKeyList);
         }
         parent::validate();
     }
@@ -179,6 +213,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $res['InstanceName'] = $this->instanceName;
         }
 
+        if (null !== $this->loginToken) {
+            $res['LoginToken'] = $this->loginToken;
+        }
+
         if (null !== $this->natCreatedBy) {
             $res['NatCreatedBy'] = $this->natCreatedBy;
         }
@@ -203,8 +241,31 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
 
+        if (null !== $this->retentionHours) {
+            $res['RetentionHours'] = $this->retentionHours;
+        }
+
+        if (null !== $this->sqlExtendMoInstanceId) {
+            $res['SqlExtendMoInstanceId'] = $this->sqlExtendMoInstanceId;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->uploadKey) {
+            $res['UploadKey'] = $this->uploadKey;
+        }
+
+        if (null !== $this->uploadKeyList) {
+            if (\is_array($this->uploadKeyList)) {
+                $res['UploadKeyList'] = [];
+                $n1 = 0;
+                foreach ($this->uploadKeyList as $item1) {
+                    $res['UploadKeyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->vSwitchId) {
@@ -273,6 +334,10 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $model->instanceName = $map['InstanceName'];
         }
 
+        if (isset($map['LoginToken'])) {
+            $model->loginToken = $map['LoginToken'];
+        }
+
         if (isset($map['NatCreatedBy'])) {
             $model->natCreatedBy = $map['NatCreatedBy'];
         }
@@ -297,8 +362,31 @@ class DescribeAppInstanceAttributeResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
 
+        if (isset($map['RetentionHours'])) {
+            $model->retentionHours = $map['RetentionHours'];
+        }
+
+        if (isset($map['SqlExtendMoInstanceId'])) {
+            $model->sqlExtendMoInstanceId = $map['SqlExtendMoInstanceId'];
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['UploadKey'])) {
+            $model->uploadKey = $map['UploadKey'];
+        }
+
+        if (isset($map['UploadKeyList'])) {
+            if (!empty($map['UploadKeyList'])) {
+                $model->uploadKeyList = [];
+                $n1 = 0;
+                foreach ($map['UploadKeyList'] as $item1) {
+                    $model->uploadKeyList[$n1] = uploadKeyList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['VSwitchId'])) {

@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesResponseBody;
+namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class sandboxTemplates extends Model
+class ModifySandboxTemplateRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $createdBy;
-
     /**
      * @var string
      */
@@ -26,17 +21,12 @@ class sandboxTemplates extends Model
     /**
      * @var string
      */
-    public $description;
+    public $instanceName;
 
     /**
      * @var string
      */
-    public $enableVpcAccess;
-
-    /**
-     * @var string
-     */
-    public $name;
+    public $regionId;
 
     /**
      * @var int
@@ -48,12 +38,10 @@ class sandboxTemplates extends Model
      */
     public $templateId;
     protected $_name = [
-        'createdBy' => 'CreatedBy',
         'defaultCpu' => 'DefaultCpu',
         'defaultMemory' => 'DefaultMemory',
-        'description' => 'Description',
-        'enableVpcAccess' => 'EnableVpcAccess',
-        'name' => 'Name',
+        'instanceName' => 'InstanceName',
+        'regionId' => 'RegionId',
         'replicas' => 'Replicas',
         'templateId' => 'TemplateId',
     ];
@@ -66,10 +54,6 @@ class sandboxTemplates extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->createdBy) {
-            $res['CreatedBy'] = $this->createdBy;
-        }
-
         if (null !== $this->defaultCpu) {
             $res['DefaultCpu'] = $this->defaultCpu;
         }
@@ -78,16 +62,12 @@ class sandboxTemplates extends Model
             $res['DefaultMemory'] = $this->defaultMemory;
         }
 
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
 
-        if (null !== $this->enableVpcAccess) {
-            $res['EnableVpcAccess'] = $this->enableVpcAccess;
-        }
-
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->replicas) {
@@ -109,10 +89,6 @@ class sandboxTemplates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreatedBy'])) {
-            $model->createdBy = $map['CreatedBy'];
-        }
-
         if (isset($map['DefaultCpu'])) {
             $model->defaultCpu = $map['DefaultCpu'];
         }
@@ -121,16 +97,12 @@ class sandboxTemplates extends Model
             $model->defaultMemory = $map['DefaultMemory'];
         }
 
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
 
-        if (isset($map['EnableVpcAccess'])) {
-            $model->enableVpcAccess = $map['EnableVpcAccess'];
-        }
-
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['Replicas'])) {

@@ -14,6 +14,11 @@ class keys extends Model
     public $apiKey;
 
     /**
+     * @var int
+     */
+    public $dailyTokenQuota;
+
+    /**
      * @var float
      */
     public $limitRate;
@@ -29,6 +34,7 @@ class keys extends Model
     public $tokenQuota;
     protected $_name = [
         'apiKey' => 'ApiKey',
+        'dailyTokenQuota' => 'DailyTokenQuota',
         'limitRate' => 'LimitRate',
         'limitType' => 'LimitType',
         'tokenQuota' => 'TokenQuota',
@@ -44,6 +50,10 @@ class keys extends Model
         $res = [];
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
+        }
+
+        if (null !== $this->dailyTokenQuota) {
+            $res['DailyTokenQuota'] = $this->dailyTokenQuota;
         }
 
         if (null !== $this->limitRate) {
@@ -71,6 +81,10 @@ class keys extends Model
         $model = new self();
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
+        }
+
+        if (isset($map['DailyTokenQuota'])) {
+            $model->dailyTokenQuota = $map['DailyTokenQuota'];
         }
 
         if (isset($map['LimitRate'])) {

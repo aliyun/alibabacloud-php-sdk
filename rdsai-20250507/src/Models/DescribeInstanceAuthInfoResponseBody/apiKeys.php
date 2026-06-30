@@ -16,9 +16,15 @@ class apiKeys extends Model
     /**
      * @var string
      */
+    public $e2bApiKey;
+
+    /**
+     * @var string
+     */
     public $serviceKey;
     protected $_name = [
         'anonKey' => 'AnonKey',
+        'e2bApiKey' => 'E2bApiKey',
         'serviceKey' => 'ServiceKey',
     ];
 
@@ -32,6 +38,10 @@ class apiKeys extends Model
         $res = [];
         if (null !== $this->anonKey) {
             $res['AnonKey'] = $this->anonKey;
+        }
+
+        if (null !== $this->e2bApiKey) {
+            $res['E2bApiKey'] = $this->e2bApiKey;
         }
 
         if (null !== $this->serviceKey) {
@@ -51,6 +61,10 @@ class apiKeys extends Model
         $model = new self();
         if (isset($map['AnonKey'])) {
             $model->anonKey = $map['AnonKey'];
+        }
+
+        if (isset($map['E2bApiKey'])) {
+            $model->e2bApiKey = $map['E2bApiKey'];
         }
 
         if (isset($map['ServiceKey'])) {

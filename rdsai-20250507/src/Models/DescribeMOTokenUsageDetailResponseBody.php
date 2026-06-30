@@ -38,6 +38,11 @@ class DescribeMOTokenUsageDetailResponseBody extends Model
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var string
+     */
+    public $usageType;
     protected $_name = [
         'nextCursor' => 'NextCursor',
         'page' => 'Page',
@@ -45,6 +50,7 @@ class DescribeMOTokenUsageDetailResponseBody extends Model
         'records' => 'Records',
         'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
+        'usageType' => 'UsageType',
     ];
 
     public function validate()
@@ -89,6 +95,10 @@ class DescribeMOTokenUsageDetailResponseBody extends Model
             $res['TotalCount'] = $this->totalCount;
         }
 
+        if (null !== $this->usageType) {
+            $res['UsageType'] = $this->usageType;
+        }
+
         return $res;
     }
 
@@ -129,6 +139,10 @@ class DescribeMOTokenUsageDetailResponseBody extends Model
 
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+
+        if (isset($map['UsageType'])) {
+            $model->usageType = $map['UsageType'];
         }
 
         return $model;

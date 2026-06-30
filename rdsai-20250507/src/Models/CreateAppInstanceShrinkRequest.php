@@ -51,6 +51,11 @@ class CreateAppInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $database;
+
+    /**
+     * @var string
+     */
     public $databasePassword;
 
     /**
@@ -96,6 +101,7 @@ class CreateAppInstanceShrinkRequest extends Model
         'DBInstanceName' => 'DBInstanceName',
         'dashboardPassword' => 'DashboardPassword',
         'dashboardUsername' => 'DashboardUsername',
+        'database' => 'Database',
         'databasePassword' => 'DatabasePassword',
         'initializeWithExistingData' => 'InitializeWithExistingData',
         'instanceClass' => 'InstanceClass',
@@ -144,6 +150,10 @@ class CreateAppInstanceShrinkRequest extends Model
 
         if (null !== $this->dashboardUsername) {
             $res['DashboardUsername'] = $this->dashboardUsername;
+        }
+
+        if (null !== $this->database) {
+            $res['Database'] = $this->database;
         }
 
         if (null !== $this->databasePassword) {
@@ -219,6 +229,10 @@ class CreateAppInstanceShrinkRequest extends Model
 
         if (isset($map['DashboardUsername'])) {
             $model->dashboardUsername = $map['DashboardUsername'];
+        }
+
+        if (isset($map['Database'])) {
+            $model->database = $map['Database'];
         }
 
         if (isset($map['DatabasePassword'])) {

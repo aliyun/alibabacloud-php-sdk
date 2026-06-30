@@ -16,6 +16,11 @@ class inputs extends Model
     /**
      * @var string
      */
+    public $enableThinking;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
@@ -26,11 +31,18 @@ class inputs extends Model
     /**
      * @var string
      */
+    public $thinkEffort;
+
+    /**
+     * @var string
+     */
     public $timezone;
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
+        'enableThinking' => 'EnableThinking',
         'language' => 'Language',
         'regionId' => 'RegionId',
+        'thinkEffort' => 'ThinkEffort',
         'timezone' => 'Timezone',
     ];
 
@@ -46,12 +58,20 @@ class inputs extends Model
             $res['CustomAgentId'] = $this->customAgentId;
         }
 
+        if (null !== $this->enableThinking) {
+            $res['EnableThinking'] = $this->enableThinking;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->thinkEffort) {
+            $res['ThinkEffort'] = $this->thinkEffort;
         }
 
         if (null !== $this->timezone) {
@@ -73,12 +93,20 @@ class inputs extends Model
             $model->customAgentId = $map['CustomAgentId'];
         }
 
+        if (isset($map['EnableThinking'])) {
+            $model->enableThinking = $map['EnableThinking'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ThinkEffort'])) {
+            $model->thinkEffort = $map['ThinkEffort'];
         }
 
         if (isset($map['Timezone'])) {

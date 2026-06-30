@@ -57,6 +57,11 @@ class DescribeMOTokenUsageDetailRequest extends Model
      * @var string
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $usageType;
     protected $_name = [
         'apiKey' => 'ApiKey',
         'consumerName' => 'ConsumerName',
@@ -68,6 +73,7 @@ class DescribeMOTokenUsageDetailRequest extends Model
         'pageSize' => 'PageSize',
         'region' => 'Region',
         'startTime' => 'StartTime',
+        'usageType' => 'UsageType',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class DescribeMOTokenUsageDetailRequest extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->usageType) {
+            $res['UsageType'] = $this->usageType;
         }
 
         return $res;
@@ -167,6 +177,10 @@ class DescribeMOTokenUsageDetailRequest extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['UsageType'])) {
+            $model->usageType = $map['UsageType'];
         }
 
         return $model;

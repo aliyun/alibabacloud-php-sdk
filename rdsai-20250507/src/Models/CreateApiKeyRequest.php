@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class CreateApiKeyRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $dailyTokenQuota;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -38,6 +43,7 @@ class CreateApiKeyRequest extends Model
      */
     public $tokenQuota;
     protected $_name = [
+        'dailyTokenQuota' => 'DailyTokenQuota',
         'instanceId' => 'InstanceId',
         'keyName' => 'KeyName',
         'limitRate' => 'LimitRate',
@@ -54,6 +60,10 @@ class CreateApiKeyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dailyTokenQuota) {
+            $res['DailyTokenQuota'] = $this->dailyTokenQuota;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -89,6 +99,10 @@ class CreateApiKeyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DailyTokenQuota'])) {
+            $model->dailyTokenQuota = $map['DailyTokenQuota'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
