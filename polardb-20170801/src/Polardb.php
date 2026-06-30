@@ -466,9 +466,13 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentSessionStatusReq
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentSessionStatusResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentUserSessionsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarAgentUserSessionsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentFileRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentFileResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentsShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentToolsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawAgentToolsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawChannelsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawChannelsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawChannelsShrinkRequest;
@@ -479,6 +483,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawMCPServersRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawMCPServersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawPluginsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawPluginsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillDetailRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawSkillDetailResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawTaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarClawTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeRequest;
@@ -572,6 +578,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawPluginRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawPluginResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawSkillRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\InstallPolarClawSkillResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListOrdersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListOrdersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListPolarClawBindingsRequest;
@@ -778,6 +786,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RunPolarClawCronJobRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RunPolarClawCronJobResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SearchMemoriesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SearchMemoriesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\SearchPolarClawSkillsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\SearchPolarClawSkillsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SetPolarFsFileQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SetPolarFsFileQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\SwitchOverGlobalDatabaseNetworkRequest;
@@ -802,9 +812,18 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdateExtensionsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentSkillsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentSkillsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentSkillsShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentToolsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentToolsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawAgentToolsShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawCronJobRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawCronJobResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawCronJobShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawSkillRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawSkillResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawSkillShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionZonalRequest;
@@ -5753,7 +5772,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Add read-only nodes to a PolarDB cluster.
+     * Adds read-only nodes to a PolarDB cluster.
      *
      * @param request - CreateDBNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5852,7 +5871,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Add read-only nodes to a PolarDB cluster.
+     * Adds read-only nodes to a PolarDB cluster.
      *
      * @param request - CreateDBNodesRequest
      *
@@ -12158,7 +12177,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询该apikey的详细信息.
+     * Queries the details of a specified API key.
      *
      * @param request - DescribeApikeyAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12209,7 +12228,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询该apikey的详细信息.
+     * Queries the details of a specified API key.
      *
      * @param request - DescribeApikeyAttributeRequest
      *
@@ -20290,6 +20309,136 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries a PolarClaw Agent file.
+     *
+     * @param request - DescribePolarClawAgentFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawAgentFileResponse
+     *
+     * @param DescribePolarClawAgentFileRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribePolarClawAgentFileResponse
+     */
+    public function describePolarClawAgentFileWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawAgentFile',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawAgentFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a PolarClaw Agent file.
+     *
+     * @param request - DescribePolarClawAgentFileRequest
+     *
+     * @returns DescribePolarClawAgentFileResponse
+     *
+     * @param DescribePolarClawAgentFileRequest $request
+     *
+     * @return DescribePolarClawAgentFileResponse
+     */
+    public function describePolarClawAgentFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawAgentFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the PolarClaw Agent tool catalog.
+     *
+     * @param request - DescribePolarClawAgentToolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawAgentToolsResponse
+     *
+     * @param DescribePolarClawAgentToolsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribePolarClawAgentToolsResponse
+     */
+    public function describePolarClawAgentToolsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->includePlugins) {
+            @$query['IncludePlugins'] = $request->includePlugins;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawAgentTools',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawAgentToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the PolarClaw Agent tool catalog.
+     *
+     * @param request - DescribePolarClawAgentToolsRequest
+     *
+     * @returns DescribePolarClawAgentToolsResponse
+     *
+     * @param DescribePolarClawAgentToolsRequest $request
+     *
+     * @return DescribePolarClawAgentToolsResponse
+     */
+    public function describePolarClawAgentTools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawAgentToolsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries all installed plug-ins and their status information under a specified application.
      *
      * @param tmpReq - DescribePolarClawAgentsRequest
@@ -20642,6 +20791,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolarClawPluginsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a PolarClaw Skill.
+     *
+     * @param request - DescribePolarClawSkillDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarClawSkillDetailResponse
+     *
+     * @param DescribePolarClawSkillDetailRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribePolarClawSkillDetailResponse
+     */
+    public function describePolarClawSkillDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->slug) {
+            @$query['Slug'] = $request->slug;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarClawSkillDetail',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarClawSkillDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a PolarClaw Skill.
+     *
+     * @param request - DescribePolarClawSkillDetailRequest
+     *
+     * @returns DescribePolarClawSkillDetailResponse
+     *
+     * @param DescribePolarClawSkillDetailRequest $request
+     *
+     * @return DescribePolarClawSkillDetailResponse
+     */
+    public function describePolarClawSkillDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarClawSkillDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -24555,6 +24765,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installPolarClawPluginWithOptions($request, $runtime);
+    }
+
+    /**
+     * Installs a PolarClaw Skill.
+     *
+     * @param request - InstallPolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallPolarClawSkillResponse
+     *
+     * @param InstallPolarClawSkillRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return InstallPolarClawSkillResponse
+     */
+    public function installPolarClawSkillWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
+        }
+
+        if (null !== $request->skillVersion) {
+            @$query['SkillVersion'] = $request->skillVersion;
+        }
+
+        if (null !== $request->slug) {
+            @$query['Slug'] = $request->slug;
+        }
+
+        if (null !== $request->source) {
+            @$query['Source'] = $request->source;
+        }
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InstallPolarClawSkill',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallPolarClawSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Installs a PolarClaw Skill.
+     *
+     * @param request - InstallPolarClawSkillRequest
+     *
+     * @returns InstallPolarClawSkillResponse
+     *
+     * @param InstallPolarClawSkillRequest $request
+     *
+     * @return InstallPolarClawSkillResponse
+     */
+    public function installPolarClawSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installPolarClawSkillWithOptions($request, $runtime);
     }
 
     /**
@@ -29281,7 +29568,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the node specifications of a PolarDB cluster.
+     * Changes the node specifications of a PolarDB cluster.
      *
      * @param request - ModifyDBNodeClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29380,7 +29667,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modifies the node specifications of a PolarDB cluster.
+     * Changes the node specifications of a PolarDB cluster.
      *
      * @param request - ModifyDBNodeClassRequest
      *
@@ -33134,6 +33421,71 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Searches for PolarClaw Skills.
+     *
+     * @param request - SearchPolarClawSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchPolarClawSkillsResponse
+     *
+     * @param SearchPolarClawSkillsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SearchPolarClawSkillsResponse
+     */
+    public function searchPolarClawSkillsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchPolarClawSkills',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchPolarClawSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Searches for PolarClaw Skills.
+     *
+     * @param request - SearchPolarClawSkillsRequest
+     *
+     * @returns SearchPolarClawSkillsResponse
+     *
+     * @param SearchPolarClawSkillsRequest $request
+     *
+     * @return SearchPolarClawSkillsResponse
+     */
+    public function searchPolarClawSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchPolarClawSkillsWithOptions($request, $runtime);
+    }
+
+    /**
      * Sets file quota rules for specific directories in a PolarFS instance.
      *
      * @remarks
@@ -34006,7 +34358,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Update PolarClaw Agent.
+     * Updates a PolarClaw agent.
      *
      * @param tmpReq - UpdatePolarClawAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -34087,7 +34439,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Update PolarClaw Agent.
+     * Updates a PolarClaw agent.
      *
      * @param request - UpdatePolarClawAgentRequest
      *
@@ -34102,6 +34454,168 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePolarClawAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the skills of a PolarClaw Agent.
+     *
+     * @param tmpReq - UpdatePolarClawAgentSkillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePolarClawAgentSkillsResponse
+     *
+     * @param UpdatePolarClawAgentSkillsRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdatePolarClawAgentSkillsResponse
+     */
+    public function updatePolarClawAgentSkillsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdatePolarClawAgentSkillsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->skills) {
+            $request->skillsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->skills, 'Skills', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->skillsShrink) {
+            @$query['Skills'] = $request->skillsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePolarClawAgentSkills',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePolarClawAgentSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the skills of a PolarClaw Agent.
+     *
+     * @param request - UpdatePolarClawAgentSkillsRequest
+     *
+     * @returns UpdatePolarClawAgentSkillsResponse
+     *
+     * @param UpdatePolarClawAgentSkillsRequest $request
+     *
+     * @return UpdatePolarClawAgentSkillsResponse
+     */
+    public function updatePolarClawAgentSkills($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePolarClawAgentSkillsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the tool configuration of a PolarClaw Agent.
+     *
+     * @param tmpReq - UpdatePolarClawAgentToolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePolarClawAgentToolsResponse
+     *
+     * @param UpdatePolarClawAgentToolsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdatePolarClawAgentToolsResponse
+     */
+    public function updatePolarClawAgentToolsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdatePolarClawAgentToolsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->allow) {
+            $request->allowShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->allow, 'Allow', 'json');
+        }
+
+        if (null !== $tmpReq->alsoAllow) {
+            $request->alsoAllowShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->alsoAllow, 'AlsoAllow', 'json');
+        }
+
+        if (null !== $tmpReq->deny) {
+            $request->denyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deny, 'Deny', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->allowShrink) {
+            @$query['Allow'] = $request->allowShrink;
+        }
+
+        if (null !== $request->alsoAllowShrink) {
+            @$query['AlsoAllow'] = $request->alsoAllowShrink;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->denyShrink) {
+            @$query['Deny'] = $request->denyShrink;
+        }
+
+        if (null !== $request->profile) {
+            @$query['Profile'] = $request->profile;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePolarClawAgentTools',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePolarClawAgentToolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the tool configuration of a PolarClaw Agent.
+     *
+     * @param request - UpdatePolarClawAgentToolsRequest
+     *
+     * @returns UpdatePolarClawAgentToolsResponse
+     *
+     * @param UpdatePolarClawAgentToolsRequest $request
+     *
+     * @return UpdatePolarClawAgentToolsResponse
+     */
+    public function updatePolarClawAgentTools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePolarClawAgentToolsWithOptions($request, $runtime);
     }
 
     /**
@@ -34233,6 +34747,85 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePolarClawCronJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the PolarClaw Skill configuration.
+     *
+     * @param tmpReq - UpdatePolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePolarClawSkillResponse
+     *
+     * @param UpdatePolarClawSkillRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdatePolarClawSkillResponse
+     */
+    public function updatePolarClawSkillWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdatePolarClawSkillShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->env) {
+            $request->envShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->env, 'Env', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->envShrink) {
+            @$query['Env'] = $request->envShrink;
+        }
+
+        if (null !== $request->skillKey) {
+            @$query['SkillKey'] = $request->skillKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdatePolarClawSkill',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdatePolarClawSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the PolarClaw Skill configuration.
+     *
+     * @param request - UpdatePolarClawSkillRequest
+     *
+     * @returns UpdatePolarClawSkillResponse
+     *
+     * @param UpdatePolarClawSkillRequest $request
+     *
+     * @return UpdatePolarClawSkillResponse
+     */
+    public function updatePolarClawSkill($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePolarClawSkillWithOptions($request, $runtime);
     }
 
     /**
