@@ -78,6 +78,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelOperatorApiKeyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelOperatorApiKeyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateModelServiceShrinkRequest;
@@ -276,6 +278,11 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModelOperatorApiKeyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModelOperatorApiKeyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModelOperatorUsageRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModelOperatorUsageResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModelOperatorUsageShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModelServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModelServiceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModifyParameterLogRequest;
@@ -400,6 +407,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceDatabasesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceDatabasesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListModelOperatorApiKeysRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListModelOperatorApiKeysResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListModelOperatorServicesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListModelOperatorServicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListModelServicesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListModelServicesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesRequest;
@@ -3567,6 +3578,63 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createJDBCDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建模型算子 API KEY.
+     *
+     * @param Request - CreateModelOperatorApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateModelOperatorApiKeyResponse
+     *
+     * @param CreateModelOperatorApiKeyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateModelOperatorApiKeyResponse
+     */
+    public function createModelOperatorApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateModelOperatorApiKey',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateModelOperatorApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建模型算子 API KEY.
+     *
+     * @param Request - CreateModelOperatorApiKeyRequest
+     *
+     * @returns CreateModelOperatorApiKeyResponse
+     *
+     * @param CreateModelOperatorApiKeyRequest $request
+     *
+     * @return CreateModelOperatorApiKeyResponse
+     */
+    public function createModelOperatorApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createModelOperatorApiKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -10973,6 +11041,158 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 获取模型算子 API KEY 详情.
+     *
+     * @param Request - DescribeModelOperatorApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelOperatorApiKeyResponse
+     *
+     * @param DescribeModelOperatorApiKeyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeModelOperatorApiKeyResponse
+     */
+    public function describeModelOperatorApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['ApiKeyId'] = $request->apiKeyId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelOperatorApiKey',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelOperatorApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取模型算子 API KEY 详情.
+     *
+     * @param Request - DescribeModelOperatorApiKeyRequest
+     *
+     * @returns DescribeModelOperatorApiKeyResponse
+     *
+     * @param DescribeModelOperatorApiKeyRequest $request
+     *
+     * @return DescribeModelOperatorApiKeyResponse
+     */
+    public function describeModelOperatorApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelOperatorApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取模型算子用量.
+     *
+     * @param tmpReq - DescribeModelOperatorUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeModelOperatorUsageResponse
+     *
+     * @param DescribeModelOperatorUsageRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeModelOperatorUsageResponse
+     */
+    public function describeModelOperatorUsageWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeModelOperatorUsageShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->apiKeyIds) {
+            $request->apiKeyIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->apiKeyIds, 'ApiKeyIds', 'simple');
+        }
+
+        if (null !== $tmpReq->keys) {
+            $request->keysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'simple');
+        }
+
+        if (null !== $tmpReq->modelNames) {
+            $request->modelNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->modelNames, 'ModelNames', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->apiKeyIdsShrink) {
+            @$query['ApiKeyIds'] = $request->apiKeyIdsShrink;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->groupBy) {
+            @$query['GroupBy'] = $request->groupBy;
+        }
+
+        if (null !== $request->keysShrink) {
+            @$query['Keys'] = $request->keysShrink;
+        }
+
+        if (null !== $request->modelNamesShrink) {
+            @$query['ModelNames'] = $request->modelNamesShrink;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeModelOperatorUsage',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeModelOperatorUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取模型算子用量.
+     *
+     * @param Request - DescribeModelOperatorUsageRequest
+     *
+     * @returns DescribeModelOperatorUsageResponse
+     *
+     * @param DescribeModelOperatorUsageRequest $request
+     *
+     * @return DescribeModelOperatorUsageResponse
+     */
+    public function describeModelOperatorUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModelOperatorUsageWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a model service.
      *
      * @remarks
@@ -15773,6 +15993,128 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstanceExtensionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取模型算子 API KEY 列表.
+     *
+     * @param Request - ListModelOperatorApiKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelOperatorApiKeysResponse
+     *
+     * @param ListModelOperatorApiKeysRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListModelOperatorApiKeysResponse
+     */
+    public function listModelOperatorApiKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelOperatorApiKeys',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelOperatorApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取模型算子 API KEY 列表.
+     *
+     * @param Request - ListModelOperatorApiKeysRequest
+     *
+     * @returns ListModelOperatorApiKeysResponse
+     *
+     * @param ListModelOperatorApiKeysRequest $request
+     *
+     * @return ListModelOperatorApiKeysResponse
+     */
+    public function listModelOperatorApiKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listModelOperatorApiKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取模型服务列表.
+     *
+     * @param Request - ListModelOperatorServicesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListModelOperatorServicesResponse
+     *
+     * @param ListModelOperatorServicesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListModelOperatorServicesResponse
+     */
+    public function listModelOperatorServicesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListModelOperatorServices',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListModelOperatorServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取模型服务列表.
+     *
+     * @param Request - ListModelOperatorServicesRequest
+     *
+     * @returns ListModelOperatorServicesResponse
+     *
+     * @param ListModelOperatorServicesRequest $request
+     *
+     * @return ListModelOperatorServicesResponse
+     */
+    public function listModelOperatorServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listModelOperatorServicesWithOptions($request, $runtime);
     }
 
     /**
