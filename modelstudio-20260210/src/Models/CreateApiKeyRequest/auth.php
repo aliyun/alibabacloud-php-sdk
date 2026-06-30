@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateApiKeyRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ModelStudio\V20260210\Models\CreateApiKeyRequest\auth\modelAccessScope;
 
 class auth extends Model
 {
@@ -14,11 +15,17 @@ class auth extends Model
     public $accessIps;
 
     /**
+     * @var modelAccessScope
+     */
+    public $modelAccessScope;
+
+    /**
      * @var string
      */
     public $type;
     protected $_name = [
         'accessIps' => 'accessIps',
+        'modelAccessScope' => 'modelAccessScope',
         'type' => 'type',
     ];
 
@@ -26,6 +33,9 @@ class auth extends Model
     {
         if (\is_array($this->accessIps)) {
             Model::validateArray($this->accessIps);
+        }
+        if (null !== $this->modelAccessScope) {
+            $this->modelAccessScope->validate();
         }
         parent::validate();
     }
@@ -42,6 +52,10 @@ class auth extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->modelAccessScope) {
+            $res['modelAccessScope'] = null !== $this->modelAccessScope ? $this->modelAccessScope->toArray($noStream) : $this->modelAccessScope;
         }
 
         if (null !== $this->type) {
@@ -68,6 +82,10 @@ class auth extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['modelAccessScope'])) {
+            $model->modelAccessScope = modelAccessScope::fromMap($map['modelAccessScope']);
         }
 
         if (isset($map['type'])) {
