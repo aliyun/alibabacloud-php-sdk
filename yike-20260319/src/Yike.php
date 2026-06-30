@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAIAppJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAssetMediaInfoRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAssetMediaInfoResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeProjectExportJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeProjectExportJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikePromptExpansionVoiceFixJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikePromptExpansionVoiceFixJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeStoryboardJobRequest;
@@ -59,6 +61,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAIAppJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAvatarNarratorJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAvatarNarratorJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeProjectExportJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeProjectExportJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikePromptExpansionVoiceFixJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikePromptExpansionVoiceFixJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeStoryboardJobRequest;
@@ -81,7 +85,10 @@ class Yike extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shanghai' => 'yike.cn-shanghai.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('yike', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -111,7 +118,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 增加一刻项目成员.
+     * Adds a member to a Yike project.
      *
      * @param request - AddYikeProductionMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -154,7 +161,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 增加一刻项目成员.
+     * Adds a member to a Yike project.
      *
      * @param request - AddYikeProductionMembersRequest
      *
@@ -172,7 +179,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 增加用户积分.
+     * Increases user credits.
      *
      * @param request - AddYikeUserCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -215,7 +222,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 增加用户积分.
+     * Increases user credits.
      *
      * @param request - AddYikeUserCreditRequest
      *
@@ -233,7 +240,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 批量获取一刻AI应用生成任务
+     * Retrieves multiple Yike AI application generation tasks in a batch.
      *
      * @param request - BatchGetYikeAIAppJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -272,7 +279,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 批量获取一刻AI应用生成任务
+     * Retrieves multiple Yike AI application generation tasks in a batch.
      *
      * @param request - BatchGetYikeAIAppJobRequest
      *
@@ -290,7 +297,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 批量获取媒资信息.
+     * Retrieves information about multiple media assets in a batch.
      *
      * @param request - BatchGetYikeAssetMediaInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -329,7 +336,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 批量获取媒资信息.
+     * Retrieves information about multiple media assets in a batch.
      *
      * @param request - BatchGetYikeAssetMediaInfosRequest
      *
@@ -347,7 +354,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻媒资上传凭证
+     * Retrieves the upload credential for a media asset.
      *
      * @param request - CreateYikeAssetUploadRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -390,7 +397,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻媒资上传凭证
+     * Retrieves the upload credential for a media asset.
      *
      * @param request - CreateYikeAssetUploadRequest
      *
@@ -408,7 +415,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建一刻项目.
+     * Creates a project.
      *
      * @param request - CreateYikeProductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -451,7 +458,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建一刻项目.
+     * Creates a project.
      *
      * @param request - CreateYikeProductionRequest
      *
@@ -469,7 +476,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建一刻子用户.
+     * Creates a sub-account user in WonderClip.
      *
      * @param request - CreateYikeUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -524,7 +531,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建一刻子用户.
+     * Creates a sub-account user in WonderClip.
      *
      * @param request - CreateYikeUserRequest
      *
@@ -542,7 +549,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建工作室.
+     * Creates a workspace.
      *
      * @param request - CreateYikeWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -585,7 +592,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建工作室.
+     * Creates a workspace.
      *
      * @param request - CreateYikeWorkspaceRequest
      *
@@ -603,7 +610,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 删除媒资信息.
+     * Deletes media asset information.
      *
      * @param request - DeleteYikeAssetMediaInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -646,7 +653,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 删除媒资信息.
+     * Deletes media asset information.
      *
      * @param request - DeleteYikeAssetMediaInfosRequest
      *
@@ -664,7 +671,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻AI应用任务
+     * Retrieves the details of an AI application task.
      *
      * @param request - GetYikeAIAppJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -703,7 +710,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻AI应用任务
+     * Retrieves the details of an AI application task.
      *
      * @param request - GetYikeAIAppJobRequest
      *
@@ -721,7 +728,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻口播视频生成任务
+     * Queries an agent task.
      *
      * @param request - GetYikeAgentJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -760,7 +767,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻口播视频生成任务
+     * Queries an agent task.
      *
      * @param request - GetYikeAgentJobRequest
      *
@@ -778,7 +785,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻媒资内容信息.
+     * Retrieves the content information of a media asset.
      *
      * @param request - GetYikeAssetMediaInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -817,7 +824,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻媒资内容信息.
+     * Retrieves the content information of a media asset.
      *
      * @param request - GetYikeAssetMediaInfoRequest
      *
@@ -835,7 +842,64 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻提示词扩写和音频修复视频生成任务
+     * Queries the information and results of an editing project export task.
+     *
+     * @param request - GetYikeProjectExportJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeProjectExportJobResponse
+     *
+     * @param GetYikeProjectExportJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetYikeProjectExportJobResponse
+     */
+    public function getYikeProjectExportJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeProjectExportJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeProjectExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the information and results of an editing project export task.
+     *
+     * @param request - GetYikeProjectExportJobRequest
+     *
+     * @returns GetYikeProjectExportJobResponse
+     *
+     * @param GetYikeProjectExportJobRequest $request
+     *
+     * @return GetYikeProjectExportJobResponse
+     */
+    public function getYikeProjectExportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeProjectExportJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a Yike prompt enhancement and audio repair video generation task.
      *
      * @param request - GetYikePromptExpansionVoiceFixJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -874,7 +938,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻提示词扩写和音频修复视频生成任务
+     * Queries a Yike prompt enhancement and audio repair video generation task.
      *
      * @param request - GetYikePromptExpansionVoiceFixJobRequest
      *
@@ -892,7 +956,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻故事板任务
+     * Retrieves a storyboard task.
      *
      * @param request - GetYikeStoryboardJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -931,7 +995,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻故事板任务
+     * Retrieves a storyboard task.
      *
      * @param request - GetYikeStoryboardJobRequest
      *
@@ -949,7 +1013,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻子用户信息.
+     * Retrieves information about a WonderClip sub-account.
      *
      * @param request - GetYikeUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -988,7 +1052,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻子用户信息.
+     * Retrieves information about a WonderClip sub-account.
      *
      * @param request - GetYikeUserRequest
      *
@@ -1006,7 +1070,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻用户积分.
+     * Queries the credit balance of a WonderClip user.
      *
      * @param request - GetYikeUserCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1045,7 +1109,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻用户积分.
+     * Queries the credit balance of a WonderClip user.
      *
      * @param request - GetYikeUserCreditRequest
      *
@@ -1063,7 +1127,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻口播视频生成任务
+     * Queries an intelligent video generation task for a narration-only video without a digital human.
      *
      * @param request - GetYikeVoiceNarratorJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1102,7 +1166,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 查询一刻口播视频生成任务
+     * Queries an intelligent video generation task for a narration-only video without a digital human.
      *
      * @param request - GetYikeVoiceNarratorJobRequest
      *
@@ -1120,7 +1184,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻文件夹列表.
+     * Retrieves the list of folders.
      *
      * @param request - ListYikeAssetFoldersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1167,7 +1231,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻文件夹列表.
+     * Retrieves the list of folders.
      *
      * @param request - ListYikeAssetFoldersRequest
      *
@@ -1185,7 +1249,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻项目列表.
+     * Retrieves a list of Yike projects.
      *
      * @param request - ListYikeProductionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1240,7 +1304,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻项目列表.
+     * Retrieves a list of Yike projects.
      *
      * @param request - ListYikeProductionsRequest
      *
@@ -1258,7 +1322,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻工作室列表.
+     * Get Yike Workspace List.
      *
      * @param request - ListYikeWorkspacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1301,7 +1365,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 获取一刻工作室列表.
+     * Get Yike Workspace List.
      *
      * @param request - ListYikeWorkspacesRequest
      *
@@ -1319,7 +1383,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 检查应用参数是否合法.
+     * Checks whether the application parameters are valid.
      *
      * @param request - PrecheckYikeAIAppJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1362,7 +1426,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 检查应用参数是否合法.
+     * Checks whether the application parameters are valid.
      *
      * @param request - PrecheckYikeAIAppJobRequest
      *
@@ -1380,7 +1444,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 注册一刻媒资.
+     * Registers a Yike media asset.
      *
      * @param request - RegisterYikeAssetMediaInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1431,7 +1495,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 注册一刻媒资.
+     * Registers a Yike media asset.
      *
      * @param request - RegisterYikeAssetMediaInfoRequest
      *
@@ -1449,7 +1513,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 故事板任务恢复继续执行任务
+     * Resumes the execution of a storyboard task.
      *
      * @param request - ResumeYikeStoryboardJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1488,7 +1552,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 故事板任务恢复继续执行任务
+     * Resumes the execution of a storyboard task.
      *
      * @param request - ResumeYikeStoryboardJobRequest
      *
@@ -1506,7 +1570,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 配置一刻事件回调.
+     * Configures event callbacks for the business system.
      *
      * @param request - SetYikeCallbackConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1549,7 +1613,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 配置一刻事件回调.
+     * Configures event callbacks for the business system.
      *
      * @param request - SetYikeCallbackConfigRequest
      *
@@ -1567,7 +1631,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 设置用户角色.
+     * Sets the user role.
      *
      * @param request - SetYikeUserRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1610,7 +1674,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 设置用户角色.
+     * Sets the user role.
      *
      * @param request - SetYikeUserRoleRequest
      *
@@ -1628,7 +1692,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 扣减用户积分.
+     * Reclaims credits from a user.
      *
      * @param request - SubYikeUserCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1671,7 +1735,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 扣减用户积分.
+     * Reclaims credits from a user.
      *
      * @param request - SubYikeUserCreditRequest
      *
@@ -1689,7 +1753,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻AI应用任务
+     * Submits an AI application task to Yike AI.
      *
      * @param request - SubmitYikeAIAppJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1740,7 +1804,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻AI应用任务
+     * Submits an AI application task to Yike AI.
      *
      * @param request - SubmitYikeAIAppJobRequest
      *
@@ -1758,7 +1822,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻数字人口播视频生成任务
+     * Creates an intelligent video production task for a digital human oral broadcasting scenario. This task is applicable to video scenarios such as influencer product promotion and knowledge sharing.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitYikeAvatarNarratorJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1801,7 +1869,11 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻数字人口播视频生成任务
+     * Creates an intelligent video production task for a digital human oral broadcasting scenario. This task is applicable to video scenarios such as influencer product promotion and knowledge sharing.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation generates a video featuring a virtual human delivering an oral broadcast based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (raw script or oral broadcast script), video dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitYikeAvatarNarratorJobRequest
      *
@@ -1819,7 +1891,72 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻提示词扩写和音频修复视频生成任务
+     * Submits an online editing project export task that supports exporting pure audio and SRT subtitles.
+     *
+     * @param request - SubmitYikeProjectExportJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitYikeProjectExportJobResponse
+     *
+     * @param SubmitYikeProjectExportJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitYikeProjectExportJobResponse
+     */
+    public function submitYikeProjectExportJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->exportType) {
+            @$query['ExportType'] = $request->exportType;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitYikeProjectExportJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitYikeProjectExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits an online editing project export task that supports exporting pure audio and SRT subtitles.
+     *
+     * @param request - SubmitYikeProjectExportJobRequest
+     *
+     * @returns SubmitYikeProjectExportJobResponse
+     *
+     * @param SubmitYikeProjectExportJobRequest $request
+     *
+     * @return SubmitYikeProjectExportJobResponse
+     */
+    public function submitYikeProjectExportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitYikeProjectExportJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a video generation task with prompt enhancement and audio repair.
      *
      * @param request - SubmitYikePromptExpansionVoiceFixJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1862,7 +1999,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻提示词扩写和音频修复视频生成任务
+     * Submits a video generation task with prompt enhancement and audio repair.
      *
      * @param request - SubmitYikePromptExpansionVoiceFixJobRequest
      *
@@ -1880,7 +2017,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻故事板全链路编排任务
+     * Submits a storyboard generation task.
+     *
+     * @remarks
+     * Ensure that your credits remain above 5,000 when calling this operation. Insufficient credits may cause the task to be interrupted.
      *
      * @param request - SubmitYikeStoryboardJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1977,7 +2117,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻故事板全链路编排任务
+     * Submits a storyboard generation task.
+     *
+     * @remarks
+     * Ensure that your credits remain above 5,000 when calling this operation. Insufficient credits may cause the task to be interrupted.
      *
      * @param request - SubmitYikeStoryboardJobRequest
      *
@@ -1995,7 +2138,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻口播视频生成任务
+     * Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
      *
      * @param request - SubmitYikeVoiceNarratorJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2038,7 +2181,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻口播视频生成任务
+     * Creates an intelligent video generation task for a voiceover-only scenario (without a digital human). This task is applicable to video scenarios such as product showcases and news broadcasts.
      *
      * @param request - SubmitYikeVoiceNarratorJobRequest
      *
@@ -2056,7 +2199,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 更新一刻项目.
+     * Update a Yike project.
      *
      * @param request - UpdateYikeProductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2099,7 +2242,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 更新一刻项目.
+     * Update a Yike project.
      *
      * @param request - UpdateYikeProductionRequest
      *
@@ -2117,7 +2260,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 修改一刻项目成员权限.
+     * Modifies the permissions of a Yike project member.
      *
      * @param request - UpdateYikeProductionMemberAuthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2164,7 +2307,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 修改一刻项目成员权限.
+     * Modifies the permissions of a Yike project member.
      *
      * @param request - UpdateYikeProductionMemberAuthRequest
      *
