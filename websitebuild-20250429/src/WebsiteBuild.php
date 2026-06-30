@@ -5252,6 +5252,10 @@ class WebsiteBuild extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->activityCode) {
+            @$query['ActivityCode'] = $request->activityCode;
+        }
+
         if (null !== $request->activityId) {
             @$query['ActivityId'] = $request->activityId;
         }

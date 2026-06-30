@@ -11,6 +11,11 @@ class GrantPromotionOfferForPartnerRequest extends Model
     /**
      * @var string
      */
+    public $activityCode;
+
+    /**
+     * @var string
+     */
     public $activityId;
 
     /**
@@ -33,6 +38,7 @@ class GrantPromotionOfferForPartnerRequest extends Model
      */
     public $remark;
     protected $_name = [
+        'activityCode' => 'ActivityCode',
         'activityId' => 'ActivityId',
         'belongId' => 'BelongId',
         'channel' => 'Channel',
@@ -48,6 +54,10 @@ class GrantPromotionOfferForPartnerRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->activityCode) {
+            $res['ActivityCode'] = $this->activityCode;
+        }
+
         if (null !== $this->activityId) {
             $res['ActivityId'] = $this->activityId;
         }
@@ -79,6 +89,10 @@ class GrantPromotionOfferForPartnerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActivityCode'])) {
+            $model->activityCode = $map['ActivityCode'];
+        }
+
         if (isset($map['ActivityId'])) {
             $model->activityId = $map['ActivityId'];
         }
