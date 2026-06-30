@@ -2,18 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultResponseBody;
+namespace AlibabaCloud\SDK\Green\V20220302\Models\ResponseMessageEvent\data;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultResponseBody\data\result;
+use AlibabaCloud\SDK\Green\V20220302\Models\ResponseMessageEvent\data\detail\result;
 
-class data extends Model
+class detail extends Model
 {
-    /**
-     * @var string
-     */
-    public $dataId;
-
     /**
      * @var result[]
      */
@@ -22,23 +17,22 @@ class data extends Model
     /**
      * @var string
      */
-    public $reviewCount;
+    public $type;
 
     /**
      * @var string
      */
-    public $riskLevel;
+    public $level;
 
     /**
      * @var string
      */
-    public $taskId;
+    public $suggestion;
     protected $_name = [
-        'dataId' => 'DataId',
         'result' => 'Result',
-        'reviewCount' => 'ReviewCount',
-        'riskLevel' => 'RiskLevel',
-        'taskId' => 'TaskId',
+        'type' => 'Type',
+        'level' => 'Level',
+        'suggestion' => 'Suggestion',
     ];
 
     public function validate()
@@ -52,10 +46,6 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->dataId) {
-            $res['DataId'] = $this->dataId;
-        }
-
         if (null !== $this->result) {
             if (\is_array($this->result)) {
                 $res['Result'] = [];
@@ -67,16 +57,16 @@ class data extends Model
             }
         }
 
-        if (null !== $this->reviewCount) {
-            $res['ReviewCount'] = $this->reviewCount;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
-        if (null !== $this->riskLevel) {
-            $res['RiskLevel'] = $this->riskLevel;
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
 
-        if (null !== $this->taskId) {
-            $res['TaskId'] = $this->taskId;
+        if (null !== $this->suggestion) {
+            $res['Suggestion'] = $this->suggestion;
         }
 
         return $res;
@@ -90,10 +80,6 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DataId'])) {
-            $model->dataId = $map['DataId'];
-        }
-
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
@@ -105,16 +91,16 @@ class data extends Model
             }
         }
 
-        if (isset($map['ReviewCount'])) {
-            $model->reviewCount = $map['ReviewCount'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
-        if (isset($map['RiskLevel'])) {
-            $model->riskLevel = $map['RiskLevel'];
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
 
-        if (isset($map['TaskId'])) {
-            $model->taskId = $map['TaskId'];
+        if (isset($map['Suggestion'])) {
+            $model->suggestion = $map['Suggestion'];
         }
 
         return $model;
