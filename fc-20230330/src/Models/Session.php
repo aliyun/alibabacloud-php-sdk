@@ -24,6 +24,16 @@ class Session extends Model
     public $disableSessionIdReuse;
 
     /**
+     * @var bool
+     */
+    public $enableAutoPause;
+
+    /**
+     * @var bool
+     */
+    public $enableAutoResume;
+
+    /**
      * @var string
      */
     public $functionName;
@@ -86,6 +96,8 @@ class Session extends Model
         'containerId' => 'containerId',
         'createdTime' => 'createdTime',
         'disableSessionIdReuse' => 'disableSessionIdReuse',
+        'enableAutoPause' => 'enableAutoPause',
+        'enableAutoResume' => 'enableAutoResume',
         'functionName' => 'functionName',
         'juiceFsConfig' => 'juiceFsConfig',
         'lastModifiedTime' => 'lastModifiedTime',
@@ -130,6 +142,14 @@ class Session extends Model
 
         if (null !== $this->disableSessionIdReuse) {
             $res['disableSessionIdReuse'] = $this->disableSessionIdReuse;
+        }
+
+        if (null !== $this->enableAutoPause) {
+            $res['enableAutoPause'] = $this->enableAutoPause;
+        }
+
+        if (null !== $this->enableAutoResume) {
+            $res['enableAutoResume'] = $this->enableAutoResume;
         }
 
         if (null !== $this->functionName) {
@@ -201,6 +221,14 @@ class Session extends Model
 
         if (isset($map['disableSessionIdReuse'])) {
             $model->disableSessionIdReuse = $map['disableSessionIdReuse'];
+        }
+
+        if (isset($map['enableAutoPause'])) {
+            $model->enableAutoPause = $map['enableAutoPause'];
+        }
+
+        if (isset($map['enableAutoResume'])) {
+            $model->enableAutoResume = $map['enableAutoResume'];
         }
 
         if (isset($map['functionName'])) {

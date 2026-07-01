@@ -14,6 +14,16 @@ class UpdateSessionInput extends Model
     public $disableSessionIdReuse;
 
     /**
+     * @var bool
+     */
+    public $enableAutoPause;
+
+    /**
+     * @var bool
+     */
+    public $enableAutoResume;
+
+    /**
      * @var JuiceFsConfig
      */
     public $juiceFsConfig;
@@ -44,6 +54,8 @@ class UpdateSessionInput extends Model
     public $sessionTTLInSeconds;
     protected $_name = [
         'disableSessionIdReuse' => 'disableSessionIdReuse',
+        'enableAutoPause' => 'enableAutoPause',
+        'enableAutoResume' => 'enableAutoResume',
         'juiceFsConfig' => 'juiceFsConfig',
         'nasConfig' => 'nasConfig',
         'ossMountConfig' => 'ossMountConfig',
@@ -74,6 +86,14 @@ class UpdateSessionInput extends Model
         $res = [];
         if (null !== $this->disableSessionIdReuse) {
             $res['disableSessionIdReuse'] = $this->disableSessionIdReuse;
+        }
+
+        if (null !== $this->enableAutoPause) {
+            $res['enableAutoPause'] = $this->enableAutoPause;
+        }
+
+        if (null !== $this->enableAutoResume) {
+            $res['enableAutoResume'] = $this->enableAutoResume;
         }
 
         if (null !== $this->juiceFsConfig) {
@@ -113,6 +133,14 @@ class UpdateSessionInput extends Model
         $model = new self();
         if (isset($map['disableSessionIdReuse'])) {
             $model->disableSessionIdReuse = $map['disableSessionIdReuse'];
+        }
+
+        if (isset($map['enableAutoPause'])) {
+            $model->enableAutoPause = $map['enableAutoPause'];
+        }
+
+        if (isset($map['enableAutoResume'])) {
+            $model->enableAutoResume = $map['enableAutoResume'];
         }
 
         if (isset($map['juiceFsConfig'])) {
