@@ -76,6 +76,11 @@ class ipamResourceCidrs extends Model
     public $resourceId;
 
     /**
+     * @var string
+     */
+    public $resourceName;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -118,6 +123,7 @@ class ipamResourceCidrs extends Model
         'overlapDetail' => 'OverlapDetail',
         'overlapStatus' => 'OverlapStatus',
         'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
         'resourceOwnerId' => 'ResourceOwnerId',
         'resourceRegionId' => 'ResourceRegionId',
         'resourceType' => 'ResourceType',
@@ -197,6 +203,10 @@ class ipamResourceCidrs extends Model
 
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
         }
 
         if (null !== $this->resourceOwnerId) {
@@ -291,6 +301,10 @@ class ipamResourceCidrs extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
         }
 
         if (isset($map['ResourceOwnerId'])) {

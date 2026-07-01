@@ -95,7 +95,42 @@ class VpcIpam extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'vpcipam.us-west-1.aliyuncs.com',
+            'us-east-1' => 'vpcipam.us-east-1.aliyuncs.com',
+            'me-east-1' => 'vpcipam.me-east-1.aliyuncs.com',
+            'me-central-1' => 'vpcipam.me-central-1.aliyuncs.com',
+            'eu-west-1' => 'vpcipam.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'vpcipam.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'vpcipam.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'vpcipam.cn-wulanchabu.aliyuncs.com',
+            'cn-wuhan-lr' => 'vpcipam.cn-wuhan-lr.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'vpcipam.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shenzhen' => 'vpcipam.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'vpcipam.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'vpcipam.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'vpcipam.cn-qingdao.aliyuncs.com',
+            'cn-nanjing' => 'vpcipam.cn-nanjing.aliyuncs.com',
+            'cn-huhehaote' => 'vpcipam.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'vpcipam.cn-hongkong.aliyuncs.com',
+            'cn-heyuan' => 'vpcipam.cn-heyuan.aliyuncs.com',
+            'cn-hangzhou-finance' => 'vpcipam.cn-hangzhou-finance.aliyuncs.com',
+            'cn-hangzhou' => 'vpcipam.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'vpcipam.cn-guangzhou.aliyuncs.com',
+            'cn-fuzhou' => 'vpcipam.cn-fuzhou.aliyuncs.com',
+            'cn-chengdu' => 'vpcipam.cn-chengdu.aliyuncs.com',
+            'cn-beijing-finance-1' => 'vpcipam.cn-beijing-finance-1.aliyuncs.com',
+            'cn-beijing' => 'vpcipam.cn-beijing.aliyuncs.com',
+            'ap-southeast-7' => 'vpcipam.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-6' => 'vpcipam.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'vpcipam.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'vpcipam.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-2' => 'vpcipam.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'vpcipam.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2' => 'vpcipam.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'vpcipam.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('vpcipam', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -125,7 +160,19 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 添加ipam可信服务纳管成员.
+     * Adds members to an IP Address Manager (IPAM).
+     *
+     * @remarks
+     * - Only the delegated administrator of an IPAM instance in a resource directory can perform multi-account management.
+     * - An IPAM delegated administrator can use an IPAM instance in only one region for multi-account management. A maximum of 1,000 member accounts can be added.
+     *   >Notice:
+     *   If you add a folder as a member, the system counts all member accounts of the resource directory that are in the folder.
+     *
+     * - Members can be of the Folder or Account type.
+     *   - Folder: The delegated IPAM administrator can view IP usage in the IPAM effective region for all resource directory member accounts in the folder.
+     *   - Account: The delegated IPAM administrator can view IP usage in the IPAM effective region for the specified resource directory member account.
+     * - A managed member cannot share its resource discovery with the IPAM delegated administrator. The IPAM delegated administrator cannot add a member if that member has already shared its resource discovery.
+     * - Adding the first member enables the IPAM trusted service for the resource directory.
      *
      * @param request - AddIpamMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -192,7 +239,19 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 添加ipam可信服务纳管成员.
+     * Adds members to an IP Address Manager (IPAM).
+     *
+     * @remarks
+     * - Only the delegated administrator of an IPAM instance in a resource directory can perform multi-account management.
+     * - An IPAM delegated administrator can use an IPAM instance in only one region for multi-account management. A maximum of 1,000 member accounts can be added.
+     *   >Notice:
+     *   If you add a folder as a member, the system counts all member accounts of the resource directory that are in the folder.
+     *
+     * - Members can be of the Folder or Account type.
+     *   - Folder: The delegated IPAM administrator can view IP usage in the IPAM effective region for all resource directory member accounts in the folder.
+     *   - Account: The delegated IPAM administrator can view IP usage in the IPAM effective region for the specified resource directory member account.
+     * - A managed member cannot share its resource discovery with the IPAM delegated administrator. The IPAM delegated administrator cannot add a member if that member has already shared its resource discovery.
+     * - Adding the first member enables the IPAM trusted service for the resource directory.
      *
      * @param request - AddIpamMembersRequest
      *
@@ -210,16 +269,16 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Provisions a CIDR block to an IP Address Manager (IPAM) pool.
+     * Provisions a CIDR block for an IPAM pool.
      *
      * @remarks
-     *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
-     * *   If no CIDR block is provisioned to a parent pool, you cannot provision CIDR blocks to its subpools.
-     * *   If a CIDR block is provisioned to a parent pool, you can provision CIDR blocks to its subpools and the CIDR blocks must be subsets of the CIDR block provisioned to the parent pool.
-     * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
-     * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
-     * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
-     * *   A maximum of 1 CIDR block can be provisioned to a public IPv6 top-level pool, while up to 50 CIDR blocks can be provisioned to other types of address pools.
+     * - Before provisioning a CIDR block, make sure that you have created an IPAM pool. You can call **CreateIpamPool** to create an IPAM pool.
+     * - If the parent pool does not have a provisioned CIDR block, the subpool does not support CIDR block provisioning.
+     * - If the parent pool has a provisioned CIDR block, the subpool can have a provisioned CIDR block, and the provisioned CIDR block must be a subset of the parent pool\\"s provisioned CIDR block.
+     * - If the parent pool has a provisioned CIDR block and also has CIDR allocations, the CIDR block provisioned for the subpool must not conflict with the existing CIDR allocations.
+     * - The request to provision a CIDR block for an IPAM pool must be initiated from the IPAM hosted region.
+     * - The CIDR block provisioned for an IPAM pool must not conflict with CIDR blocks provisioned for other pools within the same scope.
+     * - The number of CIDR blocks that can be provisioned for a pool is limited. The default maximum for a public IPv6 top-level pool is 1. The default maximum for other types of pools is 50.
      *
      * @param request - AddIpamPoolCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -278,16 +337,16 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Provisions a CIDR block to an IP Address Manager (IPAM) pool.
+     * Provisions a CIDR block for an IPAM pool.
      *
      * @remarks
-     *   Before you provision a CIDR block, make sure that an IPAM pool is created. You can call the **CreateIpamPool** operation to create an IPAM pool.
-     * *   If no CIDR block is provisioned to a parent pool, you cannot provision CIDR blocks to its subpools.
-     * *   If a CIDR block is provisioned to a parent pool, you can provision CIDR blocks to its subpools and the CIDR blocks must be subsets of the CIDR block provisioned to the parent pool.
-     * *   If a CIDR block is provisioned to a parent pool and allocations are created, CIDR blocks provisioned to its subpools cannot overlap with existing allocated CIDR blocks.
-     * *   You can provision CIDR blocks to a pool only in the region where the IPAM is hosted.
-     * *   CIDR blocks provisioned to an IPAM pool cannot overlap with the CIDR blocks provisioned to other pools in the same scope.
-     * *   A maximum of 1 CIDR block can be provisioned to a public IPv6 top-level pool, while up to 50 CIDR blocks can be provisioned to other types of address pools.
+     * - Before provisioning a CIDR block, make sure that you have created an IPAM pool. You can call **CreateIpamPool** to create an IPAM pool.
+     * - If the parent pool does not have a provisioned CIDR block, the subpool does not support CIDR block provisioning.
+     * - If the parent pool has a provisioned CIDR block, the subpool can have a provisioned CIDR block, and the provisioned CIDR block must be a subset of the parent pool\\"s provisioned CIDR block.
+     * - If the parent pool has a provisioned CIDR block and also has CIDR allocations, the CIDR block provisioned for the subpool must not conflict with the existing CIDR allocations.
+     * - The request to provision a CIDR block for an IPAM pool must be initiated from the IPAM hosted region.
+     * - The CIDR block provisioned for an IPAM pool must not conflict with CIDR blocks provisioned for other pools within the same scope.
+     * - The number of CIDR blocks that can be provisioned for a pool is limited. The default maximum for a public IPv6 top-level pool is 1. The default maximum for other types of pools is 50.
      *
      * @param request - AddIpamPoolCidrRequest
      *
@@ -305,10 +364,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Associates resource discovery with an IPAM instance.
+     * Associates a resource discovery with an IPAM instance.
      *
      * @remarks
-     *   The specified resource discovery instance can only be associated with one IPAM instance and associations cannot be duplicated.
+     * - You can associate a resource discovery instance with an IPAM instance only once.
      *
      * @param request - AssociateIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -379,10 +438,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Associates resource discovery with an IPAM instance.
+     * Associates a resource discovery with an IPAM instance.
      *
      * @remarks
-     *   The specified resource discovery instance can only be associated with one IPAM instance and associations cannot be duplicated.
+     * - You can associate a resource discovery instance with an IPAM instance only once.
      *
      * @param request - AssociateIpamResourceDiscoveryRequest
      *
@@ -600,10 +659,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Creates an IP Address Manager (IPAM) pool.
+     * Create an IPAM address pool.
      *
      * @remarks
-     * The number of public IPv6 IPAM top pool for a specific ISP that a user is allowed to create per region is limited to 1.
+     * - The default maximum number of public IPv6 top-level pools per ISP type per region is 1.
      *
      * @param request - CreateIpamPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -718,10 +777,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Creates an IP Address Manager (IPAM) pool.
+     * Create an IPAM address pool.
      *
      * @remarks
-     * The number of public IPv6 IPAM top pool for a specific ISP that a user is allowed to create per region is limited to 1.
+     * - The default maximum number of public IPv6 top-level pools per ISP type per region is 1.
      *
      * @param request - CreateIpamPoolRequest
      *
@@ -739,13 +798,13 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Reserves a custom CIDR block from an IP Address Manager (IPAM) pool.
+     * Creates a custom reserved CIDR block from an IPAM pool.
      *
      * @remarks
-     *   Before you reserve a custom CIDR block, make sure that an IPAM pool is created and CIDR blocks are added to the pool. You can call **CreateIpamPool** to create an IPAM pool and call **AddIpamPoolCidr** to add CIDR blocks to the pool.
-     * *   When you specify Cidr or CidrMask to reserve a custom CIDR block, the mask must fall within the range specified by the IPAM pool.
-     * *   If the IPAM pool has the region attribute, you must reserve a custom CIDR block in the region to which the IPAM pool belongs.
-     * *   The custom CIDR block that you want to reserve cannot overlap with existing CIDR blocks created from the IPAM pool.
+     * - Before you create a custom reserved CIDR block, ensure that you have created an IPAM pool and added a CIDR block to it. You can call the **CreateIpamPool** operation to create an IPAM pool and the **AddIpamPoolCidr** operation to add a CIDR block to the pool.
+     * - When you specify the Cidr or CidrMask parameter to create a custom reserved CIDR block, the mask must be within the range specified for the IPAM pool.
+     * - If an IPAM pool has a region attribute, the request to create a custom reserved CIDR block must be initiated from the region where the pool is located.
+     * - The custom reserved CIDR block must not conflict with existing CIDR block allocations in the IPAM pool.
      *
      * @param request - CreateIpamPoolAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -812,13 +871,13 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Reserves a custom CIDR block from an IP Address Manager (IPAM) pool.
+     * Creates a custom reserved CIDR block from an IPAM pool.
      *
      * @remarks
-     *   Before you reserve a custom CIDR block, make sure that an IPAM pool is created and CIDR blocks are added to the pool. You can call **CreateIpamPool** to create an IPAM pool and call **AddIpamPoolCidr** to add CIDR blocks to the pool.
-     * *   When you specify Cidr or CidrMask to reserve a custom CIDR block, the mask must fall within the range specified by the IPAM pool.
-     * *   If the IPAM pool has the region attribute, you must reserve a custom CIDR block in the region to which the IPAM pool belongs.
-     * *   The custom CIDR block that you want to reserve cannot overlap with existing CIDR blocks created from the IPAM pool.
+     * - Before you create a custom reserved CIDR block, ensure that you have created an IPAM pool and added a CIDR block to it. You can call the **CreateIpamPool** operation to create an IPAM pool and the **AddIpamPoolCidr** operation to add a CIDR block to the pool.
+     * - When you specify the Cidr or CidrMask parameter to create a custom reserved CIDR block, the mask must be within the range specified for the IPAM pool.
+     * - If an IPAM pool has a region attribute, the request to create a custom reserved CIDR block must be initiated from the region where the pool is located.
+     * - The custom reserved CIDR block must not conflict with existing CIDR block allocations in the IPAM pool.
      *
      * @param request - CreateIpamPoolAllocationRequest
      *
@@ -836,11 +895,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Creates a custom resource discovery instance.
+     * Creates a resource discovery instance of a custom type.
      *
      * @remarks
-     *   Each Alibaba Cloud account can create only one resource discovery instance in each region.
-     * *   You can create only custom resource discovery instances.
+     * - Each Alibaba Cloud account can have only one resource discovery instance in each region.
+     * - This operation creates only resource discovery instances of a custom type.
      *
      * @param request - CreateIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -923,11 +982,11 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Creates a custom resource discovery instance.
+     * Creates a resource discovery instance of a custom type.
      *
      * @remarks
-     *   Each Alibaba Cloud account can create only one resource discovery instance in each region.
-     * *   You can create only custom resource discovery instances.
+     * - Each Alibaba Cloud account can have only one resource discovery instance in each region.
+     * - This operation creates only resource discovery instances of a custom type.
      *
      * @param request - CreateIpamResourceDiscoveryRequest
      *
@@ -945,7 +1004,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Creates a public scope and private scope to respectively manage public and private IP addresses.
+     * Creates scopes for IPAM to manage private and public IP addresses.
      *
      * @param request - CreateIpamScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1032,7 +1091,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Creates a public scope and private scope to respectively manage public and private IP addresses.
+     * Creates scopes for IPAM to manage private and public IP addresses.
      *
      * @param request - CreateIpamScopeRequest
      *
@@ -1050,12 +1109,14 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes an IP Address Manager (IPAM).
+     * Deletes an IPAM instance.
      *
      * @remarks
-     * ## [](#)Prerequisites
-     * *   Before you delete an IPAM, make sure that all IPAM pools of the IPAM are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
-     * *   Before you delete an IPAM, make sure that all IPAM scopes of the IPAM are deleted. You can call **DeleteIpamScope** to delete IPAM scopes.
+     * ## Prerequisites
+     * - Before you delete an IPAM instance, ensure that all IPAM pools in the instance are deleted. You can call the **DeleteIpamPool** operation to delete the IPAM pools.
+     * - Before you delete an IPAM instance, ensure that all custom IPAM scopes in the instance are deleted. You can call the **DeleteIpamScope** operation to delete the IPAM scopes.
+     * - Before you delete an IPAM instance, ensure that the default resource discovery instance is not shared.
+     * - Before you delete an IPAM instance, ensure that no shared resource discovery instances are associated with the IPAM instance.
      *
      * @param request - DeleteIpamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1122,12 +1183,14 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes an IP Address Manager (IPAM).
+     * Deletes an IPAM instance.
      *
      * @remarks
-     * ## [](#)Prerequisites
-     * *   Before you delete an IPAM, make sure that all IPAM pools of the IPAM are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
-     * *   Before you delete an IPAM, make sure that all IPAM scopes of the IPAM are deleted. You can call **DeleteIpamScope** to delete IPAM scopes.
+     * ## Prerequisites
+     * - Before you delete an IPAM instance, ensure that all IPAM pools in the instance are deleted. You can call the **DeleteIpamPool** operation to delete the IPAM pools.
+     * - Before you delete an IPAM instance, ensure that all custom IPAM scopes in the instance are deleted. You can call the **DeleteIpamScope** operation to delete the IPAM scopes.
+     * - Before you delete an IPAM instance, ensure that the default resource discovery instance is not shared.
+     * - Before you delete an IPAM instance, ensure that no shared resource discovery instances are associated with the IPAM instance.
      *
      * @param request - DeleteIpamRequest
      *
@@ -1145,13 +1208,14 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes an IP Address Manager (IPAM) scope.
+     * Deletes an IPAM pool instance.
      *
      * @remarks
-     * ### [](#)Usage notes
-     * *   Before you delete a parent pool, make sure that all subpools of the parent pool are deleted.
-     * *   If an effective region is specified for a parent pool and IP addresses are allocated from the parent pool, you cannot delete the parent pool.
-     * *   If an effective region is specified for a subpool and IP addresses are allocated from the subpool, you cannot delete the subpool.
+     * ### Usage notes
+     * - Before deleting a parent pool, make sure that all subpools under the parent pool have been deleted.
+     * - When a parent pool has an effective region configured and has addresses that have already been allocated, the parent pool cannot be deleted.
+     * - When a subpool has an effective region configured and has addresses that have already been allocated, the subpool cannot be deleted.
+     * - When a pool has a sharing relationship, the pool cannot be deleted.
      *
      * @param request - DeleteIpamPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1218,13 +1282,14 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes an IP Address Manager (IPAM) scope.
+     * Deletes an IPAM pool instance.
      *
      * @remarks
-     * ### [](#)Usage notes
-     * *   Before you delete a parent pool, make sure that all subpools of the parent pool are deleted.
-     * *   If an effective region is specified for a parent pool and IP addresses are allocated from the parent pool, you cannot delete the parent pool.
-     * *   If an effective region is specified for a subpool and IP addresses are allocated from the subpool, you cannot delete the subpool.
+     * ### Usage notes
+     * - Before deleting a parent pool, make sure that all subpools under the parent pool have been deleted.
+     * - When a parent pool has an effective region configured and has addresses that have already been allocated, the parent pool cannot be deleted.
+     * - When a subpool has an effective region configured and has addresses that have already been allocated, the subpool cannot be deleted.
+     * - When a pool has a sharing relationship, the pool cannot be deleted.
      *
      * @param request - DeleteIpamPoolRequest
      *
@@ -1242,7 +1307,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes a custom reserved CIDR block from an IP Address Manager (IPAM) pool.
+     * Releases a CIDR allocation from an IP Address Management (IPAM) address pool. Supported allocation types include virtual private cloud (VPC) and custom allocation.
      *
      * @param request - DeleteIpamPoolAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1293,7 +1358,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes a custom reserved CIDR block from an IP Address Manager (IPAM) pool.
+     * Releases a CIDR allocation from an IP Address Management (IPAM) address pool. Supported allocation types include virtual private cloud (VPC) and custom allocation.
      *
      * @param request - DeleteIpamPoolAllocationRequest
      *
@@ -1311,13 +1376,13 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes a CIDR block provisioned to an IP Address Manager (IPAM) pool.
+     * Deletes a provisioned CIDR block from an IP Address Manager (IPAM) pool.
      *
      * @remarks
-     *   If CIDR blocks are provisioned to a parent pool and its subpools, you must first delete the CIDR blocks provisioned to the subpools before you delete the ones provisioned to the parent pool.
-     * *   If CIDR blocks are provisioned only to the parent pool, directly delete them.
-     * *   If CIDR blocks are allocated from provisioned ones, you must first delete the allocated CIDR blocks before you delete the provisioned ones.
-     * *   You can delete CIDR blocks provisioned to an IPAM pool only in the region where the IPAM is hosted.
+     * - If CIDR blocks are provisioned in both a parent pool and its sub-pools, delete the CIDR blocks from the sub-pools before you delete the CIDR block from the parent pool.
+     * - If a CIDR block is provisioned only in a parent pool, you can delete the CIDR block directly from the parent pool.
+     * - If allocations exist from the provisioned CIDR block, delete the allocations before you delete the CIDR block.
+     * - Requests to delete a provisioned CIDR block from an IPAM pool must be sent from the region where the IPAM is deployed.
      *
      * @param request - DeleteIpamPoolCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1372,13 +1437,13 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes a CIDR block provisioned to an IP Address Manager (IPAM) pool.
+     * Deletes a provisioned CIDR block from an IP Address Manager (IPAM) pool.
      *
      * @remarks
-     *   If CIDR blocks are provisioned to a parent pool and its subpools, you must first delete the CIDR blocks provisioned to the subpools before you delete the ones provisioned to the parent pool.
-     * *   If CIDR blocks are provisioned only to the parent pool, directly delete them.
-     * *   If CIDR blocks are allocated from provisioned ones, you must first delete the allocated CIDR blocks before you delete the provisioned ones.
-     * *   You can delete CIDR blocks provisioned to an IPAM pool only in the region where the IPAM is hosted.
+     * - If CIDR blocks are provisioned in both a parent pool and its sub-pools, delete the CIDR blocks from the sub-pools before you delete the CIDR block from the parent pool.
+     * - If a CIDR block is provisioned only in a parent pool, you can delete the CIDR block directly from the parent pool.
+     * - If allocations exist from the provisioned CIDR block, delete the allocations before you delete the CIDR block.
+     * - Requests to delete a provisioned CIDR block from an IPAM pool must be sent from the region where the IPAM is deployed.
      *
      * @param request - DeleteIpamPoolCidrRequest
      *
@@ -1396,10 +1461,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes a custom resource discovery instance.
+     * Deletes a resource discovery instance.
      *
      * @remarks
-     *   If a resource discovery instance is shared, it cannot be deleted.
+     * - A resource discovery instance cannot be deleted if it is shared.
      *
      * @param request - DeleteIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1466,10 +1531,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes a custom resource discovery instance.
+     * Deletes a resource discovery instance.
      *
      * @remarks
-     *   If a resource discovery instance is shared, it cannot be deleted.
+     * - A resource discovery instance cannot be deleted if it is shared.
      *
      * @param request - DeleteIpamResourceDiscoveryRequest
      *
@@ -1487,12 +1552,12 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes an IP Address Manager (IPAM) scope.
+     * Deletes an IPAM scope.
      *
      * @remarks
-     * ### [](#)Usage notes
-     * *   You cannot delete the private scope and public scope created by the system.
-     * *   Before you delete an IPAM scope, make sure that all pools within the scope are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+     * ### Usage notes
+     * - You cannot delete the two default IPAM scopes that the system automatically creates.
+     * - Before you delete a custom IPAM scope, ensure that all IPAM pools in the scope are deleted. You can call the **DeleteIpamPool** operation to delete an IPAM pool.
      *
      * @param request - DeleteIpamScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1559,12 +1624,12 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Deletes an IP Address Manager (IPAM) scope.
+     * Deletes an IPAM scope.
      *
      * @remarks
-     * ### [](#)Usage notes
-     * *   You cannot delete the private scope and public scope created by the system.
-     * *   Before you delete an IPAM scope, make sure that all pools within the scope are deleted. You can call **DeleteIpamPool** to delete IPAM pools.
+     * ### Usage notes
+     * - You cannot delete the two default IPAM scopes that the system automatically creates.
+     * - Before you delete a custom IPAM scope, ensure that all IPAM pools in the scope are deleted. You can call the **DeleteIpamPool** operation to delete an IPAM pool.
      *
      * @param request - DeleteIpamScopeRequest
      *
@@ -1582,7 +1647,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Disassociates resource discovery and IPAM instances.
+     * Disassociates a resource discovery from an IP Address Manager (IPAM) instance.
      *
      * @param request - DissociateIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1653,7 +1718,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Disassociates resource discovery and IPAM instances.
+     * Disassociates a resource discovery from an IP Address Manager (IPAM) instance.
      *
      * @param request - DissociateIpamResourceDiscoveryRequest
      *
@@ -1671,7 +1736,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+     * Queries a specified CIDR block allocation in an IPAM pool.
      *
      * @param request - GetIpamPoolAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1706,7 +1771,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+     * Queries a specified CIDR block allocation in an IPAM pool.
      *
      * @param request - GetIpamPoolAllocationRequest
      *
@@ -1724,7 +1789,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Gets the available CIDR blocks of the IPAM pool.
+     * Retrieves an available CIDR block from an IPAM pool.
      *
      * @param request - GetIpamPoolNextAvailableCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1759,7 +1824,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Gets the available CIDR blocks of the IPAM pool.
+     * Retrieves an available CIDR block from an IPAM pool.
      *
      * @param request - GetIpamPoolNextAvailableCidrRequest
      *
@@ -1777,7 +1842,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries whether IP Address Manager (IPAM) is activated.
+     * Retrieves the status of the IPAM service.
      *
      * @param request - GetVpcIpamServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1836,7 +1901,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries whether IP Address Manager (IPAM) is activated.
+     * Retrieves the status of the IPAM service.
      *
      * @param request - GetVpcIpamServiceStatusRequest
      *
@@ -1854,7 +1919,16 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询VPC或VSwitch下已使用IP信息。
+     * Lists the IP addresses used by discovered resources in a VPC or vSwitch.
+     *
+     * @remarks
+     * Supported query combinations:
+     * - `VpcId` only
+     * - `VSwitchId` only
+     * - `VpcId` + `VSwitchId`
+     * - `VpcId` + `CidrBlock`
+     * - `VSwitchId` + `CidrBlock`
+     * - `VpcId` + `VSwitchId` + `CidrBlock`
      *
      * @param request - ListIpamDiscoveredIpAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1921,7 +1995,16 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询VPC或VSwitch下已使用IP信息。
+     * Lists the IP addresses used by discovered resources in a VPC or vSwitch.
+     *
+     * @remarks
+     * Supported query combinations:
+     * - `VpcId` only
+     * - `VSwitchId` only
+     * - `VpcId` + `VSwitchId`
+     * - `VpcId` + `CidrBlock`
+     * - `VSwitchId` + `CidrBlock`
+     * - `VpcId` + `VSwitchId` + `CidrBlock`
      *
      * @param request - ListIpamDiscoveredIpAddressesRequest
      *
@@ -1939,7 +2022,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries discovered resources.
+     * Queries resource information under a resource discovery.
      *
      * @param request - ListIpamDiscoveredResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1998,7 +2081,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries discovered resources.
+     * Queries resource information under a resource discovery.
      *
      * @param request - ListIpamDiscoveredResourceRequest
      *
@@ -2016,7 +2099,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询ipam可信服务纳管成员.
+     * Lists the members managed by the IPAM trusted service.
      *
      * @param request - ListIpamMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2083,7 +2166,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 查询ipam可信服务纳管成员.
+     * Lists the members managed by the IPAM trusted service.
      *
      * @param request - ListIpamMembersRequest
      *
@@ -2101,7 +2184,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+     * Queries CIDR block allocations in an IPAM pool.
      *
      * @param request - ListIpamPoolAllocationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2164,7 +2247,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries CIDR block allocations of an IP Address Manager (IPAM) pool.
+     * Queries CIDR block allocations in an IPAM pool.
      *
      * @param request - ListIpamPoolAllocationsRequest
      *
@@ -2182,7 +2265,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries CIDR blocks provisioned to an IP Address Manager (IPAM) pool.
+     * Queries the provisioned CIDR blocks of an IPAM pool.
      *
      * @param request - ListIpamPoolCidrsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2237,7 +2320,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries CIDR blocks provisioned to an IP Address Manager (IPAM) pool.
+     * Queries the provisioned CIDR blocks of an IPAM pool.
      *
      * @param request - ListIpamPoolCidrsRequest
      *
@@ -2255,7 +2338,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries IP Address Manager (IPAM) pools.
+     * Queries IPAM pools.
      *
      * @param request - ListIpamPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2358,7 +2441,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries IP Address Manager (IPAM) pools.
+     * Queries IPAM pools.
      *
      * @param request - ListIpamPoolsRequest
      *
@@ -2376,7 +2459,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries resources in an IP Address Manager (IPAM) pool.
+     * Queries resources within an IPAM scope.
      *
      * @param request - ListIpamResourceCidrsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2447,7 +2530,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries resources in an IP Address Manager (IPAM) pool.
+     * Queries resources within an IPAM scope.
      *
      * @param request - ListIpamResourceCidrsRequest
      *
@@ -2465,7 +2548,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries IPAM resource discovery instances.
+     * Retrieves a list of IPAM resource discovery instances.
      *
      * @param request - ListIpamResourceDiscoveriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2552,7 +2635,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries IPAM resource discovery instances.
+     * Retrieves a list of IPAM resource discovery instances.
      *
      * @param request - ListIpamResourceDiscoveriesRequest
      *
@@ -2570,7 +2653,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries the association between resource discovery and IPAM.
+     * Lists the associations between resource discoveries and IP Address Managers (IPAMs).
      *
      * @param request - ListIpamResourceDiscoveryAssociationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2641,7 +2724,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries the association between resource discovery and IPAM.
+     * Lists the associations between resource discoveries and IP Address Managers (IPAMs).
      *
      * @param request - ListIpamResourceDiscoveryAssociationsRequest
      *
@@ -2659,7 +2742,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries IP Address Manager (IPAM) scopes.
+     * Queries IPAM scopes.
      *
      * @param request - ListIpamScopesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2746,7 +2829,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries IP Address Manager (IPAM) scopes.
+     * Queries IPAM scopes.
      *
      * @param request - ListIpamScopesRequest
      *
@@ -2764,7 +2847,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries IP Address Managers (IPAMs).
+     * Queries one or more IPAMs.
      *
      * @param request - ListIpamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2843,7 +2926,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries IP Address Managers (IPAMs).
+     * Queries one or more IPAMs.
      *
      * @param request - ListIpamsRequest
      *
@@ -2861,14 +2944,14 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries a list of resource tags.
+     * Queries the tags that are associated with resources.
      *
      * @remarks
-     * ### [](#)Usage notes
-     * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     * ### Usage notes
+     * - You must specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in a request to identify the resources to query.
+     * - **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the tag key are returned. An error is returned if you specify only **Tag.N.Value**.
+     * - If you specify both **Tag.N** and **ResourceId.N**, the query returns only the resources that are specified by **ResourceId.N** and are associated with all the specified tag key-value pairs.
+     * - If you specify multiple tag key-value pairs, the query returns only resources that are associated with all the specified key-value pairs.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2943,14 +3026,14 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Queries a list of resource tags.
+     * Queries the tags that are associated with resources.
      *
      * @remarks
-     * ### [](#)Usage notes
-     * *   You must specify **ResourceId.N** or **Tag.N** that consists of **Tag.N.Key** and **Tag.N.Value** in the request to specify the object that you want to query.
-     * *   **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values that are associated with the specified key are returned. If you specify only **Tag.N.Value**, an error message is returned.
-     * *   If you specify **Tag.N** and **ResourceId.N** to filter tags, **ResourceId.N** must match all specified key-value pairs.
-     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     * ### Usage notes
+     * - You must specify at least **ResourceId.N** or **Tag.N** (**Tag.N.Key** and **Tag.N.Value**) in a request to identify the resources to query.
+     * - **Tag.N** is a resource tag that consists of a key-value pair. If you specify only **Tag.N.Key**, all tag values associated with the tag key are returned. An error is returned if you specify only **Tag.N.Value**.
+     * - If you specify both **Tag.N** and **ResourceId.N**, the query returns only the resources that are specified by **ResourceId.N** and are associated with all the specified tag key-value pairs.
+     * - If you specify multiple tag key-value pairs, the query returns only resources that are associated with all the specified key-value pairs.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -2968,7 +3051,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Activates IP Address Manager (IPAM).
+     * Activates the IP Address Management (IPAM) service.
      *
      * @param request - OpenVpcIpamServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3027,7 +3110,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Activates IP Address Manager (IPAM).
+     * Activates the IP Address Management (IPAM) service.
      *
      * @param request - OpenVpcIpamServiceRequest
      *
@@ -3045,7 +3128,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 移除ipam可信服务纳管成员.
+     * Removes members from the IPAM trusted service.
+     *
+     * @remarks
+     * - If the delegated IPAM administrator removes the last member, the IPAM trusted service is disabled for the resource directory.
      *
      * @param request - RemoveIpamMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3112,7 +3198,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * 移除ipam可信服务纳管成员.
+     * Removes members from the IPAM trusted service.
+     *
+     * @remarks
+     * - If the delegated IPAM administrator removes the last member, the IPAM trusted service is disabled for the resource directory.
      *
      * @param request - RemoveIpamMembersRequest
      *
@@ -3318,7 +3407,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Modifies an IPAM instance.
+     * Modifies an IP Address Management (IPAM) instance.
+     *
+     * @remarks
+     * - The managed region of an IPAM instance cannot be removed.
      *
      * @param request - UpdateIpamRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3401,7 +3493,10 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Modifies an IPAM instance.
+     * Modifies an IP Address Management (IPAM) instance.
+     *
+     * @remarks
+     * - The managed region of an IPAM instance cannot be removed.
      *
      * @param request - UpdateIpamRequest
      *
@@ -3419,7 +3514,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information about an IP Address Manager (IPAM) pool.
+     * Updates the basic information of an IPAM pool.
      *
      * @param request - UpdateIpamPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3514,7 +3609,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information about an IP Address Manager (IPAM) pool.
+     * Updates the basic information of an IPAM pool.
      *
      * @param request - UpdateIpamPoolRequest
      *
@@ -3532,7 +3627,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Modifies CIDR block allocations of an IP Address Manager (IPAM) pool.
+     * Updates a CIDR allocation from an IPAM address pool.
      *
      * @param request - UpdateIpamPoolAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3591,7 +3686,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Modifies CIDR block allocations of an IP Address Manager (IPAM) pool.
+     * Updates a CIDR allocation from an IPAM address pool.
      *
      * @param request - UpdateIpamPoolAllocationRequest
      *
@@ -3612,8 +3707,8 @@ class VpcIpam extends OpenApiClient
      * Modifies a resource discovery instance.
      *
      * @remarks
-     *   You can add or remove effective regions only for custom resource discovery instances.
-     * *   When removing effective regions from a resource discovery instance, the hosted region cannot be included.
+     * - You can add or remove operating regions only for custom resource discovery instances.
+     * - When you remove an operating region from a resource discovery instance, you cannot remove the managed region of the resource discovery instance.
      *
      * @param request - UpdateIpamResourceDiscoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3699,8 +3794,8 @@ class VpcIpam extends OpenApiClient
      * Modifies a resource discovery instance.
      *
      * @remarks
-     *   You can add or remove effective regions only for custom resource discovery instances.
-     * *   When removing effective regions from a resource discovery instance, the hosted region cannot be included.
+     * - You can add or remove operating regions only for custom resource discovery instances.
+     * - When you remove an operating region from a resource discovery instance, you cannot remove the managed region of the resource discovery instance.
      *
      * @param request - UpdateIpamResourceDiscoveryRequest
      *
@@ -3718,7 +3813,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information about an IP Address Manager (IPAM) scope.
+     * Updates the basic information of an IPAM scope.
      *
      * @param request - UpdateIpamScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3793,7 +3888,7 @@ class VpcIpam extends OpenApiClient
     }
 
     /**
-     * Modifies the basic information about an IP Address Manager (IPAM) scope.
+     * Updates the basic information of an IPAM scope.
      *
      * @param request - UpdateIpamScopeRequest
      *
