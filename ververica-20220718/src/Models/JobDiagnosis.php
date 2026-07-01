@@ -19,6 +19,11 @@ class JobDiagnosis extends Model
     public $diagnoseTime;
 
     /**
+     * @var int
+     */
+    public $healthScore;
+
+    /**
      * @var string
      */
     public $namespace;
@@ -40,6 +45,7 @@ class JobDiagnosis extends Model
     protected $_name = [
         'diagnoseId' => 'diagnoseId',
         'diagnoseTime' => 'diagnoseTime',
+        'healthScore' => 'healthScore',
         'namespace' => 'namespace',
         'riskLevel' => 'riskLevel',
         'symptoms' => 'symptoms',
@@ -63,6 +69,10 @@ class JobDiagnosis extends Model
 
         if (null !== $this->diagnoseTime) {
             $res['diagnoseTime'] = $this->diagnoseTime;
+        }
+
+        if (null !== $this->healthScore) {
+            $res['healthScore'] = $this->healthScore;
         }
 
         if (null !== $this->namespace) {
@@ -98,6 +108,10 @@ class JobDiagnosis extends Model
 
         if (isset($map['diagnoseTime'])) {
             $model->diagnoseTime = $map['diagnoseTime'];
+        }
+
+        if (isset($map['healthScore'])) {
+            $model->healthScore = $map['healthScore'];
         }
 
         if (isset($map['namespace'])) {
