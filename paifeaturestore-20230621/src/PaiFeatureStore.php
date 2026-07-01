@@ -119,7 +119,19 @@ class PaiFeatureStore extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'paifeaturestore.us-west-1.aliyuncs.com',
+            'us-east-1' => 'paifeaturestore.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'paifeaturestore.eu-central-1.aliyuncs.com',
+            'cn-shenzhen' => 'paifeaturestore.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'paifeaturestore.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'paifeaturestore.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'paifeaturestore.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'paifeaturestore.cn-beijing.aliyuncs.com',
+            'ap-southeast-5' => 'paifeaturestore.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-1' => 'paifeaturestore.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('paifeaturestore', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -777,7 +789,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
+     * Creates a model feature. A model feature associates a label table with a set of feature view fields to generate the training dataset table required for model training and to specify the feature set used for model inference.
      *
      * @param request - CreateModelFeatureRequest
      * @param headers - map
@@ -840,7 +852,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Creates a model feature. A model feature associates a label table with a set of feature view fields. It is used to generate the training dataset table required for model training and to specify the feature set used for model inference.
+     * Creates a model feature. A model feature associates a label table with a set of feature view fields to generate the training dataset table required for model training and to specify the feature set used for model inference.
      *
      * @param request - CreateModelFeatureRequest
      *
@@ -1829,7 +1841,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
+     * Gets detailed information about a model feature, including the selected feature list, lineage relations, and training set export script.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1864,7 +1876,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Retrieves detailed information about a model feature, including the selected feature list, lineage relationships, and training set export script.
+     * Gets detailed information about a model feature, including the selected feature list, lineage relations, and training set export script.
      *
      * @returns GetModelFeatureResponse
      *
@@ -4140,7 +4152,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
+     * Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update performs a full replacement. The specified Features overwrite the existing values.
      *
      * @param request - UpdateModelFeatureRequest
      * @param headers - map
@@ -4196,7 +4208,7 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update is a full replacement. The specified Features value overwrites the existing value.
+     * Updates the information of a model feature, including the associated label table, selected feature fields, and conflict priority policy. The update performs a full replacement. The specified Features overwrite the existing values.
      *
      * @param request - UpdateModelFeatureRequest
      *

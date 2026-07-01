@@ -15,6 +15,11 @@ class fields extends Model
     public $attributes;
 
     /**
+     * @var int
+     */
+    public $dimension;
+
+    /**
      * @var string
      */
     public $name;
@@ -30,6 +35,7 @@ class fields extends Model
     public $type;
     protected $_name = [
         'attributes' => 'Attributes',
+        'dimension' => 'Dimension',
         'name' => 'Name',
         'transform' => 'Transform',
         'type' => 'Type',
@@ -58,6 +64,10 @@ class fields extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dimension) {
+            $res['Dimension'] = $this->dimension;
         }
 
         if (null !== $this->name) {
@@ -99,6 +109,10 @@ class fields extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Dimension'])) {
+            $model->dimension = $map['Dimension'];
         }
 
         if (isset($map['Name'])) {
