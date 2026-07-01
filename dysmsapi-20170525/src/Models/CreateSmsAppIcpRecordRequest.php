@@ -31,7 +31,17 @@ class CreateSmsAppIcpRecordRequest extends Model
     /**
      * @var string
      */
+    public $appRuntimePic;
+
+    /**
+     * @var string
+     */
     public $appServiceName;
+
+    /**
+     * @var string
+     */
+    public $appStoreDownloadPic;
 
     /**
      * @var string
@@ -57,7 +67,9 @@ class CreateSmsAppIcpRecordRequest extends Model
         'appIcpLicenseNumber' => 'AppIcpLicenseNumber',
         'appIcpRecordPic' => 'AppIcpRecordPic',
         'appPrincipalUnitName' => 'AppPrincipalUnitName',
+        'appRuntimePic' => 'AppRuntimePic',
         'appServiceName' => 'AppServiceName',
+        'appStoreDownloadPic' => 'AppStoreDownloadPic',
         'domain' => 'Domain',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -88,8 +100,16 @@ class CreateSmsAppIcpRecordRequest extends Model
             $res['AppPrincipalUnitName'] = $this->appPrincipalUnitName;
         }
 
+        if (null !== $this->appRuntimePic) {
+            $res['AppRuntimePic'] = $this->appRuntimePic;
+        }
+
         if (null !== $this->appServiceName) {
             $res['AppServiceName'] = $this->appServiceName;
+        }
+
+        if (null !== $this->appStoreDownloadPic) {
+            $res['AppStoreDownloadPic'] = $this->appStoreDownloadPic;
         }
 
         if (null !== $this->domain) {
@@ -135,8 +155,16 @@ class CreateSmsAppIcpRecordRequest extends Model
             $model->appPrincipalUnitName = $map['AppPrincipalUnitName'];
         }
 
+        if (isset($map['AppRuntimePic'])) {
+            $model->appRuntimePic = $map['AppRuntimePic'];
+        }
+
         if (isset($map['AppServiceName'])) {
             $model->appServiceName = $map['AppServiceName'];
+        }
+
+        if (isset($map['AppStoreDownloadPic'])) {
+            $model->appStoreDownloadPic = $map['AppStoreDownloadPic'];
         }
 
         if (isset($map['Domain'])) {

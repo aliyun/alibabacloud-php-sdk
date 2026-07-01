@@ -41,7 +41,27 @@ class data extends Model
     /**
      * @var string
      */
+    public $appRuntimePic;
+
+    /**
+     * @var string
+     */
+    public $appRuntimePicUrl;
+
+    /**
+     * @var string
+     */
     public $appServiceName;
+
+    /**
+     * @var string
+     */
+    public $appStoreDownloadPic;
+
+    /**
+     * @var string
+     */
+    public $appStoreDownloadPicUrl;
 
     /**
      * @var string
@@ -54,7 +74,11 @@ class data extends Model
         'appIcpRecordPic' => 'AppIcpRecordPic',
         'appIcpRecordPicUrl' => 'AppIcpRecordPicUrl',
         'appPrincipalUnitName' => 'AppPrincipalUnitName',
+        'appRuntimePic' => 'AppRuntimePic',
+        'appRuntimePicUrl' => 'AppRuntimePicUrl',
         'appServiceName' => 'AppServiceName',
+        'appStoreDownloadPic' => 'AppStoreDownloadPic',
+        'appStoreDownloadPicUrl' => 'AppStoreDownloadPicUrl',
         'domain' => 'Domain',
     ];
 
@@ -90,8 +114,24 @@ class data extends Model
             $res['AppPrincipalUnitName'] = $this->appPrincipalUnitName;
         }
 
+        if (null !== $this->appRuntimePic) {
+            $res['AppRuntimePic'] = $this->appRuntimePic;
+        }
+
+        if (null !== $this->appRuntimePicUrl) {
+            $res['AppRuntimePicUrl'] = $this->appRuntimePicUrl;
+        }
+
         if (null !== $this->appServiceName) {
             $res['AppServiceName'] = $this->appServiceName;
+        }
+
+        if (null !== $this->appStoreDownloadPic) {
+            $res['AppStoreDownloadPic'] = $this->appStoreDownloadPic;
+        }
+
+        if (null !== $this->appStoreDownloadPicUrl) {
+            $res['AppStoreDownloadPicUrl'] = $this->appStoreDownloadPicUrl;
         }
 
         if (null !== $this->domain) {
@@ -133,8 +173,24 @@ class data extends Model
             $model->appPrincipalUnitName = $map['AppPrincipalUnitName'];
         }
 
+        if (isset($map['AppRuntimePic'])) {
+            $model->appRuntimePic = $map['AppRuntimePic'];
+        }
+
+        if (isset($map['AppRuntimePicUrl'])) {
+            $model->appRuntimePicUrl = $map['AppRuntimePicUrl'];
+        }
+
         if (isset($map['AppServiceName'])) {
             $model->appServiceName = $map['AppServiceName'];
+        }
+
+        if (isset($map['AppStoreDownloadPic'])) {
+            $model->appStoreDownloadPic = $map['AppStoreDownloadPic'];
+        }
+
+        if (isset($map['AppStoreDownloadPicUrl'])) {
+            $model->appStoreDownloadPicUrl = $map['AppStoreDownloadPicUrl'];
         }
 
         if (isset($map['Domain'])) {
