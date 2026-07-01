@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBucketsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeBucketsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCloudPhoneNodesResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCreditDetailRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCreditDetailResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCreditPackageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCreditPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeDisplayConfigRequest;
@@ -3320,6 +3322,83 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCloudPhoneNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries all change records of credits.
+     *
+     * @param request - DescribeCreditDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCreditDetailResponse
+     *
+     * @param DescribeCreditDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeCreditDetailResponse
+     */
+    public function describeCreditDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->packageIds) {
+            @$query['PackageIds'] = $request->packageIds;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCreditDetail',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeCreditDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries all change records of credits.
+     *
+     * @param request - DescribeCreditDetailRequest
+     *
+     * @returns DescribeCreditDetailResponse
+     *
+     * @param DescribeCreditDetailRequest $request
+     *
+     * @return DescribeCreditDetailResponse
+     */
+    public function describeCreditDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCreditDetailWithOptions($request, $runtime);
     }
 
     /**

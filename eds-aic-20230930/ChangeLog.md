@@ -1,3 +1,7 @@
+2026-07-01 Version: 4.25.0
+- Support API DescribeCreditDetail.
+
+
 2026-06-26 Version: 4.24.1
 - Update API RunAgentTask: add request parameters ScheduleId.
 - Update API RunAgentTask: add request parameters TaskConfigId.
