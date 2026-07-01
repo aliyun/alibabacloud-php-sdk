@@ -79,6 +79,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceAppGroupRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceAppRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceAppResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataServiceAppShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDatasetRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDatasetShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceShrinkRequest;
@@ -165,6 +168,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataServiceAppGroupRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataServiceAppGroupResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataServiceAppRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataServiceAppResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDatasetRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDatasetResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceShrinkRequest;
@@ -257,6 +262,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskUdfLineagesRequ
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskUdfLineagesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskVersionsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskVersionsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTemplateVersionsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTemplateVersionsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBelongAssetMappingRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBelongAssetMappingResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBelongAssetMappingShrinkRequest;
@@ -308,6 +315,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceMyProjectsReq
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceMyProjectsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceProjectAddableUsersRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataServiceProjectAddableUsersResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDatasetRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDatasetResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataSourceDependenciesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataSourceDependenciesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDevObjectDependencyRequest;
@@ -333,6 +342,15 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetMyTenantsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetNodeUpDownStreamRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetNodeUpDownStreamResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetNodeUpDownStreamShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationRecordByIdRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationRecordByIdResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationRecordByIdShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationRecordDetailRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationRecordDetailResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationRecordDetailShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationRecordRunCodeRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationRecordRunCodeResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationRecordRunCodeShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationSubmitStatusRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetOperationSubmitStatusResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPhysicalInstanceLogRequest;
@@ -473,6 +491,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBatchTemplatesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBatchTemplatesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBatchTemplatesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesShrinkRequest;
@@ -511,6 +532,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServiceMyAppPermiss
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServicePublishedApisRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServicePublishedApisResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataServicePublishedApisShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDatasetsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDatasetsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDatasetsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigShrinkRequest;
@@ -526,6 +550,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodeDownStreamShrinkReq
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListOperationRecordRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListOperationRecordResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListOperationRecordShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListProjectMembersShrinkRequest;
@@ -706,6 +733,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppMemberS
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataServiceAppShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDatasetRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDatasetResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDatasetShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoShrinkRequest;
@@ -2697,6 +2727,99 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a new dataset under a specified project. Available since v6.2.0.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API creates a new dataset in a specified project.
+     * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
+     * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
+     * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+     * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
+     * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
+     * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+     *
+     * @param tmpReq - CreateDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDatasetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDatasetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataset',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a new dataset under a specified project. Available since v6.2.0.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API creates a new dataset in a specified project.
+     * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
+     * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
+     * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+     * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
+     * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
+     * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+     *
+     * @param request - CreateDatasetRequest
+     *
+     * @returns CreateDatasetResponse
+     *
+     * @param CreateDatasetRequest $request
+     *
+     * @return CreateDatasetResponse
+     */
+    public function createDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDatasetWithOptions($request, $runtime);
     }
 
     /**
@@ -4846,6 +4969,71 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a dataset. Release version: v6.2.0.
+     *
+     * @param request - DeleteDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param DeleteDatasetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataset',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a dataset. Release version: v6.2.0.
+     *
+     * @param request - DeleteDatasetRequest
+     *
+     * @returns DeleteDatasetResponse
+     *
+     * @param DeleteDatasetRequest $request
+     *
+     * @return DeleteDatasetResponse
+     */
+    public function deleteDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDatasetWithOptions($request, $runtime);
     }
 
     /**
@@ -7254,6 +7442,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 获取指定离线模板ID版本列表。
+     *
+     * @param request - GetBatchTemplateVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetBatchTemplateVersionsResponse
+     *
+     * @param GetBatchTemplateVersionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetBatchTemplateVersionsResponse
+     */
+    public function getBatchTemplateVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetBatchTemplateVersions',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetBatchTemplateVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取指定离线模板ID版本列表。
+     *
+     * @param request - GetBatchTemplateVersionsRequest
+     *
+     * @returns GetBatchTemplateVersionsResponse
+     *
+     * @param GetBatchTemplateVersionsRequest $request
+     *
+     * @return GetBatchTemplateVersionsResponse
+     */
+    public function getBatchTemplateVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchTemplateVersionsWithOptions($request, $runtime);
+    }
+
+    /**
      * Query mapping relationships by belonging asset GUID.
      * Release version: v5.4.2.
      *
@@ -8871,6 +9128,77 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Retrieves a dataset. Release version: v6.2.0.
+     *
+     * @remarks
+     * Queries the details of a tested connectivity task based on the data source ID.
+     *
+     * @param request - GetDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param GetDatasetRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDatasetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataset',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a dataset. Release version: v6.2.0.
+     *
+     * @remarks
+     * Queries the details of a tested connectivity task based on the data source ID.
+     *
+     * @param request - GetDatasetRequest
+     *
+     * @returns GetDatasetResponse
+     *
+     * @param GetDatasetRequest $request
+     *
+     * @return GetDatasetResponse
+     */
+    public function getDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDatasetWithOptions($request, $runtime);
+    }
+
+    /**
      * Query upstream dependencies of development objects.
      *
      * @param request - GetDevObjectDependencyRequest
@@ -9521,6 +9849,213 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNodeUpDownStreamWithOptions($request, $runtime);
+    }
+
+    /**
+     * 根据Id查询运行记录.
+     *
+     * @param tmpReq - GetOperationRecordByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOperationRecordByIdResponse
+     *
+     * @param GetOperationRecordByIdRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetOperationRecordByIdResponse
+     */
+    public function getOperationRecordByIdWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetOperationRecordByIdShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->detailCommand) {
+            $request->detailCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->detailCommand, 'DetailCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->detailCommandShrink) {
+            @$body['DetailCommand'] = $request->detailCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetOperationRecordById',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOperationRecordByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 根据Id查询运行记录.
+     *
+     * @param request - GetOperationRecordByIdRequest
+     *
+     * @returns GetOperationRecordByIdResponse
+     *
+     * @param GetOperationRecordByIdRequest $request
+     *
+     * @return GetOperationRecordByIdResponse
+     */
+    public function getOperationRecordById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOperationRecordByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of an execution record. Released in version v6.2.0.
+     *
+     * @param tmpReq - GetOperationRecordDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOperationRecordDetailResponse
+     *
+     * @param GetOperationRecordDetailRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetOperationRecordDetailResponse
+     */
+    public function getOperationRecordDetailWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetOperationRecordDetailShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->recordDetailCommand) {
+            $request->recordDetailCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recordDetailCommand, 'RecordDetailCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->recordDetailCommandShrink) {
+            @$body['RecordDetailCommand'] = $request->recordDetailCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetOperationRecordDetail',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOperationRecordDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an execution record. Released in version v6.2.0.
+     *
+     * @param request - GetOperationRecordDetailRequest
+     *
+     * @returns GetOperationRecordDetailResponse
+     *
+     * @param GetOperationRecordDetailRequest $request
+     *
+     * @return GetOperationRecordDetailResponse
+     */
+    public function getOperationRecordDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOperationRecordDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the execution code of an operation log. Online version: v6.2.0.
+     *
+     * @param tmpReq - GetOperationRecordRunCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOperationRecordRunCodeResponse
+     *
+     * @param GetOperationRecordRunCodeRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetOperationRecordRunCodeResponse
+     */
+    public function getOperationRecordRunCodeWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetOperationRecordRunCodeShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->codeCommand) {
+            $request->codeCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->codeCommand, 'CodeCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->codeCommandShrink) {
+            @$body['CodeCommand'] = $request->codeCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetOperationRecordRunCode',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOperationRecordRunCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the execution code of an operation log. Online version: v6.2.0.
+     *
+     * @param request - GetOperationRecordRunCodeRequest
+     *
+     * @returns GetOperationRecordRunCodeResponse
+     *
+     * @param GetOperationRecordRunCodeRequest $request
+     *
+     * @return GetOperationRecordRunCodeResponse
+     */
+    public function getOperationRecordRunCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOperationRecordRunCodeWithOptions($request, $runtime);
     }
 
     /**
@@ -13577,6 +14112,83 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Queries offline computing templates by paging. Online version: v6.2.0.
+     *
+     * @param tmpReq - ListBatchTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBatchTemplatesResponse
+     *
+     * @param ListBatchTemplatesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListBatchTemplatesResponse
+     */
+    public function listBatchTemplatesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListBatchTemplatesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->env) {
+            @$query['Env'] = $request->env;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListBatchTemplates',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBatchTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries offline computing templates by paging. Online version: v6.2.0.
+     *
+     * @param request - ListBatchTemplatesRequest
+     *
+     * @returns ListBatchTemplatesResponse
+     *
+     * @param ListBatchTemplatesRequest $request
+     *
+     * @return ListBatchTemplatesResponse
+     */
+    public function listBatchTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBatchTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a list of business entities.
      *
      * @param tmpReq - ListBizEntitiesRequest
@@ -14561,6 +15173,83 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+     *
+     * @remarks
+     * ## Operation description
+     * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+     *
+     * @param tmpReq - ListDatasetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param ListDatasetsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListDatasetsResponse
+     */
+    public function listDatasetsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListDatasetsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->datasetQuery) {
+            $request->datasetQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->datasetQuery, 'DatasetQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->datasetQueryShrink) {
+            @$body['DatasetQuery'] = $request->datasetQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDatasets',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists datasets in a project based on specified conditional query criteria. Online version: v6.2.0.
+     *
+     * @remarks
+     * ## Operation description
+     * This API allows you to retrieve dataset information for a specific project by providing a tenant ID, project ID, and other optional parameters such as keywords and type lists. Paging is supported. The returned data includes basic dataset information and version details. ProjectId is required. Other parameters are optional and can be configured as needed to filter results.
+     *
+     * @param request - ListDatasetsRequest
+     *
+     * @returns ListDatasetsResponse
+     *
+     * @param ListDatasetsRequest $request
+     *
+     * @return ListDatasetsResponse
+     */
+    public function listDatasets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDatasetsWithOptions($request, $runtime);
+    }
+
+    /**
      * Query the directory tree file list.
      *
      * @param tmpReq - ListFilesRequest
@@ -14846,6 +15535,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a paged query on the list of operation records. Online version: v6.2.0.
+     *
+     * @param tmpReq - ListOperationRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOperationRecordResponse
+     *
+     * @param ListOperationRecordRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListOperationRecordResponse
+     */
+    public function listOperationRecordWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListOperationRecordShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listCommand) {
+            $request->listCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listCommand, 'ListCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->listCommandShrink) {
+            @$body['ListCommand'] = $request->listCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListOperationRecord',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListOperationRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a paged query on the list of operation records. Online version: v6.2.0.
+     *
+     * @param request - ListOperationRecordRequest
+     *
+     * @returns ListOperationRecordResponse
+     *
+     * @param ListOperationRecordRequest $request
+     *
+     * @return ListOperationRecordResponse
+     */
+    public function listOperationRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -19279,6 +20037,97 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataSourceConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Dataphin OpenAPI 模板。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
+     * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
+     * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
+     * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
+     * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
+     * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+     *
+     * @param tmpReq - UpdateDatasetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param UpdateDatasetRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateDatasetResponse
+     */
+    public function updateDatasetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateDatasetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataset',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Dataphin OpenAPI 模板。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于更新特定项目下已存在的数据集的详细信息。
+     * - 必须提供 `ProjectId` 和 `UpdateCommand` 参数，其中 `UpdateCommand` 包含了需要更新的数据集的具体字段。
+     * - `UpdateCommand` 中的 `Id` 字段是必需的，用来标识要更新的数据集。
+     * - 其他字段如 `Name`, `Type`, `DataCellId` 等为可选项，根据实际需求选择性填写。
+     * - 版本配置（`VersionConfig`）和实时元表配置（`RealtimeMetaTableConfig`）提供了更详细的设置选项，包括存储路径、表结构等，这些也是可选的。
+     * - 注意确保所有提供的 ID 值（如 `ProjectId`, `Id`, `DataSourceId` 等）在系统中有效且正确关联。
+     *
+     * @param request - UpdateDatasetRequest
+     *
+     * @returns UpdateDatasetResponse
+     *
+     * @param UpdateDatasetRequest $request
+     *
+     * @return UpdateDatasetResponse
+     */
+    public function updateDataset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDatasetWithOptions($request, $runtime);
     }
 
     /**
