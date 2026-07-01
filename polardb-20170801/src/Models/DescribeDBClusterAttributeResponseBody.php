@@ -72,6 +72,16 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $compressStorageUsed;
 
     /**
+     * @var int
+     */
+    public $connectionResourceQuota;
+
+    /**
+     * @var int
+     */
+    public $connectionResourceUsed;
+
+    /**
      * @var string
      */
     public $creationTime;
@@ -378,6 +388,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'columnTable' => 'ColumnTable',
         'compressStorageMode' => 'CompressStorageMode',
         'compressStorageUsed' => 'CompressStorageUsed',
+        'connectionResourceQuota' => 'ConnectionResourceQuota',
+        'connectionResourceUsed' => 'ConnectionResourceUsed',
         'creationTime' => 'CreationTime',
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterId' => 'DBClusterId',
@@ -502,6 +514,14 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->compressStorageUsed) {
             $res['CompressStorageUsed'] = $this->compressStorageUsed;
+        }
+
+        if (null !== $this->connectionResourceQuota) {
+            $res['ConnectionResourceQuota'] = $this->connectionResourceQuota;
+        }
+
+        if (null !== $this->connectionResourceUsed) {
+            $res['ConnectionResourceUsed'] = $this->connectionResourceUsed;
         }
 
         if (null !== $this->creationTime) {
@@ -811,6 +831,14 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (isset($map['CompressStorageUsed'])) {
             $model->compressStorageUsed = $map['CompressStorageUsed'];
+        }
+
+        if (isset($map['ConnectionResourceQuota'])) {
+            $model->connectionResourceQuota = $map['ConnectionResourceQuota'];
+        }
+
+        if (isset($map['ConnectionResourceUsed'])) {
+            $model->connectionResourceUsed = $map['ConnectionResourceUsed'];
         }
 
         if (isset($map['CreationTime'])) {

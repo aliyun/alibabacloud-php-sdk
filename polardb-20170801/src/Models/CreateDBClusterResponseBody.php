@@ -11,6 +11,16 @@ class CreateDBClusterResponseBody extends Model
     /**
      * @var string
      */
+    public $agenticDbClusterDescription;
+
+    /**
+     * @var string
+     */
+    public $agenticDbClusterId;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -28,6 +38,8 @@ class CreateDBClusterResponseBody extends Model
      */
     public $resourceGroupId;
     protected $_name = [
+        'agenticDbClusterDescription' => 'AgenticDbClusterDescription',
+        'agenticDbClusterId' => 'AgenticDbClusterId',
         'DBClusterId' => 'DBClusterId',
         'orderId' => 'OrderId',
         'requestId' => 'RequestId',
@@ -42,6 +54,14 @@ class CreateDBClusterResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agenticDbClusterDescription) {
+            $res['AgenticDbClusterDescription'] = $this->agenticDbClusterDescription;
+        }
+
+        if (null !== $this->agenticDbClusterId) {
+            $res['AgenticDbClusterId'] = $this->agenticDbClusterId;
+        }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -69,6 +89,14 @@ class CreateDBClusterResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgenticDbClusterDescription'])) {
+            $model->agenticDbClusterDescription = $map['AgenticDbClusterDescription'];
+        }
+
+        if (isset($map['AgenticDbClusterId'])) {
+            $model->agenticDbClusterId = $map['AgenticDbClusterId'];
+        }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

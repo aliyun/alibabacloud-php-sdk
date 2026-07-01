@@ -14,6 +14,11 @@ class ModifyDBClusterRequest extends Model
     public $compressStorage;
 
     /**
+     * @var int
+     */
+    public $connectionResourceQuota;
+
+    /**
      * @var string
      */
     public $DBClusterId;
@@ -89,6 +94,7 @@ class ModifyDBClusterRequest extends Model
     public $tableMeta;
     protected $_name = [
         'compressStorage' => 'CompressStorage',
+        'connectionResourceQuota' => 'ConnectionResourceQuota',
         'DBClusterId' => 'DBClusterId',
         'DBNodeCrashList' => 'DBNodeCrashList',
         'dataSyncMode' => 'DataSyncMode',
@@ -116,6 +122,10 @@ class ModifyDBClusterRequest extends Model
         $res = [];
         if (null !== $this->compressStorage) {
             $res['CompressStorage'] = $this->compressStorage;
+        }
+
+        if (null !== $this->connectionResourceQuota) {
+            $res['ConnectionResourceQuota'] = $this->connectionResourceQuota;
         }
 
         if (null !== $this->DBClusterId) {
@@ -191,6 +201,10 @@ class ModifyDBClusterRequest extends Model
         $model = new self();
         if (isset($map['CompressStorage'])) {
             $model->compressStorage = $map['CompressStorage'];
+        }
+
+        if (isset($map['ConnectionResourceQuota'])) {
+            $model->connectionResourceQuota = $map['ConnectionResourceQuota'];
         }
 
         if (isset($map['DBClusterId'])) {

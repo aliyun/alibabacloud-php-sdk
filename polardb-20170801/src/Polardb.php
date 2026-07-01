@@ -67,6 +67,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAccountZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateActivationCodeResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBBranchRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBBranchResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBProjectRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBProjectResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBTenantApiKeyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAgenticDBTenantApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterDatasetRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterDatasetResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterRequest;
@@ -157,6 +163,14 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBBranchRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBBranchResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBComputeClusterRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBComputeClusterResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBProjectRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBProjectResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBTenantApiKeyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAgenticDBTenantApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterDatasetRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterDatasetResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAIDBClusterRequest;
@@ -250,6 +264,24 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationMaintainCon
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationMaintainConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchEndpointsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchEndpointsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchLineageRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchLineageResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBBranchResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBClustersRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBClustersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBComputeClustersRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBComputeClustersResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBProjectsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBTenantApiKeysRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAgenticDBTenantApiKeysResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterDatasetsRequest;
@@ -766,6 +798,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAgenticDBTenantApiKeyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAgenticDBTenantApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkRequest;
@@ -835,6 +869,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawPluginRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawPluginResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawSkillsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradePolarClawSkillsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\VerifyAgenticDBTenantApiKeyRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\VerifyAgenticDBTenantApiKeyResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -3847,6 +3883,237 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Creates an AgenticDB branch.
+     *
+     * @param request - CreateAgenticDBBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgenticDBBranchResponse
+     *
+     * @param CreateAgenticDBBranchRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateAgenticDBBranchResponse
+     */
+    public function createAgenticDBBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->parentBranchId) {
+            @$query['ParentBranchId'] = $request->parentBranchId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgenticDBBranch',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgenticDBBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an AgenticDB branch.
+     *
+     * @param request - CreateAgenticDBBranchRequest
+     *
+     * @returns CreateAgenticDBBranchResponse
+     *
+     * @param CreateAgenticDBBranchRequest $request
+     *
+     * @return CreateAgenticDBBranchResponse
+     */
+    public function createAgenticDBBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgenticDBBranchWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an AgenticDB project.
+     *
+     * @param request - CreateAgenticDBProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgenticDBProjectResponse
+     *
+     * @param CreateAgenticDBProjectRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateAgenticDBProjectResponse
+     */
+    public function createAgenticDBProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->defaultBranchName) {
+            @$query['DefaultBranchName'] = $request->defaultBranchName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgenticDBProject',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgenticDBProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an AgenticDB project.
+     *
+     * @param request - CreateAgenticDBProjectRequest
+     *
+     * @returns CreateAgenticDBProjectResponse
+     *
+     * @param CreateAgenticDBProjectRequest $request
+     *
+     * @return CreateAgenticDBProjectResponse
+     */
+    public function createAgenticDBProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgenticDBProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建 AgenticDB 租户 API Key.
+     *
+     * @param request - CreateAgenticDBTenantApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAgenticDBTenantApiKeyResponse
+     *
+     * @param CreateAgenticDBTenantApiKeyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateAgenticDBTenantApiKeyResponse
+     */
+    public function createAgenticDBTenantApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantName) {
+            @$query['TenantName'] = $request->tenantName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAgenticDBTenantApiKey',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAgenticDBTenantApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建 AgenticDB 租户 API Key.
+     *
+     * @param request - CreateAgenticDBTenantApiKeyRequest
+     *
+     * @returns CreateAgenticDBTenantApiKeyResponse
+     *
+     * @param CreateAgenticDBTenantApiKeyRequest $request
+     *
+     * @return CreateAgenticDBTenantApiKeyResponse
+     */
+    public function createAgenticDBTenantApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgenticDBTenantApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates an application attached to a PolarDB instance.
      *
      * @param tmpReq - CreateApplicationRequest
@@ -4989,7 +5256,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a db cluster.
+     * Creates a PolarDB cluster.
      *
      * @param request - CreateDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5005,6 +5272,18 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->agenticDbClusterDescription) {
+            @$query['AgenticDbClusterDescription'] = $request->agenticDbClusterDescription;
+        }
+
+        if (null !== $request->agenticDbClusterId) {
+            @$query['AgenticDbClusterId'] = $request->agenticDbClusterId;
+        }
+
+        if (null !== $request->agenticDbType) {
+            @$query['AgenticDbType'] = $request->agenticDbType;
+        }
+
         if (null !== $request->allowShutDown) {
             @$query['AllowShutDown'] = $request->allowShutDown;
         }
@@ -5276,7 +5555,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a db cluster.
+     * Creates a PolarDB cluster.
      *
      * @param request - CreateDBClusterRequest
      *
@@ -8145,6 +8424,282 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccountZonalWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an AgenticDB branch.
+     *
+     * @param request - DeleteAgenticDBBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgenticDBBranchResponse
+     *
+     * @param DeleteAgenticDBBranchRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteAgenticDBBranchResponse
+     */
+    public function deleteAgenticDBBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgenticDBBranch',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgenticDBBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an AgenticDB branch.
+     *
+     * @param request - DeleteAgenticDBBranchRequest
+     *
+     * @returns DeleteAgenticDBBranchResponse
+     *
+     * @param DeleteAgenticDBBranchRequest $request
+     *
+     * @return DeleteAgenticDBBranchResponse
+     */
+    public function deleteAgenticDBBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgenticDBBranchWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an AgenticDB compute cluster.
+     *
+     * @param request - DeleteAgenticDBComputeClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgenticDBComputeClusterResponse
+     *
+     * @param DeleteAgenticDBComputeClusterRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteAgenticDBComputeClusterResponse
+     */
+    public function deleteAgenticDBComputeClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->computeClusterId) {
+            @$query['ComputeClusterId'] = $request->computeClusterId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgenticDBComputeCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgenticDBComputeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an AgenticDB compute cluster.
+     *
+     * @param request - DeleteAgenticDBComputeClusterRequest
+     *
+     * @returns DeleteAgenticDBComputeClusterResponse
+     *
+     * @param DeleteAgenticDBComputeClusterRequest $request
+     *
+     * @return DeleteAgenticDBComputeClusterResponse
+     */
+    public function deleteAgenticDBComputeCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgenticDBComputeClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an AgenticDB project.
+     *
+     * @param request - DeleteAgenticDBProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgenticDBProjectResponse
+     *
+     * @param DeleteAgenticDBProjectRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteAgenticDBProjectResponse
+     */
+    public function deleteAgenticDBProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgenticDBProject',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgenticDBProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an AgenticDB project.
+     *
+     * @param request - DeleteAgenticDBProjectRequest
+     *
+     * @returns DeleteAgenticDBProjectResponse
+     *
+     * @param DeleteAgenticDBProjectRequest $request
+     *
+     * @return DeleteAgenticDBProjectResponse
+     */
+    public function deleteAgenticDBProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgenticDBProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an API key for an AgenticDB tenant.
+     *
+     * @param request - DeleteAgenticDBTenantApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgenticDBTenantApiKeyResponse
+     *
+     * @param DeleteAgenticDBTenantApiKeyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteAgenticDBTenantApiKeyResponse
+     */
+    public function deleteAgenticDBTenantApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['ApiKeyId'] = $request->apiKeyId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgenticDBTenantApiKey',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgenticDBTenantApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an API key for an AgenticDB tenant.
+     *
+     * @param request - DeleteAgenticDBTenantApiKeyRequest
+     *
+     * @returns DeleteAgenticDBTenantApiKeyResponse
+     *
+     * @param DeleteAgenticDBTenantApiKeyRequest $request
+     *
+     * @return DeleteAgenticDBTenantApiKeyResponse
+     */
+    public function deleteAgenticDBTenantApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAgenticDBTenantApiKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -12177,6 +12732,725 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the details of an AgenticDB branch.
+     *
+     * @param request - DescribeAgenticDBBranchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBBranchResponse
+     *
+     * @param DescribeAgenticDBBranchRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAgenticDBBranchResponse
+     */
+    public function describeAgenticDBBranchWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBBranch',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an AgenticDB branch.
+     *
+     * @param request - DescribeAgenticDBBranchRequest
+     *
+     * @returns DescribeAgenticDBBranchResponse
+     *
+     * @param DescribeAgenticDBBranchRequest $request
+     *
+     * @return DescribeAgenticDBBranchResponse
+     */
+    public function describeAgenticDBBranch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBBranchWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the connection information of an AgenticDB branch.
+     *
+     * @param request - DescribeAgenticDBBranchEndpointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBBranchEndpointsResponse
+     *
+     * @param DescribeAgenticDBBranchEndpointsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeAgenticDBBranchEndpointsResponse
+     */
+    public function describeAgenticDBBranchEndpointsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBBranchEndpoints',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBBranchEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the connection information of an AgenticDB branch.
+     *
+     * @param request - DescribeAgenticDBBranchEndpointsRequest
+     *
+     * @returns DescribeAgenticDBBranchEndpointsResponse
+     *
+     * @param DescribeAgenticDBBranchEndpointsRequest $request
+     *
+     * @return DescribeAgenticDBBranchEndpointsResponse
+     */
+    public function describeAgenticDBBranchEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBBranchEndpointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the branch lineage of an AgenticDB cluster.
+     *
+     * @param request - DescribeAgenticDBBranchLineageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBBranchLineageResponse
+     *
+     * @param DescribeAgenticDBBranchLineageRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAgenticDBBranchLineageResponse
+     */
+    public function describeAgenticDBBranchLineageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchId) {
+            @$query['BranchId'] = $request->branchId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->includeDestroying) {
+            @$query['IncludeDestroying'] = $request->includeDestroying;
+        }
+
+        if (null !== $request->maxViewDepth) {
+            @$query['MaxViewDepth'] = $request->maxViewDepth;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBBranchLineage',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBBranchLineageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the branch lineage of an AgenticDB cluster.
+     *
+     * @param request - DescribeAgenticDBBranchLineageRequest
+     *
+     * @returns DescribeAgenticDBBranchLineageResponse
+     *
+     * @param DescribeAgenticDBBranchLineageRequest $request
+     *
+     * @return DescribeAgenticDBBranchLineageResponse
+     */
+    public function describeAgenticDBBranchLineage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBBranchLineageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of AgenticDB branches.
+     *
+     * @param request - DescribeAgenticDBBranchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBBranchesResponse
+     *
+     * @param DescribeAgenticDBBranchesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAgenticDBBranchesResponse
+     */
+    public function describeAgenticDBBranchesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBBranches',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of AgenticDB branches.
+     *
+     * @param request - DescribeAgenticDBBranchesRequest
+     *
+     * @returns DescribeAgenticDBBranchesResponse
+     *
+     * @param DescribeAgenticDBBranchesRequest $request
+     *
+     * @return DescribeAgenticDBBranchesResponse
+     */
+    public function describeAgenticDBBranches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBBranchesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of Agentic Database clusters.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation supports filtering and returning the list of related model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+     * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
+     *
+     * @param request - DescribeAgenticDBClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBClustersResponse
+     *
+     * @param DescribeAgenticDBClustersRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAgenticDBClustersResponse
+     */
+    public function describeAgenticDBClustersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agenticDbClusterIds) {
+            @$query['AgenticDbClusterIds'] = $request->agenticDbClusterIds;
+        }
+
+        if (null !== $request->DBClusterDescription) {
+            @$query['DBClusterDescription'] = $request->DBClusterDescription;
+        }
+
+        if (null !== $request->DBClusterIds) {
+            @$query['DBClusterIds'] = $request->DBClusterIds;
+        }
+
+        if (null !== $request->DBClusterStatus) {
+            @$query['DBClusterStatus'] = $request->DBClusterStatus;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBClusters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of Agentic Database clusters.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation supports filtering and returning the list of related model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+     * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
+     *
+     * @param request - DescribeAgenticDBClustersRequest
+     *
+     * @returns DescribeAgenticDBClustersResponse
+     *
+     * @param DescribeAgenticDBClustersRequest $request
+     *
+     * @return DescribeAgenticDBClustersResponse
+     */
+    public function describeAgenticDBClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBClustersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询 AgenticDB 计算实例列表.
+     *
+     * @param request - DescribeAgenticDBComputeClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBComputeClustersResponse
+     *
+     * @param DescribeAgenticDBComputeClustersRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeAgenticDBComputeClustersResponse
+     */
+    public function describeAgenticDBComputeClustersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->computeClusterId) {
+            @$query['ComputeClusterId'] = $request->computeClusterId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBComputeClusters',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBComputeClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 AgenticDB 计算实例列表.
+     *
+     * @param request - DescribeAgenticDBComputeClustersRequest
+     *
+     * @returns DescribeAgenticDBComputeClustersResponse
+     *
+     * @param DescribeAgenticDBComputeClustersRequest $request
+     *
+     * @return DescribeAgenticDBComputeClustersResponse
+     */
+    public function describeAgenticDBComputeClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBComputeClustersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询 AgenticDB 项目详情.
+     *
+     * @param request - DescribeAgenticDBProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBProjectResponse
+     *
+     * @param DescribeAgenticDBProjectRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAgenticDBProjectResponse
+     */
+    public function describeAgenticDBProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBProject',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 AgenticDB 项目详情.
+     *
+     * @param request - DescribeAgenticDBProjectRequest
+     *
+     * @returns DescribeAgenticDBProjectResponse
+     *
+     * @param DescribeAgenticDBProjectRequest $request
+     *
+     * @return DescribeAgenticDBProjectResponse
+     */
+    public function describeAgenticDBProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询 AgenticDB 项目列表.
+     *
+     * @param request - DescribeAgenticDBProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBProjectsResponse
+     *
+     * @param DescribeAgenticDBProjectsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAgenticDBProjectsResponse
+     */
+    public function describeAgenticDBProjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBProjects',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 AgenticDB 项目列表.
+     *
+     * @param request - DescribeAgenticDBProjectsRequest
+     *
+     * @returns DescribeAgenticDBProjectsResponse
+     *
+     * @param DescribeAgenticDBProjectsRequest $request
+     *
+     * @return DescribeAgenticDBProjectsResponse
+     */
+    public function describeAgenticDBProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of API keys for an AgenticDB tenant.
+     *
+     * @param request - DescribeAgenticDBTenantApiKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAgenticDBTenantApiKeysResponse
+     *
+     * @param DescribeAgenticDBTenantApiKeysRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAgenticDBTenantApiKeysResponse
+     */
+    public function describeAgenticDBTenantApiKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantName) {
+            @$query['TenantName'] = $request->tenantName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAgenticDBTenantApiKeys',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAgenticDBTenantApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of API keys for an AgenticDB tenant.
+     *
+     * @param request - DescribeAgenticDBTenantApiKeysRequest
+     *
+     * @returns DescribeAgenticDBTenantApiKeysResponse
+     *
+     * @param DescribeAgenticDBTenantApiKeysRequest $request
+     *
+     * @return DescribeAgenticDBTenantApiKeysResponse
+     */
+    public function describeAgenticDBTenantApiKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAgenticDBTenantApiKeysWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a specified API key.
      *
      * @param request - DescribeApikeyAttributeRequest
@@ -14517,7 +15791,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the attributes of a specified cluster.
+     * Queries the attribute information of a cluster.
      *
      * @param request - DescribeDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14576,7 +15850,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the attributes of a specified cluster.
+     * Queries the attribute information of a cluster.
      *
      * @param request - DescribeDBClusterAttributeRequest
      *
@@ -15961,7 +17235,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
+     * Queries the details of PolarDB clusters or clusters authorized by RAM authorization.
      *
      * @param request - DescribeDBClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16080,7 +17354,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the details of PolarDB clusters, including clusters that you are authorized to access through Resource Access Management (RAM).
+     * Queries the details of PolarDB clusters or clusters authorized by RAM authorization.
      *
      * @param request - DescribeDBClustersRequest
      *
@@ -27096,7 +28370,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modify the feature configuration of a PolarDB MySQL cluster.
+     * Modifies the feature configurations of a PolarDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27114,6 +28388,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->compressStorage) {
             @$query['CompressStorage'] = $request->compressStorage;
+        }
+
+        if (null !== $request->connectionResourceQuota) {
+            @$query['ConnectionResourceQuota'] = $request->connectionResourceQuota;
         }
 
         if (null !== $request->DBClusterId) {
@@ -27195,7 +28473,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Modify the feature configuration of a PolarDB MySQL cluster.
+     * Modifies the feature configurations of a PolarDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterRequest
      *
@@ -32619,6 +33897,75 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Resets the API key of an AgenticDB tenant.
+     *
+     * @param request - ResetAgenticDBTenantApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetAgenticDBTenantApiKeyResponse
+     *
+     * @param ResetAgenticDBTenantApiKeyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ResetAgenticDBTenantApiKeyResponse
+     */
+    public function resetAgenticDBTenantApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKeyId) {
+            @$query['ApiKeyId'] = $request->apiKeyId;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tenantId) {
+            @$query['TenantId'] = $request->tenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetAgenticDBTenantApiKey',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetAgenticDBTenantApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resets the API key of an AgenticDB tenant.
+     *
+     * @param request - ResetAgenticDBTenantApiKeyRequest
+     *
+     * @returns ResetAgenticDBTenantApiKeyResponse
+     *
+     * @param ResetAgenticDBTenantApiKeyRequest $request
+     *
+     * @return ResetAgenticDBTenantApiKeyResponse
+     */
+    public function resetAgenticDBTenantApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetAgenticDBTenantApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Resets an api key.
      *
      * @param request - ResetConsumerApiKeyRequest
@@ -35269,5 +36616,66 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradePolarClawSkillsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 校验 AgenticDB 租户 API Key.
+     *
+     * @param request - VerifyAgenticDBTenantApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyAgenticDBTenantApiKeyResponse
+     *
+     * @param VerifyAgenticDBTenantApiKeyRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return VerifyAgenticDBTenantApiKeyResponse
+     */
+    public function verifyAgenticDBTenantApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyAgenticDBTenantApiKey',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyAgenticDBTenantApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 校验 AgenticDB 租户 API Key.
+     *
+     * @param request - VerifyAgenticDBTenantApiKeyRequest
+     *
+     * @returns VerifyAgenticDBTenantApiKeyResponse
+     *
+     * @param VerifyAgenticDBTenantApiKeyRequest $request
+     *
+     * @return VerifyAgenticDBTenantApiKeyResponse
+     */
+    public function verifyAgenticDBTenantApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyAgenticDBTenantApiKeyWithOptions($request, $runtime);
     }
 }

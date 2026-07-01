@@ -21,6 +21,16 @@ class DBCluster extends Model
     public $category;
 
     /**
+     * @var int
+     */
+    public $connectionResourceQuota;
+
+    /**
+     * @var int
+     */
+    public $connectionResourceUsed;
+
+    /**
      * @var string
      */
     public $cpuCores;
@@ -192,6 +202,8 @@ class DBCluster extends Model
     protected $_name = [
         'aiType' => 'AiType',
         'category' => 'Category',
+        'connectionResourceQuota' => 'ConnectionResourceQuota',
+        'connectionResourceUsed' => 'ConnectionResourceUsed',
         'cpuCores' => 'CpuCores',
         'createTime' => 'CreateTime',
         'DBClusterDescription' => 'DBClusterDescription',
@@ -248,6 +260,14 @@ class DBCluster extends Model
 
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+
+        if (null !== $this->connectionResourceQuota) {
+            $res['ConnectionResourceQuota'] = $this->connectionResourceQuota;
+        }
+
+        if (null !== $this->connectionResourceUsed) {
+            $res['ConnectionResourceUsed'] = $this->connectionResourceUsed;
         }
 
         if (null !== $this->cpuCores) {
@@ -403,6 +423,14 @@ class DBCluster extends Model
 
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+
+        if (isset($map['ConnectionResourceQuota'])) {
+            $model->connectionResourceQuota = $map['ConnectionResourceQuota'];
+        }
+
+        if (isset($map['ConnectionResourceUsed'])) {
+            $model->connectionResourceUsed = $map['ConnectionResourceUsed'];
         }
 
         if (isset($map['CpuCores'])) {

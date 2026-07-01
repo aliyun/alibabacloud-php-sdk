@@ -12,6 +12,21 @@ class CreateDBClusterRequest extends Model
     /**
      * @var string
      */
+    public $agenticDbClusterDescription;
+
+    /**
+     * @var string
+     */
+    public $agenticDbClusterId;
+
+    /**
+     * @var string
+     */
+    public $agenticDbType;
+
+    /**
+     * @var string
+     */
     public $allowShutDown;
 
     /**
@@ -324,6 +339,9 @@ class CreateDBClusterRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'agenticDbClusterDescription' => 'AgenticDbClusterDescription',
+        'agenticDbClusterId' => 'AgenticDbClusterId',
+        'agenticDbType' => 'AgenticDbType',
         'allowShutDown' => 'AllowShutDown',
         'architecture' => 'Architecture',
         'autoRenew' => 'AutoRenew',
@@ -400,6 +418,18 @@ class CreateDBClusterRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agenticDbClusterDescription) {
+            $res['AgenticDbClusterDescription'] = $this->agenticDbClusterDescription;
+        }
+
+        if (null !== $this->agenticDbClusterId) {
+            $res['AgenticDbClusterId'] = $this->agenticDbClusterId;
+        }
+
+        if (null !== $this->agenticDbType) {
+            $res['AgenticDbType'] = $this->agenticDbType;
+        }
+
         if (null !== $this->allowShutDown) {
             $res['AllowShutDown'] = $this->allowShutDown;
         }
@@ -670,6 +700,18 @@ class CreateDBClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgenticDbClusterDescription'])) {
+            $model->agenticDbClusterDescription = $map['AgenticDbClusterDescription'];
+        }
+
+        if (isset($map['AgenticDbClusterId'])) {
+            $model->agenticDbClusterId = $map['AgenticDbClusterId'];
+        }
+
+        if (isset($map['AgenticDbType'])) {
+            $model->agenticDbType = $map['AgenticDbType'];
+        }
+
         if (isset($map['AllowShutDown'])) {
             $model->allowShutDown = $map['AllowShutDown'];
         }
