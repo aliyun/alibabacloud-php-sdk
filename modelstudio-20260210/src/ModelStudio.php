@@ -729,7 +729,7 @@ class ModelStudio extends OpenApiClient
      * Disables an API key.
      *
      * @remarks
-     * An API key cannot be disabled if it is already disabled.
+     * An API key that is already disabled cannot be disabled again.
      *
      * @param request - DisableApiKeyRequest
      * @param headers - map
@@ -769,7 +769,7 @@ class ModelStudio extends OpenApiClient
      * Disables an API key.
      *
      * @remarks
-     * An API key cannot be disabled if it is already disabled.
+     * An API key that is already disabled cannot be disabled again.
      *
      * @param request - DisableApiKeyRequest
      *
@@ -852,7 +852,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of a specified authentication credential API key.
+     * Retrieves the information about a specified API key.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -886,7 +886,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves the information of a specified authentication credential API key.
+     * Retrieves the information about a specified API key.
      *
      * @returns GetApiKeyResponse
      *
@@ -1336,7 +1336,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API key authentication credentials.
+     * Retrieves a list of API key information for authentication credentials.
      *
      * @param request - ListApiKeysRequest
      * @param headers - map
@@ -1402,7 +1402,7 @@ class ModelStudio extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of API key authentication credentials.
+     * Retrieves a list of API key information for authentication credentials.
      *
      * @param request - ListApiKeysRequest
      *
