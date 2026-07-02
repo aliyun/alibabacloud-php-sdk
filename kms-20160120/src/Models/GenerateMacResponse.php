@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteCertificateResponse extends Model
+class GenerateMacResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DeleteCertificateResponse extends Model
     public $statusCode;
 
     /**
-     * @var DeleteCertificateResponseBody
+     * @var GenerateMacResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class DeleteCertificateResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = DeleteCertificateResponseBody::fromMap($map['body']);
+            $model->body = GenerateMacResponseBody::fromMap($map['body']);
         }
 
         return $model;

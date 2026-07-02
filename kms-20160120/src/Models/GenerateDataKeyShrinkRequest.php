@@ -32,12 +32,18 @@ class GenerateDataKeyShrinkRequest extends Model
      * @var int
      */
     public $numberOfBytes;
+
+    /**
+     * @var string
+     */
+    public $recipient;
     protected $_name = [
         'dryRun' => 'DryRun',
         'encryptionContextShrink' => 'EncryptionContext',
         'keyId' => 'KeyId',
         'keySpec' => 'KeySpec',
         'numberOfBytes' => 'NumberOfBytes',
+        'recipient' => 'Recipient',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class GenerateDataKeyShrinkRequest extends Model
 
         if (null !== $this->numberOfBytes) {
             $res['NumberOfBytes'] = $this->numberOfBytes;
+        }
+
+        if (null !== $this->recipient) {
+            $res['Recipient'] = $this->recipient;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class GenerateDataKeyShrinkRequest extends Model
 
         if (isset($map['NumberOfBytes'])) {
             $model->numberOfBytes = $map['NumberOfBytes'];
+        }
+
+        if (isset($map['Recipient'])) {
+            $model->recipient = $map['Recipient'];
         }
 
         return $model;

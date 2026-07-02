@@ -30,6 +30,16 @@ class kmsInstance extends Model
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
+     * @var string
+     */
+    public $deletionProtectionDescription;
+
+    /**
      * @var string
      */
     public $endDate;
@@ -118,6 +128,8 @@ class kmsInstance extends Model
         'caCertificateChainPem' => 'CaCertificateChainPem',
         'chargeType' => 'ChargeType',
         'createTime' => 'CreateTime',
+        'deletionProtection' => 'DeletionProtection',
+        'deletionProtectionDescription' => 'DeletionProtectionDescription',
         'endDate' => 'EndDate',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
@@ -168,6 +180,14 @@ class kmsInstance extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
+        }
+
+        if (null !== $this->deletionProtectionDescription) {
+            $res['DeletionProtectionDescription'] = $this->deletionProtectionDescription;
         }
 
         if (null !== $this->endDate) {
@@ -277,6 +297,14 @@ class kmsInstance extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
+        }
+
+        if (isset($map['DeletionProtectionDescription'])) {
+            $model->deletionProtectionDescription = $map['DeletionProtectionDescription'];
         }
 
         if (isset($map['EndDate'])) {

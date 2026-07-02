@@ -22,10 +22,16 @@ class DecryptShrinkRequest extends Model
      * @var string
      */
     public $encryptionContextShrink;
+
+    /**
+     * @var string
+     */
+    public $recipient;
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
         'dryRun' => 'DryRun',
         'encryptionContextShrink' => 'EncryptionContext',
+        'recipient' => 'Recipient',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class DecryptShrinkRequest extends Model
 
         if (null !== $this->encryptionContextShrink) {
             $res['EncryptionContext'] = $this->encryptionContextShrink;
+        }
+
+        if (null !== $this->recipient) {
+            $res['Recipient'] = $this->recipient;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class DecryptShrinkRequest extends Model
 
         if (isset($map['EncryptionContext'])) {
             $model->encryptionContextShrink = $map['EncryptionContext'];
+        }
+
+        if (isset($map['Recipient'])) {
+            $model->recipient = $map['Recipient'];
         }
 
         return $model;

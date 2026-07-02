@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CertificatePrivateKeySignResponse extends Model
+class VerifyMacResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CertificatePrivateKeySignResponse extends Model
     public $statusCode;
 
     /**
-     * @var CertificatePrivateKeySignResponseBody
+     * @var VerifyMacResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class CertificatePrivateKeySignResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = CertificatePrivateKeySignResponseBody::fromMap($map['body']);
+            $model->body = VerifyMacResponseBody::fromMap($map['body']);
         }
 
         return $model;

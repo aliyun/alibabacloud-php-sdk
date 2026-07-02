@@ -16,6 +16,11 @@ class GenerateDataKeyResponseBody extends Model
     /**
      * @var string
      */
+    public $ciphertextForRecipient;
+
+    /**
+     * @var string
+     */
     public $keyId;
 
     /**
@@ -34,6 +39,7 @@ class GenerateDataKeyResponseBody extends Model
     public $requestId;
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
+        'ciphertextForRecipient' => 'CiphertextForRecipient',
         'keyId' => 'KeyId',
         'keyVersionId' => 'KeyVersionId',
         'plaintext' => 'Plaintext',
@@ -50,6 +56,10 @@ class GenerateDataKeyResponseBody extends Model
         $res = [];
         if (null !== $this->ciphertextBlob) {
             $res['CiphertextBlob'] = $this->ciphertextBlob;
+        }
+
+        if (null !== $this->ciphertextForRecipient) {
+            $res['CiphertextForRecipient'] = $this->ciphertextForRecipient;
         }
 
         if (null !== $this->keyId) {
@@ -81,6 +91,10 @@ class GenerateDataKeyResponseBody extends Model
         $model = new self();
         if (isset($map['CiphertextBlob'])) {
             $model->ciphertextBlob = $map['CiphertextBlob'];
+        }
+
+        if (isset($map['CiphertextForRecipient'])) {
+            $model->ciphertextForRecipient = $map['CiphertextForRecipient'];
         }
 
         if (isset($map['KeyId'])) {

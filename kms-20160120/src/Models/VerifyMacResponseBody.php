@@ -6,12 +6,17 @@ namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CertificatePrivateKeySignResponseBody extends Model
+class VerifyMacResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $certificateId;
+    public $algorithm;
+
+    /**
+     * @var string
+     */
+    public $keyId;
 
     /**
      * @var string
@@ -19,13 +24,14 @@ class CertificatePrivateKeySignResponseBody extends Model
     public $requestId;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $signatureValue;
+    public $value;
     protected $_name = [
-        'certificateId' => 'CertificateId',
+        'algorithm' => 'Algorithm',
+        'keyId' => 'KeyId',
         'requestId' => 'RequestId',
-        'signatureValue' => 'SignatureValue',
+        'value' => 'Value',
     ];
 
     public function validate()
@@ -36,16 +42,20 @@ class CertificatePrivateKeySignResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
+        if (null !== $this->algorithm) {
+            $res['Algorithm'] = $this->algorithm;
+        }
+
+        if (null !== $this->keyId) {
+            $res['KeyId'] = $this->keyId;
         }
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
 
-        if (null !== $this->signatureValue) {
-            $res['SignatureValue'] = $this->signatureValue;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -59,16 +69,20 @@ class CertificatePrivateKeySignResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
+        if (isset($map['Algorithm'])) {
+            $model->algorithm = $map['Algorithm'];
+        }
+
+        if (isset($map['KeyId'])) {
+            $model->keyId = $map['KeyId'];
         }
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
 
-        if (isset($map['SignatureValue'])) {
-            $model->signatureValue = $map['SignatureValue'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

@@ -22,10 +22,16 @@ class DecryptRequest extends Model
      * @var mixed[]
      */
     public $encryptionContext;
+
+    /**
+     * @var string
+     */
+    public $recipient;
     protected $_name = [
         'ciphertextBlob' => 'CiphertextBlob',
         'dryRun' => 'DryRun',
         'encryptionContext' => 'EncryptionContext',
+        'recipient' => 'Recipient',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class DecryptRequest extends Model
             }
         }
 
+        if (null !== $this->recipient) {
+            $res['Recipient'] = $this->recipient;
+        }
+
         return $res;
     }
 
@@ -82,6 +92,10 @@ class DecryptRequest extends Model
                     $model->encryptionContext[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['Recipient'])) {
+            $model->recipient = $map['Recipient'];
         }
 
         return $model;

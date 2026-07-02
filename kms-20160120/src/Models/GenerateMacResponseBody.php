@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CertificatePrivateKeyDecryptRequest extends Model
+class GenerateMacResponseBody extends Model
 {
     /**
      * @var string
@@ -16,16 +16,22 @@ class CertificatePrivateKeyDecryptRequest extends Model
     /**
      * @var string
      */
-    public $certificateId;
+    public $keyId;
 
     /**
      * @var string
      */
-    public $ciphertextBlob;
+    public $mac;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'algorithm' => 'Algorithm',
-        'certificateId' => 'CertificateId',
-        'ciphertextBlob' => 'CiphertextBlob',
+        'keyId' => 'KeyId',
+        'mac' => 'Mac',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -40,12 +46,16 @@ class CertificatePrivateKeyDecryptRequest extends Model
             $res['Algorithm'] = $this->algorithm;
         }
 
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
+        if (null !== $this->keyId) {
+            $res['KeyId'] = $this->keyId;
         }
 
-        if (null !== $this->ciphertextBlob) {
-            $res['CiphertextBlob'] = $this->ciphertextBlob;
+        if (null !== $this->mac) {
+            $res['Mac'] = $this->mac;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +73,16 @@ class CertificatePrivateKeyDecryptRequest extends Model
             $model->algorithm = $map['Algorithm'];
         }
 
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
+        if (isset($map['KeyId'])) {
+            $model->keyId = $map['KeyId'];
         }
 
-        if (isset($map['CiphertextBlob'])) {
-            $model->ciphertextBlob = $map['CiphertextBlob'];
+        if (isset($map['Mac'])) {
+            $model->mac = $map['Mac'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

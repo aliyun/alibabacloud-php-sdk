@@ -32,12 +32,18 @@ class GenerateDataKeyRequest extends Model
      * @var int
      */
     public $numberOfBytes;
+
+    /**
+     * @var string
+     */
+    public $recipient;
     protected $_name = [
         'dryRun' => 'DryRun',
         'encryptionContext' => 'EncryptionContext',
         'keyId' => 'KeyId',
         'keySpec' => 'KeySpec',
         'numberOfBytes' => 'NumberOfBytes',
+        'recipient' => 'Recipient',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class GenerateDataKeyRequest extends Model
             $res['NumberOfBytes'] = $this->numberOfBytes;
         }
 
+        if (null !== $this->recipient) {
+            $res['Recipient'] = $this->recipient;
+        }
+
         return $res;
     }
 
@@ -110,6 +120,10 @@ class GenerateDataKeyRequest extends Model
 
         if (isset($map['NumberOfBytes'])) {
             $model->numberOfBytes = $map['NumberOfBytes'];
+        }
+
+        if (isset($map['Recipient'])) {
+            $model->recipient = $map['Recipient'];
         }
 
         return $model;

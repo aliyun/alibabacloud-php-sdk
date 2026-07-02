@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CertificatePublicKeyEncryptRequest extends Model
+class GenerateMacRequest extends Model
 {
     /**
      * @var string
@@ -16,16 +16,22 @@ class CertificatePublicKeyEncryptRequest extends Model
     /**
      * @var string
      */
-    public $certificateId;
+    public $dryRun;
 
     /**
      * @var string
      */
-    public $plaintext;
+    public $keyId;
+
+    /**
+     * @var string
+     */
+    public $message;
     protected $_name = [
         'algorithm' => 'Algorithm',
-        'certificateId' => 'CertificateId',
-        'plaintext' => 'Plaintext',
+        'dryRun' => 'DryRun',
+        'keyId' => 'KeyId',
+        'message' => 'Message',
     ];
 
     public function validate()
@@ -40,12 +46,16 @@ class CertificatePublicKeyEncryptRequest extends Model
             $res['Algorithm'] = $this->algorithm;
         }
 
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
-        if (null !== $this->plaintext) {
-            $res['Plaintext'] = $this->plaintext;
+        if (null !== $this->keyId) {
+            $res['KeyId'] = $this->keyId;
+        }
+
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
 
         return $res;
@@ -63,12 +73,16 @@ class CertificatePublicKeyEncryptRequest extends Model
             $model->algorithm = $map['Algorithm'];
         }
 
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
-        if (isset($map['Plaintext'])) {
-            $model->plaintext = $map['Plaintext'];
+        if (isset($map['KeyId'])) {
+            $model->keyId = $map['KeyId'];
+        }
+
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
 
         return $model;

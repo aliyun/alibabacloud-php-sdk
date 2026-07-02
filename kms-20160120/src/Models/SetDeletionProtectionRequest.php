@@ -26,11 +26,17 @@ class SetDeletionProtectionRequest extends Model
     /**
      * @var string
      */
+    public $kmsInstanceId;
+
+    /**
+     * @var string
+     */
     public $protectedResourceArn;
     protected $_name = [
         'deletionProtectionDescription' => 'DeletionProtectionDescription',
         'enableDeletionProtection' => 'EnableDeletionProtection',
         'keyId' => 'KeyId',
+        'kmsInstanceId' => 'KmsInstanceId',
         'protectedResourceArn' => 'ProtectedResourceArn',
     ];
 
@@ -52,6 +58,10 @@ class SetDeletionProtectionRequest extends Model
 
         if (null !== $this->keyId) {
             $res['KeyId'] = $this->keyId;
+        }
+
+        if (null !== $this->kmsInstanceId) {
+            $res['KmsInstanceId'] = $this->kmsInstanceId;
         }
 
         if (null !== $this->protectedResourceArn) {
@@ -79,6 +89,10 @@ class SetDeletionProtectionRequest extends Model
 
         if (isset($map['KeyId'])) {
             $model->keyId = $map['KeyId'];
+        }
+
+        if (isset($map['KmsInstanceId'])) {
+            $model->kmsInstanceId = $map['KmsInstanceId'];
         }
 
         if (isset($map['ProtectedResourceArn'])) {

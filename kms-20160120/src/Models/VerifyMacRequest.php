@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CertificatePrivateKeySignRequest extends Model
+class VerifyMacRequest extends Model
 {
     /**
      * @var string
@@ -16,22 +16,28 @@ class CertificatePrivateKeySignRequest extends Model
     /**
      * @var string
      */
-    public $certificateId;
+    public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $keyId;
+
+    /**
+     * @var string
+     */
+    public $mac;
 
     /**
      * @var string
      */
     public $message;
-
-    /**
-     * @var string
-     */
-    public $messageType;
     protected $_name = [
         'algorithm' => 'Algorithm',
-        'certificateId' => 'CertificateId',
+        'dryRun' => 'DryRun',
+        'keyId' => 'KeyId',
+        'mac' => 'Mac',
         'message' => 'Message',
-        'messageType' => 'MessageType',
     ];
 
     public function validate()
@@ -46,16 +52,20 @@ class CertificatePrivateKeySignRequest extends Model
             $res['Algorithm'] = $this->algorithm;
         }
 
-        if (null !== $this->certificateId) {
-            $res['CertificateId'] = $this->certificateId;
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
+        if (null !== $this->keyId) {
+            $res['KeyId'] = $this->keyId;
+        }
+
+        if (null !== $this->mac) {
+            $res['Mac'] = $this->mac;
         }
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-
-        if (null !== $this->messageType) {
-            $res['MessageType'] = $this->messageType;
         }
 
         return $res;
@@ -73,16 +83,20 @@ class CertificatePrivateKeySignRequest extends Model
             $model->algorithm = $map['Algorithm'];
         }
 
-        if (isset($map['CertificateId'])) {
-            $model->certificateId = $map['CertificateId'];
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
+        if (isset($map['KeyId'])) {
+            $model->keyId = $map['KeyId'];
+        }
+
+        if (isset($map['Mac'])) {
+            $model->mac = $map['Mac'];
         }
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-
-        if (isset($map['MessageType'])) {
-            $model->messageType = $map['MessageType'];
         }
 
         return $model;
