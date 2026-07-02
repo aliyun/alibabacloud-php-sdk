@@ -117,6 +117,16 @@ class CreateInstanceRequest extends Model
     /**
      * @var string
      */
+    public $maintainEndTime;
+
+    /**
+     * @var string
+     */
+    public $maintainStartTime;
+
+    /**
+     * @var string
+     */
     public $networkType;
 
     /**
@@ -275,6 +285,8 @@ class CreateInstanceRequest extends Model
         'instanceEndpointType' => 'InstanceEndpointType',
         'instanceName' => 'InstanceName',
         'instanceType' => 'InstanceType',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
         'networkType' => 'NetworkType',
         'nodeType' => 'NodeType',
         'ownerAccount' => 'OwnerAccount',
@@ -398,6 +410,14 @@ class CreateInstanceRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->maintainEndTime) {
+            $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
 
         if (null !== $this->networkType) {
@@ -612,6 +632,14 @@ class CreateInstanceRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['MaintainEndTime'])) {
+            $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
 
         if (isset($map['NetworkType'])) {

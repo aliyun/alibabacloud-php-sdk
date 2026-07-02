@@ -155,6 +155,11 @@ class KVStoreInstance extends Model
     public $QPS;
 
     /**
+     * @var int
+     */
+    public $quotaCount;
+
+    /**
      * @var string
      */
     public $readOnlyCount;
@@ -210,6 +215,11 @@ class KVStoreInstance extends Model
     public $tags;
 
     /**
+     * @var int
+     */
+    public $usedCount;
+
+    /**
      * @var string
      */
     public $userName;
@@ -263,6 +273,7 @@ class KVStoreInstance extends Model
         'port' => 'Port',
         'privateIp' => 'PrivateIp',
         'QPS' => 'QPS',
+        'quotaCount' => 'QuotaCount',
         'readOnlyCount' => 'ReadOnlyCount',
         'regionId' => 'RegionId',
         'replacateId' => 'ReplacateId',
@@ -274,6 +285,7 @@ class KVStoreInstance extends Model
         'slaveReadOnlyCount' => 'SlaveReadOnlyCount',
         'slaveReplicaCount' => 'SlaveReplicaCount',
         'tags' => 'Tags',
+        'usedCount' => 'UsedCount',
         'userName' => 'UserName',
         'vSwitchId' => 'VSwitchId',
         'vpcId' => 'VpcId',
@@ -408,6 +420,10 @@ class KVStoreInstance extends Model
             $res['QPS'] = $this->QPS;
         }
 
+        if (null !== $this->quotaCount) {
+            $res['QuotaCount'] = $this->quotaCount;
+        }
+
         if (null !== $this->readOnlyCount) {
             $res['ReadOnlyCount'] = $this->readOnlyCount;
         }
@@ -450,6 +466,10 @@ class KVStoreInstance extends Model
 
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
+        }
+
+        if (null !== $this->usedCount) {
+            $res['UsedCount'] = $this->usedCount;
         }
 
         if (null !== $this->userName) {
@@ -599,6 +619,10 @@ class KVStoreInstance extends Model
             $model->QPS = $map['QPS'];
         }
 
+        if (isset($map['QuotaCount'])) {
+            $model->quotaCount = $map['QuotaCount'];
+        }
+
         if (isset($map['ReadOnlyCount'])) {
             $model->readOnlyCount = $map['ReadOnlyCount'];
         }
@@ -641,6 +665,10 @@ class KVStoreInstance extends Model
 
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+
+        if (isset($map['UsedCount'])) {
+            $model->usedCount = $map['UsedCount'];
         }
 
         if (isset($map['UserName'])) {

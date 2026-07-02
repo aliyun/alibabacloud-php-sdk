@@ -107,6 +107,16 @@ class CreateTairInstanceRequest extends Model
     /**
      * @var string
      */
+    public $maintainEndTime;
+
+    /**
+     * @var string
+     */
+    public $maintainStartTime;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -263,6 +273,8 @@ class CreateTairInstanceRequest extends Model
         'instanceEndpointType' => 'InstanceEndpointType',
         'instanceName' => 'InstanceName',
         'instanceType' => 'InstanceType',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'paramGroupId' => 'ParamGroupId',
@@ -378,6 +390,14 @@ class CreateTairInstanceRequest extends Model
 
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->maintainEndTime) {
+            $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
 
         if (null !== $this->ownerAccount) {
@@ -584,6 +604,14 @@ class CreateTairInstanceRequest extends Model
 
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['MaintainEndTime'])) {
+            $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
 
         if (isset($map['OwnerAccount'])) {

@@ -49,6 +49,16 @@ class TransformToEcsRequest extends Model
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $isAcrossZone;
+
+    /**
+     * @var string
+     */
+    public $izNo;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -74,9 +84,19 @@ class TransformToEcsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $secondaryIzNo;
+
+    /**
      * @var int
      */
     public $shardCount;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
     protected $_name = [
         'autoRenew' => 'AutoRenew',
         'autoRenewPeriod' => 'AutoRenewPeriod',
@@ -86,12 +106,16 @@ class TransformToEcsRequest extends Model
         'engineVersion' => 'EngineVersion',
         'instanceClass' => 'InstanceClass',
         'instanceId' => 'InstanceId',
+        'isAcrossZone' => 'IsAcrossZone',
+        'izNo' => 'IzNo',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'period' => 'Period',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'secondaryIzNo' => 'SecondaryIzNo',
         'shardCount' => 'ShardCount',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
@@ -134,6 +158,14 @@ class TransformToEcsRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->isAcrossZone) {
+            $res['IsAcrossZone'] = $this->isAcrossZone;
+        }
+
+        if (null !== $this->izNo) {
+            $res['IzNo'] = $this->izNo;
+        }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -154,8 +186,16 @@ class TransformToEcsRequest extends Model
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
+        if (null !== $this->secondaryIzNo) {
+            $res['SecondaryIzNo'] = $this->secondaryIzNo;
+        }
+
         if (null !== $this->shardCount) {
             $res['ShardCount'] = $this->shardCount;
+        }
+
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -201,6 +241,14 @@ class TransformToEcsRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['IsAcrossZone'])) {
+            $model->isAcrossZone = $map['IsAcrossZone'];
+        }
+
+        if (isset($map['IzNo'])) {
+            $model->izNo = $map['IzNo'];
+        }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -221,8 +269,16 @@ class TransformToEcsRequest extends Model
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
+        if (isset($map['SecondaryIzNo'])) {
+            $model->secondaryIzNo = $map['SecondaryIzNo'];
+        }
+
         if (isset($map['ShardCount'])) {
             $model->shardCount = $map['ShardCount'];
+        }
+
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

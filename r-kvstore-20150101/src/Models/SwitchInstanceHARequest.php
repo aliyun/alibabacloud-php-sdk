@@ -44,6 +44,11 @@ class SwitchInstanceHARequest extends Model
     public $securityToken;
 
     /**
+     * @var string
+     */
+    public $sourceNodeId;
+
+    /**
      * @var int
      */
     public $switchMode;
@@ -52,6 +57,16 @@ class SwitchInstanceHARequest extends Model
      * @var string
      */
     public $switchType;
+
+    /**
+     * @var string
+     */
+    public $targetNodeId;
+
+    /**
+     * @var string
+     */
+    public $targetShardName;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'nodeId' => 'NodeId',
@@ -60,8 +75,11 @@ class SwitchInstanceHARequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'securityToken' => 'SecurityToken',
+        'sourceNodeId' => 'SourceNodeId',
         'switchMode' => 'SwitchMode',
         'switchType' => 'SwitchType',
+        'targetNodeId' => 'TargetNodeId',
+        'targetShardName' => 'TargetShardName',
     ];
 
     public function validate()
@@ -100,12 +118,24 @@ class SwitchInstanceHARequest extends Model
             $res['SecurityToken'] = $this->securityToken;
         }
 
+        if (null !== $this->sourceNodeId) {
+            $res['SourceNodeId'] = $this->sourceNodeId;
+        }
+
         if (null !== $this->switchMode) {
             $res['SwitchMode'] = $this->switchMode;
         }
 
         if (null !== $this->switchType) {
             $res['SwitchType'] = $this->switchType;
+        }
+
+        if (null !== $this->targetNodeId) {
+            $res['TargetNodeId'] = $this->targetNodeId;
+        }
+
+        if (null !== $this->targetShardName) {
+            $res['TargetShardName'] = $this->targetShardName;
         }
 
         return $res;
@@ -147,12 +177,24 @@ class SwitchInstanceHARequest extends Model
             $model->securityToken = $map['SecurityToken'];
         }
 
+        if (isset($map['SourceNodeId'])) {
+            $model->sourceNodeId = $map['SourceNodeId'];
+        }
+
         if (isset($map['SwitchMode'])) {
             $model->switchMode = $map['SwitchMode'];
         }
 
         if (isset($map['SwitchType'])) {
             $model->switchType = $map['SwitchType'];
+        }
+
+        if (isset($map['TargetNodeId'])) {
+            $model->targetNodeId = $map['TargetNodeId'];
+        }
+
+        if (isset($map['TargetShardName'])) {
+            $model->targetShardName = $map['TargetShardName'];
         }
 
         return $model;
