@@ -26,6 +26,11 @@ class tasks extends Model
     /**
      * @var string
      */
+    public $sessionId;
+
+    /**
+     * @var string
+     */
     public $taskId;
 
     /**
@@ -36,6 +41,7 @@ class tasks extends Model
         'currentStatus' => 'CurrentStatus',
         'instanceId' => 'InstanceId',
         'runningAt' => 'RunningAt',
+        'sessionId' => 'SessionId',
         'taskId' => 'TaskId',
         'userPrompt' => 'UserPrompt',
     ];
@@ -58,6 +64,10 @@ class tasks extends Model
 
         if (null !== $this->runningAt) {
             $res['RunningAt'] = $this->runningAt;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         if (null !== $this->taskId) {
@@ -89,6 +99,10 @@ class tasks extends Model
 
         if (isset($map['RunningAt'])) {
             $model->runningAt = $map['RunningAt'];
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         if (isset($map['TaskId'])) {

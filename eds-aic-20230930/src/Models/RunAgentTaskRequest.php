@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RunAgentTaskRequest\targets;
 
 class RunAgentTaskRequest extends Model
 {
@@ -29,6 +30,11 @@ class RunAgentTaskRequest extends Model
     public $scheduleId;
 
     /**
+     * @var targets[]
+     */
+    public $targets;
+
+    /**
      * @var string
      */
     public $taskConfigId;
@@ -47,6 +53,7 @@ class RunAgentTaskRequest extends Model
         'instanceIds' => 'InstanceIds',
         'maxSteps' => 'MaxSteps',
         'scheduleId' => 'ScheduleId',
+        'targets' => 'Targets',
         'taskConfigId' => 'TaskConfigId',
         'timeoutSeconds' => 'TimeoutSeconds',
         'userPrompt' => 'UserPrompt',
@@ -56,6 +63,9 @@ class RunAgentTaskRequest extends Model
     {
         if (\is_array($this->instanceIds)) {
             Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->targets)) {
+            Model::validateArray($this->targets);
         }
         parent::validate();
     }
@@ -84,6 +94,17 @@ class RunAgentTaskRequest extends Model
 
         if (null !== $this->scheduleId) {
             $res['ScheduleId'] = $this->scheduleId;
+        }
+
+        if (null !== $this->targets) {
+            if (\is_array($this->targets)) {
+                $res['Targets'] = [];
+                $n1 = 0;
+                foreach ($this->targets as $item1) {
+                    $res['Targets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->taskConfigId) {
@@ -130,6 +151,17 @@ class RunAgentTaskRequest extends Model
 
         if (isset($map['ScheduleId'])) {
             $model->scheduleId = $map['ScheduleId'];
+        }
+
+        if (isset($map['Targets'])) {
+            if (!empty($map['Targets'])) {
+                $model->targets = [];
+                $n1 = 0;
+                foreach ($map['Targets'] as $item1) {
+                    $model->targets[$n1] = targets::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['TaskConfigId'])) {

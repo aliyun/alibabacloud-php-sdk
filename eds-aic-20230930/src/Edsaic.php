@@ -7460,6 +7460,10 @@ class Edsaic extends OpenApiClient
             @$query['ScheduleId'] = $request->scheduleId;
         }
 
+        if (null !== $request->targets) {
+            @$query['Targets'] = $request->targets;
+        }
+
         if (null !== $request->taskConfigId) {
             @$query['TaskConfigId'] = $request->taskConfigId;
         }
