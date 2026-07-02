@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class CreateProjectShrinkRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $datasetConfigShrink;
-
-    /**
      * @var int
      */
     public $datasetMaxBindCount;
@@ -68,7 +63,6 @@ class CreateProjectShrinkRequest extends Model
      */
     public $templateId;
     protected $_name = [
-        'datasetConfigShrink' => 'DatasetConfig',
         'datasetMaxBindCount' => 'DatasetMaxBindCount',
         'datasetMaxEntityCount' => 'DatasetMaxEntityCount',
         'datasetMaxFileCount' => 'DatasetMaxFileCount',
@@ -90,10 +84,6 @@ class CreateProjectShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->datasetConfigShrink) {
-            $res['DatasetConfig'] = $this->datasetConfigShrink;
-        }
-
         if (null !== $this->datasetMaxBindCount) {
             $res['DatasetMaxBindCount'] = $this->datasetMaxBindCount;
         }
@@ -149,10 +139,6 @@ class CreateProjectShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DatasetConfig'])) {
-            $model->datasetConfigShrink = $map['DatasetConfig'];
-        }
-
         if (isset($map['DatasetMaxBindCount'])) {
             $model->datasetMaxBindCount = $map['DatasetMaxBindCount'];
         }

@@ -10,11 +10,6 @@ use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateProjectRequest\tag;
 class UpdateProjectRequest extends Model
 {
     /**
-     * @var DatasetConfig
-     */
-    public $datasetConfig;
-
-    /**
      * @var int
      */
     public $datasetMaxBindCount;
@@ -69,7 +64,6 @@ class UpdateProjectRequest extends Model
      */
     public $templateId;
     protected $_name = [
-        'datasetConfig' => 'DatasetConfig',
         'datasetMaxBindCount' => 'DatasetMaxBindCount',
         'datasetMaxEntityCount' => 'DatasetMaxEntityCount',
         'datasetMaxFileCount' => 'DatasetMaxFileCount',
@@ -85,9 +79,6 @@ class UpdateProjectRequest extends Model
 
     public function validate()
     {
-        if (null !== $this->datasetConfig) {
-            $this->datasetConfig->validate();
-        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -97,10 +88,6 @@ class UpdateProjectRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->datasetConfig) {
-            $res['DatasetConfig'] = null !== $this->datasetConfig ? $this->datasetConfig->toArray($noStream) : $this->datasetConfig;
-        }
-
         if (null !== $this->datasetMaxBindCount) {
             $res['DatasetMaxBindCount'] = $this->datasetMaxBindCount;
         }
@@ -163,10 +150,6 @@ class UpdateProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DatasetConfig'])) {
-            $model->datasetConfig = DatasetConfig::fromMap($map['DatasetConfig']);
-        }
-
         if (isset($map['DatasetMaxBindCount'])) {
             $model->datasetMaxBindCount = $map['DatasetMaxBindCount'];
         }

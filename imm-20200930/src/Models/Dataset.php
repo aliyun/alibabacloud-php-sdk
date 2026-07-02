@@ -19,11 +19,6 @@ class Dataset extends Model
     public $createTime;
 
     /**
-     * @var DatasetConfig
-     */
-    public $datasetConfig;
-
-    /**
      * @var int
      */
     public $datasetMaxBindCount;
@@ -90,7 +85,6 @@ class Dataset extends Model
     protected $_name = [
         'bindCount' => 'BindCount',
         'createTime' => 'CreateTime',
-        'datasetConfig' => 'DatasetConfig',
         'datasetMaxBindCount' => 'DatasetMaxBindCount',
         'datasetMaxEntityCount' => 'DatasetMaxEntityCount',
         'datasetMaxFileCount' => 'DatasetMaxFileCount',
@@ -108,9 +102,6 @@ class Dataset extends Model
 
     public function validate()
     {
-        if (null !== $this->datasetConfig) {
-            $this->datasetConfig->validate();
-        }
         if (\is_array($this->workflowParameters)) {
             Model::validateArray($this->workflowParameters);
         }
@@ -126,10 +117,6 @@ class Dataset extends Model
 
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
-        }
-
-        if (null !== $this->datasetConfig) {
-            $res['DatasetConfig'] = null !== $this->datasetConfig ? $this->datasetConfig->toArray($noStream) : $this->datasetConfig;
         }
 
         if (null !== $this->datasetMaxBindCount) {
@@ -208,10 +195,6 @@ class Dataset extends Model
 
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
-        }
-
-        if (isset($map['DatasetConfig'])) {
-            $model->datasetConfig = DatasetConfig::fromMap($map['DatasetConfig']);
         }
 
         if (isset($map['DatasetMaxBindCount'])) {
