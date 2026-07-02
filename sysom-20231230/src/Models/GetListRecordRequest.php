@@ -9,9 +9,19 @@ use AlibabaCloud\Dara\Model;
 class GetListRecordRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $analysisId;
+
+    /**
      * @var int
      */
     public $current;
+
+    /**
+     * @var int
+     */
+    public $customId;
 
     /**
      * @var int
@@ -23,7 +33,9 @@ class GetListRecordRequest extends Model
      */
     public $region;
     protected $_name = [
+        'analysisId' => 'analysisId',
         'current' => 'current',
+        'customId' => 'customId',
         'pageSize' => 'pageSize',
         'region' => 'region',
     ];
@@ -36,8 +48,16 @@ class GetListRecordRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->analysisId) {
+            $res['analysisId'] = $this->analysisId;
+        }
+
         if (null !== $this->current) {
             $res['current'] = $this->current;
+        }
+
+        if (null !== $this->customId) {
+            $res['customId'] = $this->customId;
         }
 
         if (null !== $this->pageSize) {
@@ -59,8 +79,16 @@ class GetListRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['analysisId'])) {
+            $model->analysisId = $map['analysisId'];
+        }
+
         if (isset($map['current'])) {
             $model->current = $map['current'];
+        }
+
+        if (isset($map['customId'])) {
+            $model->customId = $map['customId'];
         }
 
         if (isset($map['pageSize'])) {
