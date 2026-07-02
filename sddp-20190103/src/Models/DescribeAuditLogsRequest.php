@@ -126,11 +126,6 @@ class DescribeAuditLogsRequest extends Model
     /**
      * @var string
      */
-    public $ruleID;
-
-    /**
-     * @var string
-     */
     public $ruleId;
 
     /**
@@ -176,7 +171,6 @@ class DescribeAuditLogsRequest extends Model
         'productId' => 'ProductId',
         'ruleAggQuery' => 'RuleAggQuery',
         'ruleCategory' => 'RuleCategory',
-        'ruleID' => 'RuleID',
         'ruleId' => 'RuleId',
         'ruleName' => 'RuleName',
         'sqlText' => 'SqlText',
@@ -282,10 +276,6 @@ class DescribeAuditLogsRequest extends Model
 
         if (null !== $this->ruleCategory) {
             $res['RuleCategory'] = $this->ruleCategory;
-        }
-
-        if (null !== $this->ruleID) {
-            $res['RuleID'] = $this->ruleID;
         }
 
         if (null !== $this->ruleId) {
@@ -409,10 +399,6 @@ class DescribeAuditLogsRequest extends Model
 
         if (isset($map['RuleCategory'])) {
             $model->ruleCategory = $map['RuleCategory'];
-        }
-
-        if (isset($map['RuleID'])) {
-            $model->ruleID = $map['RuleID'];
         }
 
         if (isset($map['RuleId'])) {

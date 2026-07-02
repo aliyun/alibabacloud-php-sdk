@@ -854,12 +854,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of audit alert logs.
+     * Queries the list of audit alert logs.
      *
      * @remarks
-     * This operation queries a list of data audit alert logs, allowing you to search for and handle alerts.
+     * This operation is used to query the list of data audit alert logs, which facilitates alerting search and alerting handling.
      * ## QPS limit
-     * The QPS limit for a single user is 10. If you exceed this limit, the system throttles your API calls. Plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
      *
      * @param request - DescribeAuditLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -967,10 +967,6 @@ class Sddp extends OpenApiClient
             @$query['RuleCategory'] = $request->ruleCategory;
         }
 
-        if (null !== $request->ruleID) {
-            @$query['RuleID'] = $request->ruleID;
-        }
-
         if (null !== $request->ruleId) {
             @$query['RuleId'] = $request->ruleId;
         }
@@ -1010,12 +1006,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of audit alert logs.
+     * Queries the list of audit alert logs.
      *
      * @remarks
-     * This operation queries a list of data audit alert logs, allowing you to search for and handle alerts.
+     * This operation is used to query the list of data audit alert logs, which facilitates alerting search and alerting handling.
      * ## QPS limit
-     * The QPS limit for a single user is 10. If you exceed this limit, the system throttles your API calls. Plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
      *
      * @param request - DescribeAuditLogsRequest
      *
