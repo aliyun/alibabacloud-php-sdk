@@ -1213,7 +1213,7 @@ class AgentRun extends OpenApiClient
      * Creates a template.
      *
      * @remarks
-     * Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
+     * Creates a new template for subsequently creating sandboxes. A template defines the runtime environment, resource configuration, and other settings for sandboxes.
      *
      * @param request - CreateTemplateRequest
      * @param headers - map
@@ -1253,7 +1253,7 @@ class AgentRun extends OpenApiClient
      * Creates a template.
      *
      * @remarks
-     * Creates a template for launching sandboxes. A template defines the runtime environment, resource configuration, and other settings for a sandbox.
+     * Creates a new template for subsequently creating sandboxes. A template defines the runtime environment, resource configuration, and other settings for sandboxes.
      *
      * @param request - CreateTemplateRequest
      *

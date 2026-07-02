@@ -14,6 +14,11 @@ class CreateWorkspaceInput extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enablePresetModel;
+
+    /**
      * @var string
      */
     public $name;
@@ -24,6 +29,7 @@ class CreateWorkspaceInput extends Model
     public $resourceGroupId;
     protected $_name = [
         'description' => 'description',
+        'enablePresetModel' => 'enablePresetModel',
         'name' => 'name',
         'resourceGroupId' => 'resourceGroupId',
     ];
@@ -38,6 +44,10 @@ class CreateWorkspaceInput extends Model
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->enablePresetModel) {
+            $res['enablePresetModel'] = $this->enablePresetModel;
         }
 
         if (null !== $this->name) {
@@ -61,6 +71,10 @@ class CreateWorkspaceInput extends Model
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['enablePresetModel'])) {
+            $model->enablePresetModel = $map['enablePresetModel'];
         }
 
         if (isset($map['name'])) {
