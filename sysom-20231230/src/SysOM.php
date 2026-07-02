@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentWithTypeRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentWithTypeResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeAnomalyDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeAnomalyDiagnosisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeDiagnosisRequest;
@@ -3193,6 +3195,89 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->installAgentForClusterWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 在指定的实例上安装 Agent.
+     *
+     * @remarks
+     * 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     *
+     * @param request - InstallAgentWithTypeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallAgentWithTypeResponse
+     *
+     * @param InstallAgentWithTypeRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return InstallAgentWithTypeResponse
+     */
+    public function installAgentWithTypeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentVersion) {
+            @$body['agentVersion'] = $request->agentVersion;
+        }
+
+        if (null !== $request->configId) {
+            @$body['configId'] = $request->configId;
+        }
+
+        if (null !== $request->instanceType) {
+            @$body['instanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InstallAgentWithType',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/installAgent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallAgentWithTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 在指定的实例上安装 Agent.
+     *
+     * @remarks
+     * 调用本接口安装 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     *
+     * @param request - InstallAgentWithTypeRequest
+     *
+     * @returns InstallAgentWithTypeResponse
+     *
+     * @param InstallAgentWithTypeRequest $request
+     *
+     * @return InstallAgentWithTypeResponse
+     */
+    public function installAgentWithType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->installAgentWithTypeWithOptions($request, $headers, $runtime);
     }
 
     /**
