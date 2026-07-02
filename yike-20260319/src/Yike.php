@@ -67,6 +67,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikePromptExpansionVoiceFixJobR
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikePromptExpansionVoiceFixJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeStoryboardJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeStoryboardJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVideoCloneJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVideoCloneJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVoiceNarratorJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeVoiceNarratorJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubYikeUserCreditRequest;
@@ -2135,6 +2137,67 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitYikeStoryboardJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交一刻数字人口播视频生成任务
+     *
+     * @param request - SubmitYikeVideoCloneJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitYikeVideoCloneJobResponse
+     *
+     * @param SubmitYikeVideoCloneJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitYikeVideoCloneJobResponse
+     */
+    public function submitYikeVideoCloneJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobParams) {
+            @$body['JobParams'] = $request->jobParams;
+        }
+
+        if (null !== $request->userData) {
+            @$body['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitYikeVideoCloneJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitYikeVideoCloneJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交一刻数字人口播视频生成任务
+     *
+     * @param request - SubmitYikeVideoCloneJobRequest
+     *
+     * @returns SubmitYikeVideoCloneJobResponse
+     *
+     * @param SubmitYikeVideoCloneJobRequest $request
+     *
+     * @return SubmitYikeVideoCloneJobResponse
+     */
+    public function submitYikeVideoCloneJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitYikeVideoCloneJobWithOptions($request, $runtime);
     }
 
     /**
