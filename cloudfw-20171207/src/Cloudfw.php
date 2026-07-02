@@ -178,8 +178,12 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskTypeRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskTypeResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallDropStatisticsResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallDropTrendRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallDropTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallTaskRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallTaskResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallTrafficTrendRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallVSwitchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallVswitchResourcesRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeFirewallVswitchResourcesResponse;
@@ -343,6 +347,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSdlEventSdListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSdlEventSdListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSdlEventStatisticRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSdlEventStatisticResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSdlLastPayloadRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSdlLastPayloadResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSdlStatisticRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSdlStatisticResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSecurityModeRequest;
@@ -588,7 +594,7 @@ class Cloudfw extends OpenApiClient
             'cn-beijing-finance-1' => 'cloudfw.aliyuncs.com',
             'cn-beijing' => 'cloudfw.aliyuncs.com',
             'ap-southeast-5' => 'cloudfw.aliyuncs.com',
-            'ap-southeast-3' => 'cloudfw.aliyuncs.com',
+            'ap-southeast-3' => 'cloudfw.ap-southeast-1.aliyuncs.com',
             'ap-northeast-1' => 'cloudfw.aliyuncs.com',
         ];
         $this->checkConfig($config);
@@ -2608,12 +2614,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a VPC border firewall (protects mutual access traffic between network instances within a Cloud Enterprise Network (CEN) and a specified VPC).
+     * Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
      *
      * @remarks
-     * This operation is generally used to create a VPC border firewall for VPC instances within a Cloud Enterprise Network (CEN). The VPC border firewall can protect mutual access traffic between network instances within the CEN (network instances include VPCs, VBRs, and CCNs) and a specified VPC. It does not support protecting mutual access traffic between VBR and VBR, CCN and CCN, or VBR and CCN. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation as needed.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
      *
      * @param request - CreateVpcFirewallCenConfigureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2696,12 +2702,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a VPC border firewall (protects mutual access traffic between network instances within a Cloud Enterprise Network (CEN) and a specified VPC).
+     * Creates a virtual private cloud (VPC) firewall to protect traffic between network instances in a Cloud Enterprise Network (CEN) instance and a specified VPC.
      *
      * @remarks
-     * This operation is generally used to create a VPC border firewall for VPC instances within a Cloud Enterprise Network (CEN). The VPC border firewall can protect mutual access traffic between network instances within the CEN (network instances include VPCs, VBRs, and CCNs) and a specified VPC. It does not support protecting mutual access traffic between VBR and VBR, CCN and CCN, or VBR and CCN. For more information, see [VPC border firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * This operation is used to create a VPC firewall for VPC-connected instances in a CEN instance. The virtual private cloud (VPC) firewall protects traffic between network instances (including VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs)) in the CEN instance and a specified VPC. The VPC firewall does not protect traffic between VBRs, between CCNs, or between VBRs and CCNs. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please call this operation as needed.
+     * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. Throttling may affect your business. Invoke this operation within the limit.
      *
      * @param request - CreateVpcFirewallCenConfigureRequest
      *
@@ -5704,7 +5710,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - DescribeAclRuleCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5751,7 +5757,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - DescribeAclRuleCountRequest
      *
@@ -7340,6 +7346,71 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+     *
+     * @param request - DescribeFirewallDropTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFirewallDropTrendResponse
+     *
+     * @param DescribeFirewallDropTrendRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeFirewallDropTrendResponse
+     */
+    public function describeFirewallDropTrendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFirewallDropTrend',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFirewallDropTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the overall firewall interception trend, including Internet, VPC, and NAT traffic.
+     *
+     * @param request - DescribeFirewallDropTrendRequest
+     *
+     * @returns DescribeFirewallDropTrendResponse
+     *
+     * @param DescribeFirewallDropTrendRequest $request
+     *
+     * @return DescribeFirewallDropTrendResponse
+     */
+    public function describeFirewallDropTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFirewallDropTrendWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of a firewall task.
      *
      * @remarks
@@ -7418,6 +7489,71 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeFirewallTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取总流量趋势
+     *
+     * @param request - DescribeFirewallTrafficTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFirewallTrafficTrendResponse
+     *
+     * @param DescribeFirewallTrafficTrendRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeFirewallTrafficTrendResponse
+     */
+    public function describeFirewallTrafficTrendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFirewallTrafficTrend',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFirewallTrafficTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取总流量趋势
+     *
+     * @param request - DescribeFirewallTrafficTrendRequest
+     *
+     * @returns DescribeFirewallTrafficTrendResponse
+     *
+     * @param DescribeFirewallTrafficTrendRequest $request
+     *
+     * @return DescribeFirewallTrafficTrendResponse
+     */
+    public function describeFirewallTrafficTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFirewallTrafficTrendWithOptions($request, $runtime);
     }
 
     /**
@@ -8171,7 +8307,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Describes a Cloud Firewall access control policy group.
+     * Queries the details of an access control policy group in Cloud Firewall.
      *
      * @param request - DescribeInternetOpenIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8258,7 +8394,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Describes a Cloud Firewall access control policy group.
+     * Queries the details of an access control policy group in Cloud Firewall.
      *
      * @param request - DescribeInternetOpenIpRequest
      *
@@ -11466,7 +11602,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves details about an outbound domain.
+     * Retrieves the details of an outbound domain.
      *
      * @param request - DescribeOutgoingDomainDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11569,7 +11705,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Retrieves details about an outbound domain.
+     * Retrieves the details of an outbound domain.
      *
      * @param request - DescribeOutgoingDomainDetailRequest
      *
@@ -11875,11 +12011,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the FAQ of a page.
+     * Queries the FAQ for a page.
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
      * @deprecated OpenAPI DescribePageDocuments is deprecated
      *
@@ -11941,11 +12077,11 @@ class Cloudfw extends OpenApiClient
 
     // Deprecated
     /**
-     * Queries the FAQ of a page.
+     * Queries the FAQ for a page.
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
      * @deprecated OpenAPI DescribePageDocuments is deprecated
      *
@@ -12625,10 +12761,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 查询包年包月2.0账单概览.
+     * Queries the billing overview of a subscription 2.0 instance.
      *
      * @remarks
-     * 统计范围为该用户当前云防火墙实例，包括自购买之日起的所有数据。
+     * The statistics cover the current Cloud Firewall instance of the user, including all data since the purchase date.
      *
      * @param request - DescribePrepayBillTotalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12687,10 +12823,10 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 查询包年包月2.0账单概览.
+     * Queries the billing overview of a subscription 2.0 instance.
      *
      * @remarks
-     * 统计范围为该用户当前云防火墙实例，包括自购买之日起的所有数据。
+     * The statistics cover the current Cloud Firewall instance of the user, including all data since the purchase date.
      *
      * @param request - DescribePrepayBillTotalRequest
      *
@@ -12944,7 +13080,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
      * @param request - DescribeRegionInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12999,7 +13135,7 @@ class Cloudfw extends OpenApiClient
      *
      * @remarks
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
      * @param request - DescribeRegionInfoRequest
      *
@@ -13022,7 +13158,7 @@ class Cloudfw extends OpenApiClient
      * @remarks
      * This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeRegionResourceTypeAutoEnableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13066,7 +13202,7 @@ class Cloudfw extends OpenApiClient
      * @remarks
      * This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - DescribeRegionResourceTypeAutoEnableRequest
      *
@@ -13087,9 +13223,9 @@ class Cloudfw extends OpenApiClient
      * Queries the default traffic redirection for an asset type.
      *
      * @remarks
-     * This operation is used to obtain DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be obtained.
+     * This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a proper frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
      * @param request - DescribeResourceTypeAutoEnableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13131,9 +13267,9 @@ class Cloudfw extends OpenApiClient
      * Queries the default traffic redirection for an asset type.
      *
      * @remarks
-     * This operation is used to obtain DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be obtained.
+     * This operation is used to retrieve DNS resolution results for a domain name. Currently, only resolution results from Alibaba Cloud DNS are supported. The domain name that you want to query must use Alibaba Cloud DNS. Otherwise, the resolution results cannot be retrieved.
      * ## QPS limit
-     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a proper frequency.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
      * @param request - DescribeResourceTypeAutoEnableRequest
      *
@@ -14174,6 +14310,91 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSdlEventStatisticWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the packet payload of a sensitive data leak event.
+     *
+     * @remarks
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     *
+     * @param request - DescribeSdlLastPayloadRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSdlLastPayloadResponse
+     *
+     * @param DescribeSdlLastPayloadRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSdlLastPayloadResponse
+     */
+    public function describeSdlLastPayloadWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dstIp) {
+            @$query['DstIp'] = $request->dstIp;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->sensitiveCategory) {
+            @$query['SensitiveCategory'] = $request->sensitiveCategory;
+        }
+
+        if (null !== $request->srcIp) {
+            @$query['SrcIp'] = $request->srcIp;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSdlLastPayload',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSdlLastPayloadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the packet payload of a sensitive data leak event.
+     *
+     * @remarks
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+     *
+     * @param request - DescribeSdlLastPayloadRequest
+     *
+     * @returns DescribeSdlLastPayloadResponse
+     *
+     * @param DescribeSdlLastPayloadRequest $request
+     *
+     * @return DescribeSdlLastPayloadResponse
+     */
+    public function describeSdlLastPayload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSdlLastPayloadWithOptions($request, $runtime);
     }
 
     /**
