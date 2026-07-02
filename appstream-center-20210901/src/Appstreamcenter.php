@@ -528,8 +528,8 @@ class Appstreamcenter extends OpenApiClient
      * Configures the model group for a resource group.
      *
      * @remarks
-     * You can assign a model group to resources associated with agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for tasks executed by agents within the resource group.
-     * When both an agent runtime and its resource group have model groups configured, the model group bound to the resource group takes effect. The resource group setting takes priority over the agent runtime setting.
+     * You can assign a model group to the resources associated with agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for tasks executed by agents within the resource group.
+     * When an agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting has a higher priority than the agent runtime setting.
      * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - ConfigResourceGroupModelTemplateRequest
@@ -576,8 +576,8 @@ class Appstreamcenter extends OpenApiClient
      * Configures the model group for a resource group.
      *
      * @remarks
-     * You can assign a model group to resources associated with agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for tasks executed by agents within the resource group.
-     * When both an agent runtime and its resource group have model groups configured, the model group bound to the resource group takes effect. The resource group setting takes priority over the agent runtime setting.
+     * You can assign a model group to the resources associated with agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The model group serves as the inference engine for tasks executed by agents within the resource group.
+     * When an agent runtime has its own model group configured and the resource group it belongs to also has a model group configured, the model group bound to the resource group takes effect. The resource group setting has a higher priority than the agent runtime setting.
      * Before calling this operation, make sure that you are familiar with the operations and usage of the WUYING Agent Management Center.
      *
      * @param request - ConfigResourceGroupModelTemplateRequest
@@ -693,7 +693,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can authorize model groups for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. The model groups serve as inference engines for Agent task execution.
-     * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
+     * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - ConfigRuntimeModelTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -744,7 +744,7 @@ class Appstreamcenter extends OpenApiClient
      *
      * @remarks
      * You can authorize model groups for Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. The model groups serve as inference engines for Agent task execution.
-     * Make sure that you are familiar with the operations and usage of the Wuying Agent Management Center before calling this operation.
+     * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - ConfigRuntimeModelTemplateRequest
      *
@@ -2934,7 +2934,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of session instances in a delivery group, including instance IDs, instance statuses, creation time, update time, session statuses, and public IP addresses of primary network interfaces.
+     * Queries the details of session instances in a delivery group, including instance ID, instance status, creation time, update time, session status, and public IP address of the primary network interface.
      *
      * @param request - ListAppInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3003,7 +3003,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Queries the details of session instances in a delivery group, including instance IDs, instance statuses, creation time, update time, session statuses, and public IP addresses of primary network interfaces.
+     * Queries the details of session instances in a delivery group, including instance ID, instance status, creation time, update time, session status, and public IP address of the primary network interface.
      *
      * @param request - ListAppInstancesRequest
      *
@@ -5322,7 +5322,7 @@ class Appstreamcenter extends OpenApiClient
      * Removes a third-party channel configuration from an agent runtime.
      *
      * @remarks
-     * You can call this operation to remove a specific third-party channel configuration from agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the configuration is removed, the agent can no longer use the third-party channel for conversations.
+     * You can call this operation to remove a specific third-party channel configuration from an agent runtime such as JVS Computer, OpenClaw, or Hermes Agent in the Wuying Agent Management Center. After the configuration is removed, the agent can no longer use the third-party channel for conversations.
      * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - RemoveRuntimeChannelRequest
@@ -5381,7 +5381,7 @@ class Appstreamcenter extends OpenApiClient
      * Removes a third-party channel configuration from an agent runtime.
      *
      * @remarks
-     * You can call this operation to remove a specific third-party channel configuration from agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the configuration is removed, the agent can no longer use the third-party channel for conversations.
+     * You can call this operation to remove a specific third-party channel configuration from an agent runtime such as JVS Computer, OpenClaw, or Hermes Agent in the Wuying Agent Management Center. After the configuration is removed, the agent can no longer use the third-party channel for conversations.
      * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
      *
      * @param request - RemoveRuntimeChannelRequest
@@ -5400,7 +5400,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes a model group from an Agent runtime resource.
+     * Removes model groups from Agent runtime resources.
      *
      * @remarks
      * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
@@ -5451,7 +5451,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Removes a model group from an Agent runtime resource.
+     * Removes model groups from Agent runtime resources.
      *
      * @remarks
      * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
