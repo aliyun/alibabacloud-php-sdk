@@ -527,6 +527,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaListRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaListResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsQuotaResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarSQLCollectorPolicyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeRateLimitPolicyRequest;
@@ -3576,7 +3578,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database account for a PolarDB cluster.
+     * Creates a PolarDB database account.
      *
      * @param request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3667,7 +3669,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a database account for a PolarDB cluster.
+     * Creates a PolarDB database account.
      *
      * @param request - CreateAccountRequest
      *
@@ -13151,7 +13153,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询 AgenticDB 计算实例列表.
+     * Queries the list of AgenticDB compute instances.
      *
      * @param request - DescribeAgenticDBComputeClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13210,7 +13212,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查询 AgenticDB 计算实例列表.
+     * Queries the list of AgenticDB compute instances.
      *
      * @param request - DescribeAgenticDBComputeClustersRequest
      *
@@ -22187,6 +22189,95 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePolarClawTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查看polarfs信息.
+     *
+     * @param request - DescribePolarFsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePolarFsResponse
+     *
+     * @param DescribePolarFsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribePolarFsResponse
+     */
+    public function describePolarFsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->polarFsInstanceDescription) {
+            @$query['PolarFsInstanceDescription'] = $request->polarFsInstanceDescription;
+        }
+
+        if (null !== $request->polarFsInstanceIds) {
+            @$query['PolarFsInstanceIds'] = $request->polarFsInstanceIds;
+        }
+
+        if (null !== $request->polarFsType) {
+            @$query['PolarFsType'] = $request->polarFsType;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relativeDbClusterId) {
+            @$query['RelativeDbClusterId'] = $request->relativeDbClusterId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePolarFs',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePolarFsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查看polarfs信息.
+     *
+     * @param request - DescribePolarFsRequest
+     *
+     * @returns DescribePolarFsResponse
+     *
+     * @param DescribePolarFsRequest $request
+     *
+     * @return DescribePolarFsResponse
+     */
+    public function describePolarFs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolarFsWithOptions($request, $runtime);
     }
 
     /**
@@ -36619,7 +36710,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 校验 AgenticDB 租户 API Key.
+     * Validates an AgenticDB tenant API key.
      *
      * @param request - VerifyAgenticDBTenantApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36662,7 +36753,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 校验 AgenticDB 租户 API Key.
+     * Validates an AgenticDB tenant API key.
      *
      * @param request - VerifyAgenticDBTenantApiKeyRequest
      *
