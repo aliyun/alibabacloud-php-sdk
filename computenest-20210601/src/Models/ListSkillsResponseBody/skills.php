@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListSkillsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListSkillsResponseBody\skills\locales;
 
 class skills extends Model
 {
@@ -19,9 +20,19 @@ class skills extends Model
     public $downloadUrl;
 
     /**
+     * @var locales[]
+     */
+    public $locales;
+
+    /**
      * @var string
      */
     public $skillDescription;
+
+    /**
+     * @var string
+     */
+    public $skillDisplayName;
 
     /**
      * @var string
@@ -50,7 +61,9 @@ class skills extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'downloadUrl' => 'DownloadUrl',
+        'locales' => 'Locales',
         'skillDescription' => 'SkillDescription',
+        'skillDisplayName' => 'SkillDisplayName',
         'skillId' => 'SkillId',
         'skillLabels' => 'SkillLabels',
         'skillName' => 'SkillName',
@@ -60,6 +73,9 @@ class skills extends Model
 
     public function validate()
     {
+        if (\is_array($this->locales)) {
+            Model::validateArray($this->locales);
+        }
         if (\is_array($this->skillLabels)) {
             Model::validateArray($this->skillLabels);
         }
@@ -77,8 +93,23 @@ class skills extends Model
             $res['DownloadUrl'] = $this->downloadUrl;
         }
 
+        if (null !== $this->locales) {
+            if (\is_array($this->locales)) {
+                $res['Locales'] = [];
+                $n1 = 0;
+                foreach ($this->locales as $item1) {
+                    $res['Locales'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->skillDescription) {
             $res['SkillDescription'] = $this->skillDescription;
+        }
+
+        if (null !== $this->skillDisplayName) {
+            $res['SkillDisplayName'] = $this->skillDisplayName;
         }
 
         if (null !== $this->skillId) {
@@ -127,8 +158,23 @@ class skills extends Model
             $model->downloadUrl = $map['DownloadUrl'];
         }
 
+        if (isset($map['Locales'])) {
+            if (!empty($map['Locales'])) {
+                $model->locales = [];
+                $n1 = 0;
+                foreach ($map['Locales'] as $item1) {
+                    $model->locales[$n1] = locales::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['SkillDescription'])) {
             $model->skillDescription = $map['SkillDescription'];
+        }
+
+        if (isset($map['SkillDisplayName'])) {
+            $model->skillDisplayName = $map['SkillDisplayName'];
         }
 
         if (isset($map['SkillId'])) {

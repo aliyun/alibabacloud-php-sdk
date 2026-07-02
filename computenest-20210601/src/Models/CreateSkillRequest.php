@@ -24,6 +24,11 @@ class CreateSkillRequest extends Model
     public $skillDescription;
 
     /**
+     * @var string
+     */
+    public $skillDisplayName;
+
+    /**
      * @var string[]
      */
     public $skillLabels;
@@ -51,6 +56,7 @@ class CreateSkillRequest extends Model
         'clientToken' => 'ClientToken',
         'ossUrl' => 'OssUrl',
         'skillDescription' => 'SkillDescription',
+        'skillDisplayName' => 'SkillDisplayName',
         'skillLabels' => 'SkillLabels',
         'skillName' => 'SkillName',
         'skillSpaceId' => 'SkillSpaceId',
@@ -79,6 +85,10 @@ class CreateSkillRequest extends Model
 
         if (null !== $this->skillDescription) {
             $res['SkillDescription'] = $this->skillDescription;
+        }
+
+        if (null !== $this->skillDisplayName) {
+            $res['SkillDisplayName'] = $this->skillDisplayName;
         }
 
         if (null !== $this->skillLabels) {
@@ -129,6 +139,10 @@ class CreateSkillRequest extends Model
 
         if (isset($map['SkillDescription'])) {
             $model->skillDescription = $map['SkillDescription'];
+        }
+
+        if (isset($map['SkillDisplayName'])) {
+            $model->skillDisplayName = $map['SkillDisplayName'];
         }
 
         if (isset($map['SkillLabels'])) {

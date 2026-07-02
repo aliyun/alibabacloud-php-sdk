@@ -153,6 +153,10 @@ class ComputeNest extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'computenest.cn-hangzhou.aliyuncs.com',
+            'ap-southeast-1' => 'computenest.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('computenest', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -839,8 +843,8 @@ class ComputeNest extends OpenApiClient
      * Creates a Skill.
      *
      * @remarks
-     * ### Prerequisites
-     * Before you begin, ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - CreateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -862,6 +866,10 @@ class ComputeNest extends OpenApiClient
 
         if (null !== $request->skillDescription) {
             @$query['SkillDescription'] = $request->skillDescription;
+        }
+
+        if (null !== $request->skillDisplayName) {
+            @$query['SkillDisplayName'] = $request->skillDisplayName;
         }
 
         if (null !== $request->skillLabels) {
@@ -912,8 +920,8 @@ class ComputeNest extends OpenApiClient
      * Creates a Skill.
      *
      * @remarks
-     * ### Prerequisites
-     * Before you begin, ensure that the service provider has enabled the modification feature and configured its parameters during service creation.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the Upgrade/Downgrade feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - CreateSkillRequest
      *
@@ -1550,7 +1558,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Check for missing access policies before you create a service instance.
+     * Queries the missing access policies before creating a service instance.
      *
      * @param tmpReq - GenerateServicePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1619,7 +1627,7 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Check for missing access policies before you create a service instance.
+     * Queries the missing access policies before creating a service instance.
      *
      * @param request - GenerateServicePolicyRequest
      *
@@ -2308,8 +2316,8 @@ class ComputeNest extends OpenApiClient
      * Queries the details of a Skill.
      *
      * @remarks
-     * ### Prerequisites
-     * Before calling this operation, ensure that the service provider enabled the modification feature and configured the required parameters during service creation.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - GetSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2351,8 +2359,8 @@ class ComputeNest extends OpenApiClient
      * Queries the details of a Skill.
      *
      * @remarks
-     * ### Prerequisites
-     * Before calling this operation, ensure that the service provider enabled the modification feature and configured the required parameters during service creation.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - GetSkillRequest
      *
@@ -2757,11 +2765,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Lists public skills.
+     * Queries the list of public skills.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider enabled the change specification feature and configured the relevant parameters during service creation.
+     * ### Before you begin
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListPublicSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2812,11 +2820,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Lists public skills.
+     * Queries the list of public skills.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider enabled the change specification feature and configured the relevant parameters during service creation.
+     * ### Before you begin
+     * Make sure the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListPublicSkillsRequest
      *
@@ -3647,11 +3655,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Skills.
+     * Queries a list of skills.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure that the service provider has enabled modification and configured the modification parameters when creating the service.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListSkillsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3702,11 +3710,11 @@ class ComputeNest extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Skills.
+     * Queries a list of skills.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure that the service provider has enabled modification and configured the modification parameters when creating the service.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and completed the specification change parameter settings when creating the service.
      *
      * @param request - ListSkillsRequest
      *
@@ -4741,8 +4749,8 @@ class ComputeNest extends OpenApiClient
      * Updates a skill.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider has enabled the option to modify configurations and configured the relevant parameters during service creation.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
      *
      * @param request - UpdateSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4764,6 +4772,10 @@ class ComputeNest extends OpenApiClient
 
         if (null !== $request->skillDescription) {
             @$query['SkillDescription'] = $request->skillDescription;
+        }
+
+        if (null !== $request->skillDisplayName) {
+            @$query['SkillDisplayName'] = $request->skillDisplayName;
         }
 
         if (null !== $request->skillId) {
@@ -4814,8 +4826,8 @@ class ComputeNest extends OpenApiClient
      * Updates a skill.
      *
      * @remarks
-     * ### Prerequisites
-     * Ensure the service provider has enabled the option to modify configurations and configured the relevant parameters during service creation.
+     * ### Before you begin
+     * Make sure that the service provider has enabled the specification change feature and configured the specification change parameters when creating the service.
      *
      * @param request - UpdateSkillRequest
      *

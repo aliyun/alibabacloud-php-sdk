@@ -26,6 +26,11 @@ class UpdateSkillRequest extends Model
     /**
      * @var string
      */
+    public $skillDisplayName;
+
+    /**
+     * @var string
+     */
     public $skillId;
 
     /**
@@ -51,6 +56,7 @@ class UpdateSkillRequest extends Model
         'clientToken' => 'ClientToken',
         'ossUrl' => 'OssUrl',
         'skillDescription' => 'SkillDescription',
+        'skillDisplayName' => 'SkillDisplayName',
         'skillId' => 'SkillId',
         'skillLabels' => 'SkillLabels',
         'skillName' => 'SkillName',
@@ -79,6 +85,10 @@ class UpdateSkillRequest extends Model
 
         if (null !== $this->skillDescription) {
             $res['SkillDescription'] = $this->skillDescription;
+        }
+
+        if (null !== $this->skillDisplayName) {
+            $res['SkillDisplayName'] = $this->skillDisplayName;
         }
 
         if (null !== $this->skillId) {
@@ -129,6 +139,10 @@ class UpdateSkillRequest extends Model
 
         if (isset($map['SkillDescription'])) {
             $model->skillDescription = $map['SkillDescription'];
+        }
+
+        if (isset($map['SkillDisplayName'])) {
+            $model->skillDisplayName = $map['SkillDisplayName'];
         }
 
         if (isset($map['SkillId'])) {
