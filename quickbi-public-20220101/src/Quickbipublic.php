@@ -69,6 +69,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSourceBloodRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DataSourceBloodResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DelayTicketExpireTimeRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DelayTicketExpireTimeResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteAuthorizationByUserIdRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteAuthorizationByUserIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteDataLevelPermissionRuleUsersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteDataLevelPermissionRuleUsersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteDataLevelRuleConfigRequest;
@@ -97,6 +99,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetWorksEmbedListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetWorksEmbedListResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\IpWhiteListConfigRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\IpWhiteListConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListAccelerationOfWorkspaceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListAccelerationOfWorkspaceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceRequest;
@@ -248,6 +252,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqAuthTransferRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqAuthTransferResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\TransferUsergroupRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\TransferUsergroupResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateCubeBySqlRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateCubeBySqlResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataLevelPermissionStatusRequest;
@@ -282,7 +288,19 @@ class Quickbipublic extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-east-1' => 'quickbi-public.us-east-1.aliyuncs.com',
+            'me-central-1' => 'quickbi-public.me-central-1.aliyuncs.com',
+            'eu-central-1' => 'quickbi-public.eu-central-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'quickbi-public.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-hongkong' => 'quickbi-public.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'quickbi-public.cn-hangzhou.aliyuncs.com',
+            'ap-southeast-5' => 'quickbi-public.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'quickbi-public.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-1' => 'quickbi-public.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'quickbi-public.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('quickbi-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1191,7 +1209,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Batch add Feishu users.
+     * Adds Lark users in batches.
      *
      * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
      *
@@ -1249,7 +1267,7 @@ class Quickbipublic extends OpenApiClient
 
     // Deprecated
     /**
-     * Batch add Feishu users.
+     * Adds Lark users in batches.
      *
      * @deprecated OpenAPI BatchAddFeishuUsers is deprecated
      *
@@ -1761,7 +1779,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Creates a dataset from a custom SQL statement.
+     * Creates a dataset based on a custom SQL statement.
      *
      * @param request - CreateCubeBySqlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1797,8 +1815,14 @@ class Quickbipublic extends OpenApiClient
             @$query['WorkspaceId'] = $request->workspaceId;
         }
 
+        $body = [];
+        if (null !== $request->placeholders) {
+            @$body['Placeholders'] = $request->placeholders;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCubeBySql',
@@ -1816,7 +1840,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Creates a dataset from a custom SQL statement.
+     * Creates a dataset based on a custom SQL statement.
      *
      * @param request - CreateCubeBySqlRequest
      *
@@ -1911,10 +1935,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Generate a ticket for third-party embedding.
+     * Generates a ticket required for embedded report access.
      *
      * @remarks
-     * For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+     * For more information, see [Security enhancement for data permission control and parameter passing in embedded reports](https://help.aliyun.com/document_detail/391291.html).
      *
      * @param request - CreateTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1946,10 +1970,6 @@ class Quickbipublic extends OpenApiClient
             @$query['ExpireTime'] = $request->expireTime;
         }
 
-        if (null !== $request->globalParam) {
-            @$query['GlobalParam'] = $request->globalParam;
-        }
-
         if (null !== $request->ticketNum) {
             @$query['TicketNum'] = $request->ticketNum;
         }
@@ -1966,8 +1986,14 @@ class Quickbipublic extends OpenApiClient
             @$query['WorksId'] = $request->worksId;
         }
 
+        $body = [];
+        if (null !== $request->globalParam) {
+            @$body['GlobalParam'] = $request->globalParam;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateTicket',
@@ -1985,10 +2011,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Generate a ticket for third-party embedding.
+     * Generates a ticket required for embedded report access.
      *
      * @remarks
-     * For detailed usage, please refer to [Report Embedding Data Permission Control and Parameter Passing Security Enhancement Solution](https://help.aliyun.com/document_detail/391291.html).
+     * For more information, see [Security enhancement for data permission control and parameter passing in embedded reports](https://help.aliyun.com/document_detail/391291.html).
      *
      * @param request - CreateTicketRequest
      *
@@ -2490,6 +2516,71 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->delayTicketExpireTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes the collaborative authorization record of a specified user.
+     *
+     * @param request - DeleteAuthorizationByUserIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAuthorizationByUserIdResponse
+     *
+     * @param DeleteAuthorizationByUserIdRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteAuthorizationByUserIdResponse
+     */
+    public function deleteAuthorizationByUserIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->qbiUserId) {
+            @$query['QbiUserId'] = $request->qbiUserId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAuthorizationByUserId',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAuthorizationByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the collaborative authorization record of a specified user.
+     *
+     * @param request - DeleteAuthorizationByUserIdRequest
+     *
+     * @returns DeleteAuthorizationByUserIdResponse
+     *
+     * @param DeleteAuthorizationByUserIdRequest $request
+     *
+     * @return DeleteAuthorizationByUserIdResponse
+     */
+    public function deleteAuthorizationByUserId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAuthorizationByUserIdWithOptions($request, $runtime);
     }
 
     /**
@@ -3352,6 +3443,67 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWorksEmbedListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Configures the IP address whitelist for data security.
+     *
+     * @param request - IpWhiteListConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IpWhiteListConfigResponse
+     *
+     * @param IpWhiteListConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return IpWhiteListConfigResponse
+     */
+    public function ipWhiteListConfigWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ipWhiteList) {
+            @$query['IpWhiteList'] = $request->ipWhiteList;
+        }
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IpWhiteListConfig',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return IpWhiteListConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Configures the IP address whitelist for data security.
+     *
+     * @param request - IpWhiteListConfigRequest
+     *
+     * @returns IpWhiteListConfigResponse
+     *
+     * @param IpWhiteListConfigRequest $request
+     *
+     * @return IpWhiteListConfigResponse
+     */
+    public function ipWhiteListConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ipWhiteListConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -6832,7 +6984,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 根据绑定的第三方账号ID查询UserId.
+     * Queries a UserId by the bound third-party account ID.
      *
      * @param request - QueryUserByMobileAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6875,7 +7027,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * 根据绑定的第三方账号ID查询UserId.
+     * Queries a UserId by the bound third-party account ID.
      *
      * @param request - QueryUserByMobileAccountRequest
      *
@@ -8271,7 +8423,68 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Updates a dataset that is based on a custom SQL statement.
+     * Migrates a user group.
+     *
+     * @param request - TransferUsergroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TransferUsergroupResponse
+     *
+     * @param TransferUsergroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TransferUsergroupResponse
+     */
+    public function transferUsergroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->parentUserGroupId) {
+            @$query['ParentUserGroupId'] = $request->parentUserGroupId;
+        }
+
+        if (null !== $request->userGroupId) {
+            @$query['UserGroupId'] = $request->userGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TransferUsergroup',
+            'version' => '2022-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TransferUsergroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Migrates a user group.
+     *
+     * @param request - TransferUsergroupRequest
+     *
+     * @returns TransferUsergroupResponse
+     *
+     * @param TransferUsergroupRequest $request
+     *
+     * @return TransferUsergroupResponse
+     */
+    public function transferUsergroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transferUsergroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a custom SQL dataset.
      *
      * @param request - UpdateCubeBySqlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8297,6 +8510,10 @@ class Quickbipublic extends OpenApiClient
 
         if (null !== $request->dsId) {
             @$query['DsId'] = $request->dsId;
+        }
+
+        if (null !== $request->placeholders) {
+            @$query['Placeholders'] = $request->placeholders;
         }
 
         if (null !== $request->userId) {
@@ -8326,7 +8543,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Updates a dataset that is based on a custom SQL statement.
+     * Updates a custom SQL dataset.
      *
      * @param request - UpdateCubeBySqlRequest
      *

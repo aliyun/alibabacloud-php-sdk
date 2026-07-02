@@ -26,6 +26,11 @@ class UpdateCubeBySqlRequest extends Model
     /**
      * @var string
      */
+    public $placeholders;
+
+    /**
+     * @var string
+     */
     public $userId;
 
     /**
@@ -36,6 +41,7 @@ class UpdateCubeBySqlRequest extends Model
         'cubeId' => 'CubeId',
         'customSql' => 'CustomSql',
         'dsId' => 'DsId',
+        'placeholders' => 'Placeholders',
         'userId' => 'UserId',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -58,6 +64,10 @@ class UpdateCubeBySqlRequest extends Model
 
         if (null !== $this->dsId) {
             $res['DsId'] = $this->dsId;
+        }
+
+        if (null !== $this->placeholders) {
+            $res['Placeholders'] = $this->placeholders;
         }
 
         if (null !== $this->userId) {
@@ -89,6 +99,10 @@ class UpdateCubeBySqlRequest extends Model
 
         if (isset($map['DsId'])) {
             $model->dsId = $map['DsId'];
+        }
+
+        if (isset($map['Placeholders'])) {
+            $model->placeholders = $map['Placeholders'];
         }
 
         if (isset($map['UserId'])) {
