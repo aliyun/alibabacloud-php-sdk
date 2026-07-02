@@ -23,6 +23,10 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeWorkspaceRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeWorkspaceResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\DeleteYikeAssetMediaInfosRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\DeleteYikeAssetMediaInfosResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetImageGenerationJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetImageGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetVideoGenerationJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetVideoGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAgentJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAgentJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAIAppJobRequest;
@@ -57,6 +61,10 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeCallbackConfigRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeCallbackConfigResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeUserRoleRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SetYikeUserRoleResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitImageGenerationJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitImageGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitVideoGenerationJobRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitVideoGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAIAppJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\SubmitYikeAvatarNarratorJobRequest;
@@ -670,6 +678,132 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteYikeAssetMediaInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询图片生成任务
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+     *
+     * @param request - GetImageGenerationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetImageGenerationJobResponse
+     *
+     * @param GetImageGenerationJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetImageGenerationJobResponse
+     */
+    public function getImageGenerationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetImageGenerationJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetImageGenerationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询图片生成任务
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+     *
+     * @param request - GetImageGenerationJobRequest
+     *
+     * @returns GetImageGenerationJobResponse
+     *
+     * @param GetImageGenerationJobRequest $request
+     *
+     * @return GetImageGenerationJobResponse
+     */
+    public function getImageGenerationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getImageGenerationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询视频生成任务
+     *
+     * @param request - GetVideoGenerationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetVideoGenerationJobResponse
+     *
+     * @param GetVideoGenerationJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetVideoGenerationJobResponse
+     */
+    public function getVideoGenerationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetVideoGenerationJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetVideoGenerationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询视频生成任务
+     *
+     * @param request - GetVideoGenerationJobRequest
+     *
+     * @returns GetVideoGenerationJobResponse
+     *
+     * @param GetVideoGenerationJobRequest $request
+     *
+     * @return GetVideoGenerationJobResponse
+     */
+    public function getVideoGenerationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVideoGenerationJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1755,6 +1889,212 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 提交图像生成接口.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+     *
+     * @param request - SubmitImageGenerationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitImageGenerationJobResponse
+     *
+     * @param SubmitImageGenerationJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitImageGenerationJobResponse
+     */
+    public function submitImageGenerationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aspectRatio) {
+            @$query['AspectRatio'] = $request->aspectRatio;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
+        }
+
+        if (null !== $request->jobParameters) {
+            @$query['JobParameters'] = $request->jobParameters;
+        }
+
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->n) {
+            @$query['N'] = $request->n;
+        }
+
+        if (null !== $request->resolution) {
+            @$query['Resolution'] = $request->resolution;
+        }
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitImageGenerationJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitImageGenerationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交图像生成接口.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+     *
+     * @param request - SubmitImageGenerationJobRequest
+     *
+     * @returns SubmitImageGenerationJobResponse
+     *
+     * @param SubmitImageGenerationJobRequest $request
+     *
+     * @return SubmitImageGenerationJobResponse
+     */
+    public function submitImageGenerationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitImageGenerationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交视频生成接口.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+     *
+     * @param request - SubmitVideoGenerationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitVideoGenerationJobResponse
+     *
+     * @param SubmitVideoGenerationJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitVideoGenerationJobResponse
+     */
+    public function submitVideoGenerationJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aspectRatio) {
+            @$query['AspectRatio'] = $request->aspectRatio;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->input) {
+            @$query['Input'] = $request->input;
+        }
+
+        if (null !== $request->jobParameters) {
+            @$query['JobParameters'] = $request->jobParameters;
+        }
+
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->n) {
+            @$query['N'] = $request->n;
+        }
+
+        if (null !== $request->resolution) {
+            @$query['Resolution'] = $request->resolution;
+        }
+
+        if (null !== $request->scene) {
+            @$query['Scene'] = $request->scene;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitVideoGenerationJob',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitVideoGenerationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 提交视频生成接口.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该API用于根据提供的文本内容及其它参数（如数字人信息、应用场景类型等）生成一段由虚拟人物口播的视频。用户需指定文本类型（原始稿或口播稿）、成片尺寸与清晰度等关键配置项，并可选择是否添加字幕或指定输出语言种类。此外，支持通过`UserData`字段传递自定义参数，在回调时原样返回。
+     *
+     * @param request - SubmitVideoGenerationJobRequest
+     *
+     * @returns SubmitVideoGenerationJobResponse
+     *
+     * @param SubmitVideoGenerationJobRequest $request
+     *
+     * @return SubmitVideoGenerationJobResponse
+     */
+    public function submitVideoGenerationJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitVideoGenerationJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Submits an AI application task to Yike AI.
      *
      * @param request - SubmitYikeAIAppJobRequest
@@ -2140,7 +2480,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻数字人口播视频生成任务
+     * Creates a video replication task that supports same-category content rewriting scenarios by preserving the original video framework and generating deduplicated variants through replacing partial elements (person/voice/image/text).
      *
      * @param request - SubmitYikeVideoCloneJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2183,7 +2523,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 提交一刻数字人口播视频生成任务
+     * Creates a video replication task that supports same-category content rewriting scenarios by preserving the original video framework and generating deduplicated variants through replacing partial elements (person/voice/image/text).
      *
      * @param request - SubmitYikeVideoCloneJobRequest
      *
