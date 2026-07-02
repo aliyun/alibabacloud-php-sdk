@@ -48,6 +48,11 @@ class cloudAccount extends Model
     /**
      * @var string
      */
+    public $cloudAccountSite;
+
+    /**
+     * @var string
+     */
     public $cloudAccountVendorType;
 
     /**
@@ -77,6 +82,7 @@ class cloudAccount extends Model
         'cloudAccountName' => 'CloudAccountName',
         'cloudAccountProviderConfig' => 'CloudAccountProviderConfig',
         'cloudAccountProviderName' => 'CloudAccountProviderName',
+        'cloudAccountSite' => 'CloudAccountSite',
         'cloudAccountVendorType' => 'CloudAccountVendorType',
         'createTime' => 'CreateTime',
         'description' => 'Description',
@@ -124,6 +130,10 @@ class cloudAccount extends Model
 
         if (null !== $this->cloudAccountProviderName) {
             $res['CloudAccountProviderName'] = $this->cloudAccountProviderName;
+        }
+
+        if (null !== $this->cloudAccountSite) {
+            $res['CloudAccountSite'] = $this->cloudAccountSite;
         }
 
         if (null !== $this->cloudAccountVendorType) {
@@ -183,6 +193,10 @@ class cloudAccount extends Model
 
         if (isset($map['CloudAccountProviderName'])) {
             $model->cloudAccountProviderName = $map['CloudAccountProviderName'];
+        }
+
+        if (isset($map['CloudAccountSite'])) {
+            $model->cloudAccountSite = $map['CloudAccountSite'];
         }
 
         if (isset($map['CloudAccountVendorType'])) {
