@@ -1,0 +1,108 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseInstancesResponseBody;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseInstancesResponseBody\data\instances;
+
+class data extends Model
+{
+    /**
+     * @var instances[]
+     */
+    public $instances;
+
+    /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @var int
+     */
+    public $totalNumber;
+    protected $_name = [
+        'instances' => 'Instances',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalNumber' => 'TotalNumber',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->instances) {
+            if (\is_array($this->instances)) {
+                $res['Instances'] = [];
+                $n1 = 0;
+                foreach ($this->instances as $item1) {
+                    $res['Instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->totalNumber) {
+            $res['TotalNumber'] = $this->totalNumber;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Instances'])) {
+            if (!empty($map['Instances'])) {
+                $model->instances = [];
+                $n1 = 0;
+                foreach ($map['Instances'] as $item1) {
+                    $model->instances[$n1] = instances::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['TotalNumber'])) {
+            $model->totalNumber = $map['TotalNumber'];
+        }
+
+        return $model;
+    }
+}

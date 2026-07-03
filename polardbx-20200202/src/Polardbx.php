@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckCloudResourceAuthorizedRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckCloudResourceAuthorizedResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckHealthRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckHealthResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckSqlAuditSlsStatusRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CheckSqlAuditSlsStatusResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CloseEngineMigrationRequest;
@@ -48,6 +50,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnStandbyMemberRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateGdnStandbyMemberResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0Request;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateMem0Response;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolardbxSupabaseInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolardbxSupabaseInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSQLEvaluateTaskRequest;
@@ -58,6 +62,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStructureImportTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStructureImportTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSubCNInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSubCNInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSupabaseNetTypeRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSupabaseNetTypeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSuperAccountRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSuperAccountResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateTransformOperationRequest;
@@ -76,8 +82,12 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteGdnInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Request;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Response;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePolardbxSupabaseInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePolardbxSupabaseInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteSubCNInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteSubCNInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteSupabaseNetTypeRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteSupabaseNetTypeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeAccountListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeActiveOperationMaintainConfRequest;
@@ -191,6 +201,14 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeStoragePoolInfoRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeStoragePoolInfoResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeStructureImportTaskInfoRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeStructureImportTaskInfoResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseApiKeyRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseApiKeyResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseInstanceAttributeRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseInstanceAttributeResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseInstancesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseInstancesResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseIpWhitelistRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSupabaseIpWhitelistResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksRequest;
@@ -249,6 +267,10 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifyParameterResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySecurityIpsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySupabaseDashboardPasswordRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySupabaseDashboardPasswordResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySupabaseSecurityIPListRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ModifySupabaseSecurityIPListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\PreCheckSqlFlashbackTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\PreCheckSqlFlashbackTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RefreshImportMetaRequest;
@@ -269,6 +291,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDataImportTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartSupabaseInstanceRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartSupabaseInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestoreDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestoreDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SkipCurrentStepRequest;
@@ -951,6 +975,56 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkCloudResourceAuthorizedWithOptions($request, $runtime);
+    }
+
+    /**
+     * Performs a service health check.
+     *
+     * @param request - CheckHealthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckHealthResponse
+     *
+     * @param CheckHealthRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CheckHealthResponse
+     */
+    public function checkHealthWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'CheckHealth',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckHealthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Performs a service health check.
+     *
+     * @param request - CheckHealthRequest
+     *
+     * @returns CheckHealthResponse
+     *
+     * @param CheckHealthRequest $request
+     *
+     * @return CheckHealthResponse
+     */
+    public function checkHealth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkHealthWithOptions($request, $runtime);
     }
 
     /**
@@ -2157,6 +2231,119 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Creates a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - CreatePolardbxSupabaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolardbxSupabaseInstanceResponse
+     *
+     * @param CreatePolardbxSupabaseInstanceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreatePolardbxSupabaseInstanceResponse
+     */
+    public function createPolardbxSupabaseInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dashboardPassword) {
+            @$query['DashboardPassword'] = $request->dashboardPassword;
+        }
+
+        if (null !== $request->dbInstanceDescription) {
+            @$query['DbInstanceDescription'] = $request->dbInstanceDescription;
+        }
+
+        if (null !== $request->dbPassword) {
+            @$query['DbPassword'] = $request->dbPassword;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tenantMode) {
+            @$query['TenantMode'] = $request->tenantMode;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePolardbxSupabaseInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePolardbxSupabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - CreatePolardbxSupabaseInstanceRequest
+     *
+     * @returns CreatePolardbxSupabaseInstanceResponse
+     *
+     * @param CreatePolardbxSupabaseInstanceRequest $request
+     *
+     * @return CreatePolardbxSupabaseInstanceResponse
+     */
+    public function createPolardbxSupabaseInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolardbxSupabaseInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * Performs a health check on the replication task during data migration.
      *
      * @remarks
@@ -2497,7 +2684,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建自定义地址
+     * Creates a custom endpoint.
      *
      * @remarks
      *
@@ -2550,7 +2737,7 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * 创建自定义地址
+     * Creates a custom endpoint.
      *
      * @remarks
      *
@@ -2567,6 +2754,75 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSubCNInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables the public endpoint for a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - CreateSupabaseNetTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSupabaseNetTypeResponse
+     *
+     * @param CreateSupabaseNetTypeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateSupabaseNetTypeResponse
+     */
+    public function createSupabaseNetTypeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->connectionString) {
+            @$query['ConnectionString'] = $request->connectionString;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSupabaseNetType',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSupabaseNetTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables the public endpoint for a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - CreateSupabaseNetTypeRequest
+     *
+     * @returns CreateSupabaseNetTypeResponse
+     *
+     * @param CreateSupabaseNetTypeRequest $request
+     *
+     * @return CreateSupabaseNetTypeResponse
+     */
+    public function createSupabaseNetType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSupabaseNetTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -3173,6 +3429,71 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Deletes a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - DeletePolardbxSupabaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolardbxSupabaseInstanceResponse
+     *
+     * @param DeletePolardbxSupabaseInstanceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeletePolardbxSupabaseInstanceResponse
+     */
+    public function deletePolardbxSupabaseInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePolardbxSupabaseInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePolardbxSupabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - DeletePolardbxSupabaseInstanceRequest
+     *
+     * @returns DeletePolardbxSupabaseInstanceResponse
+     *
+     * @param DeletePolardbxSupabaseInstanceRequest $request
+     *
+     * @return DeletePolardbxSupabaseInstanceResponse
+     */
+    public function deletePolardbxSupabaseInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolardbxSupabaseInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除自定义地址
      *
      * @remarks
@@ -3239,6 +3560,71 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSubCNInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Releases the public endpoint of a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - DeleteSupabaseNetTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSupabaseNetTypeResponse
+     *
+     * @param DeleteSupabaseNetTypeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteSupabaseNetTypeResponse
+     */
+    public function deleteSupabaseNetTypeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSupabaseNetType',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSupabaseNetTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Releases the public endpoint of a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - DeleteSupabaseNetTypeRequest
+     *
+     * @returns DeleteSupabaseNetTypeResponse
+     *
+     * @param DeleteSupabaseNetTypeRequest $request
+     *
+     * @return DeleteSupabaseNetTypeResponse
+     */
+    public function deleteSupabaseNetType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSupabaseNetTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -7079,6 +7465,304 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries the Supabase API key.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     *
+     * @param request - DescribeSupabaseApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupabaseApiKeyResponse
+     *
+     * @param DescribeSupabaseApiKeyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSupabaseApiKeyResponse
+     */
+    public function describeSupabaseApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSupabaseApiKey',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSupabaseApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the Supabase API key.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is later than the query start time and whose log record start time is earlier than the query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     *
+     * @param request - DescribeSupabaseApiKeyRequest
+     *
+     * @returns DescribeSupabaseApiKeyResponse
+     *
+     * @param DescribeSupabaseApiKeyRequest $request
+     *
+     * @return DescribeSupabaseApiKeyResponse
+     */
+    public function describeSupabaseApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSupabaseApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - DescribeSupabaseInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupabaseInstanceAttributeResponse
+     *
+     * @param DescribeSupabaseInstanceAttributeRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeSupabaseInstanceAttributeResponse
+     */
+    public function describeSupabaseInstanceAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSupabaseInstanceAttribute',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSupabaseInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - DescribeSupabaseInstanceAttributeRequest
+     *
+     * @returns DescribeSupabaseInstanceAttributeResponse
+     *
+     * @param DescribeSupabaseInstanceAttributeRequest $request
+     *
+     * @return DescribeSupabaseInstanceAttributeResponse
+     */
+    public function describeSupabaseInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSupabaseInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a list of Supabase instances.
+     *
+     * @remarks
+     * Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+     *
+     * @param request - DescribeSupabaseInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupabaseInstancesResponse
+     *
+     * @param DescribeSupabaseInstancesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSupabaseInstancesResponse
+     */
+    public function describeSupabaseInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSupabaseInstances',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSupabaseInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of Supabase instances.
+     *
+     * @remarks
+     * Queries the list of custom endpoints configured by the user for managing and viewing private connection or VPC endpoint service settings.
+     *
+     * @param request - DescribeSupabaseInstancesRequest
+     *
+     * @returns DescribeSupabaseInstancesResponse
+     *
+     * @param DescribeSupabaseInstancesRequest $request
+     *
+     * @return DescribeSupabaseInstancesResponse
+     */
+    public function describeSupabaseInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSupabaseInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the IP whitelist of a Supabase instance.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     *
+     * @param request - DescribeSupabaseIpWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSupabaseIpWhitelistResponse
+     *
+     * @param DescribeSupabaseIpWhitelistRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSupabaseIpWhitelistResponse
+     */
+    public function describeSupabaseIpWhitelistWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSupabaseIpWhitelist',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeSupabaseIpWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the IP whitelist of a Supabase instance.
+     *
+     * @remarks
+     * - Binary log files are retained for 15 days by default.
+     * - The returned log list includes all logs whose log record end time is later than the specified query start time and whose log record start time is earlier than the specified query end time.
+     * - If DownloadLink is not NULL, you can use this URL to download the backup file. The URL is valid for 2 days after it is generated. Download the file before the URL expires.
+     *
+     * @param request - DescribeSupabaseIpWhitelistRequest
+     *
+     * @returns DescribeSupabaseIpWhitelistResponse
+     *
+     * @param DescribeSupabaseIpWhitelistRequest $request
+     *
+     * @return DescribeSupabaseIpWhitelistResponse
+     */
+    public function describeSupabaseIpWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSupabaseIpWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves tag information.
      *
      * @param request - DescribeTagsRequest
@@ -9274,6 +9958,152 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Modifies the Supabase Dashboard password.
+     *
+     * @remarks
+     *
+     * @param request - ModifySupabaseDashboardPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySupabaseDashboardPasswordResponse
+     *
+     * @param ModifySupabaseDashboardPasswordRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifySupabaseDashboardPasswordResponse
+     */
+    public function modifySupabaseDashboardPasswordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->newPassword) {
+            @$query['NewPassword'] = $request->newPassword;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySupabaseDashboardPassword',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySupabaseDashboardPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the Supabase Dashboard password.
+     *
+     * @remarks
+     *
+     * @param request - ModifySupabaseDashboardPasswordRequest
+     *
+     * @returns ModifySupabaseDashboardPasswordResponse
+     *
+     * @param ModifySupabaseDashboardPasswordRequest $request
+     *
+     * @return ModifySupabaseDashboardPasswordResponse
+     */
+    public function modifySupabaseDashboardPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySupabaseDashboardPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the IP whitelist of a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - ModifySupabaseSecurityIPListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySupabaseSecurityIPListResponse
+     *
+     * @param ModifySupabaseSecurityIPListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifySupabaseSecurityIPListResponse
+     */
+    public function modifySupabaseSecurityIPListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySupabaseSecurityIPList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySupabaseSecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the IP whitelist of a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - ModifySupabaseSecurityIPListRequest
+     *
+     * @returns ModifySupabaseSecurityIPListResponse
+     *
+     * @param ModifySupabaseSecurityIPListRequest $request
+     *
+     * @return ModifySupabaseSecurityIPListResponse
+     */
+    public function modifySupabaseSecurityIPList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySupabaseSecurityIPListWithOptions($request, $runtime);
+    }
+
+    /**
      * Performs a pre-check and feasibility assessment for a recovery task before you execute SQL flashback recovery.
      *
      * @param request - PreCheckSqlFlashbackTaskRequest
@@ -9967,6 +10797,71 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDataImportTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Restarts a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - RestartSupabaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartSupabaseInstanceResponse
+     *
+     * @param RestartSupabaseInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RestartSupabaseInstanceResponse
+     */
+    public function restartSupabaseInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartSupabaseInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartSupabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restarts a Supabase instance.
+     *
+     * @remarks
+     *
+     * @param request - RestartSupabaseInstanceRequest
+     *
+     * @returns RestartSupabaseInstanceResponse
+     *
+     * @param RestartSupabaseInstanceRequest $request
+     *
+     * @return RestartSupabaseInstanceResponse
+     */
+    public function restartSupabaseInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartSupabaseInstanceWithOptions($request, $runtime);
     }
 
     /**
