@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Smartag\V20180313\Models\AssociateQosRequest;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\AssociateQosResponse;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\AssociateSmartAGWithApplicationBandwidthPackageRequest;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\AssociateSmartAGWithApplicationBandwidthPackageResponse;
+use AlibabaCloud\SDK\Smartag\V20180313\Models\AttachCcnInstanceToCenRequest;
+use AlibabaCloud\SDK\Smartag\V20180313\Models\AttachCcnInstanceToCenResponse;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\BindSerialNumberRequest;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\BindSerialNumberResponse;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\BindSmartAccessGatewayRequest;
@@ -209,6 +211,8 @@ use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeUserOnlineClientsRequest;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeUserOnlineClientsResponse;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeUserOnlineClientStatisticsRequest;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DescribeUserOnlineClientStatisticsResponse;
+use AlibabaCloud\SDK\Smartag\V20180313\Models\DetachCcnInstanceFromCenRequest;
+use AlibabaCloud\SDK\Smartag\V20180313\Models\DetachCcnInstanceFromCenResponse;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DiagnoseSmartAccessGatewayRequest;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DiagnoseSmartAccessGatewayResponse;
 use AlibabaCloud\SDK\Smartag\V20180313\Models\DisableSmartAccessGatewayUserRequest;
@@ -422,6 +426,18 @@ class Smartag extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'eu-central-1' => 'smartag.eu-central-1.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'smartag.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'smartag.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'smartag.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'smartag.cn-hangzhou.aliyuncs.com',
+            'ap-southeast-5' => 'smartag.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'smartag.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-2' => 'smartag.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'smartag.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'smartag.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('smartag', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -605,7 +621,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates an access control list (ACL) rule.
+     * Adds an access control rule.
      *
      * @param request - AddACLRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -716,7 +732,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates an access control list (ACL) rule.
+     * Adds an access control rule.
      *
      * @param request - AddACLRuleRequest
      *
@@ -928,7 +944,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to add a source network address translation (SNAT) entry to a Smart Access Gateway (SAG) instance.
+     * Adds a source network address translation (SNAT) entry to a Smart Access Gateway (SAG) instance.
      *
      * @param request - AddSnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -995,7 +1011,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to add a source network address translation (SNAT) entry to a Smart Access Gateway (SAG) instance.
+     * Adds a source network address translation (SNAT) entry to a Smart Access Gateway (SAG) instance.
      *
      * @param request - AddSnatEntryRequest
      *
@@ -1094,7 +1110,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Associates a flow log with a Smart Access Gateway (SAG) instance.
+     * Associates a Smart Access Gateway instance.
      *
      * @param request - AssociateFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1157,7 +1173,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Associates a flow log with a Smart Access Gateway (SAG) instance.
+     * Associates a Smart Access Gateway instance.
      *
      * @param request - AssociateFlowLogRequest
      *
@@ -1345,7 +1361,82 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Associates a Smart Access Gateway (SAG) device with an SAG instance.
+     * Binds a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
+     *
+     * @remarks
+     * Binds a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
+     *
+     * @param request - AttachCcnInstanceToCenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachCcnInstanceToCenResponse
+     *
+     * @param AttachCcnInstanceToCenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AttachCcnInstanceToCenResponse
+     */
+    public function attachCcnInstanceToCenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ccnId) {
+            @$query['CcnId'] = $request->ccnId;
+        }
+
+        if (null !== $request->cenId) {
+            @$query['CenId'] = $request->cenId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->subnet) {
+            @$query['Subnet'] = $request->subnet;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AttachCcnInstanceToCen',
+            'version' => '2018-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AttachCcnInstanceToCenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Binds a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
+     *
+     * @remarks
+     * Binds a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
+     *
+     * @param request - AttachCcnInstanceToCenRequest
+     *
+     * @returns AttachCcnInstanceToCenResponse
+     *
+     * @param AttachCcnInstanceToCenRequest $request
+     *
+     * @return AttachCcnInstanceToCenResponse
+     */
+    public function attachCcnInstanceToCen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachCcnInstanceToCenWithOptions($request, $runtime);
+    }
+
+    /**
+     * Binds a Smart Access Gateway device to a Smart Access Gateway instance.
      *
      * @param request - BindSerialNumberRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1408,7 +1499,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Associates a Smart Access Gateway (SAG) device with an SAG instance.
+     * Binds a Smart Access Gateway device to a Smart Access Gateway instance.
      *
      * @param request - BindSerialNumberRequest
      *
@@ -1511,7 +1602,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Associates a Smart Access Gateway (SAG) instance with a virtual border router (VBR).
+     * Binds a virtual border router (VBR) to a Smart Access Gateway instance.
      *
      * @param request - BindVbrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1582,7 +1673,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Associates a Smart Access Gateway (SAG) instance with a virtual border router (VBR).
+     * Binds a virtual border router (VBR) to a Smart Access Gateway instance.
      *
      * @param request - BindVbrRequest
      *
@@ -1681,7 +1772,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Clears the routable IP addresses of a Smart Access Gateway (SAG) instance.
+     * Purges the routable addresses of a Smart Access Gateway instance.
      *
      * @param request - ClearSagRouteableAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1740,7 +1831,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Clears the routable IP addresses of a Smart Access Gateway (SAG) instance.
+     * Purges the routable addresses of a Smart Access Gateway instance.
      *
      * @param request - ClearSagRouteableAddressRequest
      *
@@ -1758,7 +1849,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates an access control list (ACL).
+     * Creates an access control instance by calling the CreateACL operation.
      *
      * @param request - CreateACLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1821,7 +1912,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates an access control list (ACL).
+     * Creates an access control instance by calling the CreateACL operation.
      *
      * @param request - CreateACLRequest
      *
@@ -1839,10 +1930,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a Cloud Connect Network (CCN) instance.
+     * Calls the CreateCloudConnectNetwork operation to create a Cloud Connect Network (CCN) instance.
      *
      * @remarks
-     * CCN is a matrix consisting of Alibaba Cloud distributed access gateways. It is an important component of Smart Access Gateway (SAG). After you associate an SAG instance with a CCN instance, the SAG instance connects the private networks associated with Alibaba Cloud. For more information, see [Overview of Cloud Connect Network](https://help.aliyun.com/document_detail/93667.html).
+     * A Cloud Connect Network (CCN) is a device access matrix that consists of Alibaba Cloud distributed access gateways. CCN is another important component of Smart Access Gateway. After you attach Smart Access Gateway to a CCN, Smart Access Gateway can connect your on-premises network to Alibaba Cloud through the CCN via network connectivity. For more information, see [Cloud Connect Network overview](https://help.aliyun.com/document_detail/93667.html).
      *
      * @param request - CreateCloudConnectNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1913,10 +2004,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a Cloud Connect Network (CCN) instance.
+     * Calls the CreateCloudConnectNetwork operation to create a Cloud Connect Network (CCN) instance.
      *
      * @remarks
-     * CCN is a matrix consisting of Alibaba Cloud distributed access gateways. It is an important component of Smart Access Gateway (SAG). After you associate an SAG instance with a CCN instance, the SAG instance connects the private networks associated with Alibaba Cloud. For more information, see [Overview of Cloud Connect Network](https://help.aliyun.com/document_detail/93667.html).
+     * A Cloud Connect Network (CCN) is a device access matrix that consists of Alibaba Cloud distributed access gateways. CCN is another important component of Smart Access Gateway. After you attach Smart Access Gateway to a CCN, Smart Access Gateway can connect your on-premises network to Alibaba Cloud through the CCN via network connectivity. For more information, see [Cloud Connect Network overview](https://help.aliyun.com/document_detail/93667.html).
      *
      * @param request - CreateCloudConnectNetworkRequest
      *
@@ -1934,7 +2025,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates an enterprise code.
+     * Creates an enterprise code by calling CreateEnterpriseCode.
      *
      * @param request - CreateEnterpriseCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1981,7 +2072,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates an enterprise code.
+     * Creates an enterprise code by calling CreateEnterpriseCode.
      *
      * @param request - CreateEnterpriseCodeRequest
      *
@@ -2116,7 +2207,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a health check for a Smart Access Gateway (SAG) instance.
+     * Calls CreateHealthCheck to create a health check for a Smart Access Gateway instance.
      *
      * @param request - CreateHealthCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2227,7 +2318,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a health check for a Smart Access Gateway (SAG) instance.
+     * Calls CreateHealthCheck to create a health check for a Smart Access Gateway instance.
      *
      * @param request - CreateHealthCheckRequest
      *
@@ -2245,11 +2336,11 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a probing task for a Smart Access Gateway (SAG) device.
+     * Creates a probe task for a specified Smart Access Gateway device.
      *
      * @remarks
-     *   Only SAG-1000 devices whose software version is 2.7.0 or later support the probing feature.
-     * *   The SAG instance must have the deep packet inspection (DPI) feature enabled. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to enable or disable the DPI feature.
+     * - Currently, only SAG-1000 devices with software version 2.7.0 or later support the probe monitoring feature.
+     * - Before creating a probe task, enable the advanced monitoring feature for the Smart Access Gateway instance. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to set the advanced monitoring status.
      *
      * @param request - CreateProbeTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2328,11 +2419,11 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a probing task for a Smart Access Gateway (SAG) device.
+     * Creates a probe task for a specified Smart Access Gateway device.
      *
      * @remarks
-     *   Only SAG-1000 devices whose software version is 2.7.0 or later support the probing feature.
-     * *   The SAG instance must have the deep packet inspection (DPI) feature enabled. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to enable or disable the DPI feature.
+     * - Currently, only SAG-1000 devices with software version 2.7.0 or later support the probe monitoring feature.
+     * - Before creating a probe task, enable the advanced monitoring feature for the Smart Access Gateway instance. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to set the advanced monitoring status.
      *
      * @param request - CreateProbeTaskRequest
      *
@@ -2350,7 +2441,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a quality of service (QoS) policy.
+     * Creates a quality of service (QoS) policy instance by calling the CreateQos operation.
      *
      * @param request - CreateQosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2413,7 +2504,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a quality of service (QoS) policy.
+     * Creates a quality of service (QoS) policy instance by calling the CreateQos operation.
      *
      * @param request - CreateQosRequest
      *
@@ -2431,7 +2522,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a traffic throttling rule for a quality of service (QoS) policy.
+     * Creates a rate limiting rule for a quality of service (QoS) policy by calling the CreateQosCar operation.
      *
      * @param request - CreateQosCarRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2526,7 +2617,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a traffic throttling rule for a quality of service (QoS) policy.
+     * Creates a rate limiting rule for a quality of service (QoS) policy by calling the CreateQosCar operation.
      *
      * @param request - CreateQosCarRequest
      *
@@ -2544,11 +2635,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a traffic classification rule for a quality of service (QoS) policy.
+     * Creates a traffic classification rule for a QoS policy by calling the CreateQosPolicy operation.
      *
      * @remarks
-     * ## Prerequisites
-     * A traffic throttling rule is created. For more information, see [CreateQosCar](https://help.aliyun.com/document_detail/131806.html).
+     * Before you create a 5-tuple rule for a QoS policy, make sure that you have created a rate limiting rule for the QoS policy. For more information, see [CreateQosCar](https://help.aliyun.com/document_detail/131806.html).
      *
      * @param request - CreateQosPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2655,11 +2745,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Creates a traffic classification rule for a quality of service (QoS) policy.
+     * Creates a traffic classification rule for a QoS policy by calling the CreateQosPolicy operation.
      *
      * @remarks
-     * ## Prerequisites
-     * A traffic throttling rule is created. For more information, see [CreateQosCar](https://help.aliyun.com/document_detail/131806.html).
+     * Before you create a 5-tuple rule for a QoS policy, make sure that you have created a rate limiting rule for the QoS policy. For more information, see [CreateQosCar](https://help.aliyun.com/document_detail/131806.html).
      *
      * @param request - CreateQosPolicyRequest
      *
@@ -2871,7 +2960,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Configures a service address for a Smart Access Gateway (SAG) device.
+     * Configures a service address for a specified Smart Access Gateway device.
      *
      * @param request - CreateServiceAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2926,7 +3015,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Configures a service address for a Smart Access Gateway (SAG) device.
+     * Configures a service address for a specified Smart Access Gateway device.
      *
      * @param request - CreateServiceAddressRequest
      *
@@ -3694,14 +3783,14 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Deletes a specified enterprise code.
+     * Deletes a specified enterprise code by calling DeleteEnterpriseCode.
      *
      * @remarks
-     * Before you call this operation, take note of the following rules:
-     * *   You cannot delete default enterprise codes.
-     *     To delete a default enterprise code, change it to a custom enterprise code and then delete it. For more information, see [UpdateEnterpriseCode](https://help.aliyun.com/document_detail/197700.html).
-     * *   You cannot delete enterprise codes that are associated with a Smart Access Gateway (SAG) APP instance.
-     *     To delete an enterprise code that is associated with an SAG APP instance, associate the SAG APP instance with another enterprise code, and then delete the enterprise code. For more information, see [UpdateSmartAGEnterpriseCode](https://help.aliyun.com/document_detail/197701.html).
+     * Before you delete an enterprise code, note the following information:
+     * - Default enterprise codes cannot be deleted.
+     * If the enterprise code that you want to delete is a default enterprise code, change it to a common enterprise code first, and then delete it. For more information, see [UpdateEnterpriseCode](https://help.aliyun.com/document_detail/197700.html).
+     * - Enterprise codes that are attached to Smart Access Gateway app instances cannot be deleted.
+     * If the enterprise code that you want to delete is attached to Smart Access Gateway app instances, change the enterprise code of the Smart Access Gateway app instances to another enterprise code first, and then delete the current enterprise code. For more information, see [UpdateSmartAGEnterpriseCode](https://help.aliyun.com/document_detail/197701.html).
      *
      * @param request - DeleteEnterpriseCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3748,14 +3837,14 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Deletes a specified enterprise code.
+     * Deletes a specified enterprise code by calling DeleteEnterpriseCode.
      *
      * @remarks
-     * Before you call this operation, take note of the following rules:
-     * *   You cannot delete default enterprise codes.
-     *     To delete a default enterprise code, change it to a custom enterprise code and then delete it. For more information, see [UpdateEnterpriseCode](https://help.aliyun.com/document_detail/197700.html).
-     * *   You cannot delete enterprise codes that are associated with a Smart Access Gateway (SAG) APP instance.
-     *     To delete an enterprise code that is associated with an SAG APP instance, associate the SAG APP instance with another enterprise code, and then delete the enterprise code. For more information, see [UpdateSmartAGEnterpriseCode](https://help.aliyun.com/document_detail/197701.html).
+     * Before you delete an enterprise code, note the following information:
+     * - Default enterprise codes cannot be deleted.
+     * If the enterprise code that you want to delete is a default enterprise code, change it to a common enterprise code first, and then delete it. For more information, see [UpdateEnterpriseCode](https://help.aliyun.com/document_detail/197700.html).
+     * - Enterprise codes that are attached to Smart Access Gateway app instances cannot be deleted.
+     * If the enterprise code that you want to delete is attached to Smart Access Gateway app instances, change the enterprise code of the Smart Access Gateway app instances to another enterprise code first, and then delete the current enterprise code. For more information, see [UpdateSmartAGEnterpriseCode](https://help.aliyun.com/document_detail/197701.html).
      *
      * @param request - DeleteEnterpriseCodeRequest
      *
@@ -3850,7 +3939,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete a health check instance.
+     * Deletes a health check instance.
      *
      * @param request - DeleteHealthCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3909,7 +3998,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete a health check instance.
+     * Deletes a health check instance.
      *
      * @param request - DeleteHealthCheckRequest
      *
@@ -4073,7 +4162,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Deletes a speed limiting rule of a Quality of Service (QoS) policy.
+     * Deletes a QoS car (bandwidth throttling rule) by calling the DeleteQosCar operation.
      *
      * @param request - DeleteQosCarRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4136,7 +4225,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Deletes a speed limiting rule of a Quality of Service (QoS) policy.
+     * Deletes a QoS car (bandwidth throttling rule) by calling the DeleteQosCar operation.
      *
      * @param request - DeleteQosCarRequest
      *
@@ -4413,7 +4502,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete a static route.
+     * Deletes a static route.
      *
      * @param request - DeleteSagStaticRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4488,7 +4577,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete a static route.
+     * Deletes a static route.
      *
      * @param request - DeleteSagStaticRouteRequest
      *
@@ -4506,7 +4595,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Deletes a service address from a Smart Access Gateway (SAG) device.
+     * Deletes a service address configured on a Smart Access Gateway device.
      *
      * @param request - DeleteServiceAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4561,7 +4650,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Deletes a service address from a Smart Access Gateway (SAG) device.
+     * Deletes a service address configured on a Smart Access Gateway device.
      *
      * @param request - DeleteServiceAddressRequest
      *
@@ -4735,7 +4824,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Disables DNS forwarding for SCG5000 or SCG5000-5G devices whose software version is 3.4.2 or later.
+     * Deletes a DNS forwarding rule. This operation is applicable only to Smart Access Gateway (SAG) instances that are created using an SCG5000 or SCG5000-5G device with firmware version 3.4.2 or later.
      *
      * @param request - DeleteSmartAccessGatewayDnsForwardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4786,7 +4875,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Disables DNS forwarding for SCG5000 or SCG5000-5G devices whose software version is 3.4.2 or later.
+     * Deletes a DNS forwarding rule. This operation is applicable only to Smart Access Gateway (SAG) instances that are created using an SCG5000 or SCG5000-5G device with firmware version 3.4.2 or later.
      *
      * @param request - DeleteSmartAccessGatewayDnsForwardRequest
      *
@@ -4885,7 +4974,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the information about an access control list (ACL).
+     * Calls DescribeACLAttribute to query the information about a specified access control list (ACL) instance.
      *
      * @param request - DescribeACLAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4964,7 +5053,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the information about an access control list (ACL).
+     * Calls DescribeACLAttribute to query the information about a specified access control list (ACL) instance.
      *
      * @param request - DescribeACLAttributeRequest
      *
@@ -4982,7 +5071,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries access control lists (ACLs) in a specified region.
+     * Calls DescribeACLs to query the information about access control instances in a specified region.
      *
      * @param request - DescribeACLsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5057,7 +5146,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries access control lists (ACLs) in a specified region.
+     * Calls DescribeACLs to query the information about access control instances in a specified region.
      *
      * @param request - DescribeACLsRequest
      *
@@ -5249,7 +5338,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries Cloud Connect Network (CCN) instances that you have created in a specific region.
+     * Retrieves Cloud Connect Network (CCN) instances in a specified region.
      *
      * @param request - DescribeCloudConnectNetworksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5324,7 +5413,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries Cloud Connect Network (CCN) instances that you have created in a specific region.
+     * Retrieves Cloud Connect Network (CCN) instances in a specified region.
      *
      * @param request - DescribeCloudConnectNetworksRequest
      *
@@ -5516,7 +5605,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries Smart Access Gateway (SAG) instances that are associated with a specified flow log.
+     * Queries the Smart Access Gateway instances associated with a flow log by calling DescribeFlowLogSags.
      *
      * @param request - DescribeFlowLogSagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5583,7 +5672,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries Smart Access Gateway (SAG) instances that are associated with a specified flow log.
+     * Queries the Smart Access Gateway instances associated with a flow log by calling DescribeFlowLogSags.
      *
      * @param request - DescribeFlowLogSagsRequest
      *
@@ -6232,7 +6321,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries quality of service (QoS) rules that contain 5-tuples.
+     * You can call the DescribeQosPolicies operation to query the quintuple rule configurations for a Quality of Service (QoS) policy.
      *
      * @param request - DescribeQosPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6311,7 +6400,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries quality of service (QoS) rules that contain 5-tuples.
+     * You can call the DescribeQosPolicies operation to query the quintuple rule configurations for a Quality of Service (QoS) policy.
      *
      * @param request - DescribeQosPoliciesRequest
      *
@@ -6580,7 +6669,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries a Smart Access Gateway (SAG) device.
+     * Queries information about a Smart Access Gateway device by calling the DescribeSAGDeviceInfo operation.
      *
      * @param request - DescribeSAGDeviceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6643,7 +6732,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries a Smart Access Gateway (SAG) device.
+     * Queries information about a Smart Access Gateway device by calling the DescribeSAGDeviceInfo operation.
      *
      * @param request - DescribeSAGDeviceInfoRequest
      *
@@ -6661,7 +6750,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the DNS servers used by a Smart Access Gateway (SAG) device.
+     * Queries the DNS settings that are currently in effect on a Smart Access Gateway device.
      *
      * @param request - DescribeSagCurrentDnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6724,7 +6813,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the DNS servers used by a Smart Access Gateway (SAG) device.
+     * Queries the DNS settings that are currently in effect on a Smart Access Gateway device.
      *
      * @param request - DescribeSagCurrentDnsRequest
      *
@@ -6742,7 +6831,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the top 10 Smart Access Gateway (SAG) instances that have the highest packet loss rates in a specific region.
+     * Queries the top 10 Smart Access Gateway instances with the highest packet loss rate in a specified region.
      *
      * @param request - DescribeSagDropTopNRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6801,7 +6890,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the top 10 Smart Access Gateway (SAG) instances that have the highest packet loss rates in a specific region.
+     * Queries the top 10 Smart Access Gateway instances with the highest packet loss rate in a specified region.
      *
      * @param request - DescribeSagDropTopNRequest
      *
@@ -6819,7 +6908,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries sub-interfaces added to an Express Connect circuit port.
+     * Queries the sub-interfaces of a dedicated connection port by calling DescribeSagExpressConnectInterfaceList.
      *
      * @param request - DescribeSagExpressConnectInterfaceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6886,7 +6975,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries sub-interfaces added to an Express Connect circuit port.
+     * Queries the sub-interfaces of a dedicated connection port by calling DescribeSagExpressConnectInterfaceList.
      *
      * @param request - DescribeSagExpressConnectInterfaceListRequest
      *
@@ -6985,7 +7074,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the high availability (HA) configuration of a Smart Access Gateway (SAG) instance.
+     * Queries the high-availability configuration of a Smart Access Gateway instance by calling DescribeSagHa.
      *
      * @param request - DescribeSagHaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7048,7 +7137,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the high availability (HA) configuration of a Smart Access Gateway (SAG) instance.
+     * Queries the high-availability configuration of a Smart Access Gateway instance by calling DescribeSagHa.
      *
      * @param request - DescribeSagHaRequest
      *
@@ -7228,7 +7317,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the number of clients connected to Alibaba Cloud through a Smart Access Gateway (SAG) app instance.
+     * Queries online client statistics for Smart Access Gateway (SAG) app instances.
      *
      * @param request - DescribeSagOnlineClientStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7287,7 +7376,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the number of clients connected to Alibaba Cloud through a Smart Access Gateway (SAG) app instance.
+     * Queries online client statistics for Smart Access Gateway (SAG) app instances.
      *
      * @param request - DescribeSagOnlineClientStatisticsRequest
      *
@@ -7305,7 +7394,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information of a physical port.
+     * Queries the information about a physical port.
      *
      * @param request - DescribeSagPortListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7368,7 +7457,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information of a physical port.
+     * Queries the information about a physical port.
      *
      * @param request - DescribeSagPortListRequest
      *
@@ -7386,7 +7475,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the ports for which the specified routing protocol is enabled.
+     * Invokes DescribeSagPortRouteProtocolList to obtain the list of ports on which routing protocols are enabled.
      *
      * @param request - DescribeSagPortRouteProtocolListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7449,7 +7538,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the ports for which the specified routing protocol is enabled.
+     * Invokes DescribeSagPortRouteProtocolList to obtain the list of ports on which routing protocols are enabled.
      *
      * @param request - DescribeSagPortRouteProtocolListRequest
      *
@@ -7872,7 +7961,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the top 10 Smart Access Gateway (SAG) instances that have the highest data transfer rates in a specific region.
+     * Queries the top 10 Smart Access Gateway (SAG) instances that have the highest data transfer rates in a specific region.
      *
      * @param request - DescribeSagTrafficTopNRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7931,7 +8020,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the top 10 Smart Access Gateway (SAG) instances that have the highest data transfer rates in a specific region.
+     * Queries the top 10 Smart Access Gateway (SAG) instances that have the highest data transfer rates in a specific region.
      *
      * @param request - DescribeSagTrafficTopNRequest
      *
@@ -8354,7 +8443,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the Wi-Fi settings of a Smart Access Gateway (SAG) instance.
+     * Queries the Wi-Fi settings of a Smart Access Gateway (SAG) instance.
      *
      * @param request - DescribeSagWifiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8417,7 +8506,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the Wi-Fi settings of a Smart Access Gateway (SAG) instance.
+     * Queries the Wi-Fi settings of a Smart Access Gateway (SAG) instance.
      *
      * @param request - DescribeSagWifiRequest
      *
@@ -8435,7 +8524,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Smart Access Gateway (SAG) instance.
+     * Calls the DescribeSmartAccessGatewayAttribute operation to query the information about a specified Smart Access Gateway (SAG) instance.
      *
      * @param request - DescribeSmartAccessGatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8494,7 +8583,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Smart Access Gateway (SAG) instance.
+     * Calls the DescribeSmartAccessGatewayAttribute operation to query the information about a specified Smart Access Gateway (SAG) instance.
      *
      * @param request - DescribeSmartAccessGatewayAttributeRequest
      *
@@ -8512,7 +8601,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries client accounts added to a Smart Access Gateway (SAG) app instance.
+     * Invokes DescribeSmartAccessGatewayClientUsers to query the client account information of a Smart Access Gateway app instance.
      *
      * @param request - DescribeSmartAccessGatewayClientUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8587,7 +8676,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries client accounts added to a Smart Access Gateway (SAG) app instance.
+     * Invokes DescribeSmartAccessGatewayClientUsers to query the client account information of a Smart Access Gateway app instance.
      *
      * @param request - DescribeSmartAccessGatewayClientUsersRequest
      *
@@ -8912,7 +9001,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query source network address translation (SNAT) entries associated with a Smart Access Gateway (SAG) instance.
+     * Queries SNAT entries bound to a Smart Access Gateway instance by calling DescribeSnatEntries.
      *
      * @param request - DescribeSnatEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8979,7 +9068,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query source network address translation (SNAT) entries associated with a Smart Access Gateway (SAG) instance.
+     * Queries SNAT entries bound to a Smart Access Gateway instance by calling DescribeSnatEntries.
      *
      * @param request - DescribeSnatEntriesRequest
      *
@@ -9155,7 +9244,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the number of clients that are connected to Alibaba Cloud through a specific Smart Access Gateway (SAG) app instance.
+     * Queries a specified user\\"s online connection statistics from a Smart Access Gateway (SAG) app instance.
      *
      * @param request - DescribeUserOnlineClientStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9218,7 +9307,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the number of clients that are connected to Alibaba Cloud through a specific Smart Access Gateway (SAG) app instance.
+     * Queries a specified user\\"s online connection statistics from a Smart Access Gateway (SAG) app instance.
      *
      * @param request - DescribeUserOnlineClientStatisticsRequest
      *
@@ -9236,7 +9325,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the connection information about a client based on the ID of the Smart Access Gateway (SAG) APP instance and username of the client account.
+     * Queries the connection information about a client based on the ID of the Smart Access Gateway (SAG) APP instance and username of the client account.
      *
      * @param request - DescribeUserOnlineClientsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9299,7 +9388,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the connection information about a client based on the ID of the Smart Access Gateway (SAG) APP instance and username of the client account.
+     * Queries the connection information about a client based on the ID of the Smart Access Gateway (SAG) APP instance and username of the client account.
      *
      * @param request - DescribeUserOnlineClientsRequest
      *
@@ -9314,6 +9403,77 @@ class Smartag extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeUserOnlineClientsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Unbinds a Cloud Connect Network (CCN) from a Cloud Enterprise Network (CEN) instance.
+     *
+     * @remarks
+     * Unbinds a Cloud Connect Network (CCN) from a Cloud Enterprise Network (CEN) instance.
+     *
+     * @param request - DetachCcnInstanceFromCenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachCcnInstanceFromCenResponse
+     *
+     * @param DetachCcnInstanceFromCenRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DetachCcnInstanceFromCenResponse
+     */
+    public function detachCcnInstanceFromCenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ccnId) {
+            @$query['CcnId'] = $request->ccnId;
+        }
+
+        if (null !== $request->cenId) {
+            @$query['CenId'] = $request->cenId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachCcnInstanceFromCen',
+            'version' => '2018-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DetachCcnInstanceFromCenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unbinds a Cloud Connect Network (CCN) from a Cloud Enterprise Network (CEN) instance.
+     *
+     * @remarks
+     * Unbinds a Cloud Connect Network (CCN) from a Cloud Enterprise Network (CEN) instance.
+     *
+     * @param request - DetachCcnInstanceFromCenRequest
+     *
+     * @returns DetachCcnInstanceFromCenResponse
+     *
+     * @param DetachCcnInstanceFromCenRequest $request
+     *
+     * @return DetachCcnInstanceFromCenResponse
+     */
+    public function detachCcnInstanceFromCen($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachCcnInstanceFromCenWithOptions($request, $runtime);
     }
 
     /**
@@ -9483,7 +9643,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Disables a client account of a Smart Access Gateway (SAG) app instance.
+     * Disables a user of a Smart Access Gateway instance.
      *
      * @param request - DisableSmartAccessGatewayUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9546,7 +9706,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Disables a client account of a Smart Access Gateway (SAG) app instance.
+     * Disables a user of a Smart Access Gateway instance.
      *
      * @param request - DisableSmartAccessGatewayUserRequest
      *
@@ -9807,7 +9967,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Generates a diagnosis report for a Smart Access Gateway (SAG) device.
+     * Queries the diagnosis report of a Smart Access Gateway (SAG) device by calling the DiscribeSmartAccessGatewayDiagnosisReport operation.
      *
      * @param request - DiscribeSmartAccessGatewayDiagnosisReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9870,7 +10030,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Generates a diagnosis report for a Smart Access Gateway (SAG) device.
+     * Queries the diagnosis report of a Smart Access Gateway (SAG) device by calling the DiscribeSmartAccessGatewayDiagnosisReport operation.
      *
      * @param request - DiscribeSmartAccessGatewayDiagnosisReportRequest
      *
@@ -10396,7 +10556,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the status of the deep packet inspection (DPI) feature of a Smart Access Gateway (SAG) instance.
+     * Queries the status of the advanced monitoring feature for a specified Smart Access Gateway instance.
      *
      * @param request - GetAdvancedMonitorStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10439,7 +10599,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the status of the deep packet inspection (DPI) feature of a Smart Access Gateway (SAG) instance.
+     * Queries the status of the advanced monitoring feature for a specified Smart Access Gateway instance.
      *
      * @param request - GetAdvancedMonitorStateRequest
      *
@@ -11257,7 +11417,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the service addresses of a Smart Access Gateway (SAG) device.
+     * Lists the configured service addresses for a specified Smart Access Gateway device.
      *
      * @param request - ListAvailableServiceAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11308,7 +11468,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the service addresses of a Smart Access Gateway (SAG) device.
+     * Lists the configured service addresses for a specified Smart Access Gateway device.
      *
      * @param request - ListAvailableServiceAddressRequest
      *
@@ -11326,11 +11486,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries configuration errors of the deep packet inspection (DPI) feature.
+     * Queries for deep packet inspection (DPI) configuration errors.
      *
      * @remarks
-     * ## Background information
-     * If you have configured an application-aware access control list (ACL) or a quality of service (QoS) policy and associated it with a Smart Access Gateway (SAG) instance, you can call this operation to query whether the ACL rules or 5-tuples in the QoS policy are applied to the SAG instance. If settings are not applied to the SAG instance, the error information is returned.
+     * If you configure an application-based Resource Access Management instance or a Quality of Service (QoS) policy instance and associate it with a Smart Access Gateway instance, you can call this operation to check whether the access control rules or QoS quintuple rules are successfully applied to the target Smart Access Gateway instance. If a configuration fails to apply, this operation returns information about the error.
      *
      * @param request - ListDpiConfigErrorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11389,11 +11548,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries configuration errors of the deep packet inspection (DPI) feature.
+     * Queries for deep packet inspection (DPI) configuration errors.
      *
      * @remarks
-     * ## Background information
-     * If you have configured an application-aware access control list (ACL) or a quality of service (QoS) policy and associated it with a Smart Access Gateway (SAG) instance, you can call this operation to query whether the ACL rules or 5-tuples in the QoS policy are applied to the SAG instance. If settings are not applied to the SAG instance, the error information is returned.
+     * If you configure an application-based Resource Access Management instance or a Quality of Service (QoS) policy instance and associate it with a Smart Access Gateway instance, you can call this operation to check whether the access control rules or QoS quintuple rules are successfully applied to the target Smart Access Gateway instance. If a configuration fails to apply, this operation returns information about the error.
      *
      * @param request - ListDpiConfigErrorRequest
      *
@@ -11411,7 +11569,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the information about application groups supported by Smart Access Gateway (SAG) instances in a specified region.
+     * Lists the application groups that Smart Access Gateway supports in a specified region.
      *
      * @param request - ListDpiGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11482,7 +11640,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the information about application groups supported by Smart Access Gateway (SAG) instances in a specified region.
+     * Lists the application groups that Smart Access Gateway supports in a specified region.
      *
      * @param request - ListDpiGroupsRequest
      *
@@ -11500,15 +11658,15 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the information about an application or an application group in a region, or about the applications supported by Smart Access Gateway (SAG) in a region.
+     * Queries all applications, specific applications, or specific application groups supported by Smart Access Gateway (SAG) in a specified region.
      *
      * @remarks
-     * This operation supports the following features:
-     * *   Queries the information about all applications supported by the SAG instance in a specified region.
-     * *   Queries the information about an application by application ID in a specified region.
-     * *   Queries the information about an application by application name in a specified region.
-     * *   Queries the information about an application group by group ID in a specified region.
-     * If this is the first time you call this operation, we recommend that you query all applications supported by the SAG instance in the specified region by region ID. Then, you can query the information about a specified application.
+     * This operation lets you:
+     * - Query all applications supported by SAG in a specified region.
+     * - Query a specific application by its ID in a specified region.
+     * - Query a specific application by its name in a specified region.
+     * - Query all applications in a specific application group by the group ID in a specified region.
+     * If this is the first time you call this operation, we recommend that you query all applications supported by SAG in a region. This helps you obtain the information required for subsequent queries of specific applications.
      *
      * @param request - ListDpiSignaturesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11583,15 +11741,15 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the information about an application or an application group in a region, or about the applications supported by Smart Access Gateway (SAG) in a region.
+     * Queries all applications, specific applications, or specific application groups supported by Smart Access Gateway (SAG) in a specified region.
      *
      * @remarks
-     * This operation supports the following features:
-     * *   Queries the information about all applications supported by the SAG instance in a specified region.
-     * *   Queries the information about an application by application ID in a specified region.
-     * *   Queries the information about an application by application name in a specified region.
-     * *   Queries the information about an application group by group ID in a specified region.
-     * If this is the first time you call this operation, we recommend that you query all applications supported by the SAG instance in the specified region by region ID. Then, you can query the information about a specified application.
+     * This operation lets you:
+     * - Query all applications supported by SAG in a specified region.
+     * - Query a specific application by its ID in a specified region.
+     * - Query a specific application by its name in a specified region.
+     * - Query all applications in a specific application group by the group ID in a specified region.
+     * If this is the first time you call this operation, we recommend that you query all applications supported by SAG in a region. This helps you obtain the information required for subsequent queries of specific applications.
      *
      * @param request - ListDpiSignaturesRequest
      *
@@ -11856,7 +12014,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries information about Smart Access Gateway (SAG) instances within specific access points in a specific region.
+     * Queries Smart Access Gateway (SAG) instances associated with specific access points in a region.
      *
      * @param request - ListSmartAGByAccessPointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11927,7 +12085,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries information about Smart Access Gateway (SAG) instances within specific access points in a specific region.
+     * Queries Smart Access Gateway (SAG) instances associated with specific access points in a region.
      *
      * @param request - ListSmartAGByAccessPointRequest
      *
@@ -12026,7 +12184,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies an access control list (ACL) rule.
+     * The ModifyACLRule operation modifies an access control rule.
      *
      * @param request - ModifyACLRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12141,7 +12299,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies an access control list (ACL) rule.
+     * The ModifyACLRule operation modifies an access control rule.
      *
      * @param request - ModifyACLRuleRequest
      *
@@ -12159,7 +12317,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the DNS settings of a Smart Access Gateway (SAG) app instance.
+     * Modifies the DNS configuration of a Smart Access Gateway (SAG) application instance.
      *
      * @param request - ModifyClientUserDNSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12226,7 +12384,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the DNS settings of a Smart Access Gateway (SAG) app instance.
+     * Modifies the DNS configuration of a Smart Access Gateway (SAG) application instance.
      *
      * @param request - ModifyClientUserDNSRequest
      *
@@ -12244,7 +12402,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Cloud Connect Network (CCN) instance.
+     * Updates the configurations of a Cloud Connect Network (CCN) instance.
      *
      * @param request - ModifyCloudConnectNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12319,7 +12477,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Cloud Connect Network (CCN) instance.
+     * Updates the configurations of a Cloud Connect Network (CCN) instance.
      *
      * @param request - ModifyCloudConnectNetworkRequest
      *
@@ -12438,7 +12596,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a flow log.
+     * Updates the settings of a flow log.
      *
      * @param request - ModifyFlowLogAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12541,7 +12699,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a flow log.
+     * Updates the settings of a flow log.
      *
      * @param request - ModifyFlowLogAttributeRequest
      *
@@ -12692,7 +12850,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify a quality of service (QoS) policy, for example, its name.
+     * Modifies a quality of service (QoS) policy, such as its name.
      *
      * @param request - ModifyQosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12759,7 +12917,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify a quality of service (QoS) policy, for example, its name.
+     * Modifies a quality of service (QoS) policy, such as its name.
      *
      * @param request - ModifyQosRequest
      *
@@ -12894,7 +13052,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies a traffic classification rule of a quality of service (QoS) policy.
+     * You can call the ModifyQosPolicy operation to modify the stream classification rules in a Quality of Service (QoS) policy.
      *
      * @param request - ModifyQosPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13005,7 +13163,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies a traffic classification rule of a quality of service (QoS) policy.
+     * You can call the ModifyQosPolicy operation to modify the stream classification rules in a Quality of Service (QoS) policy.
      *
      * @param request - ModifyQosPolicyRequest
      *
@@ -13480,7 +13638,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the LAN port configurations of a Smart Access Gateway (SAG) device.
+     * Modifies the LAN port configurations of a Smart Access Gateway (SAG) device.
      *
      * @param request - ModifySagLanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13571,7 +13729,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the LAN port configurations of a Smart Access Gateway (SAG) device.
+     * Modifies the LAN port configurations of a Smart Access Gateway (SAG) device.
      *
      * @param request - ModifySagLanRequest
      *
@@ -13589,7 +13747,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a Smart Access Gateway (SAG) device port.
+     * Updates the settings of a Smart Access Gateway (SAG) device port.
      *
      * @param request - ModifySagManagementPortRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13664,7 +13822,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the settings of a Smart Access Gateway (SAG) device port.
+     * Updates the settings of a Smart Access Gateway (SAG) device port.
      *
      * @param request - ModifySagManagementPortRequest
      *
@@ -13777,7 +13935,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the routing protocol of a port.
+     * Modifies the routing protocol of a port.
      *
      * @param request - ModifySagPortRouteProtocolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13860,7 +14018,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the routing protocol of a port.
+     * Modifies the routing protocol of a port.
      *
      * @param request - ModifySagPortRouteProtocolRequest
      *
@@ -14486,7 +14644,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the SNAT configurations of a WAN port of a Smart Access Gateway (SAG) device.
+     * Modifies the SNAT configurations of a WAN port of a Smart Access Gateway (SAG) device.
      *
      * @param request - ModifySagWanSnatRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14553,7 +14711,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the SNAT configurations of a WAN port of a Smart Access Gateway (SAG) device.
+     * Modifies the SNAT configurations of a WAN port of a Smart Access Gateway (SAG) device.
      *
      * @param request - ModifySagWanSnatRequest
      *
@@ -14571,7 +14729,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the Wi-Fi settings of a Smart Access Gateway (SAG) device.
+     * Modifies the Wi-Fi settings of a Smart Access Gateway (SAG) device.
      *
      * @param request - ModifySagWifiRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14670,7 +14828,7 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the Wi-Fi settings of a Smart Access Gateway (SAG) device.
+     * Modifies the Wi-Fi settings of a Smart Access Gateway (SAG) device.
      *
      * @param request - ModifySagWifiRequest
      *
@@ -17082,7 +17240,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the OSPF configurations for an SAG SCG5000 or SCG5000-5G device whose version is 3.4.2 or later.
+     * Modifies the Open Shortest Path First (OSPF) dynamic routing protocol configuration of a Smart Access Gateway (SAG) device. This operation is supported only for SAG instances that use the SCG5000 or SCG5000-5G device model and run device version 3.4.2 or later.
+     *
+     * @remarks
+     * You can modify the OSPF dynamic routing protocol configuration only for SCG5000 and SCG5000-5G devices that run device version 3.4.2 or later.
      *
      * @param request - UpdateSmartAccessGatewayOspfRouteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17189,7 +17350,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Modifies the OSPF configurations for an SAG SCG5000 or SCG5000-5G device whose version is 3.4.2 or later.
+     * Modifies the Open Shortest Path First (OSPF) dynamic routing protocol configuration of a Smart Access Gateway (SAG) device. This operation is supported only for SAG instances that use the SCG5000 or SCG5000-5G device model and run device version 3.4.2 or later.
+     *
+     * @remarks
+     * You can modify the OSPF dynamic routing protocol configuration only for SCG5000 and SCG5000-5G devices that run device version 3.4.2 or later.
      *
      * @param request - UpdateSmartAccessGatewayOspfRouteRequest
      *
@@ -18033,7 +18197,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the ports that have routing protocols enabled on an SAG SCG5000 or SCG5000-5G device whose version is 3.4.2 or later.
+     * Queries the list of ports on a Smart Access Gateway (SAG) device that have a routable protocol enabled. This operation is applicable to SAG instances that are associated with an SCG5000 or SCG5000-5G device of version 3.4.2 or later.
+     *
+     * @remarks
+     * You can query the list of ports that have a routable protocol enabled only on SCG5000 and SCG5000-5G devices of version 3.4.2 or later.
      *
      * @param request - ViewSmartAccessGatewayPortRouteProtocolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18088,7 +18255,10 @@ class Smartag extends OpenApiClient
     }
 
     /**
-     * Queries the ports that have routing protocols enabled on an SAG SCG5000 or SCG5000-5G device whose version is 3.4.2 or later.
+     * Queries the list of ports on a Smart Access Gateway (SAG) device that have a routable protocol enabled. This operation is applicable to SAG instances that are associated with an SCG5000 or SCG5000-5G device of version 3.4.2 or later.
+     *
+     * @remarks
+     * You can query the list of ports that have a routable protocol enabled only on SCG5000 and SCG5000-5G devices of version 3.4.2 or later.
      *
      * @param request - ViewSmartAccessGatewayPortRouteProtocolRequest
      *
