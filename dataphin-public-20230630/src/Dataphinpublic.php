@@ -148,6 +148,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateUdfShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateUserGroupResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateUserGroupShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateWorkFlowByJsonRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateWorkFlowByJsonResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateWorkFlowByJsonShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteAdHocFileResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBatchTaskRequest;
@@ -4313,6 +4316,83 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+     *
+     * @param tmpReq - CreateWorkFlowByJsonRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWorkFlowByJsonResponse
+     *
+     * @param CreateWorkFlowByJsonRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateWorkFlowByJsonResponse
+     */
+    public function createWorkFlowByJsonWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateWorkFlowByJsonShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->context) {
+            $request->contextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        }
+
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->contextShrink) {
+            @$body['Context'] = $request->contextShrink;
+        }
+
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateWorkFlowByJson',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateWorkFlowByJsonResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an unstructured workflow node using JSON script mode. Online version: v6.2.0.
+     *
+     * @param request - CreateWorkFlowByJsonRequest
+     *
+     * @returns CreateWorkFlowByJsonResponse
+     *
+     * @param CreateWorkFlowByJsonRequest $request
+     *
+     * @return CreateWorkFlowByJsonResponse
+     */
+    public function createWorkFlowByJson($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createWorkFlowByJsonWithOptions($request, $runtime);
     }
 
     /**
