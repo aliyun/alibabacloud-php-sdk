@@ -12,6 +12,11 @@ class responseData extends Model
     /**
      * @var string
      */
+    public $agentAnalysisReason;
+
+    /**
+     * @var string
+     */
     public $agentConfidence;
 
     /**
@@ -23,6 +28,11 @@ class responseData extends Model
      * @var string
      */
     public $agentDisposalPlaybookUuid;
+
+    /**
+     * @var string
+     */
+    public $agentDisposalReason;
 
     /**
      * @var string
@@ -129,9 +139,11 @@ class responseData extends Model
      */
     public $tags;
     protected $_name = [
+        'agentAnalysisReason' => 'AgentAnalysisReason',
         'agentConfidence' => 'AgentConfidence',
         'agentDisposalMethod' => 'AgentDisposalMethod',
         'agentDisposalPlaybookUuid' => 'AgentDisposalPlaybookUuid',
+        'agentDisposalReason' => 'AgentDisposalReason',
         'agentDisposalSuggestion' => 'AgentDisposalSuggestion',
         'agentDisposes' => 'AgentDisposes',
         'alertNum' => 'AlertNum',
@@ -166,6 +178,10 @@ class responseData extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentAnalysisReason) {
+            $res['AgentAnalysisReason'] = $this->agentAnalysisReason;
+        }
+
         if (null !== $this->agentConfidence) {
             $res['AgentConfidence'] = $this->agentConfidence;
         }
@@ -176,6 +192,10 @@ class responseData extends Model
 
         if (null !== $this->agentDisposalPlaybookUuid) {
             $res['AgentDisposalPlaybookUuid'] = $this->agentDisposalPlaybookUuid;
+        }
+
+        if (null !== $this->agentDisposalReason) {
+            $res['AgentDisposalReason'] = $this->agentDisposalReason;
         }
 
         if (null !== $this->agentDisposalSuggestion) {
@@ -280,6 +300,10 @@ class responseData extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentAnalysisReason'])) {
+            $model->agentAnalysisReason = $map['AgentAnalysisReason'];
+        }
+
         if (isset($map['AgentConfidence'])) {
             $model->agentConfidence = $map['AgentConfidence'];
         }
@@ -290,6 +314,10 @@ class responseData extends Model
 
         if (isset($map['AgentDisposalPlaybookUuid'])) {
             $model->agentDisposalPlaybookUuid = $map['AgentDisposalPlaybookUuid'];
+        }
+
+        if (isset($map['AgentDisposalReason'])) {
+            $model->agentDisposalReason = $map['AgentDisposalReason'];
         }
 
         if (isset($map['AgentDisposalSuggestion'])) {

@@ -17,9 +17,15 @@ class agentDisposes extends Model
      * @var string
      */
     public $agentDisposalPlaybookUuid;
+
+    /**
+     * @var string
+     */
+    public $agentDisposalReason;
     protected $_name = [
         'agentDisposalMethod' => 'AgentDisposalMethod',
         'agentDisposalPlaybookUuid' => 'AgentDisposalPlaybookUuid',
+        'agentDisposalReason' => 'AgentDisposalReason',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class agentDisposes extends Model
 
         if (null !== $this->agentDisposalPlaybookUuid) {
             $res['AgentDisposalPlaybookUuid'] = $this->agentDisposalPlaybookUuid;
+        }
+
+        if (null !== $this->agentDisposalReason) {
+            $res['AgentDisposalReason'] = $this->agentDisposalReason;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class agentDisposes extends Model
 
         if (isset($map['AgentDisposalPlaybookUuid'])) {
             $model->agentDisposalPlaybookUuid = $map['AgentDisposalPlaybookUuid'];
+        }
+
+        if (isset($map['AgentDisposalReason'])) {
+            $model->agentDisposalReason = $map['AgentDisposalReason'];
         }
 
         return $model;

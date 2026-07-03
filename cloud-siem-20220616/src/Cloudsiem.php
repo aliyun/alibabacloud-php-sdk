@@ -111,6 +111,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableServiceForCloudSiemRequest
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableServiceForCloudSiemResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetCapacityRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetCapacityResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetEntitiyStatRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetEntitiyStatResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetStorageResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\ListAccountAccessIdRequest;
@@ -189,7 +191,11 @@ class Cloudsiem extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shanghai' => 'cloud-siem.cn-shanghai.aliyuncs.com',
+            'ap-southeast-1' => 'cloud-siem.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cloud-siem', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -219,7 +225,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Adds a data source to a cloud account that is added to the threat analysis feature.
+     * Adds a data source to an attached multicloud account.
      *
      * @param request - AddDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -282,7 +288,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Adds a data source to a cloud account that is added to the threat analysis feature.
+     * Adds a data source to an attached multicloud account.
      *
      * @param request - AddDataSourceRequest
      *
@@ -300,7 +306,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Adds logs of a cloud account to the threat analysis feature.
+     * Adds a log for a data source.
      *
      * @param request - AddDataSourceLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -359,7 +365,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Adds logs of a cloud account to the threat analysis feature.
+     * Adds a log for a data source.
      *
      * @param request - AddDataSourceLogRequest
      *
@@ -377,7 +383,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
+     * Adds a log collection task to import log data into Threat Analysis for alerting and event analysis.
      *
      * @param request - AddUserSourceLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -440,7 +446,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Adds the logs of a cloud service within a cloud account to the threat analysis feature for alert and event anslysis.
+     * Adds a log collection task to import log data into Threat Analysis for alerting and event analysis.
      *
      * @param request - AddUserSourceLogConfigRequest
      *
@@ -458,7 +464,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
+     * Binds a multicloud account from Multicloud Assets of Security Center to Threat Analysis.
      *
      * @param request - BindAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -521,7 +527,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Adds a third-party cloud account that is displayed on the Multi-cloud assets tab of the Feature Settings page to the threat analysis feature.
+     * Binds a multicloud account from Multicloud Assets of Security Center to Threat Analysis.
      *
      * @param request - BindAccountRequest
      *
@@ -539,7 +545,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Disables the log delivery feature for a cloud service.
+     * Stops log delivery from a connected cloud service. Once stopped, no new logs are added to your Logstore.
      *
      * @param request - CloseDeliveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -594,7 +600,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Disables the log delivery feature for a cloud service.
+     * Stops log delivery from a connected cloud service. Once stopped, no new logs are added to your Logstore.
      *
      * @param request - CloseDeliveryRequest
      *
@@ -612,7 +618,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Deletes the automated response rule with a specified ID.
+     * Deletes an automated response rule by its ID.
      *
      * @param request - DeleteAutomateResponseConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -663,7 +669,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Deletes the automated response rule with a specified ID.
+     * Deletes an automated response rule by its ID.
      *
      * @param request - DeleteAutomateResponseConfigRequest
      *
@@ -681,7 +687,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
+     * Detaches the AccessKey of a multicloud account, such as a Tencent Cloud or Huawei Cloud account, from a threat analysis data source. You can then attach a new account.
      *
      * @param request - DeleteBindAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -744,7 +750,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Removes a third-party cloud account that is added to the threat analysis feature by using its AccessKey ID. You can add another cloud account based on your business requirements.
+     * Detaches the AccessKey of a multicloud account, such as a Tencent Cloud or Huawei Cloud account, from a threat analysis data source. You can then attach a new account.
      *
      * @param request - DeleteBindAccountRequest
      *
@@ -762,7 +768,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Deletes a rule by rule ID.
+     * You can customize rules for a specific ID.
      *
      * @param request - DeleteCustomizeRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -813,7 +819,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Deletes a rule by rule ID.
+     * You can customize rules for a specific ID.
      *
      * @param request - DeleteCustomizeRuleRequest
      *
@@ -831,7 +837,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Removes a data source that is no longer required.
+     * Call this operation to delete a data source that is no longer required.
      *
      * @param request - DeleteDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -882,7 +888,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Removes a data source that is no longer required.
+     * Call this operation to delete a data source that is no longer required.
      *
      * @param request - DeleteDataSourceRequest
      *
@@ -973,7 +979,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Deletes an alert whitelist rule with a specified ID.
+     * Deletes an alert whitelist rule with the specified ID.
      *
      * @param request - DeleteWhiteRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1024,7 +1030,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Deletes an alert whitelist rule with a specified ID.
+     * Deletes an alert whitelist rule with the specified ID.
      *
      * @param request - DeleteWhiteRuleListRequest
      *
@@ -1042,7 +1048,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the aggregate functions that are supported for a custom rule.
+     * Describes the aggregate functions that are supported by custom rules.
      *
      * @param request - DescribeAggregateFunctionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1089,7 +1095,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the aggregate functions that are supported for a custom rule.
+     * Describes the aggregate functions that are supported by custom rules.
      *
      * @param request - DescribeAggregateFunctionRequest
      *
@@ -1107,7 +1113,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the scenarios in which an alert needs to be added to the whitelist.
+     * Queries the scenarios in which alerts can be whitelisted.
      *
      * @param request - DescribeAlertSceneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1154,7 +1160,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the scenarios in which an alert needs to be added to the whitelist.
+     * Queries the scenarios in which alerts can be whitelisted.
      *
      * @param request - DescribeAlertSceneRequest
      *
@@ -1172,7 +1178,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the scenarios and objects that can be added to an alert whitelist rule.
+     * Retrieves a list of alert whitelisting scenarios and objects.
      *
      * @param request - DescribeAlertSceneByEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1223,7 +1229,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the scenarios and objects that can be added to an alert whitelist rule.
+     * Retrieves a list of alert whitelisting scenarios and objects.
      *
      * @param request - DescribeAlertSceneByEventRequest
      *
@@ -1241,7 +1247,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries alert data sources.
+     * Retrieves a list of alert sources.
      *
      * @param request - DescribeAlertSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1300,7 +1306,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries alert data sources.
+     * Retrieves a list of alert sources.
      *
      * @param request - DescribeAlertSourceRequest
      *
@@ -1318,7 +1324,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the data sources of the alert that is associated with an event.
+     * Retrieves the alert data sources associated with an event.
      *
      * @param request - DescribeAlertSourceWithEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1369,7 +1375,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the data sources of the alert that is associated with an event.
+     * Retrieves the alert data sources associated with an event.
      *
      * @param request - DescribeAlertSourceWithEventRequest
      *
@@ -1387,7 +1393,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the threat types that you can select when you create a custom rule.
+     * Retrieves a list of threat types for custom rules.
      *
      * @param request - DescribeAlertTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1438,7 +1444,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the threat types that you can select when you create a custom rule.
+     * Retrieves a list of threat types for custom rules.
      *
      * @param request - DescribeAlertTypeRequest
      *
@@ -1456,7 +1462,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries alerts within your account.
+     * Gets the list of alerts for a user.
      *
      * @param request - DescribeAlertsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1575,7 +1581,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries alerts within your account.
+     * Gets the list of alerts for a user.
      *
      * @param request - DescribeAlertsRequest
      *
@@ -1593,7 +1599,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of alerts of different severities.
+     * Queries the count of alerts for different severity levels.
      *
      * @param request - DescribeAlertsCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1652,7 +1658,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of alerts of different severities.
+     * Queries the count of alerts for different severity levels.
      *
      * @param request - DescribeAlertsCountRequest
      *
@@ -1670,7 +1676,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the alerts that are associated with an entity.
+     * Queries for alerts that are associated with an entity.
      *
      * @param request - DescribeAlertsWithEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1749,7 +1755,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the alerts that are associated with an entity.
+     * Queries for alerts that are associated with an entity.
      *
      * @param request - DescribeAlertsWithEntityRequest
      *
@@ -1767,7 +1773,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the alerts that are associated with an event.
+     * Retrieves alerts associated with a specific event.
      *
      * @param request - DescribeAlertsWithEventRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1878,7 +1884,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the alerts that are associated with an event.
+     * Retrieves alerts associated with a specific event.
      *
      * @param request - DescribeAlertsWithEventRequest
      *
@@ -1896,7 +1902,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
+     * Checks whether an Alibaba Cloud account has granted permissions to Cloud SIEM and the AliyunServiceRoleForSasCloudSiem role has been created.
      *
      * @param request - DescribeAuthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1935,7 +1941,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Checks whether the security information and event management (SIEM) system is granted the required permissions to access other cloud resources within your Alibaba Cloud account and whether the AliyunServiceRoleForSasCloudSiem service-linked role is created.
+     * Checks whether an Alibaba Cloud account has granted permissions to Cloud SIEM and the AliyunServiceRoleForSasCloudSiem role has been created.
      *
      * @param request - DescribeAuthRequest
      *
@@ -1953,7 +1959,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of automated response rules.
+     * Returns the number of automated response rules.
      *
      * @param request - DescribeAutomateResponseConfigCounterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2000,7 +2006,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of automated response rules.
+     * Returns the number of automated response rules.
      *
      * @param request - DescribeAutomateResponseConfigCounterRequest
      *
@@ -2018,7 +2024,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the configurable fields and operators of an automated response rule.
+     * Retrieves the configurable fields and operators for automated response rules.
      *
      * @param request - DescribeAutomateResponseConfigFeatureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2069,7 +2075,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the configurable fields and operators of an automated response rule.
+     * Retrieves the configurable fields and operators for automated response rules.
      *
      * @param request - DescribeAutomateResponseConfigFeatureRequest
      *
@@ -2087,7 +2093,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the assets that are associated with an event.
+     * Queries a list of assets that are associated with an event.
      *
      * @param request - DescribeCloudSiemAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2158,7 +2164,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the assets that are associated with an event.
+     * Queries a list of assets that are associated with an event.
      *
      * @param request - DescribeCloudSiemAssetsRequest
      *
@@ -2176,7 +2182,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of assets that are associated with an event by asset type.
+     * Queries the number of assets of each type that are associated with an event.
      *
      * @param request - DescribeCloudSiemAssetsCounterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2227,7 +2233,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of assets that are associated with an event by asset type.
+     * Queries the number of assets of each type that are associated with an event.
      *
      * @param request - DescribeCloudSiemAssetsCounterRequest
      *
@@ -2245,7 +2251,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the details of an event.
+     * Retrieves the details of an event.
      *
      * @param request - DescribeCloudSiemEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2296,7 +2302,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the details of an event.
+     * Retrieves the details of an event.
      *
      * @param request - DescribeCloudSiemEventDetailRequest
      *
@@ -2314,7 +2320,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries events in SIEM.
+     * Retrieves a list of threat analysis events.
      *
      * @param request - DescribeCloudSiemEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2409,7 +2415,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries events in SIEM.
+     * Retrieves a list of threat analysis events.
      *
      * @param request - DescribeCloudSiemEventsRequest
      *
@@ -2427,7 +2433,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of custom rules.
+     * Retrieves the count of custom rules.
      *
      * @param request - DescribeCustomizeRuleCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2474,7 +2480,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of custom rules.
+     * Retrieves the count of custom rules.
      *
      * @param request - DescribeCustomizeRuleCountRequest
      *
@@ -2492,7 +2498,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the historical simulation data that is used in a simulation test scenario.
+     * Retrieves historical simulated data from a test scenario.
      *
      * @param request - DescribeCustomizeRuleTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2543,7 +2549,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the historical simulation data that is used in a simulation test scenario.
+     * Retrieves historical simulated data from a test scenario.
      *
      * @param request - DescribeCustomizeRuleTestRequest
      *
@@ -2561,7 +2567,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the chart that displays the test results of business data for a custom rule.
+     * Retrieves the chart of test results for a custom rule.
      *
      * @param request - DescribeCustomizeRuleTestHistogramRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2612,7 +2618,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the chart that displays the test results of business data for a custom rule.
+     * Retrieves the chart of test results for a custom rule.
      *
      * @param request - DescribeCustomizeRuleTestHistogramRequest
      *
@@ -2699,7 +2705,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a data source.
+     * Describes the parameters for a data source.
      *
      * @param request - DescribeDataSourceParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2746,7 +2752,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the parameters of a data source.
+     * Describes the parameters for a data source.
      *
      * @param request - DescribeDataSourceParametersRequest
      *
@@ -2764,7 +2770,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the list of entities and playbooks that need to be handled.
+     * Retrieves entities to be remediated and a list of playbooks.
      *
      * @param request - DescribeDisposeAndPlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2831,7 +2837,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the list of entities and playbooks that need to be handled.
+     * Retrieves entities to be remediated and a list of playbooks.
      *
      * @param request - DescribeDisposeAndPlaybookRequest
      *
@@ -2849,7 +2855,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the list of playbooks that are used by a handling policy.
+     * Retrieves the list of playbooks used in a disposal policy.
      *
      * @param request - DescribeDisposeStrategyPlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2904,7 +2910,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the list of playbooks that are used by a handling policy.
+     * Retrieves the list of playbooks used in a disposal policy.
      *
      * @param request - DescribeDisposeStrategyPlaybookRequest
      *
@@ -2922,7 +2928,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the details of an entity.
+     * Retrieves the details of an entity.
      *
      * @param request - DescribeEntityInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2985,7 +2991,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the details of an entity.
+     * Retrieves the details of an entity.
      *
      * @param request - DescribeEntityInfoRequest
      *
@@ -3003,7 +3009,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of events by type.
+     * You can obtain the count for each event type.
      *
      * @param request - DescribeEventCountByThreatLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3058,7 +3064,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of events by type.
+     * You can obtain the count for each event type.
      *
      * @param request - DescribeEventCountByThreatLevelRequest
      *
@@ -3076,7 +3082,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the handling policies of a historical event.
+     * Queries the policy handling history for an event.
      *
      * @param request - DescribeEventDisposeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3135,7 +3141,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the handling policies of a historical event.
+     * Queries the policy handling history for an event.
      *
      * @param request - DescribeEventDisposeRequest
      *
@@ -3153,7 +3159,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of logs that are added to the threat analysis feature.
+     * Queries the number of imported logs.
      *
      * @param request - DescribeImportedLogCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3200,7 +3206,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of logs that are added to the threat analysis feature.
+     * Queries the number of imported logs.
      *
      * @param request - DescribeImportedLogCountRequest
      *
@@ -3218,7 +3224,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the fields that can be configured for a custom rule.
+     * Retrieves the list of configurable fields for custom rules.
      *
      * @param request - DescribeLogFieldsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3273,7 +3279,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the fields that can be configured for a custom rule.
+     * Retrieves the list of configurable fields for custom rules.
      *
      * @param request - DescribeLogFieldsRequest
      *
@@ -3291,7 +3297,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the log sources that can be configured for a custom rule.
+     * Retrieves a list of configurable log sources for custom rules.
      *
      * @param request - DescribeLogSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3342,7 +3348,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the log sources that can be configured for a custom rule.
+     * Retrieves a list of configurable log sources for custom rules.
      *
      * @param request - DescribeLogSourceRequest
      *
@@ -3360,7 +3366,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the log types that can be configured for a custom rule.
+     * Retrieves the log types that can be configured for custom rules.
      *
      * @param request - DescribeLogTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3407,7 +3413,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the log types that can be configured for a custom rule.
+     * Retrieves the log types that can be configured for custom rules.
      *
      * @param request - DescribeLogTypeRequest
      *
@@ -3425,7 +3431,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the operator of a custom rule.
+     * Retrieves the list of operators for custom rules.
      *
      * @param request - DescribeOperatorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3476,7 +3482,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the operator of a custom rule.
+     * Retrieves the list of operators for custom rules.
      *
      * @param request - DescribeOperatorsRequest
      *
@@ -3494,7 +3500,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
+     * Queries the number of Alibaba Cloud, Tencent Cloud, and Huawei Cloud products that can be integrated with Threat Analysis.
      *
      * @param request - DescribeProdCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3541,7 +3547,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the number of services that can be added to the threat analysis feature in Alibaba Cloud, Tenant Cloud, and Huawei Cloud.
+     * Queries the number of Alibaba Cloud, Tencent Cloud, and Huawei Cloud products that can be integrated with Threat Analysis.
      *
      * @param request - DescribeProdCountRequest
      *
@@ -3559,7 +3565,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the list of users in the playbook scope.
+     * Retrieves the list of users in the playbook scope.
      *
      * @param request - DescribeScopeUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3606,7 +3612,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the list of users in the playbook scope.
+     * Retrieves the list of users in the playbook scope.
      *
      * @param request - DescribeScopeUsersRequest
      *
@@ -3624,7 +3630,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Checks whether the threat analysis feature is authorized to access a resource directory.
+     * Checks whether a resource directory is authorized for threat analysis.
      *
      * @param request - DescribeServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3663,7 +3669,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Checks whether the threat analysis feature is authorized to access a resource directory.
+     * Checks whether a resource directory is authorized for threat analysis.
      *
      * @param request - DescribeServiceStatusRequest
      *
@@ -3681,7 +3687,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
+     * Checks the status of the storage for the threat analysis feature. The storage is a Logstore in Simple Log Service.
      *
      * @param request - DescribeStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3728,7 +3734,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the status of the Logstores for the threat analysis feature in Simple Log Service on the user side.
+     * Checks the status of the storage for the threat analysis feature. The storage is a Logstore in Simple Log Service.
      *
      * @param request - DescribeStorageRequest
      *
@@ -3746,7 +3752,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
+     * Checks whether the current Alibaba Cloud account or its associated enterprise organization has purchased threat analysis.
      *
      * @param request - DescribeUserBuyStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3789,7 +3795,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Checks whether the current Alibaba Cloud account or the management account of a resource directory is used to purchase the threat analysis feature.
+     * Checks whether the current Alibaba Cloud account or its associated enterprise organization has purchased threat analysis.
      *
      * @param request - DescribeUserBuyStatusRequest
      *
@@ -3807,7 +3813,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the protected domain names of the WAF instance for a user to which an entity belongs.
+     * Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
      *
      * @param request - DescribeWafScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3858,7 +3864,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the protected domain names of the WAF instance for a user to which an entity belongs.
+     * Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
      *
      * @param request - DescribeWafScopeRequest
      *
@@ -3876,7 +3882,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of whitelist rules for alerts.
+     * Queries the rules in the alert whitelist.
      *
      * @param request - DescribeWhiteRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3943,7 +3949,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of whitelist rules for alerts.
+     * Queries the rules in the alert whitelist.
      *
      * @param request - DescribeWhiteRuleListRequest
      *
@@ -3961,7 +3967,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
+     * Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
      *
      * @param request - EnableAccessForCloudSiemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4012,7 +4018,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role named AliyunServiceRoleForSasCloudSiem for the threat analysis feature. The feature can assume this role to access cloud services.
+     * Grants permissions to Threat Analysis and creates the AliyunServiceRoleForSasCloudSiem service-linked role.
      *
      * @param request - EnableAccessForCloudSiemRequest
      *
@@ -4030,7 +4036,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
+     * Enables resource directory authorization for threat analysis. This operation can be called only by a resource directory administrator.
      *
      * @param request - EnableServiceForCloudSiemRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4069,7 +4075,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Authorizes the threat analysis feature to access a resource directory. This operation must be called by the management account of the resource directory.
+     * Enables resource directory authorization for threat analysis. This operation can be called only by a resource directory administrator.
      *
      * @param request - EnableServiceForCloudSiemRequest
      *
@@ -4087,7 +4093,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity.
+     * Retrieves the current billable storage usage and subscription purchase volume for threat analysis. Units are in GB.
      *
      * @param request - GetCapacityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4134,7 +4140,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the storage capacity usage of the threat analysis feature and the purchased storage capacity.
+     * Retrieves the current billable storage usage and subscription purchase volume for threat analysis. Units are in GB.
      *
      * @param request - GetCapacityRequest
      *
@@ -4152,7 +4158,114 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the storage configurations for the threat analysis feature on the user side.
+     * Queries entity counts.
+     *
+     * @remarks
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     *
+     * @param request - GetEntitiyStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEntitiyStatResponse
+     *
+     * @param GetEntitiyStatRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetEntitiyStatResponse
+     */
+    public function getEntitiyStatWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->assetName) {
+            @$body['AssetName'] = $request->assetName;
+        }
+
+        if (null !== $request->assetUuid) {
+            @$body['AssetUuid'] = $request->assetUuid;
+        }
+
+        if (null !== $request->entityName) {
+            @$body['EntityName'] = $request->entityName;
+        }
+
+        if (null !== $request->entityType) {
+            @$body['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->entityUuid) {
+            @$body['EntityUuid'] = $request->entityUuid;
+        }
+
+        if (null !== $request->incidentUuid) {
+            @$body['IncidentUuid'] = $request->incidentUuid;
+        }
+
+        if (null !== $request->isAsset) {
+            @$body['IsAsset'] = $request->isAsset;
+        }
+
+        if (null !== $request->isMalwareEntity) {
+            @$body['IsMalwareEntity'] = $request->isMalwareEntity;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetEntitiyStat',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEntitiyStatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries entity counts.
+     *
+     * @remarks
+     * The input parameter JsonConfig is a complex JSON configuration. A utility class with configuration examples is provided. For more information, refer to [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     *
+     * @param request - GetEntitiyStatRequest
+     *
+     * @returns GetEntitiyStatResponse
+     *
+     * @param GetEntitiyStatRequest $request
+     *
+     * @return GetEntitiyStatResponse
+     */
+    public function getEntitiyStat($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEntitiyStatWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the storage settings created by the Threat Analysis and Response product in your Simple Log Service (SLS). These settings include the storage duration and storage region.
      *
      * @param request - GetStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4199,7 +4312,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the storage configurations for the threat analysis feature on the user side.
+     * Retrieves the storage settings created by the Threat Analysis and Response product in your Simple Log Service (SLS). These settings include the storage duration and storage region.
      *
      * @param request - GetStorageRequest
      *
@@ -4217,7 +4330,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
+     * Lists the AccessKey IDs for attached multicloud accounts.
      *
      * @param request - ListAccountAccessIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4268,7 +4381,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of AccessKey IDs of third-party cloud accounts that are added to the threat analysis feature.
+     * Lists the AccessKey IDs for attached multicloud accounts.
      *
      * @param request - ListAccountAccessIdRequest
      *
@@ -4286,7 +4399,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Query accounts by log.
+     * Queries the accounts associated with a log.
      *
      * @param request - ListAccountsByLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4345,7 +4458,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Query accounts by log.
+     * Queries the accounts associated with a log.
      *
      * @param request - ListAccountsByLogRequest
      *
@@ -4363,7 +4476,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of cloud services that can be added to the threat analysis feature.
+     * Lists the cloud products supported by Threat Analysis for data ingestion.
      *
      * @param request - ListAllProdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4410,7 +4523,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of cloud services that can be added to the threat analysis feature.
+     * Lists the cloud products supported by Threat Analysis for data ingestion.
      *
      * @param request - ListAllProdsRequest
      *
@@ -4428,7 +4541,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries automated response rules.
+     * Retrieves a list of automated response rules.
      *
      * @param request - ListAutomateResponseConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4515,7 +4628,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries automated response rules.
+     * Retrieves a list of automated response rules.
      *
      * @param request - ListAutomateResponseConfigsRequest
      *
@@ -4533,7 +4646,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of cloud accounts that are added to the threat analysis feature.
+     * Lists multicloud accounts bound to Threat Analysis.
      *
      * @param request - ListBindAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4584,7 +4697,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of cloud accounts that are added to the threat analysis feature.
+     * Lists multicloud accounts bound to Threat Analysis.
      *
      * @param request - ListBindAccountRequest
      *
@@ -4602,7 +4715,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of data sources that are added to the threat analysis feature.
+     * Queries all bound data sources.
      *
      * @param request - ListBindDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4649,7 +4762,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of data sources that are added to the threat analysis feature.
+     * Queries all bound data sources.
      *
      * @param request - ListBindDataSourcesRequest
      *
@@ -4667,7 +4780,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries custom rules.
+     * Retrieves a list of custom rules.
      *
      * @param request - ListCloudSiemCustomizeRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4762,7 +4875,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries custom rules.
+     * Retrieves a list of custom rules.
      *
      * @param request - ListCloudSiemCustomizeRulesRequest
      *
@@ -4780,7 +4893,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries predefined rules.
+     * Retrieves a list of predefined rules.
      *
      * @param request - ListCloudSiemPredefinedRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4887,7 +5000,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries predefined rules.
+     * Retrieves a list of predefined rules.
      *
      * @param request - ListCloudSiemPredefinedRulesRequest
      *
@@ -4905,7 +5018,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the test results of a custom rule.
+     * Retrieves the list of test results for a custom rule.
      *
      * @param request - ListCustomizeRuleTestResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4980,7 +5093,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the test results of a custom rule.
+     * Retrieves the list of test results for a custom rule.
      *
      * @param request - ListCustomizeRuleTestResultRequest
      *
@@ -4998,7 +5111,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a data source.
+     * Lists the logs for a data source.
      *
      * @param request - ListDataSourceLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5049,7 +5162,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a data source.
+     * Lists the logs for a data source.
      *
      * @param request - ListDataSourceLogsRequest
      *
@@ -5067,7 +5180,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
+     * Lists the types of multicloud data sources that Threat Analysis supports.
      *
      * @param request - ListDataSourceTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5110,7 +5223,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of data source types in third-party cloud services that can be added to the threat analysis feature.
+     * Lists the types of multicloud data sources that Threat Analysis supports.
      *
      * @param request - ListDataSourceTypesRequest
      *
@@ -5128,7 +5241,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
+     * Lists the products and logs that are connected to threat analysis for an enterprise or a member, and the data shipping status of these logs.
      *
      * @param request - ListDeliveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5175,7 +5288,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the information about the cloud services that are integrated with the threat analysis feature, the logs of the cloud services, and the delivery of the logs.
+     * Lists the products and logs that are connected to threat analysis for an enterprise or a member, and the data shipping status of these logs.
      *
      * @param request - ListDeliveryRequest
      *
@@ -5193,7 +5306,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries handling policies.
+     * Retrieve a list of system-recommended disposal strategies.
      *
      * @param request - ListDisposeStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5300,7 +5413,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries handling policies.
+     * Retrieve a list of system-recommended disposal strategies.
      *
      * @param request - ListDisposeStrategyRequest
      *
@@ -5318,7 +5431,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries entities.
+     * Queries a list of entities.
      *
      * @param request - ListEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5405,7 +5518,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries entities.
+     * Queries a list of entities.
      *
      * @param request - ListEntitiesRequest
      *
@@ -5423,7 +5536,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the details of the logs in a cloud service that is added to the threat analysis feature.
+     * Queries the log ingestion details for a specific product.
      *
      * @param request - ListImportedLogsByProdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5478,7 +5591,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the details of the logs in a cloud service that is added to the threat analysis feature.
+     * Queries the log ingestion details for a specific product.
      *
      * @param request - ListImportedLogsByProdRequest
      *
@@ -5496,7 +5609,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
+     * Queries projects and Logstores based on the name patterns of the default SLS project and Logstore for an Alibaba Cloud service.
      *
      * @param request - ListProjectLogStoresRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5547,7 +5660,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries the dedicated Simple Log Service project and Logstore for a cloud service based on the patterns of the project and Logstore names.
+     * Queries projects and Logstores based on the name patterns of the default SLS project and Logstore for an Alibaba Cloud service.
      *
      * @param request - ListProjectLogStoresRequest
      *
@@ -5565,7 +5678,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
+     * Lists the Alibaba Cloud accounts that are managed by the multi-account control feature of Threat Analysis. An account must be managed to use features such as log collection and event handling.
      *
      * @param request - ListRdUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5604,7 +5717,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Queries a list of Alibaba Cloud accounts that are added to the threat analysis feature for centralized management. These accounts can be used to perform operations supported by the threat analysis feature, such as adding logs and handling events.
+     * Lists the Alibaba Cloud accounts that are managed by the multi-account control feature of Threat Analysis. An account must be managed to use features such as log collection and event handling.
      *
      * @param request - ListRdUsersRequest
      *
@@ -5622,7 +5735,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Modifies a third-party cloud account that is added to the threat analysis feature.
+     * Modifies a bound Alibaba Cloud account.
      *
      * @param request - ModifyBindAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5689,7 +5802,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Modifies a third-party cloud account that is added to the threat analysis feature.
+     * Modifies a bound Alibaba Cloud account.
      *
      * @param request - ModifyBindAccountRequest
      *
@@ -5707,7 +5820,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Modifies a data source that is added to the threat analysis feature.
+     * Modifies the description of an existing data source.
      *
      * @param request - ModifyDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5774,7 +5887,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Modifies a data source that is added to the threat analysis feature.
+     * Modifies the description of an existing data source.
      *
      * @param request - ModifyDataSourceRequest
      *
@@ -5792,7 +5905,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
+     * Modifies the description of a data source log.
      *
      * @param request - ModifyDataSourceLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5859,7 +5972,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Modifies the description of the logs that are added to the threat analysis feature for a data source within a cloud account.
+     * Modifies the description of a data source log.
      *
      * @param request - ModifyDataSourceLogRequest
      *
@@ -5877,7 +5990,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
+     * Enables log delivery for integrated cloud services.
      *
      * @param request - OpenDeliveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5932,7 +6045,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Enables the log delivery feature for a cloud service that is integrated with Simple Log Service.
+     * Enables log delivery for integrated cloud services.
      *
      * @param request - OpenDeliveryRequest
      *
@@ -5950,7 +6063,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Creates or updates an automatic response rule.
+     * Adds or updates an automated response rule.
      *
      * @param request - PostAutomateResponseConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6025,7 +6138,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Creates or updates an automatic response rule.
+     * Adds or updates an automated response rule.
      *
      * @param request - PostAutomateResponseConfigRequest
      *
@@ -6043,7 +6156,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Creates or updates a custom rule.
+     * Adds or updates a custom rule.
      *
      * @param request - PostCustomizeRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6162,7 +6275,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Creates or updates a custom rule.
+     * Adds or updates a custom rule.
      *
      * @param request - PostCustomizeRuleRequest
      *
@@ -6257,7 +6370,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Submits event handling information.
+     * Submit incident response information to update the incident status and severity level.
      *
      * @param request - PostEventDisposeAndWhiteruleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6340,7 +6453,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Submits event handling information.
+     * Submit incident response information to update the incident status and severity level.
      *
      * @param request - PostEventDisposeAndWhiteruleListRequest
      *
@@ -6358,7 +6471,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Submits an alert whitelist rule.
+     * Submits alert whitelisting rules.
      *
      * @param request - PostEventWhiteruleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6413,7 +6526,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Submits an alert whitelist rule.
+     * Submits alert whitelisting rules.
      *
      * @param request - PostEventWhiteruleListRequest
      *
@@ -6431,7 +6544,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Ends the test of a custom rule.
+     * Finishes the test for a custom rule.
      *
      * @param request - PostFinishCustomizeRuleTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6482,7 +6595,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Ends the test of a custom rule.
+     * Finishes the test for a custom rule.
      *
      * @param request - PostFinishCustomizeRuleTestRequest
      *
@@ -6500,7 +6613,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Updates the status of a custom rule.
+     * Updates the statuses of custom rules.
      *
      * @param request - PostRuleStatusChangeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6559,7 +6672,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Updates the status of a custom rule.
+     * Updates the statuses of custom rules.
      *
      * @param request - PostRuleStatusChangeRequest
      *
@@ -6577,7 +6690,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
+     * Releases storage space. This operation is irreversible and causes data loss. Use with caution.
      *
      * @param request - RestoreCapacityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6624,7 +6737,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Releases storage to reduce the storage usage. The release operation is irreversible and may cause data loss. Proceed with caution.
+     * Releases storage space. This operation is irreversible and causes data loss. Use with caution.
      *
      * @param request - RestoreCapacityRequest
      *
@@ -6642,7 +6755,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Configures the settings of log storage, such as the storage duration and storage region.
+     * Sets user settings, such as the storage duration and storage region.
      *
      * @param request - SetStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6697,7 +6810,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Configures the settings of log storage, such as the storage duration and storage region.
+     * Sets user settings, such as the storage duration and storage region.
      *
      * @param request - SetStorageRequest
      *
@@ -6715,7 +6828,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Submits log collection tasks at a time.
+     * Submits a batch of log ingestion tasks.
      *
      * @param request - SubmitImportLogTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6782,7 +6895,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Submits log collection tasks at a time.
+     * Submits a batch of log ingestion tasks.
      *
      * @param request - SubmitImportLogTasksRequest
      *
@@ -6800,7 +6913,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Updates the status of an automatic response rule.
+     * Updates the status of an automated response rule.
      *
      * @param request - UpdateAutomateResponseConfigStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6855,7 +6968,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Updates the status of an automatic response rule.
+     * Updates the status of an automated response rule.
      *
      * @param request - UpdateAutomateResponseConfigStatusRequest
      *
@@ -6873,7 +6986,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Creates or updates an alert whitelist rule.
+     * Adds or updates alert whitelist rules.
      *
      * @param request - UpdateWhiteRuleListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6932,7 +7045,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Creates or updates an alert whitelist rule.
+     * Adds or updates alert whitelist rules.
      *
      * @param request - UpdateWhiteRuleListRequest
      *
