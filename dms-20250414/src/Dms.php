@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\CreateAirflowShrinkRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateCustomAgentShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentAccuracyTestRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentAccuracyTestResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\CreateDataAgentSessionRequest;
@@ -49,6 +51,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteCustomAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentAccuracyTestRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentAccuracyTestResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceRequest;
@@ -122,6 +126,12 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowVersionsRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListAirflowVersionsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListCustomAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestInstancesRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestInstancesResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestResultsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestResultsResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestTasksRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentAccuracyTestTasksResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\ListDataAgentWorkspaceMemberRequest;
@@ -183,9 +193,15 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceCodePublishSettingRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceCodePublishSettingResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceQuotaRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\SetWorkspaceQuotaResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\StartDataAgentAccuracyTestTaskRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\StartDataAgentAccuracyTestTaskResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\StopDataAgentAccuracyTestTaskRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\StopDataAgentAccuracyTestTaskResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateAirflowShrinkRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentAccuracyTestRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentAccuracyTestResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentSpaceInfoRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentSpaceInfoResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\UpdateDataAgentWorkspaceMemberRoleRequest;
@@ -1001,6 +1017,111 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Creates an accuracy test instance.
+     *
+     * @param request - CreateDataAgentAccuracyTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDataAgentAccuracyTestResponse
+     *
+     * @param CreateDataAgentAccuracyTestRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateDataAgentAccuracyTestResponse
+     */
+    public function createDataAgentAccuracyTestWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customAgentId) {
+            @$query['CustomAgentId'] = $request->customAgentId;
+        }
+
+        if (null !== $request->dataset) {
+            @$query['Dataset'] = $request->dataset;
+        }
+
+        if (null !== $request->desc) {
+            @$query['Desc'] = $request->desc;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->evaluationPrompt) {
+            @$query['EvaluationPrompt'] = $request->evaluationPrompt;
+        }
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
+        if (null !== $request->maxConcurrent) {
+            @$query['MaxConcurrent'] = $request->maxConcurrent;
+        }
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->needDelete) {
+            @$query['NeedDelete'] = $request->needDelete;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataAgentAccuracyTest',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataAgentAccuracyTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an accuracy test instance.
+     *
+     * @param request - CreateDataAgentAccuracyTestRequest
+     *
+     * @returns CreateDataAgentAccuracyTestResponse
+     *
+     * @param CreateDataAgentAccuracyTestRequest $request
+     *
+     * @return CreateDataAgentAccuracyTestResponse
+     */
+    public function createDataAgentAccuracyTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataAgentAccuracyTestWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
      *
      * @param request - CreateDataAgentKnowledgeBaseRequest
@@ -1687,6 +1808,81 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an accuracy test configuration item.
+     *
+     * @remarks
+     * Deletes an accuracy test item.
+     *
+     * @param request - DeleteDataAgentAccuracyTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataAgentAccuracyTestResponse
+     *
+     * @param DeleteDataAgentAccuracyTestRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteDataAgentAccuracyTestResponse
+     */
+    public function deleteDataAgentAccuracyTestWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accuracyTestInsId) {
+            @$query['AccuracyTestInsId'] = $request->accuracyTestInsId;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataAgentAccuracyTest',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataAgentAccuracyTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an accuracy test configuration item.
+     *
+     * @remarks
+     * Deletes an accuracy test item.
+     *
+     * @param request - DeleteDataAgentAccuracyTestRequest
+     *
+     * @returns DeleteDataAgentAccuracyTestResponse
+     *
+     * @param DeleteDataAgentAccuracyTestRequest $request
+     *
+     * @return DeleteDataAgentAccuracyTestResponse
+     */
+    public function deleteDataAgentAccuracyTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataAgentAccuracyTestWithOptions($request, $runtime);
     }
 
     /**
@@ -4158,6 +4354,277 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Lists accuracy test configuration items that meet the specified conditions.
+     *
+     * @remarks
+     * Lists accuracy test configuration items that meet the specified conditions.
+     *
+     * @param request - ListDataAgentAccuracyTestInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentAccuracyTestInstancesResponse
+     *
+     * @param ListDataAgentAccuracyTestInstancesRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListDataAgentAccuracyTestInstancesResponse
+     */
+    public function listDataAgentAccuracyTestInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accuracyTestInsId) {
+            @$query['AccuracyTestInsId'] = $request->accuracyTestInsId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentAccuracyTestInstances',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentAccuracyTestInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists accuracy test configuration items that meet the specified conditions.
+     *
+     * @remarks
+     * Lists accuracy test configuration items that meet the specified conditions.
+     *
+     * @param request - ListDataAgentAccuracyTestInstancesRequest
+     *
+     * @returns ListDataAgentAccuracyTestInstancesResponse
+     *
+     * @param ListDataAgentAccuracyTestInstancesRequest $request
+     *
+     * @return ListDataAgentAccuracyTestInstancesResponse
+     */
+    public function listDataAgentAccuracyTestInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentAccuracyTestInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the execution results of a self-test task.
+     *
+     * @remarks
+     * Retrieves the execution results of a self-test task.
+     *
+     * @param request - ListDataAgentAccuracyTestResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentAccuracyTestResultsResponse
+     *
+     * @param ListDataAgentAccuracyTestResultsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListDataAgentAccuracyTestResultsResponse
+     */
+    public function listDataAgentAccuracyTestResultsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accuracyTestInsId) {
+            @$query['AccuracyTestInsId'] = $request->accuracyTestInsId;
+        }
+
+        if (null !== $request->accuracyTestResultId) {
+            @$query['AccuracyTestResultId'] = $request->accuracyTestResultId;
+        }
+
+        if (null !== $request->accuracyTestSubtaskId) {
+            @$query['AccuracyTestSubtaskId'] = $request->accuracyTestSubtaskId;
+        }
+
+        if (null !== $request->accuracyTestTaskId) {
+            @$query['AccuracyTestTaskId'] = $request->accuracyTestTaskId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentAccuracyTestResults',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentAccuracyTestResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the execution results of a self-test task.
+     *
+     * @remarks
+     * Retrieves the execution results of a self-test task.
+     *
+     * @param request - ListDataAgentAccuracyTestResultsRequest
+     *
+     * @returns ListDataAgentAccuracyTestResultsResponse
+     *
+     * @param ListDataAgentAccuracyTestResultsRequest $request
+     *
+     * @return ListDataAgentAccuracyTestResultsResponse
+     */
+    public function listDataAgentAccuracyTestResults($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentAccuracyTestResultsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the running status of self-test tasks by paging.
+     *
+     * @remarks
+     * Queries the running status of self-test tasks by paging.
+     * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+     *
+     * @param request - ListDataAgentAccuracyTestTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataAgentAccuracyTestTasksResponse
+     *
+     * @param ListDataAgentAccuracyTestTasksRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListDataAgentAccuracyTestTasksResponse
+     */
+    public function listDataAgentAccuracyTestTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accuracyTestInsId) {
+            @$query['AccuracyTestInsId'] = $request->accuracyTestInsId;
+        }
+
+        if (null !== $request->accuracyTestTaskId) {
+            @$query['AccuracyTestTaskId'] = $request->accuracyTestTaskId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataAgentAccuracyTestTasks',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataAgentAccuracyTestTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the running status of self-test tasks by paging.
+     *
+     * @remarks
+     * Queries the running status of self-test tasks by paging.
+     * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+     *
+     * @param request - ListDataAgentAccuracyTestTasksRequest
+     *
+     * @returns ListDataAgentAccuracyTestTasksResponse
+     *
+     * @param ListDataAgentAccuracyTestTasksRequest $request
+     *
+     * @return ListDataAgentAccuracyTestTasksResponse
+     */
+    public function listDataAgentAccuracyTestTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataAgentAccuracyTestTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the list of historical session descriptions for a Data Agent.
      *
      * @param request - ListDataAgentSessionRequest
@@ -6250,7 +6717,7 @@ class Dms extends OpenApiClient
      * Saves workspace code. If the file does not exist, a new file is automatically created.
      *
      * @remarks
-     * 发布工作空间的代码
+     * Publishes workspace code.
      *
      * @param request - SaveWorkspaceCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6318,7 +6785,7 @@ class Dms extends OpenApiClient
      * Saves workspace code. If the file does not exist, a new file is automatically created.
      *
      * @remarks
-     * 发布工作空间的代码
+     * Publishes workspace code.
      *
      * @param request - SaveWorkspaceCodeRequest
      *
@@ -6336,16 +6803,16 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Send a user message to a specified session or cancel the session.
+     * Sends a user message to a specified session or cancels a session.
      *
      * @remarks
      * ## Request description
      * - `agent_id` and `session_id` are required fields.
-     * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+     * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
      * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
-     * - `quoted_message` can be used to quote the content of the user\\"s previous message.
-     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
+     * - `quoted_message` can be used to quote the content of a previous user message.
+     * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
      *
      * @param tmpReq - SendChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6431,6 +6898,10 @@ class Dms extends OpenApiClient
             @$query['TaskConfig'] = $request->taskConfigShrink;
         }
 
+        if (null !== $request->userOssBucket) {
+            @$query['UserOssBucket'] = $request->userOssBucket;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -6454,16 +6925,16 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Send a user message to a specified session or cancel the session.
+     * Sends a user message to a specified session or cancels a session.
      *
      * @remarks
      * ## Request description
      * - `agent_id` and `session_id` are required fields.
-     * - `message_type` defaults to `primary`. When you need to append information or cancel a session, set it to `additional` or `cancel`.
+     * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
      * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
-     * - `quoted_message` can be used to quote the content of the user\\"s previous message.
-     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are all optional, but provide more detailed context information.
+     * - `quoted_message` can be used to quote the content of a previous user message.
+     * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
      *
      * @param request - SendChatMessageRequest
      *
@@ -6629,6 +7100,156 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Initiates an accuracy self-test task.
+     *
+     * @remarks
+     * Initiates an accuracy self-test task.
+     *
+     * @param request - StartDataAgentAccuracyTestTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartDataAgentAccuracyTestTaskResponse
+     *
+     * @param StartDataAgentAccuracyTestTaskRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return StartDataAgentAccuracyTestTaskResponse
+     */
+    public function startDataAgentAccuracyTestTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accuracyTestInsId) {
+            @$query['AccuracyTestInsId'] = $request->accuracyTestInsId;
+        }
+
+        if (null !== $request->csvFile) {
+            @$query['CsvFile'] = $request->csvFile;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StartDataAgentAccuracyTestTask',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartDataAgentAccuracyTestTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Initiates an accuracy self-test task.
+     *
+     * @remarks
+     * Initiates an accuracy self-test task.
+     *
+     * @param request - StartDataAgentAccuracyTestTaskRequest
+     *
+     * @returns StartDataAgentAccuracyTestTaskResponse
+     *
+     * @param StartDataAgentAccuracyTestTaskRequest $request
+     *
+     * @return StartDataAgentAccuracyTestTaskResponse
+     */
+    public function startDataAgentAccuracyTestTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startDataAgentAccuracyTestTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Stops an accuracy self-test task.
+     *
+     * @remarks
+     * Stops an accuracy self-test task.
+     *
+     * @param request - StopDataAgentAccuracyTestTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopDataAgentAccuracyTestTaskResponse
+     *
+     * @param StopDataAgentAccuracyTestTaskRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return StopDataAgentAccuracyTestTaskResponse
+     */
+    public function stopDataAgentAccuracyTestTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accuracyTestTaskId) {
+            @$query['AccuracyTestTaskId'] = $request->accuracyTestTaskId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopDataAgentAccuracyTestTask',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopDataAgentAccuracyTestTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops an accuracy self-test task.
+     *
+     * @remarks
+     * Stops an accuracy self-test task.
+     *
+     * @param request - StopDataAgentAccuracyTestTaskRequest
+     *
+     * @returns StopDataAgentAccuracyTestTaskResponse
+     *
+     * @param StopDataAgentAccuracyTestTaskRequest $request
+     *
+     * @return StopDataAgentAccuracyTestTaskResponse
+     */
+    public function stopDataAgentAccuracyTestTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDataAgentAccuracyTestTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the properties of an Airflow instance.
      *
      * @param tmpReq - UpdateAirflowRequest
@@ -6741,6 +7362,117 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAirflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the content of an accuracy test item.
+     *
+     * @remarks
+     * Updates the content of an accuracy test item.
+     *
+     * @param request - UpdateDataAgentAccuracyTestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataAgentAccuracyTestResponse
+     *
+     * @param UpdateDataAgentAccuracyTestRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateDataAgentAccuracyTestResponse
+     */
+    public function updateDataAgentAccuracyTestWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accuracyTestInsId) {
+            @$query['AccuracyTestInsId'] = $request->accuracyTestInsId;
+        }
+
+        if (null !== $request->customerAgentId) {
+            @$query['CustomerAgentId'] = $request->customerAgentId;
+        }
+
+        if (null !== $request->dataset) {
+            @$query['Dataset'] = $request->dataset;
+        }
+
+        if (null !== $request->desc) {
+            @$query['Desc'] = $request->desc;
+        }
+
+        if (null !== $request->dmsUnit) {
+            @$query['DmsUnit'] = $request->dmsUnit;
+        }
+
+        if (null !== $request->evaluationPrompt) {
+            @$query['EvaluationPrompt'] = $request->evaluationPrompt;
+        }
+
+        if (null !== $request->fileId) {
+            @$query['FileId'] = $request->fileId;
+        }
+
+        if (null !== $request->maxConcurrent) {
+            @$query['MaxConcurrent'] = $request->maxConcurrent;
+        }
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->needDelete) {
+            @$query['NeedDelete'] = $request->needDelete;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataAgentAccuracyTest',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataAgentAccuracyTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the content of an accuracy test item.
+     *
+     * @remarks
+     * Updates the content of an accuracy test item.
+     *
+     * @param request - UpdateDataAgentAccuracyTestRequest
+     *
+     * @returns UpdateDataAgentAccuracyTestResponse
+     *
+     * @param UpdateDataAgentAccuracyTestRequest $request
+     *
+     * @return UpdateDataAgentAccuracyTestResponse
+     */
+    public function updateDataAgentAccuracyTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataAgentAccuracyTestWithOptions($request, $runtime);
     }
 
     /**

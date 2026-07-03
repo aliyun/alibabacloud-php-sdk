@@ -80,6 +80,11 @@ class SendChatMessageRequest extends Model
     /**
      * @var string
      */
+    public $userOssBucket;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'agentId' => 'AgentId',
@@ -95,6 +100,7 @@ class SendChatMessageRequest extends Model
         'sessionConfig' => 'SessionConfig',
         'sessionId' => 'SessionId',
         'taskConfig' => 'TaskConfig',
+        'userOssBucket' => 'UserOssBucket',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -177,6 +183,10 @@ class SendChatMessageRequest extends Model
             $res['TaskConfig'] = null !== $this->taskConfig ? $this->taskConfig->toArray($noStream) : $this->taskConfig;
         }
 
+        if (null !== $this->userOssBucket) {
+            $res['UserOssBucket'] = $this->userOssBucket;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -249,6 +259,10 @@ class SendChatMessageRequest extends Model
 
         if (isset($map['TaskConfig'])) {
             $model->taskConfig = taskConfig::fromMap($map['TaskConfig']);
+        }
+
+        if (isset($map['UserOssBucket'])) {
+            $model->userOssBucket = $map['UserOssBucket'];
         }
 
         if (isset($map['WorkspaceId'])) {

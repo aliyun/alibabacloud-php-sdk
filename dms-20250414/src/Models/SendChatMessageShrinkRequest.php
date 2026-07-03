@@ -76,6 +76,11 @@ class SendChatMessageShrinkRequest extends Model
     /**
      * @var string
      */
+    public $userOssBucket;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'agentId' => 'AgentId',
@@ -91,6 +96,7 @@ class SendChatMessageShrinkRequest extends Model
         'sessionConfigShrink' => 'SessionConfig',
         'sessionId' => 'SessionId',
         'taskConfigShrink' => 'TaskConfig',
+        'userOssBucket' => 'UserOssBucket',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -152,6 +158,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (null !== $this->taskConfigShrink) {
             $res['TaskConfig'] = $this->taskConfigShrink;
+        }
+
+        if (null !== $this->userOssBucket) {
+            $res['UserOssBucket'] = $this->userOssBucket;
         }
 
         if (null !== $this->workspaceId) {
@@ -219,6 +229,10 @@ class SendChatMessageShrinkRequest extends Model
 
         if (isset($map['TaskConfig'])) {
             $model->taskConfigShrink = $map['TaskConfig'];
+        }
+
+        if (isset($map['UserOssBucket'])) {
+            $model->userOssBucket = $map['UserOssBucket'];
         }
 
         if (isset($map['WorkspaceId'])) {

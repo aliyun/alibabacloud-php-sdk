@@ -21,12 +21,32 @@ class sessionConfig extends Model
     /**
      * @var string
      */
+    public $enableSearch;
+
+    /**
+     * @var string
+     */
+    public $kbUuidList;
+
+    /**
+     * @var string
+     */
     public $language;
 
     /**
      * @var string
      */
+    public $mcpServerIds;
+
+    /**
+     * @var string
+     */
     public $mode;
+
+    /**
+     * @var string
+     */
+    public $planMode;
 
     /**
      * @var string
@@ -55,8 +75,12 @@ class sessionConfig extends Model
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'customAgentStage' => 'CustomAgentStage',
+        'enableSearch' => 'EnableSearch',
+        'kbUuidList' => 'KbUuidList',
         'language' => 'Language',
+        'mcpServerIds' => 'McpServerIds',
         'mode' => 'Mode',
+        'planMode' => 'PlanMode',
         'reportWaterMark' => 'ReportWaterMark',
         'skipAskHuman' => 'SkipAskHuman',
         'skipPlan' => 'SkipPlan',
@@ -80,12 +104,28 @@ class sessionConfig extends Model
             $res['CustomAgentStage'] = $this->customAgentStage;
         }
 
+        if (null !== $this->enableSearch) {
+            $res['EnableSearch'] = $this->enableSearch;
+        }
+
+        if (null !== $this->kbUuidList) {
+            $res['KbUuidList'] = $this->kbUuidList;
+        }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
 
+        if (null !== $this->mcpServerIds) {
+            $res['McpServerIds'] = $this->mcpServerIds;
+        }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+
+        if (null !== $this->planMode) {
+            $res['PlanMode'] = $this->planMode;
         }
 
         if (null !== $this->reportWaterMark) {
@@ -127,12 +167,28 @@ class sessionConfig extends Model
             $model->customAgentStage = $map['CustomAgentStage'];
         }
 
+        if (isset($map['EnableSearch'])) {
+            $model->enableSearch = $map['EnableSearch'];
+        }
+
+        if (isset($map['KbUuidList'])) {
+            $model->kbUuidList = $map['KbUuidList'];
+        }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
 
+        if (isset($map['McpServerIds'])) {
+            $model->mcpServerIds = $map['McpServerIds'];
+        }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+
+        if (isset($map['PlanMode'])) {
+            $model->planMode = $map['PlanMode'];
         }
 
         if (isset($map['ReportWaterMark'])) {
