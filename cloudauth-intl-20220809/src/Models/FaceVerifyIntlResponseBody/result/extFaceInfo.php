@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class extFaceInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $faceAttributeInfo;
+
+    /**
      * @var float
      */
     public $faceQualityScore;
@@ -32,12 +37,43 @@ class extFaceInfo extends Model
      * @var float
      */
     public $sharpnessScore;
+
+    /**
+     * @var float
+     */
+    public $targetFaceQualityScore;
+
+    /**
+     * @var float
+     */
+    public $targetIlluminationScore;
+
+    /**
+     * @var float
+     */
+    public $targetKaOcclusionScore;
+
+    /**
+     * @var float
+     */
+    public $targetOcclusionScore;
+
+    /**
+     * @var float
+     */
+    public $targetSharpnessScore;
     protected $_name = [
+        'faceAttributeInfo' => 'FaceAttributeInfo',
         'faceQualityScore' => 'FaceQualityScore',
         'illuminationScore' => 'IlluminationScore',
         'kaOcclusionScore' => 'KaOcclusionScore',
         'occlusionScore' => 'OcclusionScore',
         'sharpnessScore' => 'SharpnessScore',
+        'targetFaceQualityScore' => 'TargetFaceQualityScore',
+        'targetIlluminationScore' => 'TargetIlluminationScore',
+        'targetKaOcclusionScore' => 'TargetKaOcclusionScore',
+        'targetOcclusionScore' => 'TargetOcclusionScore',
+        'targetSharpnessScore' => 'TargetSharpnessScore',
     ];
 
     public function validate()
@@ -48,6 +84,10 @@ class extFaceInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->faceAttributeInfo) {
+            $res['FaceAttributeInfo'] = $this->faceAttributeInfo;
+        }
+
         if (null !== $this->faceQualityScore) {
             $res['FaceQualityScore'] = $this->faceQualityScore;
         }
@@ -68,6 +108,26 @@ class extFaceInfo extends Model
             $res['SharpnessScore'] = $this->sharpnessScore;
         }
 
+        if (null !== $this->targetFaceQualityScore) {
+            $res['TargetFaceQualityScore'] = $this->targetFaceQualityScore;
+        }
+
+        if (null !== $this->targetIlluminationScore) {
+            $res['TargetIlluminationScore'] = $this->targetIlluminationScore;
+        }
+
+        if (null !== $this->targetKaOcclusionScore) {
+            $res['TargetKaOcclusionScore'] = $this->targetKaOcclusionScore;
+        }
+
+        if (null !== $this->targetOcclusionScore) {
+            $res['TargetOcclusionScore'] = $this->targetOcclusionScore;
+        }
+
+        if (null !== $this->targetSharpnessScore) {
+            $res['TargetSharpnessScore'] = $this->targetSharpnessScore;
+        }
+
         return $res;
     }
 
@@ -79,6 +139,10 @@ class extFaceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaceAttributeInfo'])) {
+            $model->faceAttributeInfo = $map['FaceAttributeInfo'];
+        }
+
         if (isset($map['FaceQualityScore'])) {
             $model->faceQualityScore = $map['FaceQualityScore'];
         }
@@ -97,6 +161,26 @@ class extFaceInfo extends Model
 
         if (isset($map['SharpnessScore'])) {
             $model->sharpnessScore = $map['SharpnessScore'];
+        }
+
+        if (isset($map['TargetFaceQualityScore'])) {
+            $model->targetFaceQualityScore = $map['TargetFaceQualityScore'];
+        }
+
+        if (isset($map['TargetIlluminationScore'])) {
+            $model->targetIlluminationScore = $map['TargetIlluminationScore'];
+        }
+
+        if (isset($map['TargetKaOcclusionScore'])) {
+            $model->targetKaOcclusionScore = $map['TargetKaOcclusionScore'];
+        }
+
+        if (isset($map['TargetOcclusionScore'])) {
+            $model->targetOcclusionScore = $map['TargetOcclusionScore'];
+        }
+
+        if (isset($map['TargetSharpnessScore'])) {
+            $model->targetSharpnessScore = $map['TargetSharpnessScore'];
         }
 
         return $model;

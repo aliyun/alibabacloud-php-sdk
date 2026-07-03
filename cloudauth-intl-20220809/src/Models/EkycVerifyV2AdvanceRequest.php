@@ -52,6 +52,11 @@ class EkycVerifyV2AdvanceRequest extends Model
     /**
      * @var string
      */
+    public $faceQualityCheck;
+
+    /**
+     * @var string
+     */
     public $idOcrPictureBase64;
 
     /**
@@ -92,6 +97,7 @@ class EkycVerifyV2AdvanceRequest extends Model
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureFileObject' => 'FacePictureFile',
         'facePictureUrl' => 'FacePictureUrl',
+        'faceQualityCheck' => 'FaceQualityCheck',
         'idOcrPictureBase64' => 'IdOcrPictureBase64',
         'idOcrPictureFileObject' => 'IdOcrPictureFile',
         'idOcrPictureUrl' => 'IdOcrPictureUrl',
@@ -139,6 +145,10 @@ class EkycVerifyV2AdvanceRequest extends Model
 
         if (null !== $this->facePictureUrl) {
             $res['FacePictureUrl'] = $this->facePictureUrl;
+        }
+
+        if (null !== $this->faceQualityCheck) {
+            $res['FaceQualityCheck'] = $this->faceQualityCheck;
         }
 
         if (null !== $this->idOcrPictureBase64) {
@@ -210,6 +220,10 @@ class EkycVerifyV2AdvanceRequest extends Model
 
         if (isset($map['FacePictureUrl'])) {
             $model->facePictureUrl = $map['FacePictureUrl'];
+        }
+
+        if (isset($map['FaceQualityCheck'])) {
+            $model->faceQualityCheck = $map['FaceQualityCheck'];
         }
 
         if (isset($map['IdOcrPictureBase64'])) {

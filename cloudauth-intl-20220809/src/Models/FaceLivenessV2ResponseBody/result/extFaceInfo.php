@@ -21,6 +21,11 @@ class extFaceInfo extends Model
     /**
      * @var string
      */
+    public $faceAttributeInfo;
+
+    /**
+     * @var string
+     */
     public $faceGender;
 
     /**
@@ -55,6 +60,7 @@ class extFaceInfo extends Model
     protected $_name = [
         'faceAge' => 'FaceAge',
         'faceAttack' => 'FaceAttack',
+        'faceAttributeInfo' => 'FaceAttributeInfo',
         'faceGender' => 'FaceGender',
         'faceQualityScore' => 'FaceQualityScore',
         'illuminationScore' => 'IlluminationScore',
@@ -78,6 +84,10 @@ class extFaceInfo extends Model
 
         if (null !== $this->faceAttack) {
             $res['FaceAttack'] = $this->faceAttack;
+        }
+
+        if (null !== $this->faceAttributeInfo) {
+            $res['FaceAttributeInfo'] = $this->faceAttributeInfo;
         }
 
         if (null !== $this->faceGender) {
@@ -125,6 +135,10 @@ class extFaceInfo extends Model
 
         if (isset($map['FaceAttack'])) {
             $model->faceAttack = $map['FaceAttack'];
+        }
+
+        if (isset($map['FaceAttributeInfo'])) {
+            $model->faceAttributeInfo = $map['FaceAttributeInfo'];
         }
 
         if (isset($map['FaceGender'])) {

@@ -93,6 +93,9 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaPeriodVerifyIntlReque
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaPeriodVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\IdnAuthorityVerifyIntlAdvanceRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\IdnAuthorityVerifyIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\IdnAuthorityVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeShrinkRequest;
@@ -2091,7 +2094,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 全球证件ocr识别接口.
+     * Recognizes identity documents worldwide through OCR.
      *
      * @param Request - DocOcrMaxV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2184,7 +2187,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 全球证件ocr识别接口.
+     * Recognizes identity documents worldwide through OCR.
      *
      * @param Request - DocOcrMaxV2Request
      *
@@ -2602,6 +2605,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['FacePictureUrl'] = $request->facePictureUrl;
         }
 
+        if (null !== $request->faceQualityCheck) {
+            @$query['FaceQualityCheck'] = $request->faceQualityCheck;
+        }
+
         if (null !== $request->idOcrPictureUrl) {
             @$query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
         }
@@ -2669,7 +2676,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Server-side-only eKYC API.
+     * The eKYC solution server-side API.
      *
      * @param Request - EkycVerifyV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2707,6 +2714,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->facePictureUrl) {
             @$query['FacePictureUrl'] = $request->facePictureUrl;
+        }
+
+        if (null !== $request->faceQualityCheck) {
+            @$query['FaceQualityCheck'] = $request->faceQualityCheck;
         }
 
         if (null !== $request->idOcrPictureUrl) {
@@ -2766,7 +2777,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Server-side-only eKYC API.
+     * The eKYC solution server-side API.
      *
      * @param Request - EkycVerifyV2Request
      *
@@ -2899,7 +2910,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Compares two face images by using face recognition technology and returns the comparison result and similarity score.
+     * Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
      *
      * @param Request - FaceCompareRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2964,7 +2975,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Compares two face images by using face recognition technology and returns the comparison result and similarity score.
+     * Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
      *
      * @param Request - FaceCompareRequest
      *
@@ -3287,7 +3298,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
+     * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
      *
      * @param Request - FaceDuplicationCheckIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3392,7 +3403,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * FaceDuplicationCheckIntl is designed for scenarios where SDK integration is not feasible. You can call this API operation to submit facial images and perform the following functions: verify whether the user is a real person, compare the submitted face against a stored face to verify identity, search a face database to check for existing records, and automatically register the face in a specified face database after successful verification.
+     * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
      *
      * @param Request - FaceDuplicationCheckIntlRequest
      *
@@ -3483,7 +3494,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Calls the server-side API for passive liveness detection.
+     * Provides the server-side passive liveness detection API.
      *
      * @param Request - FaceLivenessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3556,7 +3567,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Calls the server-side API for passive liveness detection.
+     * Provides the server-side passive liveness detection API.
      *
      * @param Request - FaceLivenessRequest
      *
@@ -3574,10 +3585,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸活体验证
+     * Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
      *
      * @remarks
-     * 调用FaceLivenessV2接口对人脸图片进行活体检测。
+     * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
      *
      * @param Request - FaceLivenessV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3642,10 +3653,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸活体验证
+     * Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
      *
      * @remarks
-     * 调用FaceLivenessV2接口对人脸图片进行活体检测。
+     * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
      *
      * @param Request - FaceLivenessV2Request
      *
@@ -3755,10 +3766,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸活体验证
+     * Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
      *
      * @remarks
-     * 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+     * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
      *
      * @param Request - FaceVerifyIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3855,10 +3866,10 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 人脸活体验证
+     * Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
      *
      * @remarks
-     * 调用FaceVerifyIntl接口对人脸图片进行活体检测。
+     * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
      *
      * @param Request - FaceVerifyIntlRequest
      *
@@ -4223,6 +4234,205 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+     *
+     * @param Request - IdnAuthorityVerifyIntlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IdnAuthorityVerifyIntlResponse
+     *
+     * @param IdnAuthorityVerifyIntlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return IdnAuthorityVerifyIntlResponse
+     */
+    public function idnAuthorityVerifyIntlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->birthDate) {
+            @$query['BirthDate'] = $request->birthDate;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->fullName) {
+            @$query['FullName'] = $request->fullName;
+        }
+
+        if (null !== $request->idNumber) {
+            @$query['IdNumber'] = $request->idNumber;
+        }
+
+        if (null !== $request->merchantBizId) {
+            @$query['MerchantBizId'] = $request->merchantBizId;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
+        }
+
+        if (null !== $request->sceneCode) {
+            @$query['SceneCode'] = $request->sceneCode;
+        }
+
+        if (null !== $request->sourceFacePictureFile) {
+            @$query['SourceFacePictureFile'] = $request->sourceFacePictureFile;
+        }
+
+        if (null !== $request->sourceFacePictureUrl) {
+            @$query['SourceFacePictureUrl'] = $request->sourceFacePictureUrl;
+        }
+
+        if (null !== $request->timestamp) {
+            @$query['Timestamp'] = $request->timestamp;
+        }
+
+        $body = [];
+        if (null !== $request->sourceFacePicture) {
+            @$body['SourceFacePicture'] = $request->sourceFacePicture;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'IdnAuthorityVerifyIntl',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return IdnAuthorityVerifyIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+     *
+     * @param Request - IdnAuthorityVerifyIntlRequest
+     *
+     * @returns IdnAuthorityVerifyIntlResponse
+     *
+     * @param IdnAuthorityVerifyIntlRequest $request
+     *
+     * @return IdnAuthorityVerifyIntlResponse
+     */
+    public function idnAuthorityVerifyIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->idnAuthorityVerifyIntlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param IdnAuthorityVerifyIntlAdvanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return IdnAuthorityVerifyIntlResponse
+     */
+    public function idnAuthorityVerifyIntlAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        if (null === $this->_credential) {
+            throw new ClientException([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Cloudauth-intl',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => Utils::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $idnAuthorityVerifyIntlReq = new IdnAuthorityVerifyIntlRequest([]);
+        Utils::convert($request, $idnAuthorityVerifyIntlReq);
+        if (null !== $request->sourceFacePictureFileObject) {
+            $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+            $tmpBody = @$authResponse['body'];
+            $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->sourceFacePictureFileObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType),
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader, $runtime);
+            $idnAuthorityVerifyIntlReq->sourceFacePictureFile = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->idnAuthorityVerifyIntlWithOptions($idnAuthorityVerifyIntlReq, $runtime);
+    }
+
+    /**
      * Initializes an authentication session.
      *
      * @param tmpReq - InitializeRequest
@@ -4508,7 +4718,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 认证初始化.
+     * Initializes an authentication session.
      *
      * @param tmpReq - InitializeV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4783,7 +4993,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * 认证初始化.
+     * Initializes an authentication session.
      *
      * @param Request - InitializeV2Request
      *

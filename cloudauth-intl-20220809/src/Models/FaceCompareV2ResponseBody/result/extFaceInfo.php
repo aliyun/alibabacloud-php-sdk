@@ -32,12 +32,42 @@ class extFaceInfo extends Model
      * @var float
      */
     public $sharpnessScore;
+
+    /**
+     * @var float
+     */
+    public $targetFaceQualityScore;
+
+    /**
+     * @var float
+     */
+    public $targetIlluminationScore;
+
+    /**
+     * @var float
+     */
+    public $targetKaOcclusionScore;
+
+    /**
+     * @var float
+     */
+    public $targetOcclusionScore;
+
+    /**
+     * @var float
+     */
+    public $targetSharpnessScore;
     protected $_name = [
         'faceQualityScore' => 'FaceQualityScore',
         'illuminationScore' => 'IlluminationScore',
         'kaOcclusionScore' => 'KaOcclusionScore',
         'occlusionScore' => 'OcclusionScore',
         'sharpnessScore' => 'SharpnessScore',
+        'targetFaceQualityScore' => 'TargetFaceQualityScore',
+        'targetIlluminationScore' => 'TargetIlluminationScore',
+        'targetKaOcclusionScore' => 'TargetKaOcclusionScore',
+        'targetOcclusionScore' => 'TargetOcclusionScore',
+        'targetSharpnessScore' => 'TargetSharpnessScore',
     ];
 
     public function validate()
@@ -66,6 +96,26 @@ class extFaceInfo extends Model
 
         if (null !== $this->sharpnessScore) {
             $res['SharpnessScore'] = $this->sharpnessScore;
+        }
+
+        if (null !== $this->targetFaceQualityScore) {
+            $res['TargetFaceQualityScore'] = $this->targetFaceQualityScore;
+        }
+
+        if (null !== $this->targetIlluminationScore) {
+            $res['TargetIlluminationScore'] = $this->targetIlluminationScore;
+        }
+
+        if (null !== $this->targetKaOcclusionScore) {
+            $res['TargetKaOcclusionScore'] = $this->targetKaOcclusionScore;
+        }
+
+        if (null !== $this->targetOcclusionScore) {
+            $res['TargetOcclusionScore'] = $this->targetOcclusionScore;
+        }
+
+        if (null !== $this->targetSharpnessScore) {
+            $res['TargetSharpnessScore'] = $this->targetSharpnessScore;
         }
 
         return $res;
@@ -97,6 +147,26 @@ class extFaceInfo extends Model
 
         if (isset($map['SharpnessScore'])) {
             $model->sharpnessScore = $map['SharpnessScore'];
+        }
+
+        if (isset($map['TargetFaceQualityScore'])) {
+            $model->targetFaceQualityScore = $map['TargetFaceQualityScore'];
+        }
+
+        if (isset($map['TargetIlluminationScore'])) {
+            $model->targetIlluminationScore = $map['TargetIlluminationScore'];
+        }
+
+        if (isset($map['TargetKaOcclusionScore'])) {
+            $model->targetKaOcclusionScore = $map['TargetKaOcclusionScore'];
+        }
+
+        if (isset($map['TargetOcclusionScore'])) {
+            $model->targetOcclusionScore = $map['TargetOcclusionScore'];
+        }
+
+        if (isset($map['TargetSharpnessScore'])) {
+            $model->targetSharpnessScore = $map['TargetSharpnessScore'];
         }
 
         return $model;
