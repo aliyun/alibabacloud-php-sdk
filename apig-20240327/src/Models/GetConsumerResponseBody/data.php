@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerResponseBody;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AkSkIdentityConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ApiKeyIdentityConfig;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerResponseBody\data\consumerGroups;
 use AlibabaCloud\SDK\APIG\V20240327\Models\JwtIdentityConfig;
 
 class data extends Model
@@ -20,6 +21,11 @@ class data extends Model
      * @var ApiKeyIdentityConfig
      */
     public $apiKeyIdentityConfig;
+
+    /**
+     * @var consumerGroups[]
+     */
+    public $consumerGroups;
 
     /**
      * @var string
@@ -63,6 +69,7 @@ class data extends Model
     protected $_name = [
         'akSkIdentityConfigs' => 'akSkIdentityConfigs',
         'apiKeyIdentityConfig' => 'apiKeyIdentityConfig',
+        'consumerGroups' => 'consumerGroups',
         'consumerId' => 'consumerId',
         'createTimestamp' => 'createTimestamp',
         'deployStatus' => 'deployStatus',
@@ -80,6 +87,9 @@ class data extends Model
         }
         if (null !== $this->apiKeyIdentityConfig) {
             $this->apiKeyIdentityConfig->validate();
+        }
+        if (\is_array($this->consumerGroups)) {
+            Model::validateArray($this->consumerGroups);
         }
         if (null !== $this->jwtIdentityConfig) {
             $this->jwtIdentityConfig->validate();
@@ -103,6 +113,17 @@ class data extends Model
 
         if (null !== $this->apiKeyIdentityConfig) {
             $res['apiKeyIdentityConfig'] = null !== $this->apiKeyIdentityConfig ? $this->apiKeyIdentityConfig->toArray($noStream) : $this->apiKeyIdentityConfig;
+        }
+
+        if (null !== $this->consumerGroups) {
+            if (\is_array($this->consumerGroups)) {
+                $res['consumerGroups'] = [];
+                $n1 = 0;
+                foreach ($this->consumerGroups as $item1) {
+                    $res['consumerGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->consumerId) {
@@ -161,6 +182,17 @@ class data extends Model
 
         if (isset($map['apiKeyIdentityConfig'])) {
             $model->apiKeyIdentityConfig = ApiKeyIdentityConfig::fromMap($map['apiKeyIdentityConfig']);
+        }
+
+        if (isset($map['consumerGroups'])) {
+            if (!empty($map['consumerGroups'])) {
+                $model->consumerGroups = [];
+                $n1 = 0;
+                foreach ($map['consumerGroups'] as $item1) {
+                    $model->consumerGroups[$n1] = consumerGroups::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['consumerId'])) {

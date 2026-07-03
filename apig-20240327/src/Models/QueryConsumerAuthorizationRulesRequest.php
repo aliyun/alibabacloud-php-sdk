@@ -16,6 +16,11 @@ class QueryConsumerAuthorizationRulesRequest extends Model
     /**
      * @var string
      */
+    public $consumerGroupId;
+
+    /**
+     * @var string
+     */
     public $consumerId;
 
     /**
@@ -51,6 +56,11 @@ class QueryConsumerAuthorizationRulesRequest extends Model
     /**
      * @var string
      */
+    public $principalType;
+
+    /**
+     * @var string
+     */
     public $resourceId;
 
     /**
@@ -64,6 +74,7 @@ class QueryConsumerAuthorizationRulesRequest extends Model
     public $resourceTypes;
     protected $_name = [
         'apiNameLike' => 'apiNameLike',
+        'consumerGroupId' => 'consumerGroupId',
         'consumerId' => 'consumerId',
         'consumerNameLike' => 'consumerNameLike',
         'environmentId' => 'environmentId',
@@ -71,6 +82,7 @@ class QueryConsumerAuthorizationRulesRequest extends Model
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'parentResourceId' => 'parentResourceId',
+        'principalType' => 'principalType',
         'resourceId' => 'resourceId',
         'resourceType' => 'resourceType',
         'resourceTypes' => 'resourceTypes',
@@ -86,6 +98,10 @@ class QueryConsumerAuthorizationRulesRequest extends Model
         $res = [];
         if (null !== $this->apiNameLike) {
             $res['apiNameLike'] = $this->apiNameLike;
+        }
+
+        if (null !== $this->consumerGroupId) {
+            $res['consumerGroupId'] = $this->consumerGroupId;
         }
 
         if (null !== $this->consumerId) {
@@ -116,6 +132,10 @@ class QueryConsumerAuthorizationRulesRequest extends Model
             $res['parentResourceId'] = $this->parentResourceId;
         }
 
+        if (null !== $this->principalType) {
+            $res['principalType'] = $this->principalType;
+        }
+
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
         }
@@ -141,6 +161,10 @@ class QueryConsumerAuthorizationRulesRequest extends Model
         $model = new self();
         if (isset($map['apiNameLike'])) {
             $model->apiNameLike = $map['apiNameLike'];
+        }
+
+        if (isset($map['consumerGroupId'])) {
+            $model->consumerGroupId = $map['consumerGroupId'];
         }
 
         if (isset($map['consumerId'])) {
@@ -169,6 +193,10 @@ class QueryConsumerAuthorizationRulesRequest extends Model
 
         if (isset($map['parentResourceId'])) {
             $model->parentResourceId = $map['parentResourceId'];
+        }
+
+        if (isset($map['principalType'])) {
+            $model->principalType = $map['principalType'];
         }
 
         if (isset($map['resourceId'])) {

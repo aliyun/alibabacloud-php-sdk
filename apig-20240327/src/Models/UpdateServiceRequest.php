@@ -42,6 +42,11 @@ class UpdateServiceRequest extends Model
     public $healthyPanicThreshold;
 
     /**
+     * @var string
+     */
+    public $modelProviderId;
+
+    /**
      * @var outlierDetectionConfig
      */
     public $outlierDetectionConfig;
@@ -62,6 +67,7 @@ class UpdateServiceRequest extends Model
         'dnsServers' => 'dnsServers',
         'healthCheckConfig' => 'healthCheckConfig',
         'healthyPanicThreshold' => 'healthyPanicThreshold',
+        'modelProviderId' => 'modelProviderId',
         'outlierDetectionConfig' => 'outlierDetectionConfig',
         'ports' => 'ports',
         'protocol' => 'protocol',
@@ -134,6 +140,10 @@ class UpdateServiceRequest extends Model
             $res['healthyPanicThreshold'] = $this->healthyPanicThreshold;
         }
 
+        if (null !== $this->modelProviderId) {
+            $res['modelProviderId'] = $this->modelProviderId;
+        }
+
         if (null !== $this->outlierDetectionConfig) {
             $res['outlierDetectionConfig'] = null !== $this->outlierDetectionConfig ? $this->outlierDetectionConfig->toArray($noStream) : $this->outlierDetectionConfig;
         }
@@ -200,6 +210,10 @@ class UpdateServiceRequest extends Model
 
         if (isset($map['healthyPanicThreshold'])) {
             $model->healthyPanicThreshold = $map['healthyPanicThreshold'];
+        }
+
+        if (isset($map['modelProviderId'])) {
+            $model->modelProviderId = $map['modelProviderId'];
         }
 
         if (isset($map['outlierDetectionConfig'])) {

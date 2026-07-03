@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ConsumerGroupInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ConsumerInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\EnvironmentInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GatewayInfo;
@@ -22,6 +23,16 @@ class items extends Model
      * @var string
      */
     public $consumerAuthorizationRuleId;
+
+    /**
+     * @var string
+     */
+    public $consumerGroupId;
+
+    /**
+     * @var ConsumerGroupInfo
+     */
+    public $consumerGroupInfo;
 
     /**
      * @var string
@@ -71,6 +82,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $principalType;
+
+    /**
+     * @var string
+     */
     public $resourceId;
 
     /**
@@ -90,6 +106,8 @@ class items extends Model
     protected $_name = [
         'apiInfo' => 'apiInfo',
         'consumerAuthorizationRuleId' => 'consumerAuthorizationRuleId',
+        'consumerGroupId' => 'consumerGroupId',
+        'consumerGroupInfo' => 'consumerGroupInfo',
         'consumerId' => 'consumerId',
         'consumerInfo' => 'consumerInfo',
         'createTimestamp' => 'createTimestamp',
@@ -99,6 +117,7 @@ class items extends Model
         'expireStatus' => 'expireStatus',
         'expireTimestamp' => 'expireTimestamp',
         'gatewayInfo' => 'gatewayInfo',
+        'principalType' => 'principalType',
         'resourceId' => 'resourceId',
         'resourceInfo' => 'resourceInfo',
         'resourceType' => 'resourceType',
@@ -109,6 +128,9 @@ class items extends Model
     {
         if (null !== $this->apiInfo) {
             $this->apiInfo->validate();
+        }
+        if (null !== $this->consumerGroupInfo) {
+            $this->consumerGroupInfo->validate();
         }
         if (null !== $this->consumerInfo) {
             $this->consumerInfo->validate();
@@ -134,6 +156,14 @@ class items extends Model
 
         if (null !== $this->consumerAuthorizationRuleId) {
             $res['consumerAuthorizationRuleId'] = $this->consumerAuthorizationRuleId;
+        }
+
+        if (null !== $this->consumerGroupId) {
+            $res['consumerGroupId'] = $this->consumerGroupId;
+        }
+
+        if (null !== $this->consumerGroupInfo) {
+            $res['consumerGroupInfo'] = null !== $this->consumerGroupInfo ? $this->consumerGroupInfo->toArray($noStream) : $this->consumerGroupInfo;
         }
 
         if (null !== $this->consumerId) {
@@ -172,6 +202,10 @@ class items extends Model
             $res['gatewayInfo'] = null !== $this->gatewayInfo ? $this->gatewayInfo->toArray($noStream) : $this->gatewayInfo;
         }
 
+        if (null !== $this->principalType) {
+            $res['principalType'] = $this->principalType;
+        }
+
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
         }
@@ -205,6 +239,14 @@ class items extends Model
 
         if (isset($map['consumerAuthorizationRuleId'])) {
             $model->consumerAuthorizationRuleId = $map['consumerAuthorizationRuleId'];
+        }
+
+        if (isset($map['consumerGroupId'])) {
+            $model->consumerGroupId = $map['consumerGroupId'];
+        }
+
+        if (isset($map['consumerGroupInfo'])) {
+            $model->consumerGroupInfo = ConsumerGroupInfo::fromMap($map['consumerGroupInfo']);
         }
 
         if (isset($map['consumerId'])) {
@@ -241,6 +283,10 @@ class items extends Model
 
         if (isset($map['gatewayInfo'])) {
             $model->gatewayInfo = GatewayInfo::fromMap($map['gatewayInfo']);
+        }
+
+        if (isset($map['principalType'])) {
+            $model->principalType = $map['principalType'];
         }
 
         if (isset($map['resourceId'])) {

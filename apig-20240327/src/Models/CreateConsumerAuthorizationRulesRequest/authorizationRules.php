@@ -12,6 +12,11 @@ class authorizationRules extends Model
     /**
      * @var string
      */
+    public $consumerGroupId;
+
+    /**
+     * @var string
+     */
     public $consumerId;
 
     /**
@@ -25,6 +30,11 @@ class authorizationRules extends Model
     public $expireTimestamp;
 
     /**
+     * @var string
+     */
+    public $principalType;
+
+    /**
      * @var resourceIdentifier
      */
     public $resourceIdentifier;
@@ -34,9 +44,11 @@ class authorizationRules extends Model
      */
     public $resourceType;
     protected $_name = [
+        'consumerGroupId' => 'consumerGroupId',
         'consumerId' => 'consumerId',
         'expireMode' => 'expireMode',
         'expireTimestamp' => 'expireTimestamp',
+        'principalType' => 'principalType',
         'resourceIdentifier' => 'resourceIdentifier',
         'resourceType' => 'resourceType',
     ];
@@ -52,6 +64,10 @@ class authorizationRules extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->consumerGroupId) {
+            $res['consumerGroupId'] = $this->consumerGroupId;
+        }
+
         if (null !== $this->consumerId) {
             $res['consumerId'] = $this->consumerId;
         }
@@ -62,6 +78,10 @@ class authorizationRules extends Model
 
         if (null !== $this->expireTimestamp) {
             $res['expireTimestamp'] = $this->expireTimestamp;
+        }
+
+        if (null !== $this->principalType) {
+            $res['principalType'] = $this->principalType;
         }
 
         if (null !== $this->resourceIdentifier) {
@@ -83,6 +103,10 @@ class authorizationRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['consumerGroupId'])) {
+            $model->consumerGroupId = $map['consumerGroupId'];
+        }
+
         if (isset($map['consumerId'])) {
             $model->consumerId = $map['consumerId'];
         }
@@ -93,6 +117,10 @@ class authorizationRules extends Model
 
         if (isset($map['expireTimestamp'])) {
             $model->expireTimestamp = $map['expireTimestamp'];
+        }
+
+        if (isset($map['principalType'])) {
+            $model->principalType = $map['principalType'];
         }
 
         if (isset($map['resourceIdentifier'])) {

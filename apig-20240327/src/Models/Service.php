@@ -63,6 +63,11 @@ class Service extends Model
     /**
      * @var string
      */
+    public $modelProviderId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -130,6 +135,7 @@ class Service extends Model
         'healthCheck' => 'healthCheck',
         'healthStatus' => 'healthStatus',
         'labelDetails' => 'labelDetails',
+        'modelProviderId' => 'modelProviderId',
         'name' => 'name',
         'namespace' => 'namespace',
         'outlierEndpoints' => 'outlierEndpoints',
@@ -231,6 +237,10 @@ class Service extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->modelProviderId) {
+            $res['modelProviderId'] = $this->modelProviderId;
         }
 
         if (null !== $this->name) {
@@ -372,6 +382,10 @@ class Service extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['modelProviderId'])) {
+            $model->modelProviderId = $map['modelProviderId'];
         }
 
         if (isset($map['name'])) {

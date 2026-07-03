@@ -44,6 +44,11 @@ class serviceConfigs extends Model
     /**
      * @var string
      */
+    public $modelProviderId;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -72,6 +77,7 @@ class serviceConfigs extends Model
         'dnsServers' => 'dnsServers',
         'expressType' => 'expressType',
         'groupName' => 'groupName',
+        'modelProviderId' => 'modelProviderId',
         'name' => 'name',
         'namespace' => 'namespace',
         'qualifier' => 'qualifier',
@@ -138,6 +144,10 @@ class serviceConfigs extends Model
 
         if (null !== $this->groupName) {
             $res['groupName'] = $this->groupName;
+        }
+
+        if (null !== $this->modelProviderId) {
+            $res['modelProviderId'] = $this->modelProviderId;
         }
 
         if (null !== $this->name) {
@@ -207,6 +217,10 @@ class serviceConfigs extends Model
 
         if (isset($map['groupName'])) {
             $model->groupName = $map['groupName'];
+        }
+
+        if (isset($map['modelProviderId'])) {
+            $model->modelProviderId = $map['modelProviderId'];
         }
 
         if (isset($map['name'])) {
