@@ -6,22 +6,12 @@ namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetNormalizationRuleRequest extends Model
+class GetResponseRuleStatisticRequest extends Model
 {
     /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $normalizationRuleId;
-
-    /**
-     * @var string
-     */
-    public $normalizationSecurityDomainId;
 
     /**
      * @var string
@@ -32,12 +22,16 @@ class GetNormalizationRuleRequest extends Model
      * @var int
      */
     public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
     protected $_name = [
         'lang' => 'Lang',
-        'normalizationRuleId' => 'NormalizationRuleId',
-        'normalizationSecurityDomainId' => 'NormalizationSecurityDomainId',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
+        'roleType' => 'RoleType',
     ];
 
     public function validate()
@@ -52,20 +46,16 @@ class GetNormalizationRuleRequest extends Model
             $res['Lang'] = $this->lang;
         }
 
-        if (null !== $this->normalizationRuleId) {
-            $res['NormalizationRuleId'] = $this->normalizationRuleId;
-        }
-
-        if (null !== $this->normalizationSecurityDomainId) {
-            $res['NormalizationSecurityDomainId'] = $this->normalizationSecurityDomainId;
-        }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
 
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
+        }
+
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
 
         return $res;
@@ -83,20 +73,16 @@ class GetNormalizationRuleRequest extends Model
             $model->lang = $map['Lang'];
         }
 
-        if (isset($map['NormalizationRuleId'])) {
-            $model->normalizationRuleId = $map['NormalizationRuleId'];
-        }
-
-        if (isset($map['NormalizationSecurityDomainId'])) {
-            $model->normalizationSecurityDomainId = $map['NormalizationSecurityDomainId'];
-        }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
 
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
+        }
+
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
 
         return $model;

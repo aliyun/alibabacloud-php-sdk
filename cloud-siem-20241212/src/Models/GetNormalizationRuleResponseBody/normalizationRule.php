@@ -31,6 +31,11 @@ class normalizationRule extends Model
     /**
      * @var string
      */
+    public $normalizationFieldSource;
+
+    /**
+     * @var string
+     */
     public $normalizationRuleDescription;
 
     /**
@@ -86,6 +91,11 @@ class normalizationRule extends Model
     /**
      * @var string
      */
+    public $normalizationSecurityDomainId;
+
+    /**
+     * @var string
+     */
     public $orderField;
 
     /**
@@ -107,6 +117,7 @@ class normalizationRule extends Model
         'extendContentPacked' => 'ExtendContentPacked',
         'extendFieldStoreMode' => 'ExtendFieldStoreMode',
         'normalizationCategoryId' => 'NormalizationCategoryId',
+        'normalizationFieldSource' => 'NormalizationFieldSource',
         'normalizationRuleDescription' => 'NormalizationRuleDescription',
         'normalizationRuleExpression' => 'NormalizationRuleExpression',
         'normalizationRuleFormat' => 'NormalizationRuleFormat',
@@ -118,6 +129,7 @@ class normalizationRule extends Model
         'normalizationRuleType' => 'NormalizationRuleType',
         'normalizationRuleVersion' => 'NormalizationRuleVersion',
         'normalizationSchemaId' => 'NormalizationSchemaId',
+        'normalizationSecurityDomainId' => 'NormalizationSecurityDomainId',
         'orderField' => 'OrderField',
         'productId' => 'ProductId',
         'updateTime' => 'UpdateTime',
@@ -149,6 +161,10 @@ class normalizationRule extends Model
 
         if (null !== $this->normalizationCategoryId) {
             $res['NormalizationCategoryId'] = $this->normalizationCategoryId;
+        }
+
+        if (null !== $this->normalizationFieldSource) {
+            $res['NormalizationFieldSource'] = $this->normalizationFieldSource;
         }
 
         if (null !== $this->normalizationRuleDescription) {
@@ -202,6 +218,10 @@ class normalizationRule extends Model
             $res['NormalizationSchemaId'] = $this->normalizationSchemaId;
         }
 
+        if (null !== $this->normalizationSecurityDomainId) {
+            $res['NormalizationSecurityDomainId'] = $this->normalizationSecurityDomainId;
+        }
+
         if (null !== $this->orderField) {
             $res['OrderField'] = $this->orderField;
         }
@@ -243,6 +263,10 @@ class normalizationRule extends Model
 
         if (isset($map['NormalizationCategoryId'])) {
             $model->normalizationCategoryId = $map['NormalizationCategoryId'];
+        }
+
+        if (isset($map['NormalizationFieldSource'])) {
+            $model->normalizationFieldSource = $map['NormalizationFieldSource'];
         }
 
         if (isset($map['NormalizationRuleDescription'])) {
@@ -294,6 +318,10 @@ class normalizationRule extends Model
 
         if (isset($map['NormalizationSchemaId'])) {
             $model->normalizationSchemaId = $map['NormalizationSchemaId'];
+        }
+
+        if (isset($map['NormalizationSecurityDomainId'])) {
+            $model->normalizationSecurityDomainId = $map['NormalizationSecurityDomainId'];
         }
 
         if (isset($map['OrderField'])) {

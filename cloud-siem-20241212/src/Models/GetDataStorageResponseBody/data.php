@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\normalizationLogStores;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\normalizationLogViews;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\recordLogStores;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\sasLogStores;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\GetDataStorageResponseBody\data\unusedLogStores;
 
@@ -58,6 +59,11 @@ class data extends Model
     public $normalizationLogViews;
 
     /**
+     * @var recordLogStores[]
+     */
+    public $recordLogStores;
+
+    /**
      * @var sasLogStores[]
      */
     public $sasLogStores;
@@ -76,6 +82,7 @@ class data extends Model
         'logProject' => 'LogProject',
         'normalizationLogStores' => 'NormalizationLogStores',
         'normalizationLogViews' => 'NormalizationLogViews',
+        'recordLogStores' => 'RecordLogStores',
         'sasLogStores' => 'SasLogStores',
         'unusedLogStores' => 'UnusedLogStores',
     ];
@@ -87,6 +94,9 @@ class data extends Model
         }
         if (\is_array($this->normalizationLogViews)) {
             Model::validateArray($this->normalizationLogViews);
+        }
+        if (\is_array($this->recordLogStores)) {
+            Model::validateArray($this->recordLogStores);
         }
         if (\is_array($this->sasLogStores)) {
             Model::validateArray($this->sasLogStores);
@@ -145,6 +155,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($this->normalizationLogViews as $item1) {
                     $res['NormalizationLogViews'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->recordLogStores) {
+            if (\is_array($this->recordLogStores)) {
+                $res['RecordLogStores'] = [];
+                $n1 = 0;
+                foreach ($this->recordLogStores as $item1) {
+                    $res['RecordLogStores'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -228,6 +249,17 @@ class data extends Model
                 $n1 = 0;
                 foreach ($map['NormalizationLogViews'] as $item1) {
                     $model->normalizationLogViews[$n1] = normalizationLogViews::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['RecordLogStores'])) {
+            if (!empty($map['RecordLogStores'])) {
+                $model->recordLogStores = [];
+                $n1 = 0;
+                foreach ($map['RecordLogStores'] as $item1) {
+                    $model->recordLogStores[$n1] = recordLogStores::fromMap($item1);
                     ++$n1;
                 }
             }

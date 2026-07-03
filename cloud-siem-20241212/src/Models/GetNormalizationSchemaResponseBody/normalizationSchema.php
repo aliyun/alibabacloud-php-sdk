@@ -21,6 +21,11 @@ class normalizationSchema extends Model
     public $normalizationCategoryId;
 
     /**
+     * @var string
+     */
+    public $normalizationFieldSource;
+
+    /**
      * @var normalizationFields[]
      */
     public $normalizationFields;
@@ -58,6 +63,21 @@ class normalizationSchema extends Model
     /**
      * @var string
      */
+    public $normalizationSecurityDomainId;
+
+    /**
+     * @var string
+     */
+    public $productId;
+
+    /**
+     * @var string[]
+     */
+    public $recommendEntities;
+
+    /**
+     * @var string
+     */
     public $targetLogStore;
 
     /**
@@ -69,9 +89,15 @@ class normalizationSchema extends Model
      * @var int
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $vendorId;
     protected $_name = [
         'createTime' => 'CreateTime',
         'normalizationCategoryId' => 'NormalizationCategoryId',
+        'normalizationFieldSource' => 'NormalizationFieldSource',
         'normalizationFields' => 'NormalizationFields',
         'normalizationSchemaDescription' => 'NormalizationSchemaDescription',
         'normalizationSchemaFrom' => 'NormalizationSchemaFrom',
@@ -79,9 +105,13 @@ class normalizationSchema extends Model
         'normalizationSchemaName' => 'NormalizationSchemaName',
         'normalizationSchemaReferences' => 'NormalizationSchemaReferences',
         'normalizationSchemaType' => 'NormalizationSchemaType',
+        'normalizationSecurityDomainId' => 'NormalizationSecurityDomainId',
+        'productId' => 'ProductId',
+        'recommendEntities' => 'RecommendEntities',
         'targetLogStore' => 'TargetLogStore',
         'targetStoreView' => 'TargetStoreView',
         'updateTime' => 'UpdateTime',
+        'vendorId' => 'VendorId',
     ];
 
     public function validate()
@@ -91,6 +121,9 @@ class normalizationSchema extends Model
         }
         if (\is_array($this->normalizationSchemaReferences)) {
             Model::validateArray($this->normalizationSchemaReferences);
+        }
+        if (\is_array($this->recommendEntities)) {
+            Model::validateArray($this->recommendEntities);
         }
         parent::validate();
     }
@@ -104,6 +137,10 @@ class normalizationSchema extends Model
 
         if (null !== $this->normalizationCategoryId) {
             $res['NormalizationCategoryId'] = $this->normalizationCategoryId;
+        }
+
+        if (null !== $this->normalizationFieldSource) {
+            $res['NormalizationFieldSource'] = $this->normalizationFieldSource;
         }
 
         if (null !== $this->normalizationFields) {
@@ -148,6 +185,25 @@ class normalizationSchema extends Model
             $res['NormalizationSchemaType'] = $this->normalizationSchemaType;
         }
 
+        if (null !== $this->normalizationSecurityDomainId) {
+            $res['NormalizationSecurityDomainId'] = $this->normalizationSecurityDomainId;
+        }
+
+        if (null !== $this->productId) {
+            $res['ProductId'] = $this->productId;
+        }
+
+        if (null !== $this->recommendEntities) {
+            if (\is_array($this->recommendEntities)) {
+                $res['RecommendEntities'] = [];
+                $n1 = 0;
+                foreach ($this->recommendEntities as $item1) {
+                    $res['RecommendEntities'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->targetLogStore) {
             $res['TargetLogStore'] = $this->targetLogStore;
         }
@@ -158,6 +214,10 @@ class normalizationSchema extends Model
 
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+
+        if (null !== $this->vendorId) {
+            $res['VendorId'] = $this->vendorId;
         }
 
         return $res;
@@ -177,6 +237,10 @@ class normalizationSchema extends Model
 
         if (isset($map['NormalizationCategoryId'])) {
             $model->normalizationCategoryId = $map['NormalizationCategoryId'];
+        }
+
+        if (isset($map['NormalizationFieldSource'])) {
+            $model->normalizationFieldSource = $map['NormalizationFieldSource'];
         }
 
         if (isset($map['NormalizationFields'])) {
@@ -221,6 +285,25 @@ class normalizationSchema extends Model
             $model->normalizationSchemaType = $map['NormalizationSchemaType'];
         }
 
+        if (isset($map['NormalizationSecurityDomainId'])) {
+            $model->normalizationSecurityDomainId = $map['NormalizationSecurityDomainId'];
+        }
+
+        if (isset($map['ProductId'])) {
+            $model->productId = $map['ProductId'];
+        }
+
+        if (isset($map['RecommendEntities'])) {
+            if (!empty($map['RecommendEntities'])) {
+                $model->recommendEntities = [];
+                $n1 = 0;
+                foreach ($map['RecommendEntities'] as $item1) {
+                    $model->recommendEntities[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['TargetLogStore'])) {
             $model->targetLogStore = $map['TargetLogStore'];
         }
@@ -231,6 +314,10 @@ class normalizationSchema extends Model
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['VendorId'])) {
+            $model->vendorId = $map['VendorId'];
         }
 
         return $model;

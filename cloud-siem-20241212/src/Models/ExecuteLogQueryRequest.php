@@ -26,6 +26,11 @@ class ExecuteLogQueryRequest extends Model
     /**
      * @var string
      */
+    public $logCondition;
+
+    /**
+     * @var string
+     */
     public $logProjectName;
 
     /**
@@ -71,6 +76,7 @@ class ExecuteLogQueryRequest extends Model
         'endTime' => 'EndTime',
         'extendContentPacked' => 'ExtendContentPacked',
         'lang' => 'Lang',
+        'logCondition' => 'LogCondition',
         'logProjectName' => 'LogProjectName',
         'logQuery' => 'LogQuery',
         'logRegionId' => 'LogRegionId',
@@ -100,6 +106,10 @@ class ExecuteLogQueryRequest extends Model
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+
+        if (null !== $this->logCondition) {
+            $res['LogCondition'] = $this->logCondition;
         }
 
         if (null !== $this->logProjectName) {
@@ -159,6 +169,10 @@ class ExecuteLogQueryRequest extends Model
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+
+        if (isset($map['LogCondition'])) {
+            $model->logCondition = $map['LogCondition'];
         }
 
         if (isset($map['LogProjectName'])) {

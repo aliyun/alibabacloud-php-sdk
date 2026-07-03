@@ -20,6 +20,11 @@ class CreateNormalizationSchemaRequest extends Model
     public $normalizationCategoryId;
 
     /**
+     * @var string
+     */
+    public $normalizationFieldSource;
+
+    /**
      * @var normalizationFields[]
      */
     public $normalizationFields;
@@ -47,6 +52,16 @@ class CreateNormalizationSchemaRequest extends Model
     /**
      * @var string
      */
+    public $normalizationSecurityDomainId;
+
+    /**
+     * @var string
+     */
+    public $productId;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -58,17 +73,26 @@ class CreateNormalizationSchemaRequest extends Model
      * @var string
      */
     public $targetLogStore;
+
+    /**
+     * @var string
+     */
+    public $vendorId;
     protected $_name = [
         'lang' => 'Lang',
         'normalizationCategoryId' => 'NormalizationCategoryId',
+        'normalizationFieldSource' => 'NormalizationFieldSource',
         'normalizationFields' => 'NormalizationFields',
         'normalizationSchemaDescription' => 'NormalizationSchemaDescription',
         'normalizationSchemaId' => 'NormalizationSchemaId',
         'normalizationSchemaName' => 'NormalizationSchemaName',
         'normalizationSchemaType' => 'NormalizationSchemaType',
+        'normalizationSecurityDomainId' => 'NormalizationSecurityDomainId',
+        'productId' => 'ProductId',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
         'targetLogStore' => 'TargetLogStore',
+        'vendorId' => 'VendorId',
     ];
 
     public function validate()
@@ -88,6 +112,10 @@ class CreateNormalizationSchemaRequest extends Model
 
         if (null !== $this->normalizationCategoryId) {
             $res['NormalizationCategoryId'] = $this->normalizationCategoryId;
+        }
+
+        if (null !== $this->normalizationFieldSource) {
+            $res['NormalizationFieldSource'] = $this->normalizationFieldSource;
         }
 
         if (null !== $this->normalizationFields) {
@@ -117,6 +145,14 @@ class CreateNormalizationSchemaRequest extends Model
             $res['NormalizationSchemaType'] = $this->normalizationSchemaType;
         }
 
+        if (null !== $this->normalizationSecurityDomainId) {
+            $res['NormalizationSecurityDomainId'] = $this->normalizationSecurityDomainId;
+        }
+
+        if (null !== $this->productId) {
+            $res['ProductId'] = $this->productId;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -127,6 +163,10 @@ class CreateNormalizationSchemaRequest extends Model
 
         if (null !== $this->targetLogStore) {
             $res['TargetLogStore'] = $this->targetLogStore;
+        }
+
+        if (null !== $this->vendorId) {
+            $res['VendorId'] = $this->vendorId;
         }
 
         return $res;
@@ -146,6 +186,10 @@ class CreateNormalizationSchemaRequest extends Model
 
         if (isset($map['NormalizationCategoryId'])) {
             $model->normalizationCategoryId = $map['NormalizationCategoryId'];
+        }
+
+        if (isset($map['NormalizationFieldSource'])) {
+            $model->normalizationFieldSource = $map['NormalizationFieldSource'];
         }
 
         if (isset($map['NormalizationFields'])) {
@@ -175,6 +219,14 @@ class CreateNormalizationSchemaRequest extends Model
             $model->normalizationSchemaType = $map['NormalizationSchemaType'];
         }
 
+        if (isset($map['NormalizationSecurityDomainId'])) {
+            $model->normalizationSecurityDomainId = $map['NormalizationSecurityDomainId'];
+        }
+
+        if (isset($map['ProductId'])) {
+            $model->productId = $map['ProductId'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -185,6 +237,10 @@ class CreateNormalizationSchemaRequest extends Model
 
         if (isset($map['TargetLogStore'])) {
             $model->targetLogStore = $map['TargetLogStore'];
+        }
+
+        if (isset($map['VendorId'])) {
+            $model->vendorId = $map['VendorId'];
         }
 
         return $model;

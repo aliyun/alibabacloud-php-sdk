@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListNormalizationFieldsRequest extends Model
+class ListNormalizationSecurityDomainsRequest extends Model
 {
     /**
      * @var string
@@ -21,22 +21,7 @@ class ListNormalizationFieldsRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $nextToken;
-
-    /**
-     * @var string
-     */
-    public $normalizationFieldSource;
-
-    /**
-     * @var string
-     */
-    public $normalizationSchemaType;
 
     /**
      * @var string
@@ -50,10 +35,7 @@ class ListNormalizationFieldsRequest extends Model
     protected $_name = [
         'lang' => 'Lang',
         'maxResults' => 'MaxResults',
-        'name' => 'Name',
         'nextToken' => 'NextToken',
-        'normalizationFieldSource' => 'NormalizationFieldSource',
-        'normalizationSchemaType' => 'NormalizationSchemaType',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
     ];
@@ -74,20 +56,8 @@ class ListNormalizationFieldsRequest extends Model
             $res['MaxResults'] = $this->maxResults;
         }
 
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->normalizationFieldSource) {
-            $res['NormalizationFieldSource'] = $this->normalizationFieldSource;
-        }
-
-        if (null !== $this->normalizationSchemaType) {
-            $res['NormalizationSchemaType'] = $this->normalizationSchemaType;
         }
 
         if (null !== $this->regionId) {
@@ -117,20 +87,8 @@ class ListNormalizationFieldsRequest extends Model
             $model->maxResults = $map['MaxResults'];
         }
 
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-
-        if (isset($map['NormalizationFieldSource'])) {
-            $model->normalizationFieldSource = $map['NormalizationFieldSource'];
-        }
-
-        if (isset($map['NormalizationSchemaType'])) {
-            $model->normalizationSchemaType = $map['NormalizationSchemaType'];
         }
 
         if (isset($map['RegionId'])) {

@@ -76,6 +76,11 @@ class CreateNormalizationRuleRequest extends Model
     /**
      * @var string
      */
+    public $normalizationSecurityDomainId;
+
+    /**
+     * @var string
+     */
     public $orderField;
 
     /**
@@ -111,6 +116,7 @@ class CreateNormalizationRuleRequest extends Model
         'normalizationRuleType' => 'NormalizationRuleType',
         'normalizationRuleVersion' => 'NormalizationRuleVersion',
         'normalizationSchemaId' => 'NormalizationSchemaId',
+        'normalizationSecurityDomainId' => 'NormalizationSecurityDomainId',
         'orderField' => 'OrderField',
         'productId' => 'ProductId',
         'regionId' => 'RegionId',
@@ -186,6 +192,10 @@ class CreateNormalizationRuleRequest extends Model
 
         if (null !== $this->normalizationSchemaId) {
             $res['NormalizationSchemaId'] = $this->normalizationSchemaId;
+        }
+
+        if (null !== $this->normalizationSecurityDomainId) {
+            $res['NormalizationSecurityDomainId'] = $this->normalizationSecurityDomainId;
         }
 
         if (null !== $this->orderField) {
@@ -276,6 +286,10 @@ class CreateNormalizationRuleRequest extends Model
 
         if (isset($map['NormalizationSchemaId'])) {
             $model->normalizationSchemaId = $map['NormalizationSchemaId'];
+        }
+
+        if (isset($map['NormalizationSecurityDomainId'])) {
+            $model->normalizationSecurityDomainId = $map['NormalizationSecurityDomainId'];
         }
 
         if (isset($map['OrderField'])) {

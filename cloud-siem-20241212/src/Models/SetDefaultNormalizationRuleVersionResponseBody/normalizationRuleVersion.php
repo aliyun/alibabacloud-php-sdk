@@ -66,6 +66,11 @@ class normalizationRuleVersion extends Model
     /**
      * @var string
      */
+    public $normalizationSecurityDomainId;
+
+    /**
+     * @var string
+     */
     public $productId;
 
     /**
@@ -89,6 +94,7 @@ class normalizationRuleVersion extends Model
         'normalizationRuleType' => 'NormalizationRuleType',
         'normalizationRuleVersion' => 'NormalizationRuleVersion',
         'normalizationSchemaId' => 'NormalizationSchemaId',
+        'normalizationSecurityDomainId' => 'NormalizationSecurityDomainId',
         'productId' => 'ProductId',
         'updateTime' => 'UpdateTime',
         'vendorId' => 'VendorId',
@@ -144,6 +150,10 @@ class normalizationRuleVersion extends Model
 
         if (null !== $this->normalizationSchemaId) {
             $res['NormalizationSchemaId'] = $this->normalizationSchemaId;
+        }
+
+        if (null !== $this->normalizationSecurityDomainId) {
+            $res['NormalizationSecurityDomainId'] = $this->normalizationSecurityDomainId;
         }
 
         if (null !== $this->productId) {
@@ -211,6 +221,10 @@ class normalizationRuleVersion extends Model
 
         if (isset($map['NormalizationSchemaId'])) {
             $model->normalizationSchemaId = $map['NormalizationSchemaId'];
+        }
+
+        if (isset($map['NormalizationSecurityDomainId'])) {
+            $model->normalizationSecurityDomainId = $map['NormalizationSecurityDomainId'];
         }
 
         if (isset($map['ProductId'])) {

@@ -80,6 +80,11 @@ class normalizationFields extends Model
     public $normalizationSchemaId;
 
     /**
+     * @var string
+     */
+    public $normalizationSecurityDomainId;
+
+    /**
      * @var int
      */
     public $updateTime;
@@ -98,6 +103,7 @@ class normalizationFields extends Model
         'normalizationFieldTokenize' => 'NormalizationFieldTokenize',
         'normalizationFieldType' => 'NormalizationFieldType',
         'normalizationSchemaId' => 'NormalizationSchemaId',
+        'normalizationSecurityDomainId' => 'NormalizationSecurityDomainId',
         'updateTime' => 'UpdateTime',
     ];
 
@@ -173,6 +179,10 @@ class normalizationFields extends Model
 
         if (null !== $this->normalizationSchemaId) {
             $res['NormalizationSchemaId'] = $this->normalizationSchemaId;
+        }
+
+        if (null !== $this->normalizationSecurityDomainId) {
+            $res['NormalizationSecurityDomainId'] = $this->normalizationSecurityDomainId;
         }
 
         if (null !== $this->updateTime) {
@@ -251,6 +261,10 @@ class normalizationFields extends Model
 
         if (isset($map['NormalizationSchemaId'])) {
             $model->normalizationSchemaId = $map['NormalizationSchemaId'];
+        }
+
+        if (isset($map['NormalizationSecurityDomainId'])) {
+            $model->normalizationSecurityDomainId = $map['NormalizationSecurityDomainId'];
         }
 
         if (isset($map['UpdateTime'])) {

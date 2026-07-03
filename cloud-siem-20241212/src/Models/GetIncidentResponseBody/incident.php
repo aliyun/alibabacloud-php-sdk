@@ -84,6 +84,11 @@ class incident extends Model
     public $relateUserIds;
 
     /**
+     * @var int
+     */
+    public $responseTime;
+
+    /**
      * @var string
      */
     public $threatLevel;
@@ -113,6 +118,7 @@ class incident extends Model
         'relateAssetCount' => 'RelateAssetCount',
         'relateDataSourceIds' => 'RelateDataSourceIds',
         'relateUserIds' => 'RelateUserIds',
+        'responseTime' => 'ResponseTime',
         'threatLevel' => 'ThreatLevel',
         'threatScore' => 'ThreatScore',
         'updateTime' => 'UpdateTime',
@@ -184,6 +190,10 @@ class incident extends Model
 
         if (null !== $this->relateUserIds) {
             $res['RelateUserIds'] = $this->relateUserIds;
+        }
+
+        if (null !== $this->responseTime) {
+            $res['ResponseTime'] = $this->responseTime;
         }
 
         if (null !== $this->threatLevel) {
@@ -267,6 +277,10 @@ class incident extends Model
 
         if (isset($map['RelateUserIds'])) {
             $model->relateUserIds = $map['RelateUserIds'];
+        }
+
+        if (isset($map['ResponseTime'])) {
+            $model->responseTime = $map['ResponseTime'];
         }
 
         if (isset($map['ThreatLevel'])) {

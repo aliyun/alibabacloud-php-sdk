@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cloudsiem\V20241212\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListNormalizationFieldsRequest extends Model
+class ListQueryViewsRequest extends Model
 {
     /**
      * @var string
@@ -21,22 +21,17 @@ class ListNormalizationFieldsRequest extends Model
     /**
      * @var string
      */
-    public $name;
-
-    /**
-     * @var string
-     */
     public $nextToken;
 
     /**
      * @var string
      */
-    public $normalizationFieldSource;
+    public $queryViewScene;
 
     /**
      * @var string
      */
-    public $normalizationSchemaType;
+    public $queryViewType;
 
     /**
      * @var string
@@ -47,15 +42,20 @@ class ListNormalizationFieldsRequest extends Model
      * @var int
      */
     public $roleFor;
+
+    /**
+     * @var int
+     */
+    public $roleType;
     protected $_name = [
         'lang' => 'Lang',
         'maxResults' => 'MaxResults',
-        'name' => 'Name',
         'nextToken' => 'NextToken',
-        'normalizationFieldSource' => 'NormalizationFieldSource',
-        'normalizationSchemaType' => 'NormalizationSchemaType',
+        'queryViewScene' => 'QueryViewScene',
+        'queryViewType' => 'QueryViewType',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
+        'roleType' => 'RoleType',
     ];
 
     public function validate()
@@ -74,20 +74,16 @@ class ListNormalizationFieldsRequest extends Model
             $res['MaxResults'] = $this->maxResults;
         }
 
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
 
-        if (null !== $this->normalizationFieldSource) {
-            $res['NormalizationFieldSource'] = $this->normalizationFieldSource;
+        if (null !== $this->queryViewScene) {
+            $res['QueryViewScene'] = $this->queryViewScene;
         }
 
-        if (null !== $this->normalizationSchemaType) {
-            $res['NormalizationSchemaType'] = $this->normalizationSchemaType;
+        if (null !== $this->queryViewType) {
+            $res['QueryViewType'] = $this->queryViewType;
         }
 
         if (null !== $this->regionId) {
@@ -96,6 +92,10 @@ class ListNormalizationFieldsRequest extends Model
 
         if (null !== $this->roleFor) {
             $res['RoleFor'] = $this->roleFor;
+        }
+
+        if (null !== $this->roleType) {
+            $res['RoleType'] = $this->roleType;
         }
 
         return $res;
@@ -117,20 +117,16 @@ class ListNormalizationFieldsRequest extends Model
             $model->maxResults = $map['MaxResults'];
         }
 
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
 
-        if (isset($map['NormalizationFieldSource'])) {
-            $model->normalizationFieldSource = $map['NormalizationFieldSource'];
+        if (isset($map['QueryViewScene'])) {
+            $model->queryViewScene = $map['QueryViewScene'];
         }
 
-        if (isset($map['NormalizationSchemaType'])) {
-            $model->normalizationSchemaType = $map['NormalizationSchemaType'];
+        if (isset($map['QueryViewType'])) {
+            $model->queryViewType = $map['QueryViewType'];
         }
 
         if (isset($map['RegionId'])) {
@@ -139,6 +135,10 @@ class ListNormalizationFieldsRequest extends Model
 
         if (isset($map['RoleFor'])) {
             $model->roleFor = $map['RoleFor'];
+        }
+
+        if (isset($map['RoleType'])) {
+            $model->roleType = $map['RoleType'];
         }
 
         return $model;

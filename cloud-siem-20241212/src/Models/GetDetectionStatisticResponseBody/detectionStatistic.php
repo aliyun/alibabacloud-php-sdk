@@ -11,6 +11,11 @@ class detectionStatistic extends Model
     /**
      * @var int
      */
+    public $aiPoweredAggregationRuleCount;
+
+    /**
+     * @var int
+     */
     public $detectionRuleOnlineCount;
 
     /**
@@ -38,6 +43,7 @@ class detectionStatistic extends Model
      */
     public $windowRuleCount;
     protected $_name = [
+        'aiPoweredAggregationRuleCount' => 'AiPoweredAggregationRuleCount',
         'detectionRuleOnlineCount' => 'DetectionRuleOnlineCount',
         'detectionRuleTemplateCount' => 'DetectionRuleTemplateCount',
         'detectionRuleTestCount' => 'DetectionRuleTestCount',
@@ -54,6 +60,10 @@ class detectionStatistic extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aiPoweredAggregationRuleCount) {
+            $res['AiPoweredAggregationRuleCount'] = $this->aiPoweredAggregationRuleCount;
+        }
+
         if (null !== $this->detectionRuleOnlineCount) {
             $res['DetectionRuleOnlineCount'] = $this->detectionRuleOnlineCount;
         }
@@ -89,6 +99,10 @@ class detectionStatistic extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiPoweredAggregationRuleCount'])) {
+            $model->aiPoweredAggregationRuleCount = $map['AiPoweredAggregationRuleCount'];
+        }
+
         if (isset($map['DetectionRuleOnlineCount'])) {
             $model->detectionRuleOnlineCount = $map['DetectionRuleOnlineCount'];
         }

@@ -51,6 +51,11 @@ class ListNormalizationRulesRequest extends Model
     /**
      * @var string
      */
+    public $normalizationSecurityDomainId;
+
+    /**
+     * @var string
+     */
     public $orderField;
 
     /**
@@ -96,6 +101,7 @@ class ListNormalizationRulesRequest extends Model
         'normalizationRuleName' => 'NormalizationRuleName',
         'normalizationRuleType' => 'NormalizationRuleType',
         'normalizationSchemaId' => 'NormalizationSchemaId',
+        'normalizationSecurityDomainId' => 'NormalizationSecurityDomainId',
         'orderField' => 'OrderField',
         'orderType' => 'OrderType',
         'pageNumber' => 'PageNumber',
@@ -154,6 +160,10 @@ class ListNormalizationRulesRequest extends Model
 
         if (null !== $this->normalizationSchemaId) {
             $res['NormalizationSchemaId'] = $this->normalizationSchemaId;
+        }
+
+        if (null !== $this->normalizationSecurityDomainId) {
+            $res['NormalizationSecurityDomainId'] = $this->normalizationSecurityDomainId;
         }
 
         if (null !== $this->orderField) {
@@ -236,6 +246,10 @@ class ListNormalizationRulesRequest extends Model
 
         if (isset($map['NormalizationSchemaId'])) {
             $model->normalizationSchemaId = $map['NormalizationSchemaId'];
+        }
+
+        if (isset($map['NormalizationSecurityDomainId'])) {
+            $model->normalizationSecurityDomainId = $map['NormalizationSecurityDomainId'];
         }
 
         if (isset($map['OrderField'])) {

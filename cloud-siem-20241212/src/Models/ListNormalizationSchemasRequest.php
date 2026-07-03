@@ -31,7 +31,17 @@ class ListNormalizationSchemasRequest extends Model
     /**
      * @var string
      */
+    public $normalizationFieldSource;
+
+    /**
+     * @var string
+     */
     public $normalizationSchemaType;
+
+    /**
+     * @var string
+     */
+    public $normalizationSecurityDomainId;
 
     /**
      * @var string
@@ -47,7 +57,9 @@ class ListNormalizationSchemasRequest extends Model
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
         'normalizationCategoryId' => 'NormalizationCategoryId',
+        'normalizationFieldSource' => 'NormalizationFieldSource',
         'normalizationSchemaType' => 'NormalizationSchemaType',
+        'normalizationSecurityDomainId' => 'NormalizationSecurityDomainId',
         'regionId' => 'RegionId',
         'roleFor' => 'RoleFor',
     ];
@@ -76,8 +88,16 @@ class ListNormalizationSchemasRequest extends Model
             $res['NormalizationCategoryId'] = $this->normalizationCategoryId;
         }
 
+        if (null !== $this->normalizationFieldSource) {
+            $res['NormalizationFieldSource'] = $this->normalizationFieldSource;
+        }
+
         if (null !== $this->normalizationSchemaType) {
             $res['NormalizationSchemaType'] = $this->normalizationSchemaType;
+        }
+
+        if (null !== $this->normalizationSecurityDomainId) {
+            $res['NormalizationSecurityDomainId'] = $this->normalizationSecurityDomainId;
         }
 
         if (null !== $this->regionId) {
@@ -115,8 +135,16 @@ class ListNormalizationSchemasRequest extends Model
             $model->normalizationCategoryId = $map['NormalizationCategoryId'];
         }
 
+        if (isset($map['NormalizationFieldSource'])) {
+            $model->normalizationFieldSource = $map['NormalizationFieldSource'];
+        }
+
         if (isset($map['NormalizationSchemaType'])) {
             $model->normalizationSchemaType = $map['NormalizationSchemaType'];
+        }
+
+        if (isset($map['NormalizationSecurityDomainId'])) {
+            $model->normalizationSecurityDomainId = $map['NormalizationSecurityDomainId'];
         }
 
         if (isset($map['RegionId'])) {
