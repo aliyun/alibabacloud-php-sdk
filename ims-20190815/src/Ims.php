@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\CreateOIDCProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateOIDCProviderResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateSAMLProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateSAMLProviderResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\CreateServiceCredentialRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\CreateServiceCredentialResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\CreateVirtualMFADeviceRequest;
@@ -51,6 +53,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\DeletePasskeyRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeletePasskeyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteSAMLProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteSAMLProviderResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteServiceCredentialRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteServiceCredentialResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteUserInRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteUserInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\DeleteUserRequest;
@@ -69,6 +73,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyInfoInRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyInfoInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyLastUsedRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyLastUsedResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyPolicyRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccessKeyPolicyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountMFAInfoResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountSecurityPracticeReportResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAccountSummaryResponse;
@@ -96,6 +102,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\GetPasswordPolicyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetSAMLProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetSAMLProviderResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetSecurityPreferenceResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetServiceCredentialRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetServiceCredentialResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserInRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserInRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetUserMFAInfoRequest;
@@ -128,6 +136,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\ListPredefinedScopesResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListRecentGovernanceMetricsResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListSAMLProvidersRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListSAMLProvidersResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListServiceCredentialsRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\ListServiceCredentialsResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\ListUserBasicInfosRequest;
@@ -154,6 +164,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreAccessKeyFromRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreAccessKeyFromRecycleBinResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreUserFromRecycleBinRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\RestoreUserFromRecycleBinResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\SetAccessKeyPolicyRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\SetAccessKeyPolicyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetDefaultDomainRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetDefaultDomainResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetPasswordPolicyRequest;
@@ -187,6 +199,8 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\UpdatePasskeyRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdatePasskeyResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateSAMLProviderRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateSAMLProviderResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateServiceCredentialRequest;
+use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateServiceCredentialResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\UpdateUserResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -199,7 +213,10 @@ class Ims extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'ims.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('ims', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -229,7 +246,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     * Calls AddClientIdToOIDCProvider to add a specified client ID to an OIDC IdP.
+     *
+     * @remarks
+     * ### Usage notes
+     * This topic provides an example on how to add client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
      *
      * @param request - AddClientIdToOIDCProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -272,7 +293,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
+     * Calls AddClientIdToOIDCProvider to add a specified client ID to an OIDC IdP.
+     *
+     * @remarks
+     * ### Usage notes
+     * This topic provides an example on how to add client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
      *
      * @param request - AddClientIdToOIDCProviderRequest
      *
@@ -492,7 +517,7 @@ class Ims extends OpenApiClient
      * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
      *
      * @remarks
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     * > This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
      *
      * @param request - ChangePasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -538,7 +563,7 @@ class Ims extends OpenApiClient
      * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
      *
      * @remarks
-     * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
+     * > This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
      *
      * @param request - ChangePasswordRequest
      *
@@ -832,7 +857,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Enables logon to the console for a Resource Access Management (RAM) user.
+     * Creates a logon configuration for a Resource Access Management (RAM) user.
      *
      * @param request - CreateLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -887,7 +912,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Enables logon to the console for a Resource Access Management (RAM) user.
+     * Creates a logon configuration for a Resource Access Management (RAM) user.
      *
      * @param request - CreateLoginProfileRequest
      *
@@ -911,9 +936,9 @@ class Ims extends OpenApiClient
      * ### [](#)Prerequisites
      * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
      * ### [](#)Limits
-     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-     * *   You can add a maximum of 50 client IDs to an OIDC IdP.
-     * *   You can add a maximum of five fingerprints to an OIDC IdP.
+     * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+     * - You can add a maximum of 50 client IDs to an OIDC IdP.
+     * - You can add a maximum of five fingerprints to an OIDC IdP.
      * ### [](#)Operation description
      * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
      *
@@ -980,9 +1005,9 @@ class Ims extends OpenApiClient
      * ### [](#)Prerequisites
      * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
      * ### [](#)Limits
-     * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-     * *   You can add a maximum of 50 client IDs to an OIDC IdP.
-     * *   You can add a maximum of five fingerprints to an OIDC IdP.
+     * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+     * - You can add a maximum of 50 client IDs to an OIDC IdP.
+     * - You can add a maximum of five fingerprints to an OIDC IdP.
      * ### [](#)Operation description
      * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
      *
@@ -1068,6 +1093,75 @@ class Ims extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSAMLProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+     *
+     * @param request - CreateServiceCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceCredentialResponse
+     *
+     * @param CreateServiceCredentialRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServiceCredentialResponse
+     */
+    public function createServiceCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->credentialAgeDays) {
+            @$query['CredentialAgeDays'] = $request->credentialAgeDays;
+        }
+
+        if (null !== $request->serviceCredentialName) {
+            @$query['ServiceCredentialName'] = $request->serviceCredentialName;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
+        }
+
+        if (null !== $request->userPrincipalName) {
+            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceCredential',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+     *
+     * @param request - CreateServiceCredentialRequest
+     *
+     * @returns CreateServiceCredentialResponse
+     *
+     * @param CreateServiceCredentialRequest $request
+     *
+     * @return CreateServiceCredentialResponse
+     */
+    public function createServiceCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceCredentialWithOptions($request, $runtime);
     }
 
     /**
@@ -1754,6 +1848,67 @@ class Ims extends OpenApiClient
     }
 
     /**
+     * Deletes a service credential of a Resource Access Management (RAM) user.
+     *
+     * @param request - DeleteServiceCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceCredentialResponse
+     *
+     * @param DeleteServiceCredentialRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteServiceCredentialResponse
+     */
+    public function deleteServiceCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serviceCredentialId) {
+            @$query['ServiceCredentialId'] = $request->serviceCredentialId;
+        }
+
+        if (null !== $request->userPrincipalName) {
+            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteServiceCredential',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteServiceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a service credential of a Resource Access Management (RAM) user.
+     *
+     * @param request - DeleteServiceCredentialRequest
+     *
+     * @returns DeleteServiceCredentialResponse
+     *
+     * @param DeleteServiceCredentialRequest $request
+     *
+     * @return DeleteServiceCredentialResponse
+     */
+    public function deleteServiceCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServiceCredentialWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a Resource Access Management (RAM) user.
      *
      * @param request - DeleteUserRequest
@@ -1933,7 +2088,7 @@ class Ims extends OpenApiClient
      *
      * @remarks
      * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-     * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+     * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
      *
      * @param request - DeprovisionApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1976,7 +2131,7 @@ class Ims extends OpenApiClient
      *
      * @remarks
      * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
-     * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
+     * > For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
      *
      * @param request - DeprovisionApplicationRequest
      *
@@ -2312,6 +2467,67 @@ class Ims extends OpenApiClient
     }
 
     /**
+     * Queries the network access restriction policy of an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *
+     * @param request - GetAccessKeyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAccessKeyPolicyResponse
+     *
+     * @param GetAccessKeyPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAccessKeyPolicyResponse
+     */
+    public function getAccessKeyPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->userAccessKeyId) {
+            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+
+        if (null !== $request->userPrincipalName) {
+            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAccessKeyPolicy',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAccessKeyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the network access restriction policy of an access key for an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *
+     * @param request - GetAccessKeyPolicyRequest
+     *
+     * @returns GetAccessKeyPolicyResponse
+     *
+     * @param GetAccessKeyPolicyRequest $request
+     *
+     * @return GetAccessKeyPolicyResponse
+     */
+    public function getAccessKeyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAccessKeyPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
      *
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2398,7 +2614,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the overview information about an Alibaba Cloud account.
+     * Retrieves the overview for an Alibaba Cloud account (root account).
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2427,7 +2643,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the overview information about an Alibaba Cloud account.
+     * Retrieves the overview for an Alibaba Cloud account (root account).
      *
      * @returns GetAccountSummaryResponse
      *
@@ -2502,7 +2718,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about an application.
+     * Queries the configuration information of an application.
      *
      * @remarks
      * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
@@ -2544,7 +2760,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the configuration information about an application.
+     * Queries the configuration information of an application.
      *
      * @remarks
      * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
@@ -2783,7 +2999,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询用户的单项ram治理报告.
+     * Queries the details of a specific check item in an identity and access governance report.
      *
      * @param request - GetGovernanceItemReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2830,7 +3046,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询用户的单项ram治理报告.
+     * Queries the details of a specific check item in an identity and access governance report.
      *
      * @param request - GetGovernanceItemReportRequest
      *
@@ -2848,7 +3064,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询成熟度报告状态
+     * Retrieves the current generation status of an identity and access governance report.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2877,7 +3093,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * 查询成熟度报告状态
+     * Retrieves the current generation status of an identity and access governance report.
      *
      * @returns GetGovernanceReportStatusResponse
      *
@@ -2948,7 +3164,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the logon configurations of a Resource Access Management (RAM) user.
+     * Queries the console logon settings for a Resource Access Management (RAM) user.
      *
      * @param request - GetLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2987,7 +3203,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the logon configurations of a Resource Access Management (RAM) user.
+     * Queries the console logon settings for a Resource Access Management (RAM) user.
      *
      * @param request - GetLoginProfileRequest
      *
@@ -3070,7 +3286,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of the password policy for RAM users.
+     * Queries the password policy for Resource Access Management (RAM) users.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3099,7 +3315,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the details of the password policy for RAM users.
+     * Queries the password policy for Resource Access Management (RAM) users.
      *
      * @returns GetPasswordPolicyResponse
      *
@@ -3170,7 +3386,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security preferences for RAM users.
+     * Use `GetSecurityPreference` to query the global security preferences of a RAM user.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3199,7 +3415,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Queries the security preferences for RAM users.
+     * Use `GetSecurityPreference` to query the global security preferences of a RAM user.
      *
      * @returns GetSecurityPreferenceResponse
      *
@@ -3210,6 +3426,67 @@ class Ims extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSecurityPreferenceWithOptions($runtime);
+    }
+
+    /**
+     * Retrieves a specific service credential of a Resource Access Management (RAM) user.
+     *
+     * @param request - GetServiceCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceCredentialResponse
+     *
+     * @param GetServiceCredentialRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetServiceCredentialResponse
+     */
+    public function getServiceCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serviceCredentialId) {
+            @$query['ServiceCredentialId'] = $request->serviceCredentialId;
+        }
+
+        if (null !== $request->userPrincipalName) {
+            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceCredential',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a specific service credential of a Resource Access Management (RAM) user.
+     *
+     * @param request - GetServiceCredentialRequest
+     *
+     * @returns GetServiceCredentialResponse
+     *
+     * @param GetServiceCredentialRequest $request
+     *
+     * @return GetServiceCredentialResponse
+     */
+    public function getServiceCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceCredentialWithOptions($request, $runtime);
     }
 
     /**
@@ -3724,10 +4001,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Lists the created applications.
+     * Lists the applications that you have created.
      *
      * @remarks
-     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3756,10 +4033,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Lists the created applications.
+     * Lists the applications that you have created.
      *
      * @remarks
-     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
      *
      * @returns ListApplicationsResponse
      *
@@ -4221,14 +4498,87 @@ class Ims extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+     *
+     * @param request - ListServiceCredentialsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceCredentialsResponse
+     *
+     * @param ListServiceCredentialsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListServiceCredentialsResponse
+     */
+    public function listServiceCredentialsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->allUsers) {
+            @$query['AllUsers'] = $request->allUsers;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
+        }
+
+        if (null !== $request->userPrincipalName) {
+            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListServiceCredentials',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServiceCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+     *
+     * @param request - ListServiceCredentialsRequest
+     *
+     * @returns ListServiceCredentialsResponse
+     *
+     * @param ListServiceCredentialsRequest $request
+     *
+     * @return ListServiceCredentialsResponse
+     */
+    public function listServiceCredentials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServiceCredentialsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the tags that are added resources.
      *
      * @remarks
      * ###
      * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-     * *   `ResourceId.N`
-     * *   `Tag.N.Key`
-     * *   `Tag.N.Key` and `Tag.N.Value`
+     * - `ResourceId.N`
+     * - `Tag.N.Key`
+     * - `Tag.N.Key` and `Tag.N.Value`
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4292,9 +4642,9 @@ class Ims extends OpenApiClient
      * @remarks
      * ###
      * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
-     * *   `ResourceId.N`
-     * *   `Tag.N.Key`
-     * *   `Tag.N.Key` and `Tag.N.Value`
+     * - `ResourceId.N`
+     * - `Tag.N.Key`
+     * - `Tag.N.Key` and `Tag.N.Value`
      *
      * @param request - ListTagResourcesRequest
      *
@@ -4316,8 +4666,8 @@ class Ims extends OpenApiClient
      *
      * @remarks
      * You can call the following API operations to query information about all RAM users:
-     * *   ListUsers: queries the details of all RAM users.
-     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     * - ListUsers: queries the details of all RAM users.
+     * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *
      * @param request - ListUserBasicInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4372,8 +4722,8 @@ class Ims extends OpenApiClient
      *
      * @remarks
      * You can call the following API operations to query information about all RAM users:
-     * *   ListUsers: queries the details of all RAM users.
-     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     * - ListUsers: queries the details of all RAM users.
+     * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *
      * @param request - ListUserBasicInfosRequest
      *
@@ -4396,8 +4746,8 @@ class Ims extends OpenApiClient
      * @remarks
      * ### [](#)
      * You can call the following API operations to query the details of all RAM users:
-     * *   ListUsers: queries the details of all RAM users.
-     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     * - ListUsers: queries the details of all RAM users.
+     * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *
      * @param request - ListUsersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4453,8 +4803,8 @@ class Ims extends OpenApiClient
      * @remarks
      * ### [](#)
      * You can call the following API operations to query the details of all RAM users:
-     * *   ListUsers: queries the details of all RAM users.
-     * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+     * - ListUsers: queries the details of all RAM users.
+     * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *
      * @param request - ListUsersRequest
      *
@@ -5102,6 +5452,71 @@ class Ims extends OpenApiClient
     }
 
     /**
+     * Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *
+     * @param request - SetAccessKeyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAccessKeyPolicyResponse
+     *
+     * @param SetAccessKeyPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SetAccessKeyPolicyResponse
+     */
+    public function setAccessKeyPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accessKeyPolicy) {
+            @$query['AccessKeyPolicy'] = $request->accessKeyPolicy;
+        }
+
+        if (null !== $request->userAccessKeyId) {
+            @$query['UserAccessKeyId'] = $request->userAccessKeyId;
+        }
+
+        if (null !== $request->userPrincipalName) {
+            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SetAccessKeyPolicy',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SetAccessKeyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+     *
+     * @param request - SetAccessKeyPolicyRequest
+     *
+     * @returns SetAccessKeyPolicyResponse
+     *
+     * @param SetAccessKeyPolicyRequest $request
+     *
+     * @return SetAccessKeyPolicyResponse
+     */
+    public function setAccessKeyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setAccessKeyPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * Configures the default domain name for an Alibaba Cloud account.
      *
      * @param request - SetDefaultDomainRequest
@@ -5159,7 +5574,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the password policy for Resource Access Management (RAM) users.
+     * Set the password policy for Resource Access Management (RAM) users.
      *
      * @param request - SetPasswordPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5246,7 +5661,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures the password policy for Resource Access Management (RAM) users.
+     * Set the password policy for Resource Access Management (RAM) users.
      *
      * @param request - SetPasswordPolicyRequest
      *
@@ -5264,11 +5679,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures security preferences for a RAM user.
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     * Configure the global security preferences for a RAM user.
      *
      * @param tmpReq - SetSecurityPreferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5365,11 +5776,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Configures security preferences for a RAM user.
-     *
-     * @remarks
-     * ###
-     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     * Configure the global security preferences for a RAM user.
      *
      * @param request - SetSecurityPreferenceRequest
      *
@@ -5862,7 +6269,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a specified application.
+     * Modifies the configuration information of an application.
      *
      * @param request - UpdateApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5933,7 +6340,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a specified application.
+     * Modifies the configuration information of an application.
      *
      * @param request - UpdateApplicationRequest
      *
@@ -6020,7 +6427,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the console logon configurations of a Resource Access Management (RAM) user.
+     * Modifies the console logon settings for a Resource Access Management (RAM) user.
      *
      * @param request - UpdateLoginProfileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6075,7 +6482,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies the console logon configurations of a Resource Access Management (RAM) user.
+     * Modifies the console logon settings for a Resource Access Management (RAM) user.
      *
      * @param request - UpdateLoginProfileRequest
      *
@@ -6235,10 +6642,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * Updates the information about a specified identity provider for role-based single sign-on (SSO).
      *
      * @remarks
-     * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+     * This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
      *
      * @param request - UpdateSAMLProviderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6289,10 +6696,10 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
+     * Updates the information about a specified identity provider for role-based single sign-on (SSO).
      *
      * @remarks
-     * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
+     * This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
      *
      * @param request - UpdateSAMLProviderRequest
      *
@@ -6307,6 +6714,75 @@ class Ims extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSAMLProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+     *
+     * @param request - UpdateServiceCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceCredentialResponse
+     *
+     * @param UpdateServiceCredentialRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateServiceCredentialResponse
+     */
+    public function updateServiceCredentialWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->serviceCredentialId) {
+            @$query['ServiceCredentialId'] = $request->serviceCredentialId;
+        }
+
+        if (null !== $request->serviceCredentialName) {
+            @$query['ServiceCredentialName'] = $request->serviceCredentialName;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->userPrincipalName) {
+            @$query['UserPrincipalName'] = $request->userPrincipalName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateServiceCredential',
+            'version' => '2019-08-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateServiceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+     *
+     * @param request - UpdateServiceCredentialRequest
+     *
+     * @returns UpdateServiceCredentialResponse
+     *
+     * @param UpdateServiceCredentialRequest $request
+     *
+     * @return UpdateServiceCredentialResponse
+     */
+    public function updateServiceCredential($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServiceCredentialWithOptions($request, $runtime);
     }
 
     /**
