@@ -1168,6 +1168,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\SetRowsVisibilityRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetRowsVisibilityResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetRowsVisibilityShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SetRowsVisibilityShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SignOutOrgAccountHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SignOutOrgAccountRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SignOutOrgAccountResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SignOutOrgAccountShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SignOutOrgAccountShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SimpleListReportHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SimpleListReportRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SimpleListReportResponse;
@@ -25679,6 +25684,100 @@ class Aliding extends OpenApiClient
         $headers = new SetRowsVisibilityHeaders([]);
 
         return $this->setRowsVisibilityWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 强制登出企业账号.
+     *
+     * @param tmpReq - SignOutOrgAccountRequest
+     * @param tmpHeader - SignOutOrgAccountHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SignOutOrgAccountResponse
+     *
+     * @param SignOutOrgAccountRequest $tmpReq
+     * @param SignOutOrgAccountHeaders $tmpHeader
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SignOutOrgAccountResponse
+     */
+    public function signOutOrgAccountWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SignOutOrgAccountShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new SignOutOrgAccountShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->reasonI18nForEmployee) {
+            $request->reasonI18nForEmployeeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->reasonI18nForEmployee, 'ReasonI18nForEmployee', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->reason) {
+            @$body['Reason'] = $request->reason;
+        }
+
+        if (null !== $request->reasonI18nForEmployeeShrink) {
+            @$body['ReasonI18nForEmployee'] = $request->reasonI18nForEmployeeShrink;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SignOutOrgAccount',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/contact/signOutOrgAccount',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SignOutOrgAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 强制登出企业账号.
+     *
+     * @param request - SignOutOrgAccountRequest
+     *
+     * @returns SignOutOrgAccountResponse
+     *
+     * @param SignOutOrgAccountRequest $request
+     *
+     * @return SignOutOrgAccountResponse
+     */
+    public function signOutOrgAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SignOutOrgAccountHeaders([]);
+
+        return $this->signOutOrgAccountWithOptions($request, $headers, $runtime);
     }
 
     /**

@@ -1,3 +1,7 @@
+2026-07-06 Version: 2.48.0
+- Support API SignOutOrgAccount.
+
+
 2026-07-06 Version: 2.47.2
 - Generated php 2023-04-26 for aliding.
 
