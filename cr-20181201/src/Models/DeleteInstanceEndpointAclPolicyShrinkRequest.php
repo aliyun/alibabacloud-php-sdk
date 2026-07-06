@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DeleteInstanceEndpointAclPolicyRequest extends Model
+class DeleteInstanceEndpointAclPolicyShrinkRequest extends Model
 {
     /**
      * @var string
@@ -14,9 +14,9 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
     public $endpointType;
 
     /**
-     * @var AccessControlEntry[]
+     * @var string
      */
-    public $entries;
+    public $entriesShrink;
 
     /**
      * @var string
@@ -34,7 +34,7 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
     public $moduleName;
     protected $_name = [
         'endpointType' => 'EndpointType',
-        'entries' => 'Entries',
+        'entriesShrink' => 'Entries',
         'entry' => 'Entry',
         'instanceId' => 'InstanceId',
         'moduleName' => 'ModuleName',
@@ -42,9 +42,6 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
 
     public function validate()
     {
-        if (\is_array($this->entries)) {
-            Model::validateArray($this->entries);
-        }
         parent::validate();
     }
 
@@ -55,15 +52,8 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
             $res['EndpointType'] = $this->endpointType;
         }
 
-        if (null !== $this->entries) {
-            if (\is_array($this->entries)) {
-                $res['Entries'] = [];
-                $n1 = 0;
-                foreach ($this->entries as $item1) {
-                    $res['Entries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->entriesShrink) {
+            $res['Entries'] = $this->entriesShrink;
         }
 
         if (null !== $this->entry) {
@@ -94,14 +84,7 @@ class DeleteInstanceEndpointAclPolicyRequest extends Model
         }
 
         if (isset($map['Entries'])) {
-            if (!empty($map['Entries'])) {
-                $model->entries = [];
-                $n1 = 0;
-                foreach ($map['Entries'] as $item1) {
-                    $model->entries[$n1] = AccessControlEntry::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->entriesShrink = $map['Entries'];
         }
 
         if (isset($map['Entry'])) {

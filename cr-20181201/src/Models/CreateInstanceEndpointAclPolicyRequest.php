@@ -19,6 +19,11 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
     public $endpointType;
 
     /**
+     * @var AccessControlEntry[]
+     */
+    public $entries;
+
+    /**
      * @var string
      */
     public $entry;
@@ -35,6 +40,7 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
     protected $_name = [
         'comment' => 'Comment',
         'endpointType' => 'EndpointType',
+        'entries' => 'Entries',
         'entry' => 'Entry',
         'instanceId' => 'InstanceId',
         'moduleName' => 'ModuleName',
@@ -42,6 +48,9 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->entries)) {
+            Model::validateArray($this->entries);
+        }
         parent::validate();
     }
 
@@ -54,6 +63,17 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
 
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
+        }
+
+        if (null !== $this->entries) {
+            if (\is_array($this->entries)) {
+                $res['Entries'] = [];
+                $n1 = 0;
+                foreach ($this->entries as $item1) {
+                    $res['Entries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->entry) {
@@ -85,6 +105,17 @@ class CreateInstanceEndpointAclPolicyRequest extends Model
 
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
+        }
+
+        if (isset($map['Entries'])) {
+            if (!empty($map['Entries'])) {
+                $model->entries = [];
+                $n1 = 0;
+                foreach ($map['Entries'] as $item1) {
+                    $model->entries[$n1] = AccessControlEntry::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Entry'])) {

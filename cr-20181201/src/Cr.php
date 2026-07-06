@@ -34,6 +34,7 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CreateChartRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateChartRepositoryResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceEndpointAclPolicyRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceEndpointAclPolicyResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceEndpointAclPolicyShrinkRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceVpcEndpointLinkedVpcRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceVpcEndpointLinkedVpcResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateNamespaceRequest;
@@ -79,6 +80,7 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteEventCenterRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteEventCenterRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceEndpointAclPolicyRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceEndpointAclPolicyResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceEndpointAclPolicyShrinkRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceVpcEndpointLinkedVpcRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceVpcEndpointLinkedVpcResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteNamespaceRequest;
@@ -253,6 +255,51 @@ class Cr extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'cr.us-west-1.aliyuncs.com',
+            'us-southeast-1' => 'cr.us-southeast-1.aliyuncs.com',
+            'us-east-1' => 'cr.us-east-1.aliyuncs.com',
+            'na-south-1' => 'cr.na-south-1.aliyuncs.com',
+            'me-east-1' => 'cr.me-east-1.aliyuncs.com',
+            'me-central-1' => 'cr.me-central-1.aliyuncs.com',
+            'eu-west-2' => 'cr.eu-west-2.aliyuncs.com',
+            'eu-west-1' => 'cr.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'cr.eu-central-1.aliyuncs.com',
+            'cn-zhongwei' => 'cr.cn-zhongwei.aliyuncs.com',
+            'cn-zhengzhou-jva' => 'cr.cn-zhengzhou-jva.aliyuncs.com',
+            'cn-zhangjiakou' => 'cr.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu-gic-1' => 'cr.cn-wulanchabu-gic-1.aliyuncs.com',
+            'cn-wulanchabu' => 'cr.cn-wulanchabu.aliyuncs.com',
+            'cn-wuhan-lr' => 'cr.cn-wuhan-lr.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'cr.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shenzhen' => 'cr.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'cr.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'cr.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'cr.cn-qingdao.aliyuncs.com',
+            'cn-north-2-gov-1' => 'cr.cn-north-2-gov-1.aliyuncs.com',
+            'cn-nanjing' => 'cr.cn-nanjing.aliyuncs.com',
+            'cn-huhehaote' => 'cr.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'cr.cn-hongkong.aliyuncs.com',
+            'cn-heyuan-acdr-1' => 'cr.cn-heyuan-acdr-1.aliyuncs.com',
+            'cn-heyuan' => 'cr.cn-heyuan.aliyuncs.com',
+            'cn-hangzhou-finance' => 'cr.cn-hangzhou-finance.aliyuncs.com',
+            'cn-hangzhou' => 'cr.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'cr.cn-guangzhou.aliyuncs.com',
+            'cn-fuzhou' => 'cr.cn-fuzhou.aliyuncs.com',
+            'cn-chengdu' => 'cr.cn-chengdu.aliyuncs.com',
+            'cn-beijing-finance-1' => 'cr.cn-beijing-finance-1.aliyuncs.com',
+            'cn-beijing' => 'cr.cn-beijing.aliyuncs.com',
+            'ap-southeast-8' => 'cr.ap-southeast-8.aliyuncs.com',
+            'ap-southeast-7' => 'cr.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-6' => 'cr.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'cr.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'cr.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-2' => 'cr.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'cr.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'cr.ap-south-1.aliyuncs.com',
+            'ap-northeast-2' => 'cr.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'cr.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cr', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -1221,21 +1268,27 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates a whitelist policy for the public endpoint of the instance.
+     * Creates a whitelist policy for an instance access endpoint (public network only).
      *
-     * @param request - CreateInstanceEndpointAclPolicyRequest
+     * @param tmpReq - CreateInstanceEndpointAclPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns CreateInstanceEndpointAclPolicyResponse
      *
-     * @param CreateInstanceEndpointAclPolicyRequest $request
+     * @param CreateInstanceEndpointAclPolicyRequest $tmpReq
      * @param RuntimeOptions                         $runtime
      *
      * @return CreateInstanceEndpointAclPolicyResponse
      */
-    public function createInstanceEndpointAclPolicyWithOptions($request, $runtime)
+    public function createInstanceEndpointAclPolicyWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreateInstanceEndpointAclPolicyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entries) {
+            $request->entriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entries, 'Entries', 'json');
+        }
+
         $query = [];
         if (null !== $request->comment) {
             @$query['Comment'] = $request->comment;
@@ -1243,6 +1296,10 @@ class Cr extends OpenApiClient
 
         if (null !== $request->endpointType) {
             @$query['EndpointType'] = $request->endpointType;
+        }
+
+        if (null !== $request->entriesShrink) {
+            @$query['Entries'] = $request->entriesShrink;
         }
 
         if (null !== $request->entry) {
@@ -1276,7 +1333,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates a whitelist policy for the public endpoint of the instance.
+     * Creates a whitelist policy for an instance access endpoint (public network only).
      *
      * @param request - CreateInstanceEndpointAclPolicyRequest
      *
@@ -1373,7 +1430,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates a namespace of image repositories.
+     * Creates a repository namespace.
      *
      * @param tmpReq - CreateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1434,7 +1491,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates a namespace of image repositories.
+     * Creates a repository namespace.
      *
      * @param request - CreateNamespaceRequest
      *
@@ -1735,7 +1792,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Manually creates an image synchronization task.
+     * Manually create a sync task.
      *
      * @param request - CreateRepoSyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1810,7 +1867,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Manually creates an image synchronization task.
+     * Manually create a sync task.
      *
      * @param request - CreateRepoSyncTaskRequest
      *
@@ -1970,7 +2027,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates an image scan task.
+     * Creates a security scan task for an image.
      *
      * @param request - CreateRepoTagScanTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2029,7 +2086,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Creates an image scan task.
+     * Creates a security scan task for an image.
      *
      * @param request - CreateRepoTagScanTaskRequest
      *
@@ -2309,7 +2366,7 @@ class Cr extends OpenApiClient
      * Creates an instance store domain name routing rule.
      *
      * @remarks
-     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+     * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
      *
      * @param tmpReq - CreateStorageDomainRoutingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2361,7 +2418,7 @@ class Cr extends OpenApiClient
      * Creates an instance store domain name routing rule.
      *
      * @remarks
-     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+     * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
      *
      * @param request - CreateStorageDomainRoutingRuleRequest
      *
@@ -2702,7 +2759,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Deletes a chart repository from an instance.
+     * Deletes a chart repository.
      *
      * @param request - DeleteChartRepositoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2749,7 +2806,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Deletes a chart repository from an instance.
+     * Deletes a chart repository.
      *
      * @param request - DeleteChartRepositoryRequest
      *
@@ -2828,24 +2885,34 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Deletes a whitelist policy for the public endpoint of an instance.
+     * Deletes a whitelist policy from the public access endpoint of an instance.
      *
-     * @param request - DeleteInstanceEndpointAclPolicyRequest
+     * @param tmpReq - DeleteInstanceEndpointAclPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DeleteInstanceEndpointAclPolicyResponse
      *
-     * @param DeleteInstanceEndpointAclPolicyRequest $request
+     * @param DeleteInstanceEndpointAclPolicyRequest $tmpReq
      * @param RuntimeOptions                         $runtime
      *
      * @return DeleteInstanceEndpointAclPolicyResponse
      */
-    public function deleteInstanceEndpointAclPolicyWithOptions($request, $runtime)
+    public function deleteInstanceEndpointAclPolicyWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DeleteInstanceEndpointAclPolicyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->entries) {
+            $request->entriesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->entries, 'Entries', 'json');
+        }
+
         $query = [];
         if (null !== $request->endpointType) {
             @$query['EndpointType'] = $request->endpointType;
+        }
+
+        if (null !== $request->entriesShrink) {
+            @$query['Entries'] = $request->entriesShrink;
         }
 
         if (null !== $request->entry) {
@@ -2879,7 +2946,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Deletes a whitelist policy for the public endpoint of an instance.
+     * Deletes a whitelist policy from the public access endpoint of an instance.
      *
      * @param request - DeleteInstanceEndpointAclPolicyRequest
      *
@@ -3367,7 +3434,7 @@ class Cr extends OpenApiClient
      * Deletes a scan rule.
      *
      * @remarks
-     * Deletes a scan rule.
+     * 删除扫描规则。
      *
      * @param request - DeleteScanRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3413,7 +3480,7 @@ class Cr extends OpenApiClient
      * Deletes a scan rule.
      *
      * @remarks
-     * Deletes a scan rule.
+     * 删除扫描规则。
      *
      * @param request - DeleteScanRuleRequest
      *
@@ -3434,7 +3501,7 @@ class Cr extends OpenApiClient
      * Deletes an instance store domain name routing rule.
      *
      * @remarks
-     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+     * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
      *
      * @param request - DeleteStorageDomainRoutingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3480,7 +3547,7 @@ class Cr extends OpenApiClient
      * Deletes an instance store domain name routing rule.
      *
      * @remarks
-     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+     * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
      *
      * @param request - DeleteStorageDomainRoutingRuleRequest
      *
@@ -3551,7 +3618,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the details of an artifact building task.
+     * Retrieves the details of an artifact build task.
      *
      * @param request - GetArtifactBuildTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3586,7 +3653,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the details of an artifact building task.
+     * Retrieves the details of an artifact build task.
      *
      * @param request - GetArtifactBuildTaskRequest
      *
@@ -3604,7 +3671,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the lifecycle management rules of an artifact.
+     * Lists artifact lifecycle management rules.
      *
      * @param request - GetArtifactLifecycleRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3639,7 +3706,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the lifecycle management rules of an artifact.
+     * Lists artifact lifecycle management rules.
      *
      * @param request - GetArtifactLifecycleRuleRequest
      *
@@ -3657,7 +3724,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the information about an artifact subscription rule.
+     * Retrieves the details of an artifact subscription rule.
      *
      * @param request - GetArtifactSubscriptionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3692,7 +3759,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the information about an artifact subscription rule.
+     * Retrieves the details of an artifact subscription rule.
      *
      * @param request - GetArtifactSubscriptionRuleRequest
      *
@@ -3816,13 +3883,13 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
+     * Retrieves a temporary account and temporary password for logging on to an instance.
      *
      * @remarks
-     * The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
-     * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
-     * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
-     * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
+     * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
+     * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+     * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
+     * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
      *
      * @param request - GetAuthorizationTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3861,13 +3928,13 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries a pair of temporary username and password that you use to log on to a Container Registry instance.
+     * Retrieves a temporary account and temporary password for logging on to an instance.
      *
      * @remarks
-     * The validity period of the temporary password is 1 hour. If you use STS to request a token, the validity period of the temporary password is the same as the validity period of the STS token.
-     * *   If you log on to an instance by using the temporary password obtained through an Alibaba Cloud account, you have the same permissions on resources as the user of the Alibaba Cloud account.
-     * *   If you log on to an instance by using the temporary password obtained through a RAM user, you have the same permissions as the RAM user.
-     * *   If you log on to an instance by using the temporary password obtained through STS, you have the same permissions as the STS token.
+     * The temporary password is valid for 1 hour. If you use STS to make the request, the validity period of the temporary password is the same as that of the STS token used in the request.
+     * - The permissions granted by a temporary token obtained through an Alibaba Cloud account are the same as the permissions granted when you log on to the instance with the username and password of the Alibaba Cloud account.
+     * - The permissions granted by a temporary token obtained through a RAM user are the same as the permissions granted when you log on to the instance with the username and password of the RAM user.
+     * - The permissions granted by a temporary token obtained through STS are the same as the permissions of the STS token.
      *
      * @param request - GetAuthorizationTokenRequest
      *
@@ -3885,7 +3952,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
+     * Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
      *
      * @param request - GetChainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3928,7 +3995,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
+     * Obtain the delivery chain definition to understand the execution order of edge zones in the delivery chain.
      *
      * @param request - GetChainRequest
      *
@@ -4072,7 +4139,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The ID of the resource group to which the instance belongs.
+     * Query instance information.
      *
      * @param request - GetInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4111,7 +4178,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The ID of the resource group to which the instance belongs.
+     * Query instance information.
      *
      * @param request - GetInstanceRequest
      *
@@ -4129,7 +4196,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the number of instances.
+     * Queries the number of instances of a user.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4158,7 +4225,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the number of instances.
+     * Queries the number of instances of a user.
      *
      * @returns GetInstanceCountResponse
      *
@@ -4355,7 +4422,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the information about a namespace.
+     * Retrieves information about a namespace.
      *
      * @param request - GetNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4402,7 +4469,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the information about a namespace.
+     * Retrieves information about a namespace.
      *
      * @param request - GetNamespaceRequest
      *
@@ -4672,7 +4739,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the information about an image tag.
+     * Retrieve information about a single image tag.
      *
      * @param request - GetRepoTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4707,7 +4774,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the information about an image tag.
+     * Retrieve information about a single image tag.
      *
      * @param request - GetRepoTagRequest
      *
@@ -4725,7 +4792,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the scanning status of an image tag.
+     * Retrieves the scan status of a specific image tag.
      *
      * @param request - GetRepoTagScanStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4784,7 +4851,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the scanning status of an image tag.
+     * Retrieves the scan status of a specific image tag.
      *
      * @param request - GetRepoTagScanStatusRequest
      *
@@ -4802,7 +4869,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+     * Obtain the number of scan results for an image version.
      *
      * @param request - GetRepoTagScanSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4857,7 +4924,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+     * Obtain the number of scan results for an image version.
      *
      * @param request - GetRepoTagScanSummaryRequest
      *
@@ -4944,10 +5011,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries a scan rule.
+     * Retrieves a scan rule.
      *
      * @remarks
-     * Get scan rule.
+     * Retrieves a scan rule.
      *
      * @param request - GetScanRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4990,10 +5057,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries a scan rule.
+     * Retrieves a scan rule.
      *
      * @remarks
-     * Get scan rule.
+     * Retrieves a scan rule.
      *
      * @param request - GetScanRuleRequest
      *
@@ -5011,10 +5078,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries instance storage domain routing rules.
+     * Retrieves the instance storage domain name routing list.
      *
      * @remarks
-     * This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
+     * This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
      *
      * @param request - GetStorageDomainRoutingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5057,10 +5124,10 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries instance storage domain routing rules.
+     * Retrieves the instance storage domain name routing list.
      *
      * @remarks
-     * This API is open to a whitelist. Please [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) for support.
+     * This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to obtain support.
      *
      * @param request - GetStorageDomainRoutingRuleRequest
      *
@@ -5131,7 +5198,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the lifecycle management rules of an artifact.
+     * Lists artifact lifecycle management rules.
      *
      * @param request - ListArtifactLifecycleRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5166,7 +5233,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries the lifecycle management rules of an artifact.
+     * Lists artifact lifecycle management rules.
      *
      * @param request - ListArtifactLifecycleRuleRequest
      *
@@ -5184,7 +5251,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Lists the subscription rules of artifacts.
+     * List artifact subscription rules.
      *
      * @param request - ListArtifactSubscriptionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5219,7 +5286,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Lists the subscription rules of artifacts.
+     * List artifact subscription rules.
      *
      * @param request - ListArtifactSubscriptionRuleRequest
      *
@@ -5363,7 +5430,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries execution records of delivery chains.
+     * Queries the execution records of a delivery chain.
      *
      * @param request - ListChainInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5418,7 +5485,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries execution records of delivery chains.
+     * Queries the execution records of a delivery chain.
      *
      * @param request - ListChainInstanceRequest
      *
@@ -5769,7 +5836,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries Container Registry instances.
+     * Queries a list of instances.
      *
      * @param request - ListInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5824,7 +5891,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries Container Registry instances.
+     * Queries a list of instances.
      *
      * @param request - ListInstanceRequest
      *
@@ -5964,7 +6031,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries namespaces in a Container Registry instance.
+     * Lists namespaces.
      *
      * @param request - ListNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6019,7 +6086,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries namespaces in a Container Registry instance.
+     * Lists namespaces.
      *
      * @param request - ListNamespaceRequest
      *
@@ -6175,7 +6242,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image building rules of a repository.
+     * Lists the build rules of an image repository.
      *
      * @param request - ListRepoBuildRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6226,7 +6293,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image building rules of a repository.
+     * Lists the build rules of an image repository.
      *
      * @param request - ListRepoBuildRuleRequest
      *
@@ -6244,7 +6311,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image synchronization rules of a repository.
+     * Returns a list of repository synchronization rules.
      *
      * @param request - ListRepoSyncRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6307,7 +6374,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image synchronization rules of a repository.
+     * Returns a list of repository synchronization rules.
      *
      * @param request - ListRepoSyncRuleRequest
      *
@@ -6325,7 +6392,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image synchronization tasks in an image repository.
+     * Lists repository synchronization tasks.
      *
      * @param request - ListRepoSyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6388,7 +6455,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image synchronization tasks in an image repository.
+     * Lists repository synchronization tasks.
      *
      * @param request - ListRepoSyncTaskRequest
      *
@@ -6633,7 +6700,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image repositories.
+     * Query the image repository list.
      *
      * @param request - ListRepositoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6692,7 +6759,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * Queries image repositories.
+     * Query the image repository list.
      *
      * @param request - ListRepositoryRequest
      *
@@ -6831,7 +6898,7 @@ class Cr extends OpenApiClient
      * Lists the scan rules.
      *
      * @remarks
-     * Lists the scan rules.
+     * 列举扫描规则。
      *
      * @param request - ListScanRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6869,7 +6936,7 @@ class Cr extends OpenApiClient
      * Lists the scan rules.
      *
      * @remarks
-     * Lists the scan rules.
+     * 列举扫描规则。
      *
      * @param request - ListScanRuleRequest
      *
@@ -6888,6 +6955,11 @@ class Cr extends OpenApiClient
 
     /**
      * Queries the tags that are added to cloud resources. Instance resources are supported.
+     *
+     * @remarks
+     * - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
+     * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
+     * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6943,6 +7015,11 @@ class Cr extends OpenApiClient
 
     /**
      * Queries the tags that are added to cloud resources. Instance resources are supported.
+     *
+     * @remarks
+     * - 请求中ResourceId.N 及 (Tag.N.Key,Tag.N.Value) 至少存在一个，以确定检索对象。
+     * - Tag.N是资源的标签，由一个键值对组成。仅指定Tag.N.Key时，则返回该标签键关联的所有标签值。仅指定Tag.N.Value会报错。
+     * - ResourceId.N需满足所有输入的键值对。当输入多个键值对，查询结果为资源中包含指定多个键值对的资源。
      *
      * @param request - ListTagResourcesRequest
      *
@@ -7023,6 +7100,9 @@ class Cr extends OpenApiClient
     /**
      * Adds tags to resources. Instance resources are supported.
      *
+     * @remarks
+     * 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
+     *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7073,6 +7153,9 @@ class Cr extends OpenApiClient
 
     /**
      * Adds tags to resources. Instance resources are supported.
+     *
+     * @remarks
+     * 单个实例最多可绑定 20 条标签。绑定标签前，阿里云会校验资源已有标签数量，超过限制值会返回报错信息。
      *
      * @param request - TagResourcesRequest
      *
@@ -8090,7 +8173,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * Updates repository information.
      *
      * @param request - UpdateRepositoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8157,7 +8240,7 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * Updates repository information.
      *
      * @param request - UpdateRepositoryRequest
      *
@@ -8178,7 +8261,7 @@ class Cr extends OpenApiClient
      * Updates a scan rule.
      *
      * @remarks
-     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+     * This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
      *
      * @param tmpReq - UpdateScanRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8258,7 +8341,7 @@ class Cr extends OpenApiClient
      * Updates a scan rule.
      *
      * @remarks
-     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+     * This API is available through whitelist access. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) to request access.
      *
      * @param request - UpdateScanRuleRequest
      *
@@ -8279,7 +8362,7 @@ class Cr extends OpenApiClient
      * Updates a routing rule for an instance store domain name.
      *
      * @remarks
-     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+     * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
      *
      * @param tmpReq - UpdateStorageDomainRoutingRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8335,7 +8418,7 @@ class Cr extends OpenApiClient
      * Updates a routing rule for an instance store domain name.
      *
      * @remarks
-     * The whitelist of this API operation is available. [Submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket).
+     * 此API白名单开放，请[提交工单](https://smartservice.console.aliyun.com/service/create-ticket)获取支持。
      *
      * @param request - UpdateStorageDomainRoutingRuleRequest
      *
