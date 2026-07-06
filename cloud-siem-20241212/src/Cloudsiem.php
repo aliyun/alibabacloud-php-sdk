@@ -96,6 +96,9 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListAutoDisposeEntitiesShrinkRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataConnectorsRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataConnectorsResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataConnectorsShrinkRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataIngestionsRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataIngestionsResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ListDataIngestionsShrinkRequest;
@@ -165,6 +168,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResetDataStorageRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\ResetDataStorageResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\SetDefaultNormalizationRuleVersionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\SetDefaultNormalizationRuleVersionResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAlertRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAlertResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAutoDisposeConfigRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAutoDisposeConfigResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAutoDisposeRecordRequest;
@@ -4047,6 +4052,129 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
+     * Queries collectors by paging.
+     *
+     * @param tmpReq - ListDataConnectorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDataConnectorsResponse
+     *
+     * @param ListDataConnectorsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListDataConnectorsResponse
+     */
+    public function listDataConnectorsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListDataConnectorsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->dataConnectorIds) {
+            $request->dataConnectorIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dataConnectorIds, 'DataConnectorIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->dataConnectorIdsShrink) {
+            @$body['DataConnectorIds'] = $request->dataConnectorIdsShrink;
+        }
+
+        if (null !== $request->dataConnectorName) {
+            @$body['DataConnectorName'] = $request->dataConnectorName;
+        }
+
+        if (null !== $request->dataConnectorStatus) {
+            @$body['DataConnectorStatus'] = $request->dataConnectorStatus;
+        }
+
+        if (null !== $request->dataConnectorType) {
+            @$body['DataConnectorType'] = $request->dataConnectorType;
+        }
+
+        if (null !== $request->destDataSourceId) {
+            @$body['DestDataSourceId'] = $request->destDataSourceId;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderField) {
+            @$body['OrderField'] = $request->orderField;
+        }
+
+        if (null !== $request->orderType) {
+            @$body['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->slsIngestionJobName) {
+            @$body['SlsIngestionJobName'] = $request->slsIngestionJobName;
+        }
+
+        if (null !== $request->srcDataType) {
+            @$body['SrcDataType'] = $request->srcDataType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataConnectors',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataConnectorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries collectors by paging.
+     *
+     * @param request - ListDataConnectorsRequest
+     *
+     * @returns ListDataConnectorsResponse
+     *
+     * @param ListDataConnectorsRequest $request
+     *
+     * @return ListDataConnectorsResponse
+     */
+    public function listDataConnectors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataConnectorsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries data ingestion templates.
      *
      * @remarks
@@ -6891,6 +7019,91 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDefaultNormalizationRuleVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates an alert.
+     *
+     * @remarks
+     * Notifications are subject to frequency and time restrictions.
+     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+     *
+     * @param request - UpdateAlertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAlertResponse
+     *
+     * @param UpdateAlertRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAlertResponse
+     */
+    public function updateAlertWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->alertStatus) {
+            @$body['AlertStatus'] = $request->alertStatus;
+        }
+
+        if (null !== $request->alertUuid) {
+            @$body['AlertUuid'] = $request->alertUuid;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        if (null !== $request->roleType) {
+            @$body['RoleType'] = $request->roleType;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAlert',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an alert.
+     *
+     * @remarks
+     * Notifications are subject to frequency and time restrictions.
+     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time range.
+     *
+     * @param request - UpdateAlertRequest
+     *
+     * @returns UpdateAlertResponse
+     *
+     * @param UpdateAlertRequest $request
+     *
+     * @return UpdateAlertResponse
+     */
+    public function updateAlert($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAlertWithOptions($request, $runtime);
     }
 
     /**
