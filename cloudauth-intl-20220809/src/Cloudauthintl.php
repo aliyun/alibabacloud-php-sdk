@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceGroupRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceGroupResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceRecordRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceRecordResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceRecordV2Request;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteFaceRecordV2Response;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrMaxRequest;
@@ -1812,6 +1814,67 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFaceRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a face record.
+     *
+     * @param Request - DeleteFaceRecordV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteFaceRecordV2Response
+     *
+     * @param DeleteFaceRecordV2Request $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteFaceRecordV2Response
+     */
+    public function deleteFaceRecordV2WithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->faceGroupCode) {
+            @$query['FaceGroupCode'] = $request->faceGroupCode;
+        }
+
+        if (null !== $request->merchantUserId) {
+            @$query['MerchantUserId'] = $request->merchantUserId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteFaceRecordV2',
+            'version' => '2022-08-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteFaceRecordV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a face record.
+     *
+     * @param Request - DeleteFaceRecordV2Request
+     *
+     * @returns DeleteFaceRecordV2Response
+     *
+     * @param DeleteFaceRecordV2Request $request
+     *
+     * @return DeleteFaceRecordV2Response
+     */
+    public function deleteFaceRecordV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFaceRecordV2WithOptions($request, $runtime);
     }
 
     /**
