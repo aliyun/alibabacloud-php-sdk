@@ -5,10 +5,14 @@
 namespace AlibabaCloud\SDK\Tablestore\V20201209;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\BindAgentStorage2VpcRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\BindAgentStorage2VpcResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\BindInstance2VpcRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\BindInstance2VpcResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckAgentStoragePolicyRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckAgentStoragePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckInstancePolicyRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckInstancePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateAgentStorageRequest;
@@ -17,6 +21,8 @@ use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateVCUInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateVCUInstanceResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteAgentStoragePolicyRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteAgentStoragePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteAgentStorageRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteAgentStorageResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstancePolicyRequest;
@@ -41,16 +47,22 @@ use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListInstancesShrinkRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesShrinkRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByAgentStorageRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByAgentStorageResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByInstanceResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByVpcRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListVpcInfoByVpcResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UnbindAgentStorage2VpcRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UnbindAgentStorage2VpcResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UnbindInstance2VpcRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UnbindInstance2VpcResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateAgentStoragePolicyRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateAgentStoragePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateAgentStorageRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateAgentStorageResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceElasticVCUUpperLimitRequest;
@@ -124,6 +136,79 @@ class Tablestore extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Binds agent storage to a VPC.
+     *
+     * @param request - BindAgentStorage2VpcRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindAgentStorage2VpcResponse
+     *
+     * @param BindAgentStorage2VpcRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return BindAgentStorage2VpcResponse
+     */
+    public function bindAgentStorage2VpcWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentStorageName) {
+            @$body['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        if (null !== $request->agentStorageVpcName) {
+            @$body['AgentStorageVpcName'] = $request->agentStorageVpcName;
+        }
+
+        if (null !== $request->virtualSwitchId) {
+            @$body['VirtualSwitchId'] = $request->virtualSwitchId;
+        }
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BindAgentStorage2Vpc',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/bindagentstorage2vpc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BindAgentStorage2VpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Binds agent storage to a VPC.
+     *
+     * @param request - BindAgentStorage2VpcRequest
+     *
+     * @returns BindAgentStorage2VpcResponse
+     *
+     * @param BindAgentStorage2VpcRequest $request
+     *
+     * @return BindAgentStorage2VpcResponse
+     */
+    public function bindAgentStorage2Vpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->bindAgentStorage2VpcWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -265,6 +350,71 @@ class Tablestore extends OpenApiClient
     }
 
     /**
+     * Checks the validity of an agent storage access control policy.
+     *
+     * @param request - CheckAgentStoragePolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckAgentStoragePolicyResponse
+     *
+     * @param CheckAgentStoragePolicyRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CheckAgentStoragePolicyResponse
+     */
+    public function checkAgentStoragePolicyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentStorageName) {
+            @$body['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        if (null !== $request->policy) {
+            @$body['Policy'] = $request->policy;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CheckAgentStoragePolicy',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/checkagentstoragepolicy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckAgentStoragePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Checks the validity of an agent storage access control policy.
+     *
+     * @param request - CheckAgentStoragePolicyRequest
+     *
+     * @returns CheckAgentStoragePolicyResponse
+     *
+     * @param CheckAgentStoragePolicyRequest $request
+     *
+     * @return CheckAgentStoragePolicyResponse
+     */
+    public function checkAgentStoragePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkAgentStoragePolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Checks the validity of a Resource Access Management (RAM) policy for an instance.
      *
      * @param request - CheckInstancePolicyRequest
@@ -330,13 +480,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Creates an agent storage instance.
+     * Creates an agent storage.
      *
      * @remarks
-     * - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-     * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
-     * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
-     * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+     * - **Before you use this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * - You can create up to 10 agent storages for a single Alibaba Cloud account. Agent storage names must be unique within the same region.
      *
      * @param request - CreateAgentStorageRequest
      * @param headers - map
@@ -406,13 +554,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Creates an agent storage instance.
+     * Creates an agent storage.
      *
      * @remarks
-     * - **Before you call this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
-     * - You can create up to 10 agent storage instances within a single Alibaba Cloud account. Agent storage instance names must be unique within the same region.
-     * [_single.params.body.props.Network.title](Deprecated) The network type of the instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
-     * [_single.params.body.props.Network.desc](Deprecated) The network type of the agent storage instance. Valid values: NORMAL, VPC_CONSOLE. Default value: NORMAL.
+     * - **Before you use this operation, make sure that you fully understand the billing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * - You can create up to 10 agent storages for a single Alibaba Cloud account. Agent storage names must be unique within the same region.
      *
      * @param request - CreateAgentStorageRequest
      *
@@ -649,11 +795,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Deletes an agent store.
+     * Deletes an agent storage.
      *
      * @remarks
-     * - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
-     * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+     * - To avoid conflicts, do not create an agent storage with the same name as the agent storage being deleted during the deletion process.
+     * - After an agent storage is deleted, the agent storage becomes unavailable, and the tables, table data, and related indexes in the agent storage cannot be recovered. Proceed with caution.
      *
      * @param request - DeleteAgentStorageRequest
      * @param headers - map
@@ -695,11 +841,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * Deletes an agent store.
+     * Deletes an agent storage.
      *
      * @remarks
-     * - To avoid conflicts, do not create an agent store with the same name as the agent store being deleted during the deletion process.
-     * - After an agent store is deleted, the agent store becomes unavailable, and the tables, table data, and related indexes in the agent store cannot be recovered. Proceed with caution.
+     * - To avoid conflicts, do not create an agent storage with the same name as the agent storage being deleted during the deletion process.
+     * - After an agent storage is deleted, the agent storage becomes unavailable, and the tables, table data, and related indexes in the agent storage cannot be recovered. Proceed with caution.
      *
      * @param request - DeleteAgentStorageRequest
      *
@@ -715,6 +861,79 @@ class Tablestore extends OpenApiClient
         $headers = [];
 
         return $this->deleteAgentStorageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an access control policy for agent storage.
+     *
+     * @remarks
+     * - After an agent storage policy is deleted, it cannot be recovered. Proceed with caution.
+     * - After an agent storage policy is deleted, the corresponding permission controls become ineffective. Make sure the agent storage is in a secure environment.
+     *
+     * @param request - DeleteAgentStoragePolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAgentStoragePolicyResponse
+     *
+     * @param DeleteAgentStoragePolicyRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteAgentStoragePolicyResponse
+     */
+    public function deleteAgentStoragePolicyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentStorageName) {
+            @$body['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        if (null !== $request->policyVersion) {
+            @$body['PolicyVersion'] = $request->policyVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAgentStoragePolicy',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/deleteagentstoragepolicy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAgentStoragePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an access control policy for agent storage.
+     *
+     * @remarks
+     * - After an agent storage policy is deleted, it cannot be recovered. Proceed with caution.
+     * - After an agent storage policy is deleted, the corresponding permission controls become ineffective. Make sure the agent storage is in a secure environment.
+     *
+     * @param request - DeleteAgentStoragePolicyRequest
+     *
+     * @returns DeleteAgentStoragePolicyResponse
+     *
+     * @param DeleteAgentStoragePolicyRequest $request
+     *
+     * @return DeleteAgentStoragePolicyResponse
+     */
+    public function deleteAgentStoragePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAgentStoragePolicyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1431,6 +1650,75 @@ class Tablestore extends OpenApiClient
     }
 
     /**
+     * Retrieves the list of VPC information stored in an agent storage.
+     *
+     * @param request - ListVpcInfoByAgentStorageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVpcInfoByAgentStorageResponse
+     *
+     * @param ListVpcInfoByAgentStorageRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListVpcInfoByAgentStorageResponse
+     */
+    public function listVpcInfoByAgentStorageWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentStorageName) {
+            @$query['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVpcInfoByAgentStorage',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/listvpcinfobyagentstorage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVpcInfoByAgentStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of VPC information stored in an agent storage.
+     *
+     * @param request - ListVpcInfoByAgentStorageRequest
+     *
+     * @returns ListVpcInfoByAgentStorageResponse
+     *
+     * @param ListVpcInfoByAgentStorageRequest $request
+     *
+     * @return ListVpcInfoByAgentStorageResponse
+     */
+    public function listVpcInfoByAgentStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listVpcInfoByAgentStorageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves a list of VPC information for an instance.
      *
      * @param request - ListVpcInfoByInstanceRequest
@@ -1635,6 +1923,71 @@ class Tablestore extends OpenApiClient
         $headers = [];
 
         return $this->tagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Disassociates agent storage from a VPC.
+     *
+     * @param request - UnbindAgentStorage2VpcRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindAgentStorage2VpcResponse
+     *
+     * @param UnbindAgentStorage2VpcRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UnbindAgentStorage2VpcResponse
+     */
+    public function unbindAgentStorage2VpcWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentStorageName) {
+            @$body['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        if (null !== $request->agentStorageVpcName) {
+            @$body['AgentStorageVpcName'] = $request->agentStorageVpcName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UnbindAgentStorage2Vpc',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/unbindagentstorage2vpc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UnbindAgentStorage2VpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disassociates agent storage from a VPC.
+     *
+     * @param request - UnbindAgentStorage2VpcRequest
+     *
+     * @returns UnbindAgentStorage2VpcResponse
+     *
+     * @param UnbindAgentStorage2VpcRequest $request
+     *
+     * @return UnbindAgentStorage2VpcResponse
+     */
+    public function unbindAgentStorage2Vpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->unbindAgentStorage2VpcWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1860,6 +2213,75 @@ class Tablestore extends OpenApiClient
         $headers = [];
 
         return $this->updateAgentStorageWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies the access control policy of agent storage.
+     *
+     * @param request - UpdateAgentStoragePolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAgentStoragePolicyResponse
+     *
+     * @param UpdateAgentStoragePolicyRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateAgentStoragePolicyResponse
+     */
+    public function updateAgentStoragePolicyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentStorageName) {
+            @$body['AgentStorageName'] = $request->agentStorageName;
+        }
+
+        if (null !== $request->policy) {
+            @$body['Policy'] = $request->policy;
+        }
+
+        if (null !== $request->policyVersion) {
+            @$body['PolicyVersion'] = $request->policyVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAgentStoragePolicy',
+            'version' => '2020-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v2/openapi/updateagentstoragepolicy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAgentStoragePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the access control policy of agent storage.
+     *
+     * @param request - UpdateAgentStoragePolicyRequest
+     *
+     * @returns UpdateAgentStoragePolicyResponse
+     *
+     * @param UpdateAgentStoragePolicyRequest $request
+     *
+     * @return UpdateAgentStoragePolicyResponse
+     */
+    public function updateAgentStoragePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAgentStoragePolicyWithOptions($request, $headers, $runtime);
     }
 
     /**
