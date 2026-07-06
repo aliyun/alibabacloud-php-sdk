@@ -51,6 +51,11 @@ class Table extends Model
     public $partitionKeys;
 
     /**
+     * @var string[]
+     */
+    public $statisticsInfos;
+
+    /**
      * @var string
      */
     public $tableType;
@@ -68,6 +73,7 @@ class Table extends Model
         'name' => 'Name',
         'parentMetaEntityId' => 'ParentMetaEntityId',
         'partitionKeys' => 'PartitionKeys',
+        'statisticsInfos' => 'StatisticsInfos',
         'tableType' => 'TableType',
         'technicalMetadata' => 'TechnicalMetadata',
     ];
@@ -79,6 +85,9 @@ class Table extends Model
         }
         if (\is_array($this->partitionKeys)) {
             Model::validateArray($this->partitionKeys);
+        }
+        if (\is_array($this->statisticsInfos)) {
+            Model::validateArray($this->statisticsInfos);
         }
         if (null !== $this->technicalMetadata) {
             $this->technicalMetadata->validate();
@@ -124,6 +133,15 @@ class Table extends Model
                 foreach ($this->partitionKeys as $item1) {
                     $res['PartitionKeys'][$n1] = $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->statisticsInfos) {
+            if (\is_array($this->statisticsInfos)) {
+                $res['StatisticsInfos'] = [];
+                foreach ($this->statisticsInfos as $key1 => $value1) {
+                    $res['StatisticsInfos'][$key1] = $value1;
                 }
             }
         }
@@ -182,6 +200,15 @@ class Table extends Model
                 foreach ($map['PartitionKeys'] as $item1) {
                     $model->partitionKeys[$n1] = $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['StatisticsInfos'])) {
+            if (!empty($map['StatisticsInfos'])) {
+                $model->statisticsInfos = [];
+                foreach ($map['StatisticsInfos'] as $key1 => $value1) {
+                    $model->statisticsInfos[$key1] = $value1;
                 }
             }
         }

@@ -17,9 +17,15 @@ class GetTableRequest extends Model
      * @var bool
      */
     public $includeBusinessMetadata;
+
+    /**
+     * @var bool
+     */
+    public $includeExtendedProperties;
     protected $_name = [
         'id' => 'Id',
         'includeBusinessMetadata' => 'IncludeBusinessMetadata',
+        'includeExtendedProperties' => 'IncludeExtendedProperties',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class GetTableRequest extends Model
 
         if (null !== $this->includeBusinessMetadata) {
             $res['IncludeBusinessMetadata'] = $this->includeBusinessMetadata;
+        }
+
+        if (null !== $this->includeExtendedProperties) {
+            $res['IncludeExtendedProperties'] = $this->includeExtendedProperties;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class GetTableRequest extends Model
 
         if (isset($map['IncludeBusinessMetadata'])) {
             $model->includeBusinessMetadata = $map['IncludeBusinessMetadata'];
+        }
+
+        if (isset($map['IncludeExtendedProperties'])) {
+            $model->includeExtendedProperties = $map['IncludeExtendedProperties'];
         }
 
         return $model;

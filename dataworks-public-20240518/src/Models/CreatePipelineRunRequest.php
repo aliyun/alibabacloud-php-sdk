@@ -11,6 +11,11 @@ class CreatePipelineRunRequest extends Model
     /**
      * @var string
      */
+    public $autoRunUntilStage;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -26,11 +31,18 @@ class CreatePipelineRunRequest extends Model
     /**
      * @var string
      */
+    public $runMode;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
+        'autoRunUntilStage' => 'AutoRunUntilStage',
         'description' => 'Description',
         'objectIds' => 'ObjectIds',
         'projectId' => 'ProjectId',
+        'runMode' => 'RunMode',
         'type' => 'Type',
     ];
 
@@ -45,6 +57,10 @@ class CreatePipelineRunRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoRunUntilStage) {
+            $res['AutoRunUntilStage'] = $this->autoRunUntilStage;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -64,6 +80,10 @@ class CreatePipelineRunRequest extends Model
             $res['ProjectId'] = $this->projectId;
         }
 
+        if (null !== $this->runMode) {
+            $res['RunMode'] = $this->runMode;
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -79,6 +99,10 @@ class CreatePipelineRunRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRunUntilStage'])) {
+            $model->autoRunUntilStage = $map['AutoRunUntilStage'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -96,6 +120,10 @@ class CreatePipelineRunRequest extends Model
 
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['RunMode'])) {
+            $model->runMode = $map['RunMode'];
         }
 
         if (isset($map['Type'])) {

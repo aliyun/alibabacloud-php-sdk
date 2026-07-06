@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ImportWorkflowDefinitionRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var int
      */
     public $projectId;
@@ -18,6 +23,7 @@ class ImportWorkflowDefinitionRequest extends Model
      */
     public $spec;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'projectId' => 'ProjectId',
         'spec' => 'Spec',
     ];
@@ -30,6 +36,10 @@ class ImportWorkflowDefinitionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -49,6 +59,10 @@ class ImportWorkflowDefinitionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

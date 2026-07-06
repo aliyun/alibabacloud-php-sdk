@@ -11,6 +11,11 @@ class CreatePipelineRunShrinkRequest extends Model
     /**
      * @var string
      */
+    public $autoRunUntilStage;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -26,11 +31,18 @@ class CreatePipelineRunShrinkRequest extends Model
     /**
      * @var string
      */
+    public $runMode;
+
+    /**
+     * @var string
+     */
     public $type;
     protected $_name = [
+        'autoRunUntilStage' => 'AutoRunUntilStage',
         'description' => 'Description',
         'objectIdsShrink' => 'ObjectIds',
         'projectId' => 'ProjectId',
+        'runMode' => 'RunMode',
         'type' => 'Type',
     ];
 
@@ -42,6 +54,10 @@ class CreatePipelineRunShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoRunUntilStage) {
+            $res['AutoRunUntilStage'] = $this->autoRunUntilStage;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -52,6 +68,10 @@ class CreatePipelineRunShrinkRequest extends Model
 
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+
+        if (null !== $this->runMode) {
+            $res['RunMode'] = $this->runMode;
         }
 
         if (null !== $this->type) {
@@ -69,6 +89,10 @@ class CreatePipelineRunShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoRunUntilStage'])) {
+            $model->autoRunUntilStage = $map['AutoRunUntilStage'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -79,6 +103,10 @@ class CreatePipelineRunShrinkRequest extends Model
 
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+
+        if (isset($map['RunMode'])) {
+            $model->runMode = $map['RunMode'];
         }
 
         if (isset($map['Type'])) {

@@ -50,6 +50,11 @@ class Column extends Model
     public $primaryKey;
 
     /**
+     * @var string[]
+     */
+    public $statisticsInfos;
+
+    /**
      * @var string
      */
     public $tableId;
@@ -67,6 +72,7 @@ class Column extends Model
         'partitionKey' => 'PartitionKey',
         'position' => 'Position',
         'primaryKey' => 'PrimaryKey',
+        'statisticsInfos' => 'StatisticsInfos',
         'tableId' => 'TableId',
         'type' => 'Type',
     ];
@@ -75,6 +81,9 @@ class Column extends Model
     {
         if (null !== $this->businessMetadata) {
             $this->businessMetadata->validate();
+        }
+        if (\is_array($this->statisticsInfos)) {
+            Model::validateArray($this->statisticsInfos);
         }
         parent::validate();
     }
@@ -112,6 +121,15 @@ class Column extends Model
 
         if (null !== $this->primaryKey) {
             $res['PrimaryKey'] = $this->primaryKey;
+        }
+
+        if (null !== $this->statisticsInfos) {
+            if (\is_array($this->statisticsInfos)) {
+                $res['StatisticsInfos'] = [];
+                foreach ($this->statisticsInfos as $key1 => $value1) {
+                    $res['StatisticsInfos'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->tableId) {
@@ -163,6 +181,15 @@ class Column extends Model
 
         if (isset($map['PrimaryKey'])) {
             $model->primaryKey = $map['PrimaryKey'];
+        }
+
+        if (isset($map['StatisticsInfos'])) {
+            if (!empty($map['StatisticsInfos'])) {
+                $model->statisticsInfos = [];
+                foreach ($map['StatisticsInfos'] as $key1 => $value1) {
+                    $model->statisticsInfos[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['TableId'])) {

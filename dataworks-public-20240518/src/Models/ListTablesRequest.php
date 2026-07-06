@@ -14,6 +14,11 @@ class ListTablesRequest extends Model
     public $comment;
 
     /**
+     * @var bool
+     */
+    public $includeExtendedProperties;
+
+    /**
      * @var string
      */
     public $name;
@@ -49,6 +54,7 @@ class ListTablesRequest extends Model
     public $tableTypes;
     protected $_name = [
         'comment' => 'Comment',
+        'includeExtendedProperties' => 'IncludeExtendedProperties',
         'name' => 'Name',
         'order' => 'Order',
         'pageNumber' => 'PageNumber',
@@ -71,6 +77,10 @@ class ListTablesRequest extends Model
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+
+        if (null !== $this->includeExtendedProperties) {
+            $res['IncludeExtendedProperties'] = $this->includeExtendedProperties;
         }
 
         if (null !== $this->name) {
@@ -121,6 +131,10 @@ class ListTablesRequest extends Model
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+
+        if (isset($map['IncludeExtendedProperties'])) {
+            $model->includeExtendedProperties = $map['IncludeExtendedProperties'];
         }
 
         if (isset($map['Name'])) {
