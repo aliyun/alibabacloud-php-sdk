@@ -62,6 +62,21 @@ class confluentConfig extends Model
     /**
      * @var int
      */
+    public $kraftControllerCU;
+
+    /**
+     * @var int
+     */
+    public $kraftControllerReplica;
+
+    /**
+     * @var int
+     */
+    public $kraftControllerStorage;
+
+    /**
+     * @var int
+     */
     public $ksqlCU;
 
     /**
@@ -114,6 +129,9 @@ class confluentConfig extends Model
         'kafkaRestProxyCU' => 'KafkaRestProxyCU',
         'kafkaRestProxyReplica' => 'KafkaRestProxyReplica',
         'kafkaStorage' => 'KafkaStorage',
+        'kraftControllerCU' => 'KraftControllerCU',
+        'kraftControllerReplica' => 'KraftControllerReplica',
+        'kraftControllerStorage' => 'KraftControllerStorage',
         'ksqlCU' => 'KsqlCU',
         'ksqlList' => 'KsqlList',
         'ksqlReplica' => 'KsqlReplica',
@@ -174,6 +192,18 @@ class confluentConfig extends Model
 
         if (null !== $this->kafkaStorage) {
             $res['KafkaStorage'] = $this->kafkaStorage;
+        }
+
+        if (null !== $this->kraftControllerCU) {
+            $res['KraftControllerCU'] = $this->kraftControllerCU;
+        }
+
+        if (null !== $this->kraftControllerReplica) {
+            $res['KraftControllerReplica'] = $this->kraftControllerReplica;
+        }
+
+        if (null !== $this->kraftControllerStorage) {
+            $res['KraftControllerStorage'] = $this->kraftControllerStorage;
         }
 
         if (null !== $this->ksqlCU) {
@@ -268,6 +298,18 @@ class confluentConfig extends Model
 
         if (isset($map['KafkaStorage'])) {
             $model->kafkaStorage = $map['KafkaStorage'];
+        }
+
+        if (isset($map['KraftControllerCU'])) {
+            $model->kraftControllerCU = $map['KraftControllerCU'];
+        }
+
+        if (isset($map['KraftControllerReplica'])) {
+            $model->kraftControllerReplica = $map['KraftControllerReplica'];
+        }
+
+        if (isset($map['KraftControllerStorage'])) {
+            $model->kraftControllerStorage = $map['KraftControllerStorage'];
         }
 
         if (isset($map['KsqlCU'])) {

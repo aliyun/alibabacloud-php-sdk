@@ -1,3 +1,13 @@
+2026-07-06 Version: 2.14.1
+- Update API CreatePrePayOrder: add request parameters ConfluentConfig.ConfluentVersion.
+- Update API CreatePrePayOrder: add request parameters ConfluentConfig.KraftControllerCU.
+- Update API CreatePrePayOrder: add request parameters ConfluentConfig.KraftControllerReplica.
+- Update API CreatePrePayOrder: add request parameters ConfluentConfig.KraftControllerStorage.
+- Update API UpgradePrePayOrder: add request parameters ConfluentConfig.KraftControllerCU.
+- Update API UpgradePrePayOrder: add request parameters ConfluentConfig.KraftControllerReplica.
+- Update API UpgradePrePayOrder: add request parameters ConfluentConfig.KraftControllerStorage.
+
+
 2026-04-17 Version: 2.14.0
 - Support API AddUserDefinedSg.
 - Support API DeleteUserDefinedSg.
