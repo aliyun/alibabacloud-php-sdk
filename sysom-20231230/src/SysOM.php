@@ -137,6 +137,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentWithTypeRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentWithTypeResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertDestinationRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertDestinationResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateAlertEnabledRequest;
@@ -152,6 +154,8 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentWithTypeRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentWithTypeResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -5292,6 +5296,85 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * 卸载 SysOM Agent.
+     *
+     * @remarks
+     * 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     *
+     * @param request - UninstallAgentWithTypeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallAgentWithTypeResponse
+     *
+     * @param UninstallAgentWithTypeRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UninstallAgentWithTypeResponse
+     */
+    public function uninstallAgentWithTypeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentVersion) {
+            @$body['agentVersion'] = $request->agentVersion;
+        }
+
+        if (null !== $request->instanceType) {
+            @$body['instanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UninstallAgentWithType',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/uninstallAgent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UninstallAgentWithTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 卸载 SysOM Agent.
+     *
+     * @remarks
+     * 调用本接口卸载 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     *
+     * @param request - UninstallAgentWithTypeRequest
+     *
+     * @returns UninstallAgentWithTypeResponse
+     *
+     * @param UninstallAgentWithTypeRequest $request
+     *
+     * @return UninstallAgentWithTypeResponse
+     */
+    public function uninstallAgentWithType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->uninstallAgentWithTypeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Updates an alert contact.
      *
      * @remarks
@@ -5810,5 +5893,84 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->upgradeAgentForClusterWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 更新 SysOM Agent.
+     *
+     * @remarks
+     * 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     *
+     * @param request - UpgradeAgentWithTypeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeAgentWithTypeResponse
+     *
+     * @param UpgradeAgentWithTypeRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpgradeAgentWithTypeResponse
+     */
+    public function upgradeAgentWithTypeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentVersion) {
+            @$body['agentVersion'] = $request->agentVersion;
+        }
+
+        if (null !== $request->instanceType) {
+            @$body['instanceType'] = $request->instanceType;
+        }
+
+        if (null !== $request->instances) {
+            @$body['instances'] = $request->instances;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeAgentWithType',
+            'version' => '2023-12-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/am/agent/upgradeAgent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeAgentWithTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 SysOM Agent.
+     *
+     * @remarks
+     * 调用本接口更新 Agent 是异步的，调用接口后会返回一个 task_id，可以凭借该 ID 调用 GetAgentTask 接口获取任务的执行情况。
+     *
+     * @param request - UpgradeAgentWithTypeRequest
+     *
+     * @returns UpgradeAgentWithTypeResponse
+     *
+     * @param UpgradeAgentWithTypeRequest $request
+     *
+     * @return UpgradeAgentWithTypeResponse
+     */
+    public function upgradeAgentWithType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->upgradeAgentWithTypeWithOptions($request, $headers, $runtime);
     }
 }
