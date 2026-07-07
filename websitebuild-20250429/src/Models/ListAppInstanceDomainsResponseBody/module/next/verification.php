@@ -23,10 +23,16 @@ class verification extends Model
      * @var string
      */
     public $verificationStatus;
+
+    /**
+     * @var string
+     */
+    public $verificationStatusCode;
     protected $_name = [
         'dnsRecord' => 'DnsRecord',
         'errorMsg' => 'ErrorMsg',
         'verificationStatus' => 'VerificationStatus',
+        'verificationStatusCode' => 'VerificationStatusCode',
     ];
 
     public function validate()
@@ -52,6 +58,10 @@ class verification extends Model
             $res['VerificationStatus'] = $this->verificationStatus;
         }
 
+        if (null !== $this->verificationStatusCode) {
+            $res['VerificationStatusCode'] = $this->verificationStatusCode;
+        }
+
         return $res;
     }
 
@@ -73,6 +83,10 @@ class verification extends Model
 
         if (isset($map['VerificationStatus'])) {
             $model->verificationStatus = $map['VerificationStatus'];
+        }
+
+        if (isset($map['VerificationStatusCode'])) {
+            $model->verificationStatusCode = $map['VerificationStatusCode'];
         }
 
         return $model;

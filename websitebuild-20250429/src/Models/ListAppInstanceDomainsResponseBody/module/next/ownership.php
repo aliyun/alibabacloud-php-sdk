@@ -17,9 +17,15 @@ class ownership extends Model
      * @var string
      */
     public $provider;
+
+    /**
+     * @var string
+     */
+    public $rootDomain;
     protected $_name = [
         'account' => 'Account',
         'provider' => 'Provider',
+        'rootDomain' => 'RootDomain',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ownership extends Model
 
         if (null !== $this->provider) {
             $res['Provider'] = $this->provider;
+        }
+
+        if (null !== $this->rootDomain) {
+            $res['RootDomain'] = $this->rootDomain;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ownership extends Model
 
         if (isset($map['Provider'])) {
             $model->provider = $map['Provider'];
+        }
+
+        if (isset($map['RootDomain'])) {
+            $model->rootDomain = $map['RootDomain'];
         }
 
         return $model;

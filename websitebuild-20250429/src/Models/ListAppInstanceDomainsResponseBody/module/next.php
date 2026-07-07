@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsR
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\next\certificate;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\next\dnsConflict;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\next\migration;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\next\ownership;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\next\qualification;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstanceDomainsResponseBody\module\next\resolution;
@@ -24,9 +26,19 @@ class next extends Model
     public $createTime;
 
     /**
+     * @var dnsConflict
+     */
+    public $dnsConflict;
+
+    /**
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var migration
+     */
+    public $migration;
 
     /**
      * @var string
@@ -55,7 +67,9 @@ class next extends Model
     protected $_name = [
         'certificate' => 'Certificate',
         'createTime' => 'CreateTime',
+        'dnsConflict' => 'DnsConflict',
         'domainName' => 'DomainName',
+        'migration' => 'Migration',
         'overallStatus' => 'OverallStatus',
         'ownership' => 'Ownership',
         'qualification' => 'Qualification',
@@ -67,6 +81,12 @@ class next extends Model
     {
         if (null !== $this->certificate) {
             $this->certificate->validate();
+        }
+        if (null !== $this->dnsConflict) {
+            $this->dnsConflict->validate();
+        }
+        if (null !== $this->migration) {
+            $this->migration->validate();
         }
         if (null !== $this->ownership) {
             $this->ownership->validate();
@@ -94,8 +114,16 @@ class next extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->dnsConflict) {
+            $res['DnsConflict'] = null !== $this->dnsConflict ? $this->dnsConflict->toArray($noStream) : $this->dnsConflict;
+        }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+
+        if (null !== $this->migration) {
+            $res['Migration'] = null !== $this->migration ? $this->migration->toArray($noStream) : $this->migration;
         }
 
         if (null !== $this->overallStatus) {
@@ -137,8 +165,16 @@ class next extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['DnsConflict'])) {
+            $model->dnsConflict = dnsConflict::fromMap($map['DnsConflict']);
+        }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+
+        if (isset($map['Migration'])) {
+            $model->migration = migration::fromMap($map['Migration']);
         }
 
         if (isset($map['OverallStatus'])) {
