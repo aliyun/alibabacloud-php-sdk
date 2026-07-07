@@ -599,6 +599,10 @@ class AgentIdentity extends OpenApiClient
             @$body['OAuth2ProviderConfig'] = $request->OAuth2ProviderConfigShrink;
         }
 
+        if (null !== $request->OAuthType) {
+            @$body['OAuthType'] = $request->OAuthType;
+        }
+
         if (null !== $request->tokenVaultName) {
             @$body['TokenVaultName'] = $request->tokenVaultName;
         }
@@ -2944,8 +2948,16 @@ class AgentIdentity extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
+        }
+
         if (null !== $request->userName) {
             @$body['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->userPoolId) {
+            @$body['UserPoolId'] = $request->userPoolId;
         }
 
         if (null !== $request->userPoolName) {

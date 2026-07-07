@@ -11,14 +11,26 @@ class GetUserRequest extends Model
     /**
      * @var string
      */
+    public $userId;
+
+    /**
+     * @var string
+     */
     public $userName;
+
+    /**
+     * @var string
+     */
+    public $userPoolId;
 
     /**
      * @var string
      */
     public $userPoolName;
     protected $_name = [
+        'userId' => 'UserId',
         'userName' => 'UserName',
+        'userPoolId' => 'UserPoolId',
         'userPoolName' => 'UserPoolName',
     ];
 
@@ -30,8 +42,16 @@ class GetUserRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
+        }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
+        }
+
+        if (null !== $this->userPoolId) {
+            $res['UserPoolId'] = $this->userPoolId;
         }
 
         if (null !== $this->userPoolName) {
@@ -49,8 +69,16 @@ class GetUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
+        }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+
+        if (isset($map['UserPoolId'])) {
+            $model->userPoolId = $map['UserPoolId'];
         }
 
         if (isset($map['UserPoolName'])) {
