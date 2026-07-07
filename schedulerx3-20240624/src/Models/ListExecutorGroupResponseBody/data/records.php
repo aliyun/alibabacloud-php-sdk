@@ -35,6 +35,11 @@ class records extends Model
     public $cmsWorkspaceId;
 
     /**
+     * @var int
+     */
+    public $currentJobs;
+
+    /**
      * @var string
      */
     public $description;
@@ -43,6 +48,11 @@ class records extends Model
      * @var string
      */
     public $integrationType;
+
+    /**
+     * @var int
+     */
+    public $maxJobs;
 
     /**
      * @var string
@@ -89,8 +99,10 @@ class records extends Model
         'autoScale' => 'AutoScale',
         'citeList' => 'CiteList',
         'cmsWorkspaceId' => 'CmsWorkspaceId',
+        'currentJobs' => 'CurrentJobs',
         'description' => 'Description',
         'integrationType' => 'IntegrationType',
+        'maxJobs' => 'MaxJobs',
         'name' => 'Name',
         'network' => 'Network',
         'protocol' => 'Protocol',
@@ -139,12 +151,20 @@ class records extends Model
             $res['CmsWorkspaceId'] = $this->cmsWorkspaceId;
         }
 
+        if (null !== $this->currentJobs) {
+            $res['CurrentJobs'] = $this->currentJobs;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
 
         if (null !== $this->integrationType) {
             $res['IntegrationType'] = $this->integrationType;
+        }
+
+        if (null !== $this->maxJobs) {
+            $res['MaxJobs'] = $this->maxJobs;
         }
 
         if (null !== $this->name) {
@@ -217,12 +237,20 @@ class records extends Model
             $model->cmsWorkspaceId = $map['CmsWorkspaceId'];
         }
 
+        if (isset($map['CurrentJobs'])) {
+            $model->currentJobs = $map['CurrentJobs'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
 
         if (isset($map['IntegrationType'])) {
             $model->integrationType = $map['IntegrationType'];
+        }
+
+        if (isset($map['MaxJobs'])) {
+            $model->maxJobs = $map['MaxJobs'];
         }
 
         if (isset($map['Name'])) {

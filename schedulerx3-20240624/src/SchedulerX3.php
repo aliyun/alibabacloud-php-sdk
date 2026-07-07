@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateCalendarResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateClusterShrinkRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateContactRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateContactResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateDatasourceRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateDatasourceResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\CreateExecutorGroupRequest;
@@ -29,6 +31,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteCalendarRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteCalendarResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteClusterResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteContactRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteContactResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteDatasourceRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteDatasourceResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\DeleteExecutorGroupRequest;
@@ -95,6 +99,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListCalendarsRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListCalendarsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListClustersRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListClustersResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListContactsRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListContactsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListDatasourcesRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListDatasourcesResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ListExecutorGroupRequest;
@@ -183,6 +189,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateCalendarRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateCalendarResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateClusterRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateClusterResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateContactRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateContactResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateDatasourceRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateDatasourceResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateExecutorGroupRequest;
@@ -523,6 +531,77 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建通知联系人.
+     *
+     * @remarks
+     * 创建自定义联系人
+     *
+     * @param request - CreateContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContactResponse
+     *
+     * @param CreateContactRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateContactResponse
+     */
+    public function createContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContact',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建通知联系人.
+     *
+     * @remarks
+     * 创建自定义联系人
+     *
+     * @param request - CreateContactRequest
+     *
+     * @returns CreateContactResponse
+     *
+     * @param CreateContactRequest $request
+     *
+     * @return CreateContactResponse
+     */
+    public function createContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContactWithOptions($request, $runtime);
     }
 
     /**
@@ -1245,6 +1324,69 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除通知联系人.
+     *
+     * @remarks
+     * 删除自定义联系人
+     *
+     * @param request - DeleteContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContactResponse
+     *
+     * @param DeleteContactRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteContactResponse
+     */
+    public function deleteContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContact',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除通知联系人.
+     *
+     * @remarks
+     * 删除自定义联系人
+     *
+     * @param request - DeleteContactRequest
+     *
+     * @returns DeleteContactResponse
+     *
+     * @param DeleteContactRequest $request
+     *
+     * @return DeleteContactResponse
+     */
+    public function deleteContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContactWithOptions($request, $runtime);
     }
 
     /**
@@ -3214,7 +3356,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Query the list of instances.
+     * Queries a list of instances.
      *
      * @param request - ListClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3249,7 +3391,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Query the list of instances.
+     * Queries a list of instances.
      *
      * @param request - ListClustersRequest
      *
@@ -3264,6 +3406,77 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listClustersWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询通知联系人列表.
+     *
+     * @remarks
+     * 查看联系人
+     *
+     * @param request - ListContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListContactsResponse
+     *
+     * @param ListContactsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListContactsResponse
+     */
+    public function listContactsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListContacts',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询通知联系人列表.
+     *
+     * @remarks
+     * 查看联系人
+     *
+     * @param request - ListContactsRequest
+     *
+     * @returns ListContactsResponse
+     *
+     * @param ListContactsRequest $request
+     *
+     * @return ListContactsResponse
+     */
+    public function listContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listContactsWithOptions($request, $runtime);
     }
 
     /**
@@ -6208,6 +6421,81 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
+     * 更新通知联系人.
+     *
+     * @remarks
+     * 更新通知联系人
+     *
+     * @param request - UpdateContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContactResponse
+     *
+     * @param UpdateContactRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateContactResponse
+     */
+    public function updateContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['Enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContact',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新通知联系人.
+     *
+     * @remarks
+     * 更新通知联系人
+     *
+     * @param request - UpdateContactRequest
+     *
+     * @returns UpdateContactResponse
+     *
+     * @param UpdateContactRequest $request
+     *
+     * @return UpdateContactResponse
+     */
+    public function updateContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContactWithOptions($request, $runtime);
+    }
+
+    /**
      * Update data source.
      *
      * @param request - UpdateDatasourceRequest
@@ -6483,7 +6771,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Update task details.
+     * Updates node information.
      *
      * @param tmpReq - UpdateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6632,7 +6920,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Update task details.
+     * Updates node information.
      *
      * @param request - UpdateJobRequest
      *
