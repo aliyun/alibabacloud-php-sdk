@@ -1,3 +1,10 @@
+2026-07-07 Version: 3.4.0
+- Support API DescribeSiteWafTimeSeriesData.
+- Support API DescribeSiteWafTopData.
+- Support API DescribeWafUsageData.
+- Support API PurchaseBotInstance.
+
+
 2026-06-29 Version: 3.3.0
 - Support API DescribeDDoSOverseasAttackCount.
 - Support API GetDcvDelegation.
