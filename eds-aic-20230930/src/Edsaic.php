@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ActivateEdgeMobileAgentRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ActivateEdgeMobileAgentResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AttachKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AttachKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AuthorizeAndroidInstanceRequest;
@@ -36,6 +38,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCreditPackageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCreditPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCustomImageResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateEdgeMobileAgentPackageRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateEdgeMobileAgentPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateMobileAgentPackageRequest;
@@ -87,6 +91,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCreditPackageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeCreditPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeDisplayConfigRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeDisplayConfigResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeEdgeMobileAgentPackagesRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeEdgeMobileAgentPackagesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsRequest;
@@ -184,6 +190,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoverAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoverAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RefreshAuthTokensRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\RefreshAuthTokensResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewAndroidInstanceGroupsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewAndroidInstanceGroupsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RenewCloudPhoneNodesRequest;
@@ -273,6 +281,75 @@ class Edsaic extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Activates an edge agent device.
+     *
+     * @param request - ActivateEdgeMobileAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ActivateEdgeMobileAgentResponse
+     *
+     * @param ActivateEdgeMobileAgentRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ActivateEdgeMobileAgentResponse
+     */
+    public function activateEdgeMobileAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deviceClass) {
+            @$query['DeviceClass'] = $request->deviceClass;
+        }
+
+        if (null !== $request->deviceId) {
+            @$query['DeviceId'] = $request->deviceId;
+        }
+
+        if (null !== $request->deviceMeta) {
+            @$query['DeviceMeta'] = $request->deviceMeta;
+        }
+
+        if (null !== $request->licenseKey) {
+            @$query['LicenseKey'] = $request->licenseKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ActivateEdgeMobileAgent',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ActivateEdgeMobileAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Activates an edge agent device.
+     *
+     * @param request - ActivateEdgeMobileAgentRequest
+     *
+     * @returns ActivateEdgeMobileAgentResponse
+     *
+     * @param ActivateEdgeMobileAgentRequest $request
+     *
+     * @return ActivateEdgeMobileAgentResponse
+     */
+    public function activateEdgeMobileAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->activateEdgeMobileAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -1657,6 +1734,101 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCustomImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Places an order to purchase an edge smart gateway agent package.
+     *
+     * @remarks
+     * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+     *
+     * @param request - CreateEdgeMobileAgentPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEdgeMobileAgentPackageResponse
+     *
+     * @param CreateEdgeMobileAgentPackageRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateEdgeMobileAgentPackageResponse
+     */
+    public function createEdgeMobileAgentPackageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deviceClass) {
+            @$query['DeviceClass'] = $request->deviceClass;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        if (null !== $request->quantity) {
+            @$query['Quantity'] = $request->quantity;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEdgeMobileAgentPackage',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEdgeMobileAgentPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Places an order to purchase an edge smart gateway agent package.
+     *
+     * @remarks
+     * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of the Cloud Phone product.
+     *
+     * @param request - CreateEdgeMobileAgentPackageRequest
+     *
+     * @returns CreateEdgeMobileAgentPackageResponse
+     *
+     * @param CreateEdgeMobileAgentPackageRequest $request
+     *
+     * @return CreateEdgeMobileAgentPackageResponse
+     */
+    public function createEdgeMobileAgentPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEdgeMobileAgentPackageWithOptions($request, $runtime);
     }
 
     /**
@@ -3517,6 +3689,83 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDisplayConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of edge agent packages.
+     *
+     * @param request - DescribeEdgeMobileAgentPackagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEdgeMobileAgentPackagesResponse
+     *
+     * @param DescribeEdgeMobileAgentPackagesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeEdgeMobileAgentPackagesResponse
+     */
+    public function describeEdgeMobileAgentPackagesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deviceClass) {
+            @$query['DeviceClass'] = $request->deviceClass;
+        }
+
+        if (null !== $request->licenseKeys) {
+            @$query['LicenseKeys'] = $request->licenseKeys;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->packageIds) {
+            @$query['PackageIds'] = $request->packageIds;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeEdgeMobileAgentPackages',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeEdgeMobileAgentPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of edge agent packages.
+     *
+     * @param request - DescribeEdgeMobileAgentPackagesRequest
+     *
+     * @returns DescribeEdgeMobileAgentPackagesResponse
+     *
+     * @param DescribeEdgeMobileAgentPackagesRequest $request
+     *
+     * @return DescribeEdgeMobileAgentPackagesResponse
+     */
+    public function describeEdgeMobileAgentPackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEdgeMobileAgentPackagesWithOptions($request, $runtime);
     }
 
     /**
@@ -7051,6 +7300,71 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * Refreshes model authentication tokens.
+     *
+     * @param request - RefreshAuthTokensRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RefreshAuthTokensResponse
+     *
+     * @param RefreshAuthTokensRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RefreshAuthTokensResponse
+     */
+    public function refreshAuthTokensWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->expireSeconds) {
+            @$query['ExpireSeconds'] = $request->expireSeconds;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->licenseKeys) {
+            @$query['LicenseKeys'] = $request->licenseKeys;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RefreshAuthTokens',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RefreshAuthTokensResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Refreshes model authentication tokens.
+     *
+     * @param request - RefreshAuthTokensRequest
+     *
+     * @returns RefreshAuthTokensResponse
+     *
+     * @param RefreshAuthTokensRequest $request
+     *
+     * @return RefreshAuthTokensResponse
+     */
+    public function refreshAuthTokens($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshAuthTokensWithOptions($request, $runtime);
+    }
+
+    /**
      * Renews subscription Cloud Phone instance groups. If a subscription instance group expires, the system automatically deletes the instance group and its instances after 15 days. You cannot recover deleted resources. Renew your instance groups promptly to prevent resource loss.
      *
      * @param request - RenewAndroidInstanceGroupsRequest
@@ -7428,7 +7742,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Triggers an Agent on Mobile nodes to execute an AI automation task.
+     * Triggers an Agent to execute an AI automation task on Mobile nodes.
      *
      * @param request - RunAgentTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7495,7 +7809,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Triggers an Agent on Mobile nodes to execute an AI automation task.
+     * Triggers an Agent to execute an AI automation task on Mobile nodes.
      *
      * @param request - RunAgentTaskRequest
      *
