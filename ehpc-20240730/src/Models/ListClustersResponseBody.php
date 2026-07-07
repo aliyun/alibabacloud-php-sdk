@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListClustersResponseBody\clusters;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\ListClustersResponseBody\ehpcVersionStatistics;
 
 class ListClustersResponseBody extends Model
 {
@@ -13,6 +14,11 @@ class ListClustersResponseBody extends Model
      * @var clusters[]
      */
     public $clusters;
+
+    /**
+     * @var ehpcVersionStatistics
+     */
+    public $ehpcVersionStatistics;
 
     /**
      * @var string
@@ -35,6 +41,7 @@ class ListClustersResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'clusters' => 'Clusters',
+        'ehpcVersionStatistics' => 'EhpcVersionStatistics',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
@@ -45,6 +52,9 @@ class ListClustersResponseBody extends Model
     {
         if (\is_array($this->clusters)) {
             Model::validateArray($this->clusters);
+        }
+        if (null !== $this->ehpcVersionStatistics) {
+            $this->ehpcVersionStatistics->validate();
         }
         parent::validate();
     }
@@ -61,6 +71,10 @@ class ListClustersResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->ehpcVersionStatistics) {
+            $res['EhpcVersionStatistics'] = null !== $this->ehpcVersionStatistics ? $this->ehpcVersionStatistics->toArray($noStream) : $this->ehpcVersionStatistics;
         }
 
         if (null !== $this->pageNumber) {
@@ -99,6 +113,10 @@ class ListClustersResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['EhpcVersionStatistics'])) {
+            $model->ehpcVersionStatistics = ehpcVersionStatistics::fromMap($map['EhpcVersionStatistics']);
         }
 
         if (isset($map['PageNumber'])) {
