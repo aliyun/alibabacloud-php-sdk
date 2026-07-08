@@ -22,7 +22,11 @@ class AgentExplorer extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'public' => 'agentexplorer.aliyuncs.com',
+            'cn-hangzhou' => 'agentexplorer.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agentexplorer', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -52,7 +56,7 @@ class AgentExplorer extends OpenApiClient
     }
 
     /**
-     * 获取阿里云 Agent Skill 内容.
+     * Get the SKILL.md file content of the specified Agent Skill.
      *
      * @param request - GetSkillContentRequest
      * @param headers - map
@@ -89,7 +93,7 @@ class AgentExplorer extends OpenApiClient
     }
 
     /**
-     * 获取阿里云 Agent Skill 内容.
+     * Get the SKILL.md file content of the specified Agent Skill.
      *
      * @param request - GetSkillContentRequest
      *
@@ -109,7 +113,7 @@ class AgentExplorer extends OpenApiClient
     }
 
     /**
-     * 列举所有的阿里云 Skills 类目.
+     * List all Alibaba Cloud Skills categories.
      *
      * @param request - ListCategoriesRequest
      * @param headers - map
@@ -145,7 +149,7 @@ class AgentExplorer extends OpenApiClient
     }
 
     /**
-     * 列举所有的阿里云 Skills 类目.
+     * List all Alibaba Cloud Skills categories.
      *
      * @param request - ListCategoriesRequest
      *
@@ -164,7 +168,7 @@ class AgentExplorer extends OpenApiClient
     }
 
     /**
-     * 通过关键词、类目搜索阿里云 Agent Skills.
+     * Searches for Alibaba Cloud Agent Skills by keyword or category.
      *
      * @param request - SearchSkillsRequest
      * @param headers - map
@@ -198,6 +202,10 @@ class AgentExplorer extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->searchMode) {
+            @$query['searchMode'] = $request->searchMode;
+        }
+
         if (null !== $request->skip) {
             @$query['skip'] = $request->skip;
         }
@@ -222,7 +230,7 @@ class AgentExplorer extends OpenApiClient
     }
 
     /**
-     * 通过关键词、类目搜索阿里云 Agent Skills.
+     * Searches for Alibaba Cloud Agent Skills by keyword or category.
      *
      * @param request - SearchSkillsRequest
      *

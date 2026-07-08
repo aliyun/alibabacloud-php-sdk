@@ -29,6 +29,11 @@ class SearchSkillsRequest extends Model
     public $nextToken;
 
     /**
+     * @var string
+     */
+    public $searchMode;
+
+    /**
      * @var int
      */
     public $skip;
@@ -37,6 +42,7 @@ class SearchSkillsRequest extends Model
         'keyword' => 'keyword',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'searchMode' => 'searchMode',
         'skip' => 'skip',
     ];
 
@@ -62,6 +68,10 @@ class SearchSkillsRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->searchMode) {
+            $res['searchMode'] = $this->searchMode;
         }
 
         if (null !== $this->skip) {
@@ -93,6 +103,10 @@ class SearchSkillsRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['searchMode'])) {
+            $model->searchMode = $map['searchMode'];
         }
 
         if (isset($map['skip'])) {

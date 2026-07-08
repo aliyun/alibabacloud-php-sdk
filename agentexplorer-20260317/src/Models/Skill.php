@@ -21,6 +21,11 @@ class Skill extends Model
     /**
      * @var string
      */
+    public $categoryNameEn;
+
+    /**
+     * @var string
+     */
     public $createdAt;
 
     /**
@@ -31,7 +36,17 @@ class Skill extends Model
     /**
      * @var string
      */
+    public $descriptionEn;
+
+    /**
+     * @var string
+     */
     public $displayName;
+
+    /**
+     * @var string
+     */
+    public $githubPath;
 
     /**
      * @var int
@@ -42,6 +57,11 @@ class Skill extends Model
      * @var int
      */
     public $likeCount;
+
+    /**
+     * @var string
+     */
+    public $nameEn;
 
     /**
      * @var string
@@ -61,18 +81,28 @@ class Skill extends Model
     /**
      * @var string
      */
+    public $subCategoryNameEn;
+
+    /**
+     * @var string
+     */
     public $updatedAt;
     protected $_name = [
         'categoryCode' => 'categoryCode',
         'categoryName' => 'categoryName',
+        'categoryNameEn' => 'categoryNameEn',
         'createdAt' => 'createdAt',
         'description' => 'description',
+        'descriptionEn' => 'descriptionEn',
         'displayName' => 'displayName',
+        'githubPath' => 'githubPath',
         'installCount' => 'installCount',
         'likeCount' => 'likeCount',
+        'nameEn' => 'nameEn',
         'skillName' => 'skillName',
         'subCategoryCode' => 'subCategoryCode',
         'subCategoryName' => 'subCategoryName',
+        'subCategoryNameEn' => 'subCategoryNameEn',
         'updatedAt' => 'updatedAt',
     ];
 
@@ -92,6 +122,10 @@ class Skill extends Model
             $res['categoryName'] = $this->categoryName;
         }
 
+        if (null !== $this->categoryNameEn) {
+            $res['categoryNameEn'] = $this->categoryNameEn;
+        }
+
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
@@ -100,8 +134,16 @@ class Skill extends Model
             $res['description'] = $this->description;
         }
 
+        if (null !== $this->descriptionEn) {
+            $res['descriptionEn'] = $this->descriptionEn;
+        }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
+        }
+
+        if (null !== $this->githubPath) {
+            $res['githubPath'] = $this->githubPath;
         }
 
         if (null !== $this->installCount) {
@@ -110,6 +152,10 @@ class Skill extends Model
 
         if (null !== $this->likeCount) {
             $res['likeCount'] = $this->likeCount;
+        }
+
+        if (null !== $this->nameEn) {
+            $res['nameEn'] = $this->nameEn;
         }
 
         if (null !== $this->skillName) {
@@ -122,6 +168,10 @@ class Skill extends Model
 
         if (null !== $this->subCategoryName) {
             $res['subCategoryName'] = $this->subCategoryName;
+        }
+
+        if (null !== $this->subCategoryNameEn) {
+            $res['subCategoryNameEn'] = $this->subCategoryNameEn;
         }
 
         if (null !== $this->updatedAt) {
@@ -147,6 +197,10 @@ class Skill extends Model
             $model->categoryName = $map['categoryName'];
         }
 
+        if (isset($map['categoryNameEn'])) {
+            $model->categoryNameEn = $map['categoryNameEn'];
+        }
+
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
@@ -155,8 +209,16 @@ class Skill extends Model
             $model->description = $map['description'];
         }
 
+        if (isset($map['descriptionEn'])) {
+            $model->descriptionEn = $map['descriptionEn'];
+        }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
+        }
+
+        if (isset($map['githubPath'])) {
+            $model->githubPath = $map['githubPath'];
         }
 
         if (isset($map['installCount'])) {
@@ -165,6 +227,10 @@ class Skill extends Model
 
         if (isset($map['likeCount'])) {
             $model->likeCount = $map['likeCount'];
+        }
+
+        if (isset($map['nameEn'])) {
+            $model->nameEn = $map['nameEn'];
         }
 
         if (isset($map['skillName'])) {
@@ -177,6 +243,10 @@ class Skill extends Model
 
         if (isset($map['subCategoryName'])) {
             $model->subCategoryName = $map['subCategoryName'];
+        }
+
+        if (isset($map['subCategoryNameEn'])) {
+            $model->subCategoryNameEn = $map['subCategoryNameEn'];
         }
 
         if (isset($map['updatedAt'])) {
