@@ -39,9 +39,19 @@ class SubmitYikeStoryboardJobRequest extends Model
     public $narrationVoiceId;
 
     /**
+     * @var bool
+     */
+    public $needCaption;
+
+    /**
      * @var string
      */
     public $resolution;
+
+    /**
+     * @var string
+     */
+    public $shotPromptLang;
 
     /**
      * @var string
@@ -89,7 +99,9 @@ class SubmitYikeStoryboardJobRequest extends Model
         'keepOriginDialogue' => 'KeepOriginDialogue',
         'modelParams' => 'ModelParams',
         'narrationVoiceId' => 'NarrationVoiceId',
+        'needCaption' => 'NeedCaption',
         'resolution' => 'Resolution',
+        'shotPromptLang' => 'ShotPromptLang',
         'shotPromptMode' => 'ShotPromptMode',
         'shotSplitMode' => 'ShotSplitMode',
         'skipFailureShot' => 'SkipFailureShot',
@@ -132,8 +144,16 @@ class SubmitYikeStoryboardJobRequest extends Model
             $res['NarrationVoiceId'] = $this->narrationVoiceId;
         }
 
+        if (null !== $this->needCaption) {
+            $res['NeedCaption'] = $this->needCaption;
+        }
+
         if (null !== $this->resolution) {
             $res['Resolution'] = $this->resolution;
+        }
+
+        if (null !== $this->shotPromptLang) {
+            $res['ShotPromptLang'] = $this->shotPromptLang;
         }
 
         if (null !== $this->shotPromptMode) {
@@ -203,8 +223,16 @@ class SubmitYikeStoryboardJobRequest extends Model
             $model->narrationVoiceId = $map['NarrationVoiceId'];
         }
 
+        if (isset($map['NeedCaption'])) {
+            $model->needCaption = $map['NeedCaption'];
+        }
+
         if (isset($map['Resolution'])) {
             $model->resolution = $map['Resolution'];
+        }
+
+        if (isset($map['ShotPromptLang'])) {
+            $model->shotPromptLang = $map['ShotPromptLang'];
         }
 
         if (isset($map['ShotPromptMode'])) {
