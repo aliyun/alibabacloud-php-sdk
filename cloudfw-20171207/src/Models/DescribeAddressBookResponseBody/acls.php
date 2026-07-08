@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseB
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls\ackLabels;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls\addresses;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls\assetRegionResourceTypes;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls\tagList;
 
 class acls extends Model
@@ -45,6 +46,16 @@ class acls extends Model
      * @var addresses[]
      */
     public $addresses;
+
+    /**
+     * @var int[]
+     */
+    public $assetMemberUids;
+
+    /**
+     * @var assetRegionResourceTypes[]
+     */
+    public $assetRegionResourceTypes;
 
     /**
      * @var int
@@ -98,6 +109,8 @@ class acls extends Model
         'addressList' => 'AddressList',
         'addressListCount' => 'AddressListCount',
         'addresses' => 'Addresses',
+        'assetMemberUids' => 'AssetMemberUids',
+        'assetRegionResourceTypes' => 'AssetRegionResourceTypes',
         'autoAddTagEcs' => 'AutoAddTagEcs',
         'description' => 'Description',
         'groupName' => 'GroupName',
@@ -122,6 +135,12 @@ class acls extends Model
         }
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
+        }
+        if (\is_array($this->assetMemberUids)) {
+            Model::validateArray($this->assetMemberUids);
+        }
+        if (\is_array($this->assetRegionResourceTypes)) {
+            Model::validateArray($this->assetRegionResourceTypes);
         }
         if (\is_array($this->tagList)) {
             Model::validateArray($this->tagList);
@@ -183,6 +202,28 @@ class acls extends Model
                 $n1 = 0;
                 foreach ($this->addresses as $item1) {
                     $res['Addresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->assetMemberUids) {
+            if (\is_array($this->assetMemberUids)) {
+                $res['AssetMemberUids'] = [];
+                $n1 = 0;
+                foreach ($this->assetMemberUids as $item1) {
+                    $res['AssetMemberUids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->assetRegionResourceTypes) {
+            if (\is_array($this->assetRegionResourceTypes)) {
+                $res['AssetRegionResourceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->assetRegionResourceTypes as $item1) {
+                    $res['AssetRegionResourceTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -293,6 +334,28 @@ class acls extends Model
                 $n1 = 0;
                 foreach ($map['Addresses'] as $item1) {
                     $model->addresses[$n1] = addresses::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AssetMemberUids'])) {
+            if (!empty($map['AssetMemberUids'])) {
+                $model->assetMemberUids = [];
+                $n1 = 0;
+                foreach ($map['AssetMemberUids'] as $item1) {
+                    $model->assetMemberUids[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AssetRegionResourceTypes'])) {
+            if (!empty($map['AssetRegionResourceTypes'])) {
+                $model->assetRegionResourceTypes = [];
+                $n1 = 0;
+                foreach ($map['AssetRegionResourceTypes'] as $item1) {
+                    $model->assetRegionResourceTypes[$n1] = assetRegionResourceTypes::fromMap($item1);
                     ++$n1;
                 }
             }

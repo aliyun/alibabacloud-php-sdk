@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAclBackupDataRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAclBackupDataResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookShrinkRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddDnsFirewallPolicyRequest;
@@ -142,6 +143,7 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclWhitelistRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAclWhitelistResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookShrinkRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAITrafficAnalysisStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListResponse;
@@ -452,6 +454,7 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListTlsInspectCACertificatesReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ListTlsInspectCACertificatesResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookShrinkRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyCfwInstanceRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyCfwInstanceResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionRequest;
@@ -695,26 +698,36 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
+     * Creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
      *
      * @remarks
-     * This API operation is used to create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
-     * ## QPS Limit
-     * The single-user QPS limit for this API operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please make calls appropriately.
+     * This operation creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
+     * ## Rate limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
-     * @param request - AddAddressBookRequest
+     * @param tmpReq - AddAddressBookRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns AddAddressBookResponse
      *
-     * @param AddAddressBookRequest $request
+     * @param AddAddressBookRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return AddAddressBookResponse
      */
-    public function addAddressBookWithOptions($request, $runtime)
+    public function addAddressBookWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new AddAddressBookShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assetMemberUids) {
+            $request->assetMemberUidsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assetMemberUids, 'AssetMemberUids', 'json');
+        }
+
+        if (null !== $tmpReq->assetRegionResourceTypes) {
+            $request->assetRegionResourceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assetRegionResourceTypes, 'AssetRegionResourceTypes', 'json');
+        }
+
         $query = [];
         if (null !== $request->ackClusterConnectorId) {
             @$query['AckClusterConnectorId'] = $request->ackClusterConnectorId;
@@ -730,6 +743,14 @@ class Cloudfw extends OpenApiClient
 
         if (null !== $request->addressList) {
             @$query['AddressList'] = $request->addressList;
+        }
+
+        if (null !== $request->assetMemberUidsShrink) {
+            @$query['AssetMemberUids'] = $request->assetMemberUidsShrink;
+        }
+
+        if (null !== $request->assetRegionResourceTypesShrink) {
+            @$query['AssetRegionResourceTypes'] = $request->assetRegionResourceTypesShrink;
         }
 
         if (null !== $request->autoAddTagEcs) {
@@ -783,12 +804,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
+     * Creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
      *
      * @remarks
-     * This API operation is used to create an address book, including IPv4 address book, ECS tag address book, IPv6 address book, domain address book, and ACK address book.
-     * ## QPS Limit
-     * The single-user QPS limit for this API operation is 10 calls per second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please make calls appropriately.
+     * This operation creates an address book, including IPv4 address books, ECS tag-based address books, IPv6 address books, domain name address books, and ACK address books.
+     * ## Rate limit
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Call this operation at an appropriate frequency.
      *
      * @param request - AddAddressBookRequest
      *
@@ -5775,11 +5796,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the Access Control List (ACL) whitelist.
+     * Retrieves the ACL whitelist.
      *
      * @remarks
      * ## QPS limit
-     * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call the API at a reasonable rate.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
      *
      * @param request - DescribeAclWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5822,11 +5843,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the Access Control List (ACL) whitelist.
+     * Retrieves the ACL whitelist.
      *
      * @remarks
      * ## QPS limit
-     * The queries per second (QPS) limit for this API is 10 for each user. If you exceed this limit, API calls are throttled, which may affect your business. We recommend that you call the API at a reasonable rate.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
      *
      * @param request - DescribeAclWhitelistRequest
      *
@@ -5844,27 +5865,37 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries address books in a batch.
+     * Queries address books in batches.
      *
      * @remarks
-     * Use this API to query the details of an access control policy address book.
+     * This operation is used to query the details of access control policy address books.
      * ## QPS limit
-     * The per-user QPS limit for this API is 10. Exceeding this limit throttles your API calls and may impact your business. Plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
-     * @param request - DescribeAddressBookRequest
+     * @param tmpReq - DescribeAddressBookRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeAddressBookResponse
      *
-     * @param DescribeAddressBookRequest $request
+     * @param DescribeAddressBookRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return DescribeAddressBookResponse
      */
-    public function describeAddressBookWithOptions($request, $runtime)
+    public function describeAddressBookWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new DescribeAddressBookShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assetMemberUids) {
+            $request->assetMemberUidsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assetMemberUids, 'AssetMemberUids', 'json');
+        }
+
         $query = [];
+        if (null !== $request->assetMemberUidsShrink) {
+            @$query['AssetMemberUids'] = $request->assetMemberUidsShrink;
+        }
+
         if (null !== $request->containPort) {
             @$query['ContainPort'] = $request->containPort;
         }
@@ -5912,12 +5943,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries address books in a batch.
+     * Queries address books in batches.
      *
      * @remarks
-     * Use this API to query the details of an access control policy address book.
+     * This operation is used to query the details of access control policy address books.
      * ## QPS limit
-     * The per-user QPS limit for this API is 10. Exceeding this limit throttles your API calls and may impact your business. Plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
      *
      * @param request - DescribeAddressBookRequest
      *
@@ -7492,7 +7523,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 获取总流量趋势
+     * Queries the traffic trend of a firewall.
      *
      * @param request - DescribeFirewallTrafficTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7539,7 +7570,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 获取总流量趋势
+     * Queries the traffic trend of a firewall.
      *
      * @param request - DescribeFirewallTrafficTrendRequest
      *
@@ -18553,26 +18584,36 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modify an address book.
+     * Modifies an address book.
      *
      * @remarks
-     * This API is used to modify an address book.
-     * ## QPS Limit
-     * The single-user QPS limit for this API is 10 requests per second. Exceeding this limit will result in API throttling, which may affect your business. Please make calls responsibly.
+     * This operation is used to modify an address book.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
      *
-     * @param request - ModifyAddressBookRequest
+     * @param tmpReq - ModifyAddressBookRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ModifyAddressBookResponse
      *
-     * @param ModifyAddressBookRequest $request
+     * @param ModifyAddressBookRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return ModifyAddressBookResponse
      */
-    public function modifyAddressBookWithOptions($request, $runtime)
+    public function modifyAddressBookWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new ModifyAddressBookShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assetMemberUids) {
+            $request->assetMemberUidsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assetMemberUids, 'AssetMemberUids', 'json');
+        }
+
+        if (null !== $tmpReq->assetRegionResourceTypes) {
+            $request->assetRegionResourceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assetRegionResourceTypes, 'AssetRegionResourceTypes', 'json');
+        }
+
         $query = [];
         if (null !== $request->ackLabels) {
             @$query['AckLabels'] = $request->ackLabels;
@@ -18584,6 +18625,14 @@ class Cloudfw extends OpenApiClient
 
         if (null !== $request->addressList) {
             @$query['AddressList'] = $request->addressList;
+        }
+
+        if (null !== $request->assetMemberUidsShrink) {
+            @$query['AssetMemberUids'] = $request->assetMemberUidsShrink;
+        }
+
+        if (null !== $request->assetRegionResourceTypesShrink) {
+            @$query['AssetRegionResourceTypes'] = $request->assetRegionResourceTypesShrink;
         }
 
         if (null !== $request->autoAddTagEcs) {
@@ -18641,12 +18690,12 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modify an address book.
+     * Modifies an address book.
      *
      * @remarks
-     * This API is used to modify an address book.
-     * ## QPS Limit
-     * The single-user QPS limit for this API is 10 requests per second. Exceeding this limit will result in API throttling, which may affect your business. Please make calls responsibly.
+     * This operation is used to modify an address book.
+     * ## QPS limit
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - ModifyAddressBookRequest
      *

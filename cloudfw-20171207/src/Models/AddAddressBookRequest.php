@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookRequest\ackLabels;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookRequest\assetRegionResourceTypes;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookRequest\tagList;
 
 class AddAddressBookRequest extends Model
@@ -29,6 +30,16 @@ class AddAddressBookRequest extends Model
      * @var string
      */
     public $addressList;
+
+    /**
+     * @var int[]
+     */
+    public $assetMemberUids;
+
+    /**
+     * @var assetRegionResourceTypes[]
+     */
+    public $assetRegionResourceTypes;
 
     /**
      * @var string
@@ -74,6 +85,8 @@ class AddAddressBookRequest extends Model
         'ackLabels' => 'AckLabels',
         'ackNamespaces' => 'AckNamespaces',
         'addressList' => 'AddressList',
+        'assetMemberUids' => 'AssetMemberUids',
+        'assetRegionResourceTypes' => 'AssetRegionResourceTypes',
         'autoAddTagEcs' => 'AutoAddTagEcs',
         'description' => 'Description',
         'groupName' => 'GroupName',
@@ -91,6 +104,12 @@ class AddAddressBookRequest extends Model
         }
         if (\is_array($this->ackNamespaces)) {
             Model::validateArray($this->ackNamespaces);
+        }
+        if (\is_array($this->assetMemberUids)) {
+            Model::validateArray($this->assetMemberUids);
+        }
+        if (\is_array($this->assetRegionResourceTypes)) {
+            Model::validateArray($this->assetRegionResourceTypes);
         }
         if (\is_array($this->tagList)) {
             Model::validateArray($this->tagList);
@@ -129,6 +148,28 @@ class AddAddressBookRequest extends Model
 
         if (null !== $this->addressList) {
             $res['AddressList'] = $this->addressList;
+        }
+
+        if (null !== $this->assetMemberUids) {
+            if (\is_array($this->assetMemberUids)) {
+                $res['AssetMemberUids'] = [];
+                $n1 = 0;
+                foreach ($this->assetMemberUids as $item1) {
+                    $res['AssetMemberUids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->assetRegionResourceTypes) {
+            if (\is_array($this->assetRegionResourceTypes)) {
+                $res['AssetRegionResourceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->assetRegionResourceTypes as $item1) {
+                    $res['AssetRegionResourceTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->autoAddTagEcs) {
@@ -209,6 +250,28 @@ class AddAddressBookRequest extends Model
 
         if (isset($map['AddressList'])) {
             $model->addressList = $map['AddressList'];
+        }
+
+        if (isset($map['AssetMemberUids'])) {
+            if (!empty($map['AssetMemberUids'])) {
+                $model->assetMemberUids = [];
+                $n1 = 0;
+                foreach ($map['AssetMemberUids'] as $item1) {
+                    $model->assetMemberUids[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['AssetRegionResourceTypes'])) {
+            if (!empty($map['AssetRegionResourceTypes'])) {
+                $model->assetRegionResourceTypes = [];
+                $n1 = 0;
+                foreach ($map['AssetRegionResourceTypes'] as $item1) {
+                    $model->assetRegionResourceTypes[$n1] = assetRegionResourceTypes::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['AutoAddTagEcs'])) {

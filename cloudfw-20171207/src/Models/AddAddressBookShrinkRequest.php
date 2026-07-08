@@ -5,12 +5,16 @@
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest\ackLabels;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest\assetRegionResourceTypes;
-use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest\tagList;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookShrinkRequest\ackLabels;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookShrinkRequest\tagList;
 
-class ModifyAddressBookRequest extends Model
+class AddAddressBookShrinkRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $ackClusterConnectorId;
+
     /**
      * @var ackLabels[]
      */
@@ -27,14 +31,14 @@ class ModifyAddressBookRequest extends Model
     public $addressList;
 
     /**
-     * @var int[]
+     * @var string
      */
-    public $assetMemberUids;
+    public $assetMemberUidsShrink;
 
     /**
-     * @var assetRegionResourceTypes[]
+     * @var string
      */
-    public $assetRegionResourceTypes;
+    public $assetRegionResourceTypesShrink;
 
     /**
      * @var string
@@ -54,17 +58,12 @@ class ModifyAddressBookRequest extends Model
     /**
      * @var string
      */
-    public $groupUuid;
+    public $groupType;
 
     /**
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $modifyMode;
 
     /**
      * @var string
@@ -81,17 +80,17 @@ class ModifyAddressBookRequest extends Model
      */
     public $tagRelation;
     protected $_name = [
+        'ackClusterConnectorId' => 'AckClusterConnectorId',
         'ackLabels' => 'AckLabels',
         'ackNamespaces' => 'AckNamespaces',
         'addressList' => 'AddressList',
-        'assetMemberUids' => 'AssetMemberUids',
-        'assetRegionResourceTypes' => 'AssetRegionResourceTypes',
+        'assetMemberUidsShrink' => 'AssetMemberUids',
+        'assetRegionResourceTypesShrink' => 'AssetRegionResourceTypes',
         'autoAddTagEcs' => 'AutoAddTagEcs',
         'description' => 'Description',
         'groupName' => 'GroupName',
-        'groupUuid' => 'GroupUuid',
+        'groupType' => 'GroupType',
         'lang' => 'Lang',
-        'modifyMode' => 'ModifyMode',
         'sourceIp' => 'SourceIp',
         'tagList' => 'TagList',
         'tagRelation' => 'TagRelation',
@@ -105,12 +104,6 @@ class ModifyAddressBookRequest extends Model
         if (\is_array($this->ackNamespaces)) {
             Model::validateArray($this->ackNamespaces);
         }
-        if (\is_array($this->assetMemberUids)) {
-            Model::validateArray($this->assetMemberUids);
-        }
-        if (\is_array($this->assetRegionResourceTypes)) {
-            Model::validateArray($this->assetRegionResourceTypes);
-        }
         if (\is_array($this->tagList)) {
             Model::validateArray($this->tagList);
         }
@@ -120,6 +113,10 @@ class ModifyAddressBookRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->ackClusterConnectorId) {
+            $res['AckClusterConnectorId'] = $this->ackClusterConnectorId;
+        }
+
         if (null !== $this->ackLabels) {
             if (\is_array($this->ackLabels)) {
                 $res['AckLabels'] = [];
@@ -146,26 +143,12 @@ class ModifyAddressBookRequest extends Model
             $res['AddressList'] = $this->addressList;
         }
 
-        if (null !== $this->assetMemberUids) {
-            if (\is_array($this->assetMemberUids)) {
-                $res['AssetMemberUids'] = [];
-                $n1 = 0;
-                foreach ($this->assetMemberUids as $item1) {
-                    $res['AssetMemberUids'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->assetMemberUidsShrink) {
+            $res['AssetMemberUids'] = $this->assetMemberUidsShrink;
         }
 
-        if (null !== $this->assetRegionResourceTypes) {
-            if (\is_array($this->assetRegionResourceTypes)) {
-                $res['AssetRegionResourceTypes'] = [];
-                $n1 = 0;
-                foreach ($this->assetRegionResourceTypes as $item1) {
-                    $res['AssetRegionResourceTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
+        if (null !== $this->assetRegionResourceTypesShrink) {
+            $res['AssetRegionResourceTypes'] = $this->assetRegionResourceTypesShrink;
         }
 
         if (null !== $this->autoAddTagEcs) {
@@ -180,16 +163,12 @@ class ModifyAddressBookRequest extends Model
             $res['GroupName'] = $this->groupName;
         }
 
-        if (null !== $this->groupUuid) {
-            $res['GroupUuid'] = $this->groupUuid;
+        if (null !== $this->groupType) {
+            $res['GroupType'] = $this->groupType;
         }
 
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-
-        if (null !== $this->modifyMode) {
-            $res['ModifyMode'] = $this->modifyMode;
         }
 
         if (null !== $this->sourceIp) {
@@ -222,6 +201,10 @@ class ModifyAddressBookRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AckClusterConnectorId'])) {
+            $model->ackClusterConnectorId = $map['AckClusterConnectorId'];
+        }
+
         if (isset($map['AckLabels'])) {
             if (!empty($map['AckLabels'])) {
                 $model->ackLabels = [];
@@ -249,25 +232,11 @@ class ModifyAddressBookRequest extends Model
         }
 
         if (isset($map['AssetMemberUids'])) {
-            if (!empty($map['AssetMemberUids'])) {
-                $model->assetMemberUids = [];
-                $n1 = 0;
-                foreach ($map['AssetMemberUids'] as $item1) {
-                    $model->assetMemberUids[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->assetMemberUidsShrink = $map['AssetMemberUids'];
         }
 
         if (isset($map['AssetRegionResourceTypes'])) {
-            if (!empty($map['AssetRegionResourceTypes'])) {
-                $model->assetRegionResourceTypes = [];
-                $n1 = 0;
-                foreach ($map['AssetRegionResourceTypes'] as $item1) {
-                    $model->assetRegionResourceTypes[$n1] = assetRegionResourceTypes::fromMap($item1);
-                    ++$n1;
-                }
-            }
+            $model->assetRegionResourceTypesShrink = $map['AssetRegionResourceTypes'];
         }
 
         if (isset($map['AutoAddTagEcs'])) {
@@ -282,16 +251,12 @@ class ModifyAddressBookRequest extends Model
             $model->groupName = $map['GroupName'];
         }
 
-        if (isset($map['GroupUuid'])) {
-            $model->groupUuid = $map['GroupUuid'];
+        if (isset($map['GroupType'])) {
+            $model->groupType = $map['GroupType'];
         }
 
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-
-        if (isset($map['ModifyMode'])) {
-            $model->modifyMode = $map['ModifyMode'];
         }
 
         if (isset($map['SourceIp'])) {
