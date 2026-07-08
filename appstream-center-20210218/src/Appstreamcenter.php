@@ -21,7 +21,11 @@ class Appstreamcenter extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shanghai' => 'appstream-center.cn-shanghai.aliyuncs.com',
+            'ap-southeast-1' => 'appstream-center.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('appstream-center', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -51,7 +55,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Manually invalidates a logon token.
+     * Manually expires a logon token before its automatic expiration.
      *
      * @param request - ExpireLoginTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -102,7 +106,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Manually invalidates a logon token.
+     * Manually expires a logon token before its automatic expiration.
      *
      * @param request - ExpireLoginTokenRequest
      *
@@ -120,7 +124,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
+     * Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
      *
      * @param request - GetAuthCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -141,6 +145,14 @@ class Appstreamcenter extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->accountType) {
+            @$body['AccountType'] = $request->accountType;
+        }
+
+        if (null !== $request->adDomain) {
+            @$body['AdDomain'] = $request->adDomain;
+        }
+
         if (null !== $request->autoCreateUser) {
             @$body['AutoCreateUser'] = $request->autoCreateUser;
         }
@@ -177,7 +189,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
+     * Obtains an authorization code that contains user identity and permission information. The authorization code can be used to launch a cloud application in integration scenarios.
      *
      * @param request - GetAuthCodeRequest
      *
@@ -195,7 +207,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取stsToken.
+     * Gets a Security Token Service (STS) token.
      *
      * @param request - GetStsTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -242,7 +254,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 获取stsToken.
+     * Gets a Security Token Service (STS) token.
      *
      * @param request - GetStsTokenRequest
      *

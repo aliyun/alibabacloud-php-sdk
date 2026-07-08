@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class GetAuthCodeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accountType;
+
+    /**
+     * @var string
+     */
+    public $adDomain;
+
+    /**
      * @var bool
      */
     public $autoCreateUser;
@@ -33,6 +43,8 @@ class GetAuthCodeRequest extends Model
      */
     public $tokenType;
     protected $_name = [
+        'accountType' => 'AccountType',
+        'adDomain' => 'AdDomain',
         'autoCreateUser' => 'AutoCreateUser',
         'endUserId' => 'EndUserId',
         'externalUserId' => 'ExternalUserId',
@@ -48,6 +60,14 @@ class GetAuthCodeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accountType) {
+            $res['AccountType'] = $this->accountType;
+        }
+
+        if (null !== $this->adDomain) {
+            $res['AdDomain'] = $this->adDomain;
+        }
+
         if (null !== $this->autoCreateUser) {
             $res['AutoCreateUser'] = $this->autoCreateUser;
         }
@@ -79,6 +99,14 @@ class GetAuthCodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountType'])) {
+            $model->accountType = $map['AccountType'];
+        }
+
+        if (isset($map['AdDomain'])) {
+            $model->adDomain = $map['AdDomain'];
+        }
+
         if (isset($map['AutoCreateUser'])) {
             $model->autoCreateUser = $map['AutoCreateUser'];
         }
