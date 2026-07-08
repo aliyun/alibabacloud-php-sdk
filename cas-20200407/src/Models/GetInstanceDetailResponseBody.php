@@ -49,6 +49,11 @@ class GetInstanceDetailResponseBody extends Model
     /**
      * @var int
      */
+    public $certificateNotBefore;
+
+    /**
+     * @var int
+     */
     public $certificateRevokeTime;
 
     /**
@@ -203,6 +208,7 @@ class GetInstanceDetailResponseBody extends Model
         'certificateId' => 'CertificateId',
         'certificateName' => 'CertificateName',
         'certificateNotAfter' => 'CertificateNotAfter',
+        'certificateNotBefore' => 'CertificateNotBefore',
         'certificateRevokeTime' => 'CertificateRevokeTime',
         'certificateStatus' => 'CertificateStatus',
         'certificateType' => 'CertificateType',
@@ -281,6 +287,10 @@ class GetInstanceDetailResponseBody extends Model
 
         if (null !== $this->certificateNotAfter) {
             $res['CertificateNotAfter'] = $this->certificateNotAfter;
+        }
+
+        if (null !== $this->certificateNotBefore) {
+            $res['CertificateNotBefore'] = $this->certificateNotBefore;
         }
 
         if (null !== $this->certificateRevokeTime) {
@@ -468,6 +478,10 @@ class GetInstanceDetailResponseBody extends Model
 
         if (isset($map['CertificateNotAfter'])) {
             $model->certificateNotAfter = $map['CertificateNotAfter'];
+        }
+
+        if (isset($map['CertificateNotBefore'])) {
+            $model->certificateNotBefore = $map['CertificateNotBefore'];
         }
 
         if (isset($map['CertificateRevokeTime'])) {
