@@ -436,6 +436,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallSummaryInfoRequ
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallSummaryInfoResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallTrafficAssetListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallTrafficAssetListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallTrafficTrendRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallZoneRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallZoneResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcListLiteRequest;
@@ -17979,6 +17981,87 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeVpcFirewallTrafficAssetListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the traffic trend of a virtual private cloud (VPC) firewall.
+     *
+     * @param request - DescribeVpcFirewallTrafficTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVpcFirewallTrafficTrendResponse
+     *
+     * @param DescribeVpcFirewallTrafficTrendRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeVpcFirewallTrafficTrendResponse
+     */
+    public function describeVpcFirewallTrafficTrendWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->peerVpcId) {
+            @$query['PeerVpcId'] = $request->peerVpcId;
+        }
+
+        if (null !== $request->privateIP) {
+            @$query['PrivateIP'] = $request->privateIP;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVpcFirewallTrafficTrend',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVpcFirewallTrafficTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the traffic trend of a virtual private cloud (VPC) firewall.
+     *
+     * @param request - DescribeVpcFirewallTrafficTrendRequest
+     *
+     * @returns DescribeVpcFirewallTrafficTrendResponse
+     *
+     * @param DescribeVpcFirewallTrafficTrendRequest $request
+     *
+     * @return DescribeVpcFirewallTrafficTrendResponse
+     */
+    public function describeVpcFirewallTrafficTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVpcFirewallTrafficTrendWithOptions($request, $runtime);
     }
 
     /**
