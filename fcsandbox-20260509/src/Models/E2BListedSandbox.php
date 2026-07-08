@@ -51,6 +51,11 @@ class E2BListedSandbox extends Model
     /**
      * @var string
      */
+    public $resourceGroupID;
+
+    /**
+     * @var string
+     */
     public $sandboxID;
 
     /**
@@ -66,12 +71,27 @@ class E2BListedSandbox extends Model
     /**
      * @var string
      */
+    public $teamID;
+
+    /**
+     * @var string
+     */
+    public $teamName;
+
+    /**
+     * @var string
+     */
     public $templateID;
 
     /**
      * @var string
      */
     public $templateName;
+
+    /**
+     * @var string
+     */
+    public $userID;
 
     /**
      * @var E2BVolumeMount[]
@@ -86,11 +106,15 @@ class E2BListedSandbox extends Model
         'envdVersion' => 'envdVersion',
         'memoryMB' => 'memoryMB',
         'metadata' => 'metadata',
+        'resourceGroupID' => 'resourceGroupID',
         'sandboxID' => 'sandboxID',
         'startedAt' => 'startedAt',
         'state' => 'state',
+        'teamID' => 'teamID',
+        'teamName' => 'teamName',
         'templateID' => 'templateID',
         'templateName' => 'templateName',
+        'userID' => 'userID',
         'volumeMounts' => 'volumeMounts',
     ];
 
@@ -145,6 +169,10 @@ class E2BListedSandbox extends Model
             }
         }
 
+        if (null !== $this->resourceGroupID) {
+            $res['resourceGroupID'] = $this->resourceGroupID;
+        }
+
         if (null !== $this->sandboxID) {
             $res['sandboxID'] = $this->sandboxID;
         }
@@ -157,12 +185,24 @@ class E2BListedSandbox extends Model
             $res['state'] = $this->state;
         }
 
+        if (null !== $this->teamID) {
+            $res['teamID'] = $this->teamID;
+        }
+
+        if (null !== $this->teamName) {
+            $res['teamName'] = $this->teamName;
+        }
+
         if (null !== $this->templateID) {
             $res['templateID'] = $this->templateID;
         }
 
         if (null !== $this->templateName) {
             $res['templateName'] = $this->templateName;
+        }
+
+        if (null !== $this->userID) {
+            $res['userID'] = $this->userID;
         }
 
         if (null !== $this->volumeMounts) {
@@ -224,6 +264,10 @@ class E2BListedSandbox extends Model
             }
         }
 
+        if (isset($map['resourceGroupID'])) {
+            $model->resourceGroupID = $map['resourceGroupID'];
+        }
+
         if (isset($map['sandboxID'])) {
             $model->sandboxID = $map['sandboxID'];
         }
@@ -236,12 +280,24 @@ class E2BListedSandbox extends Model
             $model->state = $map['state'];
         }
 
+        if (isset($map['teamID'])) {
+            $model->teamID = $map['teamID'];
+        }
+
+        if (isset($map['teamName'])) {
+            $model->teamName = $map['teamName'];
+        }
+
         if (isset($map['templateID'])) {
             $model->templateID = $map['templateID'];
         }
 
         if (isset($map['templateName'])) {
             $model->templateName = $map['templateName'];
+        }
+
+        if (isset($map['userID'])) {
+            $model->userID = $map['userID'];
         }
 
         if (isset($map['volumeMounts'])) {

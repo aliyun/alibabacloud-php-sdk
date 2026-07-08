@@ -11,6 +11,11 @@ class E2BSandbox extends Model
     /**
      * @var string
      */
+    public $accessEndpoint;
+
+    /**
+     * @var string
+     */
     public $alias;
 
     /**
@@ -91,6 +96,11 @@ class E2BSandbox extends Model
     /**
      * @var string
      */
+    public $resourceGroupID;
+
+    /**
+     * @var string
+     */
     public $sandboxID;
 
     /**
@@ -106,7 +116,17 @@ class E2BSandbox extends Model
     /**
      * @var string
      */
-    public $templateId;
+    public $teamID;
+
+    /**
+     * @var string
+     */
+    public $teamName;
+
+    /**
+     * @var string
+     */
+    public $templateID;
 
     /**
      * @var string
@@ -114,10 +134,16 @@ class E2BSandbox extends Model
     public $templateName;
 
     /**
+     * @var string
+     */
+    public $userID;
+
+    /**
      * @var E2BVolumeMount[]
      */
     public $volumeMounts;
     protected $_name = [
+        'accessEndpoint' => 'accessEndpoint',
         'alias' => 'alias',
         'allowInternetAccess' => 'allowInternetAccess',
         'clientID' => 'clientID',
@@ -134,11 +160,15 @@ class E2BSandbox extends Model
         'memoryMB' => 'memoryMB',
         'metadata' => 'metadata',
         'network' => 'network',
+        'resourceGroupID' => 'resourceGroupID',
         'sandboxID' => 'sandboxID',
         'startedAt' => 'startedAt',
         'state' => 'state',
-        'templateId' => 'templateId',
+        'teamID' => 'teamID',
+        'teamName' => 'teamName',
+        'templateID' => 'templateID',
         'templateName' => 'templateName',
+        'userID' => 'userID',
         'volumeMounts' => 'volumeMounts',
     ];
 
@@ -162,6 +192,10 @@ class E2BSandbox extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessEndpoint) {
+            $res['accessEndpoint'] = $this->accessEndpoint;
+        }
+
         if (null !== $this->alias) {
             $res['alias'] = $this->alias;
         }
@@ -231,6 +265,10 @@ class E2BSandbox extends Model
             $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
 
+        if (null !== $this->resourceGroupID) {
+            $res['resourceGroupID'] = $this->resourceGroupID;
+        }
+
         if (null !== $this->sandboxID) {
             $res['sandboxID'] = $this->sandboxID;
         }
@@ -243,12 +281,24 @@ class E2BSandbox extends Model
             $res['state'] = $this->state;
         }
 
-        if (null !== $this->templateId) {
-            $res['templateId'] = $this->templateId;
+        if (null !== $this->teamID) {
+            $res['teamID'] = $this->teamID;
+        }
+
+        if (null !== $this->teamName) {
+            $res['teamName'] = $this->teamName;
+        }
+
+        if (null !== $this->templateID) {
+            $res['templateID'] = $this->templateID;
         }
 
         if (null !== $this->templateName) {
             $res['templateName'] = $this->templateName;
+        }
+
+        if (null !== $this->userID) {
+            $res['userID'] = $this->userID;
         }
 
         if (null !== $this->volumeMounts) {
@@ -273,6 +323,10 @@ class E2BSandbox extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['accessEndpoint'])) {
+            $model->accessEndpoint = $map['accessEndpoint'];
+        }
+
         if (isset($map['alias'])) {
             $model->alias = $map['alias'];
         }
@@ -342,6 +396,10 @@ class E2BSandbox extends Model
             $model->network = E2BNetwork::fromMap($map['network']);
         }
 
+        if (isset($map['resourceGroupID'])) {
+            $model->resourceGroupID = $map['resourceGroupID'];
+        }
+
         if (isset($map['sandboxID'])) {
             $model->sandboxID = $map['sandboxID'];
         }
@@ -354,12 +412,24 @@ class E2BSandbox extends Model
             $model->state = $map['state'];
         }
 
-        if (isset($map['templateId'])) {
-            $model->templateId = $map['templateId'];
+        if (isset($map['teamID'])) {
+            $model->teamID = $map['teamID'];
+        }
+
+        if (isset($map['teamName'])) {
+            $model->teamName = $map['teamName'];
+        }
+
+        if (isset($map['templateID'])) {
+            $model->templateID = $map['templateID'];
         }
 
         if (isset($map['templateName'])) {
             $model->templateName = $map['templateName'];
+        }
+
+        if (isset($map['userID'])) {
+            $model->userID = $map['userID'];
         }
 
         if (isset($map['volumeMounts'])) {

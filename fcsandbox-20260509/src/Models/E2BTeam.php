@@ -6,27 +6,12 @@ namespace AlibabaCloud\SDK\FCSandbox\V20260509\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ApiKey extends Model
+class E2BTeam extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $apiKeyID;
-
-    /**
-     * @var string
-     */
-    public $apiKeyMask;
-
-    /**
-     * @var string
-     */
-    public $apiKeyName;
-
-    /**
-     * @var string
-     */
-    public $apiKeyValue;
+    public $allowUpdateTeamName;
 
     /**
      * @var string
@@ -36,12 +21,7 @@ class ApiKey extends Model
     /**
      * @var string
      */
-    public $expireTime;
-
-    /**
-     * @var string
-     */
-    public $lastUsedTime;
+    public $description;
 
     /**
      * @var string
@@ -67,25 +47,15 @@ class ApiKey extends Model
      * @var string
      */
     public $userID;
-
-    /**
-     * @var string
-     */
-    public $username;
     protected $_name = [
-        'apiKeyID' => 'apiKeyID',
-        'apiKeyMask' => 'apiKeyMask',
-        'apiKeyName' => 'apiKeyName',
-        'apiKeyValue' => 'apiKeyValue',
+        'allowUpdateTeamName' => 'allowUpdateTeamName',
         'createdTime' => 'createdTime',
-        'expireTime' => 'expireTime',
-        'lastUsedTime' => 'lastUsedTime',
+        'description' => 'description',
         'resourceGroupID' => 'resourceGroupID',
         'status' => 'status',
         'teamID' => 'teamID',
         'teamName' => 'teamName',
         'userID' => 'userID',
-        'username' => 'username',
     ];
 
     public function validate()
@@ -96,32 +66,16 @@ class ApiKey extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apiKeyID) {
-            $res['apiKeyID'] = $this->apiKeyID;
-        }
-
-        if (null !== $this->apiKeyMask) {
-            $res['apiKeyMask'] = $this->apiKeyMask;
-        }
-
-        if (null !== $this->apiKeyName) {
-            $res['apiKeyName'] = $this->apiKeyName;
-        }
-
-        if (null !== $this->apiKeyValue) {
-            $res['apiKeyValue'] = $this->apiKeyValue;
+        if (null !== $this->allowUpdateTeamName) {
+            $res['allowUpdateTeamName'] = $this->allowUpdateTeamName;
         }
 
         if (null !== $this->createdTime) {
             $res['createdTime'] = $this->createdTime;
         }
 
-        if (null !== $this->expireTime) {
-            $res['expireTime'] = $this->expireTime;
-        }
-
-        if (null !== $this->lastUsedTime) {
-            $res['lastUsedTime'] = $this->lastUsedTime;
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
         }
 
         if (null !== $this->resourceGroupID) {
@@ -144,10 +98,6 @@ class ApiKey extends Model
             $res['userID'] = $this->userID;
         }
 
-        if (null !== $this->username) {
-            $res['username'] = $this->username;
-        }
-
         return $res;
     }
 
@@ -159,32 +109,16 @@ class ApiKey extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['apiKeyID'])) {
-            $model->apiKeyID = $map['apiKeyID'];
-        }
-
-        if (isset($map['apiKeyMask'])) {
-            $model->apiKeyMask = $map['apiKeyMask'];
-        }
-
-        if (isset($map['apiKeyName'])) {
-            $model->apiKeyName = $map['apiKeyName'];
-        }
-
-        if (isset($map['apiKeyValue'])) {
-            $model->apiKeyValue = $map['apiKeyValue'];
+        if (isset($map['allowUpdateTeamName'])) {
+            $model->allowUpdateTeamName = $map['allowUpdateTeamName'];
         }
 
         if (isset($map['createdTime'])) {
             $model->createdTime = $map['createdTime'];
         }
 
-        if (isset($map['expireTime'])) {
-            $model->expireTime = $map['expireTime'];
-        }
-
-        if (isset($map['lastUsedTime'])) {
-            $model->lastUsedTime = $map['lastUsedTime'];
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
         }
 
         if (isset($map['resourceGroupID'])) {
@@ -205,10 +139,6 @@ class ApiKey extends Model
 
         if (isset($map['userID'])) {
             $model->userID = $map['userID'];
-        }
-
-        if (isset($map['username'])) {
-            $model->username = $map['username'];
         }
 
         return $model;

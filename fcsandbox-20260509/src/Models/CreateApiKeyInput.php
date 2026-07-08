@@ -17,9 +17,15 @@ class CreateApiKeyInput extends Model
      * @var string
      */
     public $expireTime;
+
+    /**
+     * @var string
+     */
+    public $teamID;
     protected $_name = [
         'apiKeyName' => 'apiKeyName',
         'expireTime' => 'expireTime',
+        'teamID' => 'teamID',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class CreateApiKeyInput extends Model
 
         if (null !== $this->expireTime) {
             $res['expireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->teamID) {
+            $res['teamID'] = $this->teamID;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class CreateApiKeyInput extends Model
 
         if (isset($map['expireTime'])) {
             $model->expireTime = $map['expireTime'];
+        }
+
+        if (isset($map['teamID'])) {
+            $model->teamID = $map['teamID'];
         }
 
         return $model;

@@ -19,11 +19,6 @@ class E2BTemplate extends Model
     public $buildStatus;
 
     /**
-     * @var E2BTemplateBuild
-     */
-    public $builds;
-
-    /**
      * @var int
      */
     public $cpuCount;
@@ -61,6 +56,11 @@ class E2BTemplate extends Model
     /**
      * @var string
      */
+    public $resourceGroupID;
+
+    /**
+     * @var int
+     */
     public $spawnCount;
 
     /**
@@ -72,6 +72,16 @@ class E2BTemplate extends Model
      * @var E2BTemplateTag[]
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $teamID;
+
+    /**
+     * @var string
+     */
+    public $teamName;
 
     /**
      * @var string
@@ -90,7 +100,6 @@ class E2BTemplate extends Model
     protected $_name = [
         'aliases' => 'aliases',
         'buildStatus' => 'buildStatus',
-        'builds' => 'builds',
         'cpuCount' => 'cpuCount',
         'createdAt' => 'createdAt',
         'lastSpawnedAt' => 'lastSpawnedAt',
@@ -98,9 +107,12 @@ class E2BTemplate extends Model
         'memoryMB' => 'memoryMB',
         'names' => 'names',
         'public' => 'public',
+        'resourceGroupID' => 'resourceGroupID',
         'spawnCount' => 'spawnCount',
         'statusReason' => 'statusReason',
         'tags' => 'tags',
+        'teamID' => 'teamID',
+        'teamName' => 'teamName',
         'templateID' => 'templateID',
         'updatedAt' => 'updatedAt',
         'userID' => 'userID',
@@ -110,9 +122,6 @@ class E2BTemplate extends Model
     {
         if (\is_array($this->aliases)) {
             Model::validateArray($this->aliases);
-        }
-        if (null !== $this->builds) {
-            $this->builds->validate();
         }
         if (null !== $this->logConfiguration) {
             $this->logConfiguration->validate();
@@ -142,10 +151,6 @@ class E2BTemplate extends Model
 
         if (null !== $this->buildStatus) {
             $res['buildStatus'] = $this->buildStatus;
-        }
-
-        if (null !== $this->builds) {
-            $res['builds'] = null !== $this->builds ? $this->builds->toArray($noStream) : $this->builds;
         }
 
         if (null !== $this->cpuCount) {
@@ -183,6 +188,10 @@ class E2BTemplate extends Model
             $res['public'] = $this->public;
         }
 
+        if (null !== $this->resourceGroupID) {
+            $res['resourceGroupID'] = $this->resourceGroupID;
+        }
+
         if (null !== $this->spawnCount) {
             $res['spawnCount'] = $this->spawnCount;
         }
@@ -200,6 +209,14 @@ class E2BTemplate extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->teamID) {
+            $res['teamID'] = $this->teamID;
+        }
+
+        if (null !== $this->teamName) {
+            $res['teamName'] = $this->teamName;
         }
 
         if (null !== $this->templateID) {
@@ -240,10 +257,6 @@ class E2BTemplate extends Model
             $model->buildStatus = $map['buildStatus'];
         }
 
-        if (isset($map['builds'])) {
-            $model->builds = E2BTemplateBuild::fromMap($map['builds']);
-        }
-
         if (isset($map['cpuCount'])) {
             $model->cpuCount = $map['cpuCount'];
         }
@@ -279,6 +292,10 @@ class E2BTemplate extends Model
             $model->public = $map['public'];
         }
 
+        if (isset($map['resourceGroupID'])) {
+            $model->resourceGroupID = $map['resourceGroupID'];
+        }
+
         if (isset($map['spawnCount'])) {
             $model->spawnCount = $map['spawnCount'];
         }
@@ -296,6 +313,14 @@ class E2BTemplate extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['teamID'])) {
+            $model->teamID = $map['teamID'];
+        }
+
+        if (isset($map['teamName'])) {
+            $model->teamName = $map['teamName'];
         }
 
         if (isset($map['templateID'])) {

@@ -19,6 +19,11 @@ class E2BListedTemplate extends Model
     public $buildStatus;
 
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @var int
      */
     public $cpuCount;
@@ -27,6 +32,11 @@ class E2BListedTemplate extends Model
      * @var string
      */
     public $createdAt;
+
+    /**
+     * @var string
+     */
+    public $functionName;
 
     /**
      * @var string
@@ -56,6 +66,11 @@ class E2BListedTemplate extends Model
     /**
      * @var string
      */
+    public $resourceGroupID;
+
+    /**
+     * @var int
+     */
     public $spawnCount;
 
     /**
@@ -71,27 +86,48 @@ class E2BListedTemplate extends Model
     /**
      * @var string
      */
+    public $teamID;
+
+    /**
+     * @var string
+     */
+    public $teamName;
+
+    /**
+     * @var string
+     */
     public $templateID;
 
     /**
      * @var string
      */
     public $updatedAt;
+
+    /**
+     * @var string
+     */
+    public $userID;
     protected $_name = [
         'aliases' => 'aliases',
         'buildStatus' => 'buildStatus',
+        'category' => 'category',
         'cpuCount' => 'cpuCount',
         'createdAt' => 'createdAt',
+        'functionName' => 'functionName',
         'lastSpawnedAt' => 'lastSpawnedAt',
         'logConfiguration' => 'logConfiguration',
         'memoryMB' => 'memoryMB',
         'names' => 'names',
         'public' => 'public',
+        'resourceGroupID' => 'resourceGroupID',
         'spawnCount' => 'spawnCount',
         'statusReason' => 'statusReason',
         'tags' => 'tags',
+        'teamID' => 'teamID',
+        'teamName' => 'teamName',
         'templateID' => 'templateID',
         'updatedAt' => 'updatedAt',
+        'userID' => 'userID',
     ];
 
     public function validate()
@@ -129,12 +165,20 @@ class E2BListedTemplate extends Model
             $res['buildStatus'] = $this->buildStatus;
         }
 
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
+        }
+
         if (null !== $this->cpuCount) {
             $res['cpuCount'] = $this->cpuCount;
         }
 
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
+        }
+
+        if (null !== $this->functionName) {
+            $res['functionName'] = $this->functionName;
         }
 
         if (null !== $this->lastSpawnedAt) {
@@ -164,6 +208,10 @@ class E2BListedTemplate extends Model
             $res['public'] = $this->public;
         }
 
+        if (null !== $this->resourceGroupID) {
+            $res['resourceGroupID'] = $this->resourceGroupID;
+        }
+
         if (null !== $this->spawnCount) {
             $res['spawnCount'] = $this->spawnCount;
         }
@@ -183,12 +231,24 @@ class E2BListedTemplate extends Model
             }
         }
 
+        if (null !== $this->teamID) {
+            $res['teamID'] = $this->teamID;
+        }
+
+        if (null !== $this->teamName) {
+            $res['teamName'] = $this->teamName;
+        }
+
         if (null !== $this->templateID) {
             $res['templateID'] = $this->templateID;
         }
 
         if (null !== $this->updatedAt) {
             $res['updatedAt'] = $this->updatedAt;
+        }
+
+        if (null !== $this->userID) {
+            $res['userID'] = $this->userID;
         }
 
         return $res;
@@ -217,12 +277,20 @@ class E2BListedTemplate extends Model
             $model->buildStatus = $map['buildStatus'];
         }
 
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
+        }
+
         if (isset($map['cpuCount'])) {
             $model->cpuCount = $map['cpuCount'];
         }
 
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
+        }
+
+        if (isset($map['functionName'])) {
+            $model->functionName = $map['functionName'];
         }
 
         if (isset($map['lastSpawnedAt'])) {
@@ -252,6 +320,10 @@ class E2BListedTemplate extends Model
             $model->public = $map['public'];
         }
 
+        if (isset($map['resourceGroupID'])) {
+            $model->resourceGroupID = $map['resourceGroupID'];
+        }
+
         if (isset($map['spawnCount'])) {
             $model->spawnCount = $map['spawnCount'];
         }
@@ -271,12 +343,24 @@ class E2BListedTemplate extends Model
             }
         }
 
+        if (isset($map['teamID'])) {
+            $model->teamID = $map['teamID'];
+        }
+
+        if (isset($map['teamName'])) {
+            $model->teamName = $map['teamName'];
+        }
+
         if (isset($map['templateID'])) {
             $model->templateID = $map['templateID'];
         }
 
         if (isset($map['updatedAt'])) {
             $model->updatedAt = $map['updatedAt'];
+        }
+
+        if (isset($map['userID'])) {
+            $model->userID = $map['userID'];
         }
 
         return $model;

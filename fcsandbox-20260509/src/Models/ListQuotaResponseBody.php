@@ -14,6 +14,11 @@ class ListQuotaResponseBody extends Model
     public $code;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
      * @var string
      */
     public $message;
@@ -34,6 +39,7 @@ class ListQuotaResponseBody extends Model
     public $requestId;
     protected $_name = [
         'code' => 'code',
+        'maxResults' => 'maxResults',
         'message' => 'message',
         'nextToken' => 'nextToken',
         'quotas' => 'quotas',
@@ -53,6 +59,10 @@ class ListQuotaResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->maxResults) {
+            $res['maxResults'] = $this->maxResults;
         }
 
         if (null !== $this->message) {
@@ -91,6 +101,10 @@ class ListQuotaResponseBody extends Model
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['maxResults'])) {
+            $model->maxResults = $map['maxResults'];
         }
 
         if (isset($map['message'])) {
