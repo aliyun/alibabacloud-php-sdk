@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\Appflow\V20230904\Models\InvokeActionResponse;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\InvokeActionShrinkRequest;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\LaunchFlowRequest;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\LaunchFlowResponse;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\ListFlowsRequest;
+use AlibabaCloud\SDK\Appflow\V20230904\Models\ListFlowsResponse;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\ListUserAuthConfigsRequest;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\ListUserAuthConfigsResponse;
 use AlibabaCloud\SDK\Appflow\V20230904\Models\UpdateFlowRequest;
@@ -46,7 +48,10 @@ class Appflow extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'appflow.cn-hangzhou.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('appflow', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -76,7 +81,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 创建连接流
+     * Creates a flow.
+     *
+     * @remarks
+     * Creates a flow or a flow version.
      *
      * @param request - CreateFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -143,7 +151,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 创建连接流
+     * Creates a flow.
+     *
+     * @remarks
+     * Creates a flow or a flow version.
      *
      * @param request - CreateFlowRequest
      *
@@ -161,7 +172,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 创建用户鉴权凭证
+     * Creates a user authentication credential.
+     *
+     * @remarks
+     * Creates a connection flow or a connection flow version.
      *
      * @param request - CreateUserAuthConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -216,7 +230,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 创建用户鉴权凭证
+     * Creates a user authentication credential.
+     *
+     * @remarks
+     * Creates a connection flow or a connection flow version.
      *
      * @param request - CreateUserAuthConfigRequest
      *
@@ -234,7 +251,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 删除连接流
+     * Deletes a connection flow.
      *
      * @param request - DeleteFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -277,7 +294,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 删除连接流
+     * Deletes a connection flow.
      *
      * @param request - DeleteFlowRequest
      *
@@ -295,7 +312,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 删除用户鉴权凭证
+     * Deletes a user authentication credential.
+     *
+     * @remarks
+     * Creates a connection flow or a connection flow version.
      *
      * @param request - DeleteUserAuthConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -342,7 +362,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 删除用户鉴权凭证
+     * Deletes a user authentication credential.
+     *
+     * @remarks
+     * Creates a connection flow or a connection flow version.
      *
      * @param request - DeleteUserAuthConfigRequest
      *
@@ -360,7 +383,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 禁用连接流
+     * Disables a flow.
      *
      * @param request - DisableFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -403,7 +426,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 禁用连接流
+     * Disables a flow.
      *
      * @param request - DisableFlowRequest
      *
@@ -421,7 +444,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 启用连接流
+     * Enables a flow.
      *
      * @param request - EnableFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -464,7 +487,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 启用连接流
+     * Enables a flow.
      *
      * @param request - EnableFlowRequest
      *
@@ -482,7 +505,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * Generate Login Session Token.
+     * Generates a logon session token.
      *
      * @param request - GenerateUserSessionTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -545,7 +568,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * Generate Login Session Token.
+     * Generates a logon session token.
      *
      * @param request - GenerateUserSessionTokenRequest
      *
@@ -563,7 +586,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 获取连接流详情.
+     * Queries the details of a flow.
      *
      * @param request - GetFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -606,7 +629,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 获取连接流详情.
+     * Queries the details of a flow.
      *
      * @param request - GetFlowRequest
      *
@@ -624,7 +647,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 获取用户鉴权凭证详情.
+     * Gets the details of a user authentication credential.
+     *
+     * @remarks
+     * This operation gets the details of a specified credential.
      *
      * @param request - GetUserAuthConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -671,7 +697,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 获取用户鉴权凭证详情.
+     * Gets the details of a user authentication credential.
+     *
+     * @remarks
+     * This operation gets the details of a specified credential.
      *
      * @param request - GetUserAuthConfigRequest
      *
@@ -689,7 +718,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 运行连接器的执行动作.
+     * Invokes a connector action.
      *
      * @param tmpReq - InvokeActionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -799,7 +828,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 运行连接器的执行动作.
+     * Invokes a connector action.
      *
      * @param tmpReq - InvokeActionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -896,7 +925,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 运行连接器的执行动作.
+     * Invokes a connector action.
      *
      * @param request - InvokeActionRequest
      *
@@ -914,7 +943,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 发布连接流
+     * Launches a flow.
      *
      * @param request - LaunchFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -969,7 +998,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 发布连接流
+     * Launches a flow.
      *
      * @param request - LaunchFlowRequest
      *
@@ -987,7 +1016,85 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 获取用户鉴权凭证列表.
+     * Retrieves a list of connector flows.
+     *
+     * @remarks
+     * Creates a connector flow or a connector flow version.
+     *
+     * @param request - ListFlowsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListFlowsResponse
+     *
+     * @param ListFlowsRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListFlowsResponse
+     */
+    public function listFlowsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListFlows',
+            'version' => '2023-09-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of connector flows.
+     *
+     * @remarks
+     * Creates a connector flow or a connector flow version.
+     *
+     * @param request - ListFlowsRequest
+     *
+     * @returns ListFlowsResponse
+     *
+     * @param ListFlowsRequest $request
+     *
+     * @return ListFlowsResponse
+     */
+    public function listFlows($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlowsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists user authentication credentials.
+     *
+     * @remarks
+     * This operation retrieves user auth configs that match specified filters.
      *
      * @param request - ListUserAuthConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1046,7 +1153,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 获取用户鉴权凭证列表.
+     * Lists user authentication credentials.
+     *
+     * @remarks
+     * This operation retrieves user auth configs that match specified filters.
      *
      * @param request - ListUserAuthConfigsRequest
      *
@@ -1064,7 +1174,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 更新连接流
+     * Updates a connection flow.
      *
      * @param request - UpdateFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1123,7 +1233,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 更新连接流
+     * Updates a connection flow.
      *
      * @param request - UpdateFlowRequest
      *
@@ -1141,7 +1251,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 编辑用户鉴权凭证
+     * Updates a user authentication credential.
+     *
+     * @remarks
+     * Updates the configuration of a specific user authentication credential.
      *
      * @param request - UpdateUserAuthConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1196,7 +1309,10 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 编辑用户鉴权凭证
+     * Updates a user authentication credential.
+     *
+     * @remarks
+     * Updates the configuration of a specific user authentication credential.
      *
      * @param request - UpdateUserAuthConfigRequest
      *
@@ -1214,7 +1330,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 下线连接流
+     * Withdraws a connection flow.
      *
      * @param request - WithdrawFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1257,7 +1373,7 @@ class Appflow extends OpenApiClient
     }
 
     /**
-     * 下线连接流
+     * Withdraws a connection flow.
      *
      * @param request - WithdrawFlowRequest
      *
