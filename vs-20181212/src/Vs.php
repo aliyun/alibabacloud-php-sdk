@@ -23,6 +23,9 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\BatchBindTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchBindTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchBindTemplatesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchBindTemplatesResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\BatchCaptureRenderingInstanceScreenshotRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\BatchCaptureRenderingInstanceScreenshotResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\BatchCaptureRenderingInstanceScreenshotShrinkRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchDeleteDevicesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchDeleteDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\BatchDeleteVsDomainConfigsRequest;
@@ -455,6 +458,12 @@ class Vs extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shenzhen' => 'vs.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'vs.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'vs.cn-qingdao.aliyuncs.com',
+            'cn-beijing' => 'vs.cn-beijing.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('vs', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -484,11 +493,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 添加负载到集群.
+     * Adds one or more instances to a specified cluster.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Usage notes
+     * - **HiveId** is a required parameter that specifies the ID of the target cluster.
+     * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
+     * - Adding an instance that already exists in the target cluster returns an error message.
+     * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
      *
      * @param tmpReq - AddHiveEdgeWorkersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -537,11 +549,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 添加负载到集群.
+     * Adds one or more instances to a specified cluster.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Usage notes
+     * - **HiveId** is a required parameter that specifies the ID of the target cluster.
+     * - **InstanceIds** is a required parameter that specifies a list of instance IDs to add.
+     * - Adding an instance that already exists in the target cluster returns an error message.
+     * - The response includes lists of successful and failed instances. This allows you to verify which instances were added and review the reasons for any failures.
      *
      * @param request - AddHiveEdgeWorkersRequest
      *
@@ -559,6 +574,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Adds a stream pulling configuration.
+     *
      * @param request - AddVsPullStreamInfoConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -624,6 +641,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Adds a stream pulling configuration.
+     *
      * @param request - AddVsPullStreamInfoConfigRequest
      *
      * @returns AddVsPullStreamInfoConfigResponse
@@ -640,11 +659,11 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 云应用服务实例与项目进行关联。
+     * Associates cloud application service instances with a project.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Request description
+     * - This operation associates instances that meet specific conditions with a specified project.
      *
      * @param tmpReq - AssociateRenderingProjectInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -693,11 +712,11 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 云应用服务实例与项目进行关联。
+     * Associates cloud application service instances with a project.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Request description
+     * - This operation associates instances that meet specific conditions with a specified project.
      *
      * @param request - AssociateRenderingProjectInstancesRequest
      *
@@ -715,6 +734,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds multiple devices to directories in a single operation.
+     *
      * @param request - BatchBindDirectoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -760,6 +781,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds multiple devices to directories in a single operation.
+     *
      * @param request - BatchBindDirectoriesRequest
      *
      * @returns BatchBindDirectoriesResponse
@@ -776,6 +799,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds multiple devices to a parent platform for push in batches.
+     *
      * @param request - BatchBindParentPlatformDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -821,6 +846,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds multiple devices to a parent platform for push in batches.
+     *
      * @param request - BatchBindParentPlatformDevicesRequest
      *
      * @returns BatchBindParentPlatformDevicesResponse
@@ -837,6 +864,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds multiple purchased devices.
+     *
      * @param request - BatchBindPurchasedDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -886,6 +915,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds multiple purchased devices.
+     *
      * @param request - BatchBindPurchasedDevicesRequest
      *
      * @returns BatchBindPurchasedDevicesResponse
@@ -902,6 +933,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Bind templates to multiple specified instances, such as instances bound to spaces and streams.
+     *
      * @param request - BatchBindTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -959,6 +992,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Bind templates to multiple specified instances, such as instances bound to spaces and streams.
+     *
      * @param request - BatchBindTemplateRequest
      *
      * @returns BatchBindTemplateResponse
@@ -975,6 +1010,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds multiple templates in a single operation.
+     *
      * @param request - BatchBindTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1036,6 +1073,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds multiple templates in a single operation.
+     *
      * @param request - BatchBindTemplatesRequest
      *
      * @returns BatchBindTemplatesResponse
@@ -1052,6 +1091,89 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves screenshots of cloud application service instances.
+     *
+     * @remarks
+     * ## Request description
+     * - **Authentication**: Requests must include the `AliUid` parameter for identity verification.
+     * - **Instance specification**: Use `RenderingInstanceIds` to specify the instances to capture screenshots from.
+     * - **Screenshot quality**: Use the `Quality` parameter to set the image quality of screenshots. The default value is 75 (if not configured). Valid values: 1 to 100.
+     * - **Response handling**: The response contains lists of successful and failed instances with related information, including download URLs and screenshot completion times.
+     *
+     * @param tmpReq - BatchCaptureRenderingInstanceScreenshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCaptureRenderingInstanceScreenshotResponse
+     *
+     * @param BatchCaptureRenderingInstanceScreenshotRequest $tmpReq
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return BatchCaptureRenderingInstanceScreenshotResponse
+     */
+    public function batchCaptureRenderingInstanceScreenshotWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchCaptureRenderingInstanceScreenshotShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->renderingInstanceIds) {
+            $request->renderingInstanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->renderingInstanceIds, 'RenderingInstanceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->quality) {
+            @$query['Quality'] = $request->quality;
+        }
+
+        if (null !== $request->renderingInstanceIdsShrink) {
+            @$query['RenderingInstanceIds'] = $request->renderingInstanceIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCaptureRenderingInstanceScreenshot',
+            'version' => '2018-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCaptureRenderingInstanceScreenshotResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves screenshots of cloud application service instances.
+     *
+     * @remarks
+     * ## Request description
+     * - **Authentication**: Requests must include the `AliUid` parameter for identity verification.
+     * - **Instance specification**: Use `RenderingInstanceIds` to specify the instances to capture screenshots from.
+     * - **Screenshot quality**: Use the `Quality` parameter to set the image quality of screenshots. The default value is 75 (if not configured). Valid values: 1 to 100.
+     * - **Response handling**: The response contains lists of successful and failed instances with related information, including download URLs and screenshot completion times.
+     *
+     * @param request - BatchCaptureRenderingInstanceScreenshotRequest
+     *
+     * @returns BatchCaptureRenderingInstanceScreenshotResponse
+     *
+     * @param BatchCaptureRenderingInstanceScreenshotRequest $request
+     *
+     * @return BatchCaptureRenderingInstanceScreenshotResponse
+     */
+    public function batchCaptureRenderingInstanceScreenshot($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCaptureRenderingInstanceScreenshotWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes multiple devices in a single operation.
+     *
      * @param request - BatchDeleteDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1093,6 +1215,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes multiple devices in a single operation.
+     *
      * @param request - BatchDeleteDevicesRequest
      *
      * @returns BatchDeleteDevicesResponse
@@ -1109,6 +1233,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes domain name configurations in a batch.
+     *
      * @param request - BatchDeleteVsDomainConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1154,6 +1280,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes domain name configurations in a batch.
+     *
      * @param request - BatchDeleteVsDomainConfigsRequest
      *
      * @returns BatchDeleteVsDomainConfigsResponse
@@ -1170,6 +1298,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stop stream ingest for one or more streams. You can schedule when to resume ingest.
+     *
      * @param request - BatchForbidVsStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1231,6 +1361,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stop stream ingest for one or more streams. You can schedule when to resume ingest.
+     *
      * @param request - BatchForbidVsStreamRequest
      *
      * @returns BatchForbidVsStreamResponse
@@ -1247,6 +1379,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Resumes stream ingest for one or more streams.
+     *
      * @param request - BatchResumeVsStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1300,6 +1434,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Resumes stream ingest for one or more streams.
+     *
      * @param request - BatchResumeVsStreamRequest
      *
      * @returns BatchResumeVsStreamResponse
@@ -1316,6 +1452,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Configure multiple domain names in batch.
+     *
      * @param request - BatchSetVsDomainConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1361,6 +1499,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Configure multiple domain names in batch.
+     *
      * @param request - BatchSetVsDomainConfigsRequest
      *
      * @returns BatchSetVsDomainConfigsResponse
@@ -1377,6 +1517,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Start stream pulling for multiple devices at once.
+     *
      * @param request - BatchStartDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1418,6 +1560,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Start stream pulling for multiple devices at once.
+     *
      * @param request - BatchStartDevicesRequest
      *
      * @returns BatchStartDevicesResponse
@@ -1434,6 +1578,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Starts multiple streams.
+     *
      * @param request - BatchStartStreamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1475,6 +1621,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Starts multiple streams.
+     *
      * @param request - BatchStartStreamsRequest
      *
      * @returns BatchStartStreamsResponse
@@ -1491,6 +1639,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops stream pulling for multiple devices.
+     *
      * @param request - BatchStopDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1536,6 +1686,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops stream pulling for multiple devices.
+     *
      * @param request - BatchStopDevicesRequest
      *
      * @returns BatchStopDevicesResponse
@@ -1552,6 +1704,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops multiple streams in a batch.
+     *
      * @param request - BatchStopStreamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1597,6 +1751,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops multiple streams in a batch.
+     *
      * @param request - BatchStopStreamsRequest
      *
      * @returns BatchStopStreamsResponse
@@ -1613,6 +1769,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Detaches multiple devices from a folder in bulk.
+     *
      * @param request - BatchUnbindDirectoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1658,6 +1816,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Detaches multiple devices from a folder in bulk.
+     *
      * @param request - BatchUnbindDirectoriesRequest
      *
      * @returns BatchUnbindDirectoriesResponse
@@ -1674,6 +1834,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Batch unbind multiple devices from parent platform push.
+     *
      * @param request - BatchUnbindParentPlatformDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1719,6 +1881,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Batch unbind multiple devices from parent platform push.
+     *
      * @param request - BatchUnbindParentPlatformDevicesRequest
      *
      * @returns BatchUnbindParentPlatformDevicesResponse
@@ -1735,6 +1899,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Detach multiple purchased devices from a space in a single operation.
+     *
      * @param request - BatchUnbindPurchasedDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1776,6 +1942,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Detach multiple purchased devices from a space in a single operation.
+     *
      * @param request - BatchUnbindPurchasedDevicesRequest
      *
      * @returns BatchUnbindPurchasedDevicesResponse
@@ -1792,6 +1960,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Detach a template from multiple specified instances, such as space instances or stream instances.
+     *
+     * @remarks
+     * > Specify at least one of TemplateId or TemplateType.
+     *
      * @param request - BatchUnbindTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1845,6 +2018,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Detach a template from multiple specified instances, such as space instances or stream instances.
+     *
+     * @remarks
+     * > Specify at least one of TemplateId or TemplateType.
+     *
      * @param request - BatchUnbindTemplateRequest
      *
      * @returns BatchUnbindTemplateResponse
@@ -1861,6 +2039,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Unbind multiple templates simultaneously.
+     *
      * @param request - BatchUnbindTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1914,6 +2094,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Unbind multiple templates simultaneously.
+     *
      * @param request - BatchUnbindTemplatesRequest
      *
      * @returns BatchUnbindTemplatesResponse
@@ -1930,6 +2112,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Attach a device to a folder.
+     *
      * @param request - BindDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1975,6 +2159,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Attach a device to a folder.
+     *
      * @param request - BindDirectoryRequest
      *
      * @returns BindDirectoryResponse
@@ -1991,6 +2177,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds a device to push streams to a parent platform.
+     *
      * @param request - BindParentPlatformDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2036,6 +2224,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds a device to push streams to a parent platform.
+     *
      * @param request - BindParentPlatformDeviceRequest
      *
      * @returns BindParentPlatformDeviceResponse
@@ -2052,6 +2242,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Attach purchased devices to a space.
+     *
      * @param request - BindPurchasedDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2101,6 +2293,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Attach purchased devices to a space.
+     *
      * @param request - BindPurchasedDeviceRequest
      *
      * @returns BindPurchasedDeviceResponse
@@ -2117,6 +2311,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds a template to a specified instance, such as a group or stream.
+     *
      * @param request - BindTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2178,6 +2374,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Binds a template to a specified instance, such as a group or stream.
+     *
      * @param request - BindTemplateRequest
      *
      * @returns BindTemplateResponse
@@ -2194,7 +2392,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 上传用户数据文件.
+     * Cancels a Comfy task.
+     *
+     * @remarks
+     * > Stop the parent platform before canceling the task.
      *
      * @param request - CancelComfyTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2233,7 +2434,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 上传用户数据文件.
+     * Cancels a Comfy task.
+     *
+     * @remarks
+     * > Stop the parent platform before canceling the task.
      *
      * @param request - CancelComfyTaskRequest
      *
@@ -2251,6 +2455,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Continuously adjust lens parameters such as aperture and zoom.
+     *
      * @param request - ContinuousAdjustRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2300,6 +2506,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Continuously adjust lens parameters such as aperture and zoom.
+     *
      * @param request - ContinuousAdjustRequest
      *
      * @returns ContinuousAdjustResponse
@@ -2316,6 +2524,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Rotate the camera continuously by panning, tilting, or zooming.
+     *
      * @param request - ContinuousMoveRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2369,6 +2579,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Rotate the camera continuously by panning, tilting, or zooming.
+     *
      * @param request - ContinuousMoveRequest
      *
      * @returns ContinuousMoveResponse
@@ -2385,7 +2597,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 上传用户数据文件.
+     * Starts a Comfy task.
+     *
+     * @remarks
+     * > You must first enable the on-demand screenshot feature in the associated screenshot template.
      *
      * @param request - CreateComfyTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2432,7 +2647,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 上传用户数据文件.
+     * Starts a Comfy task.
+     *
+     * @remarks
+     * > You must first enable the on-demand screenshot feature in the associated screenshot template.
      *
      * @param request - CreateComfyTaskRequest
      *
@@ -2450,7 +2668,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建一个用户数据的目录.
+     * Creates a directory for user data.
+     *
+     * @remarks
+     * > You must specify either a template ID or a template type.
      *
      * @param request - CreateComfyUserDataDirRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2489,7 +2710,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建一个用户数据的目录.
+     * Creates a directory for user data.
+     *
+     * @remarks
+     * > You must specify either a template ID or a template type.
      *
      * @param request - CreateComfyUserDataDirRequest
      *
@@ -2507,7 +2731,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建Comfy工作流
+     * Creates a Comfy workflow.
+     *
+     * @remarks
+     * > You must enable the on-demand screenshot feature in the associated screenshot template before calling this operation.
      *
      * @param request - CreateComfyWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2554,7 +2781,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建Comfy工作流
+     * Creates a Comfy workflow.
+     *
+     * @remarks
+     * > You must enable the on-demand screenshot feature in the associated screenshot template before calling this operation.
      *
      * @param request - CreateComfyWorkflowRequest
      *
@@ -2572,6 +2802,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Add a new device.
+     *
      * @param request - CreateDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2697,6 +2929,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Add a new device.
+     *
      * @param request - CreateDeviceRequest
      *
      * @returns CreateDeviceResponse
@@ -2713,6 +2947,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Reports a device alert.
+     *
      * @param request - CreateDeviceAlarmRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2782,6 +3018,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Reports a device alert.
+     *
      * @param request - CreateDeviceAlarmRequest
      *
      * @returns CreateDeviceAlarmResponse
@@ -2798,6 +3036,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Creates a new folder.
+     *
      * @param request - CreateDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2851,6 +3091,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Creates a new folder.
+     *
      * @param request - CreateDirectoryRequest
      *
      * @returns CreateDirectoryResponse
@@ -2867,6 +3109,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Create a new workspace.
+     *
      * @param request - CreateGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2944,6 +3188,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Create a new workspace.
+     *
      * @param request - CreateGroupRequest
      *
      * @returns CreateGroupResponse
@@ -2960,11 +3206,11 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建集群.
+     * Creates a cluster.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Description
+     * - This operation creates an empty cluster to manage workloads.
      *
      * @param request - CreateHiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3007,11 +3253,11 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建集群.
+     * Creates a cluster.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Description
+     * - This operation creates an empty cluster to manage workloads.
      *
      * @param request - CreateHiveRequest
      *
@@ -3029,6 +3275,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Adds a new parent platform.
+     *
      * @param request - CreateParentPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3106,6 +3354,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Adds a new parent platform.
+     *
      * @param request - CreateParentPlatformRequest
      *
      * @returns CreateParentPlatformResponse
@@ -3122,7 +3372,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建云渲染数据包.
+     * Creates a data pack for a cloud application service.
      *
      * @param request - CreateRenderingDataPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3173,7 +3423,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建云渲染数据包.
+     * Creates a data pack for a cloud application service.
      *
      * @param request - CreateRenderingDataPackageRequest
      *
@@ -3191,7 +3441,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 申请云渲染资源实例.
+     * Call CreateRenderingInstance to create a cloud application service instance.
      *
      * @param tmpReq - CreateRenderingInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3276,7 +3526,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 申请云渲染资源实例.
+     * Call CreateRenderingInstance to create a cloud application service instance.
      *
      * @param request - CreateRenderingInstanceRequest
      *
@@ -3294,7 +3544,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建自定义网关.
+     * Creates a custom gateway.
+     *
+     * @remarks
+     * > You can specify a template ID or a template type.
      *
      * @param request - CreateRenderingInstanceGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3337,7 +3590,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建自定义网关.
+     * Creates a custom gateway.
+     *
+     * @remarks
+     * > You can specify a template ID or a template type.
      *
      * @param request - CreateRenderingInstanceGatewayRequest
      *
@@ -3355,7 +3611,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建一个新的云应用服务项目，并设置相关属性。
+     * Creates a cloud application service project and configures its properties, such as session attributes.
      *
      * @param tmpReq - CreateRenderingProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3408,7 +3664,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 创建一个新的云应用服务项目，并设置相关属性。
+     * Creates a cloud application service project and configures its properties, such as session attributes.
      *
      * @param request - CreateRenderingProjectRequest
      *
@@ -3426,6 +3682,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Creates an on-demand snapshot for the specified stream.
+     *
+     * @remarks
+     * > You must first enable the on-demand snapshot feature in the attached snapshot template.
+     *
      * @param request - CreateStreamSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3471,6 +3732,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Creates an on-demand snapshot for the specified stream.
+     *
+     * @remarks
+     * > You must first enable the on-demand snapshot feature in the attached snapshot template.
+     *
      * @param request - CreateStreamSnapshotRequest
      *
      * @returns CreateStreamSnapshotResponse
@@ -3487,6 +3753,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Create a new template.
+     *
      * @param request - CreateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3604,6 +3872,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Create a new template.
+     *
      * @param request - CreateTemplateRequest
      *
      * @returns CreateTemplateResponse
@@ -3624,7 +3894,9 @@ class Vs extends OpenApiClient
      *
      * @remarks
      * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * - **HiveId** 是必填参数，表示要操作的集群ID。
+     * - **InstanceIds** 是必填参数，需要提供一个负载ID列表，用于指定要从集群中解绑的负载实例。
+     * - 解绑操作成功后，会返回成功和失败的负载实例列表及其相关信息。
      *
      * @param tmpReq - DelHiveEdgeWorkersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3677,7 +3949,9 @@ class Vs extends OpenApiClient
      *
      * @remarks
      * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * - **HiveId** 是必填参数，表示要操作的集群ID。
+     * - **InstanceIds** 是必填参数，需要提供一个负载ID列表，用于指定要从集群中解绑的负载实例。
+     * - 解绑操作成功后，会返回成功和失败的负载实例列表及其相关信息。
      *
      * @param request - DelHiveEdgeWorkersRequest
      *
@@ -3695,7 +3969,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除云应用.
+     * Deletes a cloud application. You cannot delete a cloud application that is in use.
      *
      * @param request - DeleteCloudAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3734,7 +4008,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除云应用.
+     * Deletes a cloud application. You cannot delete a cloud application that is in use.
      *
      * @param request - DeleteCloudAppRequest
      *
@@ -3752,7 +4026,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除用户的生成结果.
+     * Deleting artifacts.
+     *
+     * @remarks
+     * > Stop the parent platform before you delete a production.
      *
      * @param request - DeleteComfyProductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3791,7 +4068,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除用户的生成结果.
+     * Deleting artifacts.
+     *
+     * @remarks
+     * > Stop the parent platform before you delete a production.
      *
      * @param request - DeleteComfyProductionRequest
      *
@@ -3809,7 +4089,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除用户数据的中的文件或目录.
+     * Deletes a file or directory from user data.
+     *
+     * @remarks
+     * > You must stop the upper-level platform before performing this operation.
      *
      * @param request - DeleteComfyUserDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3848,7 +4131,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除用户数据的中的文件或目录.
+     * Deletes a file or directory from user data.
+     *
+     * @remarks
+     * > You must stop the upper-level platform before performing this operation.
      *
      * @param request - DeleteComfyUserDataRequest
      *
@@ -3866,7 +4152,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除Comfy工作流
+     * Deletes a Comfy workflow.
+     *
+     * @remarks
+     * > You must stop the parent platform before you can delete the workflow.
      *
      * @param request - DeleteComfyWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3905,7 +4194,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除Comfy工作流
+     * Deletes a Comfy workflow.
+     *
+     * @remarks
+     * > You must stop the parent platform before you can delete the workflow.
      *
      * @param request - DeleteComfyWorkflowRequest
      *
@@ -3923,6 +4215,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a device from a space.
+     *
      * @param request - DeleteDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3964,6 +4258,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a device from a space.
+     *
      * @param request - DeleteDeviceRequest
      *
      * @returns DeleteDeviceResponse
@@ -3980,6 +4276,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a folder.
+     *
      * @param request - DeleteDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4021,6 +4319,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a folder.
+     *
      * @param request - DeleteDirectoryRequest
      *
      * @returns DeleteDirectoryResponse
@@ -4037,7 +4337,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除文件对象。
+     * You cannot delete a file while it is uploading or pre-pushing. After deletion, all related push records become invalid. You can push a file with the same name again.
      *
      * @param request - DeleteFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4076,7 +4376,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除文件对象。
+     * You cannot delete a file while it is uploading or pre-pushing. After deletion, all related push records become invalid. You can push a file with the same name again.
      *
      * @param request - DeleteFileRequest
      *
@@ -4094,6 +4394,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Delete a workspace.
+     *
      * @param request - DeleteGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4135,6 +4437,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Delete a workspace.
+     *
      * @param request - DeleteGroupRequest
      *
      * @returns DeleteGroupResponse
@@ -4155,7 +4459,8 @@ class Vs extends OpenApiClient
      *
      * @remarks
      * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * - 需要确保该集群内所有应用服务已清空，否则无法执行删除操作。
+     * - `HiveId` 是必填参数，用于标识待删除的集群。
      *
      * @param request - DeleteHiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4198,7 +4503,8 @@ class Vs extends OpenApiClient
      *
      * @remarks
      * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * - 需要确保该集群内所有应用服务已清空，否则无法执行删除操作。
+     * - `HiveId` 是必填参数，用于标识待删除的集群。
      *
      * @param request - DeleteHiveRequest
      *
@@ -4216,6 +4522,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a parent platform.
+     *
+     * @remarks
+     * > You must stop the parent platform before you delete it.
+     *
      * @param request - DeleteParentPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4257,6 +4568,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a parent platform.
+     *
+     * @remarks
+     * > You must stop the parent platform before you delete it.
+     *
      * @param request - DeleteParentPlatformRequest
      *
      * @returns DeleteParentPlatformResponse
@@ -4273,6 +4589,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a preset.
+     *
      * @param request - DeletePresetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4318,6 +4636,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a preset.
+     *
      * @param request - DeletePresetRequest
      *
      * @returns DeletePresetResponse
@@ -4334,7 +4654,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除公钥信息.
+     * Deletes a specified public key. This action automatically revokes logon authorization for all associated cloud application service instances.
      *
      * @param request - DeletePublicKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4373,7 +4693,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除公钥信息.
+     * Deletes a specified public key. This action automatically revokes logon authorization for all associated cloud application service instances.
      *
      * @param request - DeletePublicKeyRequest
      *
@@ -4391,7 +4711,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除云渲染实例配置参数.
+     * Deletes the configuration of a cloud application service instance. This operation deletes only module properties that are configured using the UpdateRenderingInstanceConfiguration operation.
      *
      * @param tmpReq - DeleteRenderingInstanceConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4442,7 +4762,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除云渲染实例配置参数.
+     * Deletes the configuration of a cloud application service instance. This operation deletes only module properties that are configured using the UpdateRenderingInstanceConfiguration operation.
      *
      * @param request - DeleteRenderingInstanceConfigurationRequest
      *
@@ -4460,7 +4780,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除自定义网关.
+     * Deletes a custom gateway.
+     *
+     * @remarks
+     * > Stop the parent platform before you delete the gateway.
      *
      * @param request - DeleteRenderingInstanceGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4499,7 +4822,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除自定义网关.
+     * Deletes a custom gateway.
+     *
+     * @remarks
+     * > Stop the parent platform before you delete the gateway.
      *
      * @param request - DeleteRenderingInstanceGatewayRequest
      *
@@ -4517,7 +4843,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 清除实例设置.
+     * You can call DeleteRenderingInstanceSettings to delete the settings of a cloud application service instance.
      *
      * @param tmpReq - DeleteRenderingInstanceSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4566,7 +4892,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 清除实例设置.
+     * You can call DeleteRenderingInstanceSettings to delete the settings of a cloud application service instance.
      *
      * @param request - DeleteRenderingInstanceSettingsRequest
      *
@@ -4584,7 +4910,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除一个云应用服务项目，有在线会话等业务调度数据的项目不允许删除。
+     * Delete a Data Service Project. Projects that have business scheduling data, such as active sessions, cannot be deleted.
      *
      * @param request - DeleteRenderingProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4623,7 +4949,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 删除一个云应用服务项目，有在线会话等业务调度数据的项目不允许删除。
+     * Delete a Data Service Project. Projects that have business scheduling data, such as active sessions, cannot be deleted.
      *
      * @param request - DeleteRenderingProjectRequest
      *
@@ -4641,6 +4967,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a template.
+     *
      * @param request - DeleteTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4682,6 +5010,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes a template.
+     *
      * @param request - DeleteTemplateRequest
      *
      * @returns DeleteTemplateResponse
@@ -4698,6 +5028,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Delete stream pulling information.
+     *
      * @param request - DeleteVsPullStreamInfoConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4747,6 +5079,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Delete stream pulling information.
+     *
      * @param request - DeleteVsPullStreamInfoConfigRequest
      *
      * @returns DeleteVsPullStreamInfoConfigResponse
@@ -4763,6 +5097,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes the callback configuration for stream ingest.
+     *
      * @param request - DeleteVsStreamsNotifyUrlConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4804,6 +5140,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Deletes the callback configuration for stream ingest.
+     *
      * @param request - DeleteVsStreamsNotifyUrlConfigRequest
      *
      * @returns DeleteVsStreamsNotifyUrlConfigResponse
@@ -4820,6 +5158,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query all resource information for an account in a specified region.
+     *
      * @param request - DescribeAccountStatRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4861,6 +5201,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query all resource information for an account in a specified region.
+     *
      * @param request - DescribeAccountStatRequest
      *
      * @returns DescribeAccountStatResponse
@@ -4877,7 +5219,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 获取用户生成结果的下载链接.
+     * Retrieves a download link for a production.
+     *
+     * @remarks
+     * > Screenshot queries do not support pagination and must be performed iteratively. To fetch the next page, use the extStartTime value from the response as the StartTime for your subsequent request.
      *
      * @param request - DescribeComfyProductionDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4916,7 +5261,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 获取用户生成结果的下载链接.
+     * Retrieves a download link for a production.
+     *
+     * @remarks
+     * > Screenshot queries do not support pagination and must be performed iteratively. To fetch the next page, use the extStartTime value from the response as the StartTime for your subsequent request.
      *
      * @param request - DescribeComfyProductionDownloadUrlRequest
      *
@@ -4934,7 +5282,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 本接口支持根据不同请求条件查询Comfy生成物列表.
+     * Lists a user\\"s productions.
+     *
+     * @remarks
+     * > This API uses pagination. Use the PageNumber and PageSize parameters to navigate through the results.
      *
      * @param request - DescribeComfyProductionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4981,7 +5332,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 本接口支持根据不同请求条件查询Comfy生成物列表.
+     * Lists a user\\"s productions.
+     *
+     * @remarks
+     * > This API uses pagination. Use the PageNumber and PageSize parameters to navigate through the results.
      *
      * @param request - DescribeComfyProductionsRequest
      *
@@ -4999,7 +5353,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 列举用户数据的中所有文件和目录的信息。
+     * Queries a list of Comfy tasks.
+     *
+     * @remarks
+     * > Querying by screenshot does not support pagination and only supports iteration. To request the next page, use the extStartTime parameter value from the response as the StartTime for the new request.
      *
      * @param request - DescribeComfyTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5050,7 +5407,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 列举用户数据的中所有文件和目录的信息。
+     * Queries a list of Comfy tasks.
+     *
+     * @remarks
+     * > Querying by screenshot does not support pagination and only supports iteration. To request the next page, use the extStartTime parameter value from the response as the StartTime for the new request.
      *
      * @param request - DescribeComfyTasksRequest
      *
@@ -5068,7 +5428,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 上传用户数据文件.
+     * Gets a download URL for user data.
      *
      * @param request - DescribeComfyUserDataDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5107,7 +5467,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 上传用户数据文件.
+     * Gets a download URL for user data.
      *
      * @param request - DescribeComfyUserDataDownloadUrlRequest
      *
@@ -5125,7 +5485,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 获取用户数据文件上传的URL，进行用户文件上传.
+     * Retrieves a URL to upload a user file.
+     *
+     * @remarks
+     * You can upload files using the retrieved URL and the Alibaba Cloud OSS software development kit (SDK).
      *
      * @param request - DescribeComfyUserDataUploadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5176,7 +5539,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 获取用户数据文件上传的URL，进行用户文件上传.
+     * Retrieves a URL to upload a user file.
+     *
+     * @remarks
+     * You can upload files using the retrieved URL and the Alibaba Cloud OSS software development kit (SDK).
      *
      * @param request - DescribeComfyUserDataUploadUrlRequest
      *
@@ -5194,7 +5560,13 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 列举用户数据的中所有文件和目录的信息。
+     * Lists all files and folders in the user data.
+     *
+     * @remarks
+     * If StartTime and EndTime are not specified, data from the last 24 hours is read by default. To query a specific time range, you must specify both StartTime and EndTime. The maximum time range for a query is 31 days.
+     * - You can query multiple domain names in a batch. Separate the domain names with a comma (,).
+     * - You can retrieve data from the last 90 days.
+     * - The time granularity is one hour.
      *
      * @param request - DescribeComfyUserDatasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5241,7 +5613,13 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 列举用户数据的中所有文件和目录的信息。
+     * Lists all files and folders in the user data.
+     *
+     * @remarks
+     * If StartTime and EndTime are not specified, data from the last 24 hours is read by default. To query a specific time range, you must specify both StartTime and EndTime. The maximum time range for a query is 31 days.
+     * - You can query multiple domain names in a batch. Separate the domain names with a comma (,).
+     * - You can retrieve data from the last 90 days.
+     * - The time granularity is one hour.
      *
      * @param request - DescribeComfyUserDatasRequest
      *
@@ -5259,7 +5637,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 获取Comfy工作流列表.
+     * This operation retrieves a paginated list of your Comfy workflows.
+     *
+     * @remarks
+     * \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
      *
      * @param request - DescribeComfyWorkflowsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5306,7 +5687,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 获取Comfy工作流列表.
+     * This operation retrieves a paginated list of your Comfy workflows.
+     *
+     * @remarks
+     * \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
      *
      * @param request - DescribeComfyWorkflowsRequest
      *
@@ -5324,6 +5708,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query information about a device.
+     *
      * @param request - DescribeDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5373,6 +5759,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query information about a device.
+     *
      * @param request - DescribeDeviceRequest
      *
      * @returns DescribeDeviceResponse
@@ -5389,6 +5777,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a list of device channels.
+     *
      * @param request - DescribeDeviceChannelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5438,6 +5828,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a list of device channels.
+     *
      * @param request - DescribeDeviceChannelsRequest
      *
      * @returns DescribeDeviceChannelsResponse
@@ -5454,6 +5846,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a device gateway.
+     *
      * @param request - DescribeDeviceGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5503,6 +5897,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a device gateway.
+     *
      * @param request - DescribeDeviceGatewayRequest
      *
      * @returns DescribeDeviceGatewayResponse
@@ -5519,6 +5915,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the URL information for a device stream.
+     *
      * @param request - DescribeDeviceURLRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5584,6 +5982,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the URL information for a device stream.
+     *
      * @param request - DescribeDeviceURLRequest
      *
      * @returns DescribeDeviceURLResponse
@@ -5600,6 +6000,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a list of devices.
+     *
      * @param request - DescribeDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5701,6 +6103,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a list of devices.
+     *
      * @param request - DescribeDevicesRequest
      *
      * @returns DescribeDevicesResponse
@@ -5717,6 +6121,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query the list of directories.
+     *
      * @param request - DescribeDirectoriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5782,6 +6188,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query the list of directories.
+     *
      * @param request - DescribeDirectoriesRequest
      *
      * @returns DescribeDirectoriesResponse
@@ -5798,6 +6206,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a directory.
+     *
      * @param request - DescribeDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5839,6 +6249,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a directory.
+     *
      * @param request - DescribeDirectoryRequest
      *
      * @returns DescribeDirectoryResponse
@@ -5855,6 +6267,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves information about a space.
+     *
      * @param request - DescribeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5900,6 +6314,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves information about a space.
+     *
      * @param request - DescribeGroupRequest
      *
      * @returns DescribeGroupResponse
@@ -5916,6 +6332,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * You can query the list of spaces.
+     *
      * @param request - DescribeGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5993,6 +6411,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * You can query the list of spaces.
+     *
      * @param request - DescribeGroupsRequest
      *
      * @returns DescribeGroupsResponse
@@ -6009,6 +6429,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries information about a parent platform.
+     *
      * @param request - DescribeParentPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6050,6 +6472,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries information about a parent platform.
+     *
      * @param request - DescribeParentPlatformRequest
      *
      * @returns DescribeParentPlatformResponse
@@ -6066,6 +6490,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the list of devices under a parent platform.
+     *
      * @param request - DescribeParentPlatformDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6123,6 +6549,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the list of devices under a parent platform.
+     *
      * @param request - DescribeParentPlatformDevicesRequest
      *
      * @returns DescribeParentPlatformDevicesResponse
@@ -6139,6 +6567,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query the list of parent platforms.
+     *
      * @param request - DescribeParentPlatformsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6200,6 +6630,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query the list of parent platforms.
+     *
      * @param request - DescribeParentPlatformsRequest
      *
      * @returns DescribeParentPlatformsResponse
@@ -6216,6 +6648,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve the list of presets.
+     *
      * @param request - DescribePresetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6257,6 +6691,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve the list of presets.
+     *
      * @param request - DescribePresetsRequest
      *
      * @returns DescribePresetsResponse
@@ -6330,6 +6766,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries information about purchased devices.
+     *
      * @param request - DescribePurchasedDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6371,6 +6809,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries information about purchased devices.
+     *
      * @param request - DescribePurchasedDeviceRequest
      *
      * @returns DescribePurchasedDeviceResponse
@@ -6387,6 +6827,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the list of purchased devices.
+     *
      * @param request - DescribePurchasedDevicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6464,6 +6906,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the list of purchased devices.
+     *
      * @param request - DescribePurchasedDevicesRequest
      *
      * @returns DescribePurchasedDevicesResponse
@@ -6480,6 +6924,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a list of recordings.
+     *
+     * @remarks
+     * > Paging is not supported for snapshot queries. Only iteration is supported. To request the next page, use the NextStartTime value from the response as the StartTime for the new request.
+     *
      * @param request - DescribeRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6553,6 +7002,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries a list of recordings.
+     *
+     * @remarks
+     * > Paging is not supported for snapshot queries. Only iteration is supported. To request the next page, use the NextStartTime value from the response as the StartTime for the new request.
+     *
      * @param request - DescribeRecordsRequest
      *
      * @returns DescribeRecordsResponse
@@ -6569,7 +7023,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询云渲染实例详细信息。
+     * Queries the details of a cloud application service instance.
      *
      * @param request - DescribeRenderingInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6608,7 +7062,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询云渲染实例详细信息。
+     * Queries the details of a cloud application service instance.
      *
      * @param request - DescribeRenderingInstanceRequest
      *
@@ -6626,7 +7080,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询云渲染实例模块配置参数.
+     * Queries the real-time configuration of a cloud application service instance.
      *
      * @param tmpReq - DescribeRenderingInstanceConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6667,7 +7121,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询云渲染实例模块配置参数.
+     * Queries the real-time configuration of a cloud application service instance.
      *
      * @param request - DescribeRenderingInstanceConfigurationRequest
      *
@@ -6685,7 +7139,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询实例配置.
+     * DescribeRenderingInstanceSettings queries the configuration of a Cloud Application service instance.
      *
      * @param tmpReq - DescribeRenderingInstanceSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6734,7 +7188,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询实例配置.
+     * DescribeRenderingInstanceSettings queries the configuration of a Cloud Application service instance.
      *
      * @param request - DescribeRenderingInstanceSettingsRequest
      *
@@ -6752,7 +7206,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 输出会话的详情信息，包含关联的实例、网络出口等信息。
+     * Retrieve details about a rendering session, including the current session state, network access IP address and port, and the location of the cloud application service instance.
      *
      * @param request - DescribeRenderingSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6799,7 +7253,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 输出会话的详情信息，包含关联的实例、网络出口等信息。
+     * Retrieve details about a rendering session, including the current session state, network access IP address and port, and the location of the cloud application service instance.
      *
      * @param request - DescribeRenderingSessionRequest
      *
@@ -6817,6 +7271,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries information about a stream.
+     *
      * @param request - DescribeStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6858,6 +7314,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries information about a stream.
+     *
      * @param request - DescribeStreamRequest
      *
      * @returns DescribeStreamResponse
@@ -6874,6 +7332,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves the URL of a stream.
+     *
      * @param request - DescribeStreamURLRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -6947,6 +7407,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves the URL of a stream.
+     *
      * @param request - DescribeStreamURLRequest
      *
      * @returns DescribeStreamURLResponse
@@ -6963,6 +7425,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Get the stream VOD record list, such as historical stream list from NVR.
+     *
      * @param request - DescribeStreamVodListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7012,6 +7476,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Get the stream VOD record list, such as historical stream list from NVR.
+     *
      * @param request - DescribeStreamVodListRequest
      *
      * @returns DescribeStreamVodListResponse
@@ -7028,6 +7494,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Lists video streams. You can filter the results by stream ID, name, group ID, device ID, or other criteria.
+     *
      * @param request - DescribeStreamsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7109,6 +7577,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Lists video streams. You can filter the results by stream ID, name, group ID, device ID, or other criteria.
+     *
      * @param request - DescribeStreamsRequest
      *
      * @returns DescribeStreamsResponse
@@ -7125,6 +7595,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query information about a template.
+     *
      * @param request - DescribeTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7166,6 +7638,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query information about a template.
+     *
      * @param request - DescribeTemplateRequest
      *
      * @returns DescribeTemplateResponse
@@ -7182,6 +7656,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * List templates.
+     *
      * @param request - DescribeTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7247,6 +7723,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * List templates.
+     *
      * @param request - DescribeTemplatesRequest
      *
      * @returns DescribeTemplatesResponse
@@ -7263,6 +7741,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves the URL information of a video-on-demand (VOD) stream.
+     *
      * @param request - DescribeVodStreamURLRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7304,6 +7784,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves the URL information of a video-on-demand (VOD) stream.
+     *
      * @param request - DescribeVodStreamURLRequest
      *
      * @returns DescribeVodStreamURLResponse
@@ -7320,6 +7802,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve certificate details.
+     *
      * @param request - DescribeVsCertificateDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7361,6 +7845,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve certificate details.
+     *
      * @param request - DescribeVsCertificateDetailRequest
      *
      * @returns DescribeVsCertificateDetailResponse
@@ -7377,6 +7863,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of domain name certificates.
+     *
      * @param request - DescribeVsCertificateListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7418,6 +7906,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves a list of domain name certificates.
+     *
      * @param request - DescribeVsCertificateListRequest
      *
      * @returns DescribeVsCertificateListResponse
@@ -7434,6 +7924,14 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves usage data for connected devices.
+     *
+     * @remarks
+     * If you do not specify \\`StartTime\\` and \\`EndTime\\`, the API retrieves data from the last 24 hours by default. To query data for a specific time range, you must specify both \\`StartTime\\` and \\`EndTime\\`. The maximum time range for a single query is 31 days.
+     * - You can query multiple domain names at once. Separate the domain names with commas.
+     * - You can retrieve data from the last 90 days.
+     * - The time granularity is one hour.
+     *
      * @param request - DescribeVsDevicesDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7483,6 +7981,14 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves usage data for connected devices.
+     *
+     * @remarks
+     * If you do not specify \\`StartTime\\` and \\`EndTime\\`, the API retrieves data from the last 24 hours by default. To query data for a specific time range, you must specify both \\`StartTime\\` and \\`EndTime\\`. The maximum time range for a single query is 31 days.
+     * - You can query multiple domain names at once. Separate the domain names with commas.
+     * - You can retrieve data from the last 90 days.
+     * - The time granularity is one hour.
+     *
      * @param request - DescribeVsDevicesDataRequest
      *
      * @returns DescribeVsDevicesDataResponse
@@ -7499,6 +8005,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries network bandwidth monitoring data for Domain Names.
+     *
      * @param request - DescribeVsDomainBpsDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7560,6 +8068,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries network bandwidth monitoring data for Domain Names.
+     *
      * @param request - DescribeVsDomainBpsDataRequest
      *
      * @returns DescribeVsDomainBpsDataResponse
@@ -7576,6 +8086,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves the certificate information for a specified accelerated domain name.
+     *
      * @param request - DescribeVsDomainCertificateInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7617,6 +8129,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves the certificate information for a specified accelerated domain name.
+     *
      * @param request - DescribeVsDomainCertificateInfoRequest
      *
      * @returns DescribeVsDomainCertificateInfoResponse
@@ -7633,6 +8147,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries domain name configurations. You can query the configurations of multiple features in a single request.
+     *
      * @param request - DescribeVsDomainConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7678,6 +8194,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries domain name configurations. You can query the configurations of multiple features in a single request.
+     *
      * @param request - DescribeVsDomainConfigsRequest
      *
      * @returns DescribeVsDomainConfigsResponse
@@ -7694,6 +8212,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Obtains the basic configuration information for a specified Visual Edge Computing Service domain name.
+     *
      * @param request - DescribeVsDomainDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7735,6 +8255,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Obtains the basic configuration information for a specified Visual Edge Computing Service domain name.
+     *
      * @param request - DescribeVsDomainDetailRequest
      *
      * @returns DescribeVsDomainDetailResponse
@@ -7751,6 +8273,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the page view (PV) data for a domain name.
+     *
      * @param request - DescribeVsDomainPvDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7800,6 +8324,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the page view (PV) data for a domain name.
+     *
      * @param request - DescribeVsDomainPvDataRequest
      *
      * @returns DescribeVsDomainPvDataResponse
@@ -7816,6 +8342,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve page view (PV) and unique visitor (UV) data for a Visual Edge Computing Service domain.
+     *
      * @param request - DescribeVsDomainPvUvDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7865,6 +8393,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve page view (PV) and unique visitor (UV) data for a Visual Edge Computing Service domain.
+     *
      * @param request - DescribeVsDomainPvUvDataRequest
      *
      * @returns DescribeVsDomainPvUvDataResponse
@@ -7881,6 +8411,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve domain name record data.
+     *
      * @param request - DescribeVsDomainRecordDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7934,6 +8466,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve domain name record data.
+     *
      * @param request - DescribeVsDomainRecordDataRequest
      *
      * @returns DescribeVsDomainRecordDataResponse
@@ -7950,6 +8484,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves domain region data.
+     *
      * @param request - DescribeVsDomainRegionDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -7999,6 +8535,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves domain region data.
+     *
      * @param request - DescribeVsDomainRegionDataRequest
      *
      * @returns DescribeVsDomainRegionDataResponse
@@ -8015,6 +8553,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query network request monitoring data for a domain name.
+     *
      * @param request - DescribeVsDomainReqBpsDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8076,6 +8616,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Query network request monitoring data for a domain name.
+     *
      * @param request - DescribeVsDomainReqBpsDataRequest
      *
      * @returns DescribeVsDomainReqBpsDataResponse
@@ -8092,6 +8634,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Obtain traffic data for domain name requests.
+     *
      * @param request - DescribeVsDomainReqTrafficDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8153,6 +8697,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Obtain traffic data for domain name requests.
+     *
      * @param request - DescribeVsDomainReqTrafficDataRequest
      *
      * @returns DescribeVsDomainReqTrafficDataResponse
@@ -8169,6 +8715,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves snapshot data for a domain name.
+     *
      * @param request - DescribeVsDomainSnapshotDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8218,6 +8766,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves snapshot data for a domain name.
+     *
      * @param request - DescribeVsDomainSnapshotDataRequest
      *
      * @returns DescribeVsDomainSnapshotDataResponse
@@ -8234,6 +8784,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve traffic data for a domain name.
+     *
      * @param request - DescribeVsDomainTrafficDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8295,6 +8847,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve traffic data for a domain name.
+     *
      * @param request - DescribeVsDomainTrafficDataRequest
      *
      * @returns DescribeVsDomainTrafficDataResponse
@@ -8311,6 +8865,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve UV data by domain name.
+     *
      * @param request - DescribeVsDomainUvDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8360,6 +8916,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve UV data by domain name.
+     *
      * @param request - DescribeVsDomainUvDataRequest
      *
      * @returns DescribeVsDomainUvDataResponse
@@ -8376,6 +8934,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the pull stream configurations for a domain name.
+     *
      * @param request - DescribeVsPullStreamInfoConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8417,6 +8977,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the pull stream configurations for a domain name.
+     *
      * @param request - DescribeVsPullStreamInfoConfigRequest
      *
      * @returns DescribeVsPullStreamInfoConfigResponse
@@ -8433,6 +8995,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the stream ingest callback configuration.
+     *
      * @param request - DescribeVsStreamsNotifyUrlConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8474,6 +9038,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the stream ingest callback configuration.
+     *
      * @param request - DescribeVsStreamsNotifyUrlConfigRequest
      *
      * @returns DescribeVsStreamsNotifyUrlConfigResponse
@@ -8490,6 +9056,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves information about all active streams for a specified domain name or application.
+     *
      * @param request - DescribeVsStreamsOnlineListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8567,6 +9135,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves information about all active streams for a specified domain name or application.
+     *
      * @param request - DescribeVsStreamsOnlineListRequest
      *
      * @returns DescribeVsStreamsOnlineListResponse
@@ -8583,6 +9153,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve stream ingest records for a domain, an application under that domain, or a specific stream within a specified time range.
+     *
      * @param request - DescribeVsStreamsPublishListRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8660,6 +9232,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieve stream ingest records for a domain, an application under that domain, or a specific stream within a specified time range.
+     *
      * @param request - DescribeVsStreamsPublishListRequest
      *
      * @returns DescribeVsStreamsPublishListResponse
@@ -8676,6 +9250,10 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves a user\\"s domain names ranked by traffic.
+     * If you do not specify StartTime and EndTime, data for the current month is retrieved by default. To query data over a specific time range, you must specify both StartTime and EndTime.
+     * \\* You can retrieve data for a maximum of 90 days.
+     *
      * @param request - DescribeVsTopDomainsByFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8725,6 +9303,10 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Retrieves a user\\"s domain names ranked by traffic.
+     * If you do not specify StartTime and EndTime, data for the current month is retrieved by default. To query data over a specific time range, you must specify both StartTime and EndTime.
+     * \\* You can retrieve data for a maximum of 90 days.
+     *
      * @param request - DescribeVsTopDomainsByFlowRequest
      *
      * @returns DescribeVsTopDomainsByFlowResponse
@@ -8741,6 +9323,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the daily peak number of concurrent stream ingest operations.
+     *
      * @param request - DescribeVsUpPeakPublishStreamDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8794,6 +9378,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Queries the daily peak number of concurrent stream ingest operations.
+     *
      * @param request - DescribeVsUpPeakPublishStreamDataRequest
      *
      * @returns DescribeVsUpPeakPublishStreamDataResponse
@@ -8867,6 +9453,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * DescribeVsVerifyContent.
+     *
      * @param request - DescribeVsVerifyContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -8908,6 +9496,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * DescribeVsVerifyContent.
+     *
      * @param request - DescribeVsVerifyContentRequest
      *
      * @returns DescribeVsVerifyContentResponse
@@ -8924,7 +9514,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 云应用服务实例与项目解除关联.
+     * Disassociate cloud application service instances from a project.
      *
      * @param tmpReq - DisassociateRenderingProjectInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8973,7 +9563,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 云应用服务实例与项目解除关联.
+     * Disassociate cloud application service instances from a project.
      *
      * @param request - DisassociateRenderingProjectInstancesRequest
      *
@@ -8991,6 +9581,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Forbids pushing a specific stream. You can schedule a time to resume the stream.
+     *
      * @param request - ForbidVsStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9056,6 +9648,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Forbids pushing a specific stream. You can schedule a time to resume the stream.
+     *
      * @param request - ForbidVsStreamRequest
      *
      * @returns ForbidVsStreamResponse
@@ -9072,7 +9666,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询命令的执行状态与结果。
+     * Queries the execution status of a control command to determine whether the command was successful and to retrieve the result string.
      *
      * @param request - GetRenderingInstanceCommandsStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9115,7 +9709,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询命令的执行状态与结果。
+     * Queries the execution status of a control command to determine whether the command was successful and to retrieve the result string.
      *
      * @param request - GetRenderingInstanceCommandsStatusRequest
      *
@@ -9133,7 +9727,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 获取云渲染实例流连接信息，每次流化建联前都需要调用此接口获取最新连接信息.
+     * Retrieves the streaming connection information for a cloud application service instance. Call this operation before establishing each streaming connection to obtain the latest connection details.
      *
      * @param request - GetRenderingInstanceStreamingInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9172,7 +9766,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 获取云渲染实例流连接信息，每次流化建联前都需要调用此接口获取最新连接信息.
+     * Retrieves the streaming connection information for a cloud application service instance. Call this operation before establishing each streaming connection to obtain the latest connection details.
      *
      * @param request - GetRenderingInstanceStreamingInfoRequest
      *
@@ -9190,7 +9784,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 输出满足特定条件的资源各状态数据量统计值。
+     * Queries the data volume statistics for the states of project instances that meet specified conditions.
      *
      * @param request - GetRenderingProjectInstanceStateMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9229,7 +9823,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 输出满足特定条件的资源各状态数据量统计值。
+     * Queries the data volume statistics for the states of project instances that meet specified conditions.
      *
      * @param request - GetRenderingProjectInstanceStateMetricsRequest
      *
@@ -9247,6 +9841,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Moves to a specified preset.
+     *
      * @param request - GotoPresetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -9292,6 +9888,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Moves to a specified preset.
+     *
      * @param request - GotoPresetRequest
      *
      * @returns GotoPresetResponse
@@ -9308,7 +9906,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 安装云应用.
+     * Installs a cloud application to a specified cloud application instance. This is an asynchronous interface. To monitor the installation progress, use the ListCloudAppInstallations interface.
      *
      * @param tmpReq - InstallCloudAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9377,7 +9975,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 安装云应用.
+     * Installs a cloud application to a specified cloud application instance. This is an asynchronous interface. To monitor the installation progress, use the ListCloudAppInstallations interface.
      *
      * @param request - InstallCloudAppRequest
      *
@@ -9395,7 +9993,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询云应用安装信息列表.
+     * Lists cloud application installations. The response includes the installation status of cloud application service instances and supports paged queries.
      *
      * @param request - ListCloudAppInstallationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9430,7 +10028,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询云应用安装信息列表.
+     * Lists cloud application installations. The response includes the installation status of cloud application service instances and supports paged queries.
      *
      * @param request - ListCloudAppInstallationsRequest
      *
@@ -9448,7 +10046,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询一个云应用的Patch列表。
+     * Queries the list of patches for a cloud application.
+     *
+     * @remarks
+     * > Specify at least one of the template ID or the template type.
      *
      * @param request - ListCloudAppPatchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9511,7 +10112,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询一个云应用的Patch列表。
+     * Queries the list of patches for a cloud application.
+     *
+     * @remarks
+     * > Specify at least one of the template ID or the template type.
      *
      * @param request - ListCloudAppPatchesRequest
      *
@@ -9529,7 +10133,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询云应用列表.
+     * Queries a list of cloud applications. This operation supports paged queries.
      *
      * @param request - ListCloudAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9564,7 +10168,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询云应用列表.
+     * Queries a list of cloud applications. This operation supports paged queries.
      *
      * @param request - ListCloudAppsRequest
      *
@@ -9582,7 +10186,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询所有负载信息，支持分页查询。
+     * Queries payload information for cloud application services. This operation supports paged queries.
+     *
+     * @remarks
+     * ## Request description
+     * - This API queries payload information for cloud application services and supports filtering and paged queries using various parameters.
+     * - Optional parameters include `Spec`, `Statuses`, `InstanceIds`, `PlanIds`, and `HiveIds`.
+     * - For paged queries, you can use the `PageNumber` and `PageSize` parameters to control the amount of data returned. The default page size is 10 records, and the maximum is 100 records.
+     * - You can specify a time range for the query using the `StartTime` and `EndTime` parameters.
      *
      * @param tmpReq - ListEdgeWorkersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9671,7 +10282,14 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询所有负载信息，支持分页查询。
+     * Queries payload information for cloud application services. This operation supports paged queries.
+     *
+     * @remarks
+     * ## Request description
+     * - This API queries payload information for cloud application services and supports filtering and paged queries using various parameters.
+     * - Optional parameters include `Spec`, `Statuses`, `InstanceIds`, `PlanIds`, and `HiveIds`.
+     * - For paged queries, you can use the `PageNumber` and `PageSize` parameters to control the amount of data returned. The default page size is 10 records, and the maximum is 100 records.
+     * - You can specify a time range for the query using the `StartTime` and `EndTime` parameters.
      *
      * @param request - ListEdgeWorkersRequest
      *
@@ -9689,7 +10307,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询文件的实例推送状态信息列表。
+     * Lists the push status records for a file pushed to cloud application service instances. It supports paged query.
      *
      * @param request - ListFilePushStatusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9724,7 +10342,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询文件的实例推送状态信息列表。
+     * Lists the push status records for a file pushed to cloud application service instances. It supports paged query.
      *
      * @param request - ListFilePushStatusesRequest
      *
@@ -9742,7 +10360,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询可用文件列表。
+     * Lists uploaded files. The response includes the upload status for each file and supports paged queries.
      *
      * @param request - ListFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9777,7 +10395,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询可用文件列表。
+     * Lists uploaded files. The response includes the upload status for each file and supports paged queries.
      *
      * @param request - ListFilesRequest
      *
@@ -9796,6 +10414,13 @@ class Vs extends OpenApiClient
 
     /**
      * 查询所有集群信息，支持分页查询。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于查询用户创建的所有集群信息。
+     * - 支持通过 `HiveId` 和 `Name` 参数进行过滤查询。
+     * - 分页参数 `PageNumber` 和 `PageSize` 可以控制返回结果的数量和页码，默认每页显示10条记录，最大支持100条。
+     * - `StartTime` 和 `EndTime` 参数可用于指定时间范围内的集群信息查询，但非必填项。
      *
      * @param request - ListHivesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9856,6 +10481,13 @@ class Vs extends OpenApiClient
     /**
      * 查询所有集群信息，支持分页查询。
      *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于查询用户创建的所有集群信息。
+     * - 支持通过 `HiveId` 和 `Name` 参数进行过滤查询。
+     * - 分页参数 `PageNumber` 和 `PageSize` 可以控制返回结果的数量和页码，默认每页显示10条记录，最大支持100条。
+     * - `StartTime` 和 `EndTime` 参数可用于指定时间范围内的集群信息查询，但非必填项。
+     *
      * @param request - ListHivesRequest
      *
      * @returns ListHivesResponse
@@ -9872,7 +10504,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询公钥信息.
+     * Retrieves a list of public keys that match the specified criteria. This operation supports pagination.
      *
      * @param request - ListPublicKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9907,7 +10539,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询公钥信息.
+     * Retrieves a list of public keys that match the specified criteria. This operation supports pagination.
      *
      * @param request - ListPublicKeysRequest
      *
@@ -9925,7 +10557,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询所有云应用数据包信息，支持分页查询。
+     * Queries information about the data packets of cloud applications. Paged queries are supported.
      *
      * @param request - ListRenderingDataPackagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9992,7 +10624,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询所有云应用数据包信息，支持分页查询。
+     * Queries information about the data packets of cloud applications. Paged queries are supported.
      *
      * @param request - ListRenderingDataPackagesRequest
      *
@@ -10010,7 +10642,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询自定义网关.
+     * Queries custom gateways.
+     *
+     * @remarks
+     * > Specify at least the template ID or the template type.
      *
      * @param request - ListRenderingInstanceGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10069,7 +10704,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询自定义网关.
+     * Queries custom gateways.
+     *
+     * @remarks
+     * > Specify at least the template ID or the template type.
      *
      * @param request - ListRenderingInstanceGatewayRequest
      *
@@ -10087,7 +10725,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询所有云渲染实例信息，支持分页查询。
+     * Lists basic information about cloud application service instances and supports paged queries.
      *
      * @param request - ListRenderingInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10122,7 +10760,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询所有云渲染实例信息，支持分页查询。
+     * Lists basic information about cloud application service instances and supports paged queries.
      *
      * @param request - ListRenderingInstancesRequest
      *
@@ -10140,11 +10778,11 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 分页查询项目关联的云应用服务实例列表。
+     * Retrieve a paginated list of cloud application service instances associated with a project.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口支持通过多种筛选条件（如状态、实例ID等）来查询指定项目下的云应用服务实例。
+     * ## Request description
+     * - This operation enables you to query cloud application service instances in a project using multiple filter conditions, such as status and instance ID.
      *
      * @param request - ListRenderingProjectInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10207,11 +10845,11 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 分页查询项目关联的云应用服务实例列表。
+     * Retrieve a paginated list of cloud application service instances associated with a project.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口支持通过多种筛选条件（如状态、实例ID等）来查询指定项目下的云应用服务实例。
+     * ## Request description
+     * - This operation enables you to query cloud application service instances in a project using multiple filter conditions, such as status and instance ID.
      *
      * @param request - ListRenderingProjectInstancesRequest
      *
@@ -10229,12 +10867,12 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 分页查询用户下的云应用服务项目基本信息列表。
+     * Obtain a paged list of basic information about cloud application projects for the current user.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于分页查询指定用户下的渲染项目基本信息列表。
-     * - 可通过 `ProjectId` 和 `ProjectName` 进行过滤查询。
+     * ## Request details
+     * - This operation returns a paged list of basic information about rendering projects for a specified user.
+     * - Filter results by `ProjectId` or `ProjectName`.
      *
      * @param request - ListRenderingProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10293,12 +10931,12 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 分页查询用户下的云应用服务项目基本信息列表。
+     * Obtain a paged list of basic information about cloud application projects for the current user.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于分页查询指定用户下的渲染项目基本信息列表。
-     * - 可通过 `ProjectId` 和 `ProjectName` 进行过滤查询。
+     * ## Request details
+     * - This operation returns a paged list of basic information about rendering projects for a specified user.
+     * - Filter results by `ProjectId` or `ProjectName`.
      *
      * @param request - ListRenderingProjectsRequest
      *
@@ -10316,12 +10954,12 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 分页查询指定条件下的渲染会话列表。
+     * Performs a paged query for the list of cloud application service sessions based on specified conditions.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口支持通过多种参数组合来过滤和分页查询用户的渲染会话列表。
-     * - `SessionId` 和 `ClientId` 参数至少需要提供一个，但两者都不是必选的。如果同时提供了两个参数，则将根据这两个参数进行更精确的匹配。
+     * ## Request Description
+     * - This API supports filtering and paged query of user rendering session lists with various parameter combinations.
+     * - You must provide at least one of the `SessionId` or `ClientId` parameters. Neither parameter is mandatory independently. If both parameters are provided, a more precise match is performed based on these two parameters.
      *
      * @param request - ListRenderingSessionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10400,12 +11038,12 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 分页查询指定条件下的渲染会话列表。
+     * Performs a paged query for the list of cloud application service sessions based on specified conditions.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口支持通过多种参数组合来过滤和分页查询用户的渲染会话列表。
-     * - `SessionId` 和 `ClientId` 参数至少需要提供一个，但两者都不是必选的。如果同时提供了两个参数，则将根据这两个参数进行更精确的匹配。
+     * ## Request Description
+     * - This API supports filtering and paged query of user rendering session lists with various parameter combinations.
+     * - You must provide at least one of the `SessionId` or `ClientId` parameters. Neither parameter is mandatory independently. If both parameters are provided, a more precise match is performed based on these two parameters.
      *
      * @param request - ListRenderingSessionsRequest
      *
@@ -10424,6 +11062,12 @@ class Vs extends OpenApiClient
 
     /**
      * 查询规格信息，支持分页查询。
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于查询所有可用的云应用服务规格信息。
+     * - 支持通过 `Specification` 参数过滤特定规格。
+     * - 分页查询时，可以通过 `PageNumber` 和 `PageSize` 参数控制返回的数据量。
      *
      * @param request - ListSpecificationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10472,6 +11116,12 @@ class Vs extends OpenApiClient
     /**
      * 查询规格信息，支持分页查询。
      *
+     * @remarks
+     * ## 请求说明
+     * - 该 API 用于查询所有可用的云应用服务规格信息。
+     * - 支持通过 `Specification` 参数过滤特定规格。
+     * - 分页查询时，可以通过 `PageNumber` 和 `PageSize` 参数控制返回的数据量。
+     *
      * @param request - ListSpecificationsRequest
      *
      * @returns ListSpecificationsResponse
@@ -10488,7 +11138,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 安全登陆管理.
+     * Manages secure logons.
      *
      * @param request - ManageLoginRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10539,7 +11189,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 安全登陆管理.
+     * Manages secure logons.
      *
      * @param request - ManageLoginRequest
      *
@@ -10557,7 +11207,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询Comfy的工作流详细信息.
+     * Modifies the metadata of a specified workflow.
+     *
+     * @remarks
+     * \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
      *
      * @param request - ModifyComfyWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10604,7 +11257,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 查询Comfy的工作流详细信息.
+     * Modifies the metadata of a specified workflow.
+     *
+     * @remarks
+     * \\> 截图查询目前不支持分页，仅支持按迭代方式。使用返回结果里的extStartTime参数值，作为新请求的StartTime可请求下一页。
      *
      * @param request - ModifyComfyWorkflowRequest
      *
@@ -10622,6 +11278,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Update device information.
+     *
      * @param request - ModifyDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10747,6 +11405,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Update device information.
+     *
      * @param request - ModifyDeviceRequest
      *
      * @returns ModifyDeviceResponse
@@ -10763,6 +11423,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Updates the alarm status of a device.
+     *
      * @param request - ModifyDeviceAlarmRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10816,6 +11478,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Updates the alarm status of a device.
+     *
      * @param request - ModifyDeviceAlarmRequest
      *
      * @returns ModifyDeviceAlarmResponse
@@ -10832,6 +11496,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Modify the device image capture configuration.
+     *
      * @param request - ModifyDeviceCaptureRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10881,6 +11547,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Modify the device image capture configuration.
+     *
      * @param request - ModifyDeviceCaptureRequest
      *
      * @returns ModifyDeviceCaptureResponse
@@ -10897,6 +11565,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Updates the list of channels for a device.
+     *
      * @param request - ModifyDeviceChannelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -10950,6 +11620,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Updates the list of channels for a device.
+     *
      * @param request - ModifyDeviceChannelsRequest
      *
      * @returns ModifyDeviceChannelsResponse
@@ -10966,6 +11638,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Modifies the information of a directory.
+     *
      * @param request - ModifyDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11015,6 +11689,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Modifies the information of a directory.
+     *
      * @param request - ModifyDirectoryRequest
      *
      * @returns ModifyDirectoryResponse
@@ -11031,6 +11707,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * You can modify the details of a space.
+     *
      * @param request - ModifyGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11112,6 +11790,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * You can modify the details of a space.
+     *
      * @param request - ModifyGroupRequest
      *
      * @returns ModifyGroupResponse
@@ -11128,11 +11808,13 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新集群.
+     * Updates the name or description of a specified cluster.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Request
+     * - This API modifies the name and/or description of an existing cluster.
+     * - `HiveId` is a required parameter that identifies the cluster to modify.
+     * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
      *
      * @param request - ModifyHiveAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11179,11 +11861,13 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新集群.
+     * Updates the name or description of a specified cluster.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Request
+     * - This API modifies the name and/or description of an existing cluster.
+     * - `HiveId` is a required parameter that identifies the cluster to modify.
+     * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
      *
      * @param request - ModifyHiveAttributeRequest
      *
@@ -11201,6 +11885,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Modifies the information of a parent platform.
+     *
      * @param request - ModifyParentPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11278,6 +11964,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Modifies the information of a parent platform.
+     *
      * @param request - ModifyParentPlatformRequest
      *
      * @returns ModifyParentPlatformResponse
@@ -11294,7 +11982,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 变配云渲染资源实例付费类型.
+     * Change the billing method for a Graphic Computing Service instance.
      *
      * @param request - ModifyRenderingChargeTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11349,7 +12037,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 变配云渲染资源实例付费类型.
+     * Change the billing method for a Graphic Computing Service instance.
      *
      * @param request - ModifyRenderingChargeTypeRequest
      *
@@ -11367,7 +12055,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 变配云渲染资源实例.
+     * Upgrades or downgrades a cloud application service instance.
      *
      * @param request - ModifyRenderingInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11414,7 +12102,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 变配云渲染资源实例.
+     * Upgrades or downgrades a cloud application service instance.
      *
      * @param request - ModifyRenderingInstanceRequest
      *
@@ -11432,7 +12120,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 修改云应用服务实例密码
+     * Modifies the attributes of a cloud application service instance.
      *
      * @param request - ModifyRenderingInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11475,7 +12163,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 修改云应用服务实例密码
+     * Modifies the attributes of a cloud application service instance.
      *
      * @param request - ModifyRenderingInstanceAttributeRequest
      *
@@ -11493,7 +12181,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 修改云渲染实例限速带宽.
+     * Updates the rate limiting bandwidth for a cloud application service instance. You can call the DescribeRenderingInstance operation to retrieve the current rate limiting value and check the status of the rate limiting update.
      *
      * @param request - ModifyRenderingInstanceBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11540,7 +12228,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 修改云渲染实例限速带宽.
+     * Updates the rate limiting bandwidth for a cloud application service instance. You can call the DescribeRenderingInstance operation to retrieve the current rate limiting value and check the status of the rate limiting update.
      *
      * @param request - ModifyRenderingInstanceBandwidthRequest
      *
@@ -11558,6 +12246,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Modifies template information.
+     *
      * @param request - ModifyTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11675,6 +12365,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Modifies template information.
+     *
      * @param request - ModifyTemplateRequest
      *
      * @returns ModifyTemplateResponse
@@ -11691,11 +12383,11 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 移动负载到集群.
+     * Moves the specified cloud application service instances from their current cluster to the target Hive.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Request
+     * - Ensure the target Hive has sufficient resources to accommodate the instances.
      *
      * @param tmpReq - MoveHiveEdgeWorkersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11744,11 +12436,11 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 移动负载到集群.
+     * Moves the specified cloud application service instances from their current cluster to the target Hive.
      *
      * @remarks
-     * ## 请求说明
-     * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+     * ## Request
+     * - Ensure the target Hive has sufficient resources to accommodate the instances.
      *
      * @param request - MoveHiveEdgeWorkersRequest
      *
@@ -11766,6 +12458,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Activates the service.
+     *
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns OpenVsServiceResponse
@@ -11793,6 +12487,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Activates the service.
+     *
      * @returns OpenVsServiceResponse
      *
      * @return OpenVsServiceResponse
@@ -11805,7 +12501,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 预推文件到云渲染实例。
+     * Push a file to a specified cloud application service instance. This is an asynchronous operation. You can query the push progress using the ListFilePushStatuses operation.
      *
      * @param request - PushFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11848,7 +12544,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 预推文件到云渲染实例。
+     * Push a file to a specified cloud application service instance. This is an asynchronous operation. You can query the push progress using the ListFilePushStatuses operation.
      *
      * @param request - PushFileRequest
      *
@@ -11866,7 +12562,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 重启云渲染实例.
+     * Restarts a cloud application service instance. You can call the DescribeRenderingInstance API to monitor the restart progress.
      *
      * @param request - RebootRenderingInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11905,7 +12601,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 重启云渲染实例.
+     * Restarts a cloud application service instance. You can call the DescribeRenderingInstance API to monitor the restart progress.
      *
      * @param request - RebootRenderingInstanceRequest
      *
@@ -11923,7 +12619,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 云应用服务实例主机重启.
+     * Restarts the host of a cloud application service instance.
      *
      * @param tmpReq - RebootRenderingServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11968,7 +12664,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 云应用服务实例主机重启.
+     * Restarts the host of a cloud application service instance.
      *
      * @param request - RebootRenderingServerRequest
      *
@@ -11986,7 +12682,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 恢复数据到云渲染实例.
+     * Recover data to a Graphic Computing Service instance.
      *
      * @param request - RecoverRenderingDataPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12033,7 +12729,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 恢复数据到云渲染实例.
+     * Recover data to a Graphic Computing Service instance.
      *
      * @param request - RecoverRenderingDataPackageRequest
      *
@@ -12051,7 +12747,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新实例流连接信息.
+     * Call RefreshRenderingInstanceStreaming to refresh the stream connection for a cloud application service instance.
+     *
+     * @remarks
+     * > Specify at least one of the template ID or template type.
      *
      * @param tmpReq - RefreshRenderingInstanceStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12100,7 +12799,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新实例流连接信息.
+     * Call RefreshRenderingInstanceStreaming to refresh the stream connection for a cloud application service instance.
+     *
+     * @remarks
+     * > Specify at least one of the template ID or template type.
      *
      * @param request - RefreshRenderingInstanceStreamingRequest
      *
@@ -12118,7 +12820,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 释放云渲染数据包.
+     * Release a cloud application service data pack.
      *
      * @param request - ReleaseRenderingDataPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12157,7 +12859,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 释放云渲染数据包.
+     * Release a cloud application service data pack.
      *
      * @param request - ReleaseRenderingDataPackageRequest
      *
@@ -12175,7 +12877,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 释放云渲染实例.
+     * Invoke ReleaseRenderingInstance to release a Graphic Computing Service application instance.
      *
      * @param request - ReleaseRenderingInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12214,7 +12916,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 释放云渲染实例.
+     * Invoke ReleaseRenderingInstance to release a Graphic Computing Service application instance.
      *
      * @param request - ReleaseRenderingInstanceRequest
      *
@@ -12232,7 +12934,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 续费云渲染资源实例.
+     * Invoke RenewRenderingInstance to renew a cloud application service instance.
      *
      * @param request - RenewRenderingInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12279,7 +12981,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 续费云渲染资源实例.
+     * Invoke RenewRenderingInstance to renew a cloud application service instance.
      *
      * @param request - RenewRenderingInstanceRequest
      *
@@ -12297,7 +12999,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 重置云渲染实例.
+     * Resets a cloud application service instance. You can query the DescribeRenderingInstance interface to obtain the reset progress.
      *
      * @param request - ResetRenderingInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12344,7 +13046,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 重置云渲染实例.
+     * Resets a cloud application service instance. You can query the DescribeRenderingInstance interface to obtain the reset progress.
      *
      * @param request - ResetRenderingInstanceRequest
      *
@@ -12362,6 +13064,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Resumes pushing for a stream.
+     *
      * @param request - ResumeVsStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12419,6 +13123,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Resumes pushing for a stream.
+     *
      * @param request - ResumeVsStreamRequest
      *
      * @returns ResumeVsStreamResponse
@@ -12435,7 +13141,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 下发shell命令，支持同步/异步响应命令。
+     * Sends shell control instructions to a cloud application service instance. This operation supports both sync and asynchronous command responses. The sync scenario is not suitable for time-consuming commands. The maximum execution time cannot exceed 30 s. In an asynchronous scenario, you can call the GetRenderingInstanceCommandsStatus operation to query the execution status and result of a command.
      *
      * @param request - SendRenderingInstanceCommandsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12488,7 +13194,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 下发shell命令，支持同步/异步响应命令。
+     * Sends shell control instructions to a cloud application service instance. This operation supports both sync and asynchronous command responses. The sync scenario is not suitable for time-consuming commands. The maximum execution time cannot exceed 30 s. In an asynchronous scenario, you can call the GetRenderingInstanceCommandsStatus operation to query the execution status and result of a command.
      *
      * @param request - SendRenderingInstanceCommandsRequest
      *
@@ -12506,6 +13212,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Set a preset position.
+     *
      * @param request - SetPresetRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12551,6 +13259,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Set a preset position.
+     *
      * @param request - SetPresetRequest
      *
      * @returns SetPresetResponse
@@ -12567,6 +13277,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Enable or disable the certificate feature for a domain name.
+     *
      * @param request - SetVsDomainCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12636,6 +13348,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Enable or disable the certificate feature for a domain name.
+     *
      * @param request - SetVsDomainCertificateRequest
      *
      * @returns SetVsDomainCertificateResponse
@@ -12652,6 +13366,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Configure stream ingest callbacks.
+     *
      * @param request - SetVsStreamsNotifyUrlConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12705,6 +13421,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Configure stream ingest callbacks.
+     *
      * @param request - SetVsStreamsNotifyUrlConfigRequest
      *
      * @returns SetVsStreamsNotifyUrlConfigResponse
@@ -12721,6 +13439,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Start stream pulling from a device. This action starts all streams on the device.
+     *
+     * @remarks
+     * Each device currently supports only one ingest endpoint. The effect is the same as StartStream.
+     *
      * @param request - StartDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12762,6 +13485,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Start stream pulling from a device. This action starts all streams on the device.
+     *
+     * @remarks
+     * Each device currently supports only one ingest endpoint. The effect is the same as StartStream.
+     *
      * @param request - StartDeviceRequest
      *
      * @returns StartDeviceResponse
@@ -12778,6 +13506,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Starts interactions with the parent platform, such as registration and keep-alive.
+     *
      * @param request - StartParentPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12819,6 +13549,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Starts interactions with the parent platform, such as registration and keep-alive.
+     *
      * @param request - StartParentPlatformRequest
      *
      * @returns StartParentPlatformResponse
@@ -12896,6 +13628,13 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Starts on-demand recording for the specified stream.
+     *
+     * @remarks
+     * > - An on-demand record template is required. You must first attach one to the space or stream.
+     * >
+     * > - You can specify a stream in two ways: using its ID or its PlayDomain/App/Name.
+     *
      * @param request - StartRecordStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12949,6 +13688,13 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Starts on-demand recording for the specified stream.
+     *
+     * @remarks
+     * > - An on-demand record template is required. You must first attach one to the space or stream.
+     * >
+     * > - You can specify a stream in two ways: using its ID or its PlayDomain/App/Name.
+     *
      * @param request - StartRecordStreamRequest
      *
      * @returns StartRecordStreamResponse
@@ -12965,7 +13711,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 调度一个空闲云应用服务实例，并完成服务启动。
+     * Schedules an idle cloud application service instance for the requesting client (ClientId) and starts the service. If the requesting client (ClientId) sends another start request after a successful start and the associated session is in the SessionStartSuspended state, the session is restarted. If the session is in any other state, the session information is returned directly.
      *
      * @param tmpReq - StartRenderingSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13026,7 +13772,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 调度一个空闲云应用服务实例，并完成服务启动。
+     * Schedules an idle cloud application service instance for the requesting client (ClientId) and starts the service. If the requesting client (ClientId) sends another start request after a successful start and the associated session is in the SessionStartSuspended state, the session is restarted. If the session is in any other state, the session information is returned directly.
      *
      * @param request - StartRenderingSessionRequest
      *
@@ -13044,6 +13790,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Start a stream.
+     *
      * @param request - StartStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13093,6 +13841,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Start a stream.
+     *
      * @param request - StartStreamRequest
      *
      * @returns StartStreamResponse
@@ -13109,6 +13859,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Starts forwarding a stream to an external address.
+     *
      * @param request - StartTransferStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13158,6 +13910,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Starts forwarding a stream to an external address.
+     *
      * @param request - StartTransferStreamRequest
      *
      * @returns StartTransferStreamResponse
@@ -13174,6 +13928,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops lens adjustments, such as aperture or zoom changes.
+     *
      * @param request - StopAdjustRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13223,6 +13979,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops lens adjustments, such as aperture or zoom changes.
+     *
      * @param request - StopAdjustRequest
      *
      * @returns StopAdjustResponse
@@ -13239,6 +13997,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops stream pulling for a device. This operation terminates all streams on that device.
+     *
+     * @remarks
+     * Stops stream pulling for a device. This operation terminates all streams on that device.
+     *
      * @param request - StopDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13284,6 +14047,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops stream pulling for a device. This operation terminates all streams on that device.
+     *
+     * @remarks
+     * Stops stream pulling for a device. This operation terminates all streams on that device.
+     *
      * @param request - StopDeviceRequest
      *
      * @returns StopDeviceResponse
@@ -13300,6 +14068,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops camera movement, such as panning, tilting, and zooming.
+     *
      * @param request - StopMoveRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13353,6 +14123,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops camera movement, such as panning, tilting, and zooming.
+     *
      * @param request - StopMoveRequest
      *
      * @returns StopMoveResponse
@@ -13426,6 +14198,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops on-demand recording for a specified stream.
+     *
+     * @remarks
+     * > You can specify a stream by ID or by PlayDomain/App/Name.
+     *
      * @param request - StopRecordStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13479,6 +14256,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops on-demand recording for a specified stream.
+     *
+     * @remarks
+     * > You can specify a stream by ID or by PlayDomain/App/Name.
+     *
      * @param request - StopRecordStreamRequest
      *
      * @returns StopRecordStreamResponse
@@ -13495,10 +14277,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 关闭指定的云应用服务会话并回收相关实例资源。
+     * Shut down the specified cloud application service session and revoke the associated instance resources.
      *
      * @remarks
-     * ## 请求说明
+     * ## Request information
      *
      * @param request - StopRenderingSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13545,10 +14327,10 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 关闭指定的云应用服务会话并回收相关实例资源。
+     * Shut down the specified cloud application service session and revoke the associated instance resources.
      *
      * @remarks
-     * ## 请求说明
+     * ## Request information
      *
      * @param request - StopRenderingSessionRequest
      *
@@ -13566,6 +14348,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops a stream.
+     *
      * @param request - StopStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13615,6 +14399,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops a stream.
+     *
      * @param request - StopStreamRequest
      *
      * @returns StopStreamResponse
@@ -13631,6 +14417,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops a stream.
+     *
      * @param request - StopTransferStreamRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13676,6 +14464,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Stops a stream.
+     *
      * @param request - StopTransferStreamRequest
      *
      * @returns StopTransferStreamResponse
@@ -13692,6 +14482,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Synchronizes platform channel information.
+     *
      * @param request - SyncCatalogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13733,6 +14525,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Synchronizes platform channel information.
+     *
      * @param request - SyncCatalogsRequest
      *
      * @returns SyncCatalogsResponse
@@ -13749,6 +14543,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Detach a device from a folder.
+     *
      * @param request - UnbindDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13794,6 +14590,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Detach a device from a folder.
+     *
      * @param request - UnbindDirectoryRequest
      *
      * @returns UnbindDirectoryResponse
@@ -13810,6 +14608,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Dissociates a device from a parent platform push configuration so that the device is no longer pushed.
+     *
      * @param request - UnbindParentPlatformDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13855,6 +14655,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Dissociates a device from a parent platform push configuration so that the device is no longer pushed.
+     *
      * @param request - UnbindParentPlatformDeviceRequest
      *
      * @returns UnbindParentPlatformDeviceResponse
@@ -13871,6 +14673,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Unbinds a purchased device from a space.
+     *
      * @param request - UnbindPurchasedDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13912,6 +14716,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Unbinds a purchased device from a space.
+     *
      * @param request - UnbindPurchasedDeviceRequest
      *
      * @returns UnbindPurchasedDeviceResponse
@@ -13928,6 +14734,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Unbind a template from a specified instance, such as a group instance or a stream.
+     *
+     * @remarks
+     * > Specify at least one of TemplateId or TemplateType.
+     *
      * @param request - UnbindTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -13981,6 +14792,11 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Unbind a template from a specified instance, such as a group instance or a stream.
+     *
+     * @remarks
+     * > Specify at least one of TemplateId or TemplateType.
+     *
      * @param request - UnbindTemplateRequest
      *
      * @returns UnbindTemplateResponse
@@ -13997,7 +14813,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 卸载云应用.
+     * You can uninstall a specified cloud application from a specified cloud application instance. This operation is asynchronous. You can use the ListCloudAppInstallations operation to check the uninstallation progress. After successful uninstallation, the query operation no longer returns related information.
      *
      * @param tmpReq - UninstallCloudAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14066,7 +14882,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 卸载云应用.
+     * You can uninstall a specified cloud application from a specified cloud application instance. This operation is asynchronous. You can use the ListCloudAppInstallations operation to check the uninstallation progress. After successful uninstallation, the query operation no longer returns related information.
      *
      * @param request - UninstallCloudAppRequest
      *
@@ -14084,6 +14900,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Unlock a device.
+     *
      * @param request - UnlockDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14125,6 +14943,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Unlock a device.
+     *
      * @param request - UnlockDeviceRequest
      *
      * @returns UnlockDeviceResponse
@@ -14141,7 +14961,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新云应用信息.
+     * Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
      *
      * @param tmpReq - UpdateCloudAppInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14208,7 +15028,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新云应用信息.
+     * Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
      *
      * @param request - UpdateCloudAppInfoRequest
      *
@@ -14226,7 +15046,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新文件信息。
+     * Update basic information for a file, such as its description.
      *
      * @param request - UpdateFileInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14269,7 +15089,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新文件信息。
+     * Update basic information for a file, such as its description.
      *
      * @param request - UpdateFileInfoRequest
      *
@@ -14287,7 +15107,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新云渲染实例配置参数.
+     * This operation updates the configuration parameters of a cloud application service instance. It lets you modify various configurations of the Cloud Android system, such as prop, location, and network, to create a real device simulation.
+     * You can retrieve the configured values for the real device simulation by calling the DescribeRenderingInstance API.
+     * To query the configuration parameters of the real-time environment, see the DescribeRenderingInstanceConfiguration API.
      *
      * @param tmpReq - UpdateRenderingInstanceConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14338,7 +15160,9 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新云渲染实例配置参数.
+     * This operation updates the configuration parameters of a cloud application service instance. It lets you modify various configurations of the Cloud Android system, such as prop, location, and network, to create a real device simulation.
+     * You can retrieve the configured values for the real device simulation by calling the DescribeRenderingInstance API.
+     * To query the configuration parameters of the real-time environment, see the DescribeRenderingInstanceConfiguration API.
      *
      * @param request - UpdateRenderingInstanceConfigurationRequest
      *
@@ -14356,7 +15180,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新实例设置.
+     * Updates the settings of a cloud application service instance.
      *
      * @param tmpReq - UpdateRenderingInstanceSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14405,7 +15229,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新实例设置.
+     * Updates the settings of a cloud application service instance.
      *
      * @param request - UpdateRenderingInstanceSettingsRequest
      *
@@ -14423,7 +15247,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新一个项目的属性信息.
+     * Updates a project’s properties.
      *
      * @param tmpReq - UpdateRenderingProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14480,7 +15304,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 更新一个项目的属性信息.
+     * Updates a project’s properties.
      *
      * @param request - UpdateRenderingProjectRequest
      *
@@ -14498,6 +15322,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Updates the configuration for stream pulling. You can modify the start and end times of origin server addresses in an existing stream pulling task.
+     *
      * @param request - UpdateVsPullStreamInfoConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14563,6 +15389,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * Updates the configuration for stream pulling. You can modify the start and end times of origin server addresses in an existing stream pulling task.
+     *
      * @param request - UpdateVsPullStreamInfoConfigRequest
      *
      * @returns UpdateVsPullStreamInfoConfigResponse
@@ -14579,7 +15407,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 应用上架.
+     * Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
      *
      * @param tmpReq - UploadCloudAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14652,7 +15480,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 应用上架.
+     * Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
      *
      * @param request - UploadCloudAppRequest
      *
@@ -14670,7 +15498,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 文件上传.
+     * Uploads a file from a public URL to local or cloud storage. This is an asynchronous operation. You can call the ListFiles operation to monitor the upload progress.
      *
      * @param request - UploadFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14725,7 +15553,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 文件上传.
+     * Uploads a file from a public URL to local or cloud storage. This is an asynchronous operation. You can call the ListFiles operation to monitor the upload progress.
      *
      * @param request - UploadFileRequest
      *
@@ -14743,7 +15571,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 上传公钥，用于安全登陆鉴权。
+     * Upload a new public key.
      *
      * @param request - UploadPublicKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14798,7 +15626,7 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * 上传公钥，用于安全登陆鉴权。
+     * Upload a new public key.
      *
      * @param request - UploadPublicKeyRequest
      *
@@ -14816,6 +15644,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * VerifyVsDomainOwner.
+     *
      * @param request - VerifyVsDomainOwnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14861,6 +15691,8 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * VerifyVsDomainOwner.
+     *
      * @param request - VerifyVsDomainOwnerRequest
      *
      * @returns VerifyVsDomainOwnerResponse
