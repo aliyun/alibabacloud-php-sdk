@@ -161,6 +161,11 @@ class AppInstanceAggregate extends Model
     public $tags;
 
     /**
+     * @var TemplateRecord
+     */
+    public $templateRecord;
+
+    /**
      * @var string
      */
     public $thumbnailUrl;
@@ -205,6 +210,7 @@ class AppInstanceAggregate extends Model
         'status' => 'Status',
         'statusText' => 'StatusText',
         'tags' => 'Tags',
+        'templateRecord' => 'TemplateRecord',
         'thumbnailUrl' => 'ThumbnailUrl',
         'userId' => 'UserId',
         'version' => 'Version',
@@ -229,6 +235,9 @@ class AppInstanceAggregate extends Model
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
+        }
+        if (null !== $this->templateRecord) {
+            $this->templateRecord->validate();
         }
         parent::validate();
     }
@@ -375,6 +384,10 @@ class AppInstanceAggregate extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->templateRecord) {
+            $res['TemplateRecord'] = null !== $this->templateRecord ? $this->templateRecord->toArray($noStream) : $this->templateRecord;
         }
 
         if (null !== $this->thumbnailUrl) {
@@ -539,6 +552,10 @@ class AppInstanceAggregate extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TemplateRecord'])) {
+            $model->templateRecord = TemplateRecord::fromMap($map['TemplateRecord']);
         }
 
         if (isset($map['ThumbnailUrl'])) {
