@@ -90,6 +90,11 @@ class resource extends Model
     public $resourceOrigin;
 
     /**
+     * @var string
+     */
+    public $resourceStatus;
+
+    /**
      * @var responseHeaders[]
      */
     public $responseHeaders;
@@ -115,6 +120,7 @@ class resource extends Model
         'resourceGroup' => 'ResourceGroup',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'resourceOrigin' => 'ResourceOrigin',
+        'resourceStatus' => 'ResourceStatus',
         'responseHeaders' => 'ResponseHeaders',
         'xffStatus' => 'XffStatus',
     ];
@@ -210,6 +216,10 @@ class resource extends Model
 
         if (null !== $this->resourceOrigin) {
             $res['ResourceOrigin'] = $this->resourceOrigin;
+        }
+
+        if (null !== $this->resourceStatus) {
+            $res['ResourceStatus'] = $this->resourceStatus;
         }
 
         if (null !== $this->responseHeaders) {
@@ -312,6 +322,10 @@ class resource extends Model
 
         if (isset($map['ResourceOrigin'])) {
             $model->resourceOrigin = $map['ResourceOrigin'];
+        }
+
+        if (isset($map['ResourceStatus'])) {
+            $model->resourceStatus = $map['ResourceStatus'];
         }
 
         if (isset($map['ResponseHeaders'])) {

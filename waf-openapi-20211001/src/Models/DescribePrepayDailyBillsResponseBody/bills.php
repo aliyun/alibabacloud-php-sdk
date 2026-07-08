@@ -24,6 +24,16 @@ class bills extends Model
     public $exceedStatus;
 
     /**
+     * @var bool
+     */
+    public $extensionPlugin;
+
+    /**
+     * @var int
+     */
+    public $extensionPluginRequest;
+
+    /**
      * @var int
      */
     public $maxQps;
@@ -71,6 +81,8 @@ class bills extends Model
         'elasticQpsSetValue' => 'ElasticQpsSetValue',
         'endTime' => 'EndTime',
         'exceedStatus' => 'ExceedStatus',
+        'extensionPlugin' => 'ExtensionPlugin',
+        'extensionPluginRequest' => 'ExtensionPluginRequest',
         'maxQps' => 'MaxQps',
         'price' => 'Price',
         'qps' => 'Qps',
@@ -103,6 +115,14 @@ class bills extends Model
 
         if (null !== $this->exceedStatus) {
             $res['ExceedStatus'] = $this->exceedStatus;
+        }
+
+        if (null !== $this->extensionPlugin) {
+            $res['ExtensionPlugin'] = $this->extensionPlugin;
+        }
+
+        if (null !== $this->extensionPluginRequest) {
+            $res['ExtensionPluginRequest'] = $this->extensionPluginRequest;
         }
 
         if (null !== $this->maxQps) {
@@ -169,6 +189,14 @@ class bills extends Model
 
         if (isset($map['ExceedStatus'])) {
             $model->exceedStatus = $map['ExceedStatus'];
+        }
+
+        if (isset($map['ExtensionPlugin'])) {
+            $model->extensionPlugin = $map['ExtensionPlugin'];
+        }
+
+        if (isset($map['ExtensionPluginRequest'])) {
+            $model->extensionPluginRequest = $map['ExtensionPluginRequest'];
         }
 
         if (isset($map['MaxQps'])) {
