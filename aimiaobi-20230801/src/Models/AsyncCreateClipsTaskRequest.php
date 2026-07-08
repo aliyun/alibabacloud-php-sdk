@@ -12,6 +12,16 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncCreateClipsTaskRequest\stick
 class AsyncCreateClipsTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $adaptMode;
+
+    /**
+     * @var string
+     */
+    public $alignment;
+
+    /**
      * @var bool
      */
     public $closeMusic;
@@ -109,6 +119,11 @@ class AsyncCreateClipsTaskRequest extends Model
     /**
      * @var string
      */
+    public $textWidth;
+
+    /**
+     * @var string
+     */
     public $voiceStyle;
 
     /**
@@ -126,6 +141,8 @@ class AsyncCreateClipsTaskRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'adaptMode' => 'AdaptMode',
+        'alignment' => 'Alignment',
         'closeMusic' => 'CloseMusic',
         'closeSubtitle' => 'CloseSubtitle',
         'closeVoice' => 'CloseVoice',
@@ -145,6 +162,7 @@ class AsyncCreateClipsTaskRequest extends Model
         'stickers' => 'Stickers',
         'subtitleFontSize' => 'SubtitleFontSize',
         'taskId' => 'TaskId',
+        'textWidth' => 'TextWidth',
         'voiceStyle' => 'VoiceStyle',
         'voiceVolume' => 'VoiceVolume',
         'width' => 'Width',
@@ -168,6 +186,14 @@ class AsyncCreateClipsTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->adaptMode) {
+            $res['AdaptMode'] = $this->adaptMode;
+        }
+
+        if (null !== $this->alignment) {
+            $res['Alignment'] = $this->alignment;
+        }
+
         if (null !== $this->closeMusic) {
             $res['CloseMusic'] = $this->closeMusic;
         }
@@ -265,6 +291,10 @@ class AsyncCreateClipsTaskRequest extends Model
             $res['TaskId'] = $this->taskId;
         }
 
+        if (null !== $this->textWidth) {
+            $res['TextWidth'] = $this->textWidth;
+        }
+
         if (null !== $this->voiceStyle) {
             $res['VoiceStyle'] = $this->voiceStyle;
         }
@@ -292,6 +322,14 @@ class AsyncCreateClipsTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdaptMode'])) {
+            $model->adaptMode = $map['AdaptMode'];
+        }
+
+        if (isset($map['Alignment'])) {
+            $model->alignment = $map['Alignment'];
+        }
+
         if (isset($map['CloseMusic'])) {
             $model->closeMusic = $map['CloseMusic'];
         }
@@ -387,6 +425,10 @@ class AsyncCreateClipsTaskRequest extends Model
 
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+
+        if (isset($map['TextWidth'])) {
+            $model->textWidth = $map['TextWidth'];
         }
 
         if (isset($map['VoiceStyle'])) {

@@ -523,7 +523,10 @@ class AiMiaoBi extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-beijing' => 'aimiaobi.cn-beijing.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aimiaobi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -553,7 +556,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 添加审核自定义词库记录.
+     * Add a custom term to the audit dictionary.
      *
      * @param tmpReq - AddAuditTermsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -618,7 +621,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 添加审核自定义词库记录.
+     * Add a custom term to the audit dictionary.
      *
      * @param request - AddAuditTermsRequest
      *
@@ -636,7 +639,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 添加文档到数据集.
+     * Adds a document to a data source.
      *
      * @param tmpReq - AddDatasetDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -693,7 +696,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 添加文档到数据集.
+     * Adds a document to a data source.
      *
      * @param request - AddDatasetDocumentRequest
      *
@@ -711,7 +714,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成剪辑视频任务
+     * Generates a video clip.
      *
      * @param tmpReq - AsyncCreateClipsTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -741,6 +744,14 @@ class AiMiaoBi extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->adaptMode) {
+            @$body['AdaptMode'] = $request->adaptMode;
+        }
+
+        if (null !== $request->alignment) {
+            @$body['Alignment'] = $request->alignment;
+        }
+
         if (null !== $request->closeMusic) {
             @$body['CloseMusic'] = $request->closeMusic;
         }
@@ -817,6 +828,10 @@ class AiMiaoBi extends OpenApiClient
             @$body['TaskId'] = $request->taskId;
         }
 
+        if (null !== $request->textWidth) {
+            @$body['TextWidth'] = $request->textWidth;
+        }
+
         if (null !== $request->voiceStyle) {
             @$body['VoiceStyle'] = $request->voiceStyle;
         }
@@ -852,7 +867,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成剪辑视频任务
+     * Generates a video clip.
      *
      * @param request - AsyncCreateClipsTaskRequest
      *
@@ -870,7 +885,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 智能剪辑timeline.
+     * Creates a timeline for smart video editing.
      *
      * @param tmpReq - AsyncCreateClipsTimeLineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -947,7 +962,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 智能剪辑timeline.
+     * Creates a timeline for smart video editing.
      *
      * @param request - AsyncCreateClipsTimeLineRequest
      *
@@ -965,7 +980,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 编辑剪辑任务的timeline.
+     * Edits the timeline of a video editing task.
      *
      * @param tmpReq - AsyncEditTimelineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1022,7 +1037,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 编辑剪辑任务的timeline.
+     * Edits the timeline of a video editing task.
      *
      * @param request - AsyncEditTimelineRequest
      *
@@ -1040,7 +1055,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 上传招标书文件.
+     * Upload a tender document.
      *
      * @param request - AsyncUploadTenderDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1087,7 +1102,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 上传招标书文件.
+     * Upload a tender document.
      *
      * @param request - AsyncUploadTenderDocRequest
      *
@@ -1105,7 +1120,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 上传剪辑素材.
+     * Uploads video assets for editing.
      *
      * @param tmpReq - AsyncUploadVideoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1202,7 +1217,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 上传剪辑素材.
+     * Uploads video assets for editing.
      *
      * @param request - AsyncUploadVideoRequest
      *
@@ -1220,7 +1235,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 标书写作接口.
+     * An API for writing bidding documents.
      *
      * @param request - AsyncWritingBiddingDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1271,7 +1286,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 标书写作接口.
+     * An API for writing bidding documents.
      *
      * @param request - AsyncWritingBiddingDocRequest
      *
@@ -1289,7 +1304,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 绑定PPT作品信息.
+     * Binds a PowerPoint (PPT) artifact.
      *
      * @param request - BindPptArtifactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1340,7 +1355,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 绑定PPT作品信息.
+     * Binds a PowerPoint (PPT) artifact.
      *
      * @param request - BindPptArtifactRequest
      *
@@ -1358,7 +1373,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 取消异步任务
+     * Cancels pending asynchronous tasks.
      *
      * @param request - CancelAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1403,7 +1418,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 取消异步任务
+     * Cancels pending asynchronous tasks.
      *
      * @param request - CancelAsyncTaskRequest
      *
@@ -1421,7 +1436,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 取消审核任务
+     * Cancel an audit task.
      *
      * @param request - CancelAuditTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1468,7 +1483,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 取消审核任务
+     * Cancel an audit task.
      *
      * @param request - CancelAuditTaskRequest
      *
@@ -1486,7 +1501,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 取消深度写作任务
+     * Cancels a deep writing task.
      *
      * @param request - CancelDeepWriteTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1529,7 +1544,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 取消深度写作任务
+     * Cancels a deep writing task.
      *
      * @param request - CancelDeepWriteTaskRequest
      *
@@ -1547,7 +1562,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 清除所有干预内容.
+     * Clears all intervention content.
      *
      * @param request - ClearIntervenesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1586,7 +1601,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 清除所有干预内容.
+     * Clears all intervention content.
      *
      * @param request - ClearIntervenesRequest
      *
@@ -1604,7 +1619,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+     * This interface confirms whether the parsing results from your custom rule library submission are used for audit tasks. Because parsing results may not meet your requirements, use this interface to perform a second confirmation. If you are satisfied with the parsing of your submitted rule library, provide the TaskId from that submission as an input parameter. The system then post-processes your uploaded rule library and makes it available for auditing. Otherwise, invoke the SubmitAuditNote interface again to upload the modified rule library.
      *
      * @param request - ConfirmAndPostProcessAuditNoteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1647,7 +1662,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+     * This interface confirms whether the parsing results from your custom rule library submission are used for audit tasks. Because parsing results may not meet your requirements, use this interface to perform a second confirmation. If you are satisfied with the parsing of your submitted rule library, provide the TaskId from that submission as an input parameter. The system then post-processes your uploaded rule library and makes it available for auditing. Otherwise, invoke the SubmitAuditNote interface again to upload the modified rule library.
      *
      * @param request - ConfirmAndPostProcessAuditNoteRequest
      *
@@ -1665,7 +1680,8 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 用户数据集权限-批量添加.
+     * Batch add permissions:\\
+     * \\- Dataset permissions\\.
      *
      * @param tmpReq - CreateDataPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1722,7 +1738,8 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 用户数据集权限-批量添加.
+     * Batch add permissions:\\
+     * \\- Dataset permissions\\.
      *
      * @param request - CreateDataPermissionsRequest
      *
@@ -1740,7 +1757,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-创建.
+     * Creates a dataset.
      *
      * @param tmpReq - CreateDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1821,7 +1838,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-创建.
+     * Creates a dataset.
      *
      * @param request - CreateDatasetRequest
      *
@@ -1839,7 +1856,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-创建.
+     * General configurations — Create.
      *
      * @param request - CreateGeneralConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1886,7 +1903,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-创建.
+     * General configurations — Create.
      *
      * @param request - CreateGeneralConfigRequest
      *
@@ -1904,7 +1921,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-创建.
+     * Saves an article created in Miaobi. This operation supports rich text.
      *
      * @param tmpReq - CreateGeneratedContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1983,7 +2000,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-创建.
+     * Saves an article created in Miaobi. This operation supports rich text.
      *
      * @param request - CreateGeneratedContentRequest
      *
@@ -2001,7 +2018,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取授权token.
+     * Creates a temporary token for the online inference API.
      *
      * @param request - CreateTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2040,7 +2057,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取授权token.
+     * Creates a temporary token for the online inference API.
      *
      * @param request - CreateTokenRequest
      *
@@ -2058,7 +2075,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+     * Deletes all custom rule libraries available for audit under the user account. This operation is irreversible. To archive rule libraries, use the DownloadAuditNote API to save them before deletion.
      *
      * @param request - DeleteAuditNoteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2101,7 +2118,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+     * Deletes all custom rule libraries available for audit under the user account. This operation is irreversible. To archive rule libraries, use the DownloadAuditNote API to save them before deletion.
      *
      * @param request - DeleteAuditNoteRequest
      *
@@ -2119,7 +2136,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除指定的词库记录.
+     * Deletes specified term records.
      *
      * @param tmpReq - DeleteAuditTermsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2168,7 +2185,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除指定的词库记录.
+     * Deletes specified term records.
      *
      * @param request - DeleteAuditTermsRequest
      *
@@ -2186,7 +2203,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除自定义文本.
+     * Deletes a custom text.
      *
      * @param request - DeleteCustomTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2235,7 +2252,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除自定义文本.
+     * Deletes a custom text.
      *
      * @param request - DeleteCustomTextRequest
      *
@@ -2253,7 +2270,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据主题删除自定义主题事件.
+     * Delete a custom hot spot event by topic name.
      *
      * @param request - DeleteCustomTopicByTopicRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2298,7 +2315,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据主题删除自定义主题事件.
+     * Delete a custom hot spot event by topic name.
      *
      * @param request - DeleteCustomTopicByTopicRequest
      *
@@ -2316,7 +2333,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据自定义观点ID删除自定义观点.
+     * Deletes a custom topic viewpoint by its ID.
      *
      * @param request - DeleteCustomTopicViewPointByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2361,7 +2378,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据自定义观点ID删除自定义观点.
+     * Deletes a custom topic viewpoint by its ID.
      *
      * @param request - DeleteCustomTopicViewPointByIdRequest
      *
@@ -2379,7 +2396,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 用户数据集权限-批量删除.
+     * Batch delete dataset permissions.
      *
      * @param tmpReq - DeleteDataPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2428,7 +2445,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 用户数据集权限-批量删除.
+     * Batch delete dataset permissions.
      *
      * @param request - DeleteDataPermissionsRequest
      *
@@ -2446,7 +2463,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-删除.
+     * Deletes a dataset from the data source.
      *
      * @param request - DeleteDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2489,7 +2506,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-删除.
+     * Deletes a dataset from the data source.
      *
      * @param request - DeleteDatasetRequest
      *
@@ -2507,7 +2524,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除数据集文档.
+     * Delete source documents.
      *
      * @param request - DeleteDatasetDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2562,7 +2579,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除数据集文档.
+     * Delete source documents.
      *
      * @param request - DeleteDatasetDocumentRequest
      *
@@ -2580,7 +2597,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读删除多个文档.
+     * Deletes multiple documents.
      *
      * @param tmpReq - DeleteDocsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2629,7 +2646,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读删除多个文档.
+     * Deletes multiple documents.
      *
      * @param request - DeleteDocsRequest
      *
@@ -2647,7 +2664,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除指定的用于事实性审核的 URL。
+     * Deletes the specified URL used for factuality audit.
      *
      * @param request - DeleteFactAuditUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2690,7 +2707,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除指定的用于事实性审核的 URL。
+     * Deletes the specified URL used for factuality audit.
      *
      * @param request - DeleteFactAuditUrlRequest
      *
@@ -2708,7 +2725,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-删除.
+     * Deletes general configurations.
      *
      * @param request - DeleteGeneralConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2751,7 +2768,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-删除.
+     * Deletes general configurations.
      *
      * @param request - DeleteGeneralConfigRequest
      *
@@ -2769,7 +2786,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-删除。
+     * Deletes an article created in MiaoBi.
      *
      * @param request - DeleteGeneratedContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2818,7 +2835,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-删除。
+     * Deletes an article created in MiaoBi.
      *
      * @param request - DeleteGeneratedContentRequest
      *
@@ -2836,7 +2853,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除干预规则.
+     * Deletes an intervention rule.
      *
      * @param request - DeleteInterveneRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2881,7 +2898,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除干预规则.
+     * Deletes an intervention rule.
      *
      * @param request - DeleteInterveneRuleRequest
      *
@@ -2899,7 +2916,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据ID删除素材.
+     * Deletes a material from the material library.
      *
      * @param request - DeleteMaterialByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2944,7 +2961,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据ID删除素材.
+     * Deletes a material from the material library.
      *
      * @param request - DeleteMaterialByIdRequest
      *
@@ -2962,7 +2979,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除PPT作品
+     * Delete a PPT work.
+     *
+     * @remarks
+     * - This API operation uses the HTTP Server-Sent Events (SSE) protocol.
+     * - The OpenAPI portal is not compatible with the SSE inference protocol. You cannot directly test this API operation in the portal. For more information about how to call this API operation using the software development kit (SDK) for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+     * - To obtain the latest version of the asynchronous Java SDK, see [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
      *
      * @param request - DeletePptArtifactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3009,7 +3031,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除PPT作品
+     * Delete a PPT work.
+     *
+     * @remarks
+     * - This API operation uses the HTTP Server-Sent Events (SSE) protocol.
+     * - The OpenAPI portal is not compatible with the SSE inference protocol. You cannot directly test this API operation in the portal. For more information about how to call this API operation using the software development kit (SDK) for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+     * - To obtain the latest version of the asynchronous Java SDK, see [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
      *
      * @param request - DeletePptArtifactRequest
      *
@@ -3027,7 +3054,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除指定自定义文体.
+     * Deletes a specified custom style.
      *
      * @param request - DeleteStyleLearningResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3072,7 +3099,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 删除指定自定义文体.
+     * Deletes a specified custom style.
      *
      * @param request - DeleteStyleLearningResultRequest
      *
@@ -3090,7 +3117,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 从链接中提取文档内容.
+     * Extracts the content of documents from URLs.
      *
      * @param tmpReq - DocumentExtractionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3141,7 +3168,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 从链接中提取文档内容.
+     * Extracts the content of documents from URLs.
      *
      * @param request - DocumentExtractionRequest
      *
@@ -3159,7 +3186,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+     * Call this API to download the structured rule library for further processing. You can use this API to download either the structured rule library before post-processing or the structured rule library currently available for auditing. For specific usage, see the input parameter descriptions.
      *
      * @param request - DownloadAuditNoteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3206,7 +3233,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+     * Call this API to download the structured rule library for further processing. You can use this API to download either the structured rule library before post-processing or the structured rule library currently available for auditing. For specific usage, see the input parameter descriptions.
      *
      * @param request - DownloadAuditNoteRequest
      *
@@ -3224,7 +3251,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 标书下载接口.
+     * API for downloading bidding documents.
      *
      * @param request - DownloadBiddingDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3267,7 +3294,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 标书下载接口.
+     * API for downloading bidding documents.
      *
      * @param request - DownloadBiddingDocRequest
      *
@@ -3285,7 +3312,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 编辑审核自定义词库记录.
+     * Edit custom audit term records.
      *
      * @param tmpReq - EditAuditTermsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3350,7 +3377,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 编辑审核自定义词库记录.
+     * Edit custom audit term records.
      *
      * @param request - EditAuditTermsRequest
      *
@@ -3368,7 +3395,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 编辑标书内容接口.
+     * Edits the content of a bidding document.
      *
      * @param request - EditBiddingDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3423,7 +3450,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 编辑标书内容接口.
+     * Edits the content of a bidding document.
      *
      * @param request - EditBiddingDocRequest
      *
@@ -3441,7 +3468,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出企业VOC分析任务明细列表.
+     * Exports the tag details for a specified enterprise VOC analysis task.
      *
      * @param tmpReq - ExportAnalysisTagDetailByTaskIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3494,7 +3521,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出企业VOC分析任务明细列表.
+     * Exports the tag details for a specified enterprise VOC analysis task.
      *
      * @param request - ExportAnalysisTagDetailByTaskIdRequest
      *
@@ -3512,7 +3539,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出智能审核报告.
+     * Exports an automated review report.
      *
      * @param request - ExportAuditContentResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3555,7 +3582,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出智能审核报告.
+     * Exports an automated review report.
      *
      * @param request - ExportAuditContentResultRequest
      *
@@ -3573,7 +3600,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出-自定义数据源-选题视角分析任务结果.
+     * Exports custom data source topic perspective analysis task results.
      *
      * @param request - ExportCustomSourceAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3620,7 +3647,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出-自定义数据源-选题视角分析任务结果.
+     * Exports custom data source topic perspective analysis task results.
      *
      * @param request - ExportCustomSourceAnalysisTaskRequest
      *
@@ -3638,7 +3665,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-导出。
+     * Exports the history of articles created in MiaoBi.
      *
      * @param request - ExportGeneratedContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3683,7 +3710,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-导出。
+     * Exports the history of articles created in MiaoBi.
      *
      * @param request - ExportGeneratedContentRequest
      *
@@ -3701,7 +3728,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效.
+     * Exports topic planning documents and provides a publicly accessible URL that expires in one hour.
      *
      * @param tmpReq - ExportHotTopicPlanningProposalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3776,7 +3803,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出选题策划文档，响应为一个可公开访问的URL。一小时后失效.
+     * Exports topic planning documents and provides a publicly accessible URL that expires in one hour.
      *
      * @param request - ExportHotTopicPlanningProposalsRequest
      *
@@ -3794,7 +3821,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出所有干预内容.
+     * Exports all interventions.
      *
      * @param request - ExportIntervenesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3833,7 +3860,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出所有干预内容.
+     * Exports all interventions.
      *
      * @param request - ExportIntervenesRequest
      *
@@ -3851,7 +3878,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出PPT作品
+     * Exports a PPT artifact.
      *
      * @param request - ExportPptArtifactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3910,7 +3937,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出PPT作品
+     * Exports a PPT artifact.
      *
      * @param request - ExportPptArtifactRequest
      *
@@ -3928,7 +3955,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 反馈某次生成的结果.
+     * Provides feedback on the quality of the content that the model generates.
      *
      * @param tmpReq - FeedbackDialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4003,7 +4030,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 反馈某次生成的结果.
+     * Provides feedback on the quality of the content that the model generates.
      *
      * @param request - FeedbackDialogueRequest
      *
@@ -4021,7 +4048,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取词库导出任务结果.
+     * Retrieves the results of a term library export task.
      *
      * @param request - FetchExportTermsTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4064,7 +4091,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取词库导出任务结果.
+     * Retrieves the results of a term library export task.
      *
      * @param request - FetchExportTermsTaskRequest
      *
@@ -4082,7 +4109,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取异步导出文档任务结果.
+     * Fetches the result of an asynchronous document export task.
      *
      * @param request - FetchExportWordTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4127,7 +4154,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取异步导出文档任务结果.
+     * Fetches the result of an asynchronous document export task.
      *
      * @param request - FetchExportWordTaskRequest
      *
@@ -4145,7 +4172,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取图片任务执行结果.
+     * Retrieve the results of image generation tasks.
      *
      * @param tmpReq - FetchImageTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4200,7 +4227,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取图片任务执行结果.
+     * Retrieve the results of image generation tasks.
      *
      * @param request - FetchImageTaskRequest
      *
@@ -4218,7 +4245,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取导入词库任务结果.
+     * Retrieves the result of a term import task.
      *
      * @param request - FetchImportTermsTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4261,7 +4288,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取导入词库任务结果.
+     * Retrieves the result of a term import task.
      *
      * @param request - FetchImportTermsTaskRequest
      *
@@ -4279,7 +4306,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取排版任务结果.
+     * Retrieve the layout task result.
      *
      * @param request - FetchParseDocumentLayoutTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4322,7 +4349,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取排版任务结果.
+     * Retrieve the layout task result.
      *
      * @param request - FetchParseDocumentLayoutTaskRequest
      *
@@ -4340,7 +4367,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成内容导出文档任务
+     * Start a task to export content as a Word document.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - GenerateExportWordTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4385,7 +4415,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成内容导出文档任务
+     * Start a task to export content as a Word document.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - GenerateExportWordTaskRequest
      *
@@ -4403,7 +4436,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成临时可访问的公开url.
+     * Generate a temporary public URL.
      *
      * @param request - GenerateFileUrlByKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4452,7 +4485,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成临时可访问的公开url.
+     * Generate a temporary public URL.
      *
      * @param request - GenerateFileUrlByKeyRequest
      *
@@ -4470,7 +4503,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 智能配图，图片生成任务
+     * Asynchronously generates an image from text.
      *
      * @param tmpReq - GenerateImageTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4533,7 +4566,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 智能配图，图片生成任务
+     * Asynchronously generates an image from text.
      *
      * @param request - GenerateImageTaskRequest
      *
@@ -4551,7 +4584,13 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成上传配置.
+     * Generates a file upload configuration.
+     * 1\\. Call this API to obtain the upload configuration. The API returns the `PostUrl` (an internal OSS address for AI Writing Assistant), temporary OSS authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`), and the unique file identifier `fileKey`.
+     * 2\\. The client uses the `PostUrl` and the temporary authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`) to upload the file.
+     * 3\\. Use the `fileKey` to call subsequent APIs that require a `fileKey`, such as `GenerateFileUrlByKey`.
+     *
+     * @remarks
+     * This API returns the address and credentials for file uploads. For more information, see [OSS Form Upload](https://help.aliyun.com/zh/oss/user-guide/form-upload?scm=20140722.H_31849._.OR_help-T_cn~zh-V_1).
      *
      * @param request - GenerateUploadConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4600,7 +4639,13 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成上传配置.
+     * Generates a file upload configuration.
+     * 1\\. Call this API to obtain the upload configuration. The API returns the `PostUrl` (an internal OSS address for AI Writing Assistant), temporary OSS authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`), and the unique file identifier `fileKey`.
+     * 2\\. The client uses the `PostUrl` and the temporary authentication information (`key`, `OSSAccessKeyId`, `Signature`, and `policy`) to upload the file.
+     * 3\\. Use the `fileKey` to call subsequent APIs that require a `fileKey`, such as `GenerateFileUrlByKey`.
+     *
+     * @remarks
+     * This API returns the address and credentials for file uploads. For more information, see [OSS Form Upload](https://help.aliyun.com/zh/oss/user-guide/form-upload?scm=20140722.H_31849._.OR_help-T_cn~zh-V_1).
      *
      * @param request - GenerateUploadConfigRequest
      *
@@ -4618,7 +4663,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 视角生成.
+     * Generates viewpoints from article snippets.
      *
      * @param tmpReq - GenerateViewPointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4669,7 +4714,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 视角生成.
+     * Generates viewpoints from article snippets.
      *
      * @param request - GenerateViewPointRequest
      *
@@ -4687,7 +4732,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+     * Queries the progress of a post-processing task for a rule library. Use this operation together with the ConfirmAndPostProcessAuditNote operation to check the status of the current post-processing task.
      *
      * @param request - GetAuditNotePostProcessingStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4730,7 +4775,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+     * Queries the progress of a post-processing task for a rule library. Use this operation together with the ConfirmAndPostProcessAuditNote operation to check the status of the current post-processing task.
      *
      * @param request - GetAuditNotePostProcessingStatusRequest
      *
@@ -4748,7 +4793,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+     * Checks the processing status of an uploaded rule library. This operation returns the current status of the upload task, the size of the parsed rule library file, and its storage path.
      *
      * @param request - GetAuditNoteProcessingStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4791,7 +4836,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+     * Checks the processing status of an uploaded rule library. This operation returns the current status of the upload task, the size of the parsed rule library file, and its storage path.
      *
      * @param request - GetAuditNoteProcessingStatusRequest
      *
@@ -4809,7 +4854,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得剪辑任务状态
+     * Retrieves the status of a video editing task.
      *
      * @param request - GetAutoClipsTaskInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4860,7 +4905,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得剪辑任务状态
+     * Retrieves the status of a video editing task.
      *
      * @param request - GetAutoClipsTaskInfoRequest
      *
@@ -4878,7 +4923,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+     * Query the rule libraries that are currently available for audit. This operation returns only rule libraries that are active for auditing. To view the contents of a custom rule library, use the DownloadAuditNote API.
      *
      * @param request - GetAvailableAuditNotesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4921,7 +4966,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+     * Query the rule libraries that are currently available for audit. This operation returns only rule libraries that are active for auditing. To view the contents of a custom rule library, use the DownloadAuditNote API.
      *
      * @param request - GetAvailableAuditNotesRequest
      *
@@ -4939,7 +4984,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得标书写作结果接口.
+     * Retrieves the generation results of a bidding document.
      *
      * @param request - GetBiddingDocInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4982,7 +5027,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得标书写作结果接口.
+     * Retrieves the generation results of a bidding document.
      *
      * @param request - GetBiddingDocInfoRequest
      *
@@ -5000,7 +5045,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得标书功能剩余额度.
+     * Retrieve the remaining limit for the bidding feature.
      *
      * @param request - GetBiddingRemainLimitNumRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5043,7 +5088,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得标书功能剩余额度.
+     * Retrieve the remaining limit for the bidding feature.
      *
      * @param request - GetBiddingRemainLimitNumRequest
      *
@@ -5061,7 +5106,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取某次标签挖掘结果分类.
+     * Retrieves the classifications from a tag mining task.
      *
      * @param request - GetCategoriesByTaskIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5104,7 +5149,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取某次标签挖掘结果分类.
+     * Retrieves the classifications from a tag mining task.
      *
      * @param request - GetCategoriesByTaskIdRequest
      *
@@ -5122,7 +5167,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得智能混剪内置资源.
+     * Retrieves the built-in resources for smart clipping.
      *
      * @param request - GetClipsBuildInResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5165,7 +5210,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得智能混剪内置资源.
+     * Retrieves the built-in resources for smart clipping.
      *
      * @param request - GetClipsBuildInResourceRequest
      *
@@ -5183,7 +5228,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取自定义播报单任务结果.
+     * Retrieves the result of a custom hot topic broadcast job.
      *
      * @param request - GetCustomHotTopicBroadcastJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5226,7 +5271,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取自定义播报单任务结果.
+     * Retrieves the result of a custom hot topic broadcast job.
      *
      * @param request - GetCustomHotTopicBroadcastJobRequest
      *
@@ -5244,7 +5289,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取自定义数据源-选题视角分析任务结果.
+     * Retrieves the results of a topic analysis task for a custom data source.
      *
      * @param request - GetCustomSourceTopicAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5287,7 +5332,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取自定义数据源-选题视角分析任务结果.
+     * Retrieves the results of a topic analysis task for a custom data source.
      *
      * @param request - GetCustomSourceTopicAnalysisTaskRequest
      *
@@ -5305,7 +5350,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取自定义文本.
+     * Retrieve custom text.
      *
      * @param request - GetCustomTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5354,7 +5399,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取自定义文本.
+     * Retrieve custom text.
      *
      * @param request - GetCustomTextRequest
      *
@@ -5372,7 +5417,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取自定义选题视角分析任务结果.
+     * Retrieve the result of a custom topic selection perspective analysis task.
      *
      * @param request - GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5417,7 +5462,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取自定义选题视角分析任务结果.
+     * Retrieve the result of a custom topic selection perspective analysis task.
      *
      * @param request - GetCustomTopicSelectionPerspectiveAnalysisTaskRequest
      *
@@ -5435,7 +5480,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取系统数据源配置和个人配置.
+     * Retrieves configuration information for write data sources and general search data sources.
      *
      * @param request - GetDataSourceOrderConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5484,7 +5529,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取系统数据源配置和个人配置.
+     * Retrieves configuration information for write data sources and general search data sources.
      *
      * @param request - GetDataSourceOrderConfigRequest
      *
@@ -5502,7 +5547,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-详情.
+     * Data source management details.
      *
      * @param request - GetDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5549,7 +5594,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-详情.
+     * Data source management details.
      *
      * @param request - GetDatasetRequest
      *
@@ -5567,7 +5612,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取数据集文档.
+     * Retrieve the data source document.
      *
      * @param tmpReq - GetDatasetDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5632,7 +5677,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取数据集文档.
+     * Retrieve the data source document.
      *
      * @param request - GetDatasetDocumentRequest
      *
@@ -5650,7 +5695,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询深度写作任务
+     * Queries deep writing tasks. You can use it to check the running status of a specific task.
      *
      * @param request - GetDeepWriteTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5693,7 +5738,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询深度写作任务
+     * Queries deep writing tasks. You can use it to check the running status of a specific task.
      *
      * @param request - GetDeepWriteTaskRequest
      *
@@ -5711,7 +5756,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询深度写作任务的结果.
+     * Queries the result of a deep writing task. If the task is not complete, the operation returns its current status—such as queued, running, failed, or canceled. If the task is complete, the operation returns a URL that points to a compressed package of the task output that you can download.
      *
      * @param request - GetDeepWriteTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5754,7 +5799,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询深度写作任务的结果.
+     * Queries the result of a deep writing task. If the task is not complete, the operation returns its current status—such as queued, running, failed, or canceled. If the task is complete, the operation returns a URL that points to a compressed package of the task output that you can download.
      *
      * @param request - GetDeepWriteTaskResultRequest
      *
@@ -5772,7 +5817,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取文档聚合任务结果.
+     * Retrieves the result of a content aggregation task.
      *
      * @param request - GetDocClusterTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5817,7 +5862,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取文档聚合任务结果.
+     * Retrieves the result of a content aggregation task.
      *
      * @param request - GetDocClusterTaskRequest
      *
@@ -5835,7 +5880,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读获取文档信息.
+     * Retrieves information about a document.
      *
      * @param request - GetDocInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5882,7 +5927,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读获取文档信息.
+     * Retrieves information about a document.
      *
      * @param request - GetDocInfoRequest
      *
@@ -5900,7 +5945,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取企业VOC分析任务结果.
+     * Retrieves the result of an enterprise Voice of the Customer (VOC) analysis task.
      *
      * @param request - GetEnterpriseVocAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5943,7 +5988,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取企业VOC分析任务结果.
+     * Retrieves the result of an enterprise Voice of the Customer (VOC) analysis task.
      *
      * @param request - GetEnterpriseVocAnalysisTaskRequest
      *
@@ -5961,7 +6006,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取当前正用于事实性审核的信源 URL。
+     * Retrieves the source URL that is currently used for factuality audit.
      *
      * @param request - GetFactAuditUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6000,7 +6045,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取当前正用于事实性审核的信源 URL。
+     * Retrieves the source URL that is currently used for factuality audit.
      *
      * @param request - GetFactAuditUrlRequest
      *
@@ -6018,7 +6063,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读获得文档字数.
+     * MiaoRead calculates the word count for a document.
      *
      * @param request - GetFileContentLengthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6065,7 +6110,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读获得文档字数.
+     * MiaoRead calculates the word count for a document.
      *
      * @param request - GetFileContentLengthRequest
      *
@@ -6083,7 +6128,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-查询.
+     * Queries general configurations.
      *
      * @param request - GetGeneralConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6126,7 +6171,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-查询.
+     * Queries general configurations.
      *
      * @param request - GetGeneralConfigRequest
      *
@@ -6144,7 +6189,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-查询详情。
+     * Get generated content. Queries the history of articles generated in MiaoBi.
      *
      * @param request - GetGeneratedContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6189,7 +6234,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-查询详情。
+     * Get generated content. Queries the history of articles generated in MiaoBi.
      *
      * @param request - GetGeneratedContentRequest
      *
@@ -6207,7 +6252,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询新闻播报单.
+     * Query news broadcast orders.
      *
      * @param tmpReq - GetHotTopicBroadcastRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6308,7 +6353,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询新闻播报单.
+     * Query news broadcast orders.
      *
      * @param request - GetHotTopicBroadcastRequest
      *
@@ -6326,7 +6371,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预全局回复.
+     * Retrieve the global intervention reply.
      *
      * @param request - GetInterveneGlobalReplyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6365,7 +6410,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预全局回复.
+     * Retrieve the global intervention reply.
      *
      * @param request - GetInterveneGlobalReplyRequest
      *
@@ -6383,7 +6428,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得导入任务信息.
+     * Gets information about an import task.
      *
      * @param request - GetInterveneImportTaskInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6428,7 +6473,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得导入任务信息.
+     * Gets information about an import task.
      *
      * @param request - GetInterveneImportTaskInfoRequest
      *
@@ -6446,7 +6491,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预项规则详情.
+     * Retrieves the details of an intervention rule.
      *
      * @param request - GetInterveneRuleDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6491,7 +6536,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预项规则详情.
+     * Retrieves the details of an intervention rule.
      *
      * @param request - GetInterveneRuleDetailRequest
      *
@@ -6509,7 +6554,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预导入模版文件下载地址
+     * Retrieves the download URL for the intervention import template.
      *
      * @param request - GetInterveneTemplateFileUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6548,7 +6593,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预导入模版文件下载地址
+     * Retrieves the download URL for the intervention import template.
      *
      * @param request - GetInterveneTemplateFileUrlRequest
      *
@@ -6566,7 +6611,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据ID获取素材内容.
+     * Retrieves detailed information about a material from the Material Library.
      *
      * @param request - GetMaterialByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6611,7 +6656,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据ID获取素材内容.
+     * Retrieves detailed information about a material from the Material Library.
      *
      * @param request - GetMaterialByIdRequest
      *
@@ -6629,7 +6674,13 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT作品信息.
+     * Queries information about a PPT artifact.
+     *
+     * @remarks
+     * Usage notes:
+     * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+     * - The OpenAPI portal is not compatible with the SSE protocol and cannot be used for direct debugging. For examples of how to call the API using an SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+     * - To obtain the latest version of the asynchronous Java SDK, [download it from the API portal](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
      *
      * @param request - GetPptArtifactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6676,7 +6727,13 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT作品信息.
+     * Queries information about a PPT artifact.
+     *
+     * @remarks
+     * Usage notes:
+     * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+     * - The OpenAPI portal is not compatible with the SSE protocol and cannot be used for direct debugging. For examples of how to call the API using an SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/zh/model-studio/ppt-generation-best-practices).
+     * - To obtain the latest version of the asynchronous Java SDK, [download it from the API portal](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
      *
      * @param request - GetPptArtifactRequest
      *
@@ -6694,7 +6751,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT导出任务的结果.
+     * Retrieves the result of a PPT export task.
      *
      * @param request - GetPptArtifactExportResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6741,7 +6798,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT导出任务的结果.
+     * Retrieves the result of a PPT export task.
      *
      * @param request - GetPptArtifactExportResultRequest
      *
@@ -6759,7 +6816,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取PPT组件的配置.
+     * Retrieves the configuration of a PPT component.
      *
      * @param request - GetPptConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6802,7 +6859,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取PPT组件的配置.
+     * Retrieves the configuration of a PPT component.
      *
      * @param request - GetPptConfigRequest
      *
@@ -6820,7 +6877,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT任务信息.
+     * Gets information about a PPT task.
      *
      * @param request - GetPptInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6867,7 +6924,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT任务信息.
+     * Gets information about a PPT task.
      *
      * @param request - GetPptInfoRequest
      *
@@ -6885,7 +6942,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT模板筛选器.
+     * Retrieves the filters for PowerPoint (PPT) templates.
      *
      * @param request - GetPptTemplateSelectorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6924,7 +6981,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT模板筛选器.
+     * Retrieves the filters for PowerPoint (PPT) templates.
      *
      * @param request - GetPptTemplateSelectorRequest
      *
@@ -6942,7 +6999,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取当前用户的配置.
+     * Retrieves configuration information, such as intelligent configuration styles and inference-related metadata configurations.
      *
      * @param request - GetPropertiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6981,7 +7038,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取当前用户的配置.
+     * Retrieves configuration information, such as intelligent configuration styles and inference-related metadata configurations.
      *
      * @param request - GetPropertiesRequest
      *
@@ -6999,7 +7056,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询智能审核结果.
+     * Queries the result of an automated review.
      *
      * @param request - GetSmartAuditResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7042,7 +7099,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询智能审核结果.
+     * Queries the result of an automated review.
      *
      * @param request - GetSmartAuditResultRequest
      *
@@ -7060,7 +7117,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询一键成片剪辑任务
+     * Queries a one-click video editing task.
      *
      * @param request - GetSmartClipTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7103,7 +7160,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询一键成片剪辑任务
+     * Queries a one-click video editing task.
      *
      * @param request - GetSmartClipTaskRequest
      *
@@ -7121,7 +7178,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取文体学习分析结果.
+     * Retrieves the analysis result of a style learning task.
      *
      * @param request - GetStyleLearningResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7166,7 +7223,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取文体学习分析结果.
+     * Retrieves the analysis result of a style learning task.
      *
      * @param request - GetStyleLearningResultRequest
      *
@@ -7184,7 +7241,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据ID获取热点事件信息.
+     * Retrieve hot topic event information by ID.
      *
      * @param request - GetTopicByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7229,7 +7286,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据ID获取热点事件信息.
+     * Retrieve hot topic event information by ID.
      *
      * @param request - GetTopicByIdRequest
      *
@@ -7247,7 +7304,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取选题视角分析任务结果.
+     * Retrieves the result of a topic selection perspective analysis task.
      *
      * @param request - GetTopicSelectionPerspectiveAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7292,7 +7349,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取选题视角分析任务结果.
+     * Retrieves the result of a topic selection perspective analysis task.
      *
      * @param request - GetTopicSelectionPerspectiveAnalysisTaskRequest
      *
@@ -7310,7 +7367,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导入干预文件.
+     * Imports an intervention file.
      *
      * @param request - ImportInterveneFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7363,7 +7420,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导入干预文件.
+     * Imports an intervention file.
      *
      * @param request - ImportInterveneFileRequest
      *
@@ -7381,7 +7438,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 异步导入干预文件.
+     * Asynchronously import an intervention file.
      *
      * @param request - ImportInterveneFileAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7434,7 +7491,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 异步导入干预文件.
+     * Asynchronously import an intervention file.
      *
      * @param request - ImportInterveneFileAsyncRequest
      *
@@ -7452,7 +7509,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 初始化PPT创建操作.
+     * Important: This is a billable API operation.
+     * This API performs two operations:
+     * 1\\. Returns the initialization code for the "PPT Generation" frontend component.
+     * 2\\. Performs billing.
      *
      * @param request - InitiatePptCreationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7503,7 +7563,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 初始化PPT创建操作.
+     * Important: This is a billable API operation.
+     * This API performs two operations:
+     * 1\\. Returns the initialization code for the "PPT Generation" frontend component.
+     * 2\\. Performs billing.
      *
      * @param request - InitiatePptCreationRequest
      *
@@ -7521,7 +7584,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 初始化PPT创建操作V2.
+     * Starts a task to create a presentation.
      *
      * @param request - InitiatePptCreationV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7592,7 +7655,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 初始化PPT创建操作V2.
+     * Starts a task to create a presentation.
      *
      * @param request - InitiatePptCreationV2Request
      *
@@ -7610,7 +7673,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 设置干预全局回复.
+     * Sets global intervention replies.
      *
      * @param tmpReq - InsertInterveneGlobalReplyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7661,7 +7724,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 设置干预全局回复.
+     * Sets global intervention replies.
      *
      * @param request - InsertInterveneGlobalReplyRequest
      *
@@ -7679,7 +7742,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 插入干预规则.
+     * Insert an intervention rule.
      *
      * @param tmpReq - InsertInterveneRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7730,7 +7793,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 插入干预规则.
+     * Insert an intervention rule.
      *
      * @param request - InsertInterveneRuleRequest
      *
@@ -7748,7 +7811,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 分页获取企业VOC分析任务明细列表.
+     * Retrieves a paginated list of details for an enterprise Voice of the Customer (VOC) analysis task.
      *
      * @param tmpReq - ListAnalysisTagDetailByTaskIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7817,7 +7880,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 分页获取企业VOC分析任务明细列表.
+     * Retrieves a paginated list of details for an enterprise Voice of the Customer (VOC) analysis task.
      *
      * @param request - ListAnalysisTagDetailByTaskIdRequest
      *
@@ -7835,7 +7898,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询任务列表.
+     * Retrieves a list of asynchronous tasks.
      *
      * @param tmpReq - ListAsyncTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7926,7 +7989,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询任务列表.
+     * Retrieves a list of asynchronous tasks.
      *
      * @param request - ListAsyncTasksRequest
      *
@@ -7944,7 +8007,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取审核维度列表.
+     * Retrieves a list of audit dimensions.
      *
      * @param request - ListAuditContentErrorTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7991,7 +8054,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取审核维度列表.
+     * Retrieves a list of audit dimensions.
      *
      * @param request - ListAuditContentErrorTypesRequest
      *
@@ -8009,7 +8072,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取词库列表.
+     * Retrieve a list of term libraries.
      *
      * @param request - ListAuditTermsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8060,7 +8123,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取词库列表.
+     * Retrieve a list of term libraries.
      *
      * @param request - ListAuditTermsRequest
      *
@@ -8078,7 +8141,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 列出智能混剪任务列表.
+     * Lists smart video editing tasks.
      *
      * @param request - ListAutoClipsTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8157,7 +8220,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 列出智能混剪任务列表.
+     * Lists smart video editing tasks.
      *
      * @param request - ListAutoClipsTaskRequest
      *
@@ -8175,7 +8238,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得标书写作任务列表.
+     * Retrieves the list of bidding document writing tasks.
      *
      * @param request - ListBiddingDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8250,7 +8313,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得标书写作任务列表.
+     * Retrieves the list of bidding document writing tasks.
      *
      * @param request - ListBiddingDocRequest
      *
@@ -8268,7 +8331,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取系统自定义预设.
+     * Retrieves the system-defined presets for the Generate Content workflow. These presets include options such as writing style, article length, output language, and the number of articles to generate.
      *
      * @param request - ListBuildConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8317,7 +8380,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取系统自定义预设.
+     * Retrieves the system-defined presets for the Generate Content workflow. These presets include options such as writing style, article length, output language, and the number of articles to generate.
      *
      * @param request - ListBuildConfigsRequest
      *
@@ -8335,7 +8398,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义文本列表.
+     * Retrieve a list of custom texts.
      *
      * @param request - ListCustomTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8380,7 +8443,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义文本列表.
+     * Retrieve a list of custom texts.
      *
      * @param request - ListCustomTextRequest
      *
@@ -8398,7 +8461,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义视角列表.
+     * Lists custom viewpoints.
      *
      * @param tmpReq - ListCustomViewPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8481,7 +8544,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义视角列表.
+     * Lists custom viewpoints.
      *
      * @param request - ListCustomViewPointsRequest
      *
@@ -8499,7 +8562,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 用户数据集权限-列表.
+     * Permission to list datasets.
      *
      * @param request - ListDataPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8554,7 +8617,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 用户数据集权限-列表.
+     * Permission to list datasets.
      *
      * @param request - ListDataPermissionsRequest
      *
@@ -8572,7 +8635,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询数据集文档列表.
+     * Lists data source documents.
      *
      * @param tmpReq - ListDatasetDocumentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8729,7 +8792,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询数据集文档列表.
+     * Lists data source documents.
      *
      * @param request - ListDatasetDocumentsRequest
      *
@@ -8747,7 +8810,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-查询.
+     * Data source management - query.
      *
      * @param request - ListDatasetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8826,7 +8889,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-查询.
+     * Data source management - query.
      *
      * @param request - ListDatasetsRequest
      *
@@ -8844,7 +8907,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成历史列表.
+     * History of online inference scenarios.
      *
      * @param request - ListDialoguesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8909,7 +8972,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 生成历史列表.
+     * History of online inference scenarios.
      *
      * @param request - ListDialoguesRequest
      *
@@ -8927,7 +8990,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读获取文档列表.
+     * Miàodú retrieves the list of documents.
      *
      * @param tmpReq - ListDocsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9000,7 +9063,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读获取文档列表.
+     * Miàodú retrieves the list of documents.
      *
      * @param request - ListDocsRequest
      *
@@ -9018,7 +9081,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 公文检索.
+     * Searches government document libraries based on complex conditions.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - ListDocumentRetrieveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9109,7 +9175,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 公文检索.
+     * Searches government document libraries based on complex conditions.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - ListDocumentRetrieveRequest
      *
@@ -9127,7 +9196,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT模板列表.
+     * Lists the enterprise-specific PPT templates.
+     *
+     * @remarks
+     * Quanmiao supports iframe integration. For details, see the [Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - ListEnterprisePptTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9180,7 +9252,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT模板列表.
+     * Lists the enterprise-specific PPT templates.
+     *
+     * @remarks
+     * Quanmiao supports iframe integration. For details, see the [Quanmiao Public Cloud iframe Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - ListEnterprisePptTemplatesRequest
      *
@@ -9198,7 +9273,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 新颖视角列表.
+     * List of novel perspectives.
      *
      * @param request - ListFreshViewPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9255,7 +9330,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 新颖视角列表.
+     * List of novel perspectives.
      *
      * @param request - ListFreshViewPointsRequest
      *
@@ -9273,7 +9348,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-列表.
+     * Lists the general configurations.
      *
      * @param request - ListGeneralConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9320,7 +9395,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-列表.
+     * Lists the general configurations.
      *
      * @param request - ListGeneralConfigsRequest
      *
@@ -9338,7 +9413,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-列表。
+     * Retrieve a list of documents: Query the history of articles created in MiaoBi.
      *
      * @param request - ListGeneratedContentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9415,7 +9490,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-列表。
+     * Retrieve a list of documents: Query the history of articles created in MiaoBi.
      *
      * @param request - ListGeneratedContentsRequest
      *
@@ -9433,7 +9508,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取分类的热点新闻.
+     * Retrieves the list of trending topic hotspots.
      *
      * @param tmpReq - ListHotNewsWithTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9496,7 +9571,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取分类的热点新闻.
+     * Retrieves the list of trending topic hotspots.
      *
      * @param request - ListHotNewsWithTypeRequest
      *
@@ -9514,7 +9589,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取所有平台热榜源列表.
+     * Retrieve the list of hot ranking sources for all platforms.
      *
      * @param request - ListHotSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9563,7 +9638,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取所有平台热榜源列表.
+     * Retrieve the list of hot ranking sources for all platforms.
      *
      * @param request - ListHotSourcesRequest
      *
@@ -9581,7 +9656,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取热点事件列表.
+     * Retrieves a list of trending topics.
      *
      * @param tmpReq - ListHotTopicsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9676,7 +9751,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取热点事件列表.
+     * Retrieves a list of trending topics.
      *
      * @param request - ListHotTopicsRequest
      *
@@ -9694,7 +9769,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 热门视角列表.
+     * List of popular viewpoints.
      *
      * @param request - ListHotViewPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9751,7 +9826,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 热门视角列表.
+     * List of popular viewpoints.
      *
      * @param request - ListHotViewPointsRequest
      *
@@ -9769,7 +9844,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预项目数量列表.
+     * Lists the number of intervention projects.
      *
      * @param request - ListInterveneCntRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9818,7 +9893,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预项目数量列表.
+     * Lists the number of intervention projects.
      *
      * @param request - ListInterveneCntRequest
      *
@@ -9836,7 +9911,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得导入任务列表.
+     * Retrieve a list of import tasks.
      *
      * @param request - ListInterveneImportTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9885,7 +9960,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得导入任务列表.
+     * Retrieve a list of import tasks.
      *
      * @param request - ListInterveneImportTasksRequest
      *
@@ -9903,7 +9978,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预规则列表.
+     * Retrieves a list of intervention rules.
      *
      * @param request - ListInterveneRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9952,7 +10027,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预规则列表.
+     * Retrieves a list of intervention rules.
      *
      * @param request - ListInterveneRulesRequest
      *
@@ -9970,7 +10045,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预项列表.
+     * Retrieves the list of intervention items.
      *
      * @param request - ListIntervenesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10031,7 +10106,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获得干预项列表.
+     * Retrieves the list of intervention items.
      *
      * @param request - ListIntervenesRequest
      *
@@ -10049,7 +10124,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询素材列表.
+     * Retrieve the list of materials from the Material Library.
      *
      * @param tmpReq - ListMaterialDocumentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10160,7 +10235,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询素材列表.
+     * Retrieve the list of materials from the Material Library.
      *
      * @param request - ListMaterialDocumentsRequest
      *
@@ -10178,7 +10253,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取选题策划列表.
+     * Retrieves a list of planning proposals.
      *
      * @param tmpReq - ListPlanningProposalRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10265,7 +10340,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取选题策划列表.
+     * Retrieves a list of planning proposals.
      *
      * @param request - ListPlanningProposalRequest
      *
@@ -10283,7 +10358,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * PPT作品-列表.
+     * Queries a list of PPT artifacts.
      *
      * @param request - ListPptArtifactsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10340,7 +10415,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * PPT作品-列表.
+     * Queries a list of PPT artifacts.
      *
      * @param request - ListPptArtifactsRequest
      *
@@ -10358,7 +10433,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT模板列表.
+     * Queries a list of PowerPoint templates.
      *
      * @param request - ListPptTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10423,7 +10498,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询PPT模板列表.
+     * Queries a list of PowerPoint templates.
      *
      * @param request - ListPptTemplatesRequest
      *
@@ -10441,7 +10516,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询搜索生成任务对话详情中数据列表.
+     * Lists the dialogue data for a search generation task.
      *
      * @param request - ListSearchTaskDialogueDatasRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10520,7 +10595,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询搜索生成任务对话详情中数据列表.
+     * Lists the dialogue data for a search generation task.
      *
      * @param request - ListSearchTaskDialogueDatasRequest
      *
@@ -10538,7 +10613,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询妙搜搜索生成任务详情列表.
+     * Retrieves the task details for MiaoSou search generation tasks.
      *
      * @param request - ListSearchTaskDialoguesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10589,7 +10664,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询妙搜搜索生成任务详情列表.
+     * Retrieves the task details for MiaoSou search generation tasks.
      *
      * @param request - ListSearchTaskDialoguesRequest
      *
@@ -10607,7 +10682,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询妙搜搜索生成历史任务列表.
+     * Queries the list of historical tasks generated by Miaosou Search.
      *
      * @param tmpReq - ListSearchTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10664,7 +10739,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询妙搜搜索生成历史任务列表.
+     * Queries the list of historical tasks generated by Miaosou Search.
      *
      * @param request - ListSearchTasksRequest
      *
@@ -10682,7 +10757,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取文体学习分析结果列表.
+     * Retrieves the list of style learning analysis results.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - ListStyleLearningResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10731,7 +10809,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取文体学习分析结果列表.
+     * Retrieves the list of style learning analysis results.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For details, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - ListStyleLearningResultRequest
      *
@@ -10749,7 +10830,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 时效性视角列表.
+     * List of timeliness perspectives.
      *
      * @param request - ListTimedViewAttitudeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10806,7 +10887,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 时效性视角列表.
+     * List of timeliness perspectives.
      *
      * @param request - ListTimedViewAttitudeRequest
      *
@@ -10824,7 +10905,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取热点推荐事件.
+     * Retrieve hot spot recommendation events.
      *
      * @param request - ListTopicRecommendEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10873,7 +10954,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取热点推荐事件.
+     * Retrieve hot spot recommendation events.
      *
      * @param request - ListTopicRecommendEventListRequest
      *
@@ -10891,7 +10972,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取主题事件推荐观点列表.
+     * Retrieves recommended viewpoints for hot spot events.
      *
      * @param request - ListTopicViewPointRecommendEventListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10944,7 +11025,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取主题事件推荐观点列表.
+     * Retrieves recommended viewpoints for hot spot events.
      *
      * @param request - ListTopicViewPointRecommendEventListRequest
      *
@@ -10962,7 +11043,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取系统所有实例信息.
+     * Retrieve version information for your purchased services.
      *
      * @param request - ListVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11001,7 +11082,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取系统所有实例信息.
+     * Retrieve version information for your purchased services.
      *
      * @param request - ListVersionsRequest
      *
@@ -11019,7 +11100,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 网友视角列表.
+     * List of viewpoints from netizens.
      *
      * @param request - ListWebReviewPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11076,7 +11157,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 网友视角列表.
+     * List of viewpoints from netizens.
      *
      * @param request - ListWebReviewPointsRequest
      *
@@ -11094,7 +11175,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取文体列表.
+     * Retrieves the list of writing styles.
      *
      * @param request - ListWritingStylesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11147,7 +11228,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 获取文体列表.
+     * Retrieves the list of writing styles.
      *
      * @param request - ListWritingStylesRequest
      *
@@ -11165,7 +11246,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据taskId查询异步任务状态
+     * Queries the details of submitted asynchronous task executions.
      *
      * @param request - QueryAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11210,7 +11291,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据taskId查询异步任务状态
+     * Queries the details of submitted asynchronous task executions.
      *
      * @param request - QueryAsyncTaskRequest
      *
@@ -11228,7 +11309,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询审核结果.
+     * Queries the results of an audit task.
      *
      * @param request - QueryAuditTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11275,7 +11356,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询审核结果.
+     * Queries the results of an audit task.
      *
      * @param request - QueryAuditTaskRequest
      *
@@ -11293,10 +11374,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询视频审校结果.
+     * Queries video audit results.
      *
      * @remarks
-     * 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+     * Queries video audit results by task ID. The response includes video information, shot information, and audit results.
      *
      * @param request - QueryVideoAuditResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11339,10 +11420,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 查询视频审校结果.
+     * Queries video audit results.
      *
      * @remarks
-     * 根据任务ID查询视频审校结果，包含视频信息、分镜信息和审核结果
+     * Queries video audit results by task ID. The response includes video information, shot information, and audit results.
      *
      * @param request - QueryVideoAuditResultRequest
      *
@@ -11360,7 +11441,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容缩写.
+     * Abbreviates the specified content.
      *
      * @param request - RunAbbreviationContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11420,7 +11501,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容缩写.
+     * Abbreviates the specified content.
      *
      * @param request - RunAbbreviationContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11467,7 +11548,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容缩写.
+     * Abbreviates the specified content.
      *
      * @param request - RunAbbreviationContentRequest
      *
@@ -11485,7 +11566,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔：AI助手写作.
+     * MiaoBi: AI-assisted writing.
+     *
+     * @remarks
+     * QuanMiao products support iframe embedding. For more information, see [QuanMiao Public Cloud iframe Customization for Customer Onboarding](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunAiHelperWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11567,7 +11651,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔：AI助手写作.
+     * MiaoBi: AI-assisted writing.
+     *
+     * @remarks
+     * QuanMiao products support iframe embedding. For more information, see [QuanMiao Public Cloud iframe Customization for Customer Onboarding](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunAiHelperWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11636,7 +11723,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔：AI助手写作.
+     * MiaoBi: AI-assisted writing.
+     *
+     * @remarks
+     * QuanMiao products support iframe embedding. For more information, see [QuanMiao Public Cloud iframe Customization for Customer Onboarding](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - RunAiHelperWritingRequest
      *
@@ -11654,7 +11744,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读生成书籍脑图.
+     * Miaodu generates mind maps of books.
      *
      * @param request - RunBookBrainmapRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11734,7 +11824,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读生成书籍脑图.
+     * Miaodu generates mind maps of books.
      *
      * @param request - RunBookBrainmapRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11801,7 +11891,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读生成书籍脑图.
+     * Miaodu generates mind maps of books.
      *
      * @param request - RunBookBrainmapRequest
      *
@@ -11819,7 +11909,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 书籍导读接口.
+     * Extracts a summary, structured selling points, and hotwords from a book.
      *
      * @param request - RunBookIntroductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11891,7 +11981,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 书籍导读接口.
+     * Extracts a summary, structured selling points, and hotwords from a book.
      *
      * @param request - RunBookIntroductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11950,7 +12040,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 书籍导读接口.
+     * Extracts a summary, structured selling points, and hotwords from a book.
      *
      * @param request - RunBookIntroductionRequest
      *
@@ -11968,7 +12058,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 书籍智能卡片接口.
+     * A smart card interface for books.
      *
      * @param request - RunBookSmartCardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12028,7 +12118,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 书籍智能卡片接口.
+     * A smart card interface for books.
      *
      * @param request - RunBookSmartCardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12075,7 +12165,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 书籍智能卡片接口.
+     * A smart card interface for books.
      *
      * @param request - RunBookSmartCardRequest
      *
@@ -12093,7 +12183,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 客户之声预测.
+     * Predicts user comments for a specified article.
      *
      * @param tmpReq - RunCommentGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12203,7 +12293,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 客户之声预测.
+     * Predicts user comments for a specified article.
      *
      * @param tmpReq - RunCommentGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12300,7 +12390,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 客户之声预测.
+     * Predicts user comments for a specified article.
      *
      * @param request - RunCommentGenerationRequest
      *
@@ -12318,7 +12408,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容续写.
+     * Continues generating content.
      *
      * @param request - RunContinueContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12374,7 +12464,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容续写.
+     * Continues generating content.
      *
      * @param request - RunContinueContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12417,7 +12507,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容续写.
+     * Continues generating content.
      *
      * @param request - RunContinueContentRequest
      *
@@ -12435,7 +12525,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义热点话题分析.
+     * Analyzes custom hot topics.
      *
      * @param request - RunCustomHotTopicAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12511,7 +12601,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义热点话题分析.
+     * Analyzes custom hot topics.
      *
      * @param request - RunCustomHotTopicAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12574,7 +12664,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义热点话题分析.
+     * Analyzes custom hot topics.
      *
      * @param request - RunCustomHotTopicAnalysisRequest
      *
@@ -12592,7 +12682,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义选题视角分析.
+     * Perspective analysis of custom topics.
      *
      * @param request - RunCustomHotTopicViewPointAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12680,7 +12770,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义选题视角分析.
+     * Perspective analysis of custom topics.
      *
      * @param request - RunCustomHotTopicViewPointAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12755,7 +12845,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 自定义选题视角分析.
+     * Perspective analysis of custom topics.
      *
      * @param request - RunCustomHotTopicViewPointAnalysisRequest
      *
@@ -12773,7 +12863,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 流式输出深度写作事件.
+     * Queries deep writing events. The system returns detailed information about the task execution as a stream of Server-Sent Events (SSE).
      *
      * @param request - RunDeepWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12833,7 +12923,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 流式输出深度写作事件.
+     * Queries deep writing events. The system returns detailed information about the task execution as a stream of Server-Sent Events (SSE).
      *
      * @param request - RunDeepWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12880,7 +12970,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 流式输出深度写作事件.
+     * Queries deep writing events. The system returns detailed information about the task execution as a stream of Server-Sent Events (SSE).
      *
      * @param request - RunDeepWritingRequest
      *
@@ -12898,7 +12988,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读脑图生成接口.
+     * Generate a three-level, multilingual mind map from an article or a book, with control over the number of second-level nodes and the word count of leaf nodes.
      *
      * @param request - RunDocBrainmapRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12986,7 +13076,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读脑图生成接口.
+     * Generate a three-level, multilingual mind map from an article or a book, with control over the number of second-level nodes and the word count of leaf nodes.
      *
      * @param request - RunDocBrainmapRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13061,7 +13151,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读脑图生成接口.
+     * Generate a three-level, multilingual mind map from an article or a book, with control over the number of second-level nodes and the word count of leaf nodes.
      *
      * @param request - RunDocBrainmapRequest
      *
@@ -13079,7 +13169,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档导读接口.
+     * Generates a summary for an article, video, or URL, including a full-text summary, key points, and a chapter overview (i.e., segmented content with summaries and abstracts for each segment). It also supports multilingual input and output. If the user only requires a full-text summary of an article, they can use the RunDocSummary API. For details, see https://help.aliyun.com/zh/model-studio/api-aimiaobi-2023-08-01-rundocsummary.
      *
      * @param request - RunDocIntroductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13163,7 +13253,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档导读接口.
+     * Generates a summary for an article, video, or URL, including a full-text summary, key points, and a chapter overview (i.e., segmented content with summaries and abstracts for each segment). It also supports multilingual input and output. If the user only requires a full-text summary of an article, they can use the RunDocSummary API. For details, see https://help.aliyun.com/zh/model-studio/api-aimiaobi-2023-08-01-rundocsummary.
      *
      * @param request - RunDocIntroductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13234,7 +13324,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档导读接口.
+     * Generates a summary for an article, video, or URL, including a full-text summary, key points, and a chapter overview (i.e., segmented content with summaries and abstracts for each segment). It also supports multilingual input and output. If the user only requires a full-text summary of an article, they can use the RunDocSummary API. For details, see https://help.aliyun.com/zh/model-studio/api-aimiaobi-2023-08-01-rundocsummary.
      *
      * @param request - RunDocIntroductionRequest
      *
@@ -13252,7 +13342,8 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读问答接口.
+     * Article Q&A: For a natural language query, provide a textual answer within the specified article scope (accompanied by images if available) and display source attribution information.
+     * Multimodal File Q&A: For a natural language query, provide a textual answer within the specified multimodal file scope, along with relevant images, video segments, or text, and display source attribution information.
      *
      * @param tmpReq - RunDocQaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13350,7 +13441,8 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读问答接口.
+     * Article Q&A: For a natural language query, provide a textual answer within the specified article scope (accompanied by images if available) and display source attribution information.
+     * Multimodal File Q&A: For a natural language query, provide a textual answer within the specified multimodal file scope, along with relevant images, video segments, or text, and display source attribution information.
      *
      * @param tmpReq - RunDocQaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13435,7 +13527,8 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读问答接口.
+     * Article Q&A: For a natural language query, provide a textual answer within the specified article scope (accompanied by images if available) and display source attribution information.
+     * Multimodal File Q&A: For a natural language query, provide a textual answer within the specified multimodal file scope, along with relevant images, video segments, or text, and display source attribution information.
      *
      * @param request - RunDocQaRequest
      *
@@ -13453,7 +13546,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档智能卡片接口.
+     * Automatically adds tags to selected text or a specified chat and generates a smart card note.
      *
      * @param request - RunDocSmartCardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13521,7 +13614,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档智能卡片接口.
+     * Automatically adds tags to selected text or a specified chat and generates a smart card note.
      *
      * @param request - RunDocSmartCardRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13576,7 +13669,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档智能卡片接口.
+     * Automatically adds tags to selected text or a specified chat and generates a smart card note.
      *
      * @param request - RunDocSmartCardRequest
      *
@@ -13594,7 +13687,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档总结摘要接口.
+     * Generates a summary of an article, video, or URL—that is, a concise overview of the entire content. It also supports multilingual input and output.
      *
      * @param request - RunDocSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13670,7 +13763,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档总结摘要接口.
+     * Generates a summary of an article, video, or URL—that is, a concise overview of the entire content. It also supports multilingual input and output.
      *
      * @param request - RunDocSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13733,7 +13826,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档总结摘要接口.
+     * Generates a summary of an article, video, or URL—that is, a concise overview of the entire content. It also supports multilingual input and output.
      *
      * @param request - RunDocSummaryRequest
      *
@@ -13751,7 +13844,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档翻译接口.
+     * An API for document translation between English and Chinese.
      *
      * @param request - RunDocTranslationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13827,7 +13920,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档翻译接口.
+     * An API for document translation between English and Chinese.
      *
      * @param request - RunDocTranslationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13890,7 +13983,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档翻译接口.
+     * An API for document translation between English and Chinese.
      *
      * @param request - RunDocTranslationRequest
      *
@@ -13908,7 +14001,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档改写.
+     * Rewrites an article in a specified style.
      *
      * @param request - RunDocWashingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13992,7 +14085,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档改写.
+     * Rewrites an article in a specified style.
      *
      * @param request - RunDocWashingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14063,7 +14156,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档改写.
+     * Rewrites an article in a specified style.
      *
      * @param request - RunDocWashingRequest
      *
@@ -14081,7 +14174,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容扩写.
+     * Expands content.
      *
      * @param request - RunExpandContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14141,7 +14234,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容扩写.
+     * Expands content.
      *
      * @param request - RunExpandContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14188,7 +14281,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容扩写.
+     * Expands content.
      *
      * @param request - RunExpandContentRequest
      *
@@ -14206,7 +14299,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读猜你想问接口.
+     * Submits a query and returns several related queries.
      *
      * @param request - RunGenerateQuestionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14274,7 +14367,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读猜你想问接口.
+     * Submits a query and returns several related queries.
      *
      * @param request - RunGenerateQuestionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14329,7 +14422,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读猜你想问接口.
+     * Submits a query and returns several related queries.
      *
      * @param request - RunGenerateQuestionsRequest
      *
@@ -14347,7 +14440,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档关键词抽取接口.
+     * Extract keywords from a specified document. Keywords are domain-specific professional terms or concepts that represent and identify a particular industry or field. They accurately describe and summarize the core content, key people, major events, or technical terms in that domain.
      *
      * @param request - RunHotwordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14419,7 +14512,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档关键词抽取接口.
+     * Extract keywords from a specified document. Keywords are domain-specific professional terms or concepts that represent and identify a particular industry or field. They accurately describe and summarize the core content, key people, major events, or technical terms in that domain.
      *
      * @param request - RunHotwordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14478,7 +14571,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读文档关键词抽取接口.
+     * Extract keywords from a specified document. Keywords are domain-specific professional terms or concepts that represent and identify a particular industry or field. They accurately describe and summarize the core content, key people, major events, or technical terms in that domain.
      *
      * @param request - RunHotwordRequest
      *
@@ -14496,7 +14589,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙笔-创作-抽取关键词.
+     * Extracts and generates keywords using AMB.
      *
      * @param tmpReq - RunKeywordsExtractionGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14566,7 +14659,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙笔-创作-抽取关键词.
+     * Extracts and generates keywords using AMB.
      *
      * @param tmpReq - RunKeywordsExtractionGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14623,7 +14716,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙笔-创作-抽取关键词.
+     * Extracts and generates keywords using AMB.
      *
      * @param request - RunKeywordsExtractionGenerationRequest
      *
@@ -14641,7 +14734,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档批量导读.
+     * Generate an outline-style summary for multiple documents, videos, or URLs. The summary includes a consolidated overview and key points. This operation supports multiple input and output languages.
      *
      * @param tmpReq - RunMultiDocIntroductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14719,7 +14812,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档批量导读.
+     * Generate an outline-style summary for multiple documents, videos, or URLs. The summary includes a consolidated overview and key points. This operation supports multiple input and output languages.
      *
      * @param tmpReq - RunMultiDocIntroductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14784,7 +14877,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档批量导读.
+     * Generate an outline-style summary for multiple documents, videos, or URLs. The summary includes a consolidated overview and key points. This operation supports multiple input and output languages.
      *
      * @param request - RunMultiDocIntroductionRequest
      *
@@ -14802,7 +14895,13 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 流式输出PPT大纲.
+     * Generates a PowerPoint outline.
+     *
+     * @remarks
+     * Instructions:
+     * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+     * - You cannot test this API directly in the OpenAPI Portal because the portal is not compatible with the SSE inference protocol. For examples of how to call the API using the SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/en/model-studio/ppt-generation-best-practices).
+     * - To obtain the latest version of the asynchronous Java SDK, [click this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
      *
      * @param request - RunPptOutlineGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14862,7 +14961,13 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 流式输出PPT大纲.
+     * Generates a PowerPoint outline.
+     *
+     * @remarks
+     * Instructions:
+     * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+     * - You cannot test this API directly in the OpenAPI Portal because the portal is not compatible with the SSE inference protocol. For examples of how to call the API using the SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/en/model-studio/ppt-generation-best-practices).
+     * - To obtain the latest version of the asynchronous Java SDK, [click this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
      *
      * @param request - RunPptOutlineGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14909,7 +15014,13 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 流式输出PPT大纲.
+     * Generates a PowerPoint outline.
+     *
+     * @remarks
+     * Instructions:
+     * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+     * - You cannot test this API directly in the OpenAPI Portal because the portal is not compatible with the SSE inference protocol. For examples of how to call the API using the SDK for Java or Python, see [PPT Generation Best practices](https://help.aliyun.com/en/model-studio/ppt-generation-best-practices).
+     * - To obtain the latest version of the asynchronous Java SDK, [click this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?spm=a2c4g.11186623.0.0.4cd3170d7rccDC\\&version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
      *
      * @param request - RunPptOutlineGenerationRequest
      *
@@ -14927,7 +15038,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 快速写作.
+     * Enter writing instructions to quickly generate content.
+     *
+     * @remarks
+     * ### Access Instructions:
+     * - The OpenAPI portal is incompatible with the Server-Sent Events (SSE) inference protocol. Therefore, you cannot directly debug this operation. For an example of how to call the API using an SDK, see [Miaobi Best Practices](https://help.aliyun.com/zh/model-studio/best-practices-for-miaobi-api?spm=a2c4g.11186623.help-menu-2400256.d_1_12_6_2_1_0.39892421FntuI2\\&scm=20140722.H_2844289._.OR_help-T_cn~zh-V_1).
+     * - Click this [link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc) to download the latest version of the Java asynchronous SDK.
      *
      * @param tmpReq - RunQuickWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15005,7 +15121,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 快速写作.
+     * Enter writing instructions to quickly generate content.
+     *
+     * @remarks
+     * ### Access Instructions:
+     * - The OpenAPI portal is incompatible with the Server-Sent Events (SSE) inference protocol. Therefore, you cannot directly debug this operation. For an example of how to call the API using an SDK, see [Miaobi Best Practices](https://help.aliyun.com/zh/model-studio/best-practices-for-miaobi-api?spm=a2c4g.11186623.help-menu-2400256.d_1_12_6_2_1_0.39892421FntuI2\\&scm=20140722.H_2844289._.OR_help-T_cn~zh-V_1).
+     * - Click this [link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc) to download the latest version of the Java asynchronous SDK.
      *
      * @param tmpReq - RunQuickWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15070,7 +15191,12 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 快速写作.
+     * Enter writing instructions to quickly generate content.
+     *
+     * @remarks
+     * ### Access Instructions:
+     * - The OpenAPI portal is incompatible with the Server-Sent Events (SSE) inference protocol. Therefore, you cannot directly debug this operation. For an example of how to call the API using an SDK, see [Miaobi Best Practices](https://help.aliyun.com/zh/model-studio/best-practices-for-miaobi-api?spm=a2c4g.11186623.help-menu-2400256.d_1_12_6_2_1_0.39892421FntuI2\\&scm=20140722.H_2844289._.OR_help-T_cn~zh-V_1).
+     * - Click this [link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc) to download the latest version of the Java asynchronous SDK.
      *
      * @param request - RunQuickWritingRequest
      *
@@ -15088,7 +15214,20 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙搜-智能搜索生成.
+     * AI Miaosou – Intelligent Search Generation: This API delivers the search and generation capabilities of the Miaosou homepage. It supports general search and media asset search, along with features such as user query clarification, multimodal knowledge search, and multi-agent generation.
+     * – General Search: Performs semantic retrieval on centralized knowledge data and applies multi-agent post-processing to the results, such as summary generation, abstracting, and timeline summarization.
+     * – Media Asset Search: Conducts an exhaustive full-text search to retrieve highly relevant knowledge and supports multi-agent post-processing, such as clustering and news extraction.
+     *
+     * @remarks
+     * ### Integration notes:
+     * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+     * - The OpenAPI console does not support SSE inference protocols and cannot be used for direct testing. For SDK-based integration examples (Java and Python), see the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation.
+     * - To obtain the latest version of the Java asynchronous SDK, click [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
+     * ### Data sources for search:
+     * Supports three dataset types. See the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation for details.
+     * - Built-in “Internet search” dataset: Supports open-domain text, images, and video (video is not yet available) from the Internet.
+     * - Semantic (RAG) dataset: Manages enterprise private knowledge bases and supports text, images, video, and voice (voice is not yet available).
+     * - Third-party API dataset: Integrates directly with your own enterprise search APIs.
      *
      * @param tmpReq - RunSearchGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15178,7 +15317,20 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙搜-智能搜索生成.
+     * AI Miaosou – Intelligent Search Generation: This API delivers the search and generation capabilities of the Miaosou homepage. It supports general search and media asset search, along with features such as user query clarification, multimodal knowledge search, and multi-agent generation.
+     * – General Search: Performs semantic retrieval on centralized knowledge data and applies multi-agent post-processing to the results, such as summary generation, abstracting, and timeline summarization.
+     * – Media Asset Search: Conducts an exhaustive full-text search to retrieve highly relevant knowledge and supports multi-agent post-processing, such as clustering and news extraction.
+     *
+     * @remarks
+     * ### Integration notes:
+     * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+     * - The OpenAPI console does not support SSE inference protocols and cannot be used for direct testing. For SDK-based integration examples (Java and Python), see the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation.
+     * - To obtain the latest version of the Java asynchronous SDK, click [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
+     * ### Data sources for search:
+     * Supports three dataset types. See the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation for details.
+     * - Built-in “Internet search” dataset: Supports open-domain text, images, and video (video is not yet available) from the Internet.
+     * - Semantic (RAG) dataset: Manages enterprise private knowledge bases and supports text, images, video, and voice (voice is not yet available).
+     * - Third-party API dataset: Integrates directly with your own enterprise search APIs.
      *
      * @param tmpReq - RunSearchGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15255,7 +15407,20 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙搜-智能搜索生成.
+     * AI Miaosou – Intelligent Search Generation: This API delivers the search and generation capabilities of the Miaosou homepage. It supports general search and media asset search, along with features such as user query clarification, multimodal knowledge search, and multi-agent generation.
+     * – General Search: Performs semantic retrieval on centralized knowledge data and applies multi-agent post-processing to the results, such as summary generation, abstracting, and timeline summarization.
+     * – Media Asset Search: Conducts an exhaustive full-text search to retrieve highly relevant knowledge and supports multi-agent post-processing, such as clustering and news extraction.
+     *
+     * @remarks
+     * ### Integration notes:
+     * - This API uses the HTTP Server-Sent Events (SSE) protocol.
+     * - The OpenAPI console does not support SSE inference protocols and cannot be used for direct testing. For SDK-based integration examples (Java and Python), see the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation.
+     * - To obtain the latest version of the Java asynchronous SDK, click [this link](https://api.aliyun.com/api-tools/sdk/AiMiaoBi?version=2023-08-01\\&language=java-async-tea\\&tab=primer-doc).
+     * ### Data sources for search:
+     * Supports three dataset types. See the [Miaosou Best Practices](https://help.aliyun.com/zh/model-studio/user-guide/best-practices-for-miaosou-api/?spm=a2c4g.11186623.help-menu-2400256.d_1_3_3_2_1_2.42a64a34eIyBhn) documentation for details.
+     * - Built-in “Internet search” dataset: Supports open-domain text, images, and video (video is not yet available) from the Internet.
+     * - Semantic (RAG) dataset: Manages enterprise private knowledge bases and supports text, images, video, and voice (voice is not yet available).
+     * - Third-party API dataset: Integrates directly with your own enterprise search APIs.
      *
      * @param request - RunSearchGenerationRequest
      *
@@ -15273,7 +15438,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙搜-文搜文.
+     * Miao Search enables text-to-text search.
      *
      * @param tmpReq - RunSearchSimilarArticlesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15347,7 +15512,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙搜-文搜文.
+     * Miao Search enables text-to-text search.
      *
      * @param tmpReq - RunSearchSimilarArticlesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15408,7 +15573,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙搜-文搜文.
+     * Miao Search enables text-to-text search.
      *
      * @param request - RunSearchSimilarArticlesRequest
      *
@@ -15426,7 +15591,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 创作-分步骤写作.
+     * Writes content in a step-by-step pattern using an outline and summaries.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer Onboarding: Quanmiao Public Cloud iframe Customization](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunStepByStepWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15512,7 +15680,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 创作-分步骤写作.
+     * Writes content in a step-by-step pattern using an outline and summaries.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer Onboarding: Quanmiao Public Cloud iframe Customization](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunStepByStepWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15585,7 +15756,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 创作-分步骤写作.
+     * Writes content in a step-by-step pattern using an outline and summaries.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer Onboarding: Quanmiao Public Cloud iframe Customization](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - RunStepByStepWritingRequest
      *
@@ -15603,7 +15777,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容特点分析.
+     * Analyzes the stylistic features of content.
+     *
+     * @remarks
+     * Quanmiao products support iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Solution](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunStyleFeatureAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15673,7 +15850,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容特点分析.
+     * Analyzes the stylistic features of content.
+     *
+     * @remarks
+     * Quanmiao products support iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Solution](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunStyleFeatureAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15730,7 +15910,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容特点分析.
+     * Analyzes the stylistic features of content.
+     *
+     * @remarks
+     * Quanmiao products support iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Solution](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - RunStyleFeatureAnalysisRequest
      *
@@ -15748,7 +15931,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容摘要生成.
+     * Generates a summary of content.
      *
      * @param request - RunSummaryGenerateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15808,7 +15991,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容摘要生成.
+     * Generates a summary of content.
      *
      * @param request - RunSummaryGenerateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15855,7 +16038,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 内容摘要生成.
+     * Generates a summary of content.
      *
      * @param request - RunSummaryGenerateRequest
      *
@@ -15873,7 +16056,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 创作-文本润色.
+     * Polishes the specified text.
      *
      * @param request - RunTextPolishingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15941,7 +16124,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 创作-文本润色.
+     * Polishes the specified text.
      *
      * @param request - RunTextPolishingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15996,7 +16179,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 创作-文本润色.
+     * Polishes the specified text.
      *
      * @param request - RunTextPolishingRequest
      *
@@ -16014,7 +16197,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔：标题生成.
+     * Miaobi generates titles.
      *
      * @param tmpReq - RunTitleGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16092,7 +16275,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔：标题生成.
+     * Miaobi generates titles.
      *
      * @param tmpReq - RunTitleGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16157,7 +16340,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔：标题生成.
+     * Miaobi generates titles.
      *
      * @param request - RunTitleGenerationRequest
      *
@@ -16175,7 +16358,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙策选题策划聚合.
+     * Selects and aggregates topics for MiaoCe.
+     *
+     * @remarks
+     * All Miao products support iframe embedding. For more information, see [Customer Integration: Miao Public Cloud iFrame Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunTopicSelectionMergeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16241,7 +16427,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙策选题策划聚合.
+     * Selects and aggregates topics for MiaoCe.
+     *
+     * @remarks
+     * All Miao products support iframe embedding. For more information, see [Customer Integration: Miao Public Cloud iFrame Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunTopicSelectionMergeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16294,7 +16483,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙策选题策划聚合.
+     * Selects and aggregates topics for MiaoCe.
+     *
+     * @remarks
+     * All Miao products support iframe embedding. For more information, see [Customer Integration: Miao Public Cloud iFrame Customization Plan](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - RunTopicSelectionMergeRequest
      *
@@ -16312,7 +16504,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙笔-创作-中英文翻译.
+     * Translates text for content creation using AMB.
      *
      * @param tmpReq - RunTranslateGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16382,7 +16574,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙笔-创作-中英文翻译.
+     * Translates text for content creation using AMB.
      *
      * @param tmpReq - RunTranslateGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16439,7 +16631,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙笔-创作-中英文翻译.
+     * Translates text for content creation using AMB.
      *
      * @param request - RunTranslateGenerationRequest
      *
@@ -16457,7 +16649,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI生成视频剪辑脚本.
+     * Generates video clip scripts using AI.
      *
      * @param request - RunVideoScriptGenerateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16529,7 +16721,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI生成视频剪辑脚本.
+     * Generates video clip scripts using AI.
      *
      * @param request - RunVideoScriptGenerateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16588,7 +16780,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI生成视频剪辑脚本.
+     * Generates video clip scripts using AI.
      *
      * @param request - RunVideoScriptGenerateRequest
      *
@@ -16606,7 +16798,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙笔-创作-文风改写.
+     * Calls AMB to rewrite text in a new tone.
      *
      * @param tmpReq - RunWriteToneGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16676,7 +16868,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙笔-创作-文风改写.
+     * Calls AMB to rewrite text in a new tone.
      *
      * @param tmpReq - RunWriteToneGenerationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16733,7 +16925,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * AI妙笔-创作-文风改写.
+     * Calls AMB to rewrite text in a new tone.
      *
      * @param request - RunWriteToneGenerationRequest
      *
@@ -16751,7 +16943,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 直接写作.
+     * Direct writing.
+     *
+     * @remarks
+     * This API is deprecated. For more information, see [RunWritingV2](https://help.aliyun.com/document_detail/2922606.html).
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao Public Cloud iframe customization](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16837,7 +17033,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 直接写作.
+     * Direct writing.
+     *
+     * @remarks
+     * This API is deprecated. For more information, see [RunWritingV2](https://help.aliyun.com/document_detail/2922606.html).
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao Public Cloud iframe customization](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunWritingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16910,7 +17110,11 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 直接写作.
+     * Direct writing.
+     *
+     * @remarks
+     * This API is deprecated. For more information, see [RunWritingV2](https://help.aliyun.com/document_detail/2922606.html).
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao Public Cloud iframe customization](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - RunWritingRequest
      *
@@ -16928,7 +17132,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 直接写作.
+     * AI writing.
+     *
+     * @remarks
+     * For instructions on embedding Quanmiao products using an iframe, see [Customer integration_Quanmiao public cloud iframe customized solution](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunWritingV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17098,7 +17305,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 直接写作.
+     * AI writing.
+     *
+     * @remarks
+     * For instructions on embedding Quanmiao products using an iframe, see [Customer integration_Quanmiao public cloud iframe customized solution](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param tmpReq - RunWritingV2Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17255,7 +17465,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 直接写作.
+     * AI writing.
+     *
+     * @remarks
+     * For instructions on embedding Quanmiao products using an iframe, see [Customer integration_Quanmiao public cloud iframe customized solution](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - RunWritingV2Request
      *
@@ -17273,7 +17486,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 保存自定义文本.
+     * Saves custom text.
      *
      * @param request - SaveCustomTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17326,7 +17539,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 保存自定义文本.
+     * Saves custom text.
      *
      * @param request - SaveCustomTextRequest
      *
@@ -17344,7 +17557,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 保存用户的信源配置.
+     * Saves the data source configuration for content creation and general search.
      *
      * @param tmpReq - SaveDataSourceOrderConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17403,7 +17616,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 保存用户的信源配置.
+     * Saves the data source configuration for content creation and general search.
      *
      * @param request - SaveDataSourceOrderConfigRequest
      *
@@ -17421,7 +17634,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 保存素材.
+     * Save material: Save material to the Material Library.
      *
      * @param tmpReq - SaveMaterialDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17520,7 +17733,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 保存素材.
+     * Save material: Save material to the Material Library.
      *
      * @param request - SaveMaterialDocumentRequest
      *
@@ -17538,7 +17751,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 配置oss访问参数.
+     * Configuration: Cloud storage parameter settings.
      *
      * @param request - SaveOrUpdateOssConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17585,7 +17798,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 配置oss访问参数.
+     * Configuration: Cloud storage parameter settings.
      *
      * @param request - SaveOrUpdateOssConfigRequest
      *
@@ -17603,7 +17816,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 保存自定义文体.
+     * Saves a custom writing style.
      *
      * @param tmpReq - SaveStyleLearningResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17676,7 +17889,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 保存自定义文体.
+     * Saves a custom writing style.
      *
      * @param request - SaveStyleLearningResultRequest
      *
@@ -17694,7 +17907,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 搜索数据集文档.
+     * Searches documents in a data source.
      *
      * @param tmpReq - SearchDatasetDocumentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17827,7 +18040,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 搜索数据集文档.
+     * Searches documents in a data source.
      *
      * @param request - SearchDatasetDocumentsRequest
      *
@@ -17845,7 +18058,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 新闻检索.
+     * Searches for news based on your input. This feature is currently limited to web search.
      *
      * @param tmpReq - SearchNewsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17916,7 +18129,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 新闻检索.
+     * Searches for news based on your input. This feature is currently limited to web search.
      *
      * @param request - SearchNewsRequest
      *
@@ -17934,7 +18147,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交异步任务
+     * Executes predefined asynchronous tasks.
      *
      * @param request - SubmitAsyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17991,7 +18204,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交异步任务
+     * Executes predefined asynchronous tasks.
      *
      * @param request - SubmitAsyncTaskRequest
      *
@@ -18009,7 +18222,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+     * Model Studio provides the same feature as the Intelligent Proofreading module in Alibaba Cloud public cloud: uploading a custom rule library. Due to authentication restrictions, you must pass the file key (FileKey) of your custom rule library file as an input parameter to successfully call this API. After you call this API, Model Studio processes your custom rule library and returns a structured result in XLSX format. You can call GetAuditNoteProcessingStatus to check the processing status or call DownloadAuditNote to download the processed rule library. This API is under active development and will eventually accept a publicly accessible file URL instead of a FileKey.
+     *
+     * @remarks
+     * All Model Studio products support iframe embedding. For details, see [Customer Integration: Model Studio Public Cloud iFrame Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - SubmitAuditNoteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18056,7 +18272,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+     * Model Studio provides the same feature as the Intelligent Proofreading module in Alibaba Cloud public cloud: uploading a custom rule library. Due to authentication restrictions, you must pass the file key (FileKey) of your custom rule library file as an input parameter to successfully call this API. After you call this API, Model Studio processes your custom rule library and returns a structured result in XLSX format. You can call GetAuditNoteProcessingStatus to check the processing status or call DownloadAuditNote to download the processed rule library. This API is under active development and will eventually accept a publicly accessible file URL instead of a FileKey.
+     *
+     * @remarks
+     * All Model Studio products support iframe embedding. For details, see [Customer Integration: Model Studio Public Cloud iFrame Customization Guide](https://help.aliyun.com/document_detail/3000990.html).
      *
      * @param request - SubmitAuditNoteRequest
      *
@@ -18074,7 +18293,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交审核任务
+     * Submits an audit task.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
      *
      * @param request - SubmitAuditTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18129,7 +18351,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交审核任务
+     * Submits an audit task.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer Integration: Quanmiao Public Cloud iframe Customization Plan](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
      *
      * @param request - SubmitAuditTaskRequest
      *
@@ -18147,7 +18372,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交自定义播报单任务
+     * You can submit a custom broadcast list job.
      *
      * @param tmpReq - SubmitCustomHotTopicBroadcastJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18208,7 +18433,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交自定义播报单任务
+     * You can submit a custom broadcast list job.
      *
      * @param request - SubmitCustomHotTopicBroadcastJobRequest
      *
@@ -18226,7 +18451,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 从自定义数据源提交选题热点分析.
+     * Submit topic trend analysis using a custom data source.
      *
      * @param tmpReq - SubmitCustomSourceTopicAnalysisRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18307,7 +18532,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 从自定义数据源提交选题热点分析.
+     * Submit topic trend analysis using a custom data source.
      *
      * @param request - SubmitCustomSourceTopicAnalysisRequest
      *
@@ -18325,7 +18550,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交自定义热点选题视角分析任务
+     * Submits a custom analysis task to analyze hot topic perspectives.
      *
      * @param tmpReq - SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18384,7 +18609,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交自定义热点选题视角分析任务
+     * Submits a custom analysis task to analyze hot topic perspectives.
      *
      * @param request - SubmitCustomTopicSelectionPerspectiveAnalysisTaskRequest
      *
@@ -18402,7 +18627,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交深度写作任务
+     * You can submit a deep writing task. You can provide information such as questions, instructions, and attachments, based on the topic you want to research or analyze. The system schedules and executes this task in the background.
      *
      * @param tmpReq - SubmitDeepWriteTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18469,7 +18694,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交深度写作任务
+     * You can submit a deep writing task. You can provide information such as questions, instructions, and attachments, based on the topic you want to research or analyze. The system schedules and executes this task in the background.
      *
      * @param request - SubmitDeepWriteTaskRequest
      *
@@ -18487,7 +18712,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交文档聚合任务
+     * Submits a content clustering task.
      *
      * @param tmpReq - SubmitDocClusterTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18550,7 +18775,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交文档聚合任务
+     * Submits a content clustering task.
      *
      * @param request - SubmitDocClusterTaskRequest
      *
@@ -18568,7 +18793,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交VOC异步任务
+     * Submits a Voice of the Customer (VOC) asynchronous task.
      *
      * @param tmpReq - SubmitEnterpriseVocAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18661,7 +18886,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交VOC异步任务
+     * Submits a Voice of the Customer (VOC) asynchronous task.
      *
      * @param request - SubmitEnterpriseVocAnalysisTaskRequest
      *
@@ -18679,7 +18904,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出词库任务
+     * Export task for a thesaurus.
      *
      * @param request - SubmitExportTermsTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18722,7 +18947,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 导出词库任务
+     * Export task for a thesaurus.
      *
      * @param request - SubmitExportTermsTaskRequest
      *
@@ -18740,7 +18965,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔为您提供了新的事实性审核能力，在联网搜索并判断正误的前提下，还支持用户自定义配置搜索来源 URL。
+     * MiaoBi provides a factuality audit capability that verifies facts using web search and supports custom configuration of search source URLs.
      *
      * @param request - SubmitFactAuditUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18783,7 +19008,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙笔为您提供了新的事实性审核能力，在联网搜索并判断正误的前提下，还支持用户自定义配置搜索来源 URL。
+     * MiaoBi provides a factuality audit capability that verifies facts using web search and supports custom configuration of search source URLs.
      *
      * @param request - SubmitFactAuditUrlRequest
      *
@@ -18801,7 +19026,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交导入自定义词库任务
+     * Submit a custom dictionary import task.
      *
      * @param request - SubmitImportTermsTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18848,7 +19073,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交导入自定义词库任务
+     * Submit a custom dictionary import task.
      *
      * @param request - SubmitImportTermsTaskRequest
      *
@@ -18929,7 +19154,112 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交智能审核.
+     * Submit a smart audit request.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao public cloud iframe customization guide](https://help.aliyun.com/document_detail/3000990.html).
+     * # Supported audit types
+     * ## Audit category overview
+     * | Audit category                 | Description                                                                                                                                                                                                                                                               |
+     * | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+     * | Content accuracy               | Errors due to phonetic or visual similarity; punctuation errors; misuse of Chinese structural particles (的/地/得); inappropriate word choice or syntax errors; incorrect personal names; incorrect place names; incorrect references; errors in proper nouns or terminology |
+     * | Formatting issues              | Inconsistent capitalization; numeric errors; nonstandard units of measurement; use of traditional Chinese characters                                                                                                                                                      |
+     * | Content structure issues       | Redundant text; repeated segments; logical contradictions; unfilled placeholders                                                                                                                                                                                          |
+     * | Political sensitivity issues   | Sensitive content or directional risks; name or sorting errors; conventional phrasing errors; nonstandard institutional names; misquoting important speeches; references to disgraced officials; mismatched name-title pairings; incorrect title expressions              |
+     * | Security and compliance issues | Violence or terrorism; pornography; prohibited content; insults; disgraced celebrities; personal privacy violations; reporting standard violations                                                                                                                        |
+     * | Legal errors                   | Incorrect citation of laws and regulations; errors in legal provisions                                                                                                                                                                                                    |
+     * | Other domain-specific errors   | Violations of advertising law; financial information errors; scientific or technical term errors                                                                                                                                                                          |
+     * | Factuality check               | Factuality verification: correct or incorrect items                                                                                                                                                                                                                       |
+     * | Image audit                    | Image content moderation                                                                                                                                                                                                                                                  |
+     * | Custom word library            | Custom word library audit                                                                                                                                                                                                                                                 |
+     * | Rule library audit             | Rule library audit                                                                                                                                                                                                                                                        |
+     * | English proofreading           | Terminology standardization; verb tense accuracy; punctuation and quotation marks; spelling and language variants; sentence structure and clarity; numeric and percentage formatting; standardized phrasing                                                               |
+     * ***
+     * ## Sub-audit code values
+     * ### 1. Content accuracy
+     * | Description                                    | Code                 |
+     * | ---------------------------------------------- | -------------------- |
+     * | Phonetic or visual similarity errors           | PhoneticSimilarError |
+     * | Punctuation errors                             | PunctuationError     |
+     * | Misuse of Chinese structural particles (的/地/得) | ParticleUsageError   |
+     * | Inappropriate word choice or syntax errors     | WordError            |
+     * | Incorrect personal names                       | PersonNameError      |
+     * | Incorrect place names                          | LocationError        |
+     * | Incorrect references                           | ReferenceError       |
+     * | Errors in proper nouns or terminology          | NounItemError        |
+     * ### 2. Formatting issues
+     * | Description                           | Code                    |
+     * | ------------------------------------- | ----------------------- |
+     * | Inconsistent capitalization           | CapitalizationError     |
+     * | Numeric errors                        | NumberError             |
+     * | Nonstandard units of measurement      | UnitError               |
+     * | Use of traditional Chinese characters | TraditionalChineseError |
+     * ### 3. Content structure issues
+     * | Description            | Code                 |
+     * | ---------------------- | -------------------- |
+     * | Redundant text         | WordRedundancy       |
+     * | Repeated segments      | DuplicateError       |
+     * | Logical contradictions | LogicContradiction   |
+     * | Unfilled placeholders  | PlaceholderNotFilled |
+     * ### 4. Political sensitivity issues
+     * | Description                            | Code                        |
+     * | -------------------------------------- | --------------------------- |
+     * | Sensitive content or directional risks | SensitiveContentRisk        |
+     * | Name or sorting errors                 | NameOrderError              |
+     * | Conventional phrasing errors           | ConventionalExpressionError |
+     * | Nonstandard institutional names        | DepartmentNameError         |
+     * | Misquoting important speeches          | ImportantSpeechError        |
+     * | References to disgraced officials      | FallenOfficialError         |
+     * | Mismatched name-title pairings         | LeaderTitleMatchError       |
+     * | Incorrect title expressions            | TitleError                  |
+     * ### 5. Security and compliance issues
+     * | Description                   | Code                   |
+     * | ----------------------------- | ---------------------- |
+     * | Violence or terrorism         | ViolenceTerrorismError |
+     * | Pornography                   | PornographyError       |
+     * | Prohibited content            | ProhibitedContentError |
+     * | Insults                       | InsultError            |
+     * | Disgraced celebrities         | DisgracedArtistError   |
+     * | Personal privacy violations   | PersonalPrivacyError   |
+     * | Reporting standard violations | ReportingStandardError |
+     * ### 6. Legal errors
+     * | Description                                | Code                 |
+     * | ------------------------------------------ | -------------------- |
+     * | Incorrect citation of laws and regulations | LegalReferenceError  |
+     * | Errors in legal provisions                 | LegalProvisionsError |
+     * ### 7. Other domain-specific errors
+     * | Description                         | Code                            |
+     * | ----------------------------------- | ------------------------------- |
+     * | Violations of advertising law       | AdvertisingProhibitedWordsError |
+     * | Financial information errors        | FinancialInformationError       |
+     * | Scientific or technical term errors | TechnicalTermError              |
+     * ### 8. Factuality check
+     * | Description                              | Code           |
+     * | ---------------------------------------- | -------------- |
+     * | Factuality verification – correct item   | CorrectFact    |
+     * | Factuality verification – incorrect item | WrongFactError |
+     * ### 9. Image audit
+     * | Description | Code       |
+     * | ----------- | ---------- |
+     * | Image audit | ImageAudit |
+     * ### 10. Custom word library
+     * | Description         | Code        |
+     * | ------------------- | ----------- |
+     * | Custom word library | WordLibrary |
+     * ### 11. Rule library audit
+     * | Description        | Code              |
+     * | ------------------ | ----------------- |
+     * | Rule library audit | WrongQuestionBook |
+     * ### 12. English proofreading
+     * | Description                       | Code                         |
+     * | --------------------------------- | ---------------------------- |
+     * | Terminology standardization       | TerminologyNormalisation     |
+     * | Verb tense accuracy               | VerbTenseAccuracy            |
+     * | Punctuation and quotation marks   | PunctuationAndQuotationMarks |
+     * | Spelling and language variants    | SpellingAndLanguageVariety   |
+     * | Sentence structure and clarity    | SentenceStructureAndClarity  |
+     * | Numeric and percentage formatting | NumericAndPercentageStyle    |
+     * | Other standardized phrasing       | Others                       |
      *
      * @param tmpReq - SubmitSmartAuditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19006,7 +19336,112 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交智能审核.
+     * Submit a smart audit request.
+     *
+     * @remarks
+     * The Quanmiao product supports iframe embedding. For more information, see [Customer integration: Quanmiao public cloud iframe customization guide](https://help.aliyun.com/document_detail/3000990.html).
+     * # Supported audit types
+     * ## Audit category overview
+     * | Audit category                 | Description                                                                                                                                                                                                                                                               |
+     * | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+     * | Content accuracy               | Errors due to phonetic or visual similarity; punctuation errors; misuse of Chinese structural particles (的/地/得); inappropriate word choice or syntax errors; incorrect personal names; incorrect place names; incorrect references; errors in proper nouns or terminology |
+     * | Formatting issues              | Inconsistent capitalization; numeric errors; nonstandard units of measurement; use of traditional Chinese characters                                                                                                                                                      |
+     * | Content structure issues       | Redundant text; repeated segments; logical contradictions; unfilled placeholders                                                                                                                                                                                          |
+     * | Political sensitivity issues   | Sensitive content or directional risks; name or sorting errors; conventional phrasing errors; nonstandard institutional names; misquoting important speeches; references to disgraced officials; mismatched name-title pairings; incorrect title expressions              |
+     * | Security and compliance issues | Violence or terrorism; pornography; prohibited content; insults; disgraced celebrities; personal privacy violations; reporting standard violations                                                                                                                        |
+     * | Legal errors                   | Incorrect citation of laws and regulations; errors in legal provisions                                                                                                                                                                                                    |
+     * | Other domain-specific errors   | Violations of advertising law; financial information errors; scientific or technical term errors                                                                                                                                                                          |
+     * | Factuality check               | Factuality verification: correct or incorrect items                                                                                                                                                                                                                       |
+     * | Image audit                    | Image content moderation                                                                                                                                                                                                                                                  |
+     * | Custom word library            | Custom word library audit                                                                                                                                                                                                                                                 |
+     * | Rule library audit             | Rule library audit                                                                                                                                                                                                                                                        |
+     * | English proofreading           | Terminology standardization; verb tense accuracy; punctuation and quotation marks; spelling and language variants; sentence structure and clarity; numeric and percentage formatting; standardized phrasing                                                               |
+     * ***
+     * ## Sub-audit code values
+     * ### 1. Content accuracy
+     * | Description                                    | Code                 |
+     * | ---------------------------------------------- | -------------------- |
+     * | Phonetic or visual similarity errors           | PhoneticSimilarError |
+     * | Punctuation errors                             | PunctuationError     |
+     * | Misuse of Chinese structural particles (的/地/得) | ParticleUsageError   |
+     * | Inappropriate word choice or syntax errors     | WordError            |
+     * | Incorrect personal names                       | PersonNameError      |
+     * | Incorrect place names                          | LocationError        |
+     * | Incorrect references                           | ReferenceError       |
+     * | Errors in proper nouns or terminology          | NounItemError        |
+     * ### 2. Formatting issues
+     * | Description                           | Code                    |
+     * | ------------------------------------- | ----------------------- |
+     * | Inconsistent capitalization           | CapitalizationError     |
+     * | Numeric errors                        | NumberError             |
+     * | Nonstandard units of measurement      | UnitError               |
+     * | Use of traditional Chinese characters | TraditionalChineseError |
+     * ### 3. Content structure issues
+     * | Description            | Code                 |
+     * | ---------------------- | -------------------- |
+     * | Redundant text         | WordRedundancy       |
+     * | Repeated segments      | DuplicateError       |
+     * | Logical contradictions | LogicContradiction   |
+     * | Unfilled placeholders  | PlaceholderNotFilled |
+     * ### 4. Political sensitivity issues
+     * | Description                            | Code                        |
+     * | -------------------------------------- | --------------------------- |
+     * | Sensitive content or directional risks | SensitiveContentRisk        |
+     * | Name or sorting errors                 | NameOrderError              |
+     * | Conventional phrasing errors           | ConventionalExpressionError |
+     * | Nonstandard institutional names        | DepartmentNameError         |
+     * | Misquoting important speeches          | ImportantSpeechError        |
+     * | References to disgraced officials      | FallenOfficialError         |
+     * | Mismatched name-title pairings         | LeaderTitleMatchError       |
+     * | Incorrect title expressions            | TitleError                  |
+     * ### 5. Security and compliance issues
+     * | Description                   | Code                   |
+     * | ----------------------------- | ---------------------- |
+     * | Violence or terrorism         | ViolenceTerrorismError |
+     * | Pornography                   | PornographyError       |
+     * | Prohibited content            | ProhibitedContentError |
+     * | Insults                       | InsultError            |
+     * | Disgraced celebrities         | DisgracedArtistError   |
+     * | Personal privacy violations   | PersonalPrivacyError   |
+     * | Reporting standard violations | ReportingStandardError |
+     * ### 6. Legal errors
+     * | Description                                | Code                 |
+     * | ------------------------------------------ | -------------------- |
+     * | Incorrect citation of laws and regulations | LegalReferenceError  |
+     * | Errors in legal provisions                 | LegalProvisionsError |
+     * ### 7. Other domain-specific errors
+     * | Description                         | Code                            |
+     * | ----------------------------------- | ------------------------------- |
+     * | Violations of advertising law       | AdvertisingProhibitedWordsError |
+     * | Financial information errors        | FinancialInformationError       |
+     * | Scientific or technical term errors | TechnicalTermError              |
+     * ### 8. Factuality check
+     * | Description                              | Code           |
+     * | ---------------------------------------- | -------------- |
+     * | Factuality verification – correct item   | CorrectFact    |
+     * | Factuality verification – incorrect item | WrongFactError |
+     * ### 9. Image audit
+     * | Description | Code       |
+     * | ----------- | ---------- |
+     * | Image audit | ImageAudit |
+     * ### 10. Custom word library
+     * | Description         | Code        |
+     * | ------------------- | ----------- |
+     * | Custom word library | WordLibrary |
+     * ### 11. Rule library audit
+     * | Description        | Code              |
+     * | ------------------ | ----------------- |
+     * | Rule library audit | WrongQuestionBook |
+     * ### 12. English proofreading
+     * | Description                       | Code                         |
+     * | --------------------------------- | ---------------------------- |
+     * | Terminology standardization       | TerminologyNormalisation     |
+     * | Verb tense accuracy               | VerbTenseAccuracy            |
+     * | Punctuation and quotation marks   | PunctuationAndQuotationMarks |
+     * | Spelling and language variants    | SpellingAndLanguageVariety   |
+     * | Sentence structure and clarity    | SentenceStructureAndClarity  |
+     * | Numeric and percentage formatting | NumericAndPercentageStyle    |
+     * | Other standardized phrasing       | Others                       |
      *
      * @param request - SubmitSmartAuditRequest
      *
@@ -19024,7 +19459,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交一键成片剪辑任务
+     * Submits a one-click video editing task.
      *
      * @param tmpReq - SubmitSmartClipTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19093,7 +19528,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交一键成片剪辑任务
+     * Submits a one-click video editing task.
      *
      * @param request - SubmitSmartClipTaskRequest
      *
@@ -19111,7 +19546,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交选题热点分析任务
+     * Submits a hot spot analysis task for topic selection.
      *
      * @param tmpReq - SubmitTopicSelectionPerspectiveAnalysisTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19174,7 +19609,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交选题热点分析任务
+     * Submits a hot spot analysis task for topic selection.
      *
      * @param request - SubmitTopicSelectionPerspectiveAnalysisTaskRequest
      *
@@ -19192,10 +19627,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交视频审校
+     * Submits a video for review.
      *
      * @remarks
-     * 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+     * Quanmiao products support iframe embedding. For more information, see [Customer Integration_Quanmiao Public Cloud iframe Customization Solution](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
      *
      * @param request - SubmitVideoAuditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19250,10 +19685,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 提交视频审校
+     * Submits a video for review.
      *
      * @remarks
-     * 提交视频审校任务，支持传入fileKey或url，系统会对视频进行分镜检测、抽帧审核，返回任务ID
+     * Quanmiao products support iframe embedding. For more information, see [Customer Integration_Quanmiao Public Cloud iframe Customization Solution](https://alidocs.dingtalk.com/i/nodes/m9bN7RYPWdyrPBREcyM6jDQ2VZd1wyK0?cid=116617178%3A898142682\\&utm_source=im\\&utm_scene=team_space\\&iframeQuery=utm_medium%3Dim_card%26utm_source%3Dim\\&utm_medium=im_card\\&corpId=dingd8e1123006514592).
      *
      * @param request - SubmitVideoAuditRequest
      *
@@ -19271,7 +19706,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 更新自定义文本.
+     * Updates custom text.
      *
      * @param request - UpdateCustomTextRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19328,7 +19763,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 更新自定义文本.
+     * Updates custom text.
      *
      * @param request - UpdateCustomTextRequest
      *
@@ -19346,7 +19781,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-更新.
+     * This operation updates a data source.
      *
      * @param tmpReq - UpdateDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19411,7 +19846,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 数据集管理-更新.
+     * This operation updates a data source.
      *
      * @param request - UpdateDatasetRequest
      *
@@ -19429,7 +19864,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 修改数据集文档.
+     * Updates a document in a dataset.
      *
      * @param tmpReq - UpdateDatasetDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19486,7 +19921,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 修改数据集文档.
+     * Updates a document in a dataset.
      *
      * @param request - UpdateDatasetDocumentRequest
      *
@@ -19504,7 +19939,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-更新.
+     * Updates general configurations.
      *
      * @param request - UpdateGeneralConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19551,7 +19986,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 通用配置-更新.
+     * Updates general configurations.
      *
      * @param request - UpdateGeneralConfigRequest
      *
@@ -19569,7 +20004,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-更新。
+     * Updates the history of an article created in AiMiaoBi.
      *
      * @param tmpReq - UpdateGeneratedContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19640,7 +20075,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 文档管理-更新。
+     * Updates the history of an article created in AiMiaoBi.
      *
      * @param request - UpdateGeneratedContentRequest
      *
@@ -19658,7 +20093,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据ID更新素材.
+     * Update a material in the Material Library.
      *
      * @param tmpReq - UpdateMaterialDocumentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19761,7 +20196,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 根据ID更新素材.
+     * Update a material in the Material Library.
      *
      * @param request - UpdateMaterialDocumentRequest
      *
@@ -19779,7 +20214,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读上传书籍.
+     * Use MiaoDu to upload books.
      *
      * @param tmpReq - UploadBookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19832,7 +20267,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读上传书籍.
+     * Use MiaoDu to upload books.
      *
      * @param request - UploadBookRequest
      *
@@ -19850,7 +20285,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读上传文档接口.
+     * Upload document API for Miaodu.
+     *
+     * @remarks
+     * Document upload is implemented through asynchronous invocation. After the invocation, you must use the getDocInfo API to periodically check the document status. Only when the document status becomes 1 can you proceed with subsequent operations such as generating a document summary, creating a full-text mind map, summarizing Q&A content, extracting keywords, or rewriting.
      *
      * @param tmpReq - UploadDocRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19903,7 +20341,10 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 妙读上传文档接口.
+     * Upload document API for Miaodu.
+     *
+     * @remarks
+     * Document upload is implemented through asynchronous invocation. After the invocation, you must use the getDocInfo API to periodically check the document status. Only when the document status becomes 1 can you proceed with subsequent operations such as generating a document summary, creating a full-text mind map, summarizing Q&A content, extracting keywords, or rewriting.
      *
      * @param request - UploadDocRequest
      *
@@ -19921,7 +20362,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 校验企业VOC上传模板
+     * Validates an enterprise VOC upload template.
      *
      * @param request - ValidateUploadTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19972,7 +20413,7 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
-     * 校验企业VOC上传模板
+     * Validates an enterprise VOC upload template.
      *
      * @param request - ValidateUploadTemplateRequest
      *
