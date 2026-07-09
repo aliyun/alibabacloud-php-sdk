@@ -5,12 +5,18 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\accessPolicies;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\netRedirectPolicy;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\policyRelatedResources;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponseBody\policyGroupModel\watermark;
 
 class policyGroupModel extends Model
 {
+    /**
+     * @var accessPolicies[]
+     */
+    public $accessPolicies;
+
     /**
      * @var string
      */
@@ -76,6 +82,7 @@ class policyGroupModel extends Model
      */
     public $watermark;
     protected $_name = [
+        'accessPolicies' => 'AccessPolicies',
         'cameraRedirect' => 'CameraRedirect',
         'clipboard' => 'Clipboard',
         'gmtCreate' => 'GmtCreate',
@@ -93,6 +100,9 @@ class policyGroupModel extends Model
 
     public function validate()
     {
+        if (\is_array($this->accessPolicies)) {
+            Model::validateArray($this->accessPolicies);
+        }
         if (null !== $this->netRedirectPolicy) {
             $this->netRedirectPolicy->validate();
         }
@@ -108,6 +118,17 @@ class policyGroupModel extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessPolicies) {
+            if (\is_array($this->accessPolicies)) {
+                $res['AccessPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->accessPolicies as $item1) {
+                    $res['AccessPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->cameraRedirect) {
             $res['CameraRedirect'] = $this->cameraRedirect;
         }
@@ -171,6 +192,17 @@ class policyGroupModel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessPolicies'])) {
+            if (!empty($map['AccessPolicies'])) {
+                $model->accessPolicies = [];
+                $n1 = 0;
+                foreach ($map['AccessPolicies'] as $item1) {
+                    $model->accessPolicies[$n1] = accessPolicies::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['CameraRedirect'])) {
             $model->cameraRedirect = $map['CameraRedirect'];
         }

@@ -5942,7 +5942,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries policies.
+     * Queries the details of a policy.
      *
      * @param request - ListPolicyGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5997,7 +5997,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries policies.
+     * Queries the details of a policy.
      *
      * @param request - ListPolicyGroupsRequest
      *
