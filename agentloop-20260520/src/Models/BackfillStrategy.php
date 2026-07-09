@@ -19,18 +19,12 @@ class BackfillStrategy extends Model
     public $endTime;
 
     /**
-     * @var bool
-     */
-    public $immediate;
-
-    /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'enabled' => 'enabled',
         'endTime' => 'endTime',
-        'immediate' => 'immediate',
         'startTime' => 'startTime',
     ];
 
@@ -48,10 +42,6 @@ class BackfillStrategy extends Model
 
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
-        }
-
-        if (null !== $this->immediate) {
-            $res['immediate'] = $this->immediate;
         }
 
         if (null !== $this->startTime) {
@@ -75,10 +65,6 @@ class BackfillStrategy extends Model
 
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
-        }
-
-        if (isset($map['immediate'])) {
-            $model->immediate = $map['immediate'];
         }
 
         if (isset($map['startTime'])) {

@@ -31,12 +31,22 @@ class ExperimentPlanData extends Model
     /**
      * @var string
      */
+    public $experimentType;
+
+    /**
+     * @var string
+     */
     public $planId;
 
     /**
      * @var string
      */
     public $planName;
+
+    /**
+     * @var string
+     */
+    public $querySql;
 
     /**
      * @var string
@@ -52,8 +62,10 @@ class ExperimentPlanData extends Model
         'datasetId' => 'datasetId',
         'description' => 'description',
         'experimentCount' => 'experimentCount',
+        'experimentType' => 'experimentType',
         'planId' => 'planId',
         'planName' => 'planName',
+        'querySql' => 'querySql',
         'status' => 'status',
         'updatedAt' => 'updatedAt',
     ];
@@ -82,12 +94,20 @@ class ExperimentPlanData extends Model
             $res['experimentCount'] = $this->experimentCount;
         }
 
+        if (null !== $this->experimentType) {
+            $res['experimentType'] = $this->experimentType;
+        }
+
         if (null !== $this->planId) {
             $res['planId'] = $this->planId;
         }
 
         if (null !== $this->planName) {
             $res['planName'] = $this->planName;
+        }
+
+        if (null !== $this->querySql) {
+            $res['querySql'] = $this->querySql;
         }
 
         if (null !== $this->status) {
@@ -125,12 +145,20 @@ class ExperimentPlanData extends Model
             $model->experimentCount = $map['experimentCount'];
         }
 
+        if (isset($map['experimentType'])) {
+            $model->experimentType = $map['experimentType'];
+        }
+
         if (isset($map['planId'])) {
             $model->planId = $map['planId'];
         }
 
         if (isset($map['planName'])) {
             $model->planName = $map['planName'];
+        }
+
+        if (isset($map['querySql'])) {
+            $model->querySql = $map['querySql'];
         }
 
         if (isset($map['status'])) {

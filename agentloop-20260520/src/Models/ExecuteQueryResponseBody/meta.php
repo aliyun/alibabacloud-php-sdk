@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\AgentLoop\V20260520\Models\ExecuteQueryResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ExecuteQueryResponseBody\meta\truncation;
 
 class meta extends Model
 {
@@ -27,15 +28,24 @@ class meta extends Model
      * @var string
      */
     public $progress;
+
+    /**
+     * @var truncation
+     */
+    public $truncation;
     protected $_name = [
         'affectedRows' => 'affectedRows',
         'count' => 'count',
         'elapsedMillisecond' => 'elapsedMillisecond',
         'progress' => 'progress',
+        'truncation' => 'truncation',
     ];
 
     public function validate()
     {
+        if (null !== $this->truncation) {
+            $this->truncation->validate();
+        }
         parent::validate();
     }
 
@@ -56,6 +66,10 @@ class meta extends Model
 
         if (null !== $this->progress) {
             $res['progress'] = $this->progress;
+        }
+
+        if (null !== $this->truncation) {
+            $res['truncation'] = null !== $this->truncation ? $this->truncation->toArray($noStream) : $this->truncation;
         }
 
         return $res;
@@ -83,6 +97,10 @@ class meta extends Model
 
         if (isset($map['progress'])) {
             $model->progress = $map['progress'];
+        }
+
+        if (isset($map['truncation'])) {
+            $model->truncation = truncation::fromMap($map['truncation']);
         }
 
         return $model;

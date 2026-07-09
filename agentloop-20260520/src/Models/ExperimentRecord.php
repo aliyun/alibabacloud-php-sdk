@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class ExperimentRecord extends Model
 {
     /**
-     * @var string
-     */
-    public $batchId;
-
-    /**
      * @var int
      */
     public $completedAt;
@@ -44,6 +39,11 @@ class ExperimentRecord extends Model
     public $errorMessage;
 
     /**
+     * @var string
+     */
+    public $evaluationTaskId;
+
+    /**
      * @var Evaluator[]
      */
     public $evaluators;
@@ -54,14 +54,14 @@ class ExperimentRecord extends Model
     public $executedAt;
 
     /**
-     * @var ExperimentConfig
+     * @var ExperimentConfig[]
      */
     public $experimentConfig;
 
     /**
      * @var string
      */
-    public $experimentName;
+    public $experimentPlanId;
 
     /**
      * @var int
@@ -74,14 +74,9 @@ class ExperimentRecord extends Model
     public $input;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $modelName;
-
-    /**
-     * @var string
-     */
-    public $planId;
+    public $modelNames;
 
     /**
      * @var string
@@ -96,7 +91,17 @@ class ExperimentRecord extends Model
     /**
      * @var string
      */
+    public $querySql;
+
+    /**
+     * @var string
+     */
     public $recordId;
+
+    /**
+     * @var string
+     */
+    public $recordName;
 
     /**
      * @var string[]
@@ -113,24 +118,25 @@ class ExperimentRecord extends Model
      */
     public $totalTasks;
     protected $_name = [
-        'batchId' => 'batchId',
         'completedAt' => 'completedAt',
         'completedTasks' => 'completedTasks',
         'dataSourceType' => 'dataSourceType',
         'datasetId' => 'datasetId',
         'datasetProject' => 'datasetProject',
         'errorMessage' => 'errorMessage',
+        'evaluationTaskId' => 'evaluationTaskId',
         'evaluators' => 'evaluators',
         'executedAt' => 'executedAt',
         'experimentConfig' => 'experimentConfig',
-        'experimentName' => 'experimentName',
+        'experimentPlanId' => 'experimentPlanId',
         'failedTasks' => 'failedTasks',
         'input' => 'input',
-        'modelName' => 'modelName',
-        'planId' => 'planId',
+        'modelNames' => 'modelNames',
         'planName' => 'planName',
         'progress' => 'progress',
+        'querySql' => 'querySql',
         'recordId' => 'recordId',
+        'recordName' => 'recordName',
         'selectedItemIds' => 'selectedItemIds',
         'status' => 'status',
         'totalTasks' => 'totalTasks',
@@ -141,11 +147,14 @@ class ExperimentRecord extends Model
         if (\is_array($this->evaluators)) {
             Model::validateArray($this->evaluators);
         }
-        if (null !== $this->experimentConfig) {
-            $this->experimentConfig->validate();
+        if (\is_array($this->experimentConfig)) {
+            Model::validateArray($this->experimentConfig);
         }
         if (\is_array($this->input)) {
             Model::validateArray($this->input);
+        }
+        if (\is_array($this->modelNames)) {
+            Model::validateArray($this->modelNames);
         }
         if (\is_array($this->selectedItemIds)) {
             Model::validateArray($this->selectedItemIds);
@@ -156,10 +165,6 @@ class ExperimentRecord extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->batchId) {
-            $res['batchId'] = $this->batchId;
-        }
-
         if (null !== $this->completedAt) {
             $res['completedAt'] = $this->completedAt;
         }
@@ -184,6 +189,10 @@ class ExperimentRecord extends Model
             $res['errorMessage'] = $this->errorMessage;
         }
 
+        if (null !== $this->evaluationTaskId) {
+            $res['evaluationTaskId'] = $this->evaluationTaskId;
+        }
+
         if (null !== $this->evaluators) {
             if (\is_array($this->evaluators)) {
                 $res['evaluators'] = [];
@@ -200,11 +209,18 @@ class ExperimentRecord extends Model
         }
 
         if (null !== $this->experimentConfig) {
-            $res['experimentConfig'] = null !== $this->experimentConfig ? $this->experimentConfig->toArray($noStream) : $this->experimentConfig;
+            if (\is_array($this->experimentConfig)) {
+                $res['experimentConfig'] = [];
+                $n1 = 0;
+                foreach ($this->experimentConfig as $item1) {
+                    $res['experimentConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
-        if (null !== $this->experimentName) {
-            $res['experimentName'] = $this->experimentName;
+        if (null !== $this->experimentPlanId) {
+            $res['experimentPlanId'] = $this->experimentPlanId;
         }
 
         if (null !== $this->failedTasks) {
@@ -220,12 +236,15 @@ class ExperimentRecord extends Model
             }
         }
 
-        if (null !== $this->modelName) {
-            $res['modelName'] = $this->modelName;
-        }
-
-        if (null !== $this->planId) {
-            $res['planId'] = $this->planId;
+        if (null !== $this->modelNames) {
+            if (\is_array($this->modelNames)) {
+                $res['modelNames'] = [];
+                $n1 = 0;
+                foreach ($this->modelNames as $item1) {
+                    $res['modelNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->planName) {
@@ -236,8 +255,16 @@ class ExperimentRecord extends Model
             $res['progress'] = $this->progress;
         }
 
+        if (null !== $this->querySql) {
+            $res['querySql'] = $this->querySql;
+        }
+
         if (null !== $this->recordId) {
             $res['recordId'] = $this->recordId;
+        }
+
+        if (null !== $this->recordName) {
+            $res['recordName'] = $this->recordName;
         }
 
         if (null !== $this->selectedItemIds) {
@@ -270,10 +297,6 @@ class ExperimentRecord extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['batchId'])) {
-            $model->batchId = $map['batchId'];
-        }
-
         if (isset($map['completedAt'])) {
             $model->completedAt = $map['completedAt'];
         }
@@ -298,6 +321,10 @@ class ExperimentRecord extends Model
             $model->errorMessage = $map['errorMessage'];
         }
 
+        if (isset($map['evaluationTaskId'])) {
+            $model->evaluationTaskId = $map['evaluationTaskId'];
+        }
+
         if (isset($map['evaluators'])) {
             if (!empty($map['evaluators'])) {
                 $model->evaluators = [];
@@ -314,11 +341,18 @@ class ExperimentRecord extends Model
         }
 
         if (isset($map['experimentConfig'])) {
-            $model->experimentConfig = ExperimentConfig::fromMap($map['experimentConfig']);
+            if (!empty($map['experimentConfig'])) {
+                $model->experimentConfig = [];
+                $n1 = 0;
+                foreach ($map['experimentConfig'] as $item1) {
+                    $model->experimentConfig[$n1] = ExperimentConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
-        if (isset($map['experimentName'])) {
-            $model->experimentName = $map['experimentName'];
+        if (isset($map['experimentPlanId'])) {
+            $model->experimentPlanId = $map['experimentPlanId'];
         }
 
         if (isset($map['failedTasks'])) {
@@ -334,12 +368,15 @@ class ExperimentRecord extends Model
             }
         }
 
-        if (isset($map['modelName'])) {
-            $model->modelName = $map['modelName'];
-        }
-
-        if (isset($map['planId'])) {
-            $model->planId = $map['planId'];
+        if (isset($map['modelNames'])) {
+            if (!empty($map['modelNames'])) {
+                $model->modelNames = [];
+                $n1 = 0;
+                foreach ($map['modelNames'] as $item1) {
+                    $model->modelNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['planName'])) {
@@ -350,8 +387,16 @@ class ExperimentRecord extends Model
             $model->progress = $map['progress'];
         }
 
+        if (isset($map['querySql'])) {
+            $model->querySql = $map['querySql'];
+        }
+
         if (isset($map['recordId'])) {
             $model->recordId = $map['recordId'];
+        }
+
+        if (isset($map['recordName'])) {
+            $model->recordName = $map['recordName'];
         }
 
         if (isset($map['selectedItemIds'])) {

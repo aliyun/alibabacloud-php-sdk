@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\AddDatasetDataRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\AddDatasetDataResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CancelPipelineRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CancelPipelineRunResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateAgentSpaceRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateAgentSpaceResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateContextStoreAPIKeyRequest;
@@ -16,6 +18,12 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateContextStoreRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateContextStoreResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateDatasetResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluationTaskRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluationTaskResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorSkillRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorSkillResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteAgentSpaceRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteAgentSpaceResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteContextStoreAPIKeyRequest;
@@ -24,6 +32,14 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteContextStoreRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteContextStoreResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteDatasetRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteDatasetResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluationRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluationRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluationTaskRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluationTaskResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluatorRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluatorResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluatorSkillRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluatorSkillResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeletePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DescribeRegionsRequest;
@@ -38,8 +54,20 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetContextStoreResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetDatasetRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetDatasetResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluationRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluationRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluationTaskRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluationTaskResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorSkillRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorSkillResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineStatsRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineStatsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListAgentSpacesRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListAgentSpacesResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListContextStoreAPIKeysRequest;
@@ -48,16 +76,42 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListContextStoresRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListContextStoresResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListDatasetsResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationRunsRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationRunsResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationTasksRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluationTasksResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluatorSkillsRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluatorSkillsResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluatorsRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluatorsResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelineRunsRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\PausePipelineRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\PausePipelineResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ResumePipelineRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ResumePipelineResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\RunPipelineRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\RunPipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\SearchContextRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\SearchContextResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\TerminatePipelineRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\TerminatePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateAgentSpaceRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateAgentSpaceResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateContextStoreResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateDatasetRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateDatasetResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluationRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluationRunResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluationTaskRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluationTaskResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorSkillRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorSkillResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -73,10 +127,14 @@ class AgentLoop extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-zhangjiakou' => 'agentloop.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen' => 'agentloop.cn-shenzhen.aliyuncs.com',
             'cn-shanghai' => 'agentloop.cn-shanghai.aliyuncs.com',
             'cn-hongkong' => 'agentloop.cn-hongkong.aliyuncs.com',
             'cn-hangzhou' => 'agentloop.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'agentloop.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'agentloop.cn-chengdu.aliyuncs.com',
             'cn-beijing' => 'agentloop.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'agentloop.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agentloop', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -107,7 +165,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
+     * Appends structured data rows to a specified dataset without requiring the client to construct SQL statements.
      *
      * @param request - AddDatasetDataRequest
      * @param headers - map
@@ -157,7 +215,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 向指定 Dataset 追加结构化数据行，避免客户端拼接 SQL。
+     * Appends structured data rows to a specified dataset without requiring the client to construct SQL statements.
      *
      * @param request - AddDatasetDataRequest
      *
@@ -178,7 +236,68 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 创建AgentSpace.
+     * Cancels a pipeline run.
+     *
+     * @param request - CancelPipelineRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelPipelineRunResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $pipelineName
+     * @param string                   $runId
+     * @param CancelPipelineRunRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CancelPipelineRunResponse
+     */
+    public function cancelPipelineRunWithOptions($agentSpace, $pipelineName, $runId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'CancelPipelineRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline/' . Url::percentEncode($pipelineName) . '/runs/' . Url::percentEncode($runId) . '/cancel',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CancelPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels a pipeline run.
+     *
+     * @param request - CancelPipelineRunRequest
+     *
+     * @returns CancelPipelineRunResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $pipelineName
+     * @param string                   $runId
+     * @param CancelPipelineRunRequest $request
+     *
+     * @return CancelPipelineRunResponse
+     */
+    public function cancelPipelineRun($agentSpace, $pipelineName, $runId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelPipelineRunWithOptions($agentSpace, $pipelineName, $runId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an AgentSpace.
      *
      * @param request - CreateAgentSpaceRequest
      * @param headers - map
@@ -213,6 +332,10 @@ class AgentLoop extends OpenApiClient
             @$body['description'] = $request->description;
         }
 
+        if (null !== $request->trajectoryStoreEnabled) {
+            @$body['trajectoryStoreEnabled'] = $request->trajectoryStoreEnabled;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -234,7 +357,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 创建AgentSpace.
+     * Creates an AgentSpace.
      *
      * @param request - CreateAgentSpaceRequest
      *
@@ -253,7 +376,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 创建上下文库.
+     * Creates a context store.
      *
      * @param request - CreateContextStoreRequest
      * @param headers - map
@@ -314,7 +437,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 创建上下文库.
+     * Creates a context store.
      *
      * @param request - CreateContextStoreRequest
      *
@@ -334,7 +457,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 创建 API Key.
+     * Creates an API key.
      *
      * @param request - CreateContextStoreAPIKeyRequest
      * @param headers - map
@@ -384,7 +507,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 创建 API Key.
+     * Creates an API key.
      *
      * @param request - CreateContextStoreAPIKeyRequest
      *
@@ -405,7 +528,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset.
      *
      * @param request - CreateDatasetRequest
      * @param headers - map
@@ -462,7 +585,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 创建数据集.
+     * Creates a dataset.
      *
      * @param request - CreateDatasetRequest
      *
@@ -482,7 +605,314 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除AgentSpace.
+     * Creates an evaluation task.
+     *
+     * @remarks
+     * Calls the CreateEvaluationTask operation to create an evaluation task in a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+     * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+     *
+     * @param request - CreateEvaluationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEvaluationTaskResponse
+     *
+     * @param string                      $agentSpace
+     * @param CreateEvaluationTaskRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateEvaluationTaskResponse
+     */
+    public function createEvaluationTaskWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->channel) {
+            @$body['channel'] = $request->channel;
+        }
+
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->dataFilter) {
+            @$body['dataFilter'] = $request->dataFilter;
+        }
+
+        if (null !== $request->dataType) {
+            @$body['dataType'] = $request->dataType;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->evaluators) {
+            @$body['evaluators'] = $request->evaluators;
+        }
+
+        if (null !== $request->runStrategies) {
+            @$body['runStrategies'] = $request->runStrategies;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
+        }
+
+        if (null !== $request->taskMode) {
+            @$body['taskMode'] = $request->taskMode;
+        }
+
+        if (null !== $request->taskName) {
+            @$body['taskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEvaluationTask',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluation-task/' . Url::percentEncode($agentSpace) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an evaluation task.
+     *
+     * @remarks
+     * Calls the CreateEvaluationTask operation to create an evaluation task in a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+     * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+     *
+     * @param request - CreateEvaluationTaskRequest
+     *
+     * @returns CreateEvaluationTaskResponse
+     *
+     * @param string                      $agentSpace
+     * @param CreateEvaluationTaskRequest $request
+     *
+     * @return CreateEvaluationTaskResponse
+     */
+    public function createEvaluationTask($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createEvaluationTaskWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an evaluator.
+     *
+     * @param request - CreateEvaluatorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEvaluatorResponse
+     *
+     * @param string                 $agentSpace
+     * @param CreateEvaluatorRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateEvaluatorResponse
+     */
+    public function createEvaluatorWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->annotations) {
+            @$body['annotations'] = $request->annotations;
+        }
+
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->metricName) {
+            @$body['metricName'] = $request->metricName;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->properties) {
+            @$body['properties'] = $request->properties;
+        }
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        if (null !== $request->versionDescription) {
+            @$body['versionDescription'] = $request->versionDescription;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEvaluator',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluators/' . Url::percentEncode($agentSpace) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEvaluatorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an evaluator.
+     *
+     * @param request - CreateEvaluatorRequest
+     *
+     * @returns CreateEvaluatorResponse
+     *
+     * @param string                 $agentSpace
+     * @param CreateEvaluatorRequest $request
+     *
+     * @return CreateEvaluatorResponse
+     */
+    public function createEvaluator($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createEvaluatorWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates an evaluator skill.
+     *
+     * @param request - CreateEvaluatorSkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEvaluatorSkillResponse
+     *
+     * @param string                      $name
+     * @param CreateEvaluatorSkillRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateEvaluatorSkillResponse
+     */
+    public function createEvaluatorSkillWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentSpace) {
+            @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
+        }
+
+        if (null !== $request->skillName) {
+            @$body['skillName'] = $request->skillName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEvaluatorSkill',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluator/' . Url::percentEncode($name) . '/skill',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEvaluatorSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an evaluator skill.
+     *
+     * @param request - CreateEvaluatorSkillRequest
+     *
+     * @returns CreateEvaluatorSkillResponse
+     *
+     * @param string                      $name
+     * @param CreateEvaluatorSkillRequest $request
+     *
+     * @return CreateEvaluatorSkillResponse
+     */
+    public function createEvaluatorSkill($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createEvaluatorSkillWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an AgentSpace.
      *
      * @param request - DeleteAgentSpaceRequest
      * @param headers - map
@@ -533,7 +963,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除AgentSpace.
+     * Deletes an AgentSpace.
      *
      * @param request - DeleteAgentSpaceRequest
      *
@@ -553,7 +983,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除上下文库.
+     * Deletes a context store.
      *
      * @param request - DeleteContextStoreRequest
      * @param headers - map
@@ -591,7 +1021,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除上下文库.
+     * Deletes a context store.
      *
      * @param request - DeleteContextStoreRequest
      *
@@ -612,7 +1042,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除 API Key.
+     * Deletes an API key.
      *
      * @param request - DeleteContextStoreAPIKeyRequest
      * @param headers - map
@@ -651,7 +1081,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除 API Key.
+     * Deletes an API key.
      *
      * @param request - DeleteContextStoreAPIKeyRequest
      *
@@ -673,7 +1103,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Deletes a dataset.
      *
      * @param request - DeleteDatasetRequest
      * @param headers - map
@@ -711,7 +1141,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除数据集.
+     * Deletes a dataset.
      *
      * @param request - DeleteDatasetRequest
      *
@@ -732,7 +1162,257 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除流水线
+     * Deletes an evaluation run.
+     *
+     * @param request - DeleteEvaluationRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEvaluationRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $taskId
+     * @param string                     $runId
+     * @param DeleteEvaluationRunRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteEvaluationRunResponse
+     */
+    public function deleteEvaluationRunWithOptions($agentSpace, $taskId, $runId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEvaluationRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluation-task/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($taskId) . '/run/' . Url::percentEncode($runId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEvaluationRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an evaluation run.
+     *
+     * @param request - DeleteEvaluationRunRequest
+     *
+     * @returns DeleteEvaluationRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $taskId
+     * @param string                     $runId
+     * @param DeleteEvaluationRunRequest $request
+     *
+     * @return DeleteEvaluationRunResponse
+     */
+    public function deleteEvaluationRun($agentSpace, $taskId, $runId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteEvaluationRunWithOptions($agentSpace, $taskId, $runId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an evaluation task.
+     *
+     * @param request - DeleteEvaluationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEvaluationTaskResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $taskId
+     * @param DeleteEvaluationTaskRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteEvaluationTaskResponse
+     */
+    public function deleteEvaluationTaskWithOptions($agentSpace, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEvaluationTask',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluation-task/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($taskId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an evaluation task.
+     *
+     * @param request - DeleteEvaluationTaskRequest
+     *
+     * @returns DeleteEvaluationTaskResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $taskId
+     * @param DeleteEvaluationTaskRequest $request
+     *
+     * @return DeleteEvaluationTaskResponse
+     */
+    public function deleteEvaluationTask($agentSpace, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteEvaluationTaskWithOptions($agentSpace, $taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an evaluator.
+     *
+     * @param request - DeleteEvaluatorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEvaluatorResponse
+     *
+     * @param string                 $agentSpace
+     * @param string                 $name
+     * @param DeleteEvaluatorRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteEvaluatorResponse
+     */
+    public function deleteEvaluatorWithOptions($agentSpace, $name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEvaluator',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluators/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEvaluatorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an evaluator.
+     *
+     * @param request - DeleteEvaluatorRequest
+     *
+     * @returns DeleteEvaluatorResponse
+     *
+     * @param string                 $agentSpace
+     * @param string                 $name
+     * @param DeleteEvaluatorRequest $request
+     *
+     * @return DeleteEvaluatorResponse
+     */
+    public function deleteEvaluator($agentSpace, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteEvaluatorWithOptions($agentSpace, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an evaluator skill.
+     *
+     * @param request - DeleteEvaluatorSkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEvaluatorSkillResponse
+     *
+     * @param string                      $name
+     * @param string                      $skillName
+     * @param DeleteEvaluatorSkillRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteEvaluatorSkillResponse
+     */
+    public function deleteEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentSpace) {
+            @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEvaluatorSkill',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluator/' . Url::percentEncode($name) . '/skill/' . Url::percentEncode($skillName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEvaluatorSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an evaluator skill.
+     *
+     * @param request - DeleteEvaluatorSkillRequest
+     *
+     * @returns DeleteEvaluatorSkillResponse
+     *
+     * @param string                      $name
+     * @param string                      $skillName
+     * @param DeleteEvaluatorSkillRequest $request
+     *
+     * @return DeleteEvaluatorSkillResponse
+     */
+    public function deleteEvaluatorSkill($name, $skillName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes a pipeline.
      *
      * @param request - DeletePipelineRequest
      * @param headers - map
@@ -770,7 +1450,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 删除流水线
+     * Deletes a pipeline.
      *
      * @param request - DeletePipelineRequest
      *
@@ -791,7 +1471,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询Regions.
+     * Queries regions.
      *
      * @param request - DescribeRegionsRequest
      * @param headers - map
@@ -841,7 +1521,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询Regions.
+     * Queries regions.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -860,7 +1540,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 执行查询语句.
+     * Executes a query statement.
      *
      * @param request - ExecuteQueryRequest
      * @param headers - map
@@ -880,8 +1560,28 @@ class AgentLoop extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->from) {
+            @$body['from'] = $request->from;
+        }
+
+        if (null !== $request->length) {
+            @$body['length'] = $request->length;
+        }
+
+        if (null !== $request->maxOutputLength) {
+            @$body['maxOutputLength'] = $request->maxOutputLength;
+        }
+
+        if (null !== $request->offset) {
+            @$body['offset'] = $request->offset;
+        }
+
         if (null !== $request->query) {
             @$body['query'] = $request->query;
+        }
+
+        if (null !== $request->to) {
+            @$body['to'] = $request->to;
         }
 
         if (null !== $request->type) {
@@ -908,7 +1608,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 执行查询语句.
+     * Executes a query statement.
      *
      * @param request - ExecuteQueryRequest
      *
@@ -929,7 +1629,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询AgentSpace.
+     * Queries an AgentSpace.
      *
      * @param request - GetAgentSpaceRequest
      * @param headers - map
@@ -966,7 +1666,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询AgentSpace.
+     * Queries an AgentSpace.
      *
      * @param request - GetAgentSpaceRequest
      *
@@ -986,7 +1686,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询上下文库.
+     * Queries a context store.
      *
      * @param request - GetContextStoreRequest
      * @param headers - map
@@ -1024,7 +1724,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询上下文库.
+     * Queries a context store.
      *
      * @param request - GetContextStoreRequest
      *
@@ -1045,7 +1745,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 获取 API Key.
+     * Retrieves an API key.
      *
      * @param request - GetContextStoreAPIKeyRequest
      * @param headers - map
@@ -1084,7 +1784,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 获取 API Key.
+     * Retrieves an API key.
      *
      * @param request - GetContextStoreAPIKeyRequest
      *
@@ -1106,7 +1806,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询数据集.
+     * Queries a dataset.
      *
      * @param request - GetDatasetRequest
      * @param headers - map
@@ -1144,7 +1844,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询数据集.
+     * Queries a dataset.
      *
      * @param request - GetDatasetRequest
      *
@@ -1165,7 +1865,261 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询流水线
+     * Retrieves the details of an evaluation run.
+     *
+     * @param request - GetEvaluationRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEvaluationRunResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $taskId
+     * @param string                  $runId
+     * @param GetEvaluationRunRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetEvaluationRunResponse
+     */
+    public function getEvaluationRunWithOptions($agentSpace, $taskId, $runId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetEvaluationRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluation-task/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($taskId) . '/run/' . Url::percentEncode($runId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEvaluationRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an evaluation run.
+     *
+     * @param request - GetEvaluationRunRequest
+     *
+     * @returns GetEvaluationRunResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $taskId
+     * @param string                  $runId
+     * @param GetEvaluationRunRequest $request
+     *
+     * @return GetEvaluationRunResponse
+     */
+    public function getEvaluationRun($agentSpace, $taskId, $runId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEvaluationRunWithOptions($agentSpace, $taskId, $runId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the details of an evaluation task.
+     *
+     * @param request - GetEvaluationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEvaluationTaskResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $taskId
+     * @param GetEvaluationTaskRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetEvaluationTaskResponse
+     */
+    public function getEvaluationTaskWithOptions($agentSpace, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetEvaluationTask',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluation-task/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an evaluation task.
+     *
+     * @param request - GetEvaluationTaskRequest
+     *
+     * @returns GetEvaluationTaskResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $taskId
+     * @param GetEvaluationTaskRequest $request
+     *
+     * @return GetEvaluationTaskResponse
+     */
+    public function getEvaluationTask($agentSpace, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEvaluationTaskWithOptions($agentSpace, $taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the details of an evaluator.
+     *
+     * @param request - GetEvaluatorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEvaluatorResponse
+     *
+     * @param string              $agentSpace
+     * @param string              $name
+     * @param GetEvaluatorRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetEvaluatorResponse
+     */
+    public function getEvaluatorWithOptions($agentSpace, $name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetEvaluator',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluators/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEvaluatorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an evaluator.
+     *
+     * @param request - GetEvaluatorRequest
+     *
+     * @returns GetEvaluatorResponse
+     *
+     * @param string              $agentSpace
+     * @param string              $name
+     * @param GetEvaluatorRequest $request
+     *
+     * @return GetEvaluatorResponse
+     */
+    public function getEvaluator($agentSpace, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEvaluatorWithOptions($agentSpace, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the details of an evaluator skill.
+     *
+     * @param request - GetEvaluatorSkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEvaluatorSkillResponse
+     *
+     * @param string                   $name
+     * @param string                   $skillName
+     * @param GetEvaluatorSkillRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetEvaluatorSkillResponse
+     */
+    public function getEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentSpace) {
+            @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetEvaluatorSkill',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluator/' . Url::percentEncode($name) . '/skill/' . Url::percentEncode($skillName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEvaluatorSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of an evaluator skill.
+     *
+     * @param request - GetEvaluatorSkillRequest
+     *
+     * @returns GetEvaluatorSkillResponse
+     *
+     * @param string                   $name
+     * @param string                   $skillName
+     * @param GetEvaluatorSkillRequest $request
+     *
+     * @return GetEvaluatorSkillResponse
+     */
+    public function getEvaluatorSkill($name, $skillName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a CI/CD pipeline.
      *
      * @param request - GetPipelineRequest
      * @param headers - map
@@ -1203,7 +2157,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询流水线
+     * Queries a CI/CD pipeline.
      *
      * @param request - GetPipelineRequest
      *
@@ -1224,7 +2178,141 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询AgentSpace列表.
+     * Queries the details of a single pipeline run.
+     *
+     * @param request - GetPipelineRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPipelineRunResponse
+     *
+     * @param string                $agentSpace
+     * @param string                $pipelineName
+     * @param string                $runId
+     * @param GetPipelineRunRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetPipelineRunResponse
+     */
+    public function getPipelineRunWithOptions($agentSpace, $pipelineName, $runId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetPipelineRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline/' . Url::percentEncode($pipelineName) . '/runs/' . Url::percentEncode($runId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a single pipeline run.
+     *
+     * @param request - GetPipelineRunRequest
+     *
+     * @returns GetPipelineRunResponse
+     *
+     * @param string                $agentSpace
+     * @param string                $pipelineName
+     * @param string                $runId
+     * @param GetPipelineRunRequest $request
+     *
+     * @return GetPipelineRunResponse
+     */
+    public function getPipelineRun($agentSpace, $pipelineName, $runId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPipelineRunWithOptions($agentSpace, $pipelineName, $runId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries pipeline run statistics.
+     *
+     * @param request - GetPipelineStatsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPipelineStatsResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $pipelineName
+     * @param GetPipelineStatsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetPipelineStatsResponse
+     */
+    public function getPipelineStatsWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->granularity) {
+            @$query['granularity'] = $request->granularity;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPipelineStats',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline/' . Url::percentEncode($pipelineName) . '/stats',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPipelineStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries pipeline run statistics.
+     *
+     * @param request - GetPipelineStatsRequest
+     *
+     * @returns GetPipelineStatsResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $pipelineName
+     * @param GetPipelineStatsRequest $request
+     *
+     * @return GetPipelineStatsResponse
+     */
+    public function getPipelineStats($agentSpace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPipelineStatsWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a list of AgentSpaces.
      *
      * @param request - ListAgentSpacesRequest
      * @param headers - map
@@ -1254,6 +2342,10 @@ class AgentLoop extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->regionId) {
+            @$query['regionId'] = $request->regionId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -1274,7 +2366,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询AgentSpace列表.
+     * Queries a list of AgentSpaces.
      *
      * @param request - ListAgentSpacesRequest
      *
@@ -1293,7 +2385,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 获取 API Key 列表.
+     * Retrieves a list of API keys.
      *
      * @param request - ListContextStoreAPIKeysRequest
      * @param headers - map
@@ -1341,7 +2433,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 获取 API Key 列表.
+     * Retrieves a list of API keys.
      *
      * @param request - ListContextStoreAPIKeysRequest
      *
@@ -1362,7 +2454,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询上下文库列表.
+     * Queries a list of context stores.
      *
      * @param request - ListContextStoresRequest
      * @param headers - map
@@ -1417,7 +2509,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询上下文库列表.
+     * Queries a list of context stores.
      *
      * @param request - ListContextStoresRequest
      *
@@ -1437,7 +2529,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询数据集列表.
+     * Queries a list of datasets.
      *
      * @param request - ListDatasetsRequest
      * @param headers - map
@@ -1488,7 +2580,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询数据集列表.
+     * Queries a list of datasets.
      *
      * @param request - ListDatasetsRequest
      *
@@ -1508,7 +2600,410 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询流水线列表.
+     * Queries the list of evaluation runs.
+     *
+     * @param request - ListEvaluationRunsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvaluationRunsResponse
+     *
+     * @param string                    $agentSpace
+     * @param string                    $taskId
+     * @param ListEvaluationRunsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListEvaluationRunsResponse
+     */
+    public function listEvaluationRunsWithOptions($agentSpace, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->runType) {
+            @$query['runType'] = $request->runType;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEvaluationRuns',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluation-task/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($taskId) . '/runs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEvaluationRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of evaluation runs.
+     *
+     * @param request - ListEvaluationRunsRequest
+     *
+     * @returns ListEvaluationRunsResponse
+     *
+     * @param string                    $agentSpace
+     * @param string                    $taskId
+     * @param ListEvaluationRunsRequest $request
+     *
+     * @return ListEvaluationRunsResponse
+     */
+    public function listEvaluationRuns($agentSpace, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEvaluationRunsWithOptions($agentSpace, $taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a list of evaluation tasks.
+     *
+     * @param request - ListEvaluationTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvaluationTasksResponse
+     *
+     * @param ListEvaluationTasksRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListEvaluationTasksResponse
+     */
+    public function listEvaluationTasksWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentSpace) {
+            @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->channel) {
+            @$query['channel'] = $request->channel;
+        }
+
+        if (null !== $request->dataType) {
+            @$query['dataType'] = $request->dataType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->taskMode) {
+            @$query['taskMode'] = $request->taskMode;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['taskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEvaluationTasks',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluation-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEvaluationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of evaluation tasks.
+     *
+     * @param request - ListEvaluationTasksRequest
+     *
+     * @returns ListEvaluationTasksResponse
+     *
+     * @param ListEvaluationTasksRequest $request
+     *
+     * @return ListEvaluationTasksResponse
+     */
+    public function listEvaluationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEvaluationTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the skill list of an evaluator.
+     *
+     * @param request - ListEvaluatorSkillsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvaluatorSkillsResponse
+     *
+     * @param string                     $name
+     * @param ListEvaluatorSkillsRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListEvaluatorSkillsResponse
+     */
+    public function listEvaluatorSkillsWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentSpace) {
+            @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEvaluatorSkills',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluator/' . Url::percentEncode($name) . '/skills',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEvaluatorSkillsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the skill list of an evaluator.
+     *
+     * @param request - ListEvaluatorSkillsRequest
+     *
+     * @returns ListEvaluatorSkillsResponse
+     *
+     * @param string                     $name
+     * @param ListEvaluatorSkillsRequest $request
+     *
+     * @return ListEvaluatorSkillsResponse
+     */
+    public function listEvaluatorSkills($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEvaluatorSkillsWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a list of evaluators.
+     *
+     * @param request - ListEvaluatorsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvaluatorsResponse
+     *
+     * @param ListEvaluatorsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListEvaluatorsResponse
+     */
+    public function listEvaluatorsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentSpace) {
+            @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
+        }
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEvaluators',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluators',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEvaluatorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a list of evaluators.
+     *
+     * @param request - ListEvaluatorsRequest
+     *
+     * @returns ListEvaluatorsResponse
+     *
+     * @param ListEvaluatorsRequest $request
+     *
+     * @return ListEvaluatorsResponse
+     */
+    public function listEvaluators($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listEvaluatorsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the execution history list of a pipeline.
+     *
+     * @param request - ListPipelineRunsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPipelineRunsResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $pipelineName
+     * @param ListPipelineRunsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPipelineRunsResponse
+     */
+    public function listPipelineRunsWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        if (null !== $request->triggerType) {
+            @$query['triggerType'] = $request->triggerType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPipelineRuns',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline/' . Url::percentEncode($pipelineName) . '/runs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPipelineRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the execution history list of a pipeline.
+     *
+     * @param request - ListPipelineRunsRequest
+     *
+     * @returns ListPipelineRunsResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $pipelineName
+     * @param ListPipelineRunsRequest $request
+     *
+     * @return ListPipelineRunsResponse
+     */
+    public function listPipelineRuns($agentSpace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPipelineRunsWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Lists CI/CD pipelines.
      *
      * @param request - ListPipelinesRequest
      * @param headers - map
@@ -1539,6 +3034,14 @@ class AgentLoop extends OpenApiClient
             @$query['pipelineName'] = $request->pipelineName;
         }
 
+        if (null !== $request->scheduleStatus) {
+            @$query['scheduleStatus'] = $request->scheduleStatus;
+        }
+
+        if (null !== $request->scheduleType) {
+            @$query['scheduleType'] = $request->scheduleType;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),
@@ -1559,7 +3062,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 查询流水线列表.
+     * Lists CI/CD pipelines.
      *
      * @param request - ListPipelinesRequest
      *
@@ -1579,7 +3082,204 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 搜索上下文.
+     * Pauses a pipeline.
+     *
+     * @param request - PausePipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PausePipelineResponse
+     *
+     * @param string               $agentSpace
+     * @param string               $pipelineName
+     * @param PausePipelineRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PausePipelineResponse
+     */
+    public function pausePipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PausePipeline',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline/' . Url::percentEncode($pipelineName) . '/pause',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PausePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Pauses a pipeline.
+     *
+     * @param request - PausePipelineRequest
+     *
+     * @returns PausePipelineResponse
+     *
+     * @param string               $agentSpace
+     * @param string               $pipelineName
+     * @param PausePipelineRequest $request
+     *
+     * @return PausePipelineResponse
+     */
+    public function pausePipeline($agentSpace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->pausePipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Resumes a pipeline.
+     *
+     * @param request - ResumePipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResumePipelineResponse
+     *
+     * @param string                $agentSpace
+     * @param string                $pipelineName
+     * @param ResumePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ResumePipelineResponse
+     */
+    public function resumePipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'ResumePipeline',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline/' . Url::percentEncode($pipelineName) . '/resume',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ResumePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resumes a pipeline.
+     *
+     * @param request - ResumePipelineRequest
+     *
+     * @returns ResumePipelineResponse
+     *
+     * @param string                $agentSpace
+     * @param string                $pipelineName
+     * @param ResumePipelineRequest $request
+     *
+     * @return ResumePipelineResponse
+     */
+    public function resumePipeline($agentSpace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->resumePipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Manually triggers a pipeline execution.
+     *
+     * @param request - RunPipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunPipelineResponse
+     *
+     * @param string             $agentSpace
+     * @param string             $pipelineName
+     * @param RunPipelineRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RunPipelineResponse
+     */
+    public function runPipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fromTime) {
+            @$body['fromTime'] = $request->fromTime;
+        }
+
+        if (null !== $request->output) {
+            @$body['output'] = $request->output;
+        }
+
+        if (null !== $request->toTime) {
+            @$body['toTime'] = $request->toTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RunPipeline',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline/' . Url::percentEncode($pipelineName) . '/run',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RunPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Manually triggers a pipeline execution.
+     *
+     * @param request - RunPipelineRequest
+     *
+     * @returns RunPipelineResponse
+     *
+     * @param string             $agentSpace
+     * @param string             $pipelineName
+     * @param RunPipelineRequest $request
+     *
+     * @return RunPipelineResponse
+     */
+    public function runPipeline($agentSpace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runPipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Searches contexts.
      *
      * @param request - SearchContextRequest
      * @param headers - map
@@ -1643,7 +3343,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 搜索上下文.
+     * Searches contexts.
      *
      * @param request - SearchContextRequest
      *
@@ -1664,7 +3364,72 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 更新AgentSpace.
+     * Stops a pipeline.
+     *
+     * @param request - TerminatePipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TerminatePipelineResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $pipelineName
+     * @param TerminatePipelineRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TerminatePipelineResponse
+     */
+    public function terminatePipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'TerminatePipeline',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline/' . Url::percentEncode($pipelineName) . '/terminate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return TerminatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops a pipeline.
+     *
+     * @param request - TerminatePipelineRequest
+     *
+     * @returns TerminatePipelineResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $pipelineName
+     * @param TerminatePipelineRequest $request
+     *
+     * @return TerminatePipelineResponse
+     */
+    public function terminatePipeline($agentSpace, $pipelineName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->terminatePipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates an AgentSpace.
      *
      * @param request - UpdateAgentSpaceRequest
      * @param headers - map
@@ -1717,7 +3482,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 更新AgentSpace.
+     * Updates an AgentSpace.
      *
      * @param request - UpdateAgentSpaceRequest
      *
@@ -1737,7 +3502,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 修改上下文库配置.
+     * Modifies the configuration of a context store.
      *
      * @param request - UpdateContextStoreRequest
      * @param headers - map
@@ -1795,7 +3560,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 修改上下文库配置.
+     * Modifies the configuration of a context store.
      *
      * @param request - UpdateContextStoreRequest
      *
@@ -1816,7 +3581,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Updates a dataset.
      *
      * @param request - UpdateDatasetRequest
      * @param headers - map
@@ -1870,7 +3635,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 更新数据集.
+     * Updates a dataset.
      *
      * @param request - UpdateDatasetRequest
      *
@@ -1891,7 +3656,351 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 更新流水线
+     * Updates an evaluation run.
+     *
+     * @param request - UpdateEvaluationRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEvaluationRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $taskId
+     * @param string                     $runId
+     * @param UpdateEvaluationRunRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateEvaluationRunResponse
+     */
+    public function updateEvaluationRunWithOptions($agentSpace, $taskId, $runId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEvaluationRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluation-task/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($taskId) . '/run/' . Url::percentEncode($runId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEvaluationRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an evaluation run.
+     *
+     * @param request - UpdateEvaluationRunRequest
+     *
+     * @returns UpdateEvaluationRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $taskId
+     * @param string                     $runId
+     * @param UpdateEvaluationRunRequest $request
+     *
+     * @return UpdateEvaluationRunResponse
+     */
+    public function updateEvaluationRun($agentSpace, $taskId, $runId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateEvaluationRunWithOptions($agentSpace, $taskId, $runId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates an evaluation task.
+     *
+     * @param request - UpdateEvaluationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEvaluationTaskResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $taskId
+     * @param UpdateEvaluationTaskRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateEvaluationTaskResponse
+     */
+    public function updateEvaluationTaskWithOptions($agentSpace, $taskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->dataFilter) {
+            @$body['dataFilter'] = $request->dataFilter;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->evaluators) {
+            @$body['evaluators'] = $request->evaluators;
+        }
+
+        if (null !== $request->runStrategies) {
+            @$body['runStrategies'] = $request->runStrategies;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEvaluationTask',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluation-task/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($taskId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an evaluation task.
+     *
+     * @param request - UpdateEvaluationTaskRequest
+     *
+     * @returns UpdateEvaluationTaskResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $taskId
+     * @param UpdateEvaluationTaskRequest $request
+     *
+     * @return UpdateEvaluationTaskResponse
+     */
+    public function updateEvaluationTask($agentSpace, $taskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateEvaluationTaskWithOptions($agentSpace, $taskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates an evaluator.
+     *
+     * @param request - UpdateEvaluatorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEvaluatorResponse
+     *
+     * @param string                 $agentSpace
+     * @param string                 $name
+     * @param UpdateEvaluatorRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateEvaluatorResponse
+     */
+    public function updateEvaluatorWithOptions($agentSpace, $name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->annotations) {
+            @$body['annotations'] = $request->annotations;
+        }
+
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->properties) {
+            @$body['properties'] = $request->properties;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
+        }
+
+        if (null !== $request->versionDescription) {
+            @$body['versionDescription'] = $request->versionDescription;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEvaluator',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluators/' . Url::percentEncode($agentSpace) . '/' . Url::percentEncode($name) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEvaluatorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an evaluator.
+     *
+     * @param request - UpdateEvaluatorRequest
+     *
+     * @returns UpdateEvaluatorResponse
+     *
+     * @param string                 $agentSpace
+     * @param string                 $name
+     * @param UpdateEvaluatorRequest $request
+     *
+     * @return UpdateEvaluatorResponse
+     */
+    public function updateEvaluator($agentSpace, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateEvaluatorWithOptions($agentSpace, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates an evaluator skill.
+     *
+     * @param request - UpdateEvaluatorSkillRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEvaluatorSkillResponse
+     *
+     * @param string                      $name
+     * @param string                      $skillName
+     * @param UpdateEvaluatorSkillRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateEvaluatorSkillResponse
+     */
+    public function updateEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentSpace) {
+            @$query['agentSpace'] = $request->agentSpace;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->enable) {
+            @$body['enable'] = $request->enable;
+        }
+
+        if (null !== $request->files) {
+            @$body['files'] = $request->files;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEvaluatorSkill',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/evaluator/' . Url::percentEncode($name) . '/skill/' . Url::percentEncode($skillName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEvaluatorSkillResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an evaluator skill.
+     *
+     * @param request - UpdateEvaluatorSkillRequest
+     *
+     * @returns UpdateEvaluatorSkillResponse
+     *
+     * @param string                      $name
+     * @param string                      $skillName
+     * @param UpdateEvaluatorSkillRequest $request
+     *
+     * @return UpdateEvaluatorSkillResponse
+     */
+    public function updateEvaluatorSkill($name, $skillName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a pipeline.
      *
      * @param request - UpdatePipelineRequest
      * @param headers - map
@@ -1957,7 +4066,7 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
-     * 更新流水线
+     * Updates a pipeline.
      *
      * @param request - UpdatePipelineRequest
      *

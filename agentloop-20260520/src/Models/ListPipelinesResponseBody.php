@@ -28,11 +28,17 @@ class ListPipelinesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'pipelines' => 'pipelines',
         'requestId' => 'requestId',
+        'totalCount' => 'totalCount',
     ];
 
     public function validate()
@@ -69,6 +75,10 @@ class ListPipelinesResponseBody extends Model
             $res['requestId'] = $this->requestId;
         }
 
+        if (null !== $this->totalCount) {
+            $res['totalCount'] = $this->totalCount;
+        }
+
         return $res;
     }
 
@@ -101,6 +111,10 @@ class ListPipelinesResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['totalCount'])) {
+            $model->totalCount = $map['totalCount'];
         }
 
         return $model;

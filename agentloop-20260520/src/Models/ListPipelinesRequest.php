@@ -22,10 +22,22 @@ class ListPipelinesRequest extends Model
      * @var string
      */
     public $pipelineName;
+
+    /**
+     * @var string
+     */
+    public $scheduleStatus;
+
+    /**
+     * @var string
+     */
+    public $scheduleType;
     protected $_name = [
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
         'pipelineName' => 'pipelineName',
+        'scheduleStatus' => 'scheduleStatus',
+        'scheduleType' => 'scheduleType',
     ];
 
     public function validate()
@@ -46,6 +58,14 @@ class ListPipelinesRequest extends Model
 
         if (null !== $this->pipelineName) {
             $res['pipelineName'] = $this->pipelineName;
+        }
+
+        if (null !== $this->scheduleStatus) {
+            $res['scheduleStatus'] = $this->scheduleStatus;
+        }
+
+        if (null !== $this->scheduleType) {
+            $res['scheduleType'] = $this->scheduleType;
         }
 
         return $res;
@@ -69,6 +89,14 @@ class ListPipelinesRequest extends Model
 
         if (isset($map['pipelineName'])) {
             $model->pipelineName = $map['pipelineName'];
+        }
+
+        if (isset($map['scheduleStatus'])) {
+            $model->scheduleStatus = $map['scheduleStatus'];
+        }
+
+        if (isset($map['scheduleType'])) {
+            $model->scheduleType = $map['scheduleType'];
         }
 
         return $model;

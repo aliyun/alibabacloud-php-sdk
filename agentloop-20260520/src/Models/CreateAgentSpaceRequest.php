@@ -24,6 +24,11 @@ class CreateAgentSpaceRequest extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $trajectoryStoreEnabled;
+
+    /**
      * @var string
      */
     public $clientToken;
@@ -31,6 +36,7 @@ class CreateAgentSpaceRequest extends Model
         'agentSpace' => 'agentSpace',
         'cmsWorkspace' => 'cmsWorkspace',
         'description' => 'description',
+        'trajectoryStoreEnabled' => 'trajectoryStoreEnabled',
         'clientToken' => 'clientToken',
     ];
 
@@ -52,6 +58,10 @@ class CreateAgentSpaceRequest extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->trajectoryStoreEnabled) {
+            $res['trajectoryStoreEnabled'] = $this->trajectoryStoreEnabled;
         }
 
         if (null !== $this->clientToken) {
@@ -79,6 +89,10 @@ class CreateAgentSpaceRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['trajectoryStoreEnabled'])) {
+            $model->trajectoryStoreEnabled = $map['trajectoryStoreEnabled'];
         }
 
         if (isset($map['clientToken'])) {

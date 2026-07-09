@@ -22,10 +22,16 @@ class ListAgentSpacesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
         'agentSpace' => 'agentSpace',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'regionId' => 'regionId',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ListAgentSpacesRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ListAgentSpacesRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
         }
 
         return $model;

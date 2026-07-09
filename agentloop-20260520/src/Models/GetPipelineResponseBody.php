@@ -13,6 +13,11 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponseBody\source;
 class GetPipelineResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $committedWatermark;
+
+    /**
      * @var string
      */
     public $createTime;
@@ -26,6 +31,11 @@ class GetPipelineResponseBody extends Model
      * @var executePolicy
      */
     public $executePolicy;
+
+    /**
+     * @var int
+     */
+    public $nextTriggerTime;
 
     /**
      * @var pipeline
@@ -48,6 +58,11 @@ class GetPipelineResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $scheduleStatus;
+
+    /**
      * @var sink
      */
     public $sink;
@@ -67,13 +82,16 @@ class GetPipelineResponseBody extends Model
      */
     public $workspace;
     protected $_name = [
+        'committedWatermark' => 'committedWatermark',
         'createTime' => 'createTime',
         'description' => 'description',
         'executePolicy' => 'executePolicy',
+        'nextTriggerTime' => 'nextTriggerTime',
         'pipeline' => 'pipeline',
         'pipelineName' => 'pipelineName',
         'regionId' => 'regionId',
         'requestId' => 'requestId',
+        'scheduleStatus' => 'scheduleStatus',
         'sink' => 'sink',
         'source' => 'source',
         'updateTime' => 'updateTime',
@@ -100,6 +118,10 @@ class GetPipelineResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->committedWatermark) {
+            $res['committedWatermark'] = $this->committedWatermark;
+        }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
@@ -110,6 +132,10 @@ class GetPipelineResponseBody extends Model
 
         if (null !== $this->executePolicy) {
             $res['executePolicy'] = null !== $this->executePolicy ? $this->executePolicy->toArray($noStream) : $this->executePolicy;
+        }
+
+        if (null !== $this->nextTriggerTime) {
+            $res['nextTriggerTime'] = $this->nextTriggerTime;
         }
 
         if (null !== $this->pipeline) {
@@ -126,6 +152,10 @@ class GetPipelineResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+
+        if (null !== $this->scheduleStatus) {
+            $res['scheduleStatus'] = $this->scheduleStatus;
         }
 
         if (null !== $this->sink) {
@@ -155,6 +185,10 @@ class GetPipelineResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['committedWatermark'])) {
+            $model->committedWatermark = $map['committedWatermark'];
+        }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
@@ -165,6 +199,10 @@ class GetPipelineResponseBody extends Model
 
         if (isset($map['executePolicy'])) {
             $model->executePolicy = executePolicy::fromMap($map['executePolicy']);
+        }
+
+        if (isset($map['nextTriggerTime'])) {
+            $model->nextTriggerTime = $map['nextTriggerTime'];
         }
 
         if (isset($map['pipeline'])) {
@@ -181,6 +219,10 @@ class GetPipelineResponseBody extends Model
 
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+
+        if (isset($map['scheduleStatus'])) {
+            $model->scheduleStatus = $map['scheduleStatus'];
         }
 
         if (isset($map['sink'])) {
