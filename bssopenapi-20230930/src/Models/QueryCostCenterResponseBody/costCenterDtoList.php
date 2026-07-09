@@ -42,6 +42,11 @@ class costCenterDtoList extends Model
      * @var int
      */
     public $prevCostCenterId;
+
+    /**
+     * @var int
+     */
+    public $priority;
     protected $_name = [
         'costCenterCode' => 'CostCenterCode',
         'costCenterId' => 'CostCenterId',
@@ -50,6 +55,7 @@ class costCenterDtoList extends Model
         'ownerAccountId' => 'OwnerAccountId',
         'parentCostCenterId' => 'ParentCostCenterId',
         'prevCostCenterId' => 'PrevCostCenterId',
+        'priority' => 'Priority',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class costCenterDtoList extends Model
 
         if (null !== $this->prevCostCenterId) {
             $res['PrevCostCenterId'] = $this->prevCostCenterId;
+        }
+
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class costCenterDtoList extends Model
 
         if (isset($map['PrevCostCenterId'])) {
             $model->prevCostCenterId = $map['PrevCostCenterId'];
+        }
+
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
         }
 
         return $model;
