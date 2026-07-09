@@ -32,6 +32,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CreateChartNamespaceRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateChartNamespaceResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateChartRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateChartRepositoryResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceCustomizedDomainRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceCustomizedDomainResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceEndpointAclPolicyRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceEndpointAclPolicyResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateInstanceEndpointAclPolicyShrinkRequest;
@@ -78,6 +80,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteChartRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteChartRepositoryResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteEventCenterRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteEventCenterRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceCustomizedDomainRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceCustomizedDomainResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceEndpointAclPolicyRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceEndpointAclPolicyResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteInstanceEndpointAclPolicyShrinkRequest;
@@ -120,6 +124,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartNamespaceResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartRepositoryRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChartRepositoryResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceCountResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceCustomizedDomainRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceCustomizedDomainResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceEndpointRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceEndpointResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceRequest;
@@ -225,6 +231,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChartRepositoryResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateEventCenterRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateEventCenterRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateEventCenterRuleShrinkRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateInstanceCustomizedDomainRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateInstanceCustomizedDomainResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateInstanceEndpointStatusRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateInstanceEndpointStatusResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateNamespaceRequest;
@@ -1265,6 +1273,79 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createChartRepositoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a custom domain name for an instance.
+     *
+     * @param request - CreateInstanceCustomizedDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceCustomizedDomainResponse
+     *
+     * @param CreateInstanceCustomizedDomainRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateInstanceCustomizedDomainResponse
+     */
+    public function createInstanceCustomizedDomainWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
+        }
+
+        if (null !== $request->certRegionId) {
+            @$query['CertRegionId'] = $request->certRegionId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateInstanceCustomizedDomain',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateInstanceCustomizedDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a custom domain name for an instance.
+     *
+     * @param request - CreateInstanceCustomizedDomainRequest
+     *
+     * @returns CreateInstanceCustomizedDomainResponse
+     *
+     * @param CreateInstanceCustomizedDomainRequest $request
+     *
+     * @return CreateInstanceCustomizedDomainResponse
+     */
+    public function createInstanceCustomizedDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createInstanceCustomizedDomainWithOptions($request, $runtime);
     }
 
     /**
@@ -2885,6 +2966,71 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * 删除实例自定义域名.
+     *
+     * @param request - DeleteInstanceCustomizedDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceCustomizedDomainResponse
+     *
+     * @param DeleteInstanceCustomizedDomainRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteInstanceCustomizedDomainResponse
+     */
+    public function deleteInstanceCustomizedDomainWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteInstanceCustomizedDomain',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteInstanceCustomizedDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除实例自定义域名.
+     *
+     * @param request - DeleteInstanceCustomizedDomainRequest
+     *
+     * @returns DeleteInstanceCustomizedDomainResponse
+     *
+     * @param DeleteInstanceCustomizedDomainRequest $request
+     *
+     * @return DeleteInstanceCustomizedDomainResponse
+     */
+    public function deleteInstanceCustomizedDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInstanceCustomizedDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a whitelist policy from the public access endpoint of an instance.
      *
      * @param tmpReq - DeleteInstanceEndpointAclPolicyRequest
@@ -4236,6 +4382,67 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceCountWithOptions($runtime);
+    }
+
+    /**
+     * @param request - GetInstanceCustomizedDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceCustomizedDomainResponse
+     *
+     * @param GetInstanceCustomizedDomainRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetInstanceCustomizedDomainResponse
+     */
+    public function getInstanceCustomizedDomainWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetInstanceCustomizedDomain',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetInstanceCustomizedDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param request - GetInstanceCustomizedDomainRequest
+     *
+     * @returns GetInstanceCustomizedDomainResponse
+     *
+     * @param GetInstanceCustomizedDomainRequest $request
+     *
+     * @return GetInstanceCustomizedDomainResponse
+     */
+    public function getInstanceCustomizedDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceCustomizedDomainWithOptions($request, $runtime);
     }
 
     /**
@@ -7759,6 +7966,79 @@ class Cr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEventCenterRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新实例自定义域名.
+     *
+     * @param request - UpdateInstanceCustomizedDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceCustomizedDomainResponse
+     *
+     * @param UpdateInstanceCustomizedDomainRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateInstanceCustomizedDomainResponse
+     */
+    public function updateInstanceCustomizedDomainWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
+        }
+
+        if (null !== $request->certRegionId) {
+            @$query['CertRegionId'] = $request->certRegionId;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateInstanceCustomizedDomain',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateInstanceCustomizedDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新实例自定义域名.
+     *
+     * @param request - UpdateInstanceCustomizedDomainRequest
+     *
+     * @returns UpdateInstanceCustomizedDomainResponse
+     *
+     * @param UpdateInstanceCustomizedDomainRequest $request
+     *
+     * @return UpdateInstanceCustomizedDomainResponse
+     */
+    public function updateInstanceCustomizedDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateInstanceCustomizedDomainWithOptions($request, $runtime);
     }
 
     /**
