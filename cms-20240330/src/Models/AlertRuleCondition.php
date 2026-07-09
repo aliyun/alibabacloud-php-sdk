@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compareList;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compositeEscalation;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\expressEscalation;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\simpleEscalation;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\thresholdList;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\triggers;
 
 class AlertRuleCondition extends Model
@@ -35,6 +36,16 @@ class AlertRuleCondition extends Model
     public $compositeEscalation;
 
     /**
+     * @var string
+     */
+    public $countOperator;
+
+    /**
+     * @var int
+     */
+    public $countThreshold;
+
+    /**
      * @var bool
      */
     public $enableSeveritySuppression;
@@ -48,6 +59,31 @@ class AlertRuleCondition extends Model
      * @var expressEscalation
      */
     public $expressEscalation;
+
+    /**
+     * @var string
+     */
+    public $matchField;
+
+    /**
+     * @var string
+     */
+    public $matchOperator;
+
+    /**
+     * @var string
+     */
+    public $matchValue;
+
+    /**
+     * @var float
+     */
+    public $max;
+
+    /**
+     * @var float
+     */
+    public $min;
 
     /**
      * @var string
@@ -80,6 +116,11 @@ class AlertRuleCondition extends Model
     public $simpleEscalation;
 
     /**
+     * @var thresholdList[]
+     */
+    public $thresholdList;
+
+    /**
      * @var triggers[]
      */
     public $triggers;
@@ -98,15 +139,23 @@ class AlertRuleCondition extends Model
         'caseList' => 'caseList',
         'compareList' => 'compareList',
         'compositeEscalation' => 'compositeEscalation',
+        'countOperator' => 'countOperator',
+        'countThreshold' => 'countThreshold',
         'enableSeveritySuppression' => 'enableSeveritySuppression',
         'escalationType' => 'escalationType',
         'expressEscalation' => 'expressEscalation',
+        'matchField' => 'matchField',
+        'matchOperator' => 'matchOperator',
+        'matchValue' => 'matchValue',
+        'max' => 'max',
+        'min' => 'min',
         'noDataAlertLevel' => 'noDataAlertLevel',
         'noDataAppendValue' => 'noDataAppendValue',
         'noDataPolicy' => 'noDataPolicy',
         'oper' => 'oper',
         'relation' => 'relation',
         'simpleEscalation' => 'simpleEscalation',
+        'thresholdList' => 'thresholdList',
         'triggers' => 'triggers',
         'type' => 'type',
         'value' => 'value',
@@ -128,6 +177,9 @@ class AlertRuleCondition extends Model
         }
         if (null !== $this->simpleEscalation) {
             $this->simpleEscalation->validate();
+        }
+        if (\is_array($this->thresholdList)) {
+            Model::validateArray($this->thresholdList);
         }
         if (\is_array($this->triggers)) {
             Model::validateArray($this->triggers);
@@ -168,6 +220,14 @@ class AlertRuleCondition extends Model
             $res['compositeEscalation'] = null !== $this->compositeEscalation ? $this->compositeEscalation->toArray($noStream) : $this->compositeEscalation;
         }
 
+        if (null !== $this->countOperator) {
+            $res['countOperator'] = $this->countOperator;
+        }
+
+        if (null !== $this->countThreshold) {
+            $res['countThreshold'] = $this->countThreshold;
+        }
+
         if (null !== $this->enableSeveritySuppression) {
             $res['enableSeveritySuppression'] = $this->enableSeveritySuppression;
         }
@@ -178,6 +238,26 @@ class AlertRuleCondition extends Model
 
         if (null !== $this->expressEscalation) {
             $res['expressEscalation'] = null !== $this->expressEscalation ? $this->expressEscalation->toArray($noStream) : $this->expressEscalation;
+        }
+
+        if (null !== $this->matchField) {
+            $res['matchField'] = $this->matchField;
+        }
+
+        if (null !== $this->matchOperator) {
+            $res['matchOperator'] = $this->matchOperator;
+        }
+
+        if (null !== $this->matchValue) {
+            $res['matchValue'] = $this->matchValue;
+        }
+
+        if (null !== $this->max) {
+            $res['max'] = $this->max;
+        }
+
+        if (null !== $this->min) {
+            $res['min'] = $this->min;
         }
 
         if (null !== $this->noDataAlertLevel) {
@@ -202,6 +282,17 @@ class AlertRuleCondition extends Model
 
         if (null !== $this->simpleEscalation) {
             $res['simpleEscalation'] = null !== $this->simpleEscalation ? $this->simpleEscalation->toArray($noStream) : $this->simpleEscalation;
+        }
+
+        if (null !== $this->thresholdList) {
+            if (\is_array($this->thresholdList)) {
+                $res['thresholdList'] = [];
+                $n1 = 0;
+                foreach ($this->thresholdList as $item1) {
+                    $res['thresholdList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->triggers) {
@@ -264,6 +355,14 @@ class AlertRuleCondition extends Model
             $model->compositeEscalation = compositeEscalation::fromMap($map['compositeEscalation']);
         }
 
+        if (isset($map['countOperator'])) {
+            $model->countOperator = $map['countOperator'];
+        }
+
+        if (isset($map['countThreshold'])) {
+            $model->countThreshold = $map['countThreshold'];
+        }
+
         if (isset($map['enableSeveritySuppression'])) {
             $model->enableSeveritySuppression = $map['enableSeveritySuppression'];
         }
@@ -274,6 +373,26 @@ class AlertRuleCondition extends Model
 
         if (isset($map['expressEscalation'])) {
             $model->expressEscalation = expressEscalation::fromMap($map['expressEscalation']);
+        }
+
+        if (isset($map['matchField'])) {
+            $model->matchField = $map['matchField'];
+        }
+
+        if (isset($map['matchOperator'])) {
+            $model->matchOperator = $map['matchOperator'];
+        }
+
+        if (isset($map['matchValue'])) {
+            $model->matchValue = $map['matchValue'];
+        }
+
+        if (isset($map['max'])) {
+            $model->max = $map['max'];
+        }
+
+        if (isset($map['min'])) {
+            $model->min = $map['min'];
         }
 
         if (isset($map['noDataAlertLevel'])) {
@@ -298,6 +417,17 @@ class AlertRuleCondition extends Model
 
         if (isset($map['simpleEscalation'])) {
             $model->simpleEscalation = simpleEscalation::fromMap($map['simpleEscalation']);
+        }
+
+        if (isset($map['thresholdList'])) {
+            if (!empty($map['thresholdList'])) {
+                $model->thresholdList = [];
+                $n1 = 0;
+                foreach ($map['thresholdList'] as $item1) {
+                    $model->thresholdList[$n1] = thresholdList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['triggers'])) {

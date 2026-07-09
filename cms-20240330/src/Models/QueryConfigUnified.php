@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class QueryConfigUnified extends Model
 {
     /**
+     * @var string
+     */
+    public $aggregate;
+
+    /**
+     * @var string[][]
+     */
+    public $dimensions;
+
+    /**
      * @var bool
      */
     public $enableDataCompleteCheck;
@@ -44,9 +54,29 @@ class QueryConfigUnified extends Model
     public $filterList;
 
     /**
+     * @var string
+     */
+    public $groupId;
+
+    /**
      * @var UmodelLabelFilter[]
      */
     public $labelFilters;
+
+    /**
+     * @var string
+     */
+    public $legacyRaw;
+
+    /**
+     * @var string
+     */
+    public $legacyType;
+
+    /**
+     * @var string
+     */
+    public $logSet;
 
     /**
      * @var ApmMeasureConfig[]
@@ -66,7 +96,27 @@ class QueryConfigUnified extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var int
+     */
+    public $offsetSecs;
+
+    /**
+     * @var string
+     */
     public $promQl;
+
+    /**
+     * @var MetricSetNamedQueryEntry[]
+     */
+    public $queries;
+
+    /**
+     * @var string
+     */
+    public $relationType;
 
     /**
      * @var string[]
@@ -77,7 +127,14 @@ class QueryConfigUnified extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var int
+     */
+    public $windowSecs;
     protected $_name = [
+        'aggregate' => 'aggregate',
+        'dimensions' => 'dimensions',
         'enableDataCompleteCheck' => 'enableDataCompleteCheck',
         'entityDomain' => 'entityDomain',
         'entityFields' => 'entityFields',
@@ -85,17 +142,29 @@ class QueryConfigUnified extends Model
         'entityType' => 'entityType',
         'expr' => 'expr',
         'filterList' => 'filterList',
+        'groupId' => 'groupId',
         'labelFilters' => 'labelFilters',
+        'legacyRaw' => 'legacyRaw',
+        'legacyType' => 'legacyType',
+        'logSet' => 'logSet',
         'measureList' => 'measureList',
         'metric' => 'metric',
         'metricSet' => 'metricSet',
+        'namespace' => 'namespace',
+        'offsetSecs' => 'offsetSecs',
         'promQl' => 'promQl',
+        'queries' => 'queries',
+        'relationType' => 'relationType',
         'serviceIdList' => 'serviceIdList',
         'type' => 'type',
+        'windowSecs' => 'windowSecs',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
         if (\is_array($this->entityFields)) {
             Model::validateArray($this->entityFields);
         }
@@ -111,6 +180,9 @@ class QueryConfigUnified extends Model
         if (\is_array($this->measureList)) {
             Model::validateArray($this->measureList);
         }
+        if (\is_array($this->queries)) {
+            Model::validateArray($this->queries);
+        }
         if (\is_array($this->serviceIdList)) {
             Model::validateArray($this->serviceIdList);
         }
@@ -120,6 +192,26 @@ class QueryConfigUnified extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aggregate) {
+            $res['aggregate'] = $this->aggregate;
+        }
+
+        if (null !== $this->dimensions) {
+            if (\is_array($this->dimensions)) {
+                $res['dimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dimensions as $item1) {
+                    if (\is_array($item1)) {
+                        $res['dimensions'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['dimensions'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->enableDataCompleteCheck) {
             $res['enableDataCompleteCheck'] = $this->enableDataCompleteCheck;
         }
@@ -169,6 +261,10 @@ class QueryConfigUnified extends Model
             }
         }
 
+        if (null !== $this->groupId) {
+            $res['groupId'] = $this->groupId;
+        }
+
         if (null !== $this->labelFilters) {
             if (\is_array($this->labelFilters)) {
                 $res['labelFilters'] = [];
@@ -178,6 +274,18 @@ class QueryConfigUnified extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->legacyRaw) {
+            $res['legacyRaw'] = $this->legacyRaw;
+        }
+
+        if (null !== $this->legacyType) {
+            $res['legacyType'] = $this->legacyType;
+        }
+
+        if (null !== $this->logSet) {
+            $res['logSet'] = $this->logSet;
         }
 
         if (null !== $this->measureList) {
@@ -199,8 +307,31 @@ class QueryConfigUnified extends Model
             $res['metricSet'] = $this->metricSet;
         }
 
+        if (null !== $this->namespace) {
+            $res['namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->offsetSecs) {
+            $res['offsetSecs'] = $this->offsetSecs;
+        }
+
         if (null !== $this->promQl) {
             $res['promQl'] = $this->promQl;
+        }
+
+        if (null !== $this->queries) {
+            if (\is_array($this->queries)) {
+                $res['queries'] = [];
+                $n1 = 0;
+                foreach ($this->queries as $item1) {
+                    $res['queries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->relationType) {
+            $res['relationType'] = $this->relationType;
         }
 
         if (null !== $this->serviceIdList) {
@@ -218,6 +349,10 @@ class QueryConfigUnified extends Model
             $res['type'] = $this->type;
         }
 
+        if (null !== $this->windowSecs) {
+            $res['windowSecs'] = $this->windowSecs;
+        }
+
         return $res;
     }
 
@@ -229,6 +364,26 @@ class QueryConfigUnified extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aggregate'])) {
+            $model->aggregate = $map['aggregate'];
+        }
+
+        if (isset($map['dimensions'])) {
+            if (!empty($map['dimensions'])) {
+                $model->dimensions = [];
+                $n1 = 0;
+                foreach ($map['dimensions'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->dimensions[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->dimensions[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['enableDataCompleteCheck'])) {
             $model->enableDataCompleteCheck = $map['enableDataCompleteCheck'];
         }
@@ -278,6 +433,10 @@ class QueryConfigUnified extends Model
             }
         }
 
+        if (isset($map['groupId'])) {
+            $model->groupId = $map['groupId'];
+        }
+
         if (isset($map['labelFilters'])) {
             if (!empty($map['labelFilters'])) {
                 $model->labelFilters = [];
@@ -287,6 +446,18 @@ class QueryConfigUnified extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['legacyRaw'])) {
+            $model->legacyRaw = $map['legacyRaw'];
+        }
+
+        if (isset($map['legacyType'])) {
+            $model->legacyType = $map['legacyType'];
+        }
+
+        if (isset($map['logSet'])) {
+            $model->logSet = $map['logSet'];
         }
 
         if (isset($map['measureList'])) {
@@ -308,8 +479,31 @@ class QueryConfigUnified extends Model
             $model->metricSet = $map['metricSet'];
         }
 
+        if (isset($map['namespace'])) {
+            $model->namespace = $map['namespace'];
+        }
+
+        if (isset($map['offsetSecs'])) {
+            $model->offsetSecs = $map['offsetSecs'];
+        }
+
         if (isset($map['promQl'])) {
             $model->promQl = $map['promQl'];
+        }
+
+        if (isset($map['queries'])) {
+            if (!empty($map['queries'])) {
+                $model->queries = [];
+                $n1 = 0;
+                foreach ($map['queries'] as $item1) {
+                    $model->queries[$n1] = MetricSetNamedQueryEntry::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['relationType'])) {
+            $model->relationType = $map['relationType'];
         }
 
         if (isset($map['serviceIdList'])) {
@@ -325,6 +519,10 @@ class QueryConfigUnified extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['windowSecs'])) {
+            $model->windowSecs = $map['windowSecs'];
         }
 
         return $model;

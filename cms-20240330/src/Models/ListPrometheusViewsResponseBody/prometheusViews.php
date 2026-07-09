@@ -51,6 +51,11 @@ class prometheusViews extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceType;
 
     /**
@@ -81,6 +86,7 @@ class prometheusViews extends Model
         'prometheusViewId' => 'prometheusViewId',
         'prometheusViewName' => 'prometheusViewName',
         'regionId' => 'regionId',
+        'resourceGroupId' => 'resourceGroupId',
         'resourceType' => 'resourceType',
         'status' => 'status',
         'userId' => 'userId',
@@ -126,6 +132,10 @@ class prometheusViews extends Model
 
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->resourceType) {
@@ -189,6 +199,10 @@ class prometheusViews extends Model
 
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['resourceType'])) {

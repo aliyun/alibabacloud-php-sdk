@@ -64,6 +64,16 @@ class ManageAlertRulesUnifiedActionInput extends Model
     public $notifyConfig;
 
     /**
+     * @var string
+     */
+    public $observeResourceInstanceId;
+
+    /**
+     * @var string
+     */
+    public $observeResourceType;
+
+    /**
      * @var QueryConfigUnified
      */
     public $queryConfig;
@@ -99,6 +109,8 @@ class ManageAlertRulesUnifiedActionInput extends Model
         'enabled' => 'enabled',
         'labels' => 'labels',
         'notifyConfig' => 'notifyConfig',
+        'observeResourceInstanceId' => 'observeResourceInstanceId',
+        'observeResourceType' => 'observeResourceType',
         'queryConfig' => 'queryConfig',
         'scheduleConfig' => 'scheduleConfig',
         'uuid' => 'uuid',
@@ -198,6 +210,14 @@ class ManageAlertRulesUnifiedActionInput extends Model
             $res['notifyConfig'] = null !== $this->notifyConfig ? $this->notifyConfig->toArray($noStream) : $this->notifyConfig;
         }
 
+        if (null !== $this->observeResourceInstanceId) {
+            $res['observeResourceInstanceId'] = $this->observeResourceInstanceId;
+        }
+
+        if (null !== $this->observeResourceType) {
+            $res['observeResourceType'] = $this->observeResourceType;
+        }
+
         if (null !== $this->queryConfig) {
             $res['queryConfig'] = null !== $this->queryConfig ? $this->queryConfig->toArray($noStream) : $this->queryConfig;
         }
@@ -288,6 +308,14 @@ class ManageAlertRulesUnifiedActionInput extends Model
 
         if (isset($map['notifyConfig'])) {
             $model->notifyConfig = NotifyConfigUnified::fromMap($map['notifyConfig']);
+        }
+
+        if (isset($map['observeResourceInstanceId'])) {
+            $model->observeResourceInstanceId = $map['observeResourceInstanceId'];
+        }
+
+        if (isset($map['observeResourceType'])) {
+            $model->observeResourceType = $map['observeResourceType'];
         }
 
         if (isset($map['queryConfig'])) {

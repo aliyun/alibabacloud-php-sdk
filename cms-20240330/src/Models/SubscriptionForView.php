@@ -46,6 +46,11 @@ class SubscriptionForView extends Model
     public $pushingSetting;
 
     /**
+     * @var bool
+     */
+    public $subscribeLegacyEvent;
+
+    /**
      * @var string
      */
     public $subscriptionId;
@@ -92,6 +97,7 @@ class SubscriptionForView extends Model
         'filterSetting' => 'filterSetting',
         'notifyStrategyId' => 'notifyStrategyId',
         'pushingSetting' => 'pushingSetting',
+        'subscribeLegacyEvent' => 'subscribeLegacyEvent',
         'subscriptionId' => 'subscriptionId',
         'subscriptionName' => 'subscriptionName',
         'subscriptionType' => 'subscriptionType',
@@ -148,6 +154,10 @@ class SubscriptionForView extends Model
 
         if (null !== $this->pushingSetting) {
             $res['pushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toArray($noStream) : $this->pushingSetting;
+        }
+
+        if (null !== $this->subscribeLegacyEvent) {
+            $res['subscribeLegacyEvent'] = $this->subscribeLegacyEvent;
         }
 
         if (null !== $this->subscriptionId) {
@@ -219,6 +229,10 @@ class SubscriptionForView extends Model
 
         if (isset($map['pushingSetting'])) {
             $model->pushingSetting = pushingSetting::fromMap($map['pushingSetting']);
+        }
+
+        if (isset($map['subscribeLegacyEvent'])) {
+            $model->subscribeLegacyEvent = $map['subscribeLegacyEvent'];
         }
 
         if (isset($map['subscriptionId'])) {

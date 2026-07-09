@@ -22,10 +22,22 @@ class ManageAlertRulesResult extends Model
      * @var string[]
      */
     public $deletedUuidList;
+
+    /**
+     * @var int
+     */
+    public $updatedCount;
+
+    /**
+     * @var string[]
+     */
+    public $updatedUuidList;
     protected $_name = [
         'alertRule' => 'alertRule',
         'deletedCount' => 'deletedCount',
         'deletedUuidList' => 'deletedUuidList',
+        'updatedCount' => 'updatedCount',
+        'updatedUuidList' => 'updatedUuidList',
     ];
 
     public function validate()
@@ -35,6 +47,9 @@ class ManageAlertRulesResult extends Model
         }
         if (\is_array($this->deletedUuidList)) {
             Model::validateArray($this->deletedUuidList);
+        }
+        if (\is_array($this->updatedUuidList)) {
+            Model::validateArray($this->updatedUuidList);
         }
         parent::validate();
     }
@@ -56,6 +71,21 @@ class ManageAlertRulesResult extends Model
                 $n1 = 0;
                 foreach ($this->deletedUuidList as $item1) {
                     $res['deletedUuidList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->updatedCount) {
+            $res['updatedCount'] = $this->updatedCount;
+        }
+
+        if (null !== $this->updatedUuidList) {
+            if (\is_array($this->updatedUuidList)) {
+                $res['updatedUuidList'] = [];
+                $n1 = 0;
+                foreach ($this->updatedUuidList as $item1) {
+                    $res['updatedUuidList'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -86,6 +116,21 @@ class ManageAlertRulesResult extends Model
                 $n1 = 0;
                 foreach ($map['deletedUuidList'] as $item1) {
                     $model->deletedUuidList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['updatedCount'])) {
+            $model->updatedCount = $map['updatedCount'];
+        }
+
+        if (isset($map['updatedUuidList'])) {
+            if (!empty($map['updatedUuidList'])) {
+                $model->updatedUuidList = [];
+                $n1 = 0;
+                foreach ($map['updatedUuidList'] as $item1) {
+                    $model->updatedUuidList[$n1] = $item1;
                     ++$n1;
                 }
             }

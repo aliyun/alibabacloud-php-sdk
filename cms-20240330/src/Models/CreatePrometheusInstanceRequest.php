@@ -52,6 +52,11 @@ class CreatePrometheusInstanceRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -77,6 +82,7 @@ class CreatePrometheusInstanceRequest extends Model
         'enableAuthToken' => 'enableAuthToken',
         'paymentType' => 'paymentType',
         'prometheusInstanceName' => 'prometheusInstanceName',
+        'resourceGroupId' => 'resourceGroupId',
         'status' => 'status',
         'storageDuration' => 'storageDuration',
         'tags' => 'tags',
@@ -124,6 +130,10 @@ class CreatePrometheusInstanceRequest extends Model
 
         if (null !== $this->prometheusInstanceName) {
             $res['prometheusInstanceName'] = $this->prometheusInstanceName;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->status) {
@@ -190,6 +200,10 @@ class CreatePrometheusInstanceRequest extends Model
 
         if (isset($map['prometheusInstanceName'])) {
             $model->prometheusInstanceName = $map['prometheusInstanceName'];
+        }
+
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         if (isset($map['status'])) {

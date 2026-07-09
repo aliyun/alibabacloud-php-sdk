@@ -31,6 +31,11 @@ class robots extends Model
     /**
      * @var string
      */
+    public $robotSignKey;
+
+    /**
+     * @var string
+     */
     public $type;
 
     /**
@@ -47,6 +52,7 @@ class robots extends Model
         'lang' => 'lang',
         'name' => 'name',
         'robotId' => 'robotId',
+        'robotSignKey' => 'robotSignKey',
         'type' => 'type',
         'url' => 'url',
         'workspace' => 'workspace',
@@ -74,6 +80,10 @@ class robots extends Model
 
         if (null !== $this->robotId) {
             $res['robotId'] = $this->robotId;
+        }
+
+        if (null !== $this->robotSignKey) {
+            $res['robotSignKey'] = $this->robotSignKey;
         }
 
         if (null !== $this->type) {
@@ -113,6 +123,10 @@ class robots extends Model
 
         if (isset($map['robotId'])) {
             $model->robotId = $map['robotId'];
+        }
+
+        if (isset($map['robotSignKey'])) {
+            $model->robotSignKey = $map['robotSignKey'];
         }
 
         if (isset($map['type'])) {

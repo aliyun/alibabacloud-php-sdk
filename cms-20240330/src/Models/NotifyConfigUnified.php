@@ -29,6 +29,11 @@ class NotifyConfigUnified extends Model
     public $channels;
 
     /**
+     * @var string[]
+     */
+    public $notifyStrategies;
+
+    /**
      * @var int
      */
     public $silenceTimeSecs;
@@ -47,6 +52,7 @@ class NotifyConfigUnified extends Model
         'activeEndTime' => 'activeEndTime',
         'activeStartTime' => 'activeStartTime',
         'channels' => 'channels',
+        'notifyStrategies' => 'notifyStrategies',
         'silenceTimeSecs' => 'silenceTimeSecs',
         'type' => 'type',
         'utcOffset' => 'utcOffset',
@@ -59,6 +65,9 @@ class NotifyConfigUnified extends Model
         }
         if (\is_array($this->channels)) {
             Model::validateArray($this->channels);
+        }
+        if (\is_array($this->notifyStrategies)) {
+            Model::validateArray($this->notifyStrategies);
         }
         parent::validate();
     }
@@ -91,6 +100,17 @@ class NotifyConfigUnified extends Model
                 $n1 = 0;
                 foreach ($this->channels as $item1) {
                     $res['channels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->notifyStrategies) {
+            if (\is_array($this->notifyStrategies)) {
+                $res['notifyStrategies'] = [];
+                $n1 = 0;
+                foreach ($this->notifyStrategies as $item1) {
+                    $res['notifyStrategies'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -144,6 +164,17 @@ class NotifyConfigUnified extends Model
                 $n1 = 0;
                 foreach ($map['channels'] as $item1) {
                     $model->channels[$n1] = DirectNotifyChannel::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['notifyStrategies'])) {
+            if (!empty($map['notifyStrategies'])) {
+                $model->notifyStrategies = [];
+                $n1 = 0;
+                foreach ($map['notifyStrategies'] as $item1) {
+                    $model->notifyStrategies[$n1] = $item1;
                     ++$n1;
                 }
             }

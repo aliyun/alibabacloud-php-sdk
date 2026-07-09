@@ -14,6 +14,11 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\queries;
 class AlertRuleQuery extends Model
 {
     /**
+     * @var string
+     */
+    public $aggregate;
+
+    /**
      * @var bool
      */
     public $checkAfterDataComplete;
@@ -74,6 +79,11 @@ class AlertRuleQuery extends Model
     public $labelFilters;
 
     /**
+     * @var string
+     */
+    public $logSet;
+
+    /**
      * @var markTags[]
      */
     public $markTags;
@@ -92,6 +102,11 @@ class AlertRuleQuery extends Model
      * @var string
      */
     public $namespace;
+
+    /**
+     * @var int
+     */
+    public $offsetSecs;
 
     /**
      * @var queries[]
@@ -117,7 +132,13 @@ class AlertRuleQuery extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var int
+     */
+    public $windowSecs;
     protected $_name = [
+        'aggregate' => 'aggregate',
         'checkAfterDataComplete' => 'checkAfterDataComplete',
         'dimensions' => 'dimensions',
         'domain' => 'domain',
@@ -130,15 +151,18 @@ class AlertRuleQuery extends Model
         'groupId' => 'groupId',
         'groupType' => 'groupType',
         'labelFilters' => 'labelFilters',
+        'logSet' => 'logSet',
         'markTags' => 'markTags',
         'metric' => 'metric',
         'metricSet' => 'metricSet',
         'namespace' => 'namespace',
+        'offsetSecs' => 'offsetSecs',
         'queries' => 'queries',
         'relationType' => 'relationType',
         'secondJoin' => 'secondJoin',
         'serviceIds' => 'serviceIds',
         'type' => 'type',
+        'windowSecs' => 'windowSecs',
     ];
 
     public function validate()
@@ -179,6 +203,10 @@ class AlertRuleQuery extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->aggregate) {
+            $res['aggregate'] = $this->aggregate;
+        }
+
         if (null !== $this->checkAfterDataComplete) {
             $res['checkAfterDataComplete'] = $this->checkAfterDataComplete;
         }
@@ -260,6 +288,10 @@ class AlertRuleQuery extends Model
             }
         }
 
+        if (null !== $this->logSet) {
+            $res['logSet'] = $this->logSet;
+        }
+
         if (null !== $this->markTags) {
             if (\is_array($this->markTags)) {
                 $res['markTags'] = [];
@@ -281,6 +313,10 @@ class AlertRuleQuery extends Model
 
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->offsetSecs) {
+            $res['offsetSecs'] = $this->offsetSecs;
         }
 
         if (null !== $this->queries) {
@@ -317,6 +353,10 @@ class AlertRuleQuery extends Model
             $res['type'] = $this->type;
         }
 
+        if (null !== $this->windowSecs) {
+            $res['windowSecs'] = $this->windowSecs;
+        }
+
         return $res;
     }
 
@@ -328,6 +368,10 @@ class AlertRuleQuery extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['aggregate'])) {
+            $model->aggregate = $map['aggregate'];
+        }
+
         if (isset($map['checkAfterDataComplete'])) {
             $model->checkAfterDataComplete = $map['checkAfterDataComplete'];
         }
@@ -409,6 +453,10 @@ class AlertRuleQuery extends Model
             }
         }
 
+        if (isset($map['logSet'])) {
+            $model->logSet = $map['logSet'];
+        }
+
         if (isset($map['markTags'])) {
             if (!empty($map['markTags'])) {
                 $model->markTags = [];
@@ -430,6 +478,10 @@ class AlertRuleQuery extends Model
 
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
+        }
+
+        if (isset($map['offsetSecs'])) {
+            $model->offsetSecs = $map['offsetSecs'];
         }
 
         if (isset($map['queries'])) {
@@ -464,6 +516,10 @@ class AlertRuleQuery extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['windowSecs'])) {
+            $model->windowSecs = $map['windowSecs'];
         }
 
         return $model;

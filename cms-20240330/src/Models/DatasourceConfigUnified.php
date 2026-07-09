@@ -16,6 +16,21 @@ class DatasourceConfigUnified extends Model
     /**
      * @var string
      */
+    public $legacyRaw;
+
+    /**
+     * @var string
+     */
+    public $legacyType;
+
+    /**
+     * @var string
+     */
+    public $productCategory;
+
+    /**
+     * @var string
+     */
     public $regionId;
 
     /**
@@ -24,6 +39,9 @@ class DatasourceConfigUnified extends Model
     public $type;
     protected $_name = [
         'instanceId' => 'instanceId',
+        'legacyRaw' => 'legacyRaw',
+        'legacyType' => 'legacyType',
+        'productCategory' => 'productCategory',
         'regionId' => 'regionId',
         'type' => 'type',
     ];
@@ -38,6 +56,18 @@ class DatasourceConfigUnified extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->legacyRaw) {
+            $res['legacyRaw'] = $this->legacyRaw;
+        }
+
+        if (null !== $this->legacyType) {
+            $res['legacyType'] = $this->legacyType;
+        }
+
+        if (null !== $this->productCategory) {
+            $res['productCategory'] = $this->productCategory;
         }
 
         if (null !== $this->regionId) {
@@ -61,6 +91,18 @@ class DatasourceConfigUnified extends Model
         $model = new self();
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+
+        if (isset($map['legacyRaw'])) {
+            $model->legacyRaw = $map['legacyRaw'];
+        }
+
+        if (isset($map['legacyType'])) {
+            $model->legacyType = $map['legacyType'];
+        }
+
+        if (isset($map['productCategory'])) {
+            $model->productCategory = $map['productCategory'];
         }
 
         if (isset($map['regionId'])) {

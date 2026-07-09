@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class ApmThresholdConfig extends Model
 {
     /**
+     * @var float
+     */
+    public $max;
+
+    /**
+     * @var float
+     */
+    public $min;
+
+    /**
      * @var string
      */
     public $severity;
@@ -18,6 +28,8 @@ class ApmThresholdConfig extends Model
      */
     public $threshold;
     protected $_name = [
+        'max' => 'max',
+        'min' => 'min',
         'severity' => 'severity',
         'threshold' => 'threshold',
     ];
@@ -30,6 +42,14 @@ class ApmThresholdConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->max) {
+            $res['max'] = $this->max;
+        }
+
+        if (null !== $this->min) {
+            $res['min'] = $this->min;
+        }
+
         if (null !== $this->severity) {
             $res['severity'] = $this->severity;
         }
@@ -49,6 +69,14 @@ class ApmThresholdConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['max'])) {
+            $model->max = $map['max'];
+        }
+
+        if (isset($map['min'])) {
+            $model->min = $map['min'];
+        }
+
         if (isset($map['severity'])) {
             $model->severity = $map['severity'];
         }

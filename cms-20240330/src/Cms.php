@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusVirtualInstanceRequest
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusVirtualInstanceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceObservabilityRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceObservabilityResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRecordRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRecordResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateTicketRequest;
@@ -91,6 +93,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusVirtualInstanceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusVirtualInstanceResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRecordRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRecordResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteUmodelCommonSchemaRefRequest;
@@ -160,6 +164,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusViewResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceRecordRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceRecordResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelCommonSchemaRefRequest;
@@ -234,6 +240,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusViewsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusViewsShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusVirtualInstancesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusVirtualInstancesResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListServiceRecordsRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListServiceRecordsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListServicesShrinkRequest;
@@ -296,6 +304,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusUserSettingRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusUserSettingResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusViewRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePrometheusViewResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceRecordRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceRecordResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateServiceResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateSubscriptionRequest;
@@ -316,7 +326,52 @@ class Cms extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'metrics.us-west-1.aliyuncs.com',
+            'us-southeast-1' => 'metrics.us-southeast-1.aliyuncs.com',
+            'us-east-1' => 'metrics.us-east-1.aliyuncs.com',
+            'na-south-1' => 'metrics.na-south-1.aliyuncs.com',
+            'me-east-1' => 'metrics.me-east-1.aliyuncs.com',
+            'me-central-1' => 'metrics.me-central-1.aliyuncs.com',
+            'eu-west-2' => 'metrics.eu-west-2.aliyuncs.com',
+            'eu-west-1' => 'metrics.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'metrics.eu-central-1.aliyuncs.com',
+            'cn-zhongwei' => 'metrics.cn-zhongwei.aliyuncs.com',
+            'cn-zhengzhou-jva' => 'metrics.cn-zhengzhou-jva.aliyuncs.com',
+            'cn-zhangjiakou' => 'metrics.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu-gic-1' => 'metrics.cn-wulanchabu-gic-1.aliyuncs.com',
+            'cn-wulanchabu' => 'metrics.cn-wulanchabu.aliyuncs.com',
+            'cn-wuhan-lr' => 'metrics.cn-wuhan-lr.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'metrics.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shenzhen' => 'metrics.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'metrics.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'metrics.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'metrics.cn-qingdao.aliyuncs.com',
+            'cn-north-2-gov-1' => 'metrics.cn-north-2-gov-1.aliyuncs.com',
+            'cn-nanjing' => 'metrics.cn-nanjing.aliyuncs.com',
+            'cn-huhehaote' => 'metrics.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'metrics.cn-hongkong.aliyuncs.com',
+            'cn-heyuan-acdr-1' => 'metrics.cn-heyuan-acdr-1.aliyuncs.com',
+            'cn-heyuan' => 'metrics.cn-heyuan.aliyuncs.com',
+            'cn-hangzhou-finance' => 'metrics.cn-hangzhou-finance.aliyuncs.com',
+            'cn-hangzhou' => 'metrics.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'metrics.cn-guangzhou.aliyuncs.com',
+            'cn-fuzhou' => 'metrics.cn-fuzhou.aliyuncs.com',
+            'cn-chengdu' => 'metrics.cn-chengdu.aliyuncs.com',
+            'cn-beijing-finance-1' => 'metrics.cn-beijing-finance-1.aliyuncs.com',
+            'cn-beijing' => 'metrics.cn-beijing.aliyuncs.com',
+            'ap-southeast-8' => 'metrics.ap-southeast-8.aliyuncs.com',
+            'ap-southeast-7' => 'metrics.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-6' => 'metrics.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'metrics.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'metrics.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-2' => 'metrics.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-1' => 'metrics.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'metrics.ap-south-1.aliyuncs.com',
+            'ap-northeast-2' => 'metrics.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'metrics.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cms', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -694,7 +749,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates an aggregation task group.
+     * Create an aggregation task group.
      *
      * @param request - CreateAggTaskGroupRequest
      * @param headers - map
@@ -803,7 +858,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates an aggregation task group.
+     * Create an aggregation task group.
      *
      * @param request - CreateAggTaskGroupRequest
      *
@@ -1665,7 +1720,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a Prometheus instance for monitoring.
+     * Creates a Managed Service for Prometheus instance.
      *
      * @param request - CreatePrometheusInstanceRequest
      * @param headers - map
@@ -1715,6 +1770,10 @@ class Cms extends OpenApiClient
             @$body['prometheusInstanceName'] = $request->prometheusInstanceName;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->status) {
             @$body['status'] = $request->status;
         }
@@ -1751,7 +1810,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Creates a Prometheus instance for monitoring.
+     * Creates a Managed Service for Prometheus instance.
      *
      * @param request - CreatePrometheusInstanceRequest
      *
@@ -1773,7 +1832,7 @@ class Cms extends OpenApiClient
      * Creates a Prometheus view.
      *
      * @remarks
-     * 用于创建一个站点监控任务
+     * Creates a site monitoring task.
      *
      * @param request - CreatePrometheusViewRequest
      * @param headers - map
@@ -1854,7 +1913,7 @@ class Cms extends OpenApiClient
      * Creates a Prometheus view.
      *
      * @remarks
-     * 用于创建一个站点监控任务
+     * Creates a site monitoring task.
      *
      * @param request - CreatePrometheusViewRequest
      *
@@ -2095,6 +2154,75 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createServiceObservabilityWithOptions($workspace, $type, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+     *
+     * @param request - CreateServiceRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceRecordResponse
+     *
+     * @param string                     $workspace
+     * @param string                     $serviceId
+     * @param CreateServiceRecordRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateServiceRecordResponse
+     */
+    public function createServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->recordContent) {
+            @$body['recordContent'] = $request->recordContent;
+        }
+
+        if (null !== $request->recordType) {
+            @$body['recordType'] = $request->recordType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceRecord',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/service/' . Url::percentEncode($serviceId) . '/record',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a service-linked entry for associating configurations with the application monitoring service, such as log association.
+     *
+     * @param request - CreateServiceRecordRequest
+     *
+     * @returns CreateServiceRecordResponse
+     *
+     * @param string                     $workspace
+     * @param string                     $serviceId
+     * @param CreateServiceRecordRequest $request
+     *
+     * @return CreateServiceRecordResponse
+     */
+    public function createServiceRecord($workspace, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime);
     }
 
     /**
@@ -3518,6 +3646,77 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * Deletes a service association entry.
+     *
+     * @remarks
+     * Deletes a created service association entry.
+     *
+     * @param request - DeleteServiceRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceRecordResponse
+     *
+     * @param string                     $workspace
+     * @param string                     $serviceId
+     * @param DeleteServiceRecordRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteServiceRecordResponse
+     */
+    public function deleteServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->recordType) {
+            @$query['recordType'] = $request->recordType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteServiceRecord',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/service/' . Url::percentEncode($serviceId) . '/record',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteServiceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a service association entry.
+     *
+     * @remarks
+     * Deletes a created service association entry.
+     *
+     * @param request - DeleteServiceRecordRequest
+     *
+     * @returns DeleteServiceRecordResponse
+     *
+     * @param string                     $workspace
+     * @param string                     $serviceId
+     * @param DeleteServiceRecordRequest $request
+     *
+     * @return DeleteServiceRecordResponse
+     */
+    public function deleteServiceRecord($workspace, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a Umodel configuration.
      *
      * @remarks
@@ -3778,10 +3977,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query metadata.
+     * Queries metric metadata.
      *
      * @remarks
-     * Queries the details of CloudMonitor metric metadata.
+     * Queries the details of CloudMonitor monitoring metrics metadata.
      *
      * @param tmpReq - DescribeMetricMetaListRequest
      * @param headers - map
@@ -3853,10 +4052,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query metadata.
+     * Queries metric metadata.
      *
      * @remarks
-     * Queries the details of CloudMonitor metric metadata.
+     * Queries the details of CloudMonitor monitoring metrics metadata.
      *
      * @param request - DescribeMetricMetaListRequest
      *
@@ -4455,7 +4654,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries data from the Cloud Resource Center.
+     * Queries all entity information of a specific cloud service within a specified time range.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation queries all entities of a specific cloud service within a specified time range.
+     * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
+     * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
+     * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+     * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
      *
      * @param request - GetCloudResourceDataRequest
      * @param headers - map
@@ -4505,7 +4712,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries data from the Cloud Resource Center.
+     * Queries all entity information of a specific cloud service within a specified time range.
+     *
+     * @remarks
+     * ## Operation description
+     * - This operation queries all entities of a specific cloud service within a specified time range.
+     * - The `from` and `to` parameters specify the time range of the query in seconds-level timestamps.
+     * - The `spl` parameter supports entityStore query statements to filter or select the required entities and their properties.
+     * - If you need only specific fields, use the `project` clause in `spl` to filter them.
+     * - The response contains the specific property values of each entity and the corresponding list of property names for easy parsing and processing.
      *
      * @param request - GetCloudResourceDataRequest
      *
@@ -4780,7 +4995,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * View data delivery task details.
+     * Retrieves the details of a data delivery task.
+     *
+     * @remarks
+     * Deletes a specified site monitoring task.
      *
      * @param request - GetDeliveryTaskRequest
      * @param headers - map
@@ -4817,7 +5035,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * View data delivery task details.
+     * Retrieves the details of a data delivery task.
+     *
+     * @remarks
+     * Deletes a specified site monitoring task.
      *
      * @param request - GetDeliveryTaskRequest
      *
@@ -4974,7 +5195,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an Integration Center policy.
+     * Query integration center policy information.
      *
      * @param request - GetIntegrationPolicyRequest
      * @param headers - map
@@ -5011,7 +5232,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an Integration Center policy.
+     * Query integration center policy information.
      *
      * @param request - GetIntegrationPolicyRequest
      *
@@ -5313,7 +5534,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query a memory store.
+     * Queries a memory store.
+     *
+     * @remarks
+     * Typically used together with the QueryMetricMeta operation for querying metrics and the QueryMetricList/QueryMetricLast operation for querying monitoring data.
+     * ## Request type
+     * POST|GET.
      *
      * @param request - GetMemoryStoreRequest
      * @param headers - map
@@ -5351,7 +5577,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Query a memory store.
+     * Queries a memory store.
+     *
+     * @remarks
+     * Typically used together with the QueryMetricMeta operation for querying metrics and the QueryMetricList/QueryMetricLast operation for querying monitoring data.
+     * ## Request type
+     * POST|GET.
      *
      * @param request - GetMemoryStoreRequest
      *
@@ -5431,10 +5662,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific Prometheus instance.
+     * Queries the details of a specified Managed Service for Prometheus instance.
      *
      * @remarks
-     * Gets the details of a Prometheus instance.
+     * Retrieves the details of a Managed Service for Prometheus instance.
      *
      * @param request - GetPrometheusInstanceRequest
      * @param headers - map
@@ -5481,10 +5712,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific Prometheus instance.
+     * Queries the details of a specified Managed Service for Prometheus instance.
      *
      * @remarks
-     * Gets the details of a Prometheus instance.
+     * Retrieves the details of a Managed Service for Prometheus instance.
      *
      * @param request - GetPrometheusInstanceRequest
      *
@@ -5565,10 +5796,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified Prometheus view instance.
+     * Queries the details of a specified Prometheus view instance.
      *
      * @remarks
-     * Retrieves the details of a specified Prometheus view instance.
+     * Queries a specified Prometheus view instance.
      *
      * @param request - GetPrometheusViewRequest
      * @param headers - map
@@ -5615,10 +5846,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specified Prometheus view instance.
+     * Queries the details of a specified Prometheus view instance.
      *
      * @remarks
-     * Retrieves the details of a specified Prometheus view instance.
+     * Queries a specified Prometheus view instance.
      *
      * @param request - GetPrometheusViewRequest
      *
@@ -5753,6 +5984,77 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getServiceObservabilityWithOptions($workspace, $type, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries a service-linked entry.
+     *
+     * @remarks
+     * Retrieves a service-linked entry.
+     *
+     * @param request - GetServiceRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceRecordResponse
+     *
+     * @param string                  $workspace
+     * @param string                  $serviceId
+     * @param GetServiceRecordRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetServiceRecordResponse
+     */
+    public function getServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->recordType) {
+            @$query['recordType'] = $request->recordType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceRecord',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/service/' . Url::percentEncode($serviceId) . '/record',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a service-linked entry.
+     *
+     * @remarks
+     * Retrieves a service-linked entry.
+     *
+     * @param request - GetServiceRecordRequest
+     *
+     * @returns GetServiceRecordResponse
+     *
+     * @param string                  $workspace
+     * @param string                  $serviceId
+     * @param GetServiceRecordRequest $request
+     *
+     * @return GetServiceRecordResponse
+     */
+    public function getServiceRecord($workspace, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime);
     }
 
     /**
@@ -6168,7 +6470,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of aggregation task groups.
+     * Queries the list of aggregation task groups.
      *
      * @param tmpReq - ListAggTaskGroupsRequest
      * @param headers - map
@@ -6245,7 +6547,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of aggregation task groups.
+     * Queries the list of aggregation task groups.
      *
      * @param request - ListAggTaskGroupsRequest
      *
@@ -6348,7 +6650,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of alert webhooks.
+     * Queries alert chatbots.
      *
      * @param tmpReq - ListAlertRobotsRequest
      * @param headers - map
@@ -6420,7 +6722,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of alert webhooks.
+     * Queries alert chatbots.
      *
      * @param request - ListAlertRobotsRequest
      *
@@ -6988,7 +7290,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of data delivery tasks.
+     * Retrieves the list of data delivery tasks.
+     *
+     * @remarks
+     * Deletes a specified site monitoring task.
      *
      * @param tmpReq - ListDeliveryTasksRequest
      * @param headers - map
@@ -7052,7 +7357,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of data delivery tasks.
+     * Retrieves the list of data delivery tasks.
+     *
+     * @remarks
+     * Deletes a specified site monitoring task.
      *
      * @param request - ListDeliveryTasksRequest
      *
@@ -7071,10 +7379,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of policies in the Integration Center.
+     * Queries the list of access center policies.
      *
      * @remarks
-     * Queries a list of integrations.
+     * Queries the integration list.
      *
      * @param tmpReq - ListIntegrationPoliciesRequest
      * @param headers - map
@@ -7174,10 +7482,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of policies in the Integration Center.
+     * Queries the list of access center policies.
      *
      * @remarks
-     * Queries a list of integrations.
+     * Queries the integration list.
      *
      * @param request - ListIntegrationPoliciesRequest
      *
@@ -7776,7 +8084,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of pipelines in a workspace.
+     * Lists pipelines.
      *
      * @param request - ListPipelinesRequest
      * @param headers - map
@@ -7827,7 +8135,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Queries a list of pipelines in a workspace.
+     * Lists pipelines.
      *
      * @param request - ListPipelinesRequest
      *
@@ -7920,10 +8228,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists Prometheus instances.
+     * Retrieves a list of Managed Service for Prometheus instances.
      *
      * @remarks
-     * Lists Prometheus instances.
+     * Retrieves a list of Managed Service for Prometheus instances.
      *
      * @param tmpReq - ListPrometheusInstancesRequest
      * @param headers - map
@@ -8007,10 +8315,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists Prometheus instances.
+     * Retrieves a list of Managed Service for Prometheus instances.
      *
      * @remarks
-     * Lists Prometheus instances.
+     * Retrieves a list of Managed Service for Prometheus instances.
      *
      * @param request - ListPrometheusInstancesRequest
      *
@@ -8029,10 +8337,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the Prometheus view instances.
+     * Queries the list of Prometheus view instances.
      *
      * @remarks
-     * Lists the Prometheus view instances.
+     * Queries the list of Prometheus view instances.
      *
      * @param tmpReq - ListPrometheusViewsRequest
      * @param headers - map
@@ -8116,10 +8424,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Lists the Prometheus view instances.
+     * Queries the list of Prometheus view instances.
      *
      * @remarks
-     * Lists the Prometheus view instances.
+     * Queries the list of Prometheus view instances.
      *
      * @param request - ListPrometheusViewsRequest
      *
@@ -8208,6 +8516,87 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->listPrometheusVirtualInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Lists service-linked entries.
+     *
+     * @remarks
+     * Queries a paginated list of service-linked entries.
+     *
+     * @param request - ListServiceRecordsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceRecordsResponse
+     *
+     * @param string                    $workspace
+     * @param ListServiceRecordsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListServiceRecordsResponse
+     */
+    public function listServiceRecordsWithOptions($workspace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->recordType) {
+            @$query['recordType'] = $request->recordType;
+        }
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListServiceRecords',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/service-records',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListServiceRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists service-linked entries.
+     *
+     * @remarks
+     * Queries a paginated list of service-linked entries.
+     *
+     * @param request - ListServiceRecordsRequest
+     *
+     * @returns ListServiceRecordsResponse
+     *
+     * @param string                    $workspace
+     * @param ListServiceRecordsRequest $request
+     *
+     * @return ListServiceRecordsResponse
+     */
+    public function listServiceRecords($workspace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceRecordsWithOptions($workspace, $request, $headers, $runtime);
     }
 
     /**
@@ -8537,7 +8926,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This operation enables monitoring services, including CloudMonitor Enterprise, Managed Service for Prometheus, and Log Service.
+     * Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service (SLS).
      *
      * @param request - OpenCmsServiceRequest
      * @param headers - map
@@ -8573,7 +8962,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * This operation enables monitoring services, including CloudMonitor Enterprise, Managed Service for Prometheus, and Log Service.
+     * Activates CloudMonitor services, including Hybrid Cloud Monitoring, Managed Service for Prometheus, and Simple Log Service (SLS).
      *
      * @param request - OpenCmsServiceRequest
      *
@@ -8663,10 +9052,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of alert rules.
+     * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of how to retrieve a list of alert rules. In this example, a successful response returns two alert rules: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param tmpReq - QueryAlertRulesRequest
      * @param headers - map
@@ -8728,10 +9117,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of alert rules.
+     * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example of how to retrieve a list of alert rules. In this example, a successful response returns two alert rules: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - QueryAlertRulesRequest
      *
@@ -8835,7 +9224,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Search memories using query conditions and filters.
+     * Searches for memories based on query conditions and filters.
+     *
+     * @remarks
+     * This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+     * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
      *
      * @param request - SearchMemoriesRequest
      * @param headers - map
@@ -8919,7 +9312,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Search memories using query conditions and filters.
+     * Searches for memories based on query conditions and filters.
+     *
+     * @remarks
+     * This topic provides an example on how to create a threshold alert rule for the cpu_total metric of the Elastic Computing Service `acs_ecs_dashboard` instance `i-uf6j91r34rnwawoo****`. The alert contact group of the alert rule is `ECS_Group`, the alert rule name is `test123`, the alert rule ID is `a151cd6023eacee2f0978e03863cc1697c89508****`, the statistical method for the Critical level is `Average`, the comparison operator for the Critical level is `GreaterThanOrEqualToThreshold`, the threshold for the Critical level is `90`, and the retry count for the Critical level is `3`.
+     * > 2024-08-15: Statistics validation is added. Only the Statistics value that corresponds to the metric can be specified. For information about how to obtain the value of this parameter, see [Cloud service monitoring metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
      *
      * @param request - SearchMemoriesRequest
      *
@@ -9600,7 +9997,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a context store.
+     * Modifies the configuration of a context store.
+     *
+     * @remarks
+     * Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time detection tasks.
+     * This topic provides an example of how to create a one-time detection task. The detection task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
      *
      * @param request - UpdateContextStoreRequest
      * @param headers - map
@@ -9656,7 +10057,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a context store.
+     * Modifies the configuration of a context store.
+     *
+     * @remarks
+     * Only Alibaba Cloud accounts that have activated Network Analysis and Monitoring can create one-time detection tasks.
+     * This topic provides an example of how to create a one-time detection task. The detection task is named `task1`, the detection address is `http://www.aliyun.com`, the detection type is `HTTP`, and the number of detection points is `1`.
      *
      * @param request - UpdateContextStoreRequest
      *
@@ -9742,7 +10147,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a delivery task. This operation uses PATCH semantics, meaning unspecified fields in the request body remain unchanged.
+     * Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
+     *
+     * @remarks
+     * Deletes a specified site monitoring task.
      *
      * @param request - UpdateDeliveryTaskRequest
      * @param headers - map
@@ -9817,7 +10225,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a delivery task. This operation uses PATCH semantics, meaning unspecified fields in the request body remain unchanged.
+     * Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
+     *
+     * @remarks
+     * Deletes a specified site monitoring task.
      *
      * @param request - UpdateDeliveryTaskRequest
      *
@@ -10205,10 +10616,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the information of a Prometheus instance.
+     * Updates the information of a Managed Service for Prometheus instance.
      *
      * @remarks
-     * This topic describes how to update a Prometheus instance.
+     * Updates the information of a Managed Service for Prometheus instance.
      *
      * @param request - UpdatePrometheusInstanceRequest
      * @param headers - map
@@ -10291,10 +10702,10 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates the information of a Prometheus instance.
+     * Updates the information of a Managed Service for Prometheus instance.
      *
      * @remarks
-     * This topic describes how to update a Prometheus instance.
+     * Updates the information of a Managed Service for Prometheus instance.
      *
      * @param request - UpdatePrometheusInstanceRequest
      *
@@ -10544,6 +10955,81 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateServiceWithOptions($workspace, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a service-linked entry.
+     *
+     * @remarks
+     * Updates an existing service-linked entry.
+     *
+     * @param request - UpdateServiceRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateServiceRecordResponse
+     *
+     * @param string                     $workspace
+     * @param string                     $serviceId
+     * @param UpdateServiceRecordRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateServiceRecordResponse
+     */
+    public function updateServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->recordContent) {
+            @$body['recordContent'] = $request->recordContent;
+        }
+
+        if (null !== $request->recordType) {
+            @$body['recordType'] = $request->recordType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateServiceRecord',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/workspace/' . Url::percentEncode($workspace) . '/service/' . Url::percentEncode($serviceId) . '/record',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateServiceRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a service-linked entry.
+     *
+     * @remarks
+     * Updates an existing service-linked entry.
+     *
+     * @param request - UpdateServiceRecordRequest
+     *
+     * @returns UpdateServiceRecordResponse
+     *
+     * @param string                     $workspace
+     * @param string                     $serviceId
+     * @param UpdateServiceRecordRequest $request
+     *
+     * @return UpdateServiceRecordResponse
+     */
+    public function updateServiceRecord($workspace, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateServiceRecordWithOptions($workspace, $serviceId, $request, $headers, $runtime);
     }
 
     /**

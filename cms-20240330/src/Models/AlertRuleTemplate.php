@@ -21,6 +21,16 @@ class AlertRuleTemplate extends Model
     /**
      * @var string
      */
+    public $bizType;
+
+    /**
+     * @var string
+     */
+    public $datasource;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -54,6 +64,21 @@ class AlertRuleTemplate extends Model
     public $ruleConfigs;
 
     /**
+     * @var string
+     */
+    public $scenes;
+
+    /**
+     * @var string
+     */
+    public $schemaVersion;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
      * @var int
      */
     public $status;
@@ -80,6 +105,8 @@ class AlertRuleTemplate extends Model
     protected $_name = [
         'alertType' => 'alertType',
         'applyCount' => 'applyCount',
+        'bizType' => 'bizType',
+        'datasource' => 'datasource',
         'description' => 'description',
         'gmtCreate' => 'gmtCreate',
         'gmtModified' => 'gmtModified',
@@ -87,6 +114,9 @@ class AlertRuleTemplate extends Model
         'isSystem' => 'isSystem',
         'labels' => 'labels',
         'ruleConfigs' => 'ruleConfigs',
+        'scenes' => 'scenes',
+        'schemaVersion' => 'schemaVersion',
+        'sourceType' => 'sourceType',
         'status' => 'status',
         'subType' => 'subType',
         'templateName' => 'templateName',
@@ -108,6 +138,14 @@ class AlertRuleTemplate extends Model
 
         if (null !== $this->applyCount) {
             $res['applyCount'] = $this->applyCount;
+        }
+
+        if (null !== $this->bizType) {
+            $res['bizType'] = $this->bizType;
+        }
+
+        if (null !== $this->datasource) {
+            $res['datasource'] = $this->datasource;
         }
 
         if (null !== $this->description) {
@@ -136,6 +174,18 @@ class AlertRuleTemplate extends Model
 
         if (null !== $this->ruleConfigs) {
             $res['ruleConfigs'] = $this->ruleConfigs;
+        }
+
+        if (null !== $this->scenes) {
+            $res['scenes'] = $this->scenes;
+        }
+
+        if (null !== $this->schemaVersion) {
+            $res['schemaVersion'] = $this->schemaVersion;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['sourceType'] = $this->sourceType;
         }
 
         if (null !== $this->status) {
@@ -177,6 +227,14 @@ class AlertRuleTemplate extends Model
             $model->applyCount = $map['applyCount'];
         }
 
+        if (isset($map['bizType'])) {
+            $model->bizType = $map['bizType'];
+        }
+
+        if (isset($map['datasource'])) {
+            $model->datasource = $map['datasource'];
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -203,6 +261,18 @@ class AlertRuleTemplate extends Model
 
         if (isset($map['ruleConfigs'])) {
             $model->ruleConfigs = $map['ruleConfigs'];
+        }
+
+        if (isset($map['scenes'])) {
+            $model->scenes = $map['scenes'];
+        }
+
+        if (isset($map['schemaVersion'])) {
+            $model->schemaVersion = $map['schemaVersion'];
+        }
+
+        if (isset($map['sourceType'])) {
+            $model->sourceType = $map['sourceType'];
         }
 
         if (isset($map['status'])) {

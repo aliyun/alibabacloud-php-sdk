@@ -36,6 +36,11 @@ class SubscriptionForModify extends Model
     public $pushingSetting;
 
     /**
+     * @var bool
+     */
+    public $subscribeLegacyEvent;
+
+    /**
      * @var string
      */
     public $subscriptionName;
@@ -50,6 +55,7 @@ class SubscriptionForModify extends Model
         'filterSetting' => 'filterSetting',
         'notifyStrategyId' => 'notifyStrategyId',
         'pushingSetting' => 'pushingSetting',
+        'subscribeLegacyEvent' => 'subscribeLegacyEvent',
         'subscriptionName' => 'subscriptionName',
         'workspaceFilterSetting' => 'workspaceFilterSetting',
     ];
@@ -94,6 +100,10 @@ class SubscriptionForModify extends Model
             $res['pushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toArray($noStream) : $this->pushingSetting;
         }
 
+        if (null !== $this->subscribeLegacyEvent) {
+            $res['subscribeLegacyEvent'] = $this->subscribeLegacyEvent;
+        }
+
         if (null !== $this->subscriptionName) {
             $res['subscriptionName'] = $this->subscriptionName;
         }
@@ -131,6 +141,10 @@ class SubscriptionForModify extends Model
 
         if (isset($map['pushingSetting'])) {
             $model->pushingSetting = pushingSetting::fromMap($map['pushingSetting']);
+        }
+
+        if (isset($map['subscribeLegacyEvent'])) {
+            $model->subscribeLegacyEvent = $map['subscribeLegacyEvent'];
         }
 
         if (isset($map['subscriptionName'])) {

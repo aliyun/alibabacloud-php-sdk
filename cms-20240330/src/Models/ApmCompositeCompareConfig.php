@@ -22,10 +22,22 @@ class ApmCompositeCompareConfig extends Model
      * @var float
      */
     public $threshold;
+
+    /**
+     * @var string
+     */
+    public $yoyTimeUnit;
+
+    /**
+     * @var int
+     */
+    public $yoyTimeValue;
     protected $_name = [
         'aggregate' => 'aggregate',
         'operator' => 'operator',
         'threshold' => 'threshold',
+        'yoyTimeUnit' => 'yoyTimeUnit',
+        'yoyTimeValue' => 'yoyTimeValue',
     ];
 
     public function validate()
@@ -46,6 +58,14 @@ class ApmCompositeCompareConfig extends Model
 
         if (null !== $this->threshold) {
             $res['threshold'] = $this->threshold;
+        }
+
+        if (null !== $this->yoyTimeUnit) {
+            $res['yoyTimeUnit'] = $this->yoyTimeUnit;
+        }
+
+        if (null !== $this->yoyTimeValue) {
+            $res['yoyTimeValue'] = $this->yoyTimeValue;
         }
 
         return $res;
@@ -69,6 +89,14 @@ class ApmCompositeCompareConfig extends Model
 
         if (isset($map['threshold'])) {
             $model->threshold = $map['threshold'];
+        }
+
+        if (isset($map['yoyTimeUnit'])) {
+            $model->yoyTimeUnit = $map['yoyTimeUnit'];
+        }
+
+        if (isset($map['yoyTimeValue'])) {
+            $model->yoyTimeValue = $map['yoyTimeValue'];
         }
 
         return $model;

@@ -36,11 +36,6 @@ class AlertRuleV2 extends Model
     /**
      * @var string
      */
-    public $coveredSeverityLevels;
-
-    /**
-     * @var string
-     */
     public $createdAt;
 
     /**
@@ -74,12 +69,17 @@ class AlertRuleV2 extends Model
     public $notifyConfig;
 
     /**
+     * @var string
+     */
+    public $notifyStrategyId;
+
+    /**
      * @var bool
      */
     public $observeResourceGlobalScope;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $observeResourceList;
 
@@ -87,6 +87,11 @@ class AlertRuleV2 extends Model
      * @var string
      */
     public $observeResourceType;
+
+    /**
+     * @var string
+     */
+    public $partitionKey;
 
     /**
      * @var QueryConfigUnified
@@ -97,6 +102,11 @@ class AlertRuleV2 extends Model
      * @var ScheduleConfigUnified
      */
     public $scheduleConfig;
+
+    /**
+     * @var string
+     */
+    public $severityLevels;
 
     /**
      * @var string
@@ -123,7 +133,6 @@ class AlertRuleV2 extends Model
         'armsIntegrationConfig' => 'armsIntegrationConfig',
         'conditionConfig' => 'conditionConfig',
         'contentTemplate' => 'contentTemplate',
-        'coveredSeverityLevels' => 'coveredSeverityLevels',
         'createdAt' => 'createdAt',
         'datasourceConfig' => 'datasourceConfig',
         'datasourceType' => 'datasourceType',
@@ -131,11 +140,14 @@ class AlertRuleV2 extends Model
         'enabled' => 'enabled',
         'labels' => 'labels',
         'notifyConfig' => 'notifyConfig',
+        'notifyStrategyId' => 'notifyStrategyId',
         'observeResourceGlobalScope' => 'observeResourceGlobalScope',
         'observeResourceList' => 'observeResourceList',
         'observeResourceType' => 'observeResourceType',
+        'partitionKey' => 'partitionKey',
         'queryConfig' => 'queryConfig',
         'scheduleConfig' => 'scheduleConfig',
+        'severityLevels' => 'severityLevels',
         'status' => 'status',
         'updatedAt' => 'updatedAt',
         'uuid' => 'uuid',
@@ -164,6 +176,9 @@ class AlertRuleV2 extends Model
         }
         if (null !== $this->notifyConfig) {
             $this->notifyConfig->validate();
+        }
+        if (\is_array($this->observeResourceList)) {
+            Model::validateArray($this->observeResourceList);
         }
         if (null !== $this->queryConfig) {
             $this->queryConfig->validate();
@@ -202,10 +217,6 @@ class AlertRuleV2 extends Model
             $res['contentTemplate'] = $this->contentTemplate;
         }
 
-        if (null !== $this->coveredSeverityLevels) {
-            $res['coveredSeverityLevels'] = $this->coveredSeverityLevels;
-        }
-
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
         }
@@ -239,16 +250,31 @@ class AlertRuleV2 extends Model
             $res['notifyConfig'] = null !== $this->notifyConfig ? $this->notifyConfig->toArray($noStream) : $this->notifyConfig;
         }
 
+        if (null !== $this->notifyStrategyId) {
+            $res['notifyStrategyId'] = $this->notifyStrategyId;
+        }
+
         if (null !== $this->observeResourceGlobalScope) {
             $res['observeResourceGlobalScope'] = $this->observeResourceGlobalScope;
         }
 
         if (null !== $this->observeResourceList) {
-            $res['observeResourceList'] = $this->observeResourceList;
+            if (\is_array($this->observeResourceList)) {
+                $res['observeResourceList'] = [];
+                $n1 = 0;
+                foreach ($this->observeResourceList as $item1) {
+                    $res['observeResourceList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->observeResourceType) {
             $res['observeResourceType'] = $this->observeResourceType;
+        }
+
+        if (null !== $this->partitionKey) {
+            $res['partitionKey'] = $this->partitionKey;
         }
 
         if (null !== $this->queryConfig) {
@@ -257,6 +283,10 @@ class AlertRuleV2 extends Model
 
         if (null !== $this->scheduleConfig) {
             $res['scheduleConfig'] = null !== $this->scheduleConfig ? $this->scheduleConfig->toArray($noStream) : $this->scheduleConfig;
+        }
+
+        if (null !== $this->severityLevels) {
+            $res['severityLevels'] = $this->severityLevels;
         }
 
         if (null !== $this->status) {
@@ -311,10 +341,6 @@ class AlertRuleV2 extends Model
             $model->contentTemplate = $map['contentTemplate'];
         }
 
-        if (isset($map['coveredSeverityLevels'])) {
-            $model->coveredSeverityLevels = $map['coveredSeverityLevels'];
-        }
-
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
         }
@@ -348,16 +374,31 @@ class AlertRuleV2 extends Model
             $model->notifyConfig = NotifyConfigUnified::fromMap($map['notifyConfig']);
         }
 
+        if (isset($map['notifyStrategyId'])) {
+            $model->notifyStrategyId = $map['notifyStrategyId'];
+        }
+
         if (isset($map['observeResourceGlobalScope'])) {
             $model->observeResourceGlobalScope = $map['observeResourceGlobalScope'];
         }
 
         if (isset($map['observeResourceList'])) {
-            $model->observeResourceList = $map['observeResourceList'];
+            if (!empty($map['observeResourceList'])) {
+                $model->observeResourceList = [];
+                $n1 = 0;
+                foreach ($map['observeResourceList'] as $item1) {
+                    $model->observeResourceList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['observeResourceType'])) {
             $model->observeResourceType = $map['observeResourceType'];
+        }
+
+        if (isset($map['partitionKey'])) {
+            $model->partitionKey = $map['partitionKey'];
         }
 
         if (isset($map['queryConfig'])) {
@@ -366,6 +407,10 @@ class AlertRuleV2 extends Model
 
         if (isset($map['scheduleConfig'])) {
             $model->scheduleConfig = ScheduleConfigUnified::fromMap($map['scheduleConfig']);
+        }
+
+        if (isset($map['severityLevels'])) {
+            $model->severityLevels = $map['severityLevels'];
         }
 
         if (isset($map['status'])) {

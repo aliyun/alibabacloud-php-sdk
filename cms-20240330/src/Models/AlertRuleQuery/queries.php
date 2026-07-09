@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\queries\apmFilters;
+use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleQuery\queries\labelFilters;
 
 class queries extends Model
 {
@@ -40,6 +41,21 @@ class queries extends Model
     public $expr;
 
     /**
+     * @var labelFilters[]
+     */
+    public $labelFilters;
+
+    /**
+     * @var string
+     */
+    public $metric;
+
+    /**
+     * @var string
+     */
+    public $metricSet;
+
+    /**
      * @var string
      */
     public $name;
@@ -70,6 +86,9 @@ class queries extends Model
         'duration' => 'duration',
         'end' => 'end',
         'expr' => 'expr',
+        'labelFilters' => 'labelFilters',
+        'metric' => 'metric',
+        'metricSet' => 'metricSet',
         'name' => 'name',
         'promQl' => 'promQl',
         'start' => 'start',
@@ -84,6 +103,9 @@ class queries extends Model
         }
         if (\is_array($this->apmGroupBy)) {
             Model::validateArray($this->apmGroupBy);
+        }
+        if (\is_array($this->labelFilters)) {
+            Model::validateArray($this->labelFilters);
         }
         parent::validate();
     }
@@ -127,6 +149,25 @@ class queries extends Model
 
         if (null !== $this->expr) {
             $res['expr'] = $this->expr;
+        }
+
+        if (null !== $this->labelFilters) {
+            if (\is_array($this->labelFilters)) {
+                $res['labelFilters'] = [];
+                $n1 = 0;
+                foreach ($this->labelFilters as $item1) {
+                    $res['labelFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->metric) {
+            $res['metric'] = $this->metric;
+        }
+
+        if (null !== $this->metricSet) {
+            $res['metricSet'] = $this->metricSet;
         }
 
         if (null !== $this->name) {
@@ -196,6 +237,25 @@ class queries extends Model
 
         if (isset($map['expr'])) {
             $model->expr = $map['expr'];
+        }
+
+        if (isset($map['labelFilters'])) {
+            if (!empty($map['labelFilters'])) {
+                $model->labelFilters = [];
+                $n1 = 0;
+                foreach ($map['labelFilters'] as $item1) {
+                    $model->labelFilters[$n1] = labelFilters::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['metric'])) {
+            $model->metric = $map['metric'];
+        }
+
+        if (isset($map['metricSet'])) {
+            $model->metricSet = $map['metricSet'];
         }
 
         if (isset($map['name'])) {
