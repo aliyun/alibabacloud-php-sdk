@@ -1,0 +1,52 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetSensitiveScanResultResponseBody;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\AIDeepSign\V20260511\Models\GetSensitiveScanResultResponseBody\result\ossObjectDetail;
+
+class result extends Model
+{
+    /**
+     * @var ossObjectDetail
+     */
+    public $ossObjectDetail;
+    protected $_name = [
+        'ossObjectDetail' => 'OssObjectDetail',
+    ];
+
+    public function validate()
+    {
+        if (null !== $this->ossObjectDetail) {
+            $this->ossObjectDetail->validate();
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->ossObjectDetail) {
+            $res['OssObjectDetail'] = null !== $this->ossObjectDetail ? $this->ossObjectDetail->toArray($noStream) : $this->ossObjectDetail;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['OssObjectDetail'])) {
+            $model->ossObjectDetail = ossObjectDetail::fromMap($map['OssObjectDetail']);
+        }
+
+        return $model;
+    }
+}
