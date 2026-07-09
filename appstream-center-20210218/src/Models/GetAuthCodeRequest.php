@@ -19,6 +19,11 @@ class GetAuthCodeRequest extends Model
     public $adDomain;
 
     /**
+     * @var string
+     */
+    public $adPassword;
+
+    /**
      * @var bool
      */
     public $autoCreateUser;
@@ -45,6 +50,7 @@ class GetAuthCodeRequest extends Model
     protected $_name = [
         'accountType' => 'AccountType',
         'adDomain' => 'AdDomain',
+        'adPassword' => 'AdPassword',
         'autoCreateUser' => 'AutoCreateUser',
         'endUserId' => 'EndUserId',
         'externalUserId' => 'ExternalUserId',
@@ -66,6 +72,10 @@ class GetAuthCodeRequest extends Model
 
         if (null !== $this->adDomain) {
             $res['AdDomain'] = $this->adDomain;
+        }
+
+        if (null !== $this->adPassword) {
+            $res['AdPassword'] = $this->adPassword;
         }
 
         if (null !== $this->autoCreateUser) {
@@ -105,6 +115,10 @@ class GetAuthCodeRequest extends Model
 
         if (isset($map['AdDomain'])) {
             $model->adDomain = $map['AdDomain'];
+        }
+
+        if (isset($map['AdPassword'])) {
+            $model->adPassword = $map['AdPassword'];
         }
 
         if (isset($map['AutoCreateUser'])) {

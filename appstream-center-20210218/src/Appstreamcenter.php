@@ -153,6 +153,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['AdDomain'] = $request->adDomain;
         }
 
+        if (null !== $request->adPassword) {
+            @$body['AdPassword'] = $request->adPassword;
+        }
+
         if (null !== $request->autoCreateUser) {
             @$body['AutoCreateUser'] = $request->autoCreateUser;
         }
