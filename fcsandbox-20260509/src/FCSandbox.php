@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTeamsRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ListTeamsResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ResetApiKeyRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\ResetApiKeyResponse;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateApiKeyRequest;
+use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateApiKeyResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateQuotaRequest;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateQuotaResponse;
 use AlibabaCloud\SDK\FCSandbox\V20260509\Models\UpdateTeamRequest;
@@ -813,6 +815,64 @@ class FCSandbox extends OpenApiClient
         $headers = [];
 
         return $this->resetApiKeyWithOptions($apiKeyID, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新 ApiKey.
+     *
+     * @param request - UpdateApiKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApiKeyResponse
+     *
+     * @param string              $apiKeyID
+     * @param UpdateApiKeyRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateApiKeyResponse
+     */
+    public function updateApiKeyWithOptions($apiKeyID, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateApiKey',
+            'version' => '2026-05-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/pop/2026-05-09/api-keys/' . Url::percentEncode($apiKeyID) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新 ApiKey.
+     *
+     * @param request - UpdateApiKeyRequest
+     *
+     * @returns UpdateApiKeyResponse
+     *
+     * @param string              $apiKeyID
+     * @param UpdateApiKeyRequest $request
+     *
+     * @return UpdateApiKeyResponse
+     */
+    public function updateApiKey($apiKeyID, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateApiKeyWithOptions($apiKeyID, $request, $headers, $runtime);
     }
 
     /**
