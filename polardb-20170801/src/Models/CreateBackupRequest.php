@@ -16,6 +16,11 @@ class CreateBackupRequest extends Model
     /**
      * @var string
      */
+    public $comment;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -39,6 +44,7 @@ class CreateBackupRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'comment' => 'Comment',
         'DBClusterId' => 'DBClusterId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
@@ -56,6 +62,10 @@ class CreateBackupRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
 
         if (null !== $this->DBClusterId) {
@@ -91,6 +101,10 @@ class CreateBackupRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
 
         if (isset($map['DBClusterId'])) {

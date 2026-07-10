@@ -394,6 +394,9 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterParametersRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterParametersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterPerformanceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterPriceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterPriceResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterPriceShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterProxyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterProxyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterServerlessConfRequest;
@@ -3388,7 +3391,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model operator instance.
+     * Creates a model creation operator instance.
      *
      * @param request - CreateAIDBClusterTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3468,6 +3471,10 @@ class Polardb extends OpenApiClient
             @$query['TaskName'] = $request->taskName;
         }
 
+        if (null !== $request->tuneArch) {
+            @$query['TuneArch'] = $request->tuneArch;
+        }
+
         if (null !== $request->VPCId) {
             @$query['VPCId'] = $request->VPCId;
         }
@@ -3499,7 +3506,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates a model operator instance.
+     * Creates a model creation operator instance.
      *
      * @param request - CreateAIDBClusterTaskRequest
      *
@@ -4484,11 +4491,9 @@ class Polardb extends OpenApiClient
      * Creates a full snapshot backup for a PolarDB cluster.
      *
      * @remarks
-     * > - Each cluster can have up to three manually created backups at a time.
-     * >
-     * > - If you receive the error message `Exceeding the daily backup times of this DB cluster`, this indicates that three manual backups already exist for your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation again.
-     * >
-     * > - After you call this operation, a backup job is created in the background. The job may take a long time to complete if the data volume is large.
+     * > * Each cluster can have up to three manually created backups at the same time.
+     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
      *
      * @param request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4506,6 +4511,10 @@ class Polardb extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
 
         if (null !== $request->DBClusterId) {
@@ -4550,11 +4559,9 @@ class Polardb extends OpenApiClient
      * Creates a full snapshot backup for a PolarDB cluster.
      *
      * @remarks
-     * > - Each cluster can have up to three manually created backups at a time.
-     * >
-     * > - If you receive the error message `Exceeding the daily backup times of this DB cluster`, this indicates that three manual backups already exist for your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation again.
-     * >
-     * > - After you call this operation, a backup job is created in the background. The job may take a long time to complete if the data volume is large.
+     * > * Each cluster can have up to three manually created backups at the same time.
+     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
+     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
      *
      * @param request - CreateBackupRequest
      *
@@ -11682,7 +11689,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Get task instance details.
+     * Retrieves the details of a task instance.
      *
      * @param request - DescribeAIDBClusterTaskAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11745,7 +11752,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Get task instance details.
+     * Retrieves the details of a task instance.
      *
      * @param request - DescribeAIDBClusterTaskAttributeRequest
      *
@@ -11939,12 +11946,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of model operators for a specified PolarDB instance.
+     * Retrieves the list of model operators for a specified PolarDB database instance.
      *
      * @remarks
-     * ## Request
-     * - This API returns a list of model operators filtered by the `RelativeDBClusterId` and `KubeType` parameters.
-     * - Note: Ensure the provided `RelativeDBClusterId` matches the ID of an existing PolarDB database instance. Otherwise, no data will be returned.
+     * ## Description
+     * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+     * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
      *
      * @param request - DescribeAIDBClusterTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12007,12 +12014,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of model operators for a specified PolarDB instance.
+     * Retrieves the list of model operators for a specified PolarDB database instance.
      *
      * @remarks
-     * ## Request
-     * - This API returns a list of model operators filtered by the `RelativeDBClusterId` and `KubeType` parameters.
-     * - Note: Ensure the provided `RelativeDBClusterId` matches the ID of an existing PolarDB database instance. Otherwise, no data will be returned.
+     * ## Description
+     * - This operation supports filtering and returning the list of model operators based on the `RelativeDBClusterId` and `KubeType` parameters.
+     * - Note: Ensure that the `RelativeDBClusterId` provided in the request matches an existing PolarDB database instance ID. Otherwise, data cannot be retrieved correctly.
      *
      * @param request - DescribeAIDBClusterTasksRequest
      *
@@ -13585,7 +13592,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * AI Application Log Details.
+     * Queries the log details of an AI application.
      *
      * @param request - DescribeApplicationLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13676,7 +13683,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * AI Application Log Details.
+     * Queries the log details of an AI application.
      *
      * @param request - DescribeApplicationLogsRequest
      *
@@ -14215,7 +14222,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the available models in an AI cluster.
+     * Retrieves the list of AI cluster models.
      *
      * @param request - DescribeAvailableModelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14258,7 +14265,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Lists the available models in an AI cluster.
+     * Retrieves the list of AI cluster models.
      *
      * @param request - DescribeAvailableModelsRequest
      *
@@ -14596,7 +14603,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries backup information for a PolarDB cluster.
+     * Queries the backup information of a PolarDB cluster.
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14683,7 +14690,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries backup information for a PolarDB cluster.
+     * Queries the backup information of a PolarDB cluster.
      *
      * @param request - DescribeBackupsRequest
      *
@@ -14841,7 +14848,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Querying budget policies.
+     * Queries cost budget policies.
      *
      * @param request - DescribeBudgetPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14885,6 +14892,10 @@ class Polardb extends OpenApiClient
             @$query['RegionId'] = $request->regionId;
         }
 
+        if (null !== $request->scopeRefName) {
+            @$query['ScopeRefName'] = $request->scopeRefName;
+        }
+
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
         }
@@ -14908,7 +14919,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Querying budget policies.
+     * Queries cost budget policies.
      *
      * @param request - DescribeBudgetPoliciesRequest
      *
@@ -15278,7 +15289,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Returns a list of consumers.
+     * Queries the list of consumers.
      *
      * @param request - DescribeConsumersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15300,6 +15311,14 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->consumerId) {
             @$query['ConsumerId'] = $request->consumerId;
+        }
+
+        if (null !== $request->consumerName) {
+            @$query['ConsumerName'] = $request->consumerName;
+        }
+
+        if (null !== $request->consumerNameList) {
+            @$query['ConsumerNameList'] = $request->consumerNameList;
         }
 
         if (null !== $request->gwClusterId) {
@@ -15337,7 +15356,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Returns a list of consumers.
+     * Queries the list of consumers.
      *
      * @param request - DescribeConsumersRequest
      *
@@ -15720,7 +15739,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the IP whitelists and security groups that are allowed to access a database cluster.
+     * Queries the IP whitelist and security groups that are allowed to access a database cluster.
      *
      * @param request - DescribeDBClusterAccessWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15746,6 +15765,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -15775,7 +15798,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the IP whitelists and security groups that are allowed to access a database cluster.
+     * Queries the IP whitelist and security groups that are allowed to access a database cluster.
      *
      * @param request - DescribeDBClusterAccessWhitelistRequest
      *
@@ -16777,6 +16800,149 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Queries the price of a cluster.
+     *
+     * @param tmpReq - DescribeDBClusterPriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDBClusterPriceResponse
+     *
+     * @param DescribeDBClusterPriceRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDBClusterPriceResponse
+     */
+    public function describeDBClusterPriceWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeDBClusterPriceShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->DBNodes) {
+            $request->DBNodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->DBNodes, 'DBNodes', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->creationCategory) {
+            @$query['CreationCategory'] = $request->creationCategory;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBNodeClass) {
+            @$query['DBNodeClass'] = $request->DBNodeClass;
+        }
+
+        if (null !== $request->DBNodeIds) {
+            @$query['DBNodeIds'] = $request->DBNodeIds;
+        }
+
+        if (null !== $request->DBNodeNum) {
+            @$query['DBNodeNum'] = $request->DBNodeNum;
+        }
+
+        if (null !== $request->DBNodesShrink) {
+            @$query['DBNodes'] = $request->DBNodesShrink;
+        }
+
+        if (null !== $request->DBType) {
+            @$query['DBType'] = $request->DBType;
+        }
+
+        if (null !== $request->DBVersion) {
+            @$query['DBVersion'] = $request->DBVersion;
+        }
+
+        if (null !== $request->hotStandbyCluster) {
+            @$query['HotStandbyCluster'] = $request->hotStandbyCluster;
+        }
+
+        if (null !== $request->modifyType) {
+            @$query['ModifyType'] = $request->modifyType;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->provisionedIops) {
+            @$query['ProvisionedIops'] = $request->provisionedIops;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serverlessType) {
+            @$query['ServerlessType'] = $request->serverlessType;
+        }
+
+        if (null !== $request->storageChargeType) {
+            @$query['StorageChargeType'] = $request->storageChargeType;
+        }
+
+        if (null !== $request->storageSpace) {
+            @$query['StorageSpace'] = $request->storageSpace;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDBClusterPrice',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDBClusterPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the price of a cluster.
+     *
+     * @param request - DescribeDBClusterPriceRequest
+     *
+     * @returns DescribeDBClusterPriceResponse
+     *
+     * @param DescribeDBClusterPriceRequest $request
+     *
+     * @return DescribeDBClusterPriceResponse
+     */
+    public function describeDBClusterPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterPriceWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries a database cluster proxy.
      *
      * @param request - DescribeDBClusterProxyRequest
@@ -16884,6 +17050,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -22192,7 +22362,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看polarfs信息.
+     * Queries PolarFS information.
      *
      * @param request - DescribePolarFsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22263,7 +22433,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * 查看polarfs信息.
+     * Queries PolarFS information.
      *
      * @param request - DescribePolarFsRequest
      *
@@ -28582,7 +28752,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates or modifies the access whitelist for a cluster. The whitelist can be an IP address whitelist or a security group.
+     * Creates or modifies the whitelist of a cluster, including the IP whitelist and security groups.
      *
      * @param request - ModifyDBClusterAccessWhitelistRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -28620,6 +28790,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -28661,7 +28835,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Creates or modifies the access whitelist for a cluster. The whitelist can be an IP address whitelist or a security group.
+     * Creates or modifies the whitelist of a cluster, including the IP whitelist and security groups.
      *
      * @param request - ModifyDBClusterAccessWhitelistRequest
      *
@@ -30060,7 +30234,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables SSL encryption for a PolarDB cluster, or updates its CA certificate.
+     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30076,6 +30250,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->connectionString) {
+            @$query['ConnectionString'] = $request->connectionString;
+        }
+
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
         }
@@ -30094,6 +30272,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pfsInstanceId) {
+            @$query['PfsInstanceId'] = $request->pfsInstanceId;
         }
 
         if (null !== $request->resourceOwnerAccount) {
@@ -30131,7 +30313,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or disables SSL encryption for a PolarDB cluster, or updates its CA certificate.
+     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      *

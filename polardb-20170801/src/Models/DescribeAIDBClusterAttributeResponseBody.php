@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody\DBNodes;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody\endpointList;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody\timeSlicesInfo;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody\vnodeKubernetesConfig;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterAttributeResponseBody\volumes;
 
 class DescribeAIDBClusterAttributeResponseBody extends Model
@@ -142,6 +144,16 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
     public $storageType;
 
     /**
+     * @var timeSlicesInfo
+     */
+    public $timeSlicesInfo;
+
+    /**
+     * @var string
+     */
+    public $timeSlicesType;
+
+    /**
      * @var string
      */
     public $VPCId;
@@ -150,6 +162,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @var vnodeKubernetesConfig
+     */
+    public $vnodeKubernetesConfig;
 
     /**
      * @var volumes[]
@@ -192,8 +209,11 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         'requestId' => 'RequestId',
         'runType' => 'RunType',
         'storageType' => 'StorageType',
+        'timeSlicesInfo' => 'TimeSlicesInfo',
+        'timeSlicesType' => 'TimeSlicesType',
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
+        'vnodeKubernetesConfig' => 'VnodeKubernetesConfig',
         'volumes' => 'Volumes',
         'zoneId' => 'ZoneId',
         'zoneIds' => 'ZoneIds',
@@ -206,6 +226,12 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
         }
         if (\is_array($this->endpointList)) {
             Model::validateArray($this->endpointList);
+        }
+        if (null !== $this->timeSlicesInfo) {
+            $this->timeSlicesInfo->validate();
+        }
+        if (null !== $this->vnodeKubernetesConfig) {
+            $this->vnodeKubernetesConfig->validate();
         }
         if (\is_array($this->volumes)) {
             Model::validateArray($this->volumes);
@@ -334,12 +360,24 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
             $res['StorageType'] = $this->storageType;
         }
 
+        if (null !== $this->timeSlicesInfo) {
+            $res['TimeSlicesInfo'] = null !== $this->timeSlicesInfo ? $this->timeSlicesInfo->toArray($noStream) : $this->timeSlicesInfo;
+        }
+
+        if (null !== $this->timeSlicesType) {
+            $res['TimeSlicesType'] = $this->timeSlicesType;
+        }
+
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
 
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+
+        if (null !== $this->vnodeKubernetesConfig) {
+            $res['VnodeKubernetesConfig'] = null !== $this->vnodeKubernetesConfig ? $this->vnodeKubernetesConfig->toArray($noStream) : $this->vnodeKubernetesConfig;
         }
 
         if (null !== $this->volumes) {
@@ -490,12 +528,24 @@ class DescribeAIDBClusterAttributeResponseBody extends Model
             $model->storageType = $map['StorageType'];
         }
 
+        if (isset($map['TimeSlicesInfo'])) {
+            $model->timeSlicesInfo = timeSlicesInfo::fromMap($map['TimeSlicesInfo']);
+        }
+
+        if (isset($map['TimeSlicesType'])) {
+            $model->timeSlicesType = $map['TimeSlicesType'];
+        }
+
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
 
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+
+        if (isset($map['VnodeKubernetesConfig'])) {
+            $model->vnodeKubernetesConfig = vnodeKubernetesConfig::fromMap($map['VnodeKubernetesConfig']);
         }
 
         if (isset($map['Volumes'])) {

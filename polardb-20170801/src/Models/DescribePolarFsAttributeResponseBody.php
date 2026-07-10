@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponseBody\customBucketPathList;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponseBody\endpointItems;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribePolarFsAttributeResponseBody\mountInfo;
 
 class DescribePolarFsAttributeResponseBody extends Model
@@ -68,7 +69,17 @@ class DescribePolarFsAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $DBEndpointId;
+
+    /**
+     * @var string
+     */
     public $DBType;
+
+    /**
+     * @var endpointItems[]
+     */
+    public $endpointItems;
 
     /**
      * @var string
@@ -93,7 +104,22 @@ class DescribePolarFsAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $maxscaleEndpointId;
+
+    /**
+     * @var string
+     */
+    public $metaConnString;
+
+    /**
+     * @var string
+     */
     public $metaInstanceName;
+
+    /**
+     * @var string
+     */
+    public $metaMxsConnString;
 
     /**
      * @var string
@@ -183,6 +209,16 @@ class DescribePolarFsAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $userDefaultAccName;
+
+    /**
+     * @var string
+     */
+    public $userDefaultAccSk;
+
+    /**
+     * @var string
+     */
     public $VPCId;
 
     /**
@@ -206,12 +242,17 @@ class DescribePolarFsAttributeResponseBody extends Model
         'createTime' => 'CreateTime',
         'customBucketPath' => 'CustomBucketPath',
         'customBucketPathList' => 'CustomBucketPathList',
+        'DBEndpointId' => 'DBEndpointId',
         'DBType' => 'DBType',
+        'endpointItems' => 'EndpointItems',
         'expireTime' => 'ExpireTime',
         'expired' => 'Expired',
         'fileSystemId' => 'FileSystemId',
         'lockMode' => 'LockMode',
+        'maxscaleEndpointId' => 'MaxscaleEndpointId',
+        'metaConnString' => 'MetaConnString',
         'metaInstanceName' => 'MetaInstanceName',
+        'metaMxsConnString' => 'MetaMxsConnString',
         'metaUrl' => 'MetaUrl',
         'minorVersion' => 'MinorVersion',
         'mountInfo' => 'MountInfo',
@@ -229,6 +270,8 @@ class DescribePolarFsAttributeResponseBody extends Model
         'storageSpace' => 'StorageSpace',
         'storageType' => 'StorageType',
         'storageUsed' => 'StorageUsed',
+        'userDefaultAccName' => 'UserDefaultAccName',
+        'userDefaultAccSk' => 'UserDefaultAccSk',
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
         'zoneId' => 'ZoneId',
@@ -238,6 +281,9 @@ class DescribePolarFsAttributeResponseBody extends Model
     {
         if (\is_array($this->customBucketPathList)) {
             Model::validateArray($this->customBucketPathList);
+        }
+        if (\is_array($this->endpointItems)) {
+            Model::validateArray($this->endpointItems);
         }
         if (null !== $this->mountInfo) {
             $this->mountInfo->validate();
@@ -299,8 +345,23 @@ class DescribePolarFsAttributeResponseBody extends Model
             }
         }
 
+        if (null !== $this->DBEndpointId) {
+            $res['DBEndpointId'] = $this->DBEndpointId;
+        }
+
         if (null !== $this->DBType) {
             $res['DBType'] = $this->DBType;
+        }
+
+        if (null !== $this->endpointItems) {
+            if (\is_array($this->endpointItems)) {
+                $res['EndpointItems'] = [];
+                $n1 = 0;
+                foreach ($this->endpointItems as $item1) {
+                    $res['EndpointItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->expireTime) {
@@ -319,8 +380,20 @@ class DescribePolarFsAttributeResponseBody extends Model
             $res['LockMode'] = $this->lockMode;
         }
 
+        if (null !== $this->maxscaleEndpointId) {
+            $res['MaxscaleEndpointId'] = $this->maxscaleEndpointId;
+        }
+
+        if (null !== $this->metaConnString) {
+            $res['MetaConnString'] = $this->metaConnString;
+        }
+
         if (null !== $this->metaInstanceName) {
             $res['MetaInstanceName'] = $this->metaInstanceName;
+        }
+
+        if (null !== $this->metaMxsConnString) {
+            $res['MetaMxsConnString'] = $this->metaMxsConnString;
         }
 
         if (null !== $this->metaUrl) {
@@ -389,6 +462,14 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (null !== $this->storageUsed) {
             $res['StorageUsed'] = $this->storageUsed;
+        }
+
+        if (null !== $this->userDefaultAccName) {
+            $res['UserDefaultAccName'] = $this->userDefaultAccName;
+        }
+
+        if (null !== $this->userDefaultAccSk) {
+            $res['UserDefaultAccSk'] = $this->userDefaultAccSk;
         }
 
         if (null !== $this->VPCId) {
@@ -465,8 +546,23 @@ class DescribePolarFsAttributeResponseBody extends Model
             }
         }
 
+        if (isset($map['DBEndpointId'])) {
+            $model->DBEndpointId = $map['DBEndpointId'];
+        }
+
         if (isset($map['DBType'])) {
             $model->DBType = $map['DBType'];
+        }
+
+        if (isset($map['EndpointItems'])) {
+            if (!empty($map['EndpointItems'])) {
+                $model->endpointItems = [];
+                $n1 = 0;
+                foreach ($map['EndpointItems'] as $item1) {
+                    $model->endpointItems[$n1] = endpointItems::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['ExpireTime'])) {
@@ -485,8 +581,20 @@ class DescribePolarFsAttributeResponseBody extends Model
             $model->lockMode = $map['LockMode'];
         }
 
+        if (isset($map['MaxscaleEndpointId'])) {
+            $model->maxscaleEndpointId = $map['MaxscaleEndpointId'];
+        }
+
+        if (isset($map['MetaConnString'])) {
+            $model->metaConnString = $map['MetaConnString'];
+        }
+
         if (isset($map['MetaInstanceName'])) {
             $model->metaInstanceName = $map['MetaInstanceName'];
+        }
+
+        if (isset($map['MetaMxsConnString'])) {
+            $model->metaMxsConnString = $map['MetaMxsConnString'];
         }
 
         if (isset($map['MetaUrl'])) {
@@ -555,6 +663,14 @@ class DescribePolarFsAttributeResponseBody extends Model
 
         if (isset($map['StorageUsed'])) {
             $model->storageUsed = $map['StorageUsed'];
+        }
+
+        if (isset($map['UserDefaultAccName'])) {
+            $model->userDefaultAccName = $map['UserDefaultAccName'];
+        }
+
+        if (isset($map['UserDefaultAccSk'])) {
+            $model->userDefaultAccSk = $map['UserDefaultAccSk'];
         }
 
         if (isset($map['VPCId'])) {

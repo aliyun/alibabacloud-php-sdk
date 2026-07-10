@@ -26,6 +26,11 @@ class DescribeDBClusterSSLRequest extends Model
     /**
      * @var string
      */
+    public $pfsInstanceId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -36,6 +41,7 @@ class DescribeDBClusterSSLRequest extends Model
         'DBClusterId' => 'DBClusterId',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'pfsInstanceId' => 'PfsInstanceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
@@ -58,6 +64,10 @@ class DescribeDBClusterSSLRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->pfsInstanceId) {
+            $res['PfsInstanceId'] = $this->pfsInstanceId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -89,6 +99,10 @@ class DescribeDBClusterSSLRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PfsInstanceId'])) {
+            $model->pfsInstanceId = $map['PfsInstanceId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

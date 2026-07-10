@@ -103,6 +103,11 @@ class DescribeAIDBClusterTaskAttributeResponseBody extends Model
     /**
      * @var string
      */
+    public $tuneArch;
+
+    /**
+     * @var string
+     */
     public $VPCId;
 
     /**
@@ -128,6 +133,7 @@ class DescribeAIDBClusterTaskAttributeResponseBody extends Model
         'modelPath' => 'ModelPath',
         'requestId' => 'RequestId',
         'taskInfo' => 'TaskInfo',
+        'tuneArch' => 'TuneArch',
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
     ];
@@ -247,6 +253,10 @@ class DescribeAIDBClusterTaskAttributeResponseBody extends Model
             }
         }
 
+        if (null !== $this->tuneArch) {
+            $res['TuneArch'] = $this->tuneArch;
+        }
+
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
@@ -362,6 +372,10 @@ class DescribeAIDBClusterTaskAttributeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TuneArch'])) {
+            $model->tuneArch = $map['TuneArch'];
         }
 
         if (isset($map['VPCId'])) {

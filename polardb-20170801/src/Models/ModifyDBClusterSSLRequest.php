@@ -11,6 +11,11 @@ class ModifyDBClusterSSLRequest extends Model
     /**
      * @var string
      */
+    public $connectionString;
+
+    /**
+     * @var string
+     */
     public $DBClusterId;
 
     /**
@@ -36,6 +41,11 @@ class ModifyDBClusterSSLRequest extends Model
     /**
      * @var string
      */
+    public $pfsInstanceId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -53,11 +63,13 @@ class ModifyDBClusterSSLRequest extends Model
      */
     public $SSLEnabled;
     protected $_name = [
+        'connectionString' => 'ConnectionString',
         'DBClusterId' => 'DBClusterId',
         'DBEndpointId' => 'DBEndpointId',
         'netType' => 'NetType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
+        'pfsInstanceId' => 'PfsInstanceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
         'SSLAutoRotate' => 'SSLAutoRotate',
@@ -72,6 +84,10 @@ class ModifyDBClusterSSLRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -90,6 +106,10 @@ class ModifyDBClusterSSLRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->pfsInstanceId) {
+            $res['PfsInstanceId'] = $this->pfsInstanceId;
         }
 
         if (null !== $this->resourceOwnerAccount) {
@@ -119,6 +139,10 @@ class ModifyDBClusterSSLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
@@ -137,6 +161,10 @@ class ModifyDBClusterSSLRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PfsInstanceId'])) {
+            $model->pfsInstanceId = $map['PfsInstanceId'];
         }
 
         if (isset($map['ResourceOwnerAccount'])) {

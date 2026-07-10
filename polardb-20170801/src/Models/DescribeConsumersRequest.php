@@ -21,6 +21,16 @@ class DescribeConsumersRequest extends Model
     /**
      * @var string
      */
+    public $consumerName;
+
+    /**
+     * @var string
+     */
+    public $consumerNameList;
+
+    /**
+     * @var string
+     */
     public $gwClusterId;
 
     /**
@@ -40,6 +50,8 @@ class DescribeConsumersRequest extends Model
     protected $_name = [
         'consumerGroupId' => 'ConsumerGroupId',
         'consumerId' => 'ConsumerId',
+        'consumerName' => 'ConsumerName',
+        'consumerNameList' => 'ConsumerNameList',
         'gwClusterId' => 'GwClusterId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
@@ -60,6 +72,14 @@ class DescribeConsumersRequest extends Model
 
         if (null !== $this->consumerId) {
             $res['ConsumerId'] = $this->consumerId;
+        }
+
+        if (null !== $this->consumerName) {
+            $res['ConsumerName'] = $this->consumerName;
+        }
+
+        if (null !== $this->consumerNameList) {
+            $res['ConsumerNameList'] = $this->consumerNameList;
         }
 
         if (null !== $this->gwClusterId) {
@@ -95,6 +115,14 @@ class DescribeConsumersRequest extends Model
 
         if (isset($map['ConsumerId'])) {
             $model->consumerId = $map['ConsumerId'];
+        }
+
+        if (isset($map['ConsumerName'])) {
+            $model->consumerName = $map['ConsumerName'];
+        }
+
+        if (isset($map['ConsumerNameList'])) {
+            $model->consumerNameList = $map['ConsumerNameList'];
         }
 
         if (isset($map['GwClusterId'])) {

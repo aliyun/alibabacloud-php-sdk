@@ -87,6 +87,11 @@ class items extends Model
      * @var string
      */
     public $trainType;
+
+    /**
+     * @var string
+     */
+    public $tuneArch;
     protected $_name = [
         'completedTime' => 'CompletedTime',
         'creationTime' => 'CreationTime',
@@ -104,6 +109,7 @@ class items extends Model
         'startTime' => 'StartTime',
         'trainMode' => 'TrainMode',
         'trainType' => 'TrainType',
+        'tuneArch' => 'TuneArch',
     ];
 
     public function validate()
@@ -176,6 +182,10 @@ class items extends Model
 
         if (null !== $this->trainType) {
             $res['TrainType'] = $this->trainType;
+        }
+
+        if (null !== $this->tuneArch) {
+            $res['TuneArch'] = $this->tuneArch;
         }
 
         return $res;
@@ -251,6 +261,10 @@ class items extends Model
 
         if (isset($map['TrainType'])) {
             $model->trainType = $map['TrainType'];
+        }
+
+        if (isset($map['TuneArch'])) {
+            $model->tuneArch = $map['TuneArch'];
         }
 
         return $model;

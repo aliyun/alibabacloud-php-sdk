@@ -91,6 +91,11 @@ class CreateAIDBClusterTaskRequest extends Model
     /**
      * @var string
      */
+    public $tuneArch;
+
+    /**
+     * @var string
+     */
     public $VPCId;
 
     /**
@@ -119,6 +124,7 @@ class CreateAIDBClusterTaskRequest extends Model
         'runningParameter' => 'RunningParameter',
         'securityGroupId' => 'SecurityGroupId',
         'taskName' => 'TaskName',
+        'tuneArch' => 'TuneArch',
         'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
         'zoneId' => 'ZoneId',
@@ -194,6 +200,10 @@ class CreateAIDBClusterTaskRequest extends Model
 
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
+        }
+
+        if (null !== $this->tuneArch) {
+            $res['TuneArch'] = $this->tuneArch;
         }
 
         if (null !== $this->VPCId) {
@@ -281,6 +291,10 @@ class CreateAIDBClusterTaskRequest extends Model
 
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
+        }
+
+        if (isset($map['TuneArch'])) {
+            $model->tuneArch = $map['TuneArch'];
         }
 
         if (isset($map['VPCId'])) {

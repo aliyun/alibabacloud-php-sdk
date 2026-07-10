@@ -38,6 +38,11 @@ class items extends Model
      * @var string[]
      */
     public $supportedGpuModels;
+
+    /**
+     * @var string
+     */
+    public $tuneArch;
     protected $_name = [
         'gpuRequired' => 'GpuRequired',
         'minimumCpu' => 'MinimumCpu',
@@ -45,6 +50,7 @@ class items extends Model
         'modelName' => 'ModelName',
         'modelSeries' => 'ModelSeries',
         'supportedGpuModels' => 'SupportedGpuModels',
+        'tuneArch' => 'TuneArch',
     ];
 
     public function validate()
@@ -99,6 +105,10 @@ class items extends Model
             }
         }
 
+        if (null !== $this->tuneArch) {
+            $res['TuneArch'] = $this->tuneArch;
+        }
+
         return $res;
     }
 
@@ -146,6 +156,10 @@ class items extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['TuneArch'])) {
+            $model->tuneArch = $map['TuneArch'];
         }
 
         return $model;

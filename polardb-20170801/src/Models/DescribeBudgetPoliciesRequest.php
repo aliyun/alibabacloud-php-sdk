@@ -46,6 +46,11 @@ class DescribeBudgetPoliciesRequest extends Model
     /**
      * @var string
      */
+    public $scopeRefName;
+
+    /**
+     * @var string
+     */
     public $status;
     protected $_name = [
         'budgetDimensionRefId' => 'BudgetDimensionRefId',
@@ -55,6 +60,7 @@ class DescribeBudgetPoliciesRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'regionId' => 'RegionId',
+        'scopeRefName' => 'ScopeRefName',
         'status' => 'Status',
     ];
 
@@ -92,6 +98,10 @@ class DescribeBudgetPoliciesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->scopeRefName) {
+            $res['ScopeRefName'] = $this->scopeRefName;
         }
 
         if (null !== $this->status) {
@@ -135,6 +145,10 @@ class DescribeBudgetPoliciesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ScopeRefName'])) {
+            $model->scopeRefName = $map['ScopeRefName'];
         }
 
         if (isset($map['Status'])) {

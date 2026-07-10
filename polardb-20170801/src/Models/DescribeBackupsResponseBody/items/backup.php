@@ -56,6 +56,11 @@ class backup extends Model
     /**
      * @var string
      */
+    public $comment;
+
+    /**
+     * @var string
+     */
     public $consistentTime;
 
     /**
@@ -92,6 +97,7 @@ class backup extends Model
         'backupStatus' => 'BackupStatus',
         'backupType' => 'BackupType',
         'backupsLevel' => 'BackupsLevel',
+        'comment' => 'Comment',
         'consistentTime' => 'ConsistentTime',
         'DBClusterId' => 'DBClusterId',
         'expectExpireTime' => 'ExpectExpireTime',
@@ -142,6 +148,10 @@ class backup extends Model
 
         if (null !== $this->backupsLevel) {
             $res['BackupsLevel'] = $this->backupsLevel;
+        }
+
+        if (null !== $this->comment) {
+            $res['Comment'] = $this->comment;
         }
 
         if (null !== $this->consistentTime) {
@@ -213,6 +223,10 @@ class backup extends Model
 
         if (isset($map['BackupsLevel'])) {
             $model->backupsLevel = $map['BackupsLevel'];
+        }
+
+        if (isset($map['Comment'])) {
+            $model->comment = $map['Comment'];
         }
 
         if (isset($map['ConsistentTime'])) {
