@@ -17,6 +17,11 @@ class nodeComponents extends Model
     /**
      * @var string
      */
+    public $configRevision;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -25,6 +30,7 @@ class nodeComponents extends Model
     public $version;
     protected $_name = [
         'config' => 'config',
+        'configRevision' => 'config_revision',
         'name' => 'name',
         'version' => 'version',
     ];
@@ -42,6 +48,10 @@ class nodeComponents extends Model
         $res = [];
         if (null !== $this->config) {
             $res['config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
+        }
+
+        if (null !== $this->configRevision) {
+            $res['config_revision'] = $this->configRevision;
         }
 
         if (null !== $this->name) {
@@ -65,6 +75,10 @@ class nodeComponents extends Model
         $model = new self();
         if (isset($map['config'])) {
             $model->config = config::fromMap($map['config']);
+        }
+
+        if (isset($map['config_revision'])) {
+            $model->configRevision = $map['config_revision'];
         }
 
         if (isset($map['name'])) {

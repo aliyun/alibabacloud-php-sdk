@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\CS\V20151215\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\autoScaling;
+use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\efloNodeGroup;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\kubernetesConfig;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\management;
 use AlibabaCloud\SDK\CS\V20151215\Models\ModifyClusterNodePoolRequest\nodepoolInfo;
@@ -23,6 +24,11 @@ class ModifyClusterNodePoolRequest extends Model
      * @var bool
      */
     public $concurrency;
+
+    /**
+     * @var efloNodeGroup
+     */
+    public $efloNodeGroup;
 
     /**
      * @var kubernetesConfig
@@ -56,6 +62,7 @@ class ModifyClusterNodePoolRequest extends Model
     protected $_name = [
         'autoScaling' => 'auto_scaling',
         'concurrency' => 'concurrency',
+        'efloNodeGroup' => 'eflo_node_group',
         'kubernetesConfig' => 'kubernetes_config',
         'management' => 'management',
         'nodepoolInfo' => 'nodepool_info',
@@ -68,6 +75,9 @@ class ModifyClusterNodePoolRequest extends Model
     {
         if (null !== $this->autoScaling) {
             $this->autoScaling->validate();
+        }
+        if (null !== $this->efloNodeGroup) {
+            $this->efloNodeGroup->validate();
         }
         if (null !== $this->kubernetesConfig) {
             $this->kubernetesConfig->validate();
@@ -96,6 +106,10 @@ class ModifyClusterNodePoolRequest extends Model
 
         if (null !== $this->concurrency) {
             $res['concurrency'] = $this->concurrency;
+        }
+
+        if (null !== $this->efloNodeGroup) {
+            $res['eflo_node_group'] = null !== $this->efloNodeGroup ? $this->efloNodeGroup->toArray($noStream) : $this->efloNodeGroup;
         }
 
         if (null !== $this->kubernetesConfig) {
@@ -139,6 +153,10 @@ class ModifyClusterNodePoolRequest extends Model
 
         if (isset($map['concurrency'])) {
             $model->concurrency = $map['concurrency'];
+        }
+
+        if (isset($map['eflo_node_group'])) {
+            $model->efloNodeGroup = efloNodeGroup::fromMap($map['eflo_node_group']);
         }
 
         if (isset($map['kubernetes_config'])) {
