@@ -9,14 +9,14 @@ use AlibabaCloud\Dara\Model;
 class E2BTemplate extends Model
 {
     /**
-     * @var string[]
+     * @var string
      */
-    public $aliases;
+    public $buildStatus;
 
     /**
      * @var string
      */
-    public $buildStatus;
+    public $category;
 
     /**
      * @var int
@@ -27,11 +27,6 @@ class E2BTemplate extends Model
      * @var string
      */
     public $createdAt;
-
-    /**
-     * @var string
-     */
-    public $lastSpawnedAt;
 
     /**
      * @var LogConfiguration
@@ -49,6 +44,11 @@ class E2BTemplate extends Model
     public $names;
 
     /**
+     * @var NetworkConfiguration
+     */
+    public $networkConfiguration;
+
+    /**
      * @var bool
      */
     public $public;
@@ -57,11 +57,6 @@ class E2BTemplate extends Model
      * @var string
      */
     public $resourceGroupID;
-
-    /**
-     * @var int
-     */
-    public $spawnCount;
 
     /**
      * @var string
@@ -98,17 +93,16 @@ class E2BTemplate extends Model
      */
     public $userID;
     protected $_name = [
-        'aliases' => 'aliases',
         'buildStatus' => 'buildStatus',
+        'category' => 'category',
         'cpuCount' => 'cpuCount',
         'createdAt' => 'createdAt',
-        'lastSpawnedAt' => 'lastSpawnedAt',
         'logConfiguration' => 'logConfiguration',
         'memoryMB' => 'memoryMB',
         'names' => 'names',
+        'networkConfiguration' => 'networkConfiguration',
         'public' => 'public',
         'resourceGroupID' => 'resourceGroupID',
-        'spawnCount' => 'spawnCount',
         'statusReason' => 'statusReason',
         'tags' => 'tags',
         'teamID' => 'teamID',
@@ -120,14 +114,14 @@ class E2BTemplate extends Model
 
     public function validate()
     {
-        if (\is_array($this->aliases)) {
-            Model::validateArray($this->aliases);
-        }
         if (null !== $this->logConfiguration) {
             $this->logConfiguration->validate();
         }
         if (\is_array($this->names)) {
             Model::validateArray($this->names);
+        }
+        if (null !== $this->networkConfiguration) {
+            $this->networkConfiguration->validate();
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -138,19 +132,12 @@ class E2BTemplate extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->aliases) {
-            if (\is_array($this->aliases)) {
-                $res['aliases'] = [];
-                $n1 = 0;
-                foreach ($this->aliases as $item1) {
-                    $res['aliases'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->buildStatus) {
             $res['buildStatus'] = $this->buildStatus;
+        }
+
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
         }
 
         if (null !== $this->cpuCount) {
@@ -159,10 +146,6 @@ class E2BTemplate extends Model
 
         if (null !== $this->createdAt) {
             $res['createdAt'] = $this->createdAt;
-        }
-
-        if (null !== $this->lastSpawnedAt) {
-            $res['lastSpawnedAt'] = $this->lastSpawnedAt;
         }
 
         if (null !== $this->logConfiguration) {
@@ -184,16 +167,16 @@ class E2BTemplate extends Model
             }
         }
 
+        if (null !== $this->networkConfiguration) {
+            $res['networkConfiguration'] = null !== $this->networkConfiguration ? $this->networkConfiguration->toArray($noStream) : $this->networkConfiguration;
+        }
+
         if (null !== $this->public) {
             $res['public'] = $this->public;
         }
 
         if (null !== $this->resourceGroupID) {
             $res['resourceGroupID'] = $this->resourceGroupID;
-        }
-
-        if (null !== $this->spawnCount) {
-            $res['spawnCount'] = $this->spawnCount;
         }
 
         if (null !== $this->statusReason) {
@@ -242,19 +225,12 @@ class E2BTemplate extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['aliases'])) {
-            if (!empty($map['aliases'])) {
-                $model->aliases = [];
-                $n1 = 0;
-                foreach ($map['aliases'] as $item1) {
-                    $model->aliases[$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['buildStatus'])) {
             $model->buildStatus = $map['buildStatus'];
+        }
+
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
         }
 
         if (isset($map['cpuCount'])) {
@@ -263,10 +239,6 @@ class E2BTemplate extends Model
 
         if (isset($map['createdAt'])) {
             $model->createdAt = $map['createdAt'];
-        }
-
-        if (isset($map['lastSpawnedAt'])) {
-            $model->lastSpawnedAt = $map['lastSpawnedAt'];
         }
 
         if (isset($map['logConfiguration'])) {
@@ -288,16 +260,16 @@ class E2BTemplate extends Model
             }
         }
 
+        if (isset($map['networkConfiguration'])) {
+            $model->networkConfiguration = NetworkConfiguration::fromMap($map['networkConfiguration']);
+        }
+
         if (isset($map['public'])) {
             $model->public = $map['public'];
         }
 
         if (isset($map['resourceGroupID'])) {
             $model->resourceGroupID = $map['resourceGroupID'];
-        }
-
-        if (isset($map['spawnCount'])) {
-            $model->spawnCount = $map['spawnCount'];
         }
 
         if (isset($map['statusReason'])) {

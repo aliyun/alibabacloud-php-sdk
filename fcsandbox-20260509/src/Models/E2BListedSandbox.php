@@ -9,16 +9,6 @@ use AlibabaCloud\Dara\Model;
 class E2BListedSandbox extends Model
 {
     /**
-     * @var string
-     */
-    public $alias;
-
-    /**
-     * @var string
-     */
-    public $clientID;
-
-    /**
      * @var int
      */
     public $cpuCount;
@@ -32,11 +22,6 @@ class E2BListedSandbox extends Model
      * @var string
      */
     public $endAt;
-
-    /**
-     * @var string
-     */
-    public $envdVersion;
 
     /**
      * @var int
@@ -92,18 +77,10 @@ class E2BListedSandbox extends Model
      * @var string
      */
     public $userID;
-
-    /**
-     * @var E2BVolumeMount[]
-     */
-    public $volumeMounts;
     protected $_name = [
-        'alias' => 'alias',
-        'clientID' => 'clientID',
         'cpuCount' => 'cpuCount',
         'diskSizeMB' => 'diskSizeMB',
         'endAt' => 'endAt',
-        'envdVersion' => 'envdVersion',
         'memoryMB' => 'memoryMB',
         'metadata' => 'metadata',
         'resourceGroupID' => 'resourceGroupID',
@@ -115,7 +92,6 @@ class E2BListedSandbox extends Model
         'templateID' => 'templateID',
         'templateName' => 'templateName',
         'userID' => 'userID',
-        'volumeMounts' => 'volumeMounts',
     ];
 
     public function validate()
@@ -123,23 +99,12 @@ class E2BListedSandbox extends Model
         if (\is_array($this->metadata)) {
             Model::validateArray($this->metadata);
         }
-        if (\is_array($this->volumeMounts)) {
-            Model::validateArray($this->volumeMounts);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->alias) {
-            $res['alias'] = $this->alias;
-        }
-
-        if (null !== $this->clientID) {
-            $res['clientID'] = $this->clientID;
-        }
-
         if (null !== $this->cpuCount) {
             $res['cpuCount'] = $this->cpuCount;
         }
@@ -150,10 +115,6 @@ class E2BListedSandbox extends Model
 
         if (null !== $this->endAt) {
             $res['endAt'] = $this->endAt;
-        }
-
-        if (null !== $this->envdVersion) {
-            $res['envdVersion'] = $this->envdVersion;
         }
 
         if (null !== $this->memoryMB) {
@@ -205,17 +166,6 @@ class E2BListedSandbox extends Model
             $res['userID'] = $this->userID;
         }
 
-        if (null !== $this->volumeMounts) {
-            if (\is_array($this->volumeMounts)) {
-                $res['volumeMounts'] = [];
-                $n1 = 0;
-                foreach ($this->volumeMounts as $item1) {
-                    $res['volumeMounts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         return $res;
     }
 
@@ -227,14 +177,6 @@ class E2BListedSandbox extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['alias'])) {
-            $model->alias = $map['alias'];
-        }
-
-        if (isset($map['clientID'])) {
-            $model->clientID = $map['clientID'];
-        }
-
         if (isset($map['cpuCount'])) {
             $model->cpuCount = $map['cpuCount'];
         }
@@ -245,10 +187,6 @@ class E2BListedSandbox extends Model
 
         if (isset($map['endAt'])) {
             $model->endAt = $map['endAt'];
-        }
-
-        if (isset($map['envdVersion'])) {
-            $model->envdVersion = $map['envdVersion'];
         }
 
         if (isset($map['memoryMB'])) {
@@ -298,17 +236,6 @@ class E2BListedSandbox extends Model
 
         if (isset($map['userID'])) {
             $model->userID = $map['userID'];
-        }
-
-        if (isset($map['volumeMounts'])) {
-            if (!empty($map['volumeMounts'])) {
-                $model->volumeMounts = [];
-                $n1 = 0;
-                foreach ($map['volumeMounts'] as $item1) {
-                    $model->volumeMounts[$n1] = E2BVolumeMount::fromMap($item1);
-                    ++$n1;
-                }
-            }
         }
 
         return $model;

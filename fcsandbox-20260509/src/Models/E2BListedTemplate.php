@@ -9,11 +9,6 @@ use AlibabaCloud\Dara\Model;
 class E2BListedTemplate extends Model
 {
     /**
-     * @var string[]
-     */
-    public $aliases;
-
-    /**
      * @var string
      */
     public $buildStatus;
@@ -39,11 +34,6 @@ class E2BListedTemplate extends Model
     public $functionName;
 
     /**
-     * @var string
-     */
-    public $lastSpawnedAt;
-
-    /**
      * @var LogConfiguration
      */
     public $logConfiguration;
@@ -67,11 +57,6 @@ class E2BListedTemplate extends Model
      * @var string
      */
     public $resourceGroupID;
-
-    /**
-     * @var int
-     */
-    public $spawnCount;
 
     /**
      * @var string
@@ -108,19 +93,16 @@ class E2BListedTemplate extends Model
      */
     public $userID;
     protected $_name = [
-        'aliases' => 'aliases',
         'buildStatus' => 'buildStatus',
         'category' => 'category',
         'cpuCount' => 'cpuCount',
         'createdAt' => 'createdAt',
         'functionName' => 'functionName',
-        'lastSpawnedAt' => 'lastSpawnedAt',
         'logConfiguration' => 'logConfiguration',
         'memoryMB' => 'memoryMB',
         'names' => 'names',
         'public' => 'public',
         'resourceGroupID' => 'resourceGroupID',
-        'spawnCount' => 'spawnCount',
         'statusReason' => 'statusReason',
         'tags' => 'tags',
         'teamID' => 'teamID',
@@ -132,9 +114,6 @@ class E2BListedTemplate extends Model
 
     public function validate()
     {
-        if (\is_array($this->aliases)) {
-            Model::validateArray($this->aliases);
-        }
         if (null !== $this->logConfiguration) {
             $this->logConfiguration->validate();
         }
@@ -150,17 +129,6 @@ class E2BListedTemplate extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->aliases) {
-            if (\is_array($this->aliases)) {
-                $res['aliases'] = [];
-                $n1 = 0;
-                foreach ($this->aliases as $item1) {
-                    $res['aliases'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (null !== $this->buildStatus) {
             $res['buildStatus'] = $this->buildStatus;
         }
@@ -179,10 +147,6 @@ class E2BListedTemplate extends Model
 
         if (null !== $this->functionName) {
             $res['functionName'] = $this->functionName;
-        }
-
-        if (null !== $this->lastSpawnedAt) {
-            $res['lastSpawnedAt'] = $this->lastSpawnedAt;
         }
 
         if (null !== $this->logConfiguration) {
@@ -210,10 +174,6 @@ class E2BListedTemplate extends Model
 
         if (null !== $this->resourceGroupID) {
             $res['resourceGroupID'] = $this->resourceGroupID;
-        }
-
-        if (null !== $this->spawnCount) {
-            $res['spawnCount'] = $this->spawnCount;
         }
 
         if (null !== $this->statusReason) {
@@ -262,17 +222,6 @@ class E2BListedTemplate extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['aliases'])) {
-            if (!empty($map['aliases'])) {
-                $model->aliases = [];
-                $n1 = 0;
-                foreach ($map['aliases'] as $item1) {
-                    $model->aliases[$n1] = $item1;
-                    ++$n1;
-                }
-            }
-        }
-
         if (isset($map['buildStatus'])) {
             $model->buildStatus = $map['buildStatus'];
         }
@@ -291,10 +240,6 @@ class E2BListedTemplate extends Model
 
         if (isset($map['functionName'])) {
             $model->functionName = $map['functionName'];
-        }
-
-        if (isset($map['lastSpawnedAt'])) {
-            $model->lastSpawnedAt = $map['lastSpawnedAt'];
         }
 
         if (isset($map['logConfiguration'])) {
@@ -322,10 +267,6 @@ class E2BListedTemplate extends Model
 
         if (isset($map['resourceGroupID'])) {
             $model->resourceGroupID = $map['resourceGroupID'];
-        }
-
-        if (isset($map['spawnCount'])) {
-            $model->spawnCount = $map['spawnCount'];
         }
 
         if (isset($map['statusReason'])) {
