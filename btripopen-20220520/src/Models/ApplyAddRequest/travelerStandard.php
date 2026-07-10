@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\travelerStandard\carCitySet;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\travelerStandard\carStandard;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\travelerStandard\hotelCitys;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyAddRequest\travelerStandard\hotelIntlCitys;
 
@@ -20,6 +21,11 @@ class travelerStandard extends Model
      * @var carCitySet[]
      */
     public $carCitySet;
+
+    /**
+     * @var carStandard
+     */
+    public $carStandard;
 
     /**
      * @var int
@@ -98,6 +104,7 @@ class travelerStandard extends Model
     protected $_name = [
         'businessDiscount' => 'business_discount',
         'carCitySet' => 'car_city_set',
+        'carStandard' => 'car_standard',
         'economyDiscount' => 'economy_discount',
         'firstDiscount' => 'first_discount',
         'flightCabins' => 'flight_cabins',
@@ -119,6 +126,9 @@ class travelerStandard extends Model
     {
         if (\is_array($this->carCitySet)) {
             Model::validateArray($this->carCitySet);
+        }
+        if (null !== $this->carStandard) {
+            $this->carStandard->validate();
         }
         if (\is_array($this->hotelCitys)) {
             Model::validateArray($this->hotelCitys);
@@ -145,6 +155,10 @@ class travelerStandard extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->carStandard) {
+            $res['car_standard'] = null !== $this->carStandard ? $this->carStandard->toArray($noStream) : $this->carStandard;
         }
 
         if (null !== $this->economyDiscount) {
@@ -245,6 +259,10 @@ class travelerStandard extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['car_standard'])) {
+            $model->carStandard = carStandard::fromMap($map['car_standard']);
         }
 
         if (isset($map['economy_discount'])) {

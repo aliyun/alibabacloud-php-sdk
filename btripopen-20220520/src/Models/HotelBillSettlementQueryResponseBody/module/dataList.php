@@ -136,6 +136,16 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $budgetNumber;
+
+    /**
+     * @var string
+     */
+    public $businessReason;
+
+    /**
+     * @var string
+     */
     public $businessTripResult;
 
     /**
@@ -221,6 +231,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $customApplyId;
+
+    /**
+     * @var string
+     */
     public $customContent;
 
     /**
@@ -242,6 +257,11 @@ class dataList extends Model
      * @var string
      */
     public $exceedReason;
+
+    /**
+     * @var string
+     */
+    public $externalPersonType;
 
     /**
      * @var string
@@ -608,6 +628,8 @@ class dataList extends Model
         'bookerName' => 'booker_name',
         'brandGroup' => 'brand_group',
         'brandName' => 'brand_name',
+        'budgetNumber' => 'budget_number',
+        'businessReason' => 'business_reason',
         'businessTripResult' => 'business_trip_result',
         'cancelOrModifyReason' => 'cancel_or_modify_reason',
         'cancelOrModifyScene' => 'cancel_or_modify_scene',
@@ -625,11 +647,13 @@ class dataList extends Model
         'costCenter' => 'cost_center',
         'costCenterNumber' => 'cost_center_number',
         'costDepartment' => 'cost_department',
+        'customApplyId' => 'custom_apply_id',
         'customContent' => 'custom_content',
         'deductibleTax' => 'deductible_tax',
         'department' => 'department',
         'departmentId' => 'department_id',
         'exceedReason' => 'exceed_reason',
+        'externalPersonType' => 'external_person_type',
         'feeType' => 'fee_type',
         'feeTypeDesc' => 'fee_type_desc',
         'fees' => 'fees',
@@ -808,6 +832,14 @@ class dataList extends Model
             $res['brand_name'] = $this->brandName;
         }
 
+        if (null !== $this->budgetNumber) {
+            $res['budget_number'] = $this->budgetNumber;
+        }
+
+        if (null !== $this->businessReason) {
+            $res['business_reason'] = $this->businessReason;
+        }
+
         if (null !== $this->businessTripResult) {
             $res['business_trip_result'] = $this->businessTripResult;
         }
@@ -876,6 +908,10 @@ class dataList extends Model
             $res['cost_department'] = $this->costDepartment;
         }
 
+        if (null !== $this->customApplyId) {
+            $res['custom_apply_id'] = $this->customApplyId;
+        }
+
         if (null !== $this->customContent) {
             $res['custom_content'] = $this->customContent;
         }
@@ -894,6 +930,10 @@ class dataList extends Model
 
         if (null !== $this->exceedReason) {
             $res['exceed_reason'] = $this->exceedReason;
+        }
+
+        if (null !== $this->externalPersonType) {
+            $res['external_person_type'] = $this->externalPersonType;
         }
 
         if (null !== $this->feeType) {
@@ -1279,6 +1319,14 @@ class dataList extends Model
             $model->brandName = $map['brand_name'];
         }
 
+        if (isset($map['budget_number'])) {
+            $model->budgetNumber = $map['budget_number'];
+        }
+
+        if (isset($map['business_reason'])) {
+            $model->businessReason = $map['business_reason'];
+        }
+
         if (isset($map['business_trip_result'])) {
             $model->businessTripResult = $map['business_trip_result'];
         }
@@ -1347,6 +1395,10 @@ class dataList extends Model
             $model->costDepartment = $map['cost_department'];
         }
 
+        if (isset($map['custom_apply_id'])) {
+            $model->customApplyId = $map['custom_apply_id'];
+        }
+
         if (isset($map['custom_content'])) {
             $model->customContent = $map['custom_content'];
         }
@@ -1365,6 +1417,10 @@ class dataList extends Model
 
         if (isset($map['exceed_reason'])) {
             $model->exceedReason = $map['exceed_reason'];
+        }
+
+        if (isset($map['external_person_type'])) {
+            $model->externalPersonType = $map['external_person_type'];
         }
 
         if (isset($map['fee_type'])) {

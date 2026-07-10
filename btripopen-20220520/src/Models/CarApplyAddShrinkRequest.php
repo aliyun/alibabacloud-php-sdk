@@ -36,6 +36,11 @@ class CarApplyAddShrinkRequest extends Model
     /**
      * @var string
      */
+    public $itineraryListShrink;
+
+    /**
+     * @var string
+     */
     public $projectCode;
 
     /**
@@ -98,6 +103,7 @@ class CarApplyAddShrinkRequest extends Model
         'cityCodeSet' => 'city_code_set',
         'date' => 'date',
         'finishedDate' => 'finished_date',
+        'itineraryListShrink' => 'itinerary_list',
         'projectCode' => 'project_code',
         'projectName' => 'project_name',
         'status' => 'status',
@@ -138,6 +144,10 @@ class CarApplyAddShrinkRequest extends Model
 
         if (null !== $this->finishedDate) {
             $res['finished_date'] = $this->finishedDate;
+        }
+
+        if (null !== $this->itineraryListShrink) {
+            $res['itinerary_list'] = $this->itineraryListShrink;
         }
 
         if (null !== $this->projectCode) {
@@ -217,6 +227,10 @@ class CarApplyAddShrinkRequest extends Model
 
         if (isset($map['finished_date'])) {
             $model->finishedDate = $map['finished_date'];
+        }
+
+        if (isset($map['itinerary_list'])) {
+            $model->itineraryListShrink = $map['itinerary_list'];
         }
 
         if (isset($map['project_code'])) {

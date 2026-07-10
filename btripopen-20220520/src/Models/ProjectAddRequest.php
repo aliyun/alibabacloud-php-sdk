@@ -14,6 +14,11 @@ class ProjectAddRequest extends Model
     public $code;
 
     /**
+     * @var bool
+     */
+    public $hasManager;
+
+    /**
      * @var string
      */
     public $projectName;
@@ -34,6 +39,7 @@ class ProjectAddRequest extends Model
     public $thirdPartInvoiceId;
     protected $_name = [
         'code' => 'code',
+        'hasManager' => 'has_manager',
         'projectName' => 'project_name',
         'thirdPartCostCenterId' => 'third_part_cost_center_id',
         'thirdPartId' => 'third_part_id',
@@ -50,6 +56,10 @@ class ProjectAddRequest extends Model
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
+        }
+
+        if (null !== $this->hasManager) {
+            $res['has_manager'] = $this->hasManager;
         }
 
         if (null !== $this->projectName) {
@@ -81,6 +91,10 @@ class ProjectAddRequest extends Model
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
+        }
+
+        if (isset($map['has_manager'])) {
+            $model->hasManager = $map['has_manager'];
         }
 
         if (isset($map['project_name'])) {

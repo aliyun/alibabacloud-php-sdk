@@ -61,6 +61,11 @@ class defaultStandard extends Model
     public $hotelRuleCode;
 
     /**
+     * @var string
+     */
+    public $internationalFlightCabins;
+
+    /**
      * @var int
      */
     public $premiumEconomyDiscount;
@@ -90,6 +95,7 @@ class defaultStandard extends Model
         'hotelIntlCitys' => 'hotel_intl_citys',
         'hotelIntlRuleCode' => 'hotel_intl_rule_code',
         'hotelRuleCode' => 'hotel_rule_code',
+        'internationalFlightCabins' => 'international_flight_cabins',
         'premiumEconomyDiscount' => 'premium_economy_discount',
         'reserveType' => 'reserve_type',
         'trainRuleCode' => 'train_rule_code',
@@ -162,6 +168,10 @@ class defaultStandard extends Model
 
         if (null !== $this->hotelRuleCode) {
             $res['hotel_rule_code'] = $this->hotelRuleCode;
+        }
+
+        if (null !== $this->internationalFlightCabins) {
+            $res['international_flight_cabins'] = $this->internationalFlightCabins;
         }
 
         if (null !== $this->premiumEconomyDiscount) {
@@ -243,6 +253,10 @@ class defaultStandard extends Model
 
         if (isset($map['hotel_rule_code'])) {
             $model->hotelRuleCode = $map['hotel_rule_code'];
+        }
+
+        if (isset($map['international_flight_cabins'])) {
+            $model->internationalFlightCabins = $map['international_flight_cabins'];
         }
 
         if (isset($map['premium_economy_discount'])) {

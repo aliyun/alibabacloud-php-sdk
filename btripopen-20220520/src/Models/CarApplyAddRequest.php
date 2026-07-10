@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddRequest\itineraryList;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\CarApplyAddRequest\travelerStandard;
 
 class CarApplyAddRequest extends Model
@@ -33,6 +34,11 @@ class CarApplyAddRequest extends Model
      * @var string
      */
     public $finishedDate;
+
+    /**
+     * @var itineraryList[]
+     */
+    public $itineraryList;
 
     /**
      * @var string
@@ -99,6 +105,7 @@ class CarApplyAddRequest extends Model
         'cityCodeSet' => 'city_code_set',
         'date' => 'date',
         'finishedDate' => 'finished_date',
+        'itineraryList' => 'itinerary_list',
         'projectCode' => 'project_code',
         'projectName' => 'project_name',
         'status' => 'status',
@@ -115,6 +122,9 @@ class CarApplyAddRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->itineraryList)) {
+            Model::validateArray($this->itineraryList);
+        }
         if (\is_array($this->travelerStandard)) {
             Model::validateArray($this->travelerStandard);
         }
@@ -142,6 +152,17 @@ class CarApplyAddRequest extends Model
 
         if (null !== $this->finishedDate) {
             $res['finished_date'] = $this->finishedDate;
+        }
+
+        if (null !== $this->itineraryList) {
+            if (\is_array($this->itineraryList)) {
+                $res['itinerary_list'] = [];
+                $n1 = 0;
+                foreach ($this->itineraryList as $item1) {
+                    $res['itinerary_list'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->projectCode) {
@@ -228,6 +249,17 @@ class CarApplyAddRequest extends Model
 
         if (isset($map['finished_date'])) {
             $model->finishedDate = $map['finished_date'];
+        }
+
+        if (isset($map['itinerary_list'])) {
+            if (!empty($map['itinerary_list'])) {
+                $model->itineraryList = [];
+                $n1 = 0;
+                foreach ($map['itinerary_list'] as $item1) {
+                    $model->itineraryList[$n1] = itineraryList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['project_code'])) {

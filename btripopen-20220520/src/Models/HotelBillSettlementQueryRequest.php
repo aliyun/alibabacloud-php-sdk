@@ -11,6 +11,11 @@ class HotelBillSettlementQueryRequest extends Model
     /**
      * @var string
      */
+    public $applyId;
+
+    /**
+     * @var string
+     */
     public $billBatch;
 
     /**
@@ -58,6 +63,7 @@ class HotelBillSettlementQueryRequest extends Model
      */
     public $scrollMod;
     protected $_name = [
+        'applyId' => 'apply_id',
         'billBatch' => 'bill_batch',
         'billRecordTimeEnd' => 'bill_record_time_end',
         'billRecordTimeStart' => 'bill_record_time_start',
@@ -78,6 +84,10 @@ class HotelBillSettlementQueryRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applyId) {
+            $res['apply_id'] = $this->applyId;
+        }
+
         if (null !== $this->billBatch) {
             $res['bill_batch'] = $this->billBatch;
         }
@@ -129,6 +139,10 @@ class HotelBillSettlementQueryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['apply_id'])) {
+            $model->applyId = $map['apply_id'];
+        }
+
         if (isset($map['bill_batch'])) {
             $model->billBatch = $map['bill_batch'];
         }

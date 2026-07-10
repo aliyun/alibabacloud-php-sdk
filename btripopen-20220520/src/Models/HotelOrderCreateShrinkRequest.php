@@ -11,6 +11,11 @@ class HotelOrderCreateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $arrivalTime;
+
+    /**
+     * @var string
+     */
     public $btripUserId;
 
     /**
@@ -71,6 +76,11 @@ class HotelOrderCreateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $leaveTime;
+
+    /**
+     * @var string
+     */
     public $memberInfoShrink;
 
     /**
@@ -106,6 +116,11 @@ class HotelOrderCreateShrinkRequest extends Model
     /**
      * @var int
      */
+    public $rpType;
+
+    /**
+     * @var int
+     */
     public $sellerId;
 
     /**
@@ -123,6 +138,7 @@ class HotelOrderCreateShrinkRequest extends Model
      */
     public $validateResKey;
     protected $_name = [
+        'arrivalTime' => 'arrival_time',
         'btripUserId' => 'btrip_user_id',
         'checkIn' => 'check_in',
         'checkOut' => 'check_out',
@@ -135,6 +151,7 @@ class HotelOrderCreateShrinkRequest extends Model
         'invoiceInfoShrink' => 'invoice_info',
         'itemId' => 'item_id',
         'itineraryNo' => 'itinerary_no',
+        'leaveTime' => 'leave_time',
         'memberInfoShrink' => 'member_info',
         'occupantInfoListShrink' => 'occupant_info_list',
         'personPayPrice' => 'person_pay_price',
@@ -142,6 +159,7 @@ class HotelOrderCreateShrinkRequest extends Model
         'ratePlanId' => 'rate_plan_id',
         'roomId' => 'room_id',
         'roomNum' => 'room_num',
+        'rpType' => 'rp_type',
         'sellerId' => 'seller_id',
         'shid' => 'shid',
         'totalOrderPrice' => 'total_order_price',
@@ -156,6 +174,10 @@ class HotelOrderCreateShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->arrivalTime) {
+            $res['arrival_time'] = $this->arrivalTime;
+        }
+
         if (null !== $this->btripUserId) {
             $res['btrip_user_id'] = $this->btripUserId;
         }
@@ -204,6 +226,10 @@ class HotelOrderCreateShrinkRequest extends Model
             $res['itinerary_no'] = $this->itineraryNo;
         }
 
+        if (null !== $this->leaveTime) {
+            $res['leave_time'] = $this->leaveTime;
+        }
+
         if (null !== $this->memberInfoShrink) {
             $res['member_info'] = $this->memberInfoShrink;
         }
@@ -230,6 +256,10 @@ class HotelOrderCreateShrinkRequest extends Model
 
         if (null !== $this->roomNum) {
             $res['room_num'] = $this->roomNum;
+        }
+
+        if (null !== $this->rpType) {
+            $res['rp_type'] = $this->rpType;
         }
 
         if (null !== $this->sellerId) {
@@ -259,6 +289,10 @@ class HotelOrderCreateShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['arrival_time'])) {
+            $model->arrivalTime = $map['arrival_time'];
+        }
+
         if (isset($map['btrip_user_id'])) {
             $model->btripUserId = $map['btrip_user_id'];
         }
@@ -307,6 +341,10 @@ class HotelOrderCreateShrinkRequest extends Model
             $model->itineraryNo = $map['itinerary_no'];
         }
 
+        if (isset($map['leave_time'])) {
+            $model->leaveTime = $map['leave_time'];
+        }
+
         if (isset($map['member_info'])) {
             $model->memberInfoShrink = $map['member_info'];
         }
@@ -333,6 +371,10 @@ class HotelOrderCreateShrinkRequest extends Model
 
         if (isset($map['room_num'])) {
             $model->roomNum = $map['room_num'];
+        }
+
+        if (isset($map['rp_type'])) {
+            $model->rpType = $map['rp_type'];
         }
 
         if (isset($map['seller_id'])) {

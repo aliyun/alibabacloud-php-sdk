@@ -13,6 +13,11 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ModuleItemListSubItemPositionMap
 class itemList extends Model
 {
     /**
+     * @var string
+     */
+    public $codeType;
+
+    /**
      * @var ModuleItemListFlightRuleInfosValue[]
      */
     public $flightRuleInfos;
@@ -37,6 +42,7 @@ class itemList extends Model
      */
     public $subItems;
     protected $_name = [
+        'codeType' => 'code_type',
         'flightRuleInfos' => 'flight_rule_infos',
         'itemId' => 'item_id',
         'shoppingItemMap' => 'shopping_item_map',
@@ -64,6 +70,10 @@ class itemList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->codeType) {
+            $res['code_type'] = $this->codeType;
+        }
+
         if (null !== $this->flightRuleInfos) {
             if (\is_array($this->flightRuleInfos)) {
                 $res['flight_rule_infos'] = [];
@@ -124,6 +134,10 @@ class itemList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['code_type'])) {
+            $model->codeType = $map['code_type'];
+        }
+
         if (isset($map['flight_rule_infos'])) {
             if (!empty($map['flight_rule_infos'])) {
                 $model->flightRuleInfos = [];

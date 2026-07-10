@@ -68,6 +68,11 @@ class HotelOrderPreValidateRequest extends Model
     /**
      * @var int
      */
+    public $rpType;
+
+    /**
+     * @var int
+     */
     public $searchRoomPrice;
 
     /**
@@ -91,6 +96,7 @@ class HotelOrderPreValidateRequest extends Model
         'ratePlanId' => 'rate_plan_id',
         'roomId' => 'room_id',
         'roomNum' => 'room_num',
+        'rpType' => 'rp_type',
         'searchRoomPrice' => 'search_room_price',
         'sellerId' => 'seller_id',
         'shid' => 'shid',
@@ -166,6 +172,10 @@ class HotelOrderPreValidateRequest extends Model
 
         if (null !== $this->roomNum) {
             $res['room_num'] = $this->roomNum;
+        }
+
+        if (null !== $this->rpType) {
+            $res['rp_type'] = $this->rpType;
         }
 
         if (null !== $this->searchRoomPrice) {
@@ -247,6 +257,10 @@ class HotelOrderPreValidateRequest extends Model
 
         if (isset($map['room_num'])) {
             $model->roomNum = $map['room_num'];
+        }
+
+        if (isset($map['rp_type'])) {
+            $model->rpType = $map['rp_type'];
         }
 
         if (isset($map['search_room_price'])) {

@@ -16,6 +16,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $businessFormData;
+
+    /**
+     * @var string
+     */
     public $creator;
 
     /**
@@ -34,6 +39,7 @@ class module extends Model
     public $status;
     protected $_name = [
         'businessData' => 'business_data',
+        'businessFormData' => 'business_form_data',
         'creator' => 'creator',
         'gmtCreate' => 'gmt_create',
         'gmtModified' => 'gmt_modified',
@@ -50,6 +56,10 @@ class module extends Model
         $res = [];
         if (null !== $this->businessData) {
             $res['business_data'] = $this->businessData;
+        }
+
+        if (null !== $this->businessFormData) {
+            $res['business_form_data'] = $this->businessFormData;
         }
 
         if (null !== $this->creator) {
@@ -81,6 +91,10 @@ class module extends Model
         $model = new self();
         if (isset($map['business_data'])) {
             $model->businessData = $map['business_data'];
+        }
+
+        if (isset($map['business_form_data'])) {
+            $model->businessFormData = $map['business_form_data'];
         }
 
         if (isset($map['creator'])) {

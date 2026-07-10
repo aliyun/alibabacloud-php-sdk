@@ -16,6 +16,11 @@ class paymentInfos extends Model
     /**
      * @var string
      */
+    public $cnapsCode;
+
+    /**
+     * @var string
+     */
     public $payeeAccountNumber;
 
     /**
@@ -24,6 +29,7 @@ class paymentInfos extends Model
     public $payeeUserId;
     protected $_name = [
         'amount' => 'amount',
+        'cnapsCode' => 'cnaps_code',
         'payeeAccountNumber' => 'payee_account_number',
         'payeeUserId' => 'payee_user_id',
     ];
@@ -38,6 +44,10 @@ class paymentInfos extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['amount'] = $this->amount;
+        }
+
+        if (null !== $this->cnapsCode) {
+            $res['cnaps_code'] = $this->cnapsCode;
         }
 
         if (null !== $this->payeeAccountNumber) {
@@ -61,6 +71,10 @@ class paymentInfos extends Model
         $model = new self();
         if (isset($map['amount'])) {
             $model->amount = $map['amount'];
+        }
+
+        if (isset($map['cnaps_code'])) {
+            $model->cnapsCode = $map['cnaps_code'];
         }
 
         if (isset($map['payee_account_number'])) {

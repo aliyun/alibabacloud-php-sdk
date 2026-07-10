@@ -61,6 +61,11 @@ class monthAccountBillDetail extends Model
     /**
      * @var float
      */
+    public $metroAmount;
+
+    /**
+     * @var float
+     */
     public $serviceAmount;
 
     /**
@@ -83,6 +88,7 @@ class monthAccountBillDetail extends Model
         'ieHotelAmount' => 'ieHotelAmount',
         'mailBillDate' => 'mailBillDate',
         'mealAmount' => 'mealAmount',
+        'metroAmount' => 'metroAmount',
         'serviceAmount' => 'serviceAmount',
         'trainAmount' => 'trainAmount',
         'vasAmount' => 'vasAmount',
@@ -134,6 +140,10 @@ class monthAccountBillDetail extends Model
 
         if (null !== $this->mealAmount) {
             $res['mealAmount'] = $this->mealAmount;
+        }
+
+        if (null !== $this->metroAmount) {
+            $res['metroAmount'] = $this->metroAmount;
         }
 
         if (null !== $this->serviceAmount) {
@@ -197,6 +207,10 @@ class monthAccountBillDetail extends Model
 
         if (isset($map['mealAmount'])) {
             $model->mealAmount = $map['mealAmount'];
+        }
+
+        if (isset($map['metroAmount'])) {
+            $model->metroAmount = $map['metroAmount'];
         }
 
         if (isset($map['serviceAmount'])) {

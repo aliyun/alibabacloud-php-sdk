@@ -84,6 +84,11 @@ class module extends Model
     public $personRefundAmount;
 
     /**
+     * @var string
+     */
+    public $receiptImageUrls;
+
+    /**
      * @var int
      */
     public $refundAmount;
@@ -128,6 +133,7 @@ class module extends Model
         'payType' => 'pay_type',
         'personPayAmount' => 'person_pay_amount',
         'personRefundAmount' => 'person_refund_amount',
+        'receiptImageUrls' => 'receipt_image_urls',
         'refundAmount' => 'refund_amount',
         'sceneName' => 'scene_name',
         'settleTime' => 'settle_time',
@@ -202,6 +208,10 @@ class module extends Model
 
         if (null !== $this->personRefundAmount) {
             $res['person_refund_amount'] = $this->personRefundAmount;
+        }
+
+        if (null !== $this->receiptImageUrls) {
+            $res['receipt_image_urls'] = $this->receiptImageUrls;
         }
 
         if (null !== $this->refundAmount) {
@@ -297,6 +307,10 @@ class module extends Model
 
         if (isset($map['person_refund_amount'])) {
             $model->personRefundAmount = $map['person_refund_amount'];
+        }
+
+        if (isset($map['receipt_image_urls'])) {
+            $model->receiptImageUrls = $map['receipt_image_urls'];
         }
 
         if (isset($map['refund_amount'])) {

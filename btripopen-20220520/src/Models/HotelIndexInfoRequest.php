@@ -19,6 +19,11 @@ class HotelIndexInfoRequest extends Model
     public $hotelStatus;
 
     /**
+     * @var bool
+     */
+    public $internation;
+
+    /**
      * @var int
      */
     public $pageSize;
@@ -30,6 +35,7 @@ class HotelIndexInfoRequest extends Model
     protected $_name = [
         'cityCode' => 'city_code',
         'hotelStatus' => 'hotel_status',
+        'internation' => 'internation',
         'pageSize' => 'page_size',
         'pageToken' => 'page_token',
     ];
@@ -48,6 +54,10 @@ class HotelIndexInfoRequest extends Model
 
         if (null !== $this->hotelStatus) {
             $res['hotel_status'] = $this->hotelStatus;
+        }
+
+        if (null !== $this->internation) {
+            $res['internation'] = $this->internation;
         }
 
         if (null !== $this->pageSize) {
@@ -75,6 +85,10 @@ class HotelIndexInfoRequest extends Model
 
         if (isset($map['hotel_status'])) {
             $model->hotelStatus = $map['hotel_status'];
+        }
+
+        if (isset($map['internation'])) {
+            $model->internation = $map['internation'];
         }
 
         if (isset($map['page_size'])) {

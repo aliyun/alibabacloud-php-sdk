@@ -106,6 +106,11 @@ class HotelSearchShrinkRequest extends Model
     /**
      * @var string
      */
+    public $poi;
+
+    /**
+     * @var string
+     */
     public $shidsShrink;
 
     /**
@@ -137,6 +142,7 @@ class HotelSearchShrinkRequest extends Model
         'pageSize' => 'page_size',
         'payOverType' => 'pay_over_type',
         'paymentType' => 'payment_type',
+        'poi' => 'poi',
         'shidsShrink' => 'shids',
         'sortCode' => 'sort_code',
         'superMan' => 'super_man',
@@ -224,6 +230,10 @@ class HotelSearchShrinkRequest extends Model
 
         if (null !== $this->paymentType) {
             $res['payment_type'] = $this->paymentType;
+        }
+
+        if (null !== $this->poi) {
+            $res['poi'] = $this->poi;
         }
 
         if (null !== $this->shidsShrink) {
@@ -323,6 +333,10 @@ class HotelSearchShrinkRequest extends Model
 
         if (isset($map['payment_type'])) {
             $model->paymentType = $map['payment_type'];
+        }
+
+        if (isset($map['poi'])) {
+            $model->poi = $map['poi'];
         }
 
         if (isset($map['shids'])) {

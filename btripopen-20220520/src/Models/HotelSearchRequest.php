@@ -104,6 +104,11 @@ class HotelSearchRequest extends Model
     public $paymentType;
 
     /**
+     * @var string
+     */
+    public $poi;
+
+    /**
      * @var int[]
      */
     public $shids;
@@ -137,6 +142,7 @@ class HotelSearchRequest extends Model
         'pageSize' => 'page_size',
         'payOverType' => 'pay_over_type',
         'paymentType' => 'payment_type',
+        'poi' => 'poi',
         'shids' => 'shids',
         'sortCode' => 'sort_code',
         'superMan' => 'super_man',
@@ -237,6 +243,10 @@ class HotelSearchRequest extends Model
 
         if (null !== $this->paymentType) {
             $res['payment_type'] = $this->paymentType;
+        }
+
+        if (null !== $this->poi) {
+            $res['poi'] = $this->poi;
         }
 
         if (null !== $this->shids) {
@@ -350,6 +360,10 @@ class HotelSearchRequest extends Model
 
         if (isset($map['payment_type'])) {
             $model->paymentType = $map['payment_type'];
+        }
+
+        if (isset($map['poi'])) {
+            $model->poi = $map['poi'];
         }
 
         if (isset($map['shids'])) {

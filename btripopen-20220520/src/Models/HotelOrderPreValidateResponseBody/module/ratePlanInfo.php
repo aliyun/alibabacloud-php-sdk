@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateRespo
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateResponseBody\module\ratePlanInfo\btripHotelCancelPolicyDTO;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderPreValidateResponseBody\module\ratePlanInfo\hourItemArrivalTimeInfo;
 
 class ratePlanInfo extends Model
 {
@@ -28,6 +29,11 @@ class ratePlanInfo extends Model
      * @var string
      */
     public $earliestCheckInTime;
+
+    /**
+     * @var hourItemArrivalTimeInfo
+     */
+    public $hourItemArrivalTimeInfo;
 
     /**
      * @var string
@@ -62,6 +68,11 @@ class ratePlanInfo extends Model
     /**
      * @var int
      */
+    public $rpType;
+
+    /**
+     * @var int
+     */
     public $totalOrderPrice;
 
     /**
@@ -73,12 +84,14 @@ class ratePlanInfo extends Model
         'btripHotelCancelPolicyDTO' => 'btrip_hotel_cancel_policy_d_t_o',
         'certTypeList' => 'cert_type_list',
         'earliestCheckInTime' => 'earliest_check_in_time',
+        'hourItemArrivalTimeInfo' => 'hour_item_arrival_time_info',
         'latestCheckOutTime' => 'latest_check_out_time',
         'maxBookingNum' => 'max_booking_num',
         'maxOccupancyNum' => 'max_occupancy_num',
         'needCertificate' => 'need_certificate',
         'needEmail' => 'need_email',
         'needEnglishName' => 'need_english_name',
+        'rpType' => 'rp_type',
         'totalOrderPrice' => 'total_order_price',
         'totalRoomPrice' => 'total_room_price',
     ];
@@ -90,6 +103,9 @@ class ratePlanInfo extends Model
         }
         if (\is_array($this->certTypeList)) {
             Model::validateArray($this->certTypeList);
+        }
+        if (null !== $this->hourItemArrivalTimeInfo) {
+            $this->hourItemArrivalTimeInfo->validate();
         }
         parent::validate();
     }
@@ -120,6 +136,10 @@ class ratePlanInfo extends Model
             $res['earliest_check_in_time'] = $this->earliestCheckInTime;
         }
 
+        if (null !== $this->hourItemArrivalTimeInfo) {
+            $res['hour_item_arrival_time_info'] = null !== $this->hourItemArrivalTimeInfo ? $this->hourItemArrivalTimeInfo->toArray($noStream) : $this->hourItemArrivalTimeInfo;
+        }
+
         if (null !== $this->latestCheckOutTime) {
             $res['latest_check_out_time'] = $this->latestCheckOutTime;
         }
@@ -142,6 +162,10 @@ class ratePlanInfo extends Model
 
         if (null !== $this->needEnglishName) {
             $res['need_english_name'] = $this->needEnglishName;
+        }
+
+        if (null !== $this->rpType) {
+            $res['rp_type'] = $this->rpType;
         }
 
         if (null !== $this->totalOrderPrice) {
@@ -186,6 +210,10 @@ class ratePlanInfo extends Model
             $model->earliestCheckInTime = $map['earliest_check_in_time'];
         }
 
+        if (isset($map['hour_item_arrival_time_info'])) {
+            $model->hourItemArrivalTimeInfo = hourItemArrivalTimeInfo::fromMap($map['hour_item_arrival_time_info']);
+        }
+
         if (isset($map['latest_check_out_time'])) {
             $model->latestCheckOutTime = $map['latest_check_out_time'];
         }
@@ -208,6 +236,10 @@ class ratePlanInfo extends Model
 
         if (isset($map['need_english_name'])) {
             $model->needEnglishName = $map['need_english_name'];
+        }
+
+        if (isset($map['rp_type'])) {
+            $model->rpType = $map['rp_type'];
         }
 
         if (isset($map['total_order_price'])) {

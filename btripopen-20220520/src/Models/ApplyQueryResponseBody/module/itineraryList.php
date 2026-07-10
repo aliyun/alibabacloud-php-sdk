@@ -30,6 +30,11 @@ class itineraryList extends Model
     public $attribute;
 
     /**
+     * @var string[]
+     */
+    public $canOrderTypeList;
+
+    /**
      * @var string
      */
     public $costCenterName;
@@ -58,6 +63,11 @@ class itineraryList extends Model
      * @var string
      */
     public $itineraryId;
+
+    /**
+     * @var string
+     */
+    public $itineraryNo;
 
     /**
      * @var itineraryTravelStandard
@@ -103,12 +113,14 @@ class itineraryList extends Model
         'arrCityCode' => 'arr_city_code',
         'arrDate' => 'arr_date',
         'attribute' => 'attribute',
+        'canOrderTypeList' => 'can_order_type_list',
         'costCenterName' => 'cost_center_name',
         'depCity' => 'dep_city',
         'depCityCode' => 'dep_city_code',
         'depDate' => 'dep_date',
         'invoiceName' => 'invoice_name',
         'itineraryId' => 'itinerary_id',
+        'itineraryNo' => 'itinerary_no',
         'itineraryTravelStandard' => 'itinerary_travel_standard',
         'projectCode' => 'project_code',
         'projectTitle' => 'project_title',
@@ -121,6 +133,9 @@ class itineraryList extends Model
 
     public function validate()
     {
+        if (\is_array($this->canOrderTypeList)) {
+            Model::validateArray($this->canOrderTypeList);
+        }
         if (null !== $this->itineraryTravelStandard) {
             $this->itineraryTravelStandard->validate();
         }
@@ -146,6 +161,17 @@ class itineraryList extends Model
             $res['attribute'] = $this->attribute;
         }
 
+        if (null !== $this->canOrderTypeList) {
+            if (\is_array($this->canOrderTypeList)) {
+                $res['can_order_type_list'] = [];
+                $n1 = 0;
+                foreach ($this->canOrderTypeList as $item1) {
+                    $res['can_order_type_list'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->costCenterName) {
             $res['cost_center_name'] = $this->costCenterName;
         }
@@ -168,6 +194,10 @@ class itineraryList extends Model
 
         if (null !== $this->itineraryId) {
             $res['itinerary_id'] = $this->itineraryId;
+        }
+
+        if (null !== $this->itineraryNo) {
+            $res['itinerary_no'] = $this->itineraryNo;
         }
 
         if (null !== $this->itineraryTravelStandard) {
@@ -229,6 +259,17 @@ class itineraryList extends Model
             $model->attribute = $map['attribute'];
         }
 
+        if (isset($map['can_order_type_list'])) {
+            if (!empty($map['can_order_type_list'])) {
+                $model->canOrderTypeList = [];
+                $n1 = 0;
+                foreach ($map['can_order_type_list'] as $item1) {
+                    $model->canOrderTypeList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['cost_center_name'])) {
             $model->costCenterName = $map['cost_center_name'];
         }
@@ -251,6 +292,10 @@ class itineraryList extends Model
 
         if (isset($map['itinerary_id'])) {
             $model->itineraryId = $map['itinerary_id'];
+        }
+
+        if (isset($map['itinerary_no'])) {
+            $model->itineraryNo = $map['itinerary_no'];
         }
 
         if (isset($map['itinerary_travel_standard'])) {

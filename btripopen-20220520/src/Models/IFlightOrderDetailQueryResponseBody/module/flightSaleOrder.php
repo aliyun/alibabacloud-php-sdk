@@ -54,6 +54,11 @@ class flightSaleOrder extends Model
     public $flightSegmentList;
 
     /**
+     * @var string
+     */
+    public $itineraryId;
+
+    /**
      * @var bool
      */
     public $mixPay;
@@ -119,6 +124,11 @@ class flightSaleOrder extends Model
     public $thirdPartApplyId;
 
     /**
+     * @var string
+     */
+    public $thirdpartItineraryId;
+
+    /**
      * @var int
      */
     public $tripType;
@@ -131,6 +141,7 @@ class flightSaleOrder extends Model
         'flightOrderInsureList' => 'flight_order_insure_list',
         'flightOrderTicketList' => 'flight_order_ticket_list',
         'flightSegmentList' => 'flight_segment_list',
+        'itineraryId' => 'itinerary_id',
         'mixPay' => 'mix_pay',
         'orderCreateTime' => 'order_create_time',
         'orderId' => 'order_id',
@@ -144,6 +155,7 @@ class flightSaleOrder extends Model
         'personPayPrice' => 'person_pay_price',
         'serviceFee' => 'service_fee',
         'thirdPartApplyId' => 'third_part_apply_id',
+        'thirdpartItineraryId' => 'thirdpart_itinerary_id',
         'tripType' => 'trip_type',
     ];
 
@@ -223,6 +235,10 @@ class flightSaleOrder extends Model
             }
         }
 
+        if (null !== $this->itineraryId) {
+            $res['itinerary_id'] = $this->itineraryId;
+        }
+
         if (null !== $this->mixPay) {
             $res['mix_pay'] = $this->mixPay;
         }
@@ -280,6 +296,10 @@ class flightSaleOrder extends Model
 
         if (null !== $this->thirdPartApplyId) {
             $res['third_part_apply_id'] = $this->thirdPartApplyId;
+        }
+
+        if (null !== $this->thirdpartItineraryId) {
+            $res['thirdpart_itinerary_id'] = $this->thirdpartItineraryId;
         }
 
         if (null !== $this->tripType) {
@@ -350,6 +370,10 @@ class flightSaleOrder extends Model
             }
         }
 
+        if (isset($map['itinerary_id'])) {
+            $model->itineraryId = $map['itinerary_id'];
+        }
+
         if (isset($map['mix_pay'])) {
             $model->mixPay = $map['mix_pay'];
         }
@@ -407,6 +431,10 @@ class flightSaleOrder extends Model
 
         if (isset($map['third_part_apply_id'])) {
             $model->thirdPartApplyId = $map['third_part_apply_id'];
+        }
+
+        if (isset($map['thirdpart_itinerary_id'])) {
+            $model->thirdpartItineraryId = $map['thirdpart_itinerary_id'];
         }
 
         if (isset($map['trip_type'])) {

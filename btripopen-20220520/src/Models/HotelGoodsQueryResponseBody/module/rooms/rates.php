@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\modu
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\module\rooms\rates\btripHotelCancelDesc;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\module\rooms\rates\discountDesc;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\module\rooms\rates\hotelDetailRatePriceDTO;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\module\rooms\rates\hotelOnsitePriceDetail;
 
 class rates extends Model
 {
@@ -101,6 +102,11 @@ class rates extends Model
      * @var string[]
      */
     public $hotelMemberBenefit;
+
+    /**
+     * @var hotelOnsitePriceDetail
+     */
+    public $hotelOnsitePriceDetail;
 
     /**
      * @var bool
@@ -245,6 +251,11 @@ class rates extends Model
     /**
      * @var string
      */
+    public $taxFeeDesc;
+
+    /**
+     * @var string
+     */
     public $unroundingDailyPriceFormatYuan;
     protected $_name = [
         'bedDesc' => 'bed_desc',
@@ -265,6 +276,7 @@ class rates extends Model
         'endTimeDaily' => 'end_time_daily',
         'hotelDetailRatePriceDTO' => 'hotel_detail_rate_price_d_t_o',
         'hotelMemberBenefit' => 'hotel_member_benefit',
+        'hotelOnsitePriceDetail' => 'hotel_onsite_price_detail',
         'instantConfirm' => 'instant_confirm',
         'inventoryDesc' => 'inventory_desc',
         'inventoryPrice' => 'inventory_price',
@@ -293,6 +305,7 @@ class rates extends Model
         'supplierCode' => 'supplier_code',
         'supplierName' => 'supplier_name',
         'supportSpecialInvoice' => 'support_special_invoice',
+        'taxFeeDesc' => 'tax_fee_desc',
         'unroundingDailyPriceFormatYuan' => 'unrounding_daily_price_format_yuan',
     ];
 
@@ -312,6 +325,9 @@ class rates extends Model
         }
         if (\is_array($this->hotelMemberBenefit)) {
             Model::validateArray($this->hotelMemberBenefit);
+        }
+        if (null !== $this->hotelOnsitePriceDetail) {
+            $this->hotelOnsitePriceDetail->validate();
         }
         parent::validate();
     }
@@ -408,6 +424,10 @@ class rates extends Model
                     $res['hotel_member_benefit'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->hotelOnsitePriceDetail) {
+            $res['hotel_onsite_price_detail'] = null !== $this->hotelOnsitePriceDetail ? $this->hotelOnsitePriceDetail->toArray($noStream) : $this->hotelOnsitePriceDetail;
         }
 
         if (null !== $this->instantConfirm) {
@@ -522,6 +542,10 @@ class rates extends Model
             $res['support_special_invoice'] = $this->supportSpecialInvoice;
         }
 
+        if (null !== $this->taxFeeDesc) {
+            $res['tax_fee_desc'] = $this->taxFeeDesc;
+        }
+
         if (null !== $this->unroundingDailyPriceFormatYuan) {
             $res['unrounding_daily_price_format_yuan'] = $this->unroundingDailyPriceFormatYuan;
         }
@@ -626,6 +650,10 @@ class rates extends Model
                     $model->hotelMemberBenefit[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['hotel_onsite_price_detail'])) {
+            $model->hotelOnsitePriceDetail = hotelOnsitePriceDetail::fromMap($map['hotel_onsite_price_detail']);
         }
 
         if (isset($map['instant_confirm'])) {
@@ -738,6 +766,10 @@ class rates extends Model
 
         if (isset($map['support_special_invoice'])) {
             $model->supportSpecialInvoice = $map['support_special_invoice'];
+        }
+
+        if (isset($map['tax_fee_desc'])) {
+            $model->taxFeeDesc = $map['tax_fee_desc'];
         }
 
         if (isset($map['unrounding_daily_price_format_yuan'])) {

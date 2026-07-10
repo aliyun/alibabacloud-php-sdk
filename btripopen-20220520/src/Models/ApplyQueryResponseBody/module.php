@@ -126,6 +126,11 @@ class module extends Model
     public $itinerarySetList;
 
     /**
+     * @var string
+     */
+    public $jobNo;
+
+    /**
      * @var int
      */
     public $limitTraveler;
@@ -242,6 +247,7 @@ class module extends Model
         'itineraryList' => 'itinerary_list',
         'itineraryRule' => 'itinerary_rule',
         'itinerarySetList' => 'itinerary_set_list',
+        'jobNo' => 'job_no',
         'limitTraveler' => 'limit_traveler',
         'mealBudget' => 'meal_budget',
         'paymentDepartmentId' => 'payment_department_id',
@@ -406,6 +412,10 @@ class module extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->jobNo) {
+            $res['job_no'] = $this->jobNo;
         }
 
         if (null !== $this->limitTraveler) {
@@ -616,6 +626,10 @@ class module extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['job_no'])) {
+            $model->jobNo = $map['job_no'];
         }
 
         if (isset($map['limit_traveler'])) {

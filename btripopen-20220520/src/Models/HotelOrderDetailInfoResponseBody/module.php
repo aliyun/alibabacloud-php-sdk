@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\btripHotelCancelPolicyDTO;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\cancelInfo;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\hotelDetailInfo;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\hotelOnSitePriceDetail;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\hotelSaleOrderRoomInfos;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\invoiceInfo;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelOrderDetailInfoResponseBody\module\occupantInfoList;
@@ -94,6 +95,11 @@ class module extends Model
      * @var hotelDetailInfo
      */
     public $hotelDetailInfo;
+
+    /**
+     * @var hotelOnSitePriceDetail
+     */
+    public $hotelOnSitePriceDetail;
 
     /**
      * @var hotelSaleOrderRoomInfos[]
@@ -226,6 +232,7 @@ class module extends Model
         'earlyDeparture' => 'early_departure',
         'guestCount' => 'guest_count',
         'hotelDetailInfo' => 'hotel_detail_info',
+        'hotelOnSitePriceDetail' => 'hotel_on_site_price_detail',
         'hotelSaleOrderRoomInfos' => 'hotel_sale_order_room_infos',
         'invoiceInfo' => 'invoice_info',
         'itemId' => 'item_id',
@@ -261,6 +268,9 @@ class module extends Model
         }
         if (null !== $this->hotelDetailInfo) {
             $this->hotelDetailInfo->validate();
+        }
+        if (null !== $this->hotelOnSitePriceDetail) {
+            $this->hotelOnSitePriceDetail->validate();
         }
         if (\is_array($this->hotelSaleOrderRoomInfos)) {
             Model::validateArray($this->hotelSaleOrderRoomInfos);
@@ -342,6 +352,10 @@ class module extends Model
 
         if (null !== $this->hotelDetailInfo) {
             $res['hotel_detail_info'] = null !== $this->hotelDetailInfo ? $this->hotelDetailInfo->toArray($noStream) : $this->hotelDetailInfo;
+        }
+
+        if (null !== $this->hotelOnSitePriceDetail) {
+            $res['hotel_on_site_price_detail'] = null !== $this->hotelOnSitePriceDetail ? $this->hotelOnSitePriceDetail->toArray($noStream) : $this->hotelOnSitePriceDetail;
         }
 
         if (null !== $this->hotelSaleOrderRoomInfos) {
@@ -530,6 +544,10 @@ class module extends Model
 
         if (isset($map['hotel_detail_info'])) {
             $model->hotelDetailInfo = hotelDetailInfo::fromMap($map['hotel_detail_info']);
+        }
+
+        if (isset($map['hotel_on_site_price_detail'])) {
+            $model->hotelOnSitePriceDetail = hotelOnSitePriceDetail::fromMap($map['hotel_on_site_price_detail']);
         }
 
         if (isset($map['hotel_sale_order_room_infos'])) {

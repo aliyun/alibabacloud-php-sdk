@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\travelerStandard\carCitySet;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\travelerStandard\carStandard;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\travelerStandard\hotelCitys;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ApplyModifyRequest\travelerStandard\hotelIntlCitys;
 
@@ -20,6 +21,11 @@ class travelerStandard extends Model
      * @var carCitySet[]
      */
     public $carCitySet;
+
+    /**
+     * @var carStandard
+     */
+    public $carStandard;
 
     /**
      * @var int
@@ -67,6 +73,11 @@ class travelerStandard extends Model
     public $hotelRuleCode;
 
     /**
+     * @var string
+     */
+    public $internationalFlightCabins;
+
+    /**
      * @var int
      */
     public $premiumEconomyDiscount;
@@ -93,6 +104,7 @@ class travelerStandard extends Model
     protected $_name = [
         'businessDiscount' => 'business_discount',
         'carCitySet' => 'car_city_set',
+        'carStandard' => 'car_standard',
         'economyDiscount' => 'economy_discount',
         'firstDiscount' => 'first_discount',
         'flightCabins' => 'flight_cabins',
@@ -102,6 +114,7 @@ class travelerStandard extends Model
         'hotelIntlCitys' => 'hotel_intl_citys',
         'hotelIntlRuleCode' => 'hotel_intl_rule_code',
         'hotelRuleCode' => 'hotel_rule_code',
+        'internationalFlightCabins' => 'international_flight_cabins',
         'premiumEconomyDiscount' => 'premium_economy_discount',
         'reserveType' => 'reserve_type',
         'trainRuleCode' => 'train_rule_code',
@@ -113,6 +126,9 @@ class travelerStandard extends Model
     {
         if (\is_array($this->carCitySet)) {
             Model::validateArray($this->carCitySet);
+        }
+        if (null !== $this->carStandard) {
+            $this->carStandard->validate();
         }
         if (\is_array($this->hotelCitys)) {
             Model::validateArray($this->hotelCitys);
@@ -139,6 +155,10 @@ class travelerStandard extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->carStandard) {
+            $res['car_standard'] = null !== $this->carStandard ? $this->carStandard->toArray($noStream) : $this->carStandard;
         }
 
         if (null !== $this->economyDiscount) {
@@ -191,6 +211,10 @@ class travelerStandard extends Model
             $res['hotel_rule_code'] = $this->hotelRuleCode;
         }
 
+        if (null !== $this->internationalFlightCabins) {
+            $res['international_flight_cabins'] = $this->internationalFlightCabins;
+        }
+
         if (null !== $this->premiumEconomyDiscount) {
             $res['premium_economy_discount'] = $this->premiumEconomyDiscount;
         }
@@ -235,6 +259,10 @@ class travelerStandard extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['car_standard'])) {
+            $model->carStandard = carStandard::fromMap($map['car_standard']);
         }
 
         if (isset($map['economy_discount'])) {
@@ -285,6 +313,10 @@ class travelerStandard extends Model
 
         if (isset($map['hotel_rule_code'])) {
             $model->hotelRuleCode = $map['hotel_rule_code'];
+        }
+
+        if (isset($map['international_flight_cabins'])) {
+            $model->internationalFlightCabins = $map['international_flight_cabins'];
         }
 
         if (isset($map['premium_economy_discount'])) {
