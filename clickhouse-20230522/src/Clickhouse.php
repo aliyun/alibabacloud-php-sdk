@@ -21,6 +21,14 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateDBRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateDBResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateEndpointRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateEndpointResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateLangfuseOrgMemberRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateLangfuseOrgMemberResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateLangfuseOrgRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateLangfuseOrgResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateLangfuseProjectRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateLangfuseProjectResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateLangfuseUserRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateLangfuseUserResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateWhitelistTemplateRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\CreateWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteAccountRequest;
@@ -33,6 +41,16 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteDBRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteDBResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteEndpointRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteEndpointResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseInstanceRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseInstanceResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseOrgMembershipRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseOrgMembershipResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseOrgRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseOrgResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseProjectRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseProjectResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseUserRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteLangfuseUserResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteWhitelistTemplateRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DeleteWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeAccountAuthorityRequest;
@@ -55,6 +73,22 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeEndpointsRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeEndpointsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseEndpointsRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseEndpointsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseOrgMembershipsRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseOrgMembershipsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseOrgsRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseOrgsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseProjectMembershipsRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseProjectMembershipsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseProjectsRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseProjectsResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseSecurityIPListRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseSecurityIPListResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseUserRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseUserResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseUsersRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeLangfuseUsersResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeProcessListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeProcessListResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\DescribeRegionsResponse;
@@ -92,10 +126,16 @@ use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConfigRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConnectionStringRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyDBInstanceConnectionStringResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseOrgMembershipRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseOrgMembershipResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseProjectMembershipRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifyLangfuseProjectMembershipResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifySecurityIPListRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ModifySecurityIPListResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ResetAccountPasswordResponse;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ResetLangfuseUserPasswordRequest;
+use AlibabaCloud\SDK\Clickhouse\V20230522\Models\ResetLangfuseUserPasswordResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\RestartDBInstanceResponse;
 use AlibabaCloud\SDK\Clickhouse\V20230522\Models\StartDBInstanceRequest;
@@ -162,6 +202,18 @@ class Clickhouse extends OpenApiClient
             'rus-west-1-pop' => 'clickhouse.aliyuncs.com',
             'us-east-1' => 'clickhouse.aliyuncs.com',
             'us-west-1' => 'clickhouse.aliyuncs.com',
+            'me-central-1' => 'clickhouse.me-central-1.aliyuncs.com',
+            'eu-west-1' => 'clickhouse.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'clickhouse.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'clickhouse.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'clickhouse.aliyuncs.com',
+            'cn-huhehaote' => 'clickhouse.cn-huhehaote.aliyuncs.com',
+            'cn-guangzhou' => 'clickhouse.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'clickhouse.cn-chengdu.aliyuncs.com',
+            'ap-southeast-6' => 'clickhouse.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'clickhouse.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'clickhouse.aliyuncs.com',
+            'ap-northeast-1' => 'clickhouse.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('clickhouse', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -192,7 +244,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 白名单模板关联实例.
+     * Attaches a whitelist template to instances.
      *
      * @param request - AttachWhitelistTemplateToInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -239,7 +291,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 白名单模板关联实例.
+     * Attaches a whitelist template to instances.
      *
      * @param request - AttachWhitelistTemplateToInstanceRequest
      *
@@ -257,7 +309,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * Changes the resource group of a ClickHouse Enterprise instance.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -308,7 +360,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * Changes the resource group of a ClickHouse Enterprise instance.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -417,7 +469,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
      *
      * @param request - CreateBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -472,7 +524,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates a backup policy for a specified ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
      *
      * @param request - CreateBackupPolicyRequest
      *
@@ -490,7 +542,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraDB for ClickHouse database.
+     * Creates a database.
      *
      * @param request - CreateDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -541,7 +593,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraDB for ClickHouse database.
+     * Creates a database.
      *
      * @param request - CreateDBRequest
      *
@@ -559,7 +611,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
      *
      * @param tmpReq - CreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -692,7 +744,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Creates an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
      *
      * @param request - CreateDBInstanceRequest
      *
@@ -710,7 +762,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Applies for a public endpoint.
+     * Creates a public endpoint that provides a public address to access a cluster.
      *
      * @param request - CreateEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -765,7 +817,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Applies for a public endpoint.
+     * Creates a public endpoint that provides a public address to access a cluster.
      *
      * @param request - CreateEndpointRequest
      *
@@ -783,7 +835,299 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 新增白名单模板
+     * Creates a Langfuse organization.
+     *
+     * @param request - CreateLangfuseOrgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLangfuseOrgResponse
+     *
+     * @param CreateLangfuseOrgRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateLangfuseOrgResponse
+     */
+    public function createLangfuseOrgWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->ownerEmail) {
+            @$query['OwnerEmail'] = $request->ownerEmail;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLangfuseOrg',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLangfuseOrgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a Langfuse organization.
+     *
+     * @param request - CreateLangfuseOrgRequest
+     *
+     * @returns CreateLangfuseOrgResponse
+     *
+     * @param CreateLangfuseOrgRequest $request
+     *
+     * @return CreateLangfuseOrgResponse
+     */
+    public function createLangfuseOrg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLangfuseOrgWithOptions($request, $runtime);
+    }
+
+    /**
+     * Adds a user to a Langfuse organization.
+     *
+     * @param request - CreateLangfuseOrgMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLangfuseOrgMemberResponse
+     *
+     * @param CreateLangfuseOrgMemberRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateLangfuseOrgMemberResponse
+     */
+    public function createLangfuseOrgMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLangfuseOrgMember',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLangfuseOrgMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Adds a user to a Langfuse organization.
+     *
+     * @param request - CreateLangfuseOrgMemberRequest
+     *
+     * @returns CreateLangfuseOrgMemberResponse
+     *
+     * @param CreateLangfuseOrgMemberRequest $request
+     *
+     * @return CreateLangfuseOrgMemberResponse
+     */
+    public function createLangfuseOrgMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLangfuseOrgMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a Langfuse project.
+     *
+     * @param request - CreateLangfuseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLangfuseProjectResponse
+     *
+     * @param CreateLangfuseProjectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateLangfuseProjectResponse
+     */
+    public function createLangfuseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLangfuseProject',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLangfuseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a Langfuse project.
+     *
+     * @param request - CreateLangfuseProjectRequest
+     *
+     * @returns CreateLangfuseProjectResponse
+     *
+     * @param CreateLangfuseProjectRequest $request
+     *
+     * @return CreateLangfuseProjectResponse
+     */
+    public function createLangfuseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLangfuseProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a Langfuse user.
+     *
+     * @param request - CreateLangfuseUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLangfuseUserResponse
+     *
+     * @param CreateLangfuseUserRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateLangfuseUserResponse
+     */
+    public function createLangfuseUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->orgRole) {
+            @$query['OrgRole'] = $request->orgRole;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateLangfuseUser',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateLangfuseUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a Langfuse user.
+     *
+     * @param request - CreateLangfuseUserRequest
+     *
+     * @returns CreateLangfuseUserResponse
+     *
+     * @param CreateLangfuseUserRequest $request
+     *
+     * @return CreateLangfuseUserResponse
+     */
+    public function createLangfuseUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLangfuseUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a whitelist template.
      *
      * @param request - CreateWhitelistTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -832,7 +1176,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 新增白名单模板
+     * Creates a whitelist template.
      *
      * @param request - CreateWhitelistTemplateRequest
      *
@@ -919,7 +1263,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
      *
      * @param request - DeleteBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -962,7 +1306,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
      *
      * @param request - DeleteBackupPolicyRequest
      *
@@ -980,7 +1324,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes an ApsaraDB for ClickHouse database.
+     * Call this operation to delete a database.
      *
      * @param request - DeleteDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1027,7 +1371,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Deletes an ApsaraDB for ClickHouse database.
+     * Call this operation to delete a database.
      *
      * @param request - DeleteDBRequest
      *
@@ -1045,7 +1389,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DeleteDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1088,7 +1432,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * The DeleteDBInstance operation releases an ApsaraDB for ClickHouse Enterprise Edition cluster.
      *
      * @param request - DeleteDBInstanceRequest
      *
@@ -1106,7 +1450,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases a public endpoint.
+     * Deletes a public endpoint.
      *
      * @param request - DeleteEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1161,7 +1505,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Releases a public endpoint.
+     * Deletes a public endpoint.
      *
      * @param request - DeleteEndpointRequest
      *
@@ -1179,7 +1523,336 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 删除白名单模板
+     * Releases a Langfuse instance.
+     *
+     * @param request - DeleteLangfuseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLangfuseInstanceResponse
+     *
+     * @param DeleteLangfuseInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteLangfuseInstanceResponse
+     */
+    public function deleteLangfuseInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLangfuseInstance',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLangfuseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Releases a Langfuse instance.
+     *
+     * @param request - DeleteLangfuseInstanceRequest
+     *
+     * @returns DeleteLangfuseInstanceResponse
+     *
+     * @param DeleteLangfuseInstanceRequest $request
+     *
+     * @return DeleteLangfuseInstanceResponse
+     */
+    public function deleteLangfuseInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLangfuseInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a Langfuse organization.
+     *
+     * @param request - DeleteLangfuseOrgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLangfuseOrgResponse
+     *
+     * @param DeleteLangfuseOrgRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteLangfuseOrgResponse
+     */
+    public function deleteLangfuseOrgWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLangfuseOrg',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLangfuseOrgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a Langfuse organization.
+     *
+     * @param request - DeleteLangfuseOrgRequest
+     *
+     * @returns DeleteLangfuseOrgResponse
+     *
+     * @param DeleteLangfuseOrgRequest $request
+     *
+     * @return DeleteLangfuseOrgResponse
+     */
+    public function deleteLangfuseOrg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLangfuseOrgWithOptions($request, $runtime);
+    }
+
+    /**
+     * Removes a user from a Langfuse organization.
+     *
+     * @param request - DeleteLangfuseOrgMembershipRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLangfuseOrgMembershipResponse
+     *
+     * @param DeleteLangfuseOrgMembershipRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteLangfuseOrgMembershipResponse
+     */
+    public function deleteLangfuseOrgMembershipWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLangfuseOrgMembership',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLangfuseOrgMembershipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Removes a user from a Langfuse organization.
+     *
+     * @param request - DeleteLangfuseOrgMembershipRequest
+     *
+     * @returns DeleteLangfuseOrgMembershipResponse
+     *
+     * @param DeleteLangfuseOrgMembershipRequest $request
+     *
+     * @return DeleteLangfuseOrgMembershipResponse
+     */
+    public function deleteLangfuseOrgMembership($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLangfuseOrgMembershipWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a Langfuse project.
+     *
+     * @param request - DeleteLangfuseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLangfuseProjectResponse
+     *
+     * @param DeleteLangfuseProjectRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteLangfuseProjectResponse
+     */
+    public function deleteLangfuseProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLangfuseProject',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLangfuseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a Langfuse project.
+     *
+     * @param request - DeleteLangfuseProjectRequest
+     *
+     * @returns DeleteLangfuseProjectResponse
+     *
+     * @param DeleteLangfuseProjectRequest $request
+     *
+     * @return DeleteLangfuseProjectResponse
+     */
+    public function deleteLangfuseProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLangfuseProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a Langfuse user.
+     *
+     * @param request - DeleteLangfuseUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLangfuseUserResponse
+     *
+     * @param DeleteLangfuseUserRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteLangfuseUserResponse
+     */
+    public function deleteLangfuseUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteLangfuseUser',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteLangfuseUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a Langfuse user.
+     *
+     * @param request - DeleteLangfuseUserRequest
+     *
+     * @returns DeleteLangfuseUserResponse
+     *
+     * @param DeleteLangfuseUserRequest $request
+     *
+     * @return DeleteLangfuseUserResponse
+     */
+    public function deleteLangfuseUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLangfuseUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a whitelist template.
      *
      * @param request - DeleteWhitelistTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1226,7 +1899,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 删除白名单模板
+     * Deletes a whitelist template.
      *
      * @param request - DeleteWhitelistTemplateRequest
      *
@@ -1244,7 +1917,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the permissions of a database account.
+     * Call the DescribeAccountAuthority operation to query the permissions of an account.
      *
      * @param request - DescribeAccountAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1291,7 +1964,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the permissions of a database account.
+     * Call the DescribeAccountAuthority operation to query the permissions of an account.
      *
      * @param request - DescribeAccountAuthorityRequest
      *
@@ -1382,7 +2055,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Queries the backup policy of a ClickHouse Enterprise Edition cluster.
      *
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1425,7 +2098,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * View the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Queries the backup policy of a ClickHouse Enterprise Edition cluster.
      *
      * @param request - DescribeBackupPolicyRequest
      *
@@ -1443,7 +2116,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Queries the backup sets of a ClickHouse Enterprise Edition cluster.
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1506,7 +2179,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Queries the backup sets of a ClickHouse Enterprise Edition cluster.
      *
      * @param request - DescribeBackupsRequest
      *
@@ -1524,7 +2197,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1567,7 +2240,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      *
@@ -1585,7 +2258,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询实例参数配置.
+     * Queries the parameter configuration of an instance.
      *
      * @param request - DescribeDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1620,7 +2293,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询实例参数配置.
+     * Queries the parameter configuration of an instance.
      *
      * @param request - DescribeDBInstanceConfigRequest
      *
@@ -1638,7 +2311,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询实例参数配置记录.
+     * Queries the parameter configuration records of an instance.
      *
      * @param request - DescribeDBInstanceConfigChangeLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1673,7 +2346,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询实例参数配置记录.
+     * Queries the parameter configuration records of an instance.
      *
      * @param request - DescribeDBInstanceConfigChangeLogRequest
      *
@@ -1760,7 +2433,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries a list of ApsaraDB for ClickHouse clusters.
+     * Call the DescribeDBInstances API to query a list of DB instances.
      *
      * @param request - DescribeDBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1831,7 +2504,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries a list of ApsaraDB for ClickHouse clusters.
+     * Call the DescribeDBInstances API to query a list of DB instances.
      *
      * @param request - DescribeDBInstancesRequest
      *
@@ -1849,7 +2522,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the endpoint of an ApsaraDB for ClickHouse cluster.
+     * To retrieve the cluster endpoints, call DescribeEndpoints.
      *
      * @param request - DescribeEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1896,7 +2569,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the endpoint of an ApsaraDB for ClickHouse cluster.
+     * To retrieve the cluster endpoints, call DescribeEndpoints.
      *
      * @param request - DescribeEndpointsRequest
      *
@@ -1914,7 +2587,555 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Views running queries.
+     * Queries the access endpoint of a Langfuse instance.
+     *
+     * @param request - DescribeLangfuseEndpointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLangfuseEndpointsResponse
+     *
+     * @param DescribeLangfuseEndpointsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeLangfuseEndpointsResponse
+     */
+    public function describeLangfuseEndpointsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLangfuseEndpoints',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLangfuseEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the access endpoint of a Langfuse instance.
+     *
+     * @param request - DescribeLangfuseEndpointsRequest
+     *
+     * @returns DescribeLangfuseEndpointsResponse
+     *
+     * @param DescribeLangfuseEndpointsRequest $request
+     *
+     * @return DescribeLangfuseEndpointsResponse
+     */
+    public function describeLangfuseEndpoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLangfuseEndpointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the member information of a Langfuse organization.
+     *
+     * @param request - DescribeLangfuseOrgMembershipsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLangfuseOrgMembershipsResponse
+     *
+     * @param DescribeLangfuseOrgMembershipsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeLangfuseOrgMembershipsResponse
+     */
+    public function describeLangfuseOrgMembershipsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLangfuseOrgMemberships',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLangfuseOrgMembershipsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the member information of a Langfuse organization.
+     *
+     * @param request - DescribeLangfuseOrgMembershipsRequest
+     *
+     * @returns DescribeLangfuseOrgMembershipsResponse
+     *
+     * @param DescribeLangfuseOrgMembershipsRequest $request
+     *
+     * @return DescribeLangfuseOrgMembershipsResponse
+     */
+    public function describeLangfuseOrgMemberships($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLangfuseOrgMembershipsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询Langfuse实例组织列表.
+     *
+     * @param request - DescribeLangfuseOrgsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLangfuseOrgsResponse
+     *
+     * @param DescribeLangfuseOrgsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeLangfuseOrgsResponse
+     */
+    public function describeLangfuseOrgsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLangfuseOrgs',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLangfuseOrgsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询Langfuse实例组织列表.
+     *
+     * @param request - DescribeLangfuseOrgsRequest
+     *
+     * @returns DescribeLangfuseOrgsResponse
+     *
+     * @param DescribeLangfuseOrgsRequest $request
+     *
+     * @return DescribeLangfuseOrgsResponse
+     */
+    public function describeLangfuseOrgs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLangfuseOrgsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries user roles in a Langfuse project.
+     *
+     * @param request - DescribeLangfuseProjectMembershipsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLangfuseProjectMembershipsResponse
+     *
+     * @param DescribeLangfuseProjectMembershipsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeLangfuseProjectMembershipsResponse
+     */
+    public function describeLangfuseProjectMembershipsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLangfuseProjectMemberships',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLangfuseProjectMembershipsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries user roles in a Langfuse project.
+     *
+     * @param request - DescribeLangfuseProjectMembershipsRequest
+     *
+     * @returns DescribeLangfuseProjectMembershipsResponse
+     *
+     * @param DescribeLangfuseProjectMembershipsRequest $request
+     *
+     * @return DescribeLangfuseProjectMembershipsResponse
+     */
+    public function describeLangfuseProjectMemberships($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLangfuseProjectMembershipsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of Langfuse projects.
+     *
+     * @param request - DescribeLangfuseProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLangfuseProjectsResponse
+     *
+     * @param DescribeLangfuseProjectsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeLangfuseProjectsResponse
+     */
+    public function describeLangfuseProjectsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLangfuseProjects',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLangfuseProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of Langfuse projects.
+     *
+     * @param request - DescribeLangfuseProjectsRequest
+     *
+     * @returns DescribeLangfuseProjectsResponse
+     *
+     * @param DescribeLangfuseProjectsRequest $request
+     *
+     * @return DescribeLangfuseProjectsResponse
+     */
+    public function describeLangfuseProjects($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLangfuseProjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the Langfuse whitelist.
+     *
+     * @param request - DescribeLangfuseSecurityIPListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLangfuseSecurityIPListResponse
+     *
+     * @param DescribeLangfuseSecurityIPListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeLangfuseSecurityIPListResponse
+     */
+    public function describeLangfuseSecurityIPListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLangfuseSecurityIPList',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLangfuseSecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the Langfuse whitelist.
+     *
+     * @param request - DescribeLangfuseSecurityIPListRequest
+     *
+     * @returns DescribeLangfuseSecurityIPListResponse
+     *
+     * @param DescribeLangfuseSecurityIPListRequest $request
+     *
+     * @return DescribeLangfuseSecurityIPListResponse
+     */
+    public function describeLangfuseSecurityIPList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLangfuseSecurityIPListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a Langfuse user.
+     *
+     * @param request - DescribeLangfuseUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLangfuseUserResponse
+     *
+     * @param DescribeLangfuseUserRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeLangfuseUserResponse
+     */
+    public function describeLangfuseUserWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLangfuseUser',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLangfuseUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a Langfuse user.
+     *
+     * @param request - DescribeLangfuseUserRequest
+     *
+     * @returns DescribeLangfuseUserResponse
+     *
+     * @param DescribeLangfuseUserRequest $request
+     *
+     * @return DescribeLangfuseUserResponse
+     */
+    public function describeLangfuseUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLangfuseUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of Langfuse users.
+     *
+     * @param request - DescribeLangfuseUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLangfuseUsersResponse
+     *
+     * @param DescribeLangfuseUsersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeLangfuseUsersResponse
+     */
+    public function describeLangfuseUsersWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeLangfuseUsers',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeLangfuseUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of Langfuse users.
+     *
+     * @param request - DescribeLangfuseUsersRequest
+     *
+     * @returns DescribeLangfuseUsersResponse
+     *
+     * @param DescribeLangfuseUsersRequest $request
+     *
+     * @return DescribeLangfuseUsersResponse
+     */
+    public function describeLangfuseUsers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLangfuseUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * Describes currently running queries.
      *
      * @param request - DescribeProcessListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1989,7 +3210,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Views running queries.
+     * Describes currently running queries.
      *
      * @param request - DescribeProcessListRequest
      *
@@ -2007,7 +3228,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询云数据库ClickHouse所有地域和可用区的信息.
+     * Returns information about the available regions and zones for ApsaraDB for ClickHouse.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2036,7 +3257,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询云数据库ClickHouse所有地域和可用区的信息.
+     * Returns information about the available regions and zones for ApsaraDB for ClickHouse.
      *
      * @returns DescribeRegionsResponse
      *
@@ -2050,7 +3271,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the whitelist of an ApsaraDB for ClickHouse cluster.
+     * Queries a whitelist.
      *
      * @param request - DescribeSecurityIPListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2093,7 +3314,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the whitelist of an ApsaraDB for ClickHouse cluster.
+     * Queries a whitelist.
      *
      * @param request - DescribeSecurityIPListRequest
      *
@@ -2111,7 +3332,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details of slow query logs.
+     * Call DescribeSlowLogRecords to query slow log records.
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2178,7 +3399,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the details of slow query logs.
+     * Call DescribeSlowLogRecords to query slow log records.
      *
      * @param request - DescribeSlowLogRecordsRequest
      *
@@ -2196,7 +3417,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the trend of slow query logs.
+     * Queries the slow log trend.
      *
      * @param request - DescribeSlowLogTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2259,7 +3480,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries the trend of slow query logs.
+     * Queries the slow log trend.
      *
      * @param request - DescribeSlowLogTrendRequest
      *
@@ -2277,7 +3498,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消白名单模板和实例关联关系.
+     * Disassociate a whitelist template from an instance.
      *
      * @param request - DetachWhitelistTemplateToInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2324,7 +3545,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 取消白名单模板和实例关联关系.
+     * Disassociate a whitelist template from an instance.
      *
      * @param request - DetachWhitelistTemplateToInstanceRequest
      *
@@ -2342,7 +3563,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询白名单模板详情.
+     * Queries the details of a whitelist template.
      *
      * @param request - GetWhitelistTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2385,7 +3606,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询白名单模板详情.
+     * Queries the details of a whitelist template.
      *
      * @param request - GetWhitelistTemplateRequest
      *
@@ -2403,7 +3624,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Terminates an ongoing query.
+     * Terminates a running task.
      *
      * @param request - KillProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2454,7 +3675,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Terminates an ongoing query.
+     * Terminates a running task.
      *
      * @param request - KillProcessRequest
      *
@@ -2472,7 +3693,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 列举ClickHouse时区参数枚举值
+     * Lists the available time zones for ClickHouse.
      *
      * @param request - ListClickHouseDBTimezonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2515,7 +3736,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 列举ClickHouse时区参数枚举值
+     * Lists the available time zones for ClickHouse.
      *
      * @param request - ListClickHouseDBTimezonesRequest
      *
@@ -2533,7 +3754,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询实例关联的白名单模板清单.
+     * Lists the IP address whitelist templates linked to an instance.
      *
      * @param request - ListInstanceLinkedWhitelistTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2576,7 +3797,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询实例关联的白名单模板清单.
+     * Lists the IP address whitelist templates linked to an instance.
      *
      * @param request - ListInstanceLinkedWhitelistTemplatesRequest
      *
@@ -2594,7 +3815,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询白名单模板清单.
+     * Queries the whitelist templates associated with an instance.
      *
      * @param request - ListWhitelistTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2645,7 +3866,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 查询白名单模板清单.
+     * Queries the whitelist templates associated with an instance.
      *
      * @param request - ListWhitelistTemplatesRequest
      *
@@ -2807,7 +4028,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2862,7 +4086,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the backup policy of an ApsaraDB for ClickHouse cluster that runs Enterprise Edition.
+     * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+     *
+     * @remarks
+     * > Data backup is supported only for ApsaraDB for ClickHouse clusters that run version 20.3, 20.8, or 21.8.
      *
      * @param request - ModifyBackupPolicyRequest
      *
@@ -2880,7 +4107,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+     * You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
      *
      * @param request - ModifyDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2935,7 +4162,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an ApsaraDB for ClickHouse cluster.
+     * You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
      *
      * @param request - ModifyDBInstanceAttributeRequest
      *
@@ -2953,7 +4180,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
+     * Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+     *
+     * @remarks
+     * Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
      *
      * @param tmpReq - ModifyDBInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3038,7 +4268,10 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
+     * Use `ModifyDBInstanceClass` to modify the scaling configuration of a cluster.
+     *
+     * @remarks
+     * Before you call this API, make sure that you understand the billing method and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
      *
      * @param request - ModifyDBInstanceClassRequest
      *
@@ -3056,7 +4289,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 修改实例参数配置.
+     * Modifies the parameter settings for a DB instance.
      *
      * @param request - ModifyDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3103,7 +4336,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 修改实例参数配置.
+     * Modifies the parameter settings for a DB instance.
      *
      * @param request - ModifyDBInstanceConfigRequest
      *
@@ -3121,7 +4354,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
+     * Modifies the connection string of a cluster.
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3184,7 +4417,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
+     * Modifies the connection string of a cluster.
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
      *
@@ -3199,6 +4432,156 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceConnectionStringWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the permissions of a user in a Langfuse organization.
+     *
+     * @param request - ModifyLangfuseOrgMembershipRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyLangfuseOrgMembershipResponse
+     *
+     * @param ModifyLangfuseOrgMembershipRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyLangfuseOrgMembershipResponse
+     */
+    public function modifyLangfuseOrgMembershipWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyLangfuseOrgMembership',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyLangfuseOrgMembershipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the permissions of a user in a Langfuse organization.
+     *
+     * @param request - ModifyLangfuseOrgMembershipRequest
+     *
+     * @returns ModifyLangfuseOrgMembershipResponse
+     *
+     * @param ModifyLangfuseOrgMembershipRequest $request
+     *
+     * @return ModifyLangfuseOrgMembershipResponse
+     */
+    public function modifyLangfuseOrgMembership($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLangfuseOrgMembershipWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the permissions of a user in a Langfuse project.
+     *
+     * @param request - ModifyLangfuseProjectMembershipRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyLangfuseProjectMembershipResponse
+     *
+     * @param ModifyLangfuseProjectMembershipRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyLangfuseProjectMembershipResponse
+     */
+    public function modifyLangfuseProjectMembershipWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->organizationId) {
+            @$query['OrganizationId'] = $request->organizationId;
+        }
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyLangfuseProjectMembership',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyLangfuseProjectMembershipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the permissions of a user in a Langfuse project.
+     *
+     * @param request - ModifyLangfuseProjectMembershipRequest
+     *
+     * @returns ModifyLangfuseProjectMembershipResponse
+     *
+     * @param ModifyLangfuseProjectMembershipRequest $request
+     *
+     * @return ModifyLangfuseProjectMembershipResponse
+     */
+    public function modifyLangfuseProjectMembership($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLangfuseProjectMembershipWithOptions($request, $runtime);
     }
 
     /**
@@ -3345,6 +4728,75 @@ class Clickhouse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetAccountPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * Resets the password of a Langfuse user.
+     *
+     * @param request - ResetLangfuseUserPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetLangfuseUserPasswordResponse
+     *
+     * @param ResetLangfuseUserPasswordRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ResetLangfuseUserPasswordResponse
+     */
+    public function resetLangfuseUserPasswordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->newPassword) {
+            @$query['NewPassword'] = $request->newPassword;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetLangfuseUserPassword',
+            'version' => '2023-05-22',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetLangfuseUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Resets the password of a Langfuse user.
+     *
+     * @param request - ResetLangfuseUserPasswordRequest
+     *
+     * @returns ResetLangfuseUserPasswordResponse
+     *
+     * @param ResetLangfuseUserPasswordRequest $request
+     *
+     * @return ResetLangfuseUserPasswordResponse
+     */
+    public function resetLangfuseUserPassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetLangfuseUserPasswordWithOptions($request, $runtime);
     }
 
     /**
@@ -3531,7 +4983,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 更新白名单模板
+     * Updates a whitelist template.
      *
      * @param request - UpdateWhitelistTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3582,7 +5034,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * 更新白名单模板
+     * Updates a whitelist template.
      *
      * @param request - UpdateWhitelistTemplateRequest
      *
