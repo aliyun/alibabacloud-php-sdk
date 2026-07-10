@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AllocateSupabaseForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AllocateSupabaseForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AuthorizeAppProxyOpsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AuthorizeAppProxyOpsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BatchCheckResourceMeasureRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BatchCheckResourceMeasureResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BindAppDomainRequest;
@@ -429,6 +431,63 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateSupabaseForAdminWithOptions($request, $runtime);
+    }
+
+    /**
+     * Grants proxy-based O&M permissions for an application instance.
+     *
+     * @param request - AuthorizeAppProxyOpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeAppProxyOpsResponse
+     *
+     * @param AuthorizeAppProxyOpsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AuthorizeAppProxyOpsResponse
+     */
+    public function authorizeAppProxyOpsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'AuthorizeAppProxyOps',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AuthorizeAppProxyOpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Grants proxy-based O&M permissions for an application instance.
+     *
+     * @param request - AuthorizeAppProxyOpsRequest
+     *
+     * @returns AuthorizeAppProxyOpsResponse
+     *
+     * @param AuthorizeAppProxyOpsRequest $request
+     *
+     * @return AuthorizeAppProxyOpsResponse
+     */
+    public function authorizeAppProxyOps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeAppProxyOpsWithOptions($request, $runtime);
     }
 
     /**
@@ -6566,10 +6625,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Query template list.
+     * Queries the list of website templates.
      *
      * @remarks
-     * Obtain barcode generation plugin configuration information
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - ListAppTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6644,10 +6703,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Query template list.
+     * Queries the list of website templates.
      *
      * @remarks
-     * Obtain barcode generation plugin configuration information
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - ListAppTemplatesRequest
      *
