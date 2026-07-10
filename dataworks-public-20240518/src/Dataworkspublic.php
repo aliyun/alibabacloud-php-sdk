@@ -15687,10 +15687,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the information about DataWorks data assets to which tags are added by page.
+     * Queries DataWorks data assets that are associated with tags by paging.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
      *
      * @param tmpReq - ListDataAssetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15735,10 +15735,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Queries the information about DataWorks data assets to which tags are added by page.
+     * Queries DataWorks data assets that are associated with tags by paging.
      *
      * @remarks
-     * This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+     * You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
      *
      * @param Request - ListDataAssetsRequest
      *
@@ -26597,7 +26597,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Update a task. The changes are synchronized to Data Studio, which creates a new saved version.
+     * Updates a specified node. The modifications are synchronized to DataStudio, where a new saved version is created.
      *
      * @param tmpReq - UpdateTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26742,7 +26742,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Update a task. The changes are synchronized to Data Studio, which creates a new saved version.
+     * Updates a specified node. The modifications are synchronized to DataStudio, where a new saved version is created.
      *
      * @param Request - UpdateTaskRequest
      *
@@ -26934,10 +26934,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a specified workflow in full update mode.
+     * Updates a specified workflow by using the full update method. Fields that can be synchronously updated to DataStudio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
      *
      * @remarks
-     * DataWorks Basic Edition or higher is required.
+     * DataWorks Basic Edition or a more advanced edition is required.
      *
      * @param tmpReq - UpdateWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27046,10 +27046,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Updates a specified workflow in full update mode.
+     * Updates a specified workflow by using the full update method. Fields that can be synchronously updated to DataStudio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
      *
      * @remarks
-     * DataWorks Basic Edition or higher is required.
+     * DataWorks Basic Edition or a more advanced edition is required.
      *
      * @param Request - UpdateWorkflowRequest
      *

@@ -17,9 +17,21 @@ class initialConfigOptions extends Model
      * @var string
      */
     public $mode;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $skills;
     protected $_name = [
         'executionLane' => 'ExecutionLane',
         'mode' => 'Mode',
+        'resourceGroupId' => 'ResourceGroupId',
+        'skills' => 'Skills',
     ];
 
     public function validate()
@@ -36,6 +48,14 @@ class initialConfigOptions extends Model
 
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->skills) {
+            $res['Skills'] = $this->skills;
         }
 
         return $res;
@@ -55,6 +75,14 @@ class initialConfigOptions extends Model
 
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['Skills'])) {
+            $model->skills = $map['Skills'];
         }
 
         return $model;

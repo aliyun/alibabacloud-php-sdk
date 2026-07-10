@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class ListDataAssetsShrinkRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $assetDomainId;
+
+    /**
+     * @var string
+     */
+    public $categoryUuid;
+
+    /**
      * @var string
      */
     public $dataAssetIdsShrink;
@@ -22,6 +32,11 @@ class ListDataAssetsShrinkRequest extends Model
      * @var string
      */
     public $envType;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -43,9 +58,12 @@ class ListDataAssetsShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
+        'assetDomainId' => 'AssetDomainId',
+        'categoryUuid' => 'CategoryUuid',
         'dataAssetIdsShrink' => 'DataAssetIds',
         'dataAssetType' => 'DataAssetType',
         'envType' => 'EnvType',
+        'name' => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
@@ -60,6 +78,14 @@ class ListDataAssetsShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->assetDomainId) {
+            $res['AssetDomainId'] = $this->assetDomainId;
+        }
+
+        if (null !== $this->categoryUuid) {
+            $res['CategoryUuid'] = $this->categoryUuid;
+        }
+
         if (null !== $this->dataAssetIdsShrink) {
             $res['DataAssetIds'] = $this->dataAssetIdsShrink;
         }
@@ -70,6 +96,10 @@ class ListDataAssetsShrinkRequest extends Model
 
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->pageNumber) {
@@ -99,6 +129,14 @@ class ListDataAssetsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetDomainId'])) {
+            $model->assetDomainId = $map['AssetDomainId'];
+        }
+
+        if (isset($map['CategoryUuid'])) {
+            $model->categoryUuid = $map['CategoryUuid'];
+        }
+
         if (isset($map['DataAssetIds'])) {
             $model->dataAssetIdsShrink = $map['DataAssetIds'];
         }
@@ -109,6 +147,10 @@ class ListDataAssetsShrinkRequest extends Model
 
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['PageNumber'])) {

@@ -10,6 +10,16 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsRequest\tags
 class ListDataAssetsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $assetDomainId;
+
+    /**
+     * @var string
+     */
+    public $categoryUuid;
+
+    /**
      * @var string[]
      */
     public $dataAssetIds;
@@ -23,6 +33,11 @@ class ListDataAssetsRequest extends Model
      * @var string
      */
     public $envType;
+
+    /**
+     * @var string
+     */
+    public $name;
 
     /**
      * @var int
@@ -44,9 +59,12 @@ class ListDataAssetsRequest extends Model
      */
     public $tags;
     protected $_name = [
+        'assetDomainId' => 'AssetDomainId',
+        'categoryUuid' => 'CategoryUuid',
         'dataAssetIds' => 'DataAssetIds',
         'dataAssetType' => 'DataAssetType',
         'envType' => 'EnvType',
+        'name' => 'Name',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
@@ -67,6 +85,14 @@ class ListDataAssetsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->assetDomainId) {
+            $res['AssetDomainId'] = $this->assetDomainId;
+        }
+
+        if (null !== $this->categoryUuid) {
+            $res['CategoryUuid'] = $this->categoryUuid;
+        }
+
         if (null !== $this->dataAssetIds) {
             if (\is_array($this->dataAssetIds)) {
                 $res['DataAssetIds'] = [];
@@ -84,6 +110,10 @@ class ListDataAssetsRequest extends Model
 
         if (null !== $this->envType) {
             $res['EnvType'] = $this->envType;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->pageNumber) {
@@ -120,6 +150,14 @@ class ListDataAssetsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetDomainId'])) {
+            $model->assetDomainId = $map['AssetDomainId'];
+        }
+
+        if (isset($map['CategoryUuid'])) {
+            $model->categoryUuid = $map['CategoryUuid'];
+        }
+
         if (isset($map['DataAssetIds'])) {
             if (!empty($map['DataAssetIds'])) {
                 $model->dataAssetIds = [];
@@ -137,6 +175,10 @@ class ListDataAssetsRequest extends Model
 
         if (isset($map['EnvType'])) {
             $model->envType = $map['EnvType'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['PageNumber'])) {

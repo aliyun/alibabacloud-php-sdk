@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsResponseBody\pagingInfo;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsResponseBody\pagingInfo\dataAssets\assetCategories;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetsResponseBody\pagingInfo\dataAssets\dataAssetTagMappings;
 
 class dataAssets extends Model
 {
+    /**
+     * @var assetCategories[]
+     */
+    public $assetCategories;
+
     /**
      * @var dataAssetTagMappings[]
      */
@@ -39,6 +45,7 @@ class dataAssets extends Model
      */
     public $type;
     protected $_name = [
+        'assetCategories' => 'AssetCategories',
         'dataAssetTagMappings' => 'DataAssetTagMappings',
         'envType' => 'EnvType',
         'id' => 'Id',
@@ -49,6 +56,9 @@ class dataAssets extends Model
 
     public function validate()
     {
+        if (\is_array($this->assetCategories)) {
+            Model::validateArray($this->assetCategories);
+        }
         if (\is_array($this->dataAssetTagMappings)) {
             Model::validateArray($this->dataAssetTagMappings);
         }
@@ -58,6 +68,17 @@ class dataAssets extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->assetCategories) {
+            if (\is_array($this->assetCategories)) {
+                $res['AssetCategories'] = [];
+                $n1 = 0;
+                foreach ($this->assetCategories as $item1) {
+                    $res['AssetCategories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->dataAssetTagMappings) {
             if (\is_array($this->dataAssetTagMappings)) {
                 $res['DataAssetTagMappings'] = [];
@@ -100,6 +121,17 @@ class dataAssets extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssetCategories'])) {
+            if (!empty($map['AssetCategories'])) {
+                $model->assetCategories = [];
+                $n1 = 0;
+                foreach ($map['AssetCategories'] as $item1) {
+                    $model->assetCategories[$n1] = assetCategories::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['DataAssetTagMappings'])) {
             if (!empty($map['DataAssetTagMappings'])) {
                 $model->dataAssetTagMappings = [];
