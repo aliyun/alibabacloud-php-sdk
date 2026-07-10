@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Eflocontroller\V20221215\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UpdateNodeGroupRequest\systemDisk;
 
-class UpdateNodeGroupRequest extends Model
+class UpdateNodeGroupShrinkRequest extends Model
 {
     /**
      * @var bool
@@ -45,9 +44,9 @@ class UpdateNodeGroupRequest extends Model
     public $ramRoleName;
 
     /**
-     * @var systemDisk
+     * @var string
      */
-    public $systemDisk;
+    public $systemDiskShrink;
 
     /**
      * @var string
@@ -61,15 +60,12 @@ class UpdateNodeGroupRequest extends Model
         'newNodeGroupName' => 'NewNodeGroupName',
         'nodeGroupId' => 'NodeGroupId',
         'ramRoleName' => 'RamRoleName',
-        'systemDisk' => 'SystemDisk',
+        'systemDiskShrink' => 'SystemDisk',
         'userData' => 'UserData',
     ];
 
     public function validate()
     {
-        if (null !== $this->systemDisk) {
-            $this->systemDisk->validate();
-        }
         parent::validate();
     }
 
@@ -104,8 +100,8 @@ class UpdateNodeGroupRequest extends Model
             $res['RamRoleName'] = $this->ramRoleName;
         }
 
-        if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toArray($noStream) : $this->systemDisk;
+        if (null !== $this->systemDiskShrink) {
+            $res['SystemDisk'] = $this->systemDiskShrink;
         }
 
         if (null !== $this->userData) {
@@ -152,7 +148,7 @@ class UpdateNodeGroupRequest extends Model
         }
 
         if (isset($map['SystemDisk'])) {
-            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
+            $model->systemDiskShrink = $map['SystemDisk'];
         }
 
         if (isset($map['UserData'])) {

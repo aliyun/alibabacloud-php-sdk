@@ -136,6 +136,7 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UpdateNodeGroupRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UpdateNodeGroupResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UpdateNodeGroupShrinkRequest;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -539,10 +540,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Creates a new LINGJUN Cluster.
+     * Creates a Lingjun AI Computing Service cluster.
      *
      * @remarks
-     * 关闭远程会话的接口。
+     * Closes a remote session.
      *
      * @param tmpReq - CreateClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -645,10 +646,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Creates a new LINGJUN Cluster.
+     * Creates a Lingjun AI Computing Service cluster.
      *
      * @remarks
-     * 关闭远程会话的接口。
+     * Closes a remote session.
      *
      * @param request - CreateClusterRequest
      *
@@ -844,10 +845,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Create a node group in a cluster.
+     * Creates a node group in a cluster.
      *
      * @remarks
-     * Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param tmpReq - CreateNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -904,10 +905,10 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Create a node group in a cluster.
+     * Creates a node group in a cluster.
      *
      * @remarks
-     * Creates a session, returns a front-end endpoint, and starts a periodic task to track the session status.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param request - CreateNodeGroupRequest
      *
@@ -2157,7 +2158,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Extends a cluster.
+     * Scales out a cluster.
      *
      * @remarks
      * Closes a remote session.
@@ -2233,7 +2234,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Extends a cluster.
+     * Scales out a cluster.
      *
      * @remarks
      * Closes a remote session.
@@ -3527,7 +3528,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reimages the specified nodes.
+     * Reinstalls machines.
      *
      * @param tmpReq - ReimageNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3584,7 +3585,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * Reimages the specified nodes.
+     * Reinstalls machines.
      *
      * @param request - ReimageNodesRequest
      *
@@ -4271,21 +4272,27 @@ class Eflocontroller extends OpenApiClient
      * Updates a node group.
      *
      * @remarks
-     * Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
-     * @param request - UpdateNodeGroupRequest
+     * @param tmpReq - UpdateNodeGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns UpdateNodeGroupResponse
      *
-     * @param UpdateNodeGroupRequest $request
+     * @param UpdateNodeGroupRequest $tmpReq
      * @param RuntimeOptions         $runtime
      *
      * @return UpdateNodeGroupResponse
      */
-    public function updateNodeGroupWithOptions($request, $runtime)
+    public function updateNodeGroupWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdateNodeGroupShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->systemDisk) {
+            $request->systemDiskShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->systemDisk, 'SystemDisk', 'json');
+        }
+
         $body = [];
         if (null !== $request->fileSystemMountEnabled) {
             @$body['FileSystemMountEnabled'] = $request->fileSystemMountEnabled;
@@ -4315,6 +4322,10 @@ class Eflocontroller extends OpenApiClient
             @$body['RamRoleName'] = $request->ramRoleName;
         }
 
+        if (null !== $request->systemDiskShrink) {
+            @$body['SystemDisk'] = $request->systemDiskShrink;
+        }
+
         if (null !== $request->userData) {
             @$body['UserData'] = $request->userData;
         }
@@ -4341,7 +4352,7 @@ class Eflocontroller extends OpenApiClient
      * Updates a node group.
      *
      * @remarks
-     * Updates a node group asynchronously. A task ID is returned to track the progress of the operation.
+     * Creates a session, returns the frontend endpoint, and starts a periodic task to track the session status.
      *
      * @param request - UpdateNodeGroupRequest
      *
