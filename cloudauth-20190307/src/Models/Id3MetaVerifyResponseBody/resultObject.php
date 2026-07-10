@@ -17,9 +17,15 @@ class resultObject extends Model
      * @var string
      */
     public $faceDetail;
+
+    /**
+     * @var string
+     */
+    public $subCode;
     protected $_name = [
         'bizCode' => 'BizCode',
         'faceDetail' => 'FaceDetail',
+        'subCode' => 'SubCode',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class resultObject extends Model
 
         if (null !== $this->faceDetail) {
             $res['FaceDetail'] = $this->faceDetail;
+        }
+
+        if (null !== $this->subCode) {
+            $res['SubCode'] = $this->subCode;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class resultObject extends Model
 
         if (isset($map['FaceDetail'])) {
             $model->faceDetail = $map['FaceDetail'];
+        }
+
+        if (isset($map['SubCode'])) {
+            $model->subCode = $map['SubCode'];
         }
 
         return $model;

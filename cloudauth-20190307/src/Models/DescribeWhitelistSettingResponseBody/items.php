@@ -57,6 +57,11 @@ class items extends Model
      * @var string
      */
     public $validStartDate;
+
+    /**
+     * @var string
+     */
+    public $whitelistType;
     protected $_name = [
         'certNo' => 'CertNo',
         'certifyId' => 'CertifyId',
@@ -68,6 +73,7 @@ class items extends Model
         'status' => 'Status',
         'validEndDate' => 'ValidEndDate',
         'validStartDate' => 'ValidStartDate',
+        'whitelistType' => 'WhitelistType',
     ];
 
     public function validate()
@@ -116,6 +122,10 @@ class items extends Model
 
         if (null !== $this->validStartDate) {
             $res['ValidStartDate'] = $this->validStartDate;
+        }
+
+        if (null !== $this->whitelistType) {
+            $res['WhitelistType'] = $this->whitelistType;
         }
 
         return $res;
@@ -167,6 +177,10 @@ class items extends Model
 
         if (isset($map['ValidStartDate'])) {
             $model->validStartDate = $map['ValidStartDate'];
+        }
+
+        if (isset($map['WhitelistType'])) {
+            $model->whitelistType = $map['WhitelistType'];
         }
 
         return $model;

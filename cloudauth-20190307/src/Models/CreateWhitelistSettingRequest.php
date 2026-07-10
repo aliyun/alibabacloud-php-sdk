@@ -47,6 +47,11 @@ class CreateWhitelistSettingRequest extends Model
      * @var int
      */
     public $validDay;
+
+    /**
+     * @var string
+     */
+    public $whitelistType;
     protected $_name = [
         'certNo' => 'CertNo',
         'certifyId' => 'CertifyId',
@@ -56,6 +61,7 @@ class CreateWhitelistSettingRequest extends Model
         'serviceCode' => 'ServiceCode',
         'sourceIp' => 'SourceIp',
         'validDay' => 'ValidDay',
+        'whitelistType' => 'WhitelistType',
     ];
 
     public function validate()
@@ -96,6 +102,10 @@ class CreateWhitelistSettingRequest extends Model
 
         if (null !== $this->validDay) {
             $res['ValidDay'] = $this->validDay;
+        }
+
+        if (null !== $this->whitelistType) {
+            $res['WhitelistType'] = $this->whitelistType;
         }
 
         return $res;
@@ -139,6 +149,10 @@ class CreateWhitelistSettingRequest extends Model
 
         if (isset($map['ValidDay'])) {
             $model->validDay = $map['ValidDay'];
+        }
+
+        if (isset($map['WhitelistType'])) {
+            $model->whitelistType = $map['WhitelistType'];
         }
 
         return $model;

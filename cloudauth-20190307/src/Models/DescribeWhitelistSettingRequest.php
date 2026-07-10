@@ -62,6 +62,11 @@ class DescribeWhitelistSettingRequest extends Model
      * @var int
      */
     public $validStartDate;
+
+    /**
+     * @var string
+     */
+    public $whitelistType;
     protected $_name = [
         'certNo' => 'CertNo',
         'certifyId' => 'CertifyId',
@@ -74,6 +79,7 @@ class DescribeWhitelistSettingRequest extends Model
         'status' => 'Status',
         'validEndDate' => 'ValidEndDate',
         'validStartDate' => 'ValidStartDate',
+        'whitelistType' => 'WhitelistType',
     ];
 
     public function validate()
@@ -126,6 +132,10 @@ class DescribeWhitelistSettingRequest extends Model
 
         if (null !== $this->validStartDate) {
             $res['ValidStartDate'] = $this->validStartDate;
+        }
+
+        if (null !== $this->whitelistType) {
+            $res['WhitelistType'] = $this->whitelistType;
         }
 
         return $res;
@@ -181,6 +191,10 @@ class DescribeWhitelistSettingRequest extends Model
 
         if (isset($map['ValidStartDate'])) {
             $model->validStartDate = $map['ValidStartDate'];
+        }
+
+        if (isset($map['WhitelistType'])) {
+            $model->whitelistType = $map['WhitelistType'];
         }
 
         return $model;
