@@ -200,6 +200,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobWithParamsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StartJobWithParamsResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StartSessionClusterHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StartSessionClusterResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StartSqlExecutionHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StartSqlExecutionRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StartSqlExecutionResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopApplyScheduledPlanHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopApplyScheduledPlanResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobHeaders;
@@ -5556,6 +5559,73 @@ class Ververica extends OpenApiClient
         $headers = new StartSessionClusterHeaders([]);
 
         return $this->startSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime);
+    }
+
+    /**
+     * Executes an SQL query script task.
+     *
+     * @param request - StartSqlExecutionRequest
+     * @param headers - StartSqlExecutionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartSqlExecutionResponse
+     *
+     * @param string                   $namespace_
+     * @param StartSqlExecutionRequest $request
+     * @param StartSqlExecutionHeaders $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StartSqlExecutionResponse
+     */
+    public function startSqlExecutionWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'StartSqlExecution',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-execution',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StartSqlExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes an SQL query script task.
+     *
+     * @param request - StartSqlExecutionRequest
+     *
+     * @returns StartSqlExecutionResponse
+     *
+     * @param string                   $namespace_
+     * @param StartSqlExecutionRequest $request
+     *
+     * @return StartSqlExecutionResponse
+     */
+    public function startSqlExecution($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StartSqlExecutionHeaders([]);
+
+        return $this->startSqlExecutionWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
