@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Sae\V20190506\Models\CreateApplicationRequest\raspConfig;
 
 class CreateApplicationRequest extends Model
 {
@@ -354,6 +355,11 @@ class CreateApplicationRequest extends Model
     public $pythonModules;
 
     /**
+     * @var raspConfig
+     */
+    public $raspConfig;
+
+    /**
      * @var string
      */
     public $readiness;
@@ -512,6 +518,7 @@ class CreateApplicationRequest extends Model
         'pvtzDiscoverySvc' => 'PvtzDiscoverySvc',
         'python' => 'Python',
         'pythonModules' => 'PythonModules',
+        'raspConfig' => 'RaspConfig',
         'readiness' => 'Readiness',
         'replicas' => 'Replicas',
         'resourceType' => 'ResourceType',
@@ -539,6 +546,9 @@ class CreateApplicationRequest extends Model
         }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
+        }
+        if (null !== $this->raspConfig) {
+            $this->raspConfig->validate();
         }
         if (\is_array($this->sidecarContainersConfig)) {
             Model::validateArray($this->sidecarContainersConfig);
@@ -835,6 +845,10 @@ class CreateApplicationRequest extends Model
 
         if (null !== $this->pythonModules) {
             $res['PythonModules'] = $this->pythonModules;
+        }
+
+        if (null !== $this->raspConfig) {
+            $res['RaspConfig'] = null !== $this->raspConfig ? $this->raspConfig->toArray($noStream) : $this->raspConfig;
         }
 
         if (null !== $this->readiness) {
@@ -1213,6 +1227,10 @@ class CreateApplicationRequest extends Model
 
         if (isset($map['PythonModules'])) {
             $model->pythonModules = $map['PythonModules'];
+        }
+
+        if (isset($map['RaspConfig'])) {
+            $model->raspConfig = raspConfig::fromMap($map['RaspConfig']);
         }
 
         if (isset($map['Readiness'])) {

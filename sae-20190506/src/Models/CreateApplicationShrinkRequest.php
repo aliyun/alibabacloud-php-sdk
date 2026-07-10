@@ -356,6 +356,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $raspConfigShrink;
+
+    /**
+     * @var string
+     */
     public $readiness;
 
     /**
@@ -512,6 +517,7 @@ class CreateApplicationShrinkRequest extends Model
         'pvtzDiscoverySvc' => 'PvtzDiscoverySvc',
         'python' => 'Python',
         'pythonModules' => 'PythonModules',
+        'raspConfigShrink' => 'RaspConfig',
         'readiness' => 'Readiness',
         'replicas' => 'Replicas',
         'resourceType' => 'ResourceType',
@@ -814,6 +820,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (null !== $this->pythonModules) {
             $res['PythonModules'] = $this->pythonModules;
+        }
+
+        if (null !== $this->raspConfigShrink) {
+            $res['RaspConfig'] = $this->raspConfigShrink;
         }
 
         if (null !== $this->readiness) {
@@ -1173,6 +1183,10 @@ class CreateApplicationShrinkRequest extends Model
 
         if (isset($map['PythonModules'])) {
             $model->pythonModules = $map['PythonModules'];
+        }
+
+        if (isset($map['RaspConfig'])) {
+            $model->raspConfigShrink = $map['RaspConfig'];
         }
 
         if (isset($map['Readiness'])) {

@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\initContainersConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\mountDesc;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\ossMountDescs;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\raspConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\secretMountDesc;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\sidecarContainersConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\tags;
@@ -422,6 +423,11 @@ class data extends Model
     public $pythonModules;
 
     /**
+     * @var raspConfig[]
+     */
+    public $raspConfig;
+
+    /**
      * @var string
      */
     public $readiness;
@@ -607,6 +613,7 @@ class data extends Model
         'pvtzDiscovery' => 'PvtzDiscovery',
         'python' => 'Python',
         'pythonModules' => 'PythonModules',
+        'raspConfig' => 'RaspConfig',
         'readiness' => 'Readiness',
         'regionId' => 'RegionId',
         'replicas' => 'Replicas',
@@ -649,6 +656,9 @@ class data extends Model
         }
         if (\is_array($this->ossMountDescs)) {
             Model::validateArray($this->ossMountDescs);
+        }
+        if (\is_array($this->raspConfig)) {
+            Model::validateArray($this->raspConfig);
         }
         if (\is_array($this->secretMountDesc)) {
             Model::validateArray($this->secretMountDesc);
@@ -1030,6 +1040,17 @@ class data extends Model
 
         if (null !== $this->pythonModules) {
             $res['PythonModules'] = $this->pythonModules;
+        }
+
+        if (null !== $this->raspConfig) {
+            if (\is_array($this->raspConfig)) {
+                $res['RaspConfig'] = [];
+                $n1 = 0;
+                foreach ($this->raspConfig as $item1) {
+                    $res['RaspConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->readiness) {
@@ -1515,6 +1536,17 @@ class data extends Model
 
         if (isset($map['PythonModules'])) {
             $model->pythonModules = $map['PythonModules'];
+        }
+
+        if (isset($map['RaspConfig'])) {
+            if (!empty($map['RaspConfig'])) {
+                $model->raspConfig = [];
+                $n1 = 0;
+                foreach ($map['RaspConfig'] as $item1) {
+                    $model->raspConfig[$n1] = raspConfig::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Readiness'])) {

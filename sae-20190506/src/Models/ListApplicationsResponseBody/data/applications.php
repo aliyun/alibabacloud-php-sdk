@@ -121,6 +121,11 @@ class applications extends Model
     public $programmingLanguage;
 
     /**
+     * @var bool
+     */
+    public $raspEnabled;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -167,6 +172,7 @@ class applications extends Model
         'newSaeVersion' => 'NewSaeVersion',
         'packageUrl' => 'PackageUrl',
         'programmingLanguage' => 'ProgrammingLanguage',
+        'raspEnabled' => 'RaspEnabled',
         'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
         'runningInstances' => 'RunningInstances',
@@ -289,6 +295,10 @@ class applications extends Model
 
         if (null !== $this->programmingLanguage) {
             $res['ProgrammingLanguage'] = $this->programmingLanguage;
+        }
+
+        if (null !== $this->raspEnabled) {
+            $res['RaspEnabled'] = $this->raspEnabled;
         }
 
         if (null !== $this->regionId) {
@@ -427,6 +437,10 @@ class applications extends Model
 
         if (isset($map['ProgrammingLanguage'])) {
             $model->programmingLanguage = $map['ProgrammingLanguage'];
+        }
+
+        if (isset($map['RaspEnabled'])) {
+            $model->raspEnabled = $map['RaspEnabled'];
         }
 
         if (isset($map['RegionId'])) {

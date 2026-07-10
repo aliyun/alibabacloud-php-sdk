@@ -926,7 +926,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Create an application.
+     * Creates an application.
      *
      * @param tmpReq - CreateApplicationRequest
      * @param headers - map
@@ -951,6 +951,10 @@ class Sae extends OpenApiClient
 
         if (null !== $tmpReq->labels) {
             $request->labelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
+        }
+
+        if (null !== $tmpReq->raspConfig) {
+            $request->raspConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->raspConfig, 'RaspConfig', 'json');
         }
 
         if (null !== $tmpReq->sidecarContainersConfig) {
@@ -1182,6 +1186,10 @@ class Sae extends OpenApiClient
             @$query['PythonModules'] = $request->pythonModules;
         }
 
+        if (null !== $request->raspConfigShrink) {
+            @$query['RaspConfig'] = $request->raspConfigShrink;
+        }
+
         if (null !== $request->readiness) {
             @$query['Readiness'] = $request->readiness;
         }
@@ -1328,7 +1336,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Create an application.
+     * Creates an application.
      *
      * @param request - CreateApplicationRequest
      *
@@ -3442,7 +3450,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deploy an application.
+     * Deploys an application.
      *
      * @param tmpReq - DeployApplicationRequest
      * @param headers - map
@@ -3467,6 +3475,10 @@ class Sae extends OpenApiClient
 
         if (null !== $tmpReq->labels) {
             $request->labelsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
+        }
+
+        if (null !== $tmpReq->raspConfig) {
+            $request->raspConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->raspConfig, 'RaspConfig', 'json');
         }
 
         if (null !== $tmpReq->sidecarContainersConfig) {
@@ -3698,6 +3710,10 @@ class Sae extends OpenApiClient
             @$query['PythonModules'] = $request->pythonModules;
         }
 
+        if (null !== $request->raspConfigShrink) {
+            @$query['RaspConfig'] = $request->raspConfigShrink;
+        }
+
         if (null !== $request->readiness) {
             @$query['Readiness'] = $request->readiness;
         }
@@ -3836,7 +3852,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Deploy an application.
+     * Deploys an application.
      *
      * @param request - DeployApplicationRequest
      *
@@ -3940,7 +3956,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration of an application.
+     * Retrieves the configuration information of an application.
      *
      * @param request - DescribeApplicationConfigRequest
      * @param headers - map
@@ -3986,7 +4002,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Retrieves the configuration of an application.
+     * Retrieves the configuration information of an application.
      *
      * @param request - DescribeApplicationConfigRequest
      *
@@ -7826,7 +7842,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Get a list of applications.
+     * Retrieves a list of applications.
      *
      * @param request - ListApplicationsRequest
      * @param headers - map
@@ -7884,6 +7900,10 @@ class Sae extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->programmingLanguage) {
+            @$query['ProgrammingLanguage'] = $request->programmingLanguage;
+        }
+
         if (null !== $request->reverse) {
             @$query['Reverse'] = $request->reverse;
         }
@@ -7912,7 +7932,7 @@ class Sae extends OpenApiClient
     }
 
     /**
-     * Get a list of applications.
+     * Retrieves a list of applications.
      *
      * @param request - ListApplicationsRequest
      *

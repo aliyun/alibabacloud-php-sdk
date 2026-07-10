@@ -59,6 +59,11 @@ class ListApplicationsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $programmingLanguage;
+
+    /**
      * @var bool
      */
     public $reverse;
@@ -78,6 +83,7 @@ class ListApplicationsRequest extends Model
         'newSaeVersion' => 'NewSaeVersion',
         'orderBy' => 'OrderBy',
         'pageSize' => 'PageSize',
+        'programmingLanguage' => 'ProgrammingLanguage',
         'reverse' => 'Reverse',
         'tags' => 'Tags',
     ];
@@ -128,6 +134,10 @@ class ListApplicationsRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->programmingLanguage) {
+            $res['ProgrammingLanguage'] = $this->programmingLanguage;
         }
 
         if (null !== $this->reverse) {
@@ -187,6 +197,10 @@ class ListApplicationsRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ProgrammingLanguage'])) {
+            $model->programmingLanguage = $map['ProgrammingLanguage'];
         }
 
         if (isset($map['Reverse'])) {
