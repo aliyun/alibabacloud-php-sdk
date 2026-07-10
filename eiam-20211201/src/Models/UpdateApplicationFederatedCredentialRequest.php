@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialRequest\attributeMappings;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialRequest\oidcVerificationConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateApplicationFederatedCredentialRequest\pkcs7VerificationConfig;
 
 class UpdateApplicationFederatedCredentialRequest extends Model
 {
@@ -30,6 +32,16 @@ class UpdateApplicationFederatedCredentialRequest extends Model
     public $instanceId;
 
     /**
+     * @var oidcVerificationConfig
+     */
+    public $oidcVerificationConfig;
+
+    /**
+     * @var pkcs7VerificationConfig
+     */
+    public $pkcs7VerificationConfig;
+
+    /**
      * @var string
      */
     public $verificationCondition;
@@ -38,6 +50,8 @@ class UpdateApplicationFederatedCredentialRequest extends Model
         'applicationId' => 'ApplicationId',
         'attributeMappings' => 'AttributeMappings',
         'instanceId' => 'InstanceId',
+        'oidcVerificationConfig' => 'OidcVerificationConfig',
+        'pkcs7VerificationConfig' => 'Pkcs7VerificationConfig',
         'verificationCondition' => 'VerificationCondition',
     ];
 
@@ -45,6 +59,12 @@ class UpdateApplicationFederatedCredentialRequest extends Model
     {
         if (\is_array($this->attributeMappings)) {
             Model::validateArray($this->attributeMappings);
+        }
+        if (null !== $this->oidcVerificationConfig) {
+            $this->oidcVerificationConfig->validate();
+        }
+        if (null !== $this->pkcs7VerificationConfig) {
+            $this->pkcs7VerificationConfig->validate();
         }
         parent::validate();
     }
@@ -73,6 +93,14 @@ class UpdateApplicationFederatedCredentialRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->oidcVerificationConfig) {
+            $res['OidcVerificationConfig'] = null !== $this->oidcVerificationConfig ? $this->oidcVerificationConfig->toArray($noStream) : $this->oidcVerificationConfig;
+        }
+
+        if (null !== $this->pkcs7VerificationConfig) {
+            $res['Pkcs7VerificationConfig'] = null !== $this->pkcs7VerificationConfig ? $this->pkcs7VerificationConfig->toArray($noStream) : $this->pkcs7VerificationConfig;
         }
 
         if (null !== $this->verificationCondition) {
@@ -111,6 +139,14 @@ class UpdateApplicationFederatedCredentialRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['OidcVerificationConfig'])) {
+            $model->oidcVerificationConfig = oidcVerificationConfig::fromMap($map['OidcVerificationConfig']);
+        }
+
+        if (isset($map['Pkcs7VerificationConfig'])) {
+            $model->pkcs7VerificationConfig = pkcs7VerificationConfig::fromMap($map['Pkcs7VerificationConfig']);
         }
 
         if (isset($map['VerificationCondition'])) {

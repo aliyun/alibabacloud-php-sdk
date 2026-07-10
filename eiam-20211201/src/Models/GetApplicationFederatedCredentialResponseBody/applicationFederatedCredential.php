@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredenti
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredentialResponseBody\applicationFederatedCredential\attributeMappings;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredentialResponseBody\applicationFederatedCredential\oidcVerificationConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationFederatedCredentialResponseBody\applicationFederatedCredential\pkcs7VerificationConfig;
 
 class applicationFederatedCredential extends Model
 {
@@ -60,6 +62,16 @@ class applicationFederatedCredential extends Model
     public $lastUsedTime;
 
     /**
+     * @var oidcVerificationConfig
+     */
+    public $oidcVerificationConfig;
+
+    /**
+     * @var pkcs7VerificationConfig
+     */
+    public $pkcs7VerificationConfig;
+
+    /**
      * @var string
      */
     public $status;
@@ -73,6 +85,11 @@ class applicationFederatedCredential extends Model
      * @var string
      */
     public $verificationCondition;
+
+    /**
+     * @var string
+     */
+    public $verificationMode;
     protected $_name = [
         'applicationFederatedCredentialId' => 'ApplicationFederatedCredentialId',
         'applicationFederatedCredentialName' => 'ApplicationFederatedCredentialName',
@@ -84,15 +101,24 @@ class applicationFederatedCredential extends Model
         'federatedCredentialProviderId' => 'FederatedCredentialProviderId',
         'instanceId' => 'InstanceId',
         'lastUsedTime' => 'LastUsedTime',
+        'oidcVerificationConfig' => 'OidcVerificationConfig',
+        'pkcs7VerificationConfig' => 'Pkcs7VerificationConfig',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
         'verificationCondition' => 'VerificationCondition',
+        'verificationMode' => 'VerificationMode',
     ];
 
     public function validate()
     {
         if (\is_array($this->attributeMappings)) {
             Model::validateArray($this->attributeMappings);
+        }
+        if (null !== $this->oidcVerificationConfig) {
+            $this->oidcVerificationConfig->validate();
+        }
+        if (null !== $this->pkcs7VerificationConfig) {
+            $this->pkcs7VerificationConfig->validate();
         }
         parent::validate();
     }
@@ -147,6 +173,14 @@ class applicationFederatedCredential extends Model
             $res['LastUsedTime'] = $this->lastUsedTime;
         }
 
+        if (null !== $this->oidcVerificationConfig) {
+            $res['OidcVerificationConfig'] = null !== $this->oidcVerificationConfig ? $this->oidcVerificationConfig->toArray($noStream) : $this->oidcVerificationConfig;
+        }
+
+        if (null !== $this->pkcs7VerificationConfig) {
+            $res['Pkcs7VerificationConfig'] = null !== $this->pkcs7VerificationConfig ? $this->pkcs7VerificationConfig->toArray($noStream) : $this->pkcs7VerificationConfig;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -157,6 +191,10 @@ class applicationFederatedCredential extends Model
 
         if (null !== $this->verificationCondition) {
             $res['VerificationCondition'] = $this->verificationCondition;
+        }
+
+        if (null !== $this->verificationMode) {
+            $res['VerificationMode'] = $this->verificationMode;
         }
 
         return $res;
@@ -217,6 +255,14 @@ class applicationFederatedCredential extends Model
             $model->lastUsedTime = $map['LastUsedTime'];
         }
 
+        if (isset($map['OidcVerificationConfig'])) {
+            $model->oidcVerificationConfig = oidcVerificationConfig::fromMap($map['OidcVerificationConfig']);
+        }
+
+        if (isset($map['Pkcs7VerificationConfig'])) {
+            $model->pkcs7VerificationConfig = pkcs7VerificationConfig::fromMap($map['Pkcs7VerificationConfig']);
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
@@ -227,6 +273,10 @@ class applicationFederatedCredential extends Model
 
         if (isset($map['VerificationCondition'])) {
             $model->verificationCondition = $map['VerificationCondition'];
+        }
+
+        if (isset($map['VerificationMode'])) {
+            $model->verificationMode = $map['VerificationMode'];
         }
 
         return $model;

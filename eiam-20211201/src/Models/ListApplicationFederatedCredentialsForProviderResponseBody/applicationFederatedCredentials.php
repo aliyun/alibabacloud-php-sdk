@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsForProviderResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsForProviderResponseBody\applicationFederatedCredentials\oidcVerificationConfig;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationFederatedCredentialsForProviderResponseBody\applicationFederatedCredentials\pkcs7VerificationConfig;
 
 class applicationFederatedCredentials extends Model
 {
@@ -54,6 +56,16 @@ class applicationFederatedCredentials extends Model
     public $lastUsedTime;
 
     /**
+     * @var oidcVerificationConfig
+     */
+    public $oidcVerificationConfig;
+
+    /**
+     * @var pkcs7VerificationConfig
+     */
+    public $pkcs7VerificationConfig;
+
+    /**
      * @var string
      */
     public $status;
@@ -62,6 +74,16 @@ class applicationFederatedCredentials extends Model
      * @var int
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $verificationCondition;
+
+    /**
+     * @var string
+     */
+    public $verificationMode;
     protected $_name = [
         'applicationFederatedCredentialId' => 'ApplicationFederatedCredentialId',
         'applicationFederatedCredentialName' => 'ApplicationFederatedCredentialName',
@@ -72,12 +94,22 @@ class applicationFederatedCredentials extends Model
         'federatedCredentialProviderId' => 'FederatedCredentialProviderId',
         'instanceId' => 'InstanceId',
         'lastUsedTime' => 'LastUsedTime',
+        'oidcVerificationConfig' => 'OidcVerificationConfig',
+        'pkcs7VerificationConfig' => 'Pkcs7VerificationConfig',
         'status' => 'Status',
         'updateTime' => 'UpdateTime',
+        'verificationCondition' => 'VerificationCondition',
+        'verificationMode' => 'VerificationMode',
     ];
 
     public function validate()
     {
+        if (null !== $this->oidcVerificationConfig) {
+            $this->oidcVerificationConfig->validate();
+        }
+        if (null !== $this->pkcs7VerificationConfig) {
+            $this->pkcs7VerificationConfig->validate();
+        }
         parent::validate();
     }
 
@@ -120,12 +152,28 @@ class applicationFederatedCredentials extends Model
             $res['LastUsedTime'] = $this->lastUsedTime;
         }
 
+        if (null !== $this->oidcVerificationConfig) {
+            $res['OidcVerificationConfig'] = null !== $this->oidcVerificationConfig ? $this->oidcVerificationConfig->toArray($noStream) : $this->oidcVerificationConfig;
+        }
+
+        if (null !== $this->pkcs7VerificationConfig) {
+            $res['Pkcs7VerificationConfig'] = null !== $this->pkcs7VerificationConfig ? $this->pkcs7VerificationConfig->toArray($noStream) : $this->pkcs7VerificationConfig;
+        }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
 
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+
+        if (null !== $this->verificationCondition) {
+            $res['VerificationCondition'] = $this->verificationCondition;
+        }
+
+        if (null !== $this->verificationMode) {
+            $res['VerificationMode'] = $this->verificationMode;
         }
 
         return $res;
@@ -175,12 +223,28 @@ class applicationFederatedCredentials extends Model
             $model->lastUsedTime = $map['LastUsedTime'];
         }
 
+        if (isset($map['OidcVerificationConfig'])) {
+            $model->oidcVerificationConfig = oidcVerificationConfig::fromMap($map['OidcVerificationConfig']);
+        }
+
+        if (isset($map['Pkcs7VerificationConfig'])) {
+            $model->pkcs7VerificationConfig = pkcs7VerificationConfig::fromMap($map['Pkcs7VerificationConfig']);
+        }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
 
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+
+        if (isset($map['VerificationCondition'])) {
+            $model->verificationCondition = $map['VerificationCondition'];
+        }
+
+        if (isset($map['VerificationMode'])) {
+            $model->verificationMode = $map['VerificationMode'];
         }
 
         return $model;

@@ -50,6 +50,11 @@ class ListApplicationsRequest extends Model
     public $m2MClientStatus;
 
     /**
+     * @var string
+     */
+    public $managedServiceCode;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -63,6 +68,11 @@ class ListApplicationsRequest extends Model
      * @var string
      */
     public $resourceServerStatus;
+
+    /**
+     * @var bool
+     */
+    public $serviceManaged;
 
     /**
      * @var string
@@ -82,9 +92,11 @@ class ListApplicationsRequest extends Model
         'customFields' => 'CustomFields',
         'instanceId' => 'InstanceId',
         'm2MClientStatus' => 'M2MClientStatus',
+        'managedServiceCode' => 'ManagedServiceCode',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'resourceServerStatus' => 'ResourceServerStatus',
+        'serviceManaged' => 'ServiceManaged',
         'ssoType' => 'SsoType',
         'status' => 'Status',
     ];
@@ -149,6 +161,10 @@ class ListApplicationsRequest extends Model
             $res['M2MClientStatus'] = $this->m2MClientStatus;
         }
 
+        if (null !== $this->managedServiceCode) {
+            $res['ManagedServiceCode'] = $this->managedServiceCode;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -159,6 +175,10 @@ class ListApplicationsRequest extends Model
 
         if (null !== $this->resourceServerStatus) {
             $res['ResourceServerStatus'] = $this->resourceServerStatus;
+        }
+
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
         }
 
         if (null !== $this->ssoType) {
@@ -226,6 +246,10 @@ class ListApplicationsRequest extends Model
             $model->m2MClientStatus = $map['M2MClientStatus'];
         }
 
+        if (isset($map['ManagedServiceCode'])) {
+            $model->managedServiceCode = $map['ManagedServiceCode'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -236,6 +260,10 @@ class ListApplicationsRequest extends Model
 
         if (isset($map['ResourceServerStatus'])) {
             $model->resourceServerStatus = $map['ResourceServerStatus'];
+        }
+
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
         }
 
         if (isset($map['SsoType'])) {
