@@ -111,6 +111,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableServiceForCloudSiemRequest
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\EnableServiceForCloudSiemResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetCapacityRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetCapacityResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetDataStorageRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetDataStorageResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetEntitiyStatRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetEntitiyStatResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20220616\Models\GetStorageRequest;
@@ -2770,7 +2772,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves entities to be remediated and a list of playbooks.
+     * Retrieves the list of entities that require disposition and the list of playbooks.
      *
      * @param request - DescribeDisposeAndPlaybookRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2837,7 +2839,7 @@ class Cloudsiem extends OpenApiClient
     }
 
     /**
-     * Retrieves entities to be remediated and a list of playbooks.
+     * Retrieves the list of entities that require disposition and the list of playbooks.
      *
      * @param request - DescribeDisposeAndPlaybookRequest
      *
@@ -4155,6 +4157,77 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCapacityWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of user data storage on the Log Management page.
+     *
+     * @remarks
+     * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     *
+     * @param request - GetDataStorageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDataStorageResponse
+     *
+     * @param GetDataStorageRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetDataStorageResponse
+     */
+    public function getDataStorageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataStorage',
+            'version' => '2022-06-16',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of user data storage on the Log Management page.
+     *
+     * @remarks
+     * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     *
+     * @param request - GetDataStorageRequest
+     *
+     * @returns GetDataStorageResponse
+     *
+     * @param GetDataStorageRequest $request
+     *
+     * @return GetDataStorageResponse
+     */
+    public function getDataStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataStorageWithOptions($request, $runtime);
     }
 
     /**

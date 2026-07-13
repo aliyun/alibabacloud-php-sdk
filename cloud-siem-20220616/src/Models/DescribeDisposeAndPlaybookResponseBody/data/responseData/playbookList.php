@@ -26,6 +26,16 @@ class playbookList extends Model
     /**
      * @var string
      */
+    public $disposeStatus;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -66,6 +76,8 @@ class playbookList extends Model
         'available' => 'Available',
         'description' => 'Description',
         'displayName' => 'DisplayName',
+        'disposeStatus' => 'DisposeStatus',
+        'errorMessage' => 'ErrorMessage',
         'name' => 'Name',
         'opCode' => 'OpCode',
         'opLevel' => 'OpLevel',
@@ -97,6 +109,14 @@ class playbookList extends Model
 
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
+        }
+
+        if (null !== $this->disposeStatus) {
+            $res['DisposeStatus'] = $this->disposeStatus;
+        }
+
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
 
         if (null !== $this->name) {
@@ -159,6 +179,14 @@ class playbookList extends Model
 
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
+        }
+
+        if (isset($map['DisposeStatus'])) {
+            $model->disposeStatus = $map['DisposeStatus'];
+        }
+
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
 
         if (isset($map['Name'])) {
