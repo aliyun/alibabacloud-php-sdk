@@ -47,6 +47,13 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\ChangeDomainOfDnsProductRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ChangeDomainOfDnsProductResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CopyGtmConfigRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CopyGtmConfigResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateAtiAgentRegisterInfoAcmeChallengeRecordRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateAtiAgentRegisterInfoRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateAtiAgentRegisterInfoResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateAtiAgentRegisterInfoShrinkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateAtiRegistrantRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateAtiRegistrantResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmAddressPoolRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmAddressPoolResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreateCloudGtmAddressRequest;
@@ -61,6 +68,10 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsAppKeyRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsAppKeyResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsUdpIpSegmentRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\CreatePdnsUdpIpSegmentResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteAtiAgentRegisterInfoRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteAtiAgentRegisterInfoResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteAtiRegistrantRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteAtiRegistrantResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmAddressPoolRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmAddressPoolResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteCloudGtmAddressRequest;
@@ -95,6 +106,14 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteRecursionZoneRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteRecursionZoneResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteSubDomainRecordsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteSubDomainRecordsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiAgentRegisterInfoRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiAgentRegisterInfoResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiAlertSettingsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiAlertSettingsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiCertificateRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiCertificateResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiRegistrantRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiRegistrantResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultCountRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultCountResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeBatchResultDetailRequest;
@@ -294,6 +313,12 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\GetMainDomainNameRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\GetMainDomainNameResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\GetTxtRecordForVerifyRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\GetTxtRecordForVerifyResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListAtiAgentRegisterInfosRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListAtiAgentRegisterInfosResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListAtiChangeLogsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListAtiChangeLogsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListAtiRegistrantsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\ListAtiRegistrantsResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAddressesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAddressesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ListCloudGtmAddressPoolsRequest;
@@ -346,8 +371,14 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\ResumePdnsServiceRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ResumePdnsServiceResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RetrieveDomainRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RetrieveDomainResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RevokeAtiAgentRegisterInfoRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RevokeAtiAgentRegisterInfoResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RevokeAtiRegistrantRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\RevokeAtiRegistrantResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RollbackGtmRecoveryPlanRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\RollbackGtmRecoveryPlanResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchAtiAgentRegisterInfoMarketRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchAtiAgentRegisterInfoMarketResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SearchCloudGtmAddressPoolsRequest;
@@ -379,6 +410,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\SetGtmAccessModeRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetGtmAccessModeResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetGtmMonitorStatusRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SetGtmMonitorStatusResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SubmitAtiAgentRegisterInfoRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\SubmitAtiAgentRegisterInfoResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SubmitIspFlushCacheTaskRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SubmitIspFlushCacheTaskResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\SwitchDnsGtmInstanceStrategyModeRequest;
@@ -393,6 +426,13 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAppKeyStateRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAppKeyStateResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAtiAgentRegisterInfoRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAtiAgentRegisterInfoResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAtiAgentRegisterInfoShrinkRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAtiAlertSettingsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAtiAlertSettingsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAtiRegistrantRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateAtiRegistrantResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressEnableStatusRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressEnableStatusResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\UpdateCloudGtmAddressManualAvailableStatusRequest;
@@ -492,6 +532,10 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmCnameRrCanUseRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidateDnsGtmCnameRrCanUseResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidatePdnsUdpIpSegmentRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\ValidatePdnsUdpIpSegmentResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\VerifyAtiAgentDnsRecordsRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\VerifyAtiAgentDnsRecordsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -502,7 +546,10 @@ class Alidns extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'central';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'public' => 'alidns.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('alidns', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -532,11 +579,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a custom line to the domain name.
+     * Adds a custom line for a domain name.
      *
      * @remarks
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-     * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     * The end IP address of an IP address segment must be greater than or equal to its start IP address.
+     * The IP address ranges of segments cannot overlap across any custom lines for the domain name.
      *
      * @param request - AddCustomLineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -587,11 +634,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a custom line to the domain name.
+     * Adds a custom line for a domain name.
      *
      * @remarks
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-     * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     * The end IP address of an IP address segment must be greater than or equal to its start IP address.
+     * The IP address ranges of segments cannot overlap across any custom lines for the domain name.
      *
      * @param request - AddCustomLineRequest
      *
@@ -609,7 +656,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a cache-accelerated domain name based on the specified parameters.
+     * Adds a domain name to the DNS authoritative proxy service.
      *
      * @param request - AddDnsCacheDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -680,7 +727,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a cache-accelerated domain name based on the specified parameters.
+     * Adds a domain name to the DNS authoritative proxy service.
      *
      * @param request - AddDnsCacheDomainRequest
      *
@@ -698,7 +745,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an access policy.
+     * Adds an access strategy.
      *
      * @param request - AddDnsGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -801,7 +848,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an access policy.
+     * Adds an access strategy.
      *
      * @param request - AddDnsGtmAccessStrategyRequest
      *
@@ -819,7 +866,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * Adds an address pool.
      *
      * @param request - AddDnsGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -906,7 +953,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * Adds an address pool.
      *
      * @param request - AddDnsGtmAddressPoolRequest
      *
@@ -924,7 +971,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check task.
+     * Creates a health check.
      *
      * @remarks
      *
@@ -993,7 +1040,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check task.
+     * Creates a health check.
      *
      * @remarks
      *
@@ -1013,11 +1060,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a domain name based on the specified parameters.
+     * Adds a domain name.
      *
      * @remarks
-     * For more information about how to check whether a domain name is valid, see
-     * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+     * For more information, see <props="china">[Domain name validity](https://help.aliyun.com/document_detail/67788.html)<props="intl">[Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
      *
      * @param request - AddDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1068,11 +1114,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a domain name based on the specified parameters.
+     * Adds a domain name.
      *
      * @remarks
-     * For more information about how to check whether a domain name is valid, see
-     * [Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
+     * For more information, see <props="china">[Domain name validity](https://help.aliyun.com/document_detail/67788.html)<props="intl">[Domain name validity](https://www.alibabacloud.com/help/zh/doc-detail/67788.htm).
      *
      * @param request - AddDomainRequest
      *
@@ -1090,7 +1135,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a backup for the domain name based on the specified domain name and backup cycle.
+     * Creates a backup for a domain based on the specified domain name and backup cycle.
      *
      * @param request - AddDomainBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1137,7 +1182,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a backup for the domain name based on the specified domain name and backup cycle.
+     * Creates a backup for a domain based on the specified domain name and backup cycle.
      *
      * @param request - AddDomainBackupRequest
      *
@@ -1155,7 +1200,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a domain name group based on the specified parameters.
+     * Creates a domain name group.
      *
      * @param request - AddDomainGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1198,7 +1243,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a domain name group based on the specified parameters.
+     * Creates a domain name group.
      *
      * @param request - AddDomainGroupRequest
      *
@@ -1216,7 +1261,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a Domain Name System (DNS) record based on the specified parameters.
+     * Adds a DNS record.
      *
      * @param request - AddDomainRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1287,7 +1332,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds a Domain Name System (DNS) record based on the specified parameters.
+     * Adds a DNS record.
      *
      * @param request - AddDomainRecordRequest
      *
@@ -1305,7 +1350,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+     * Creates an access strategy based on the specified parameters.
      *
      * @param request - AddGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1364,7 +1409,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create an access policy for a Global Traffic Manager (GTM) instance.
+     * Creates an access strategy based on the specified parameters.
      *
      * @param request - AddGtmAccessStrategyRequest
      *
@@ -1382,7 +1427,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * Adds an address pool.
      *
      * @param request - AddGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1469,7 +1514,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * Adds an address pool.
      *
      * @param request - AddGtmAddressPoolRequest
      *
@@ -1487,7 +1532,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check task.
+     * Adds a health check.
      *
      * @param request - AddGtmMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1554,7 +1599,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check task.
+     * Adds a health check.
      *
      * @param request - AddGtmMonitorRequest
      *
@@ -1572,7 +1617,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a disaster recovery plan.
+     * Adds a disaster recovery plan.
      *
      * @param request - AddGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1623,7 +1668,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a disaster recovery plan.
+     * Adds a disaster recovery plan.
      *
      * @param request - AddGtmRecoveryPlanRequest
      *
@@ -1641,7 +1686,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds HTTPDNS authoritative DNS resolution records.
+     * Adds an authoritative record for recursive resolution.
+     *
+     * @remarks
+     * - You can specify a domain name (DomainName), page number (PageNumber), and page size (PageSize) to retrieve the list of DNS records for that domain name.
+     * - To find DNS records that contain a specific keyword, you can specify the keyword for the host record (RRKeyWord), record type (TypeKeyWord), or record value (ValueKeyWord).
+     * - By default, the list of DNS records is sorted from newest to oldest.
+     * - You can specify a domain group ID (GroupId). The \\`All Domains\\` group includes all domain names. The \\`Default Group\\` includes domain names that are not assigned to a group.
      *
      * @param request - AddRecursionRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1716,7 +1767,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds HTTPDNS authoritative DNS resolution records.
+     * Adds an authoritative record for recursive resolution.
+     *
+     * @remarks
+     * - You can specify a domain name (DomainName), page number (PageNumber), and page size (PageSize) to retrieve the list of DNS records for that domain name.
+     * - To find DNS records that contain a specific keyword, you can specify the keyword for the host record (RRKeyWord), record type (TypeKeyWord), or record value (ValueKeyWord).
+     * - By default, the list of DNS records is sorted from newest to oldest.
+     * - You can specify a domain group ID (GroupId). The \\`All Domains\\` group includes all domain names. The \\`Default Group\\` includes domain names that are not assigned to a group.
      *
      * @param request - AddRecursionRecordRequest
      *
@@ -1734,7 +1791,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds HTTPDNS zone.
+     * Adds a built-in authoritative domain name zone for recursive resolution.
+     *
+     * @remarks
+     * The end IP address of each IP range must be greater than or equal to the start IP address.
+     * The IP address ranges of all IP ranges in all custom lines for a domain name cannot overlap.
      *
      * @param request - AddRecursionZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1781,7 +1842,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds HTTPDNS zone.
+     * Adds a built-in authoritative domain name zone for recursive resolution.
+     *
+     * @remarks
+     * The end IP address of each IP range must be greater than or equal to the start IP address.
+     * The IP address ranges of all IP ranges in all custom lines for a domain name cannot overlap.
      *
      * @param request - AddRecursionZoneRequest
      *
@@ -1799,15 +1864,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于添加特定域名的serverHold状态信息。
+     * Adds the serverHold status to a specified domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Request description
+     * - This API adds the serverHold property to a specified domain name.
      *
      * @param request - AddRspDomainServerHoldStatusForGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1854,15 +1915,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于添加特定域名的serverHold状态信息。
+     * Adds the serverHold status to a specified domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Request description
+     * - This API adds the serverHold property to a specified domain name.
      *
      * @param request - AddRspDomainServerHoldStatusForGatewayRequest
      *
@@ -1880,15 +1937,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于删除特定域名的serverHold状态信息。
+     * Adds the serverHold status for a specified domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Request description
+     * - Adds the serverHold status for a specified domain name.
      *
      * @param request - AddRspDomainServerHoldStatusForGatewayOteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1935,15 +1988,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于删除特定域名的serverHold状态信息。
+     * Adds the serverHold status for a specified domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Request description
+     * - Adds the serverHold status for a specified domain name.
      *
      * @param request - AddRspDomainServerHoldStatusForGatewayOteRequest
      *
@@ -1961,11 +2010,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+     * Binds paid domain names in Alibaba Cloud DNS to an instance ID.
      *
      * @remarks
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-     * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+     * An instance is considered a new instance if its ID starts with \\"dns-\\". New instances support multiple domain names. You can call this operation to bind domain names directly to the instance. An error occurs if the number of domain names exceeds the instance\\"s limit.
+     * An instance is considered a legacy instance if its ID does not start with \\"dns-\\". Legacy instances support only one domain name. If you call this operation on a legacy instance that already has a domain name, the existing domain name is replaced.
      *
      * @param request - BindInstanceDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2012,11 +2061,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Binds one or more domain names to a paid Alibaba Cloud DNS instance.
+     * Binds paid domain names in Alibaba Cloud DNS to an instance ID.
      *
      * @remarks
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call this API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-     * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call this API operation to bind only one domain name to the instance. However, if the instance is already bound to a domain name, you must unbind the original domain name from the instance and bind the desired domain name to the instance.
+     * An instance is considered a new instance if its ID starts with \\"dns-\\". New instances support multiple domain names. You can call this operation to bind domain names directly to the instance. An error occurs if the number of domain names exceeds the instance\\"s limit.
+     * An instance is considered a legacy instance if its ID does not start with \\"dns-\\". Legacy instances support only one domain name. If you call this operation on a legacy instance that already has a domain name, the existing domain name is replaced.
      *
      * @param request - BindInstanceDomainsRequest
      *
@@ -2034,10 +2083,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Moves a domain name from the original group to the new group based on the specified parameters.
+     * Moves a domain name to a new group.
      *
      * @remarks
-     * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+     * You can specify the ID of a domain name group (GroupId). The All Domains group contains all domain names, while the Default group contains domain names that are not assigned to any group.
      *
      * @param request - ChangeDomainGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2084,10 +2133,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Moves a domain name from the original group to the new group based on the specified parameters.
+     * Moves a domain name to a new group.
      *
      * @remarks
-     * You can specify GroupId to move a domain name to a specific domain name group. You can move the domain name to the group that contains all domain names or the default group.
+     * You can specify the ID of a domain name group (GroupId). The All Domains group contains all domain names, while the Default group contains domain names that are not assigned to any group.
      *
      * @param request - ChangeDomainGroupRequest
      *
@@ -2105,11 +2154,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the domain name that is bound to an Alibaba Cloud DNS instance.
+     * Changes the domain name that is attached to a Cloud DNS product.
      *
      * @remarks
-     *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
-     * *   **This operation applies to instances of the custom edition. To change the domain name that is bound to an Alibaba Cloud DNS instance of Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation.
+     * - **You can call this operation to change the domain name that is attached to a Cloud DNS product. To detach a domain name, call this operation and leave the NewDomain parameter empty.**
+     * - **This operation applies to instances of earlier versions. If you use a new edition, such as Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation instead.**
      *
      * @param request - ChangeDomainOfDnsProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2164,11 +2213,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the domain name that is bound to an Alibaba Cloud DNS instance.
+     * Changes the domain name that is attached to a Cloud DNS product.
      *
      * @remarks
-     *   **You can call this operation regardless of whether the Alibaba Cloud DNS instance is bound to a domain name. You can also call this operation to unbind the domain name from the Alibaba Cloud DNS instance by leaving the NewDomain parameter empty.**
-     * *   **This operation applies to instances of the custom edition. To change the domain name that is bound to an Alibaba Cloud DNS instance of Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation.
+     * - **You can call this operation to change the domain name that is attached to a Cloud DNS product. To detach a domain name, call this operation and leave the NewDomain parameter empty.**
+     * - **This operation applies to instances of earlier versions. If you use a new edition, such as Personal Edition, Enterprise Standard Edition, or Enterprise Ultimate Edition, call the BindInstanceDomains operation instead.**
      *
      * @param request - ChangeDomainOfDnsProductRequest
      *
@@ -2186,7 +2235,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Copies the configurations of a Global Traffic Manager (GTM) instance.
+     * Copies a Global Traffic Manager (GTM) configuration.
      *
      * @param request - CopyGtmConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2237,7 +2286,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Copies the configurations of a Global Traffic Manager (GTM) instance.
+     * Copies a Global Traffic Manager (GTM) configuration.
      *
      * @param request - CopyGtmConfigRequest
      *
@@ -2255,7 +2304,252 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address.
+     * Registers an agent.
+     *
+     * @param tmpReq - CreateAtiAgentRegisterInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAtiAgentRegisterInfoResponse
+     *
+     * @param CreateAtiAgentRegisterInfoRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateAtiAgentRegisterInfoResponse
+     */
+    public function createAtiAgentRegisterInfoWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateAtiAgentRegisterInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->endpoints) {
+            $request->endpointsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->endpoints, 'Endpoints', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentDescription) {
+            @$query['AgentDescription'] = $request->agentDescription;
+        }
+
+        if (null !== $request->agentDisplayName) {
+            @$query['AgentDisplayName'] = $request->agentDisplayName;
+        }
+
+        if (null !== $request->agentHost) {
+            @$query['AgentHost'] = $request->agentHost;
+        }
+
+        if (null !== $request->agentVersion) {
+            @$query['AgentVersion'] = $request->agentVersion;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->endpointsShrink) {
+            @$query['Endpoints'] = $request->endpointsShrink;
+        }
+
+        if (null !== $request->registrantId) {
+            @$query['RegistrantId'] = $request->registrantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAtiAgentRegisterInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAtiAgentRegisterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Registers an agent.
+     *
+     * @param request - CreateAtiAgentRegisterInfoRequest
+     *
+     * @returns CreateAtiAgentRegisterInfoResponse
+     *
+     * @param CreateAtiAgentRegisterInfoRequest $request
+     *
+     * @return CreateAtiAgentRegisterInfoResponse
+     */
+    public function createAtiAgentRegisterInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAtiAgentRegisterInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Registers an agent - Step 2: Generates a DNS record for domain ownership verification.
+     *
+     * @param request - CreateAtiAgentRegisterInfoAcmeChallengeRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse
+     *
+     * @param CreateAtiAgentRegisterInfoAcmeChallengeRecordRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse
+     */
+    public function createAtiAgentRegisterInfoAcmeChallengeRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentRegisterInfoId) {
+            @$query['AgentRegisterInfoId'] = $request->agentRegisterInfoId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAtiAgentRegisterInfoAcmeChallengeRecord',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Registers an agent - Step 2: Generates a DNS record for domain ownership verification.
+     *
+     * @param request - CreateAtiAgentRegisterInfoAcmeChallengeRecordRequest
+     *
+     * @returns CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse
+     *
+     * @param CreateAtiAgentRegisterInfoAcmeChallengeRecordRequest $request
+     *
+     * @return CreateAtiAgentRegisterInfoAcmeChallengeRecordResponse
+     */
+    public function createAtiAgentRegisterInfoAcmeChallengeRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAtiAgentRegisterInfoAcmeChallengeRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a real-name registrant.
+     *
+     * @param request - CreateAtiRegistrantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAtiRegistrantResponse
+     *
+     * @param CreateAtiRegistrantRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateAtiRegistrantResponse
+     */
+    public function createAtiRegistrantWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cc) {
+            @$query['Cc'] = $request->cc;
+        }
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->documentCode) {
+            @$query['DocumentCode'] = $request->documentCode;
+        }
+
+        if (null !== $request->documentImage) {
+            @$query['DocumentImage'] = $request->documentImage;
+        }
+
+        if (null !== $request->documentType) {
+            @$query['DocumentType'] = $request->documentType;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->street) {
+            @$query['Street'] = $request->street;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAtiRegistrant',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAtiRegistrantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a real-name registrant.
+     *
+     * @param request - CreateAtiRegistrantRequest
+     *
+     * @returns CreateAtiRegistrantResponse
+     *
+     * @param CreateAtiRegistrantRequest $request
+     *
+     * @return CreateAtiRegistrantResponse
+     */
+    public function createAtiRegistrant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAtiRegistrantWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an address in Global Traffic Manager (GTM) 3.0.
      *
      * @param tmpReq - CreateCloudGtmAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2344,7 +2638,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address.
+     * Creates an address in Global Traffic Manager (GTM) 3.0.
      *
      * @param request - CreateCloudGtmAddressRequest
      *
@@ -2362,7 +2656,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * Creates an address pool based on the specified parameters.
      *
      * @param request - CreateCloudGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2425,7 +2719,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an address pool.
+     * Creates an address pool based on the specified parameters.
      *
      * @param request - CreateCloudGtmAddressPoolRequest
      *
@@ -2443,7 +2737,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 创建gtm实例配置.
+     * Creates a configuration for a Global Traffic Manager (GTM) instance.
      *
      * @param request - CreateCloudGtmInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2522,7 +2816,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 创建gtm实例配置.
+     * Creates a configuration for a Global Traffic Manager (GTM) instance.
      *
      * @param request - CreateCloudGtmInstanceConfigRequest
      *
@@ -2540,7 +2834,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check template.
+     * Creates a health check template in Global Traffic Manager (GTM) 3.0.
      *
      * @param tmpReq - CreateCloudGtmMonitorTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2625,7 +2919,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates a health check template.
+     * Creates a health check template in Global Traffic Manager (GTM) 3.0.
      *
      * @param request - CreateCloudGtmMonitorTemplateRequest
      *
@@ -2643,7 +2937,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an AppKey in Alibaba Cloud Public DNS.
+     * Creates a public DNS AccessKey.
      *
      * @param request - CreatePdnsAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2686,7 +2980,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Creates an AppKey in Alibaba Cloud Public DNS.
+     * Creates a public DNS AccessKey.
      *
      * @param request - CreatePdnsAppKeyRequest
      *
@@ -2704,7 +2998,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 创建公共DNS Udp Ip地址段.
+     * Create Public DNS UDP IP Address Segment.
      *
      * @param request - CreatePdnsUdpIpSegmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2755,7 +3049,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 创建公共DNS Udp Ip地址段.
+     * Create Public DNS UDP IP Address Segment.
      *
      * @param request - CreatePdnsUdpIpSegmentRequest
      *
@@ -2770,6 +3064,128 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPdnsUdpIpSegmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes Agent registration information.
+     *
+     * @param request - DeleteAtiAgentRegisterInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAtiAgentRegisterInfoResponse
+     *
+     * @param DeleteAtiAgentRegisterInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteAtiAgentRegisterInfoResponse
+     */
+    public function deleteAtiAgentRegisterInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentRegisterInfoId) {
+            @$query['AgentRegisterInfoId'] = $request->agentRegisterInfoId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAtiAgentRegisterInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAtiAgentRegisterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes Agent registration information.
+     *
+     * @param request - DeleteAtiAgentRegisterInfoRequest
+     *
+     * @returns DeleteAtiAgentRegisterInfoResponse
+     *
+     * @param DeleteAtiAgentRegisterInfoRequest $request
+     *
+     * @return DeleteAtiAgentRegisterInfoResponse
+     */
+    public function deleteAtiAgentRegisterInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAtiAgentRegisterInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Revokes a verified registrant.
+     *
+     * @param request - DeleteAtiRegistrantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAtiRegistrantResponse
+     *
+     * @param DeleteAtiRegistrantRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteAtiRegistrantResponse
+     */
+    public function deleteAtiRegistrantWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->registrantId) {
+            @$query['RegistrantId'] = $request->registrantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAtiRegistrant',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAtiRegistrantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Revokes a verified registrant.
+     *
+     * @param request - DeleteAtiRegistrantRequest
+     *
+     * @returns DeleteAtiRegistrantResponse
+     *
+     * @param DeleteAtiRegistrantRequest $request
+     *
+     * @return DeleteAtiRegistrantResponse
+     */
+    public function deleteAtiRegistrant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAtiRegistrantWithOptions($request, $runtime);
     }
 
     /**
@@ -2903,7 +3319,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+     * Deletes an access domain name from the configuration of a Global Traffic Manager (GTM) 3.0 instance.
      *
      * @param request - DeleteCloudGtmInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2954,7 +3370,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an access domain name that is configured for a Global Traffic Manager (GTM) 3.0 instance.
+     * Deletes an access domain name from the configuration of a Global Traffic Manager (GTM) 3.0 instance.
      *
      * @param request - DeleteCloudGtmInstanceConfigRequest
      *
@@ -3037,7 +3453,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes custom lines at a time by using the unique IDs.
+     * Deletes a batch of custom lines by specifying their unique IDs.
      *
      * @param request - DeleteCustomLinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3080,7 +3496,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes custom lines at a time by using the unique IDs.
+     * Deletes a batch of custom lines by specifying their unique IDs.
      *
      * @param request - DeleteCustomLinesRequest
      *
@@ -3098,7 +3514,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a specified cache-accelerated domain name.
+     * Deletes a specified domain name from the authoritative DNS proxy.
      *
      * @param request - DeleteDnsCacheDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3141,7 +3557,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a specified cache-accelerated domain name.
+     * Deletes a specified domain name from the authoritative DNS proxy.
      *
      * @param request - DeleteDnsCacheDomainRequest
      *
@@ -3159,7 +3575,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an access policy by policy ID.
+     * Deletes an access policy by its ID.
      *
      * @param request - DeleteDnsGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3202,7 +3618,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an access policy by policy ID.
+     * Deletes an access policy by its ID.
      *
      * @param request - DeleteDnsGtmAccessStrategyRequest
      *
@@ -3220,7 +3636,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an address pool by address pool ID.
+     * Deletes an address pool by its ID.
      *
      * @param request - DeleteDnsGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3263,7 +3679,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an address pool by address pool ID.
+     * Deletes an address pool by its ID.
      *
      * @param request - DeleteDnsGtmAddressPoolRequest
      *
@@ -3281,7 +3697,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a domain name based on the specified parameters.
+     * Deletes the specified domain name.
      *
      * @param request - DeleteDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3324,7 +3740,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a domain name based on the specified parameters.
+     * Deletes the specified domain name.
      *
      * @param request - DeleteDomainRequest
      *
@@ -3342,10 +3758,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+     * Deletes a domain name group and moves its domain names to the default group.
      *
      * @remarks
-     * >  The default group cannot be deleted.
+     * > The default group cannot be deleted.
      *
      * @param request - DeleteDomainGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3388,10 +3804,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes a domain name group. After you delete the domain name group, the domain names in the group are moved to the default group.
+     * Deletes a domain name group and moves its domain names to the default group.
      *
      * @remarks
-     * >  The default group cannot be deleted.
+     * > The default group cannot be deleted.
      *
      * @param request - DeleteDomainGroupRequest
      *
@@ -3409,7 +3825,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     * Deletes a DNS record based on the specified request parameters.
      *
      * @param request - DeleteDomainRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3456,7 +3872,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     * Deletes a DNS record based on the specified request parameters.
      *
      * @param request - DeleteDomainRecordRequest
      *
@@ -3474,7 +3890,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+     * Deletes an access policy.
      *
      * @param request - DeleteGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3517,7 +3933,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete an access policy of a Global Traffic Manager (GTM) instance.
+     * Deletes an access policy.
      *
      * @param request - DeleteGtmAccessStrategyRequest
      *
@@ -3535,7 +3951,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+     * Deletes an address pool.
      *
      * @param request - DeleteGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3578,7 +3994,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to delete an address pool of a Global Traffic Manager (GTM).
+     * Deletes an address pool.
      *
      * @param request - DeleteGtmAddressPoolRequest
      *
@@ -3657,7 +4073,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes HTTPDNS resolution records.
+     * Deletes a built-in authoritative DNS record used for recursive resolution.
      *
      * @param request - DeleteRecursionRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3700,7 +4116,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes HTTPDNS resolution records.
+     * Deletes a built-in authoritative DNS record used for recursive resolution.
      *
      * @param request - DeleteRecursionRecordRequest
      *
@@ -3718,7 +4134,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes HTTPDNS authoritative domain zone.
+     * Deletes a built-in authoritative zone used for recursive resolution.
+     *
+     * @remarks
+     * If a zone contains locked DNS records, this operation does not delete them.
      *
      * @param request - DeleteRecursionZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3761,7 +4180,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes HTTPDNS authoritative domain zone.
+     * Deletes a built-in authoritative zone used for recursive resolution.
+     *
+     * @remarks
+     * If a zone contains locked DNS records, this operation does not delete them.
      *
      * @param request - DeleteRecursionZoneRequest
      *
@@ -3779,10 +4201,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+     * Deletes the DNS records for a specified host record.
      *
      * @remarks
-     * If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
+     * Locked DNS records will not be deleted.
      *
      * @param request - DeleteSubDomainRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3837,10 +4259,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Deletes the DNS records that are corresponding to a hostname based on the specified parameters.
+     * Deletes the DNS records for a specified host record.
      *
      * @remarks
-     * If the DNS records to be deleted contain locked DNS records, the locked DNS records will not be deleted.
+     * Locked DNS records will not be deleted.
      *
      * @param request - DeleteSubDomainRecordsRequest
      *
@@ -3858,7 +4280,247 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
+     * Queries the details of an Agent registration.
+     *
+     * @param request - DescribeAtiAgentRegisterInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAtiAgentRegisterInfoResponse
+     *
+     * @param DescribeAtiAgentRegisterInfoRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAtiAgentRegisterInfoResponse
+     */
+    public function describeAtiAgentRegisterInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentRegisterInfoId) {
+            @$query['AgentRegisterInfoId'] = $request->agentRegisterInfoId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAtiAgentRegisterInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAtiAgentRegisterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an Agent registration.
+     *
+     * @param request - DescribeAtiAgentRegisterInfoRequest
+     *
+     * @returns DescribeAtiAgentRegisterInfoResponse
+     *
+     * @param DescribeAtiAgentRegisterInfoRequest $request
+     *
+     * @return DescribeAtiAgentRegisterInfoResponse
+     */
+    public function describeAtiAgentRegisterInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAtiAgentRegisterInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries alert settings.
+     *
+     * @param request - DescribeAtiAlertSettingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAtiAlertSettingsResponse
+     *
+     * @param DescribeAtiAlertSettingsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAtiAlertSettingsResponse
+     */
+    public function describeAtiAlertSettingsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAtiAlertSettings',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAtiAlertSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries alert settings.
+     *
+     * @param request - DescribeAtiAlertSettingsRequest
+     *
+     * @returns DescribeAtiAlertSettingsResponse
+     *
+     * @param DescribeAtiAlertSettingsRequest $request
+     *
+     * @return DescribeAtiAlertSettingsResponse
+     */
+    public function describeAtiAlertSettings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAtiAlertSettingsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of a certificate.
+     *
+     * @param request - DescribeAtiCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAtiCertificateResponse
+     *
+     * @param DescribeAtiCertificateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeAtiCertificateResponse
+     */
+    public function describeAtiCertificateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentCertificateId) {
+            @$query['AgentCertificateId'] = $request->agentCertificateId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAtiCertificate',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAtiCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of a certificate.
+     *
+     * @param request - DescribeAtiCertificateRequest
+     *
+     * @returns DescribeAtiCertificateResponse
+     *
+     * @param DescribeAtiCertificateRequest $request
+     *
+     * @return DescribeAtiCertificateResponse
+     */
+    public function describeAtiCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAtiCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a real-name verified registrant.
+     *
+     * @param request - DescribeAtiRegistrantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAtiRegistrantResponse
+     *
+     * @param DescribeAtiRegistrantRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAtiRegistrantResponse
+     */
+    public function describeAtiRegistrantWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->registrantId) {
+            @$query['RegistrantId'] = $request->registrantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAtiRegistrant',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAtiRegistrantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a real-name verified registrant.
+     *
+     * @param request - DescribeAtiRegistrantRequest
+     *
+     * @returns DescribeAtiRegistrantResponse
+     *
+     * @param DescribeAtiRegistrantRequest $request
+     *
+     * @return DescribeAtiRegistrantResponse
+     */
+    public function describeAtiRegistrant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAtiRegistrantWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the execution results of a batch operation task using a task ID. If you do not specify a task ID, the results of the most recent batch task are returned.
      *
      * @param request - DescribeBatchResultCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3905,7 +4567,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the execution result of a batch operation task based on the task ID. If you do not specify task ID, the execution result of the last batch operation task is returned.
+     * Queries the execution results of a batch operation task using a task ID. If you do not specify a task ID, the results of the most recent batch task are returned.
      *
      * @param request - DescribeBatchResultCountRequest
      *
@@ -3923,10 +4585,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the detailed results of a batch operation task.
+     * Retrieves the details of a batch processing result.
      *
      * @remarks
-     * Before you call this operation, make sure that the batch operation task is complete.
+     * *Prerequisite: You can call this operation after the batch task is complete.**
      *
      * @param request - DescribeBatchResultDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3985,10 +4647,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the detailed results of a batch operation task.
+     * Retrieves the details of a batch processing result.
      *
      * @remarks
-     * Before you call this operation, make sure that the batch operation task is complete.
+     * *Prerequisite: You can call this operation after the batch task is complete.**
      *
      * @param request - DescribeBatchResultDetailRequest
      *
@@ -4006,7 +4668,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an address.
+     * Queries the configuration of an address based on the specified input parameters.
      *
      * @param request - DescribeCloudGtmAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4053,7 +4715,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an address.
+     * Queries the configuration of an address based on the specified input parameters.
      *
      * @param request - DescribeCloudGtmAddressRequest
      *
@@ -4071,7 +4733,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an address pool.
+     * Retrieves the configuration of a specified address pool.
      *
      * @param request - DescribeCloudGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4118,7 +4780,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an address pool.
+     * Retrieves the configuration of a specified address pool.
      *
      * @param request - DescribeCloudGtmAddressPoolRequest
      *
@@ -4136,7 +4798,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about the access domain names that reference an address pool.
+     * Retrieves information about the instances that reference an address pool.
      *
      * @param request - DescribeCloudGtmAddressPoolReferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4183,7 +4845,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about the access domain names that reference an address pool.
+     * Retrieves information about the instances that reference an address pool.
      *
      * @param request - DescribeCloudGtmAddressPoolReferenceRequest
      *
@@ -4201,7 +4863,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+     * Queries the address pools and Global Traffic Manager (GTM) 3.0 instances that reference a specified address.
      *
      * @param request - DescribeCloudGtmAddressReferenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4248,7 +4910,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about the address pools and Global Traffic Manager (GTM) 3.0 instances that reference an address.
+     * Queries the address pools and Global Traffic Manager (GTM) 3.0 instances that reference a specified address.
      *
      * @param request - DescribeCloudGtmAddressReferenceRequest
      *
@@ -4266,7 +4928,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询全局流量管理告警配置.
+     * Queries the global alert configuration for Global Traffic Manager (GTM).
      *
      * @param request - DescribeCloudGtmGlobalAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4309,7 +4971,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询全局流量管理告警配置.
+     * Queries the global alert configuration for Global Traffic Manager (GTM).
      *
      * @param request - DescribeCloudGtmGlobalAlertRequest
      *
@@ -4327,6 +4989,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Queries the alert configuration for an instance.
+     *
      * @param request - DescribeCloudGtmInstanceConfigAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4376,6 +5040,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Queries the alert configuration for an instance.
+     *
      * @param request - DescribeCloudGtmInstanceConfigAlertRequest
      *
      * @returns DescribeCloudGtmInstanceConfigAlertResponse
@@ -4392,7 +5058,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the complete configuration information about a Global Traffic Manager (GTM) instance.
+     * Queries the full configuration of a GTM 3.0 access domain name, including alert settings, address pools, and address details.
      *
      * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4443,7 +5109,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the complete configuration information about a Global Traffic Manager (GTM) instance.
+     * Queries the full configuration of a GTM 3.0 access domain name, including alert settings, address pools, and address details.
      *
      * @param request - DescribeCloudGtmInstanceConfigFullInfoRequest
      *
@@ -4461,7 +5127,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a health check template.
+     * Retrieves the configuration of a specified health check template.
      *
      * @param request - DescribeCloudGtmMonitorTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4504,7 +5170,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a health check template.
+     * Retrieves the configuration of a specified health check template.
      *
      * @param request - DescribeCloudGtmMonitorTemplateRequest
      *
@@ -4575,6 +5241,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Queries the system lines supported by Global Traffic Manager (GTM).
+     *
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns DescribeCloudGtmSystemLinesResponse
@@ -4602,6 +5270,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Queries the system lines supported by Global Traffic Manager (GTM).
+     *
      * @returns DescribeCloudGtmSystemLinesResponse
      *
      * @return DescribeCloudGtmSystemLinesResponse
@@ -4614,7 +5284,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom line by its unique ID.
+     * Queries a custom line by its unique ID.
      *
      * @param request - DescribeCustomLineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4657,7 +5327,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of a custom line by its unique ID.
+     * Queries a custom line by its unique ID.
      *
      * @param request - DescribeCustomLineRequest
      *
@@ -4675,7 +5345,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries custom lines by domain name.
+     * Queries the custom lines for a domain name.
      *
      * @param request - DescribeCustomLinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4726,7 +5396,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries custom lines by domain name.
+     * Queries the custom lines for a domain name.
      *
      * @param request - DescribeCustomLinesRequest
      *
@@ -4744,7 +5414,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+     * Retrieves a list of subdomains that have weight configurations based on the specified parameters.
      *
      * @param request - DescribeDNSSLBSubDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4803,7 +5473,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the subdomains for which weighted round-robin is enabled based on the specified parameters.
+     * Retrieves a list of subdomains that have weight configurations based on the specified parameters.
      *
      * @param request - DescribeDNSSLBSubDomainsRequest
      *
@@ -4821,7 +5491,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries cache-accelerated domain names within your account based on the specified parameters.
+     * Queries authoritative proxy domain names based on the specified parameters.
      *
      * @param request - DescribeDnsCacheDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4872,7 +5542,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries cache-accelerated domain names within your account based on the specified parameters.
+     * Queries authoritative proxy domain names based on the specified parameters.
      *
      * @param request - DescribeDnsCacheDomainsRequest
      *
@@ -4890,7 +5560,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the access policies of a GTM instance.
+     * Queries the access strategies for a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmAccessStrategiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4945,7 +5615,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the access policies of a GTM instance.
+     * Queries the access strategies for a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmAccessStrategiesRequest
      *
@@ -4963,7 +5633,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about an access policy.
+     * Retrieves the details of a specified access strategy.
      *
      * @param request - DescribeDnsGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5006,7 +5676,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about an access policy.
+     * Retrieves the details of a specified access strategy.
      *
      * @param request - DescribeDnsGtmAccessStrategyRequest
      *
@@ -5024,7 +5694,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for an access policy.
+     * Describes the available configurations for an access policy based on an instance ID.
      *
      * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5071,7 +5741,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for an access policy.
+     * Describes the available configurations for an access policy based on an instance ID.
      *
      * @param request - DescribeDnsGtmAccessStrategyAvailableConfigRequest
      *
@@ -5089,7 +5759,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the source regions of addresses.
+     * Queries the region where an address is located.
      *
      * @param request - DescribeDnsGtmAddrAttributeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5136,7 +5806,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the source regions of addresses.
+     * Queries the region where an address is located.
      *
      * @param request - DescribeDnsGtmAddrAttributeInfoRequest
      *
@@ -5154,7 +5824,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the available configurations of an address pool of a GTM instance.
+     * Queries the available configurations for an address pool in a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5197,7 +5867,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the available configurations of an address pool of a GTM instance.
+     * Queries the available configurations for an address pool in a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmAddressPoolAvailableConfigRequest
      *
@@ -5215,7 +5885,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+     * Queries the available alert contact groups.
      *
      * @param request - DescribeDnsGtmAvailableAlertGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5254,7 +5924,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the available alert groups of a Global Traffic Manager (GTM) instance.
+     * Queries the available alert contact groups.
      *
      * @param request - DescribeDnsGtmAvailableAlertGroupRequest
      *
@@ -5272,7 +5942,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the details of an instance based on the ID of the instance.
+     * Queries the details of an instance based on the specified instance ID.
      *
      * @param request - DescribeDnsGtmInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5315,7 +5985,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the details of an instance based on the ID of the instance.
+     * Queries the details of an instance based on the specified instance ID.
      *
      * @param request - DescribeDnsGtmInstanceRequest
      *
@@ -5333,7 +6003,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about an address pool by address pool ID.
+     * Queries the details of an address pool by its ID.
      *
      * @param request - DescribeDnsGtmInstanceAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5376,7 +6046,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries detailed information about an address pool by address pool ID.
+     * Queries the details of an address pool by its ID.
      *
      * @param request - DescribeDnsGtmInstanceAddressPoolRequest
      *
@@ -5394,7 +6064,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries address pools by the IDs of GTM instances.
+     * Retrieves the address pools of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5445,7 +6115,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries address pools by the IDs of GTM instances.
+     * Retrieves the address pools of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeDnsGtmInstanceAddressPoolsRequest
      *
@@ -5463,7 +6133,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the current status of the instance by instance ID.
+     * Describes the status of an instance based on its ID.
      *
      * @param request - DescribeDnsGtmInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5506,7 +6176,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the current status of the instance by instance ID.
+     * Describes the status of an instance based on its ID.
      *
      * @param request - DescribeDnsGtmInstanceStatusRequest
      *
@@ -5524,7 +6194,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the canonical name (CNAME) assigned by the system for a GTM instance.
+     * Retrieves the system-assigned CNAME based on the specified instance ID.
      *
      * @param request - DescribeDnsGtmInstanceSystemCnameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5567,7 +6237,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the canonical name (CNAME) assigned by the system for a GTM instance.
+     * Retrieves the system-assigned CNAME based on the specified instance ID.
      *
      * @param request - DescribeDnsGtmInstanceSystemCnameRequest
      *
@@ -5658,7 +6328,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the operation logs by instance ID.
+     * Queries the operation logs for an instance.
      *
      * @param request - DescribeDnsGtmLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5721,7 +6391,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the operation logs by instance ID.
+     * Queries the operation logs for an instance.
      *
      * @param request - DescribeDnsGtmLogsRequest
      *
@@ -5739,7 +6409,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for a health check task.
+     * Queries the available configurations for DNS health checks.
      *
      * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5778,7 +6448,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for a health check task.
+     * Queries the available configurations for DNS health checks.
      *
      * @param request - DescribeDnsGtmMonitorAvailableConfigRequest
      *
@@ -5796,7 +6466,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the health check configuration of an address pool.
+     * Queries the health check configuration for an address pool.
      *
      * @param request - DescribeDnsGtmMonitorConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5839,7 +6509,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the health check configuration of an address pool.
+     * Queries the health check configuration for an address pool.
      *
      * @param request - DescribeDnsGtmMonitorConfigRequest
      *
@@ -5857,7 +6527,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+     * Retrieves the details of a paid Alibaba Cloud DNS instance by its instance ID.
      *
      * @param request - DescribeDnsProductInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5904,7 +6574,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about a paid Alibaba Cloud DNS instance based on the instance ID.
+     * Retrieves the details of a paid Alibaba Cloud DNS instance by its instance ID.
      *
      * @param request - DescribeDnsProductInstanceRequest
      *
@@ -5922,10 +6592,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+     * Retrieves a list of paid DNS product instances that match the specified parameters.
      *
      * @remarks
-     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+     * > **If the response does not contain a domain name, the Alibaba Cloud DNS instance is not associated with any domain names.**
      *
      * @param request - DescribeDnsProductInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5992,10 +6662,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDnsProductInstances operation to query the list of paid Alibaba Cloud DNS instances based on input parameters.
+     * Retrieves a list of paid DNS product instances that match the specified parameters.
      *
      * @remarks
-     * >  If the response parameters of an Alibaba Cloud DNS instance do not contain domain names, no domain names are bound to the instance.
+     * > **If the response does not contain a domain name, the Alibaba Cloud DNS instance is not associated with any domain names.**
      *
      * @param request - DescribeDnsProductInstancesRequest
      *
@@ -6013,7 +6683,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on DoH-based requests for a domain name.
+     * Queries an overview of request statistics for a DNS over HTTPS (DoH) account.
      *
      * @param request - DescribeDohAccountStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6060,7 +6730,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on DoH-based requests for a domain name.
+     * Queries an overview of request statistics for a DNS over HTTPS (DoH) account.
      *
      * @param request - DescribeDohAccountStatisticsRequest
      *
@@ -6078,7 +6748,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * The statistics on DoH-based requests for a domain name are queried.
+     * Retrieves an overview of statistics for DNS over HTTPS (DoH) requests for a domain name.
      *
      * @param request - DescribeDohDomainStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6129,7 +6799,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * The statistics on DoH-based requests for a domain name are queried.
+     * Retrieves an overview of statistics for DNS over HTTPS (DoH) requests for a domain name.
      *
      * @param request - DescribeDohDomainStatisticsRequest
      *
@@ -6147,7 +6817,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on DoH-based requests for domain names.
+     * Queries request statistics for DNS over HTTPS (DoH) domain names.
      *
      * @param request - DescribeDohDomainStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6206,7 +6876,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on DoH-based requests for domain names.
+     * Queries request statistics for DNS over HTTPS (DoH) domain names.
      *
      * @param request - DescribeDohDomainStatisticsSummaryRequest
      *
@@ -6224,7 +6894,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the statistics on DoH-based requests for a subdomain name.
+     * Queries for statistics on DNS over HTTPS (DoH) requests for a subdomain.
      *
      * @param request - DescribeDohSubDomainStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6275,7 +6945,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the statistics on DoH-based requests for a subdomain name.
+     * Queries for statistics on DNS over HTTPS (DoH) requests for a subdomain.
      *
      * @param request - DescribeDohSubDomainStatisticsRequest
      *
@@ -6293,7 +6963,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on DoH-based requests for subdomain names.
+     * Queries a summary of request statistics for subdomains using DNS over HTTPS (DoH).
      *
      * @param request - DescribeDohSubDomainStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6356,7 +7026,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on DoH-based requests for subdomain names.
+     * Queries a summary of request statistics for subdomains using DNS over HTTPS (DoH).
      *
      * @param request - DescribeDohSubDomainStatisticsSummaryRequest
      *
@@ -6374,7 +7044,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+     * Retrieves the basic information of a DNS over HTTPS (DoH) user.
      *
      * @param request - DescribeDohUserInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6421,7 +7091,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the numbers of accessed domains and subdomains by using DNS over HTTPS (DoH).
+     * Retrieves the basic information of a DNS over HTTPS (DoH) user.
      *
      * @param request - DescribeDohUserInfoRequest
      *
@@ -6439,7 +7109,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+     * Queries the Domain Name System Security Extensions (DNSSEC) information for a specified domain name.
      *
      * @param request - DescribeDomainDnssecInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6482,7 +7152,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the Domain Name System Security Extensions (DNSSEC) configurations of a domain name based on the specified parameters.
+     * Queries the Domain Name System Security Extensions (DNSSEC) information for a specified domain name.
      *
      * @param request - DescribeDomainDnssecInfoRequest
      *
@@ -6500,7 +7170,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all domain name groups based on the specified parameters.
+     * Queries domain name groups.
      *
      * @param request - DescribeDomainGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6551,7 +7221,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all domain name groups based on the specified parameters.
+     * Queries domain name groups.
      *
      * @param request - DescribeDomainGroupsRequest
      *
@@ -6569,10 +7239,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about a domain name based on specified parameters.
+     * Queries information about a specified domain name.
      *
      * @remarks
-     * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+     * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Ultimate Edition. For more information about line enumeration, see the RecordLines response parameter.
      *
      * @param request - DescribeDomainInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6619,10 +7289,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about a domain name based on specified parameters.
+     * Queries information about a specified domain name.
      *
      * @remarks
-     * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Enterprise Ultimate Edition. For more information about valid Domain Name System (DNS) request lines, see the return values of the RecordLines parameter.
+     * In this example, the domain name is bound to an instance of Alibaba Cloud DNS Ultimate Edition. For more information about line enumeration, see the RecordLines response parameter.
      *
      * @param request - DescribeDomainInfoRequest
      *
@@ -6640,7 +7310,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of domain names based on the specified parameters.
+     * Queries the operation logs for a domain name based on the specified parameters.
      *
      * @param request - DescribeDomainLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6707,7 +7377,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of domain names based on the specified parameters.
+     * Queries the operation logs for a domain name based on the specified parameters.
      *
      * @param request - DescribeDomainLogsRequest
      *
@@ -6725,10 +7395,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+     * Queries the current list of name servers for a domain name and determines whether the servers are managed by Alibaba Cloud DNS.
      *
      * @remarks
-     * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+     * > This operation directly queries the authoritative server of the domain name registry to retrieve the DNS server names for the domain name. An error may be returned if the domain name is inactive. For example, if the domain name has a serverHold or clientHold status, or has not passed identity verification.
      *
      * @param request - DescribeDomainNsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6771,10 +7441,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the name servers configured for a specified domain name and checks whether all the name servers are Alibaba Cloud Domain Name System (DNS) servers.
+     * Queries the current list of name servers for a domain name and determines whether the servers are managed by Alibaba Cloud DNS.
      *
      * @remarks
-     * >  You can call this operation to query the authoritative servers of a domain name registry to obtain the name servers for a domain name. If the domain name is in an invalid state, such as serverHold or clientHold, an error may be returned.
+     * > This operation directly queries the authoritative server of the domain name registry to retrieve the DNS server names for the domain name. An error may be returned if the domain name is inactive. For example, if the domain name has a serverHold or clientHold status, or has not passed identity verification.
      *
      * @param request - DescribeDomainNsRequest
      *
@@ -6792,11 +7462,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
-     *
-     * @remarks
-     * ## Debugging
-     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+     * Retrieves the details of a DNS record by its ID.
      *
      * @param request - DescribeDomainRecordInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6843,11 +7509,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about a Domain Name System (DNS) record by the ID of the DNS record.
-     *
-     * @remarks
-     * ## Debugging
-     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Alidns\\&api=DescribeDomainRecordInfo\\&type=RPC\\&version=2015-01-09)
+     * Retrieves the details of a DNS record by its ID.
      *
      * @param request - DescribeDomainRecordInfoRequest
      *
@@ -6865,13 +7527,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+     * Retrieves the DNS records for a specified root domain based on the input parameters.
      *
      * @remarks
-     *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
-     * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
-     * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
-     * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+     * - You can specify the domain name (DomainName), page number (PageNumber), and page size (PageSize) to retrieve a list of DNS records.
+     * - You can specify a keyword for the host record (RRKeyWord), record type (TypeKeyWord), or record value (ValueKeyWord) to query DNS records that contain the keyword.
+     * - By default, DNS records are sorted in descending order by the time they were added.
+     * - You can specify a domain group ID (GroupId) to query the DNS records in a specific group.
      *
      * @param request - DescribeDomainRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6966,13 +7628,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all Domain Name System (DNS) records of the specified primary domain names based on the specified parameters.
+     * Retrieves the DNS records for a specified root domain based on the input parameters.
      *
      * @remarks
-     *   You can specify DomainName, PageNumber, and PageSize to query the DNS records of the specified domain names.
-     * *   You can also specify RRKeyWord, TypeKeyWord, or ValueKeyWord to query the DNS records that contain the specified keyword.
-     * *   By default, the DNS records are sorted in reverse chronological order based on the time when they were added.
-     * *   You can specify GroupId to query the DNS records of the specified domain names based on the group ID. You can query the DNS records of all domain names and the domain names in the default group.
+     * - You can specify the domain name (DomainName), page number (PageNumber), and page size (PageSize) to retrieve a list of DNS records.
+     * - You can specify a keyword for the host record (RRKeyWord), record type (TypeKeyWord), or record value (ValueKeyWord) to query DNS records that contain the keyword.
+     * - By default, DNS records are sorted in descending order by the time they were added.
+     * - You can specify a domain group ID (GroupId) to query the DNS records in a specific group.
      *
      * @param request - DescribeDomainRecordsRequest
      *
@@ -6990,7 +7652,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the resolution requests of all paid domain names within your account.
+     * Queries the request volumes for all paid domain names in your account.
      *
      * @param request - DescribeDomainResolveStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7061,7 +7723,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the resolution requests of all paid domain names within your account.
+     * Queries the request volumes for all paid domain names in your account.
      *
      * @param request - DescribeDomainResolveStatisticsSummaryRequest
      *
@@ -7079,10 +7741,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+     * Queries the number of real-time requests for a specified primary domain name.
      *
      * @remarks
-     * Real-time data is collected per hour.
+     * Real-time data is collected hourly.
      *
      * @param request - DescribeDomainStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7137,10 +7799,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the real-time statistics on the Domain Name System (DNS) requests for a primary domain name.
+     * Queries the number of real-time requests for a specified primary domain name.
      *
      * @remarks
-     * Real-time data is collected per hour.
+     * Real-time data is collected hourly.
      *
      * @param request - DescribeDomainStatisticsRequest
      *
@@ -7158,7 +7820,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+     * Queries the number of requests for all paid domain names in your account.
      *
      * @param request - DescribeDomainStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7225,7 +7887,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDomainStatisticsSummary operation to obtain the query volume of all paid domain names under your account.
+     * Queries the number of requests for all paid domain names in your account.
      *
      * @param request - DescribeDomainStatisticsSummaryRequest
      *
@@ -7243,13 +7905,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+     * Queries a list of domain names based on specified parameters.
      *
      * @remarks
-     *   You can specify the PageNumber and PageSize parameters to query domain names.
-     * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
-     * *   By default, the domain names in a list are sorted in descending order of the time they were added.
-     * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+     * 1. You can specify a page number (PageNumber) and page size (PageSize) to retrieve a paginated list of domain names.
+     * 2. You can specify a keyword (KeyWord) to query for domain names that contain the specified keyword.
+     * 3. By default, domain names are sorted in descending order of their creation time.
+     * 4. You can specify a domain name group ID (GroupId) to query for domain names in a specific group. This lets you retrieve all domain names or only the domain names that are not assigned to a group.
      *
      * @param request - DescribeDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7316,13 +7978,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Calls the DescribeDomains operation to query domain names of a user based on input parameters.
+     * Queries a list of domain names based on specified parameters.
      *
      * @remarks
-     *   You can specify the PageNumber and PageSize parameters to query domain names.
-     * *   You can specify the KeyWord parameter to query domain names that contain the specified keyword.
-     * *   By default, the domain names in a list are sorted in descending order of the time they were added.
-     * *   You can specify the GroupId parameter. If you do not specify this parameter, all domain names are queried by default.
+     * 1. You can specify a page number (PageNumber) and page size (PageSize) to retrieve a paginated list of domain names.
+     * 2. You can specify a keyword (KeyWord) to query for domain names that contain the specified keyword.
+     * 3. By default, domain names are sorted in descending order of their creation time.
+     * 4. You can specify a domain name group ID (GroupId) to query for domain names in a specific group. This lets you retrieve all domain names or only the domain names that are not assigned to a group.
      *
      * @param request - DescribeDomainsRequest
      *
@@ -7340,7 +8002,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+     * Queries the access policies for an instance.
      *
      * @param request - DescribeGtmAccessStrategiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7391,7 +8053,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the access policies of a Global Traffic Manager (GTM) instance.
+     * Queries the access policies for an instance.
      *
      * @param request - DescribeGtmAccessStrategiesRequest
      *
@@ -7409,7 +8071,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+     * Queries the details of an access policy based on the policy ID.
      *
      * @param request - DescribeGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7452,7 +8114,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an access policy of a Global Traffic Manager (GTM) instance based on the policy ID.
+     * Queries the details of an access policy based on the policy ID.
      *
      * @param request - DescribeGtmAccessStrategyRequest
      *
@@ -7470,7 +8132,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for an access policy.
+     * Queries the available configurations for an access policy.
      *
      * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7513,7 +8175,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for an access policy.
+     * Queries the available configurations for an access policy.
      *
      * @param request - DescribeGtmAccessStrategyAvailableConfigRequest
      *
@@ -7531,7 +8193,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+     * Queries the list of available alert contact groups for a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmAvailableAlertGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7570,7 +8232,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the available alert groups for a Global Traffic Manager (GTM) instance.
+     * Queries the list of available alert contact groups for a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmAvailableAlertGroupRequest
      *
@@ -7588,7 +8250,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about a Global Traffic Manager (GTM) instance.
+     * Queries the details of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7635,7 +8297,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details about a Global Traffic Manager (GTM) instance.
+     * Queries the details of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmInstanceRequest
      *
@@ -7653,7 +8315,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+     * Describes the details of an address pool.
      *
      * @param request - DescribeGtmInstanceAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7696,7 +8358,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details about an address pool of a Global Traffic Manager (GTM) instance.
+     * Describes the details of an address pool.
      *
      * @param request - DescribeGtmInstanceAddressPoolRequest
      *
@@ -7714,7 +8376,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+     * Describes the address pools of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmInstanceAddressPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7765,7 +8427,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the address pools of a Global Traffic Manager (GTM) instance.
+     * Describes the address pools of a Global Traffic Manager (GTM) instance.
      *
      * @param request - DescribeGtmInstanceAddressPoolsRequest
      *
@@ -7783,7 +8445,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Global Traffic Manager (GTM) instance.
+     * Queries the current status of an instance.
      *
      * @param request - DescribeGtmInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7826,7 +8488,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Global Traffic Manager (GTM) instance.
+     * Queries the current status of an instance.
      *
      * @param request - DescribeGtmInstanceStatusRequest
      *
@@ -7844,7 +8506,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the CNAME record assigned by the system.
+     * Retrieves the system-assigned CNAME domain name.
      *
      * @param request - DescribeGtmInstanceSystemCnameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7887,7 +8549,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the CNAME record assigned by the system.
+     * Retrieves the system-assigned CNAME domain name.
      *
      * @param request - DescribeGtmInstanceSystemCnameRequest
      *
@@ -7905,7 +8567,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the Global Traffic Manager (GTM) instances under your account.
+     * Queries Global Traffic Manager (GTM) instances.
      *
      * @param request - DescribeGtmInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7964,7 +8626,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the Global Traffic Manager (GTM) instances under your account.
+     * Queries Global Traffic Manager (GTM) instances.
      *
      * @param request - DescribeGtmInstancesRequest
      *
@@ -7982,7 +8644,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+     * Queries a list of logs.
      *
      * @param request - DescribeGtmLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8045,7 +8707,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query logs of a Global Traffic Manager (GTM) instance.
+     * Queries a list of logs.
      *
      * @param request - DescribeGtmLogsRequest
      *
@@ -8063,7 +8725,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries available monitored nodes.
+     * Retrieves the available configurations for health checks.
      *
      * @param request - DescribeGtmMonitorAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8102,7 +8764,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries available monitored nodes.
+     * Retrieves the available configurations for health checks.
      *
      * @param request - DescribeGtmMonitorAvailableConfigRequest
      *
@@ -8120,7 +8782,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+     * Retrieves the health check configuration for an address pool.
      *
      * @param request - DescribeGtmMonitorConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8163,7 +8825,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the health check configuration of an address pool of a Global Traffic Manager (GTM) instance.
+     * Retrieves the health check configuration for an address pool.
      *
      * @param request - DescribeGtmMonitorConfigRequest
      *
@@ -8181,7 +8843,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of a disaster recovery plan.
+     * Retrieves the details of a disaster recovery plan.
      *
      * @param request - DescribeGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8224,7 +8886,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of a disaster recovery plan.
+     * Retrieves the details of a disaster recovery plan.
      *
      * @param request - DescribeGtmRecoveryPlanRequest
      *
@@ -8242,7 +8904,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for a disaster recovery plan.
+     * Describes the available configurations for a disaster recovery plan.
      *
      * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8281,7 +8943,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configuration items that can be set for a disaster recovery plan.
+     * Describes the available configurations for a disaster recovery plan.
      *
      * @param request - DescribeGtmRecoveryPlanAvailableConfigRequest
      *
@@ -8299,7 +8961,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries disaster recovery plans.
+     * Queries a list of disaster recovery plans.
      *
      * @param request - DescribeGtmRecoveryPlansRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8350,7 +9012,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries disaster recovery plans.
+     * Queries a list of disaster recovery plans.
      *
      * @param request - DescribeGtmRecoveryPlansRequest
      *
@@ -8368,7 +9030,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+     * Retrieves a list of domain names that are attached to an instance.
      *
      * @param request - DescribeInstanceDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8423,7 +9085,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the domain names that are bound to an Alibaba Cloud DNS instance.
+     * Retrieves a list of domain names that are attached to an instance.
      *
      * @param request - DescribeInstanceDomainsRequest
      *
@@ -8441,7 +9103,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 公网权威解析统计信息全局总览.
+     * Retrieves a global overview of statistics for public authoritative DNS.
+     *
+     * @remarks
+     * Real-time data is aggregated hourly.
      *
      * @param request - DescribeInterAuthStatisticsGlobalOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8492,7 +9157,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 公网权威解析统计信息全局总览.
+     * Retrieves a global overview of statistics for public authoritative DNS.
+     *
+     * @remarks
+     * Real-time data is aggregated hourly.
      *
      * @param request - DescribeInterAuthStatisticsGlobalOverviewRequest
      *
@@ -8510,7 +9178,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 公网权威解析统计信息趋势
+     * Historical statistics for public authoritative DNS resolution.
+     *
+     * @remarks
+     * Real-time data statistics are aggregated hourly.
      *
      * @param request - DescribeInterAuthStatisticsHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8573,7 +9244,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 公网权威解析统计信息趋势
+     * Historical statistics for public authoritative DNS resolution.
+     *
+     * @remarks
+     * Real-time data statistics are aggregated hourly.
      *
      * @param request - DescribeInterAuthStatisticsHistoryRequest
      *
@@ -8591,7 +9265,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 公网权威解析统计信息摘要列表.
+     * Queries the summary list of public authoritative parse statistics.
+     *
+     * @remarks
+     * Real-time data is aggregated by hour.
      *
      * @param request - DescribeInterAuthStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8682,7 +9359,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 公网权威解析统计信息摘要列表.
+     * Queries the summary list of public authoritative parse statistics.
+     *
+     * @remarks
+     * Real-time data is aggregated by hour.
      *
      * @param request - DescribeInterAuthStatisticsSummaryRequest
      *
@@ -8700,7 +9380,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 公网权威解析统计信息Zone维度总览.
+     * Retrieves a zone-level overview of statistics for public authoritative DNS.
      *
      * @param request - DescribeInterAuthStatisticsZoneOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8747,7 +9427,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 公网权威解析统计信息Zone维度总览.
+     * Retrieves a zone-level overview of statistics for public authoritative DNS.
      *
      * @param request - DescribeInterAuthStatisticsZoneOverviewRequest
      *
@@ -8765,7 +9445,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询解析日志.
+     * Query parsing logs.
      *
      * @param request - DescribeInternetDnsLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8844,7 +9524,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询解析日志.
+     * Query parsing logs.
      *
      * @param request - DescribeInternetDnsLogsRequest
      *
@@ -8862,7 +9542,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新套餐包列表.
+     * Queries the list of cache refresh instances.
      *
      * @param request - DescribeIspFlushCacheInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8929,7 +9609,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新套餐包列表.
+     * Queries the list of cache refresh instances.
      *
      * @param request - DescribeIspFlushCacheInstancesRequest
      *
@@ -8947,7 +9627,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取剩余可缓存刷新次数.
+     * Retrieves the remaining number of cache refresh operations available.
      *
      * @param request - DescribeIspFlushCacheRemainQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8986,7 +9666,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取剩余可缓存刷新次数.
+     * Retrieves the remaining number of cache refresh operations available.
      *
      * @param request - DescribeIspFlushCacheRemainQuotaRequest
      *
@@ -9004,7 +9684,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新任务详情.
+     * Queries the details of a cache flush task.
      *
      * @param request - DescribeIspFlushCacheTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9047,7 +9727,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新任务详情.
+     * Queries the details of a cache flush task.
      *
      * @param request - DescribeIspFlushCacheTaskRequest
      *
@@ -9065,7 +9745,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新任务列表.
+     * Queries the list of cache refresh tasks.
      *
      * @param request - DescribeIspFlushCacheTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9132,7 +9812,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取缓存刷新任务列表.
+     * Queries the list of cache refresh tasks.
      *
      * @param request - DescribeIspFlushCacheTasksRequest
      *
@@ -9150,7 +9830,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS用户数据概览.
+     * Queries the overview of Public DNS user data.
      *
      * @param request - DescribePdnsAccountSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9197,7 +9877,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS用户数据概览.
+     * Queries the overview of Public DNS user data.
      *
      * @param request - DescribePdnsAccountSummaryRequest
      *
@@ -9215,7 +9895,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS AppKey 详情.
+     * Query the details of a public DNS AppKey.
      *
      * @param request - DescribePdnsAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9262,7 +9942,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS AppKey 详情.
+     * Query the details of a public DNS AppKey.
      *
      * @param request - DescribePdnsAppKeyRequest
      *
@@ -9280,7 +9960,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS AppKey 列表.
+     * Queries the list of AppKeys of Public DNS.
      *
      * @param request - DescribePdnsAppKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9319,7 +9999,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS AppKey 列表.
+     * Queries the list of AppKeys of Public DNS.
      *
      * @param request - DescribePdnsAppKeysRequest
      *
@@ -9337,7 +10017,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 操作日志列表.
+     * Queries the operation log list of Public DNS.
      *
      * @param request - DescribePdnsOperateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9404,7 +10084,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 操作日志列表.
+     * Queries the operation log list of Public DNS.
      *
      * @param request - DescribePdnsOperateLogsRequest
      *
@@ -9422,7 +10102,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of requests for public DNS.
+     * Queries the request statistics for Public DNS.
      *
      * @param request - DescribePdnsRequestStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9481,7 +10161,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of requests for public DNS.
+     * Queries the request statistics for Public DNS.
      *
      * @param request - DescribePdnsRequestStatisticRequest
      *
@@ -9499,7 +10179,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of statistics on requests for Alibaba Cloud Public DNS.
+     * Queries the request statistics for a specified subdomain.
      *
      * @param request - DescribePdnsRequestStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9566,7 +10246,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of statistics on requests for Alibaba Cloud Public DNS.
+     * Queries the request statistics for a specified subdomain.
      *
      * @param request - DescribePdnsRequestStatisticsRequest
      *
@@ -9584,7 +10264,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁日志列表.
+     * Queries the list of Public DNS threat logs.
      *
      * @param request - DescribePdnsThreatLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9655,7 +10335,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁日志列表.
+     * Queries the list of Public DNS threat logs.
      *
      * @param request - DescribePdnsThreatLogsRequest
      *
@@ -9673,7 +10353,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁统计
+     * Retrieves Public DNS threat statistics.
      *
      * @param request - DescribePdnsThreatStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9724,7 +10404,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁统计
+     * Retrieves Public DNS threat statistics.
      *
      * @param request - DescribePdnsThreatStatisticRequest
      *
@@ -9742,7 +10422,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁统计列表.
+     * Retrieves the public DNS threat statistics list.
      *
      * @param request - DescribePdnsThreatStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9829,7 +10509,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS 威胁统计列表.
+     * Retrieves the public DNS threat statistics list.
      *
      * @param request - DescribePdnsThreatStatisticsRequest
      *
@@ -9847,7 +10527,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS Udp IP段列表.
+     * Retrieves the list of Public DNS UDP IP address ranges.
      *
      * @param request - DescribePdnsUdpIpSegmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9894,7 +10574,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 获取公共DNS Udp IP段列表.
+     * Retrieves the list of Public DNS UDP IP address ranges.
      *
      * @param request - DescribePdnsUdpIpSegmentsRequest
      *
@@ -9912,7 +10592,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about users in Alibaba Cloud Public DNS.
+     * Retrieves user information for Public DNS.
      *
      * @param request - DescribePdnsUserInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9951,7 +10631,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the information about users in Alibaba Cloud Public DNS.
+     * Retrieves user information for Public DNS.
      *
      * @param request - DescribePdnsUserInfoRequest
      *
@@ -9969,7 +10649,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of a domain name based on the specified parameters.
+     * Queries the operation logs for the DNS records of a domain name.
      *
      * @param request - DescribeRecordLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10036,7 +10716,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the operation logs of a domain name based on the specified parameters.
+     * Queries the operation logs for the DNS records of a domain name.
      *
      * @param request - DescribeRecordLogsRequest
      *
@@ -10054,7 +10734,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of resolution requests for all subdomain names of a specified domain name.
+     * Queries statistics on the request volume for all subdomains of a specified domain name.
      *
      * @param request - DescribeRecordResolveStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10133,7 +10813,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of resolution requests for all subdomain names of a specified domain name.
+     * Queries statistics on the request volume for all subdomains of a specified domain name.
      *
      * @param request - DescribeRecordResolveStatisticsSummaryRequest
      *
@@ -10151,10 +10831,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+     * Queries real-time data about DNS requests for a specified subdomain.
      *
      * @remarks
-     * Real-time data is collected per hour.
+     * Real-time data is collected hourly.
      *
      * @param request - DescribeRecordStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10213,10 +10893,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the real-time statistics on the Domain Name System (DNS) requests for a subdomain name.
+     * Queries real-time data about DNS requests for a specified subdomain.
      *
      * @remarks
-     * Real-time data is collected per hour.
+     * Real-time data is collected hourly.
      *
      * @param request - DescribeRecordStatisticsRequest
      *
@@ -10234,7 +10914,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+     * Queries statistics on the request volume for all subdomains of a specified domain name.
      *
      * @param request - DescribeRecordStatisticsSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10309,7 +10989,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the number of Domain Name System (DNS) requests for all subdomain names of a specified domain name.
+     * Queries statistics on the request volume for all subdomains of a specified domain name.
      *
      * @param request - DescribeRecordStatisticsSummaryRequest
      *
@@ -10327,7 +11007,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of HTTPDNS resolution records.
+     * Describes a built-in authoritative DNS record used for recursive resolution.
      *
      * @param request - DescribeRecursionRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10366,7 +11046,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the details of HTTPDNS resolution records.
+     * Describes a built-in authoritative DNS record used for recursive resolution.
      *
      * @param request - DescribeRecursionRecordRequest
      *
@@ -10384,7 +11064,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询递归解析内置权威域名zone详情.
+     * Queries the details of an authoritative zone for recursive resolution.
+     *
+     * @remarks
+     * Real-time data is measured hourly.
      *
      * @param request - DescribeRecursionZoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10423,7 +11106,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 查询递归解析内置权威域名zone详情.
+     * Queries the details of an authoritative zone for recursive resolution.
+     *
+     * @remarks
+     * Real-time data is measured hourly.
      *
      * @param request - DescribeRecursionZoneRequest
      *
@@ -10441,7 +11127,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+     * Retrieves all DNS records for a specific subdomain based on the specified parameters.
      *
      * @param request - DescribeSubDomainRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10508,7 +11194,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all Domain Name System (DNS) records of a subdomain name based on the specified parameters.
+     * Retrieves all DNS records for a specific subdomain based on the specified parameters.
      *
      * @param request - DescribeSubDomainRecordsRequest
      *
@@ -10526,7 +11212,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all lines that are supported by Alibaba Cloud DNS.
+     * Queries all lines supported by Cloud DNS.
      *
      * @param request - DescribeSupportLinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10573,7 +11259,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries all lines that are supported by Alibaba Cloud DNS.
+     * Queries all lines supported by Cloud DNS.
      *
      * @param request - DescribeSupportLinesRequest
      *
@@ -10660,7 +11346,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+     * Queries the domain names transferred between accounts based on the specified input parameters.
      *
      * @param request - DescribeTransferDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10723,7 +11409,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the domain names that were transferred between the current account and another account based on the specified parameters.
+     * Queries the domain names transferred between accounts based on the specified input parameters.
      *
      * @param request - DescribeTransferDomainsRequest
      *
@@ -10802,11 +11488,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a primary domain name based on the specified parameters.
+     * Retrieves the primary domain name from a specified domain name.
      *
      * @remarks
-     * For more information about the difference between primary domain names and subdomain names, see
-     * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+     * For more information about primary and subdomain name levels, see
+     * <props="china">[Domain name levels](https://help.aliyun.com/document_detail/39803.html?spm=a2c4g.2357293.0.0.211f41ffUR1cPb). For example, if you enter `www.abc.com`, the output is abc.com.
+     * <props="intl">[Domain name levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, the output is abc.com.
      *
      * @param request - GetMainDomainNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10849,11 +11536,12 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a primary domain name based on the specified parameters.
+     * Retrieves the primary domain name from a specified domain name.
      *
      * @remarks
-     * For more information about the difference between primary domain names and subdomain names, see
-     * [Subdomain levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, abc.com is obtained.
+     * For more information about primary and subdomain name levels, see
+     * <props="china">[Domain name levels](https://help.aliyun.com/document_detail/39803.html?spm=a2c4g.2357293.0.0.211f41ffUR1cPb). For example, if you enter `www.abc.com`, the output is abc.com.
+     * <props="intl">[Domain name levels](https://www.alibabacloud.com/help/zh/faq-detail/39803.htm). For example, if you enter `www.abc.com`, the output is abc.com.
      *
      * @param request - GetMainDomainNameRequest
      *
@@ -10871,7 +11559,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+     * Generates a TXT record for domain and subdomain verification. This operation supports batch retrieval.
      *
      * @param request - GetTxtRecordForVerifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10918,7 +11606,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Generates a text (TXT) record. TXT records are used to retrieve domain names and subdomain names, enable the subdomain name verification feature, and perform batch retrievals.
+     * Generates a TXT record for domain and subdomain verification. This operation supports batch retrieval.
      *
      * @param request - GetTxtRecordForVerifyRequest
      *
@@ -10936,7 +11624,270 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of address pools.
+     * Queries the list of Agent registration information.
+     *
+     * @param request - ListAtiAgentRegisterInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAtiAgentRegisterInfosResponse
+     *
+     * @param ListAtiAgentRegisterInfosRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListAtiAgentRegisterInfosResponse
+     */
+    public function listAtiAgentRegisterInfosWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentDisplayName) {
+            @$query['AgentDisplayName'] = $request->agentDisplayName;
+        }
+
+        if (null !== $request->agentHost) {
+            @$query['AgentHost'] = $request->agentHost;
+        }
+
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->agentVersion) {
+            @$query['AgentVersion'] = $request->agentVersion;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAtiAgentRegisterInfos',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAtiAgentRegisterInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of Agent registration information.
+     *
+     * @param request - ListAtiAgentRegisterInfosRequest
+     *
+     * @returns ListAtiAgentRegisterInfosResponse
+     *
+     * @param ListAtiAgentRegisterInfosRequest $request
+     *
+     * @return ListAtiAgentRegisterInfosResponse
+     */
+    public function listAtiAgentRegisterInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAtiAgentRegisterInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of real-name registered contacts.
+     *
+     * @param request - ListAtiChangeLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAtiChangeLogsResponse
+     *
+     * @param ListAtiChangeLogsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAtiChangeLogsResponse
+     */
+    public function listAtiChangeLogsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
+        }
+
+        if (null !== $request->operationType) {
+            @$query['OperationType'] = $request->operationType;
+        }
+
+        if (null !== $request->operatorAccount) {
+            @$query['OperatorAccount'] = $request->operatorAccount;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
+        }
+
+        if (null !== $request->timeRange) {
+            @$query['TimeRange'] = $request->timeRange;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAtiChangeLogs',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAtiChangeLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of real-name registered contacts.
+     *
+     * @param request - ListAtiChangeLogsRequest
+     *
+     * @returns ListAtiChangeLogsResponse
+     *
+     * @param ListAtiChangeLogsRequest $request
+     *
+     * @return ListAtiChangeLogsResponse
+     */
+    public function listAtiChangeLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAtiChangeLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询实名注册人列表.
+     *
+     * @param request - ListAtiRegistrantsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAtiRegistrantsResponse
+     *
+     * @param ListAtiRegistrantsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAtiRegistrantsResponse
+     */
+    public function listAtiRegistrantsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAtiRegistrants',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAtiRegistrantsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询实名注册人列表.
+     *
+     * @param request - ListAtiRegistrantsRequest
+     *
+     * @returns ListAtiRegistrantsResponse
+     *
+     * @param ListAtiRegistrantsRequest $request
+     *
+     * @return ListAtiRegistrantsResponse
+     */
+    public function listAtiRegistrants($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAtiRegistrantsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of address pools in Global Traffic Manager (GTM) 3.0.
      *
      * @param request - ListCloudGtmAddressPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11003,7 +11954,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of address pools.
+     * Queries the list of address pools in Global Traffic Manager (GTM) 3.0.
      *
      * @param request - ListCloudGtmAddressPoolsRequest
      *
@@ -11021,7 +11972,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of addresses.
+     * Queries a list of addresses based on the specified parameters.
      *
      * @param request - ListCloudGtmAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11100,7 +12051,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of addresses.
+     * Queries a list of addresses based on the specified parameters.
      *
      * @param request - ListCloudGtmAddressesRequest
      *
@@ -11118,6 +12069,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Queries a list of alert logs.
+     *
      * @param request - ListCloudGtmAlertLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -11183,6 +12136,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Queries a list of alert logs.
+     *
      * @param request - ListCloudGtmAlertLogsRequest
      *
      * @returns ListCloudGtmAlertLogsResponse
@@ -11252,7 +12207,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+     * Retrieves a list of instance configurations that contain access domain names and address pool information.
      *
      * @param request - ListCloudGtmInstanceConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11323,7 +12278,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a Global Traffic Manager (GTM) instance, including the information about access domain names and address pools.
+     * Retrieves a list of instance configurations that contain access domain names and address pool information.
      *
      * @param request - ListCloudGtmInstanceConfigsRequest
      *
@@ -11341,7 +12296,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the GTM 3.0 instances based on the specified parameters.
+     * Retrieves a list of GTM 3.0 instances based on the specified parameters.
      *
      * @param request - ListCloudGtmInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11404,7 +12359,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Obtains the GTM 3.0 instances based on the specified parameters.
+     * Retrieves a list of GTM 3.0 instances based on the specified parameters.
      *
      * @param request - ListCloudGtmInstancesRequest
      *
@@ -11422,7 +12377,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of health check nodes.
+     * Lists the health check monitoring nodes based on the specified input parameters.
      *
      * @param request - ListCloudGtmMonitorNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11465,7 +12420,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of health check nodes.
+     * Lists the health check monitoring nodes based on the specified input parameters.
      *
      * @param request - ListCloudGtmMonitorNodesRequest
      *
@@ -11483,7 +12438,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of health check templates based on specified parameters.
+     * Queries health check templates based on the specified parameters.
      *
      * @param request - ListCloudGtmMonitorTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11542,7 +12497,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of health check templates based on specified parameters.
+     * Queries health check templates based on the specified parameters.
      *
      * @param request - ListCloudGtmMonitorTemplatesRequest
      *
@@ -11560,7 +12515,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the record details of HTTPDNS resolution records.
+     * Lists the built-in authoritative records for recursive resolution.
      *
      * @param request - ListRecursionRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11643,7 +12598,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the record details of HTTPDNS resolution records.
+     * Lists the built-in authoritative records for recursive resolution.
      *
      * @param request - ListRecursionRecordsRequest
      *
@@ -11661,7 +12616,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries HTTPDNS authoritative zones.
+     * Queries the zones that are used for recursive resolution of built-in authoritative domain names.
+     *
+     * @remarks
+     * - Specify at least ResourceId.N or Tag.N (Tag.N.Key and Tag.N.Value) in your request to identify the resources to retrieve.
+     * - Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the tag key are returned. An error is returned if you specify only Tag.N.Value.
+     * - If you specify both Tag.N and ResourceId.N to filter resources, only the resources that are specified by ResourceId.N and match all the specified key-value pairs are returned.
+     * - If you specify multiple tag key-value pairs, the resources that match all of them are returned.
      *
      * @param request - ListRecursionZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11720,7 +12681,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries HTTPDNS authoritative zones.
+     * Queries the zones that are used for recursive resolution of built-in authoritative domain names.
+     *
+     * @remarks
+     * - Specify at least ResourceId.N or Tag.N (Tag.N.Key and Tag.N.Value) in your request to identify the resources to retrieve.
+     * - Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with the tag key are returned. An error is returned if you specify only Tag.N.Value.
+     * - If you specify both Tag.N and ResourceId.N to filter resources, only the resources that are specified by ResourceId.N and match all the specified key-value pairs are returned.
+     * - If you specify multiple tag key-value pairs, the resources that match all of them are returned.
      *
      * @param request - ListRecursionZonesRequest
      *
@@ -11741,10 +12708,10 @@ class Alidns extends OpenApiClient
      * Queries resources by tag.
      *
      * @remarks
-     *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-     * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
-     * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
-     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     * - To specify the objects to retrieve, your request must contain at least one of the following parameters: `ResourceId.N` or `Tag.N` (which consists of Tag.N.Key and Tag.N.Value).
+     * - Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with that tag key are returned. An error occurs if you specify only Tag.N.Value.
+     * - If you specify both Tag.N and ResourceId.N to filter resources, only the resources that are specified by ResourceId.N and match all the specified tag key-value pairs are returned.
+     * - If you specify multiple tag key-value pairs, only the resources that have all the specified key-value pairs are returned.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11802,10 +12769,10 @@ class Alidns extends OpenApiClient
      * Queries resources by tag.
      *
      * @remarks
-     *   Set ResourceId.N or Tag.N that consists of Tag.N.Key and Tag.N.Value in the request to specify the object to be queried.
-     * *   Tag.N is a resource tag that consists of a key-value pair. If you set only Tag.N.Key, all tag values that are assigned to the specified key are returned. If you set only Tag.N.Value, an error message is returned.
-     * *   If you set both Tag.N and ResourceId.N to filter tags, ResourceId.N must match all specified key-value pairs.
-     * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
+     * - To specify the objects to retrieve, your request must contain at least one of the following parameters: `ResourceId.N` or `Tag.N` (which consists of Tag.N.Key and Tag.N.Value).
+     * - Tag.N is a resource tag that consists of a key-value pair. If you specify only Tag.N.Key, all tag values associated with that tag key are returned. An error occurs if you specify only Tag.N.Value.
+     * - If you specify both Tag.N and ResourceId.N to filter resources, only the resources that are specified by ResourceId.N and match all the specified tag key-value pairs are returned.
+     * - If you specify multiple tag key-value pairs, only the resources that have all the specified key-value pairs are returned.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -11823,11 +12790,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
+     * Changes the DNS servers for a domain name from a third-party provider to Alibaba Cloud DNS.
      *
      * @remarks
-     * If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
-     * >  **Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS servers in use are not Alibaba Cloud DNS servers.
+     * After the operation is successful, the DNS servers are changed to Alibaba Cloud DNS servers. The names of these new servers end with hichina.com.
+     * > **Prerequisite: This operation applies to domain names that are registered with Alibaba Cloud and currently use third-party DNS servers.**
      *
      * @param request - ModifyHichinaDomainDNSRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11874,11 +12841,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the names of DNS servers bound to a domain name from DNS server names provided by a third-party service provider to DNS server names provided by Alibaba Cloud DNS.
+     * Changes the DNS servers for a domain name from a third-party provider to Alibaba Cloud DNS.
      *
      * @remarks
-     * If the operation succeeds, the names of DNS servers change to those of Alibaba Cloud DNS servers (ending with hichina.com).
-     * >  **Before you call this operation, make sure that your domain name has been registered with Alibaba Cloud and the DNS servers in use are not Alibaba Cloud DNS servers.
+     * After the operation is successful, the DNS servers are changed to Alibaba Cloud DNS servers. The names of these new servers end with hichina.com.
+     * > **Prerequisite: This operation applies to domain names that are registered with Alibaba Cloud and currently use third-party DNS servers.**
      *
      * @param request - ModifyHichinaDomainDNSRequest
      *
@@ -11896,7 +12863,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Moves a domain name to another resource group.
+     * Moves a domain name to a different resource group.
      *
      * @param request - MoveDomainResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11943,7 +12910,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Moves a domain name to another resource group.
+     * Moves a domain name to a different resource group.
      *
      * @param request - MoveDomainResourceGroupRequest
      *
@@ -11961,6 +12928,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Moves a Global Traffic Manager (GTM) instance to a new resource group.
+     *
      * @param request - MoveGtmResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -12006,6 +12975,8 @@ class Alidns extends OpenApiClient
     }
 
     /**
+     * Moves a Global Traffic Manager (GTM) instance to a new resource group.
+     *
      * @param request - MoveGtmResourceGroupRequest
      *
      * @returns MoveGtmResourceGroupResponse
@@ -12022,10 +12993,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds or deletes domain names and Domain Name System (DNS) records in batches.
+     * Adds or deletes domain names and DNS records in batches.
      *
      * @remarks
-     * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+     * Use this operation for batch DNS tasks that do not require immediate execution.
      *
      * @param request - OperateBatchDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12072,10 +13043,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds or deletes domain names and Domain Name System (DNS) records in batches.
+     * Adds or deletes domain names and DNS records in batches.
      *
      * @remarks
-     * Scenario: You need to execute a large number of tasks related to DNS resolution and you do not have high requirements for efficiency.
+     * Use this operation for batch DNS tasks that do not require immediate execution.
      *
      * @param request - OperateBatchDomainRequest
      *
@@ -12093,7 +13064,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 暂停公共DNS服务
+     * Pause Public DNS Service.
      *
      * @param request - PausePdnsServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12136,7 +13107,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 暂停公共DNS服务
+     * Pause Public DNS Service.
      *
      * @param request - PausePdnsServiceRequest
      *
@@ -12154,7 +13125,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Views disaster recovery plan.
+     * Previews a disaster recovery plan.
      *
      * @param request - PreviewGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12205,7 +13176,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Views disaster recovery plan.
+     * Previews a disaster recovery plan.
      *
      * @param request - PreviewGtmRecoveryPlanRequest
      *
@@ -12223,7 +13194,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 删除公共DNS AppKey.
+     * Delete Public DNS AppKey.
      *
      * @param request - RemovePdnsAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12266,7 +13237,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 删除公共DNS AppKey.
+     * Delete Public DNS AppKey.
      *
      * @param request - RemovePdnsAppKeyRequest
      *
@@ -12284,7 +13255,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 删除公共DNS Udp Ip地址段.
+     * Remove Public DNS UDP IP Segment.
      *
      * @param request - RemovePdnsUdpIpSegmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12327,7 +13298,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 删除公共DNS Udp Ip地址段.
+     * Remove Public DNS UDP IP Segment.
      *
      * @param request - RemovePdnsUdpIpSegmentRequest
      *
@@ -12345,15 +13316,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于删除特定域名的serverHold状态信息。
+     * Removes the serverHold status of a specified domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Description
+     * - This operation removes the serverHold status of a specified domain name.
      *
      * @param request - RemoveRspDomainServerHoldStatusForGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12400,15 +13367,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于删除特定域名的serverHold状态信息。
+     * Removes the serverHold status of a specified domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Description
+     * - This operation removes the serverHold status of a specified domain name.
      *
      * @param request - RemoveRspDomainServerHoldStatusForGatewayRequest
      *
@@ -12426,15 +13389,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于删除特定域名的serverHold状态信息。
+     * Removes the serverHold status for a specified domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Description
+     * - This operation removes the serverHold status for a specified domain name.
      *
      * @param request - RemoveRspDomainServerHoldStatusForGatewayOteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12481,15 +13440,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于删除特定域名的serverHold状态信息。
+     * Removes the serverHold status for a specified domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Description
+     * - This operation removes the serverHold status for a specified domain name.
      *
      * @param request - RemoveRspDomainServerHoldStatusForGatewayOteRequest
      *
@@ -12507,7 +13462,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Replaces the addresses referenced by an address pool.
+     * Replaces the addresses in a specified address pool.
      *
      * @param tmpReq - ReplaceCloudGtmAddressPoolAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12564,7 +13519,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Replaces the addresses referenced by an address pool.
+     * Replaces the addresses in a specified address pool.
      *
      * @param request - ReplaceCloudGtmAddressPoolAddressRequest
      *
@@ -12582,7 +13537,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Replaces address pools that are associated with a GTM instance with new address pools.
+     * Replaces the address pools associated with an instance.
      *
      * @param tmpReq - ReplaceCloudGtmInstanceConfigAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12643,7 +13598,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Replaces address pools that are associated with a GTM instance with new address pools.
+     * Replaces the address pools associated with an instance.
      *
      * @param request - ReplaceCloudGtmInstanceConfigAddressPoolRequest
      *
@@ -12661,7 +13616,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 恢复公共DNS服务
+     * Resume Public DNS Service.
      *
      * @param request - ResumePdnsServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12704,7 +13659,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 恢复公共DNS服务
+     * Resume Public DNS Service.
      *
      * @param request - ResumePdnsServiceRequest
      *
@@ -12725,7 +13680,7 @@ class Alidns extends OpenApiClient
      * Retrieves a domain name.
      *
      * @remarks
-     * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+     * Before you can retrieve a domain name, you must verify it using a TXT record. Use this operation in conjunction with the <props="china">[Generate a TXT record](https://help.aliyun.com/document_detail/145533.html) <props="intl">[Generate a TXT record](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation.
      *
      * @param request - RetrieveDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12771,7 +13726,7 @@ class Alidns extends OpenApiClient
      * Retrieves a domain name.
      *
      * @remarks
-     * To retrieve a domain name, you must verify a text (TXT) record. Therefore, before you call this API operation to retrieve a domain name, call the [GetTxtRecordForVerify](https://www.alibabacloud.com/help/en/alibaba-cloud-dns/latest/generating-a-txt-record) operation to generate a TXT record.
+     * Before you can retrieve a domain name, you must verify it using a TXT record. Use this operation in conjunction with the <props="china">[Generate a TXT record](https://help.aliyun.com/document_detail/145533.html) <props="intl">[Generate a TXT record](https://www.alibabacloud.com/help/zh/alibaba-cloud-dns/latest/generating-a-txt-record) operation.
      *
      * @param request - RetrieveDomainRequest
      *
@@ -12786,6 +13741,136 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->retrieveDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * Revokes the registration information of an Agent.
+     *
+     * @param request - RevokeAtiAgentRegisterInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeAtiAgentRegisterInfoResponse
+     *
+     * @param RevokeAtiAgentRegisterInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RevokeAtiAgentRegisterInfoResponse
+     */
+    public function revokeAtiAgentRegisterInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentRegisterInfoId) {
+            @$query['AgentRegisterInfoId'] = $request->agentRegisterInfoId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->reason) {
+            @$query['Reason'] = $request->reason;
+        }
+
+        if (null !== $request->reasonCode) {
+            @$query['ReasonCode'] = $request->reasonCode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeAtiAgentRegisterInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeAtiAgentRegisterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Revokes the registration information of an Agent.
+     *
+     * @param request - RevokeAtiAgentRegisterInfoRequest
+     *
+     * @returns RevokeAtiAgentRegisterInfoResponse
+     *
+     * @param RevokeAtiAgentRegisterInfoRequest $request
+     *
+     * @return RevokeAtiAgentRegisterInfoResponse
+     */
+    public function revokeAtiAgentRegisterInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeAtiAgentRegisterInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Revokes a real-name registrant.
+     *
+     * @param request - RevokeAtiRegistrantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeAtiRegistrantResponse
+     *
+     * @param RevokeAtiRegistrantRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RevokeAtiRegistrantResponse
+     */
+    public function revokeAtiRegistrantWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->registrantId) {
+            @$query['RegistrantId'] = $request->registrantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeAtiRegistrant',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeAtiRegistrantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Revokes a real-name registrant.
+     *
+     * @param request - RevokeAtiRegistrantRequest
+     *
+     * @returns RevokeAtiRegistrantResponse
+     *
+     * @param RevokeAtiRegistrantRequest $request
+     *
+     * @return RevokeAtiRegistrantResponse
+     */
+    public function revokeAtiRegistrant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeAtiRegistrantWithOptions($request, $runtime);
     }
 
     /**
@@ -12850,7 +13935,96 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of address pools.
+     * Searches for agents in the Agent Marketplace.
+     *
+     * @param request - SearchAtiAgentRegisterInfoMarketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchAtiAgentRegisterInfoMarketResponse
+     *
+     * @param SearchAtiAgentRegisterInfoMarketRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SearchAtiAgentRegisterInfoMarketResponse
+     */
+    public function searchAtiAgentRegisterInfoMarketWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->trustLevel) {
+            @$query['TrustLevel'] = $request->trustLevel;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchAtiAgentRegisterInfoMarket',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchAtiAgentRegisterInfoMarketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Searches for agents in the Agent Marketplace.
+     *
+     * @param request - SearchAtiAgentRegisterInfoMarketRequest
+     *
+     * @returns SearchAtiAgentRegisterInfoMarketResponse
+     *
+     * @param SearchAtiAgentRegisterInfoMarketRequest $request
+     *
+     * @return SearchAtiAgentRegisterInfoMarketResponse
+     */
+    public function searchAtiAgentRegisterInfoMarket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchAtiAgentRegisterInfoMarketWithOptions($request, $runtime);
+    }
+
+    /**
+     * Searches for address pools by name, remarks, or other criteria.
      *
      * @param request - SearchCloudGtmAddressPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12925,7 +14099,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of address pools.
+     * Searches for address pools by name, remarks, or other criteria.
      *
      * @param request - SearchCloudGtmAddressPoolsRequest
      *
@@ -12943,7 +14117,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+     * Searches for addresses based on criteria such as address name, remarks, referenced health check template, or address ID.
      *
      * @param request - SearchCloudGtmAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13034,7 +14208,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of addresses based on address names, descriptions, health check templates referenced by the addresses, or address IDs.
+     * Searches for addresses based on criteria such as address name, remarks, referenced health check template, or address ID.
      *
      * @param request - SearchCloudGtmAddressesRequest
      *
@@ -13052,7 +14226,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an access domain name.
+     * Retrieves instance configurations that match the specified parameters.
      *
      * @param request - SearchCloudGtmInstanceConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13131,7 +14305,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of an access domain name.
+     * Retrieves instance configurations that match the specified parameters.
      *
      * @param request - SearchCloudGtmInstanceConfigsRequest
      *
@@ -13149,7 +14323,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * This operation searches for instances based on specified parameters.
      *
      * @param request - SearchCloudGtmInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13212,7 +14386,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries a list of instances.
+     * This operation searches for instances based on specified parameters.
      *
      * @param request - SearchCloudGtmInstancesRequest
      *
@@ -13230,7 +14404,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the list of health check templates.
+     * Searches for health check templates.
      *
      * @param request - SearchCloudGtmMonitorTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13289,7 +14463,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Queries the list of health check templates.
+     * Searches for health check templates.
      *
      * @param request - SearchCloudGtmMonitorTemplatesRequest
      *
@@ -13307,7 +14481,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 搜索递归解析内置权威解析记录.
+     * Searches for built-in authoritative DNS records used for recursive resolution.
      *
      * @param request - SearchRecursionRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13402,7 +14576,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 搜索递归解析内置权威解析记录.
+     * Searches for built-in authoritative DNS records used for recursive resolution.
      *
      * @param request - SearchRecursionRecordsRequest
      *
@@ -13420,7 +14594,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 搜索递归解析内置权威域名zone.
+     * Searches for zones of built-in authoritative domain names used for recursive resolution.
+     *
+     * @remarks
+     * - To retrieve resources, you must specify at least `ResourceId.N` or `Tag.N` (`Tag.N.Key` and `Tag.N.Value`) in the request.
+     * - `Tag.N` is a resource tag that consists of a key-value pair. If you specify only `Tag.N.Key`, all tag values associated with that key are returned. If you specify only `Tag.N.Value`, an error is returned.
+     * - If you specify both `Tag.N` and `ResourceId.N`, the operation returns only the resources that are identified by `ResourceId.N` and match all the specified tag key-value pairs.
+     * - If you specify multiple tag key-value pairs, only resources that match all of them are returned.
      *
      * @param tmpReq - SearchRecursionZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13497,7 +14677,13 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 搜索递归解析内置权威域名zone.
+     * Searches for zones of built-in authoritative domain names used for recursive resolution.
+     *
+     * @remarks
+     * - To retrieve resources, you must specify at least `ResourceId.N` or `Tag.N` (`Tag.N.Key` and `Tag.N.Value`) in the request.
+     * - `Tag.N` is a resource tag that consists of a key-value pair. If you specify only `Tag.N.Key`, all tag values associated with that key are returned. If you specify only `Tag.N.Value`, an error is returned.
+     * - If you specify both `Tag.N` and `ResourceId.N`, the operation returns only the resources that are identified by `ResourceId.N` and match all the specified tag key-value pairs.
+     * - If you specify multiple tag key-value pairs, only resources that match all of them are returned.
      *
      * @param request - SearchRecursionZonesRequest
      *
@@ -13515,7 +14701,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 设置全局流量管理实例配置日志开关.
+     * Enables or disables the network traffic analysis feature for a Global Traffic Manager (GTM) instance. After this feature is enabled, you can view resolution logs and statistical reports for the domain name. You can also use the intelligent alerting feature based on abnormal metrics, such as resolution success rate and sudden changes in queries per second (QPS). This improves the observability and operations and maintenance (O&M) efficiency of the GTM instance.
      *
      * @param request - SetCloudGtmInstanceConfigLogSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13566,7 +14752,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 设置全局流量管理实例配置日志开关.
+     * Enables or disables the network traffic analysis feature for a Global Traffic Manager (GTM) instance. After this feature is enabled, you can view resolution logs and statistical reports for the domain name. You can also use the intelligent alerting feature based on abnormal metrics, such as resolution success rate and sudden changes in queries per second (QPS). This improves the observability and operations and maintenance (O&M) efficiency of the GTM instance.
      *
      * @param request - SetCloudGtmInstanceConfigLogSwitchRequest
      *
@@ -13584,7 +14770,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Enables or disables weighted round-robin based on the specified parameters.
+     * Enables or disables the weight configuration.
      *
      * @param request - SetDNSSLBStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13647,7 +14833,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Enables or disables weighted round-robin based on the specified parameters.
+     * Enables or disables the weight configuration.
      *
      * @param request - SetDNSSLBStatusRequest
      *
@@ -13665,7 +14851,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the access policy that is available in address pools.
+     * Sets the access mode for an access policy.
      *
      * @remarks
      *
@@ -13714,7 +14900,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the access policy that is available in address pools.
+     * Sets the access mode for an access policy.
      *
      * @remarks
      *
@@ -13734,7 +14920,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Specifies the health check status of an address pool.
+     * Sets the health check status for an address pool.
      *
      * @param request - SetDnsGtmMonitorStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13781,7 +14967,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Specifies the health check status of an address pool.
+     * Sets the health check status for an address pool.
      *
      * @param request - SetDnsGtmMonitorStatusRequest
      *
@@ -13799,7 +14985,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
+     * Enables or disables Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only to users of paid Alibaba Cloud DNS.
      *
      * @param request - SetDomainDnssecStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13846,7 +15032,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Enables or disables the Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only for the users of the paid editions of Alibaba Cloud DNS.
+     * Enables or disables Domain Name System Security Extensions (DNSSEC) for a domain name. This feature is available only to users of paid Alibaba Cloud DNS.
      *
      * @param request - SetDomainDnssecStatusRequest
      *
@@ -13864,7 +15050,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Specifies the status of an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     * Sets the status of a DNS record.
      *
      * @param request - SetDomainRecordStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13915,7 +15101,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Specifies the status of an Alibaba Cloud DNS (DNS) record based on the specified parameters.
+     * Sets the status of a DNS record.
      *
      * @param request - SetDomainRecordStatusRequest
      *
@@ -13933,7 +15119,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a policy for switchover between address pool sets.
+     * Modifies the address pool switchover policy based on the request parameters.
      *
      * @param request - SetGtmAccessModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13980,7 +15166,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a policy for switchover between address pool sets.
+     * Modifies the address pool switchover policy based on the request parameters.
      *
      * @param request - SetGtmAccessModeRequest
      *
@@ -13998,7 +15184,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+     * Sets the health check status of an address pool.
      *
      * @param request - SetGtmMonitorStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14045,7 +15231,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to enable health check for an address pool of a Global Traffic Manager (GTM) instance.
+     * Sets the health check status of an address pool.
      *
      * @param request - SetGtmMonitorStatusRequest
      *
@@ -14063,7 +15249,76 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 提交缓存刷新任务
+     * Submits Agent registration information.
+     *
+     * @param request - SubmitAtiAgentRegisterInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitAtiAgentRegisterInfoResponse
+     *
+     * @param SubmitAtiAgentRegisterInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitAtiAgentRegisterInfoResponse
+     */
+    public function submitAtiAgentRegisterInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentRegisterInfoId) {
+            @$query['AgentRegisterInfoId'] = $request->agentRegisterInfoId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->identityCsr) {
+            @$query['IdentityCsr'] = $request->identityCsr;
+        }
+
+        if (null !== $request->serverCertPem) {
+            @$query['ServerCertPem'] = $request->serverCertPem;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAtiAgentRegisterInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAtiAgentRegisterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits Agent registration information.
+     *
+     * @param request - SubmitAtiAgentRegisterInfoRequest
+     *
+     * @returns SubmitAtiAgentRegisterInfoResponse
+     *
+     * @param SubmitAtiAgentRegisterInfoRequest $request
+     *
+     * @return SubmitAtiAgentRegisterInfoResponse
+     */
+    public function submitAtiAgentRegisterInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAtiAgentRegisterInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a cache refresh task.
      *
      * @param request - SubmitIspFlushCacheTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14114,7 +15369,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 提交缓存刷新任务
+     * Submits a cache refresh task.
      *
      * @param request - SubmitIspFlushCacheTaskRequest
      *
@@ -14132,7 +15387,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the access policy type for a GTM instance.
+     * Switches the access strategy mode of an instance.
      *
      * @param request - SwitchDnsGtmInstanceStrategyModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14179,7 +15434,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Changes the access policy type for a GTM instance.
+     * Switches the access strategy mode of an instance.
      *
      * @param request - SwitchDnsGtmInstanceStrategyModeRequest
      *
@@ -14197,7 +15452,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds and modifies a tag for a resource.
+     * Adds or modifies tags for resources.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14248,7 +15503,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Adds and modifies a tag for a resource.
+     * Adds or modifies tags for resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -14266,7 +15521,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Transfers multiple domain names from the current account to another account at a time.
+     * Batch transfers DNS permissions for multiple domain names to a specified execution account.
      *
      * @param request - TransferDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14317,7 +15572,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Transfers multiple domain names from the current account to another account at a time.
+     * Batch transfers DNS permissions for multiple domain names to a specified execution account.
      *
      * @param request - TransferDomainRequest
      *
@@ -14335,11 +15590,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+     * Detaches domain names from a paid Alibaba Cloud DNS instance.
      *
      * @remarks
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-     * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+     * An instance with an ID that starts with \\`dns-\\` is a new version instance. New version instances support attaching multiple domain names. You can call an API operation to attach domain names directly to an instance. An error is returned if the number of domain names exceeds the instance limit.
+     * An instance with an ID that does not start with \\`dns-\\` is a legacy instance. Legacy instances support only one domain name. Therefore, if you call this operation for an instance that already has a domain name attached, the domain name is replaced.
      *
      * @param request - UnbindInstanceDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14386,11 +15641,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Unbinds one or more domain names from a paid Alibaba Cloud DNS instance based on the instance ID.
+     * Detaches domain names from a paid Alibaba Cloud DNS instance.
      *
      * @remarks
-     * A paid Alibaba Cloud DNS instance whose ID starts with dns is an instance of the new version. You can call an API operation to bind multiple domain names to the instance. If the upper limit is exceeded, an error message is returned.\\
-     * A paid Alibaba Cloud DNS instance whose ID does not start with dns is an instance of the old version. You can call an API operation to bind only one domain name to the instance. However, if the instance that you want to bind to the desired domain name is already bound to a domain name, you can call this operation to unbind the original domain name from the instance and then bind the desired domain name to the instance.
+     * An instance with an ID that starts with \\`dns-\\` is a new version instance. New version instances support attaching multiple domain names. You can call an API operation to attach domain names directly to an instance. An error is returned if the number of domain names exceeds the instance limit.
+     * An instance with an ID that does not start with \\`dns-\\` is a legacy instance. Legacy instances support only one domain name. Therefore, if you call this operation for an instance that already has a domain name attached, the domain name is replaced.
      *
      * @param request - UnbindInstanceDomainsRequest
      *
@@ -14481,7 +15736,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 修改 AppKey 状态
+     * Modify AppKey State.
      *
      * @param request - UpdateAppKeyStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14528,7 +15783,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 修改 AppKey 状态
+     * Modify AppKey State.
      *
      * @param request - UpdateAppKeyStateRequest
      *
@@ -14546,7 +15801,264 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the condition for determining the health status of a specified address.
+     * Updates the registration information of an Agent.
+     *
+     * @param tmpReq - UpdateAtiAgentRegisterInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAtiAgentRegisterInfoResponse
+     *
+     * @param UpdateAtiAgentRegisterInfoRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateAtiAgentRegisterInfoResponse
+     */
+    public function updateAtiAgentRegisterInfoWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateAtiAgentRegisterInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->endpoints) {
+            $request->endpointsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->endpoints, 'Endpoints', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->agentDescription) {
+            @$query['AgentDescription'] = $request->agentDescription;
+        }
+
+        if (null !== $request->agentDisplayName) {
+            @$query['AgentDisplayName'] = $request->agentDisplayName;
+        }
+
+        if (null !== $request->agentHost) {
+            @$query['AgentHost'] = $request->agentHost;
+        }
+
+        if (null !== $request->agentRegisterInfoId) {
+            @$query['AgentRegisterInfoId'] = $request->agentRegisterInfoId;
+        }
+
+        if (null !== $request->agentVersion) {
+            @$query['AgentVersion'] = $request->agentVersion;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->endpointsShrink) {
+            @$query['Endpoints'] = $request->endpointsShrink;
+        }
+
+        if (null !== $request->registrantId) {
+            @$query['RegistrantId'] = $request->registrantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAtiAgentRegisterInfo',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAtiAgentRegisterInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the registration information of an Agent.
+     *
+     * @param request - UpdateAtiAgentRegisterInfoRequest
+     *
+     * @returns UpdateAtiAgentRegisterInfoResponse
+     *
+     * @param UpdateAtiAgentRegisterInfoRequest $request
+     *
+     * @return UpdateAtiAgentRegisterInfoResponse
+     */
+    public function updateAtiAgentRegisterInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAtiAgentRegisterInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新告警设置.
+     *
+     * @param request - UpdateAtiAlertSettingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAtiAlertSettingsResponse
+     *
+     * @param UpdateAtiAlertSettingsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateAtiAlertSettingsResponse
+     */
+    public function updateAtiAlertSettingsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->alertConfig) {
+            @$query['AlertConfig'] = $request->alertConfig;
+        }
+
+        if (null !== $request->alertGroup) {
+            @$query['AlertGroup'] = $request->alertGroup;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAtiAlertSettings',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAtiAlertSettingsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新告警设置.
+     *
+     * @param request - UpdateAtiAlertSettingsRequest
+     *
+     * @returns UpdateAtiAlertSettingsResponse
+     *
+     * @param UpdateAtiAlertSettingsRequest $request
+     *
+     * @return UpdateAtiAlertSettingsResponse
+     */
+    public function updateAtiAlertSettings($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAtiAlertSettingsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies a registrant profile.
+     *
+     * @param request - UpdateAtiRegistrantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAtiRegistrantResponse
+     *
+     * @param UpdateAtiRegistrantRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateAtiRegistrantResponse
+     */
+    public function updateAtiRegistrantWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cc) {
+            @$query['Cc'] = $request->cc;
+        }
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->documentCode) {
+            @$query['DocumentCode'] = $request->documentCode;
+        }
+
+        if (null !== $request->documentImage) {
+            @$query['DocumentImage'] = $request->documentImage;
+        }
+
+        if (null !== $request->documentType) {
+            @$query['DocumentType'] = $request->documentType;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
+        }
+
+        if (null !== $request->registrantId) {
+            @$query['RegistrantId'] = $request->registrantId;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        if (null !== $request->street) {
+            @$query['Street'] = $request->street;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAtiRegistrant',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAtiRegistrantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies a registrant profile.
+     *
+     * @param request - UpdateAtiRegistrantRequest
+     *
+     * @returns UpdateAtiRegistrantResponse
+     *
+     * @param UpdateAtiRegistrantRequest $request
+     *
+     * @return UpdateAtiRegistrantResponse
+     */
+    public function updateAtiRegistrant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAtiRegistrantWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the basic configuration of a specified address, such as the address name, type, and value.
      *
      * @param tmpReq - UpdateCloudGtmAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14619,7 +16131,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the condition for determining the health status of a specified address.
+     * Modifies the basic configuration of a specified address, such as the address name, type, and value.
      *
      * @param request - UpdateCloudGtmAddressRequest
      *
@@ -14637,11 +16149,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an address.
+     * Updates the enabled status of an address.
      *
      * @remarks
-     *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
-     * *   If an address is **disabled** or the health status of the address is **Abnormal**, the availability status of the address is **Unavailable**.
+     * - The service status of an address is **active** if the address is **enabled** and its health check status is **Normal**.
+     * - The service status of an address is **unavailable** if the address is **disabled** or its health check status is **abnormal**.
      *
      * @param request - UpdateCloudGtmAddressEnableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14692,11 +16204,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an address.
+     * Updates the enabled status of an address.
      *
      * @remarks
-     *   If an address is **enabled** and the health status of the address is **Normal**, the availability status of the address is **Available**.
-     * *   If an address is **disabled** or the health status of the address is **Abnormal**, the availability status of the address is **Unavailable**.
+     * - The service status of an address is **active** if the address is **enabled** and its health check status is **Normal**.
+     * - The service status of an address is **unavailable** if the address is **disabled** or its health check status is **abnormal**.
      *
      * @param request - UpdateCloudGtmAddressEnableStatusRequest
      *
@@ -14714,7 +16226,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the failover mode that is used when address exceptions are identified.
+     * Updates the failover method for an address based on the specified parameters.
      *
      * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14769,7 +16281,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the failover mode that is used when address exceptions are identified.
+     * Updates the failover method for an address based on the specified parameters.
      *
      * @param request - UpdateCloudGtmAddressManualAvailableStatusRequest
      *
@@ -14787,7 +16299,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the basic configurations of an address pool.
+     * Modifies the basic configuration of an address pool.
      *
      * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14842,7 +16354,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the basic configurations of an address pool.
+     * Modifies the basic configuration of an address pool.
      *
      * @param request - UpdateCloudGtmAddressPoolBasicConfigRequest
      *
@@ -14860,11 +16372,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an address pool.
+     * Updates the enabled status of an address pool.
      *
      * @remarks
-     *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
-     * *   If an address pool is **disabled** or the health status of the address pool is **Abnormal**, the availability status of the address pool is **unavailable**.
+     * - An address pool is considered **active** if it is **enabled** and its health check status is **Normal**.
+     * - An address pool is considered **unavailable** if it is **disabled** or its health check status is **abnormal**.
      *
      * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14915,11 +16427,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the enabling status of an address pool.
+     * Updates the enabled status of an address pool.
      *
      * @remarks
-     *   If an address pool is **enabled** and the health status of the address pool is **Normal**, the availability status of the address pool is **Available**.
-     * *   If an address pool is **disabled** or the health status of the address pool is **Abnormal**, the availability status of the address pool is **unavailable**.
+     * - An address pool is considered **active** if it is **enabled** and its health check status is **Normal**.
+     * - An address pool is considered **unavailable** if it is **disabled** or its health check status is **abnormal**.
      *
      * @param request - UpdateCloudGtmAddressPoolEnableStatusRequest
      *
@@ -14937,7 +16449,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the load balancing policy of an address pool.
+     * Updates the load balancing policy of an address pool.
      *
      * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14992,7 +16504,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the load balancing policy of an address pool.
+     * Updates the load balancing policy of an address pool.
      *
      * @param request - UpdateCloudGtmAddressPoolLbStrategyRequest
      *
@@ -15010,7 +16522,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the remarks of an address pool.
+     * Updates the remarks of an address pool.
      *
      * @param request - UpdateCloudGtmAddressPoolRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15061,7 +16573,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the remarks of an address pool.
+     * Updates the remarks of an address pool.
      *
      * @param request - UpdateCloudGtmAddressPoolRemarkRequest
      *
@@ -15079,7 +16591,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the remarks of an address.
+     * Updates the remarks for an address in Global Traffic Manager (GTM) 3.0.
      *
      * @param request - UpdateCloudGtmAddressRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15130,7 +16642,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the remarks of an address.
+     * Updates the remarks for an address in Global Traffic Manager (GTM) 3.0.
      *
      * @param request - UpdateCloudGtmAddressRemarkRequest
      *
@@ -15314,7 +16826,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+     * Updates the global TTL configuration of a Global Traffic Manager (GTM) 3.0 instance based on the specified parameters.
      *
      * @param request - UpdateCloudGtmInstanceConfigBasicRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15377,7 +16889,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the global time-to-live (TTL) configuration of a GTM 3.0 instance.
+     * Updates the global TTL configuration of a Global Traffic Manager (GTM) 3.0 instance based on the specified parameters.
      *
      * @param request - UpdateCloudGtmInstanceConfigBasicRequest
      *
@@ -15395,11 +16907,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the enabling status of an access domain name based on the specified parameters.
+     * Updates the enablement status of an instance configuration based on the input parameters.
      *
      * @remarks
-     *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
-     * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+     * - If a domain name is **enabled** and its health status is **Normal**, the service associated with the access domain name is **active**.
+     * - If a domain name is **disabled** or its health status is **abnormal**, the service associated with the access domain name is **unavailable**.
      *
      * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15454,11 +16966,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the enabling status of an access domain name based on the specified parameters.
+     * Updates the enablement status of an instance configuration based on the input parameters.
      *
      * @remarks
-     *   If an access domain name is **enabled** and the health state is **normal**, the access domain name is deemed **available**.
-     * *   If an access domain name is **disabled** or the health state is **abnormal**, the access domain name is deemed **unavailable**.
+     * - If a domain name is **enabled** and its health status is **Normal**, the service associated with the access domain name is **active**.
+     * - If a domain name is **disabled** or its health status is **abnormal**, the service associated with the access domain name is **unavailable**.
      *
      * @param request - UpdateCloudGtmInstanceConfigEnableStatusRequest
      *
@@ -15476,7 +16988,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the load balancing policy of a GTM instance.
+     * Updates the load balancing policy for an instance configuration.
      *
      * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15535,7 +17047,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the load balancing policy of a GTM instance.
+     * Updates the load balancing policy for an instance configuration.
      *
      * @param request - UpdateCloudGtmInstanceConfigLbStrategyRequest
      *
@@ -15553,7 +17065,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the description of a GTM instance based on the specified parameters.
+     * Updates the remarks for an instance configuration.
      *
      * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15608,7 +17120,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the description of a GTM instance based on the specified parameters.
+     * Updates the remarks for an instance configuration.
      *
      * @param request - UpdateCloudGtmInstanceConfigRemarkRequest
      *
@@ -15691,7 +17203,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a health check template based on specified parameters.
+     * Updates the configuration of a health check template.
      *
      * @param tmpReq - UpdateCloudGtmMonitorTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15772,7 +17284,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a health check template based on specified parameters.
+     * Updates the configuration of a health check template.
      *
      * @param request - UpdateCloudGtmMonitorTemplateRequest
      *
@@ -15855,11 +17367,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a custom line with its unique ID.
+     * Updates a custom line specified by its unique ID.
      *
      * @remarks
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-     * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     * For each IP range, the value of EndIp must be greater than or equal to the value of StartIp.
+     * The IP ranges of IP ranges cannot overlap across all custom lines for a domain name.
      *
      * @param request - UpdateCustomLineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15910,11 +17422,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a custom line with its unique ID.
+     * Updates a custom line specified by its unique ID.
      *
      * @remarks
-     * In each CIDR block, the end IP address must be greater than or equal to the start IP address.\\
-     * The CIDR blocks that are specified for all custom lines of a domain name cannot be overlapped.
+     * For each IP range, the value of EndIp must be greater than or equal to the value of StartIp.
+     * The IP ranges of IP ranges cannot overlap across all custom lines for a domain name.
      *
      * @param request - UpdateCustomLineRequest
      *
@@ -15932,7 +17444,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+     * Modifies the weight of a DNS record based on the specified parameters.
      *
      * @param request - UpdateDNSSLBWeightRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15983,7 +17495,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the weight of a Domain Name System (DNS) record based on the specified parameters.
+     * Modifies the weight of a DNS record based on the specified parameters.
      *
      * @param request - UpdateDNSSLBWeightRequest
      *
@@ -16001,7 +17513,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the cache-accelerated domain name based on the specified parameters.
+     * Updates a DNS authoritative proxy domain.
      *
      * @param request - UpdateDnsCacheDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16068,7 +17580,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the cache-accelerated domain name based on the specified parameters.
+     * Updates a DNS authoritative proxy domain.
      *
      * @param request - UpdateDnsCacheDomainRequest
      *
@@ -16086,7 +17598,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the remarks for the cache-accelerated domain name of the destination domain name.
+     * Updates the remark for a domain name in the DNS cache.
      *
      * @param request - UpdateDnsCacheDomainRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16133,7 +17645,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Updates the remarks for the cache-accelerated domain name of the destination domain name.
+     * Updates the remark for a domain name in the DNS cache.
      *
      * @param request - UpdateDnsCacheDomainRemarkRequest
      *
@@ -16151,7 +17663,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an access policy.
+     * Updates an existing access policy.
      *
      * @param request - UpdateDnsGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16254,7 +17766,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an access policy.
+     * Updates an existing access policy.
      *
      * @param request - UpdateDnsGtmAccessStrategyRequest
      *
@@ -16272,7 +17784,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an address pool based on the specified parameters.
+     * Updates the configuration of an address pool.
      *
      * @param request - UpdateDnsGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16327,7 +17839,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies an address pool based on the specified parameters.
+     * Updates the configuration of an address pool.
      *
      * @param request - UpdateDnsGtmAddressPoolRequest
      *
@@ -16345,7 +17857,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
+     * Updates the configuration of a Global Traffic Manager (GTM) instance.
      *
      * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16428,7 +17940,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Global Traffic Manager (GTM) instance by instance ID.
+     * Updates the configuration of a Global Traffic Manager (GTM) instance.
      *
      * @param request - UpdateDnsGtmInstanceGlobalConfigRequest
      *
@@ -16446,7 +17958,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a health check task.
+     * Modifies a health check configuration.
      *
      * @param request - UpdateDnsGtmMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16513,7 +18025,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a health check task.
+     * Modifies a health check configuration.
      *
      * @param request - UpdateDnsGtmMonitorRequest
      *
@@ -16531,10 +18043,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a domain name group based on the specified parameters.
+     * Modifies the name of a domain name group.
      *
      * @remarks
-     * Modifies the name of an existing domain name group.
+     * This operation modifies the name of an existing domain name group.
      *
      * @param request - UpdateDomainGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16581,10 +18093,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a domain name group based on the specified parameters.
+     * Modifies the name of a domain name group.
      *
      * @remarks
-     * Modifies the name of an existing domain name group.
+     * This operation modifies the name of an existing domain name group.
      *
      * @param request - UpdateDomainGroupRequest
      *
@@ -16602,7 +18114,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a Domain Name System (DNS) record based on the specified parameters.
+     * Modifies a DNS record based on the specified parameters.
      *
      * @param request - UpdateDomainRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16673,7 +18185,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a Domain Name System (DNS) record based on the specified parameters.
+     * Modifies a DNS record based on the specified parameters.
      *
      * @param request - UpdateDomainRecordRequest
      *
@@ -16691,7 +18203,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+     * Updates the remarks of a DNS record.
      *
      * @param request - UpdateDomainRecordRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16742,7 +18254,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a Domain Name System (DNS) record based on the specified parameters.
+     * Updates the remarks of a DNS record.
      *
      * @param request - UpdateDomainRecordRemarkRequest
      *
@@ -16760,7 +18272,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a domain name based on the specified parameters.
+     * Updates the remarks for a domain name.
      *
      * @param request - UpdateDomainRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16807,7 +18319,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of a domain name based on the specified parameters.
+     * Updates the remarks for a domain name.
      *
      * @param request - UpdateDomainRemarkRequest
      *
@@ -16825,7 +18337,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+     * Updates an access policy.
      *
      * @param request - UpdateGtmAccessStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16884,7 +18396,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify the access policy of a Global Traffic Manager (GTM) instance.
+     * Updates an access policy.
      *
      * @param request - UpdateGtmAccessStrategyRequest
      *
@@ -16902,7 +18414,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+     * Modifies an address pool.
      *
      * @param request - UpdateGtmAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16961,7 +18473,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify an address pool of a Global Traffic Manager (GTM) instance.
+     * Modifies an address pool.
      *
      * @param request - UpdateGtmAddressPoolRequest
      *
@@ -16979,7 +18491,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+     * Updates the global configuration of a Global Traffic Manager (GTM) instance.
      *
      * @param request - UpdateGtmInstanceGlobalConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17050,7 +18562,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a Global Traffic Manager (GTM) instance based on the specified parameters.
+     * Updates the global configuration of a Global Traffic Manager (GTM) instance.
      *
      * @param request - UpdateGtmInstanceGlobalConfigRequest
      *
@@ -17068,7 +18580,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+     * Updates a health check configuration.
      *
      * @param request - UpdateGtmMonitorRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17135,7 +18647,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the health check configuration for an address pool of a Global Traffic Manager (GTM) instance.
+     * Updates a health check configuration.
      *
      * @param request - UpdateGtmMonitorRequest
      *
@@ -17153,7 +18665,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a disaster recovery plan.
+     * Updates a disaster recovery plan.
      *
      * @param request - UpdateGtmRecoveryPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17208,7 +18720,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies a disaster recovery plan.
+     * Updates a disaster recovery plan.
      *
      * @param request - UpdateGtmRecoveryPlanRequest
      *
@@ -17226,7 +18738,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 修改缓存刷新套餐包配置.
+     * Modifies the configuration of a cache refresh plan.
      *
      * @param request - UpdateIspFlushCacheInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17273,7 +18785,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 修改缓存刷新套餐包配置.
+     * Modifies the configuration of a cache refresh plan.
      *
      * @param request - UpdateIspFlushCacheInstanceConfigRequest
      *
@@ -17291,7 +18803,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies HTTPDNS resolution records.
+     * Modifies a built-in authoritative record for recursive resolution.
+     *
+     * @remarks
+     * If a DNS record is locked, it cannot be deleted.
      *
      * @param request - UpdateRecursionRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17362,7 +18877,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies HTTPDNS resolution records.
+     * Modifies a built-in authoritative record for recursive resolution.
+     *
+     * @remarks
+     * If a DNS record is locked, it cannot be deleted.
      *
      * @param request - UpdateRecursionRecordRequest
      *
@@ -17380,7 +18898,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the status of HTTPDNS authoritative DNS resolution records.
+     * Updates the enable status of a recursion record.
      *
      * @param request - UpdateRecursionRecordEnableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17427,7 +18945,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the status of HTTPDNS authoritative DNS resolution records.
+     * Updates the enable status of a recursion record.
      *
      * @param request - UpdateRecursionRecordEnableStatusRequest
      *
@@ -17445,7 +18963,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies description of HTTPDNS resolution records.
+     * Updates the remarks for a built-in authoritative record in HTTPDNS.
      *
      * @param request - UpdateRecursionRecordRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17492,7 +19010,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies description of HTTPDNS resolution records.
+     * Updates the remarks for a built-in authoritative record in HTTPDNS.
      *
      * @param request - UpdateRecursionRecordRemarkRequest
      *
@@ -17510,7 +19028,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies HTTPDNS authoritative DNS resolution record weights.
+     * Updates the weight of a DNS record for recursive resolution.
      *
      * @param request - UpdateRecursionRecordWeightRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17557,7 +19075,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies HTTPDNS authoritative DNS resolution record weights.
+     * Updates the weight of a DNS record for recursive resolution.
      *
      * @param request - UpdateRecursionRecordWeightRequest
      *
@@ -17575,7 +19093,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the status of weight algorithm of authoritative records.
+     * Updates the enabled status of the weight algorithm for a DNS record used for recursive resolution.
      *
      * @param request - UpdateRecursionRecordWeightEnableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17634,7 +19152,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the status of weight algorithm of authoritative records.
+     * Updates the enabled status of the weight algorithm for a DNS record used for recursive resolution.
      *
      * @param request - UpdateRecursionRecordWeightEnableStatusRequest
      *
@@ -17652,7 +19170,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the effective scope of HTTPDNS.
+     * Updates the effective scope of a built-in authoritative domain name zone in HTTPDNS.
      *
      * @param tmpReq - UpdateRecursionZoneEffectiveScopeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17705,7 +19223,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the effective scope of HTTPDNS.
+     * Updates the effective scope of a built-in authoritative domain name zone in HTTPDNS.
      *
      * @param request - UpdateRecursionZoneEffectiveScopeRequest
      *
@@ -17723,7 +19241,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modify the HTTPDNS recursive proxy mode.
+     * Modifies the recursive proxy mode for a zone.
+     *
+     * @remarks
+     * The end IP address of each IP segment must be greater than or equal to the start IP address.
+     * The IP address ranges of all IP segments for the domain name cannot overlap across custom lines.
      *
      * @param request - UpdateRecursionZoneProxyPatternRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17770,7 +19292,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modify the HTTPDNS recursive proxy mode.
+     * Modifies the recursive proxy mode for a zone.
+     *
+     * @remarks
+     * The end IP address of each IP segment must be greater than or equal to the start IP address.
+     * The IP address ranges of all IP segments for the domain name cannot overlap across custom lines.
      *
      * @param request - UpdateRecursionZoneProxyPatternRequest
      *
@@ -17788,7 +19314,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of HTTPDNS authoritative domain names.
+     * Modifies the remarks for a built-in authoritative domain name zone used for recursive resolution.
+     *
+     * @remarks
+     * The end IP address of each IP segment must be greater than or equal to the start IP address.
+     * For a domain name, the IP address ranges of all IP segments in all custom lines cannot overlap.
      *
      * @param request - UpdateRecursionZoneRemarkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17835,7 +19365,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * Modifies the description of HTTPDNS authoritative domain names.
+     * Modifies the remarks for a built-in authoritative domain name zone used for recursive resolution.
+     *
+     * @remarks
+     * The end IP address of each IP segment must be greater than or equal to the start IP address.
+     * For a domain name, the IP address ranges of all IP segments in all custom lines cannot overlap.
      *
      * @param request - UpdateRecursionZoneRemarkRequest
      *
@@ -17853,15 +19387,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于更新特定域名的状态信息。
+     * Updates the server-side status of a domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Request description
+     * - This operation updates the server-side status of a domain name.
      *
      * @param request - UpdateRspDomainServerProhibitStatusForGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17912,15 +19442,11 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于更新特定域名的状态信息。
+     * Updates the server-side status of a domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * ## Request description
+     * - This operation updates the server-side status of a domain name.
      *
      * @param request - UpdateRspDomainServerProhibitStatusForGatewayRequest
      *
@@ -17938,15 +19464,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于更新特定域名的状态信息。
+     * Updates the server-side status of a domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * This operation updates the server-side status of a domain name.
      *
      * @param request - UpdateRspDomainServerProhibitStatusForGatewayOteRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17997,15 +19518,10 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 用于更新特定域名的状态信息。
+     * Updates the server-side status of a domain name.
      *
      * @remarks
-     * ## 请求说明
-     * - 本接口专为注册局用户设计，允许他们更新指定顶级域名（TLD）的各种属性。
-     * - 必须提供`RegistryId`和`Tld`参数以标识要修改的具体TLD。
-     * - 可选参数包括但不限于宽限期设置、DNS解析缓存时间、价格设定等，这些都可根据需要进行调整。
-     * - 环境(`Env`)参数指定了API调用的目标环境，默认值为“DAILY”表示日常测试环境；正式上线前，请确保已正确设置此参数。
-     * - 某些时间戳字段如`SunriseStartTimeStamp`要求输入Unix时间戳格式的数据。
+     * This operation updates the server-side status of a domain name.
      *
      * @param request - UpdateRspDomainServerProhibitStatusForGatewayOteRequest
      *
@@ -18023,7 +19539,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 检查实例主机名是否可添加.
+     * Checks whether an instance hostname can be added.
      *
      * @param request - ValidateDnsGtmCnameRrCanUseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18082,7 +19598,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 检查实例主机名是否可添加.
+     * Checks whether an instance hostname can be added.
      *
      * @param request - ValidateDnsGtmCnameRrCanUseRequest
      *
@@ -18100,7 +19616,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 验证公共DNS Udp Ip地址段.
+     * Validates a UDP IP address segment for Public DNS.
      *
      * @param request - ValidatePdnsUdpIpSegmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18147,7 +19663,7 @@ class Alidns extends OpenApiClient
     }
 
     /**
-     * 验证公共DNS Udp Ip地址段.
+     * Validates a UDP IP address segment for Public DNS.
      *
      * @param request - ValidatePdnsUdpIpSegmentRequest
      *
@@ -18162,5 +19678,127 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->validatePdnsUdpIpSegmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Verifies DNS records.
+     *
+     * @param request - VerifyAtiAgentDnsRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyAtiAgentDnsRecordsResponse
+     *
+     * @param VerifyAtiAgentDnsRecordsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return VerifyAtiAgentDnsRecordsResponse
+     */
+    public function verifyAtiAgentDnsRecordsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentRegisterInfoId) {
+            @$query['AgentRegisterInfoId'] = $request->agentRegisterInfoId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyAtiAgentDnsRecords',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyAtiAgentDnsRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Verifies DNS records.
+     *
+     * @param request - VerifyAtiAgentDnsRecordsRequest
+     *
+     * @returns VerifyAtiAgentDnsRecordsResponse
+     *
+     * @param VerifyAtiAgentDnsRecordsRequest $request
+     *
+     * @return VerifyAtiAgentDnsRecordsResponse
+     */
+    public function verifyAtiAgentDnsRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyAtiAgentDnsRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 触发 ACME 预检
+     *
+     * @param request - VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse
+     *
+     * @param VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse
+     */
+    public function verifyAtiAgentRegisterInfoAcmeChallengeRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentRegisterInfoId) {
+            @$query['AgentRegisterInfoId'] = $request->agentRegisterInfoId;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'VerifyAtiAgentRegisterInfoAcmeChallengeRecord',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 触发 ACME 预检
+     *
+     * @param request - VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest
+     *
+     * @returns VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse
+     *
+     * @param VerifyAtiAgentRegisterInfoAcmeChallengeRecordRequest $request
+     *
+     * @return VerifyAtiAgentRegisterInfoAcmeChallengeRecordResponse
+     */
+    public function verifyAtiAgentRegisterInfoAcmeChallengeRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyAtiAgentRegisterInfoAcmeChallengeRecordWithOptions($request, $runtime);
     }
 }
