@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\SMQProxy\V20260409\Models\BatchReceiveMessageResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\SMQProxy\V20260409\Models\MessagesUserPropertiesValue;
 
 class messages extends Model
 {
@@ -59,7 +60,7 @@ class messages extends Model
     public $receiptHandle;
 
     /**
-     * @var string
+     * @var MessagesUserPropertiesValue[]
      */
     public $userProperties;
     protected $_name = [
@@ -78,6 +79,9 @@ class messages extends Model
 
     public function validate()
     {
+        if (\is_array($this->userProperties)) {
+            Model::validateArray($this->userProperties);
+        }
         parent::validate();
     }
 
@@ -125,7 +129,12 @@ class messages extends Model
         }
 
         if (null !== $this->userProperties) {
-            $res['UserProperties'] = $this->userProperties;
+            if (\is_array($this->userProperties)) {
+                $res['UserProperties'] = [];
+                foreach ($this->userProperties as $key1 => $value1) {
+                    $res['UserProperties'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
         }
 
         return $res;
@@ -180,7 +189,12 @@ class messages extends Model
         }
 
         if (isset($map['UserProperties'])) {
-            $model->userProperties = $map['UserProperties'];
+            if (!empty($map['UserProperties'])) {
+                $model->userProperties = [];
+                foreach ($map['UserProperties'] as $key1 => $value1) {
+                    $model->userProperties[$key1] = MessagesUserPropertiesValue::fromMap($value1);
+                }
+            }
         }
 
         return $model;

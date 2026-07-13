@@ -22,10 +22,16 @@ class PublishMessageRequest extends Model
     /**
      * @var string
      */
+    public $messageGroupId;
+
+    /**
+     * @var string
+     */
     public $messageTag;
     protected $_name = [
         'messageAttributes' => 'MessageAttributes',
         'messageBody' => 'MessageBody',
+        'messageGroupId' => 'MessageGroupId',
         'messageTag' => 'MessageTag',
     ];
 
@@ -46,6 +52,10 @@ class PublishMessageRequest extends Model
 
         if (null !== $this->messageBody) {
             $res['MessageBody'] = $this->messageBody;
+        }
+
+        if (null !== $this->messageGroupId) {
+            $res['MessageGroupId'] = $this->messageGroupId;
         }
 
         if (null !== $this->messageTag) {
@@ -69,6 +79,10 @@ class PublishMessageRequest extends Model
 
         if (isset($map['MessageBody'])) {
             $model->messageBody = $map['MessageBody'];
+        }
+
+        if (isset($map['MessageGroupId'])) {
+            $model->messageGroupId = $map['MessageGroupId'];
         }
 
         if (isset($map['MessageTag'])) {

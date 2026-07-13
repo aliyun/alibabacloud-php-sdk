@@ -59,7 +59,7 @@ class ReceiveMessageResponseBody extends Model
     public $receiptHandle;
 
     /**
-     * @var string
+     * @var UserPropertiesValue[]
      */
     public $userProperties;
     protected $_name = [
@@ -78,6 +78,9 @@ class ReceiveMessageResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->userProperties)) {
+            Model::validateArray($this->userProperties);
+        }
         parent::validate();
     }
 
@@ -125,7 +128,12 @@ class ReceiveMessageResponseBody extends Model
         }
 
         if (null !== $this->userProperties) {
-            $res['UserProperties'] = $this->userProperties;
+            if (\is_array($this->userProperties)) {
+                $res['UserProperties'] = [];
+                foreach ($this->userProperties as $key1 => $value1) {
+                    $res['UserProperties'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
         }
 
         return $res;
@@ -180,7 +188,12 @@ class ReceiveMessageResponseBody extends Model
         }
 
         if (isset($map['UserProperties'])) {
-            $model->userProperties = $map['UserProperties'];
+            if (!empty($map['UserProperties'])) {
+                $model->userProperties = [];
+                foreach ($map['UserProperties'] as $key1 => $value1) {
+                    $model->userProperties[$key1] = UserPropertiesValue::fromMap($value1);
+                }
+            }
         }
 
         return $model;
