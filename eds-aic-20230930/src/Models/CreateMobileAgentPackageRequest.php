@@ -31,6 +31,11 @@ class CreateMobileAgentPackageRequest extends Model
     /**
      * @var string
      */
+    public $channelCookie;
+
+    /**
+     * @var string
+     */
     public $creditAmount;
 
     /**
@@ -82,6 +87,7 @@ class CreateMobileAgentPackageRequest extends Model
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
         'bizRegionId' => 'BizRegionId',
+        'channelCookie' => 'ChannelCookie',
         'creditAmount' => 'CreditAmount',
         'creditConfig' => 'CreditConfig',
         'imageId' => 'ImageId',
@@ -116,6 +122,10 @@ class CreateMobileAgentPackageRequest extends Model
 
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
+        }
+
+        if (null !== $this->channelCookie) {
+            $res['ChannelCookie'] = $this->channelCookie;
         }
 
         if (null !== $this->creditAmount) {
@@ -183,6 +193,10 @@ class CreateMobileAgentPackageRequest extends Model
 
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
+        }
+
+        if (isset($map['ChannelCookie'])) {
+            $model->channelCookie = $map['ChannelCookie'];
         }
 
         if (isset($map['CreditAmount'])) {

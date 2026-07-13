@@ -1082,14 +1082,13 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Create pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can group instances with similar functions into an instance group to manage them as a single unit.
+     * Creates pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can organize instances with the same functional purpose into the same instance group for unified management.
      *
      * @remarks
-     * <props="china">
-     * Before you create a cloud phone instance group, you must complete identity verification. For more information, see [Individual identity verification](https://help.aliyun.com/document_detail/48263.html).
-     * Note that creating a cloud phone instance group incurs charges. Before you proceed, make sure that you understand the [billing method](https://help.aliyun.com/document_detail/2807121.html).
-     * - If the billing method for the instance group is subscription (PrePaid), AutoPay is set to false by default. After you call the API, go to <props="china">[Alibaba Cloud Expenses and Costs](https://usercenter2.aliyun.com/order/list)<props="intl">[Alibaba Cloud Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually pay for the order.
-     * - To enable automatic payments, set AutoPay to true.
+     * <props="china">Before creating a cloud phone instance group, complete real-name verification. For more information, see [verify your identity - Individual account](https://help.aliyun.com/document_detail/48263.html).
+     * When you create a cloud phone instance group, note that creating an instance group incurs resource charges. Familiarize yourself with the [billable methods](https://help.aliyun.com/document_detail/2807121.html) of cloud phone instance groups in advance.
+     *   - If the billing method of the instance group is subscription (PrePaid), the default value of AutoPay is false. After you invoke this operation, go to <props="china">[Expenses and Costs](https://usercenter2.aliyun.com/order/list)<props="intl">[Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually pay for the order.
+     *  - If you want to enable automatic payment, set AutoPay to true.
      *
      * @param tmpReq - CreateAndroidInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1133,6 +1132,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->bizRegionId) {
             @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->channelCookie) {
+            @$query['ChannelCookie'] = $request->channelCookie;
         }
 
         if (null !== $request->chargeType) {
@@ -1246,14 +1249,13 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Create pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can group instances with similar functions into an instance group to manage them as a single unit.
+     * Creates pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can organize instances with the same functional purpose into the same instance group for unified management.
      *
      * @remarks
-     * <props="china">
-     * Before you create a cloud phone instance group, you must complete identity verification. For more information, see [Individual identity verification](https://help.aliyun.com/document_detail/48263.html).
-     * Note that creating a cloud phone instance group incurs charges. Before you proceed, make sure that you understand the [billing method](https://help.aliyun.com/document_detail/2807121.html).
-     * - If the billing method for the instance group is subscription (PrePaid), AutoPay is set to false by default. After you call the API, go to <props="china">[Alibaba Cloud Expenses and Costs](https://usercenter2.aliyun.com/order/list)<props="intl">[Alibaba Cloud Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually pay for the order.
-     * - To enable automatic payments, set AutoPay to true.
+     * <props="china">Before creating a cloud phone instance group, complete real-name verification. For more information, see [verify your identity - Individual account](https://help.aliyun.com/document_detail/48263.html).
+     * When you create a cloud phone instance group, note that creating an instance group incurs resource charges. Familiarize yourself with the [billable methods](https://help.aliyun.com/document_detail/2807121.html) of cloud phone instance groups in advance.
+     *   - If the billing method of the instance group is subscription (PrePaid), the default value of AutoPay is false. After you invoke this operation, go to <props="china">[Expenses and Costs](https://usercenter2.aliyun.com/order/list)<props="intl">[Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually pay for the order.
+     *  - If you want to enable automatic payment, set AutoPay to true.
      *
      * @param request - CreateAndroidInstanceGroupRequest
      *
@@ -1396,7 +1398,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * In Cloud Phone, a matrix is a logical resource management unit that represents a physical server instance. Creating a matrix provisions a physical server, which you can then partition into multiple independent Cloud Phone instances. These instances share the compute, storage, and network resources of the matrix. The matrix configuration determines how many instances you can create.
+     * Creates a cloud phone matrix.
+     * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances varies based on the configuration.
      *
      * @param tmpReq - CreateCloudPhoneNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1440,6 +1443,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->bizRegionId) {
             @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->channelCookie) {
+            @$query['ChannelCookie'] = $request->channelCookie;
         }
 
         if (null !== $request->chargeType) {
@@ -1571,7 +1578,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * In Cloud Phone, a matrix is a logical resource management unit that represents a physical server instance. Creating a matrix provisions a physical server, which you can then partition into multiple independent Cloud Phone instances. These instances share the compute, storage, and network resources of the matrix. The matrix configuration determines how many instances you can create.
+     * Creates a cloud phone matrix.
+     * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances varies based on the configuration.
      *
      * @param request - CreateCloudPhoneNodeRequest
      *
@@ -1589,10 +1597,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Creates an order for a credit package.
+     * Purchases a credit booster pack.
      *
      * @remarks
-     * This is a billable operation. Before calling this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/zh/ecp/jvs-mobile-billing-instructions?spm=a2c4g.11186623.help-menu-254658.d_0_1_1.78bc5732j49PWP) of Wuying Cloud Phone.
+     * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
      *
      * @param request - CreateCreditPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1612,8 +1620,16 @@ class Edsaic extends OpenApiClient
             @$query['AutoPay'] = $request->autoPay;
         }
 
+        if (null !== $request->channelCookie) {
+            @$query['ChannelCookie'] = $request->channelCookie;
+        }
+
         if (null !== $request->creditAmount) {
             @$query['CreditAmount'] = $request->creditAmount;
+        }
+
+        if (null !== $request->packageAmount) {
+            @$query['PackageAmount'] = $request->packageAmount;
         }
 
         if (null !== $request->period) {
@@ -1647,10 +1663,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Creates an order for a credit package.
+     * Purchases a credit booster pack.
      *
      * @remarks
-     * This is a billable operation. Before calling this operation, ensure that you understand the [billing methods and pricing](https://help.aliyun.com/zh/ecp/jvs-mobile-billing-instructions?spm=a2c4g.11186623.help-menu-254658.d_0_1_1.78bc5732j49PWP) of Wuying Cloud Phone.
+     * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
      *
      * @param request - CreateCreditPackageRequest
      *
@@ -1897,10 +1913,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Places an order for a package.
+     * Purchases a resource plan.
      *
      * @remarks
-     * This is a billable operation. Before you call this operation, review the [billing methods and pricing](https://help.aliyun.com/zh/ecp/jvs-mobile-billing-instructions?spm=a2c4g.11174283.help-menu-254658.d_0_1_1.23695732Cpmwbs) of Wuying Cloud Phone.
+     * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
      *
      * @param request - CreateMobileAgentPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1930,6 +1946,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->bizRegionId) {
             @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->channelCookie) {
+            @$query['ChannelCookie'] = $request->channelCookie;
         }
 
         if (null !== $request->creditAmount) {
@@ -1991,10 +2011,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Places an order for a package.
+     * Purchases a resource plan.
      *
      * @remarks
-     * This is a billable operation. Before you call this operation, review the [billing methods and pricing](https://help.aliyun.com/zh/ecp/jvs-mobile-billing-instructions?spm=a2c4g.11174283.help-menu-254658.d_0_1_1.23695732Cpmwbs) of Wuying Cloud Phone.
+     * This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
      *
      * @param request - CreateMobileAgentPackageRequest
      *
@@ -2828,7 +2848,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves details of specified Agent Tasks.
+     * Queries information about Agent Tasks.
      *
      * @param request - DescribeAgentTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2867,7 +2887,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves details of specified Agent Tasks.
+     * Queries information about Agent Tasks.
      *
      * @param request - DescribeAgentTaskRequest
      *
@@ -3574,7 +3594,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of one or more credit packages.
+     * Queries credit booster packages.
      *
      * @param request - DescribeCreditPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3617,7 +3637,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of one or more credit packages.
+     * Queries credit booster packages.
      *
      * @param request - DescribeCreditPackageRequest
      *
@@ -7681,7 +7701,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Resumes paused agent automation tasks on a mobile instance.
+     * Resumes an automated Agent task that is running on a Mobile node.
      *
      * @param request - ResumeAgentTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7701,8 +7721,16 @@ class Edsaic extends OpenApiClient
             @$query['AdditionalPrompt'] = $request->additionalPrompt;
         }
 
+        if (null !== $request->clarificationAnswers) {
+            @$query['ClarificationAnswers'] = $request->clarificationAnswers;
+        }
+
         if (null !== $request->taskIds) {
             @$query['TaskIds'] = $request->taskIds;
+        }
+
+        if (null !== $request->toolCallId) {
+            @$query['ToolCallId'] = $request->toolCallId;
         }
 
         $req = new OpenApiRequest([
@@ -7724,7 +7752,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Resumes paused agent automation tasks on a mobile instance.
+     * Resumes an automated Agent task that is running on a Mobile node.
      *
      * @param request - ResumeAgentTaskRequest
      *

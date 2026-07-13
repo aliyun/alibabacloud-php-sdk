@@ -14,6 +14,11 @@ class CreateCreditPackageResponseBody extends Model
     public $creditPackageId;
 
     /**
+     * @var string[]
+     */
+    public $creditPackageIds;
+
+    /**
      * @var string
      */
     public $effectiveTime;
@@ -34,6 +39,7 @@ class CreateCreditPackageResponseBody extends Model
     public $requestId;
     protected $_name = [
         'creditPackageId' => 'CreditPackageId',
+        'creditPackageIds' => 'CreditPackageIds',
         'effectiveTime' => 'EffectiveTime',
         'expiredTime' => 'ExpiredTime',
         'orderId' => 'OrderId',
@@ -42,6 +48,9 @@ class CreateCreditPackageResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->creditPackageIds)) {
+            Model::validateArray($this->creditPackageIds);
+        }
         parent::validate();
     }
 
@@ -50,6 +59,17 @@ class CreateCreditPackageResponseBody extends Model
         $res = [];
         if (null !== $this->creditPackageId) {
             $res['CreditPackageId'] = $this->creditPackageId;
+        }
+
+        if (null !== $this->creditPackageIds) {
+            if (\is_array($this->creditPackageIds)) {
+                $res['CreditPackageIds'] = [];
+                $n1 = 0;
+                foreach ($this->creditPackageIds as $item1) {
+                    $res['CreditPackageIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->effectiveTime) {
@@ -81,6 +101,17 @@ class CreateCreditPackageResponseBody extends Model
         $model = new self();
         if (isset($map['CreditPackageId'])) {
             $model->creditPackageId = $map['CreditPackageId'];
+        }
+
+        if (isset($map['CreditPackageIds'])) {
+            if (!empty($map['CreditPackageIds'])) {
+                $model->creditPackageIds = [];
+                $n1 = 0;
+                foreach ($map['CreditPackageIds'] as $item1) {
+                    $model->creditPackageIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['EffectiveTime'])) {

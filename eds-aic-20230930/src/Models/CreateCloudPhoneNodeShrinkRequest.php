@@ -37,6 +37,11 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $channelCookie;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -174,6 +179,7 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
         'bandwidthPackageId' => 'BandwidthPackageId',
         'bandwidthPackageType' => 'BandwidthPackageType',
         'bizRegionId' => 'BizRegionId',
+        'channelCookie' => 'ChannelCookie',
         'chargeType' => 'ChargeType',
         'count' => 'Count',
         'displayConfigShrink' => 'DisplayConfig',
@@ -232,6 +238,10 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
 
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
+        }
+
+        if (null !== $this->channelCookie) {
+            $res['ChannelCookie'] = $this->channelCookie;
         }
 
         if (null !== $this->chargeType) {
@@ -378,6 +388,10 @@ class CreateCloudPhoneNodeShrinkRequest extends Model
 
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
+        }
+
+        if (isset($map['ChannelCookie'])) {
+            $model->channelCookie = $map['ChannelCookie'];
         }
 
         if (isset($map['ChargeType'])) {

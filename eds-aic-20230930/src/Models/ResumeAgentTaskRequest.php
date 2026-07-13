@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ResumeAgentTaskRequest\clarificationAnswers;
 
 class ResumeAgentTaskRequest extends Model
 {
@@ -14,16 +15,31 @@ class ResumeAgentTaskRequest extends Model
     public $additionalPrompt;
 
     /**
+     * @var clarificationAnswers[]
+     */
+    public $clarificationAnswers;
+
+    /**
      * @var string[]
      */
     public $taskIds;
+
+    /**
+     * @var string
+     */
+    public $toolCallId;
     protected $_name = [
         'additionalPrompt' => 'AdditionalPrompt',
+        'clarificationAnswers' => 'ClarificationAnswers',
         'taskIds' => 'TaskIds',
+        'toolCallId' => 'ToolCallId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->clarificationAnswers)) {
+            Model::validateArray($this->clarificationAnswers);
+        }
         if (\is_array($this->taskIds)) {
             Model::validateArray($this->taskIds);
         }
@@ -37,6 +53,17 @@ class ResumeAgentTaskRequest extends Model
             $res['AdditionalPrompt'] = $this->additionalPrompt;
         }
 
+        if (null !== $this->clarificationAnswers) {
+            if (\is_array($this->clarificationAnswers)) {
+                $res['ClarificationAnswers'] = [];
+                $n1 = 0;
+                foreach ($this->clarificationAnswers as $item1) {
+                    $res['ClarificationAnswers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->taskIds) {
             if (\is_array($this->taskIds)) {
                 $res['TaskIds'] = [];
@@ -46,6 +73,10 @@ class ResumeAgentTaskRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->toolCallId) {
+            $res['ToolCallId'] = $this->toolCallId;
         }
 
         return $res;
@@ -63,6 +94,17 @@ class ResumeAgentTaskRequest extends Model
             $model->additionalPrompt = $map['AdditionalPrompt'];
         }
 
+        if (isset($map['ClarificationAnswers'])) {
+            if (!empty($map['ClarificationAnswers'])) {
+                $model->clarificationAnswers = [];
+                $n1 = 0;
+                foreach ($map['ClarificationAnswers'] as $item1) {
+                    $model->clarificationAnswers[$n1] = clarificationAnswers::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['TaskIds'])) {
             if (!empty($map['TaskIds'])) {
                 $model->taskIds = [];
@@ -72,6 +114,10 @@ class ResumeAgentTaskRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ToolCallId'])) {
+            $model->toolCallId = $map['ToolCallId'];
         }
 
         return $model;

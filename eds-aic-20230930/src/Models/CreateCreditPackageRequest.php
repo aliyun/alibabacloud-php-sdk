@@ -16,7 +16,17 @@ class CreateCreditPackageRequest extends Model
     /**
      * @var string
      */
+    public $channelCookie;
+
+    /**
+     * @var string
+     */
     public $creditAmount;
+
+    /**
+     * @var string
+     */
+    public $packageAmount;
 
     /**
      * @var int
@@ -34,7 +44,9 @@ class CreateCreditPackageRequest extends Model
     public $promotionId;
     protected $_name = [
         'autoPay' => 'AutoPay',
+        'channelCookie' => 'ChannelCookie',
         'creditAmount' => 'CreditAmount',
+        'packageAmount' => 'PackageAmount',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'promotionId' => 'PromotionId',
@@ -52,8 +64,16 @@ class CreateCreditPackageRequest extends Model
             $res['AutoPay'] = $this->autoPay;
         }
 
+        if (null !== $this->channelCookie) {
+            $res['ChannelCookie'] = $this->channelCookie;
+        }
+
         if (null !== $this->creditAmount) {
             $res['CreditAmount'] = $this->creditAmount;
+        }
+
+        if (null !== $this->packageAmount) {
+            $res['PackageAmount'] = $this->packageAmount;
         }
 
         if (null !== $this->period) {
@@ -83,8 +103,16 @@ class CreateCreditPackageRequest extends Model
             $model->autoPay = $map['AutoPay'];
         }
 
+        if (isset($map['ChannelCookie'])) {
+            $model->channelCookie = $map['ChannelCookie'];
+        }
+
         if (isset($map['CreditAmount'])) {
             $model->creditAmount = $map['CreditAmount'];
+        }
+
+        if (isset($map['PackageAmount'])) {
+            $model->packageAmount = $map['PackageAmount'];
         }
 
         if (isset($map['Period'])) {

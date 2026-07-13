@@ -16,6 +16,11 @@ class creditsPackageInfos extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $creditPackageId;
 
     /**
@@ -44,6 +49,7 @@ class creditsPackageInfos extends Model
     public $totalCredits;
     protected $_name = [
         'availableCredits' => 'AvailableCredits',
+        'createTime' => 'CreateTime',
         'creditPackageId' => 'CreditPackageId',
         'creditPackageStatus' => 'CreditPackageStatus',
         'effectiveTime' => 'EffectiveTime',
@@ -62,6 +68,10 @@ class creditsPackageInfos extends Model
         $res = [];
         if (null !== $this->availableCredits) {
             $res['AvailableCredits'] = $this->availableCredits;
+        }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
 
         if (null !== $this->creditPackageId) {
@@ -101,6 +111,10 @@ class creditsPackageInfos extends Model
         $model = new self();
         if (isset($map['AvailableCredits'])) {
             $model->availableCredits = $map['AvailableCredits'];
+        }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
 
         if (isset($map['CreditPackageId'])) {

@@ -43,6 +43,11 @@ class CreateAndroidInstanceGroupRequest extends Model
     /**
      * @var string
      */
+    public $channelCookie;
+
+    /**
+     * @var string
+     */
     public $chargeType;
 
     /**
@@ -161,6 +166,7 @@ class CreateAndroidInstanceGroupRequest extends Model
         'bandwidthPackageId' => 'BandwidthPackageId',
         'bandwidthPackageType' => 'BandwidthPackageType',
         'bizRegionId' => 'BizRegionId',
+        'channelCookie' => 'ChannelCookie',
         'chargeType' => 'ChargeType',
         'clientToken' => 'ClientToken',
         'enableIpv6' => 'EnableIpv6',
@@ -222,6 +228,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
+        }
+
+        if (null !== $this->channelCookie) {
+            $res['ChannelCookie'] = $this->channelCookie;
         }
 
         if (null !== $this->chargeType) {
@@ -356,6 +366,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
+        }
+
+        if (isset($map['ChannelCookie'])) {
+            $model->channelCookie = $map['ChannelCookie'];
         }
 
         if (isset($map['ChargeType'])) {

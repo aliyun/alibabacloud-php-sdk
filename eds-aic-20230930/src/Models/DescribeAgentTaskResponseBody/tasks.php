@@ -16,7 +16,17 @@ class tasks extends Model
     /**
      * @var string
      */
+    public $digestSource;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $reason;
 
     /**
      * @var string
@@ -27,6 +37,11 @@ class tasks extends Model
      * @var string
      */
     public $steps;
+
+    /**
+     * @var string
+     */
+    public $taskDigest;
 
     /**
      * @var string
@@ -49,9 +64,12 @@ class tasks extends Model
     public $userPrompt;
     protected $_name = [
         'currentStatus' => 'CurrentStatus',
+        'digestSource' => 'DigestSource',
         'instanceId' => 'InstanceId',
+        'reason' => 'Reason',
         'runningAt' => 'RunningAt',
         'steps' => 'Steps',
+        'taskDigest' => 'TaskDigest',
         'taskDuration' => 'TaskDuration',
         'taskId' => 'TaskId',
         'taskResult' => 'TaskResult',
@@ -70,8 +88,16 @@ class tasks extends Model
             $res['CurrentStatus'] = $this->currentStatus;
         }
 
+        if (null !== $this->digestSource) {
+            $res['DigestSource'] = $this->digestSource;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
 
         if (null !== $this->runningAt) {
@@ -80,6 +106,10 @@ class tasks extends Model
 
         if (null !== $this->steps) {
             $res['Steps'] = $this->steps;
+        }
+
+        if (null !== $this->taskDigest) {
+            $res['TaskDigest'] = $this->taskDigest;
         }
 
         if (null !== $this->taskDuration) {
@@ -113,8 +143,16 @@ class tasks extends Model
             $model->currentStatus = $map['CurrentStatus'];
         }
 
+        if (isset($map['DigestSource'])) {
+            $model->digestSource = $map['DigestSource'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
 
         if (isset($map['RunningAt'])) {
@@ -123,6 +161,10 @@ class tasks extends Model
 
         if (isset($map['Steps'])) {
             $model->steps = $map['Steps'];
+        }
+
+        if (isset($map['TaskDigest'])) {
+            $model->taskDigest = $map['TaskDigest'];
         }
 
         if (isset($map['TaskDuration'])) {
