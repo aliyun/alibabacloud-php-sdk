@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BDRC\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableCheckResourceResponseBody extends Model
 {
     /**
-     * @example 86DEBAC9-AB6A-59AB-9E5C-A540E579ECC9
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class DisableCheckResourceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DisableCheckResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableCheckResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

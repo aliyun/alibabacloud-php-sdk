@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BDRC\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloseBdrcServiceResponseBody extends Model
 {
     /**
-     * @example 663D8898-E0B5-5964-BF28-A191CE6A1825
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class CloseBdrcServiceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class CloseBdrcServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseBdrcServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

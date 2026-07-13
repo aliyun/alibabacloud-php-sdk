@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeProductsResponseBody\data\content;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeProductsResponseBody\data\content\protectionScoreDistribution\range;
-use AlibabaCloud\Tea\Model;
 
 class protectionScoreDistribution extends Model
 {
     /**
-     * @example 5
-     *
      * @var int
      */
     public $count;
@@ -27,32 +25,38 @@ class protectionScoreDistribution extends Model
 
     public function validate()
     {
+        if (null !== $this->range) {
+            $this->range->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->range) {
-            $res['Range'] = null !== $this->range ? $this->range->toMap() : null;
+            $res['Range'] = null !== $this->range ? $this->range->toArray($noStream) : $this->range;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return protectionScoreDistribution
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Range'])) {
             $model->range = range::fromMap($map['Range']);
         }

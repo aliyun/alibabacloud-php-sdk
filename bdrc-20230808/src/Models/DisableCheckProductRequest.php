@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\BDRC\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableCheckProductRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $productType;
@@ -22,9 +18,10 @@ class DisableCheckProductRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productType) {
@@ -34,11 +31,11 @@ class DisableCheckProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableCheckProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

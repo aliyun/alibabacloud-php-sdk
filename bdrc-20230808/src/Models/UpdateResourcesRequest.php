@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BDRC\V20230808\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateResourcesRequest extends Model
 {
     /**
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $resourceType;
@@ -20,9 +18,10 @@ class UpdateResourcesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceType) {
@@ -32,11 +31,11 @@ class UpdateResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

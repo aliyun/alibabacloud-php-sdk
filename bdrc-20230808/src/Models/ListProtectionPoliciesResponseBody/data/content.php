@@ -1,0 +1,185 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\BDRC\V20230808\Models\ListProtectionPoliciesResponseBody\data;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\ListProtectionPoliciesResponseBody\data\content\latestApplySummary;
+use AlibabaCloud\SDK\BDRC\V20230808\Models\ListProtectionPoliciesResponseBody\data\content\subProtectionPolicies;
+
+class content extends Model
+{
+    /**
+     * @var string[]
+     */
+    public $boundResourceCategoryIds;
+
+    /**
+     * @var latestApplySummary
+     */
+    public $latestApplySummary;
+
+    /**
+     * @var int
+     */
+    public $latestApplyTime;
+
+    /**
+     * @var string
+     */
+    public $latestTaskId;
+
+    /**
+     * @var string
+     */
+    public $protectionPolicyId;
+
+    /**
+     * @var string
+     */
+    public $protectionPolicyName;
+
+    /**
+     * @var string
+     */
+    public $protectionPolicyRegionId;
+
+    /**
+     * @var subProtectionPolicies[]
+     */
+    public $subProtectionPolicies;
+    protected $_name = [
+        'boundResourceCategoryIds' => 'BoundResourceCategoryIds',
+        'latestApplySummary' => 'LatestApplySummary',
+        'latestApplyTime' => 'LatestApplyTime',
+        'latestTaskId' => 'LatestTaskId',
+        'protectionPolicyId' => 'ProtectionPolicyId',
+        'protectionPolicyName' => 'ProtectionPolicyName',
+        'protectionPolicyRegionId' => 'ProtectionPolicyRegionId',
+        'subProtectionPolicies' => 'SubProtectionPolicies',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->boundResourceCategoryIds)) {
+            Model::validateArray($this->boundResourceCategoryIds);
+        }
+        if (null !== $this->latestApplySummary) {
+            $this->latestApplySummary->validate();
+        }
+        if (\is_array($this->subProtectionPolicies)) {
+            Model::validateArray($this->subProtectionPolicies);
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->boundResourceCategoryIds) {
+            if (\is_array($this->boundResourceCategoryIds)) {
+                $res['BoundResourceCategoryIds'] = [];
+                $n1 = 0;
+                foreach ($this->boundResourceCategoryIds as $item1) {
+                    $res['BoundResourceCategoryIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->latestApplySummary) {
+            $res['LatestApplySummary'] = null !== $this->latestApplySummary ? $this->latestApplySummary->toArray($noStream) : $this->latestApplySummary;
+        }
+
+        if (null !== $this->latestApplyTime) {
+            $res['LatestApplyTime'] = $this->latestApplyTime;
+        }
+
+        if (null !== $this->latestTaskId) {
+            $res['LatestTaskId'] = $this->latestTaskId;
+        }
+
+        if (null !== $this->protectionPolicyId) {
+            $res['ProtectionPolicyId'] = $this->protectionPolicyId;
+        }
+
+        if (null !== $this->protectionPolicyName) {
+            $res['ProtectionPolicyName'] = $this->protectionPolicyName;
+        }
+
+        if (null !== $this->protectionPolicyRegionId) {
+            $res['ProtectionPolicyRegionId'] = $this->protectionPolicyRegionId;
+        }
+
+        if (null !== $this->subProtectionPolicies) {
+            if (\is_array($this->subProtectionPolicies)) {
+                $res['SubProtectionPolicies'] = [];
+                $n1 = 0;
+                foreach ($this->subProtectionPolicies as $item1) {
+                    $res['SubProtectionPolicies'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['BoundResourceCategoryIds'])) {
+            if (!empty($map['BoundResourceCategoryIds'])) {
+                $model->boundResourceCategoryIds = [];
+                $n1 = 0;
+                foreach ($map['BoundResourceCategoryIds'] as $item1) {
+                    $model->boundResourceCategoryIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['LatestApplySummary'])) {
+            $model->latestApplySummary = latestApplySummary::fromMap($map['LatestApplySummary']);
+        }
+
+        if (isset($map['LatestApplyTime'])) {
+            $model->latestApplyTime = $map['LatestApplyTime'];
+        }
+
+        if (isset($map['LatestTaskId'])) {
+            $model->latestTaskId = $map['LatestTaskId'];
+        }
+
+        if (isset($map['ProtectionPolicyId'])) {
+            $model->protectionPolicyId = $map['ProtectionPolicyId'];
+        }
+
+        if (isset($map['ProtectionPolicyName'])) {
+            $model->protectionPolicyName = $map['ProtectionPolicyName'];
+        }
+
+        if (isset($map['ProtectionPolicyRegionId'])) {
+            $model->protectionPolicyRegionId = $map['ProtectionPolicyRegionId'];
+        }
+
+        if (isset($map['SubProtectionPolicies'])) {
+            if (!empty($map['SubProtectionPolicies'])) {
+                $model->subProtectionPolicies = [];
+                $n1 = 0;
+                foreach ($map['SubProtectionPolicies'] as $item1) {
+                    $model->subProtectionPolicies[$n1] = subProtectionPolicies::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        return $model;
+    }
+}

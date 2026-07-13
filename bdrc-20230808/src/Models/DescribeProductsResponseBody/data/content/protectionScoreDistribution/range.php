@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\BDRC\V20230808\Models\DescribeProductsResponseBody\data\content\protectionScoreDistribution;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class range extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $from;
 
     /**
-     * @example 60
-     *
      * @var int
      */
     public $to;
     protected $_name = [
         'from' => 'From',
-        'to'   => 'To',
+        'to' => 'To',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
@@ -43,17 +41,18 @@ class range extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return range
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }
