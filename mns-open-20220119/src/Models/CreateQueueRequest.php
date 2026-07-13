@@ -27,6 +27,16 @@ class CreateQueueRequest extends Model
     public $enableLogging;
 
     /**
+     * @var bool
+     */
+    public $enableSSE;
+
+    /**
+     * @var string
+     */
+    public $kmsKeyId;
+
+    /**
      * @var int
      */
     public $maximumMessageSize;
@@ -52,6 +62,16 @@ class CreateQueueRequest extends Model
     public $queueType;
 
     /**
+     * @var string
+     */
+    public $sseAlgorithm;
+
+    /**
+     * @var string
+     */
+    public $sseType;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -69,11 +89,15 @@ class CreateQueueRequest extends Model
         'delaySeconds' => 'DelaySeconds',
         'dlqPolicy' => 'DlqPolicy',
         'enableLogging' => 'EnableLogging',
+        'enableSSE' => 'EnableSSE',
+        'kmsKeyId' => 'KmsKeyId',
         'maximumMessageSize' => 'MaximumMessageSize',
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
         'pollingWaitSeconds' => 'PollingWaitSeconds',
         'queueName' => 'QueueName',
         'queueType' => 'QueueType',
+        'sseAlgorithm' => 'SseAlgorithm',
+        'sseType' => 'SseType',
         'tag' => 'Tag',
         'tenantRateLimitPolicy' => 'TenantRateLimitPolicy',
         'visibilityTimeout' => 'VisibilityTimeout',
@@ -108,6 +132,14 @@ class CreateQueueRequest extends Model
             $res['EnableLogging'] = $this->enableLogging;
         }
 
+        if (null !== $this->enableSSE) {
+            $res['EnableSSE'] = $this->enableSSE;
+        }
+
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+
         if (null !== $this->maximumMessageSize) {
             $res['MaximumMessageSize'] = $this->maximumMessageSize;
         }
@@ -126,6 +158,14 @@ class CreateQueueRequest extends Model
 
         if (null !== $this->queueType) {
             $res['QueueType'] = $this->queueType;
+        }
+
+        if (null !== $this->sseAlgorithm) {
+            $res['SseAlgorithm'] = $this->sseAlgorithm;
+        }
+
+        if (null !== $this->sseType) {
+            $res['SseType'] = $this->sseType;
         }
 
         if (null !== $this->tag) {
@@ -170,6 +210,14 @@ class CreateQueueRequest extends Model
             $model->enableLogging = $map['EnableLogging'];
         }
 
+        if (isset($map['EnableSSE'])) {
+            $model->enableSSE = $map['EnableSSE'];
+        }
+
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
+        }
+
         if (isset($map['MaximumMessageSize'])) {
             $model->maximumMessageSize = $map['MaximumMessageSize'];
         }
@@ -188,6 +236,14 @@ class CreateQueueRequest extends Model
 
         if (isset($map['QueueType'])) {
             $model->queueType = $map['QueueType'];
+        }
+
+        if (isset($map['SseAlgorithm'])) {
+            $model->sseAlgorithm = $map['SseAlgorithm'];
+        }
+
+        if (isset($map['SseType'])) {
+            $model->sseType = $map['SseType'];
         }
 
         if (isset($map['Tag'])) {

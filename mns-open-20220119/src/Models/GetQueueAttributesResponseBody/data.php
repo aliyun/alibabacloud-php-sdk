@@ -37,9 +37,24 @@ class data extends Model
     public $dlqPolicy;
 
     /**
+     * @var bool
+     */
+    public $enableSSE;
+
+    /**
+     * @var bool
+     */
+    public $encryptionEnabled;
+
+    /**
      * @var int
      */
     public $inactiveMessages;
+
+    /**
+     * @var string
+     */
+    public $kmsKeyId;
 
     /**
      * @var int
@@ -77,6 +92,16 @@ class data extends Model
     public $queueType;
 
     /**
+     * @var string
+     */
+    public $sseAlgorithm;
+
+    /**
+     * @var string
+     */
+    public $sseType;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -96,7 +121,10 @@ class data extends Model
         'delayMessages' => 'DelayMessages',
         'delaySeconds' => 'DelaySeconds',
         'dlqPolicy' => 'DlqPolicy',
+        'enableSSE' => 'EnableSSE',
+        'encryptionEnabled' => 'EncryptionEnabled',
         'inactiveMessages' => 'InactiveMessages',
+        'kmsKeyId' => 'KmsKeyId',
         'lastModifyTime' => 'LastModifyTime',
         'loggingEnabled' => 'LoggingEnabled',
         'maximumMessageSize' => 'MaximumMessageSize',
@@ -104,6 +132,8 @@ class data extends Model
         'pollingWaitSeconds' => 'PollingWaitSeconds',
         'queueName' => 'QueueName',
         'queueType' => 'QueueType',
+        'sseAlgorithm' => 'SseAlgorithm',
+        'sseType' => 'SseType',
         'tags' => 'Tags',
         'tenantRateLimitPolicy' => 'TenantRateLimitPolicy',
         'visibilityTimeout' => 'VisibilityTimeout',
@@ -146,8 +176,20 @@ class data extends Model
             $res['DlqPolicy'] = null !== $this->dlqPolicy ? $this->dlqPolicy->toArray($noStream) : $this->dlqPolicy;
         }
 
+        if (null !== $this->enableSSE) {
+            $res['EnableSSE'] = $this->enableSSE;
+        }
+
+        if (null !== $this->encryptionEnabled) {
+            $res['EncryptionEnabled'] = $this->encryptionEnabled;
+        }
+
         if (null !== $this->inactiveMessages) {
             $res['InactiveMessages'] = $this->inactiveMessages;
+        }
+
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
         }
 
         if (null !== $this->lastModifyTime) {
@@ -176,6 +218,14 @@ class data extends Model
 
         if (null !== $this->queueType) {
             $res['QueueType'] = $this->queueType;
+        }
+
+        if (null !== $this->sseAlgorithm) {
+            $res['SseAlgorithm'] = $this->sseAlgorithm;
+        }
+
+        if (null !== $this->sseType) {
+            $res['SseType'] = $this->sseType;
         }
 
         if (null !== $this->tags) {
@@ -228,8 +278,20 @@ class data extends Model
             $model->dlqPolicy = dlqPolicy::fromMap($map['DlqPolicy']);
         }
 
+        if (isset($map['EnableSSE'])) {
+            $model->enableSSE = $map['EnableSSE'];
+        }
+
+        if (isset($map['EncryptionEnabled'])) {
+            $model->encryptionEnabled = $map['EncryptionEnabled'];
+        }
+
         if (isset($map['InactiveMessages'])) {
             $model->inactiveMessages = $map['InactiveMessages'];
+        }
+
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
         }
 
         if (isset($map['LastModifyTime'])) {
@@ -258,6 +320,14 @@ class data extends Model
 
         if (isset($map['QueueType'])) {
             $model->queueType = $map['QueueType'];
+        }
+
+        if (isset($map['SseAlgorithm'])) {
+            $model->sseAlgorithm = $map['SseAlgorithm'];
+        }
+
+        if (isset($map['SseType'])) {
+            $model->sseType = $map['SseType'];
         }
 
         if (isset($map['Tags'])) {

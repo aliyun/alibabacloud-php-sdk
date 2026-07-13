@@ -24,6 +24,16 @@ class SetQueueAttributesShrinkRequest extends Model
     public $enableLogging;
 
     /**
+     * @var bool
+     */
+    public $enableSSE;
+
+    /**
+     * @var string
+     */
+    public $kmsKeyId;
+
+    /**
      * @var int
      */
     public $maximumMessageSize;
@@ -46,6 +56,16 @@ class SetQueueAttributesShrinkRequest extends Model
     /**
      * @var string
      */
+    public $sseAlgorithm;
+
+    /**
+     * @var string
+     */
+    public $sseType;
+
+    /**
+     * @var string
+     */
     public $tenantRateLimitPolicyShrink;
 
     /**
@@ -56,10 +76,14 @@ class SetQueueAttributesShrinkRequest extends Model
         'delaySeconds' => 'DelaySeconds',
         'dlqPolicyShrink' => 'DlqPolicy',
         'enableLogging' => 'EnableLogging',
+        'enableSSE' => 'EnableSSE',
+        'kmsKeyId' => 'KmsKeyId',
         'maximumMessageSize' => 'MaximumMessageSize',
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
         'pollingWaitSeconds' => 'PollingWaitSeconds',
         'queueName' => 'QueueName',
+        'sseAlgorithm' => 'SseAlgorithm',
+        'sseType' => 'SseType',
         'tenantRateLimitPolicyShrink' => 'TenantRateLimitPolicy',
         'visibilityTimeout' => 'VisibilityTimeout',
     ];
@@ -84,6 +108,14 @@ class SetQueueAttributesShrinkRequest extends Model
             $res['EnableLogging'] = $this->enableLogging;
         }
 
+        if (null !== $this->enableSSE) {
+            $res['EnableSSE'] = $this->enableSSE;
+        }
+
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+
         if (null !== $this->maximumMessageSize) {
             $res['MaximumMessageSize'] = $this->maximumMessageSize;
         }
@@ -98,6 +130,14 @@ class SetQueueAttributesShrinkRequest extends Model
 
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+
+        if (null !== $this->sseAlgorithm) {
+            $res['SseAlgorithm'] = $this->sseAlgorithm;
+        }
+
+        if (null !== $this->sseType) {
+            $res['SseType'] = $this->sseType;
         }
 
         if (null !== $this->tenantRateLimitPolicyShrink) {
@@ -131,6 +171,14 @@ class SetQueueAttributesShrinkRequest extends Model
             $model->enableLogging = $map['EnableLogging'];
         }
 
+        if (isset($map['EnableSSE'])) {
+            $model->enableSSE = $map['EnableSSE'];
+        }
+
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
+        }
+
         if (isset($map['MaximumMessageSize'])) {
             $model->maximumMessageSize = $map['MaximumMessageSize'];
         }
@@ -145,6 +193,14 @@ class SetQueueAttributesShrinkRequest extends Model
 
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+
+        if (isset($map['SseAlgorithm'])) {
+            $model->sseAlgorithm = $map['SseAlgorithm'];
+        }
+
+        if (isset($map['SseType'])) {
+            $model->sseType = $map['SseType'];
         }
 
         if (isset($map['TenantRateLimitPolicy'])) {

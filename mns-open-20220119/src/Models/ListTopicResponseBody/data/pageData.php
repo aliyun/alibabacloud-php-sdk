@@ -15,6 +15,21 @@ class pageData extends Model
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $enableSSE;
+
+    /**
+     * @var bool
+     */
+    public $encryptionEnabled;
+
+    /**
+     * @var string
+     */
+    public $kmsKeyId;
+
+    /**
      * @var int
      */
     public $lastModifyTime;
@@ -38,6 +53,16 @@ class pageData extends Model
      * @var int
      */
     public $messageRetentionPeriod;
+
+    /**
+     * @var string
+     */
+    public $sseAlgorithm;
+
+    /**
+     * @var string
+     */
+    public $sseType;
 
     /**
      * @var tags[]
@@ -65,11 +90,16 @@ class pageData extends Model
     public $topicUrl;
     protected $_name = [
         'createTime' => 'CreateTime',
+        'enableSSE' => 'EnableSSE',
+        'encryptionEnabled' => 'EncryptionEnabled',
+        'kmsKeyId' => 'KmsKeyId',
         'lastModifyTime' => 'LastModifyTime',
         'loggingEnabled' => 'LoggingEnabled',
         'maxMessageSize' => 'MaxMessageSize',
         'messageCount' => 'MessageCount',
         'messageRetentionPeriod' => 'MessageRetentionPeriod',
+        'sseAlgorithm' => 'SseAlgorithm',
+        'sseType' => 'SseType',
         'tags' => 'Tags',
         'topicInnerUrl' => 'TopicInnerUrl',
         'topicName' => 'TopicName',
@@ -92,6 +122,18 @@ class pageData extends Model
             $res['CreateTime'] = $this->createTime;
         }
 
+        if (null !== $this->enableSSE) {
+            $res['EnableSSE'] = $this->enableSSE;
+        }
+
+        if (null !== $this->encryptionEnabled) {
+            $res['EncryptionEnabled'] = $this->encryptionEnabled;
+        }
+
+        if (null !== $this->kmsKeyId) {
+            $res['KmsKeyId'] = $this->kmsKeyId;
+        }
+
         if (null !== $this->lastModifyTime) {
             $res['LastModifyTime'] = $this->lastModifyTime;
         }
@@ -110,6 +152,14 @@ class pageData extends Model
 
         if (null !== $this->messageRetentionPeriod) {
             $res['MessageRetentionPeriod'] = $this->messageRetentionPeriod;
+        }
+
+        if (null !== $this->sseAlgorithm) {
+            $res['SseAlgorithm'] = $this->sseAlgorithm;
+        }
+
+        if (null !== $this->sseType) {
+            $res['SseType'] = $this->sseType;
         }
 
         if (null !== $this->tags) {
@@ -154,6 +204,18 @@ class pageData extends Model
             $model->createTime = $map['CreateTime'];
         }
 
+        if (isset($map['EnableSSE'])) {
+            $model->enableSSE = $map['EnableSSE'];
+        }
+
+        if (isset($map['EncryptionEnabled'])) {
+            $model->encryptionEnabled = $map['EncryptionEnabled'];
+        }
+
+        if (isset($map['KmsKeyId'])) {
+            $model->kmsKeyId = $map['KmsKeyId'];
+        }
+
         if (isset($map['LastModifyTime'])) {
             $model->lastModifyTime = $map['LastModifyTime'];
         }
@@ -172,6 +234,14 @@ class pageData extends Model
 
         if (isset($map['MessageRetentionPeriod'])) {
             $model->messageRetentionPeriod = $map['MessageRetentionPeriod'];
+        }
+
+        if (isset($map['SseAlgorithm'])) {
+            $model->sseAlgorithm = $map['SseAlgorithm'];
+        }
+
+        if (isset($map['SseType'])) {
+            $model->sseType = $map['SseType'];
         }
 
         if (isset($map['Tags'])) {
