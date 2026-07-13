@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ListConversationsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $abTestId;
+
+    /**
      * @var int
      */
     public $beginTimeLeftRange;
@@ -68,6 +73,7 @@ class ListConversationsRequest extends Model
      */
     public $roundsRightRange;
     protected $_name = [
+        'abTestId' => 'AbTestId',
         'beginTimeLeftRange' => 'BeginTimeLeftRange',
         'beginTimeRightRange' => 'BeginTimeRightRange',
         'callingNumber' => 'CallingNumber',
@@ -90,6 +96,10 @@ class ListConversationsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->abTestId) {
+            $res['AbTestId'] = $this->abTestId;
+        }
+
         if (null !== $this->beginTimeLeftRange) {
             $res['BeginTimeLeftRange'] = $this->beginTimeLeftRange;
         }
@@ -149,6 +159,10 @@ class ListConversationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AbTestId'])) {
+            $model->abTestId = $map['AbTestId'];
+        }
+
         if (isset($map['BeginTimeLeftRange'])) {
             $model->beginTimeLeftRange = $map['BeginTimeLeftRange'];
         }

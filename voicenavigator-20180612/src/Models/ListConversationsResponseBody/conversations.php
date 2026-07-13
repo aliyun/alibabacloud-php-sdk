@@ -11,6 +11,11 @@ class conversations extends Model
     /**
      * @var string
      */
+    public $abTestName;
+
+    /**
+     * @var string
+     */
     public $calledNumber;
 
     /**
@@ -73,6 +78,7 @@ class conversations extends Model
      */
     public $startTime;
     protected $_name = [
+        'abTestName' => 'AbTestName',
         'calledNumber' => 'CalledNumber',
         'callingNumber' => 'CallingNumber',
         'conversationId' => 'ConversationId',
@@ -99,6 +105,10 @@ class conversations extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->abTestName) {
+            $res['AbTestName'] = $this->abTestName;
+        }
+
         if (null !== $this->calledNumber) {
             $res['CalledNumber'] = $this->calledNumber;
         }
@@ -169,6 +179,10 @@ class conversations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AbTestName'])) {
+            $model->abTestName = $map['AbTestName'];
+        }
+
         if (isset($map['CalledNumber'])) {
             $model->calledNumber = $map['CalledNumber'];
         }

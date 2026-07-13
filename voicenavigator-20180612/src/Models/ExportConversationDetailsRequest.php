@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ExportConversationDetailsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $abTestId;
+
+    /**
      * @var int
      */
     public $beginTimeLeftRange;
@@ -53,6 +58,7 @@ class ExportConversationDetailsRequest extends Model
      */
     public $roundsRightRange;
     protected $_name = [
+        'abTestId' => 'AbTestId',
         'beginTimeLeftRange' => 'BeginTimeLeftRange',
         'beginTimeRightRange' => 'BeginTimeRightRange',
         'callingNumber' => 'CallingNumber',
@@ -75,6 +81,10 @@ class ExportConversationDetailsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->abTestId) {
+            $res['AbTestId'] = $this->abTestId;
+        }
+
         if (null !== $this->beginTimeLeftRange) {
             $res['BeginTimeLeftRange'] = $this->beginTimeLeftRange;
         }
@@ -129,6 +139,10 @@ class ExportConversationDetailsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AbTestId'])) {
+            $model->abTestId = $map['AbTestId'];
+        }
+
         if (isset($map['BeginTimeLeftRange'])) {
             $model->beginTimeLeftRange = $map['BeginTimeLeftRange'];
         }

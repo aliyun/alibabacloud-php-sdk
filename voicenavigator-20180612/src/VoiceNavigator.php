@@ -129,7 +129,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Associates a chatbot with a navigation instance.
+     * Associates a Chatbot instance.
      *
      * @param request - AssociateChatbotInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -188,7 +188,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Associates a chatbot with a navigation instance.
+     * Associates a Chatbot instance.
      *
      * @param request - AssociateChatbotInstanceRequest
      *
@@ -206,7 +206,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Previews a text-to-speech (TTS) voice.
+     * Previews a TTS voice.
      *
      * @param request - AuditTTSVoiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -285,7 +285,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Previews a text-to-speech (TTS) voice.
+     * Previews a TTS voice.
      *
      * @param request - AuditTTSVoiceRequest
      *
@@ -453,7 +453,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Generates a temporary URL to download a file.
+     * Creates a download URL for a file.
      *
      * @param request - CreateDownloadUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -488,7 +488,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Generates a temporary URL to download a file.
+     * Creates a download URL for a file.
      *
      * @param request - CreateDownloadUrlRequest
      *
@@ -725,7 +725,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Sends a user utterance to the dialogue engine to debug a conversation flow.
+     * Debugs a conversation in the debug environment.
      *
      * @param request - DebugDialogueRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -776,7 +776,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Sends a user utterance to the dialogue engine to debug a conversation flow.
+     * Debugs a conversation in the debug environment.
      *
      * @param request - DebugDialogueRequest
      *
@@ -851,7 +851,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a conversation.
+     * Queries conversation information.
      *
      * @param request - DescribeConversationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -886,7 +886,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a conversation.
+     * Queries conversation information.
      *
      * @param request - DescribeConversationRequest
      *
@@ -1010,7 +1010,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specified instance.
+     * Queries instance information.
      *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1045,7 +1045,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves details for a specified instance.
+     * Queries instance information.
      *
      * @param request - DescribeInstanceRequest
      *
@@ -1116,7 +1116,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves a conversation recording.
+     * Retrieves the recording of a conversation.
      *
      * @param request - DescribeRecordingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1151,7 +1151,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves a conversation recording.
+     * Retrieves the recording of a conversation.
      *
      * @param request - DescribeRecordingRequest
      *
@@ -1169,7 +1169,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * View the current instance\\"s statistics.
+     * Queries the statistics of the current instance.
      *
      * @param request - DescribeStatisticalDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1204,7 +1204,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * View the current instance\\"s statistics.
+     * Queries the statistics of the current instance.
      *
      * @param request - DescribeStatisticalDataRequest
      *
@@ -1360,7 +1360,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Disables a Voice Navigator instance.
+     * Deletes an intelligent navigation instance.
      *
      * @param request - DisableInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1399,7 +1399,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Disables a Voice Navigator instance.
+     * Deletes an intelligent navigation instance.
      *
      * @param request - DisableInstanceRequest
      *
@@ -1417,7 +1417,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Enables a Voice Navigator instance.
+     * Starts an instance.
      *
      * @param request - EnableInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1456,7 +1456,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Enables a Voice Navigator instance.
+     * Starts an instance.
      *
      * @param request - EnableInstanceRequest
      *
@@ -1543,7 +1543,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Exports conversation details.
+     * Exports session details.
      *
      * @param request - ExportConversationDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1559,6 +1559,10 @@ class VoiceNavigator extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->abTestId) {
+            @$query['AbTestId'] = $request->abTestId;
+        }
+
         if (null !== $request->beginTimeLeftRange) {
             @$query['BeginTimeLeftRange'] = $request->beginTimeLeftRange;
         }
@@ -1614,7 +1618,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Exports conversation details.
+     * Exports session details.
      *
      * @param request - ExportConversationDetailsRequest
      *
@@ -1632,7 +1636,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Exports statistical data.
+     * Exports statistics.
      *
      * @param request - ExportStatisticalDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1687,7 +1691,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Exports statistical data.
+     * Exports statistics.
      *
      * @param request - ExportStatisticalDataRequest
      *
@@ -1819,7 +1823,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of chatbot instances.
+     * Queries a list of instances.
      *
      * @param request - ListChatbotInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1854,7 +1858,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Retrieves a paginated list of chatbot instances.
+     * Queries a list of instances.
      *
      * @param request - ListChatbotInstancesRequest
      *
@@ -1925,7 +1929,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Returns the session list.
+     * Queries a list of sessions.
      *
      * @param request - ListConversationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1960,7 +1964,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Returns the session list.
+     * Queries a list of sessions.
      *
      * @param request - ListConversationsRequest
      *
@@ -1978,7 +1982,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Download list.
+     * Queries the list of download tasks.
      *
      * @param request - ListDownloadTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2021,7 +2025,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Download list.
+     * Queries the list of download tasks.
      *
      * @param request - ListDownloadTasksRequest
      *
@@ -2092,7 +2096,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Modifies an ASR configuration.
+     * Modifies the ASR configuration.
      *
      * @param request - ModifyAsrConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2167,7 +2171,7 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * Modifies an ASR configuration.
+     * Modifies the ASR configuration.
      *
      * @param request - ModifyAsrConfigRequest
      *
