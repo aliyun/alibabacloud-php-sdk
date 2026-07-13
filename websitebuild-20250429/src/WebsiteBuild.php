@@ -1619,7 +1619,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates a login-free ticket for a website builder instance.
+     * Creates a passwordless login ticket.
      *
      * @param request - CreateAppInstanceTicketRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1643,6 +1643,10 @@ class WebsiteBuild extends OpenApiClient
             @$query['ClientId'] = $request->clientId;
         }
 
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -1662,7 +1666,7 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * Creates a login-free ticket for a website builder instance.
+     * Creates a passwordless login ticket.
      *
      * @param request - CreateAppInstanceTicketRequest
      *
@@ -10632,6 +10636,10 @@ class WebsiteBuild extends OpenApiClient
 
         if (null !== $request->seAuthInfo) {
             @$query['SeAuthInfo'] = $request->seAuthInfo;
+        }
+
+        if (null !== $request->seIndexStatus) {
+            @$query['SeIndexStatus'] = $request->seIndexStatus;
         }
 
         if (null !== $request->seType) {

@@ -17,9 +17,15 @@ class CreateAppInstanceTicketRequest extends Model
      * @var string
      */
     public $clientId;
+
+    /**
+     * @var string
+     */
+    public $role;
     protected $_name = [
         'bizId' => 'BizId',
         'clientId' => 'ClientId',
+        'role' => 'Role',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class CreateAppInstanceTicketRequest extends Model
 
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
+        }
+
+        if (null !== $this->role) {
+            $res['Role'] = $this->role;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class CreateAppInstanceTicketRequest extends Model
 
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
+        }
+
+        if (isset($map['Role'])) {
+            $model->role = $map['Role'];
         }
 
         return $model;

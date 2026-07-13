@@ -24,6 +24,11 @@ class UpdateAppSeoStatusRequest extends Model
     public $seAuthInfo;
 
     /**
+     * @var int
+     */
+    public $seIndexStatus;
+
+    /**
      * @var string
      */
     public $seType;
@@ -31,6 +36,7 @@ class UpdateAppSeoStatusRequest extends Model
         'bizId' => 'BizId',
         'domain' => 'Domain',
         'seAuthInfo' => 'SeAuthInfo',
+        'seIndexStatus' => 'SeIndexStatus',
         'seType' => 'SeType',
     ];
 
@@ -52,6 +58,10 @@ class UpdateAppSeoStatusRequest extends Model
 
         if (null !== $this->seAuthInfo) {
             $res['SeAuthInfo'] = $this->seAuthInfo;
+        }
+
+        if (null !== $this->seIndexStatus) {
+            $res['SeIndexStatus'] = $this->seIndexStatus;
         }
 
         if (null !== $this->seType) {
@@ -79,6 +89,10 @@ class UpdateAppSeoStatusRequest extends Model
 
         if (isset($map['SeAuthInfo'])) {
             $model->seAuthInfo = $map['SeAuthInfo'];
+        }
+
+        if (isset($map['SeIndexStatus'])) {
+            $model->seIndexStatus = $map['SeIndexStatus'];
         }
 
         if (isset($map['SeType'])) {
