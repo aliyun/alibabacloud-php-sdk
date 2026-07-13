@@ -25,6 +25,11 @@ class items extends Model
     public $billDate;
 
     /**
+     * @var bool
+     */
+    public $changed;
+
+    /**
      * @var string
      */
     public $checkCode;
@@ -192,6 +197,7 @@ class items extends Model
         'amountWithTax' => 'amount_with_tax',
         'amountWithoutTax' => 'amount_without_tax',
         'billDate' => 'bill_date',
+        'changed' => 'changed',
         'checkCode' => 'check_code',
         'drawer' => 'drawer',
         'id' => 'id',
@@ -248,6 +254,10 @@ class items extends Model
 
         if (null !== $this->billDate) {
             $res['bill_date'] = $this->billDate;
+        }
+
+        if (null !== $this->changed) {
+            $res['changed'] = $this->changed;
         }
 
         if (null !== $this->checkCode) {
@@ -410,6 +420,10 @@ class items extends Model
 
         if (isset($map['bill_date'])) {
             $model->billDate = $map['bill_date'];
+        }
+
+        if (isset($map['changed'])) {
+            $model->changed = $map['changed'];
         }
 
         if (isset($map['check_code'])) {
