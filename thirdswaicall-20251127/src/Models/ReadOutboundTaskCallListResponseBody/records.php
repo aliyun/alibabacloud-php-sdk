@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListResp
 class records extends Model
 {
     /**
+     * @var int
+     */
+    public $billingDuration;
+
+    /**
      * @var string
      */
     public $callEndTime;
@@ -105,6 +110,11 @@ class records extends Model
     public $recordUrl;
 
     /**
+     * @var string
+     */
+    public $remark;
+
+    /**
      * @var int
      */
     public $retryCount;
@@ -144,6 +154,7 @@ class records extends Model
      */
     public $userId;
     protected $_name = [
+        'billingDuration' => 'BillingDuration',
         'callEndTime' => 'CallEndTime',
         'callId' => 'CallId',
         'callStartTime' => 'CallStartTime',
@@ -163,6 +174,7 @@ class records extends Model
         'labelTags' => 'LabelTags',
         'recordDetailReady' => 'RecordDetailReady',
         'recordUrl' => 'RecordUrl',
+        'remark' => 'Remark',
         'retryCount' => 'RetryCount',
         'sceneId' => 'SceneId',
         'status' => 'Status',
@@ -187,6 +199,10 @@ class records extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->billingDuration) {
+            $res['BillingDuration'] = $this->billingDuration;
+        }
+
         if (null !== $this->callEndTime) {
             $res['CallEndTime'] = $this->callEndTime;
         }
@@ -277,6 +293,10 @@ class records extends Model
             $res['RecordUrl'] = $this->recordUrl;
         }
 
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+
         if (null !== $this->retryCount) {
             $res['RetryCount'] = $this->retryCount;
         }
@@ -320,6 +340,10 @@ class records extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BillingDuration'])) {
+            $model->billingDuration = $map['BillingDuration'];
+        }
+
         if (isset($map['CallEndTime'])) {
             $model->callEndTime = $map['CallEndTime'];
         }
@@ -408,6 +432,10 @@ class records extends Model
 
         if (isset($map['RecordUrl'])) {
             $model->recordUrl = $map['RecordUrl'];
+        }
+
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         if (isset($map['RetryCount'])) {

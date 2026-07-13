@@ -66,6 +66,10 @@ class ThirdswAicall extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->applicationCode) {
+            @$body['ApplicationCode'] = $request->applicationCode;
+        }
+
         if (null !== $request->taskId) {
             @$body['TaskId'] = $request->taskId;
         }
@@ -133,6 +137,22 @@ class ThirdswAicall extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->callEndTimeBegin) {
+            @$body['CallEndTimeBegin'] = $request->callEndTimeBegin;
+        }
+
+        if (null !== $request->callEndTimeEnd) {
+            @$body['CallEndTimeEnd'] = $request->callEndTimeEnd;
+        }
+
+        if (null !== $request->callStartTimeBegin) {
+            @$body['CallStartTimeBegin'] = $request->callStartTimeBegin;
+        }
+
+        if (null !== $request->callStartTimeEnd) {
+            @$body['CallStartTimeEnd'] = $request->callStartTimeEnd;
+        }
+
         if (null !== $request->current) {
             @$body['Current'] = $request->current;
         }

@@ -9,10 +9,16 @@ use AlibabaCloud\Dara\Model;
 class QueryTaskConcurrencyRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $applicationCode;
+
+    /**
      * @var int
      */
     public $taskId;
     protected $_name = [
+        'applicationCode' => 'ApplicationCode',
         'taskId' => 'TaskId',
     ];
 
@@ -24,6 +30,10 @@ class QueryTaskConcurrencyRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applicationCode) {
+            $res['ApplicationCode'] = $this->applicationCode;
+        }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -39,6 +49,10 @@ class QueryTaskConcurrencyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationCode'])) {
+            $model->applicationCode = $map['ApplicationCode'];
+        }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

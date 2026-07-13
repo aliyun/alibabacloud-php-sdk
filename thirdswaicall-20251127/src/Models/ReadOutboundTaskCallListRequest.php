@@ -11,6 +11,26 @@ class ReadOutboundTaskCallListRequest extends Model
     /**
      * @var int
      */
+    public $callEndTimeBegin;
+
+    /**
+     * @var int
+     */
+    public $callEndTimeEnd;
+
+    /**
+     * @var int
+     */
+    public $callStartTimeBegin;
+
+    /**
+     * @var int
+     */
+    public $callStartTimeEnd;
+
+    /**
+     * @var int
+     */
     public $current;
 
     /**
@@ -53,6 +73,10 @@ class ReadOutboundTaskCallListRequest extends Model
      */
     public $userId;
     protected $_name = [
+        'callEndTimeBegin' => 'CallEndTimeBegin',
+        'callEndTimeEnd' => 'CallEndTimeEnd',
+        'callStartTimeBegin' => 'CallStartTimeBegin',
+        'callStartTimeEnd' => 'CallStartTimeEnd',
         'current' => 'Current',
         'customerNameOrPhone' => 'CustomerNameOrPhone',
         'displayStatusList' => 'DisplayStatusList',
@@ -78,6 +102,22 @@ class ReadOutboundTaskCallListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->callEndTimeBegin) {
+            $res['CallEndTimeBegin'] = $this->callEndTimeBegin;
+        }
+
+        if (null !== $this->callEndTimeEnd) {
+            $res['CallEndTimeEnd'] = $this->callEndTimeEnd;
+        }
+
+        if (null !== $this->callStartTimeBegin) {
+            $res['CallStartTimeBegin'] = $this->callStartTimeBegin;
+        }
+
+        if (null !== $this->callStartTimeEnd) {
+            $res['CallStartTimeEnd'] = $this->callStartTimeEnd;
+        }
+
         if (null !== $this->current) {
             $res['Current'] = $this->current;
         }
@@ -139,6 +179,22 @@ class ReadOutboundTaskCallListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallEndTimeBegin'])) {
+            $model->callEndTimeBegin = $map['CallEndTimeBegin'];
+        }
+
+        if (isset($map['CallEndTimeEnd'])) {
+            $model->callEndTimeEnd = $map['CallEndTimeEnd'];
+        }
+
+        if (isset($map['CallStartTimeBegin'])) {
+            $model->callStartTimeBegin = $map['CallStartTimeBegin'];
+        }
+
+        if (isset($map['CallStartTimeEnd'])) {
+            $model->callStartTimeEnd = $map['CallStartTimeEnd'];
+        }
+
         if (isset($map['Current'])) {
             $model->current = $map['Current'];
         }
