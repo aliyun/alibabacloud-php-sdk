@@ -322,6 +322,14 @@ class DianJin extends OpenApiClient
             @$body['data'] = $request->data;
         }
 
+        if (null !== $request->encryptType) {
+            @$body['encryptType'] = $request->encryptType;
+        }
+
+        if (null !== $request->env) {
+            @$body['env'] = $request->env;
+        }
+
         if (null !== $request->productId) {
             @$body['productId'] = $request->productId;
         }
@@ -336,6 +344,10 @@ class DianJin extends OpenApiClient
 
         if (null !== $request->sign) {
             @$body['sign'] = $request->sign;
+        }
+
+        if (null !== $request->signType) {
+            @$body['signType'] = $request->signType;
         }
 
         $req = new OpenApiRequest([

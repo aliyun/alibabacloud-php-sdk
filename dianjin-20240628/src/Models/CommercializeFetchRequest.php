@@ -21,6 +21,16 @@ class CommercializeFetchRequest extends Model
     /**
      * @var string
      */
+    public $encryptType;
+
+    /**
+     * @var string
+     */
+    public $env;
+
+    /**
+     * @var string
+     */
     public $productId;
 
     /**
@@ -37,13 +47,21 @@ class CommercializeFetchRequest extends Model
      * @var string
      */
     public $sign;
+
+    /**
+     * @var string
+     */
+    public $signType;
     protected $_name = [
         'channelId' => 'channelId',
         'data' => 'data',
+        'encryptType' => 'encryptType',
+        'env' => 'env',
         'productId' => 'productId',
         'requestId' => 'requestId',
         'secretKey' => 'secretKey',
         'sign' => 'sign',
+        'signType' => 'signType',
     ];
 
     public function validate()
@@ -62,6 +80,14 @@ class CommercializeFetchRequest extends Model
             $res['data'] = $this->data;
         }
 
+        if (null !== $this->encryptType) {
+            $res['encryptType'] = $this->encryptType;
+        }
+
+        if (null !== $this->env) {
+            $res['env'] = $this->env;
+        }
+
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
@@ -76,6 +102,10 @@ class CommercializeFetchRequest extends Model
 
         if (null !== $this->sign) {
             $res['sign'] = $this->sign;
+        }
+
+        if (null !== $this->signType) {
+            $res['signType'] = $this->signType;
         }
 
         return $res;
@@ -97,6 +127,14 @@ class CommercializeFetchRequest extends Model
             $model->data = $map['data'];
         }
 
+        if (isset($map['encryptType'])) {
+            $model->encryptType = $map['encryptType'];
+        }
+
+        if (isset($map['env'])) {
+            $model->env = $map['env'];
+        }
+
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
@@ -111,6 +149,10 @@ class CommercializeFetchRequest extends Model
 
         if (isset($map['sign'])) {
             $model->sign = $map['sign'];
+        }
+
+        if (isset($map['signType'])) {
+            $model->signType = $map['signType'];
         }
 
         return $model;
