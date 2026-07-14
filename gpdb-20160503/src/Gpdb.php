@@ -47,6 +47,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAIServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAIServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateApiKeyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateApiKeyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateApiKeyShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBranchRequest;
@@ -116,6 +119,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAINodeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAINodeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAIServiceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAIServiceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteApiKeyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteApiKeyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBranchRequest;
@@ -349,6 +354,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetApiKeyRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetApiKeyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetBranchSchemaRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetBranchSchemaResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetGraphRAGJobRequest;
@@ -371,6 +378,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUploadDocumentJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetUpsertCollectionDataJobResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetWorkspaceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordRequest;
@@ -381,6 +390,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAINodePoolsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAINodePoolsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAIServicesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListAIServicesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListApiKeysRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListApiKeysResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBranchesRequest;
@@ -2091,6 +2102,91 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 创建API密钥.
+     *
+     * @remarks
+     * 创建API密钥。
+     *
+     * @param tmpReq - CreateApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApiKeyResponse
+     *
+     * @param CreateApiKeyRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateApiKeyResponse
+     */
+    public function createApiKeyWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateApiKeyShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serviceIds) {
+            $request->serviceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serviceIds, 'ServiceIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->keyName) {
+            @$query['KeyName'] = $request->keyName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceIdsShrink) {
+            @$query['ServiceIds'] = $request->serviceIdsShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApiKey',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建API密钥.
+     *
+     * @remarks
+     * 创建API密钥。
+     *
+     * @param Request - CreateApiKeyRequest
+     *
+     * @returns CreateApiKeyResponse
+     *
+     * @param CreateApiKeyRequest $request
+     *
+     * @return CreateApiKeyResponse
+     */
+    public function createApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a backup set.
      *
      * @param Request - CreateBackupRequest
@@ -2973,7 +3069,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create a knowledge base.
+     * Creates a knowledge base.
      *
      * @param tmpReq - CreateDocumentCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3138,7 +3234,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Create a knowledge base.
+     * Creates a knowledge base.
      *
      * @param Request - CreateDocumentCollectionRequest
      *
@@ -3403,7 +3499,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
+     * Creates an index.
+     * Usage notes:
+     * 1. Only scalar indexes are supported.
+     * 2. Write operations on the table are prohibited during index creation.
+     * 3. Creating an index on a table with a large amount of data consumes CPU and I/O resources of the instance. If instance availability is affected, call CancelCreateIndexJob to cancel the index creation.
      *
      * @param Request - CreateIndexRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3478,7 +3578,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Creates an index. Note: 1. Only scalar indexes are supported. 2. The table is write-locked during index creation. 3. When creating an index on a table with a large volume of data, the process consumes significant CPU and I/O resources of the instance. If this impacts instance availability, call CancelCreateIndexJob to cancel the index creation.
+     * Creates an index.
+     * Usage notes:
+     * 1. Only scalar indexes are supported.
+     * 2. Write operations on the table are prohibited during index creation.
+     * 3. Creating an index on a table with a large amount of data consumes CPU and I/O resources of the instance. If instance availability is affected, call CancelCreateIndexJob to cancel the index creation.
      *
      * @param Request - CreateIndexRequest
      *
@@ -3581,7 +3685,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建模型算子 API KEY.
+     * Creates a model creation operator API key.
      *
      * @param Request - CreateModelOperatorApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3620,7 +3724,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 创建模型算子 API KEY.
+     * Creates a model creation operator API key.
      *
      * @param Request - CreateModelOperatorApiKeyRequest
      *
@@ -3641,7 +3745,7 @@ class Gpdb extends OpenApiClient
      * Creates a model service.
      *
      * @remarks
-     * Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+     * Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param tmpReq - CreateModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3735,7 +3839,7 @@ class Gpdb extends OpenApiClient
      * Creates a model service.
      *
      * @remarks
-     * Before you call this operation, review the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+     * Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - CreateModelServiceRequest
      *
@@ -3934,7 +4038,7 @@ class Gpdb extends OpenApiClient
      * Creates a SaaS service.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+     * Before you use this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - CreateSaasServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4004,7 +4108,7 @@ class Gpdb extends OpenApiClient
      * Creates a SaaS service.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+     * Before you use this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - CreateSaasServiceRequest
      *
@@ -5149,6 +5253,73 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * 删除API密钥.
+     *
+     * @remarks
+     * 删除API密钥。
+     *
+     * @param Request - DeleteApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApiKeyResponse
+     *
+     * @param DeleteApiKeyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteApiKeyResponse
+     */
+    public function deleteApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyId) {
+            @$query['KeyId'] = $request->keyId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApiKey',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除API密钥.
+     *
+     * @remarks
+     * 删除API密钥。
+     *
+     * @param Request - DeleteApiKeyRequest
+     *
+     * @returns DeleteApiKeyResponse
+     *
+     * @param DeleteApiKeyRequest $request
+     *
+     * @return DeleteApiKeyResponse
+     */
+    public function deleteApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApiKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a backup set. You can call this operation to delete only physical backup sets that are manually backed up.
      *
      * @param Request - DeleteBackupRequest
@@ -5213,7 +5384,7 @@ class Gpdb extends OpenApiClient
      * Deletes a Supabase branch.
      *
      * @remarks
-     * Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+     * Deletes a specified Supabase branch. The default branch or a branch that still has child branches cannot be deleted.
      *
      * @param Request - DeleteBranchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5259,7 +5430,7 @@ class Gpdb extends OpenApiClient
      * Deletes a Supabase branch.
      *
      * @remarks
-     * Deletes a specified Supabase branch. The default branch or branches that still have child branches cannot be deleted.
+     * Deletes a specified Supabase branch. The default branch or a branch that still has child branches cannot be deleted.
      *
      * @param Request - DeleteBranchRequest
      *
@@ -6794,10 +6965,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除恢复点.
+     * Deletes a snapshot of a Supabase project.
      *
      * @remarks
-     * 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+     * Deletes a snapshot from a specified Supabase project by ProjectId and Lsn.
      *
      * @param Request - DeleteSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6844,10 +7015,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 删除恢复点.
+     * Deletes a snapshot of a Supabase project.
      *
      * @remarks
-     * 该接口用于按 ProjectId 和 Lsn 删除指定 Supabase 项目中的快照。
+     * Deletes a snapshot from a specified Supabase project by ProjectId and Lsn.
      *
      * @param Request - DeleteSnapshotRequest
      *
@@ -8173,14 +8344,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query the details of an AnalyticDB for PostgreSQL instance.
+     * Queries the details of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * ## How-To
-     * This API is typically used to view information such as the specifications, network type, and instance status of an AnalyticDB for PostgreSQL instance.
-     * ## Queries per second (QPS) limit
-     * The default QPS limit for this API is 1000 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may affect your business operations. Please invoke the API appropriately.
-     * <props="china">The QPS value provided in this document is for reference only. For accurate information, see [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+     * ## Operation description
+     * This operation is used to query information about an AnalyticDB for PostgreSQL instance, such as the instance specifications, network type, and instance status.
+     * ## QPS limit
+     * The default QPS limit for a single user for this operation is 1,000 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+     * <props="china">The QPS limit in this topic is a default reference value. For accurate information, refer to the [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
      * @param Request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8227,14 +8398,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query the details of an AnalyticDB for PostgreSQL instance.
+     * Queries the details of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * ## How-To
-     * This API is typically used to view information such as the specifications, network type, and instance status of an AnalyticDB for PostgreSQL instance.
-     * ## Queries per second (QPS) limit
-     * The default QPS limit for this API is 1000 queries per second per user. If this limit is exceeded, API calls will be rate-limited, which may affect your business operations. Please invoke the API appropriately.
-     * <props="china">The QPS value provided in this document is for reference only. For accurate information, see [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
+     * ## Operation description
+     * This operation is used to query information about an AnalyticDB for PostgreSQL instance, such as the instance specifications, network type, and instance status.
+     * ## QPS limit
+     * The default QPS limit for a single user for this operation is 1,000 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+     * <props="china">The QPS limit in this topic is a default reference value. For accurate information, refer to the [API rate limit list](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *
      * @param Request - DescribeDBInstanceAttributeRequest
      *
@@ -9042,7 +9213,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
+     * Queries the maximum throughput of an instance.
      *
      * @param Request - DescribeDBInstanceSupportMaxPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9085,7 +9256,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the maximum performance of an AnalyticDB for PostgreSQL instance.
+     * Queries the maximum throughput of an instance.
      *
      * @param Request - DescribeDBInstanceSupportMaxPerformanceRequest
      *
@@ -11041,7 +11212,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取模型算子 API KEY 详情.
+     * Retrieves the details of a model operator API key.
      *
      * @param Request - DescribeModelOperatorApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11080,7 +11251,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取模型算子 API KEY 详情.
+     * Retrieves the details of a model operator API key.
      *
      * @param Request - DescribeModelOperatorApiKeyRequest
      *
@@ -11098,7 +11269,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取模型算子用量.
+     * Retrieves the usage metrics of model operators.
      *
      * @param tmpReq - DescribeModelOperatorUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11175,7 +11346,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取模型算子用量.
+     * Retrieves the usage metrics of model operators.
      *
      * @param Request - DescribeModelOperatorUsageRequest
      *
@@ -11193,13 +11364,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a model service.
+     * Queries a model service.
      *
      * @remarks
-     * ## [](#)Usage notes
-     * This interface is used to view the details of a model service.
-     * ## [](#qps-)QPS limit
-     * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
+     * ## Operation description
+     * You can call this operation to query the details of a model service.
+     * ## Rate limit
+     * The maximum number of queries per second (QPS) per user for this operation is 1,000. If the number of calls exceeds the limit, throttling is triggered. Throttling may affect your business. Call this operation as needed.
      *
      * @param Request - DescribeModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11242,13 +11413,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a model service.
+     * Queries a model service.
      *
      * @remarks
-     * ## [](#)Usage notes
-     * This interface is used to view the details of a model service.
-     * ## [](#qps-)QPS limit
-     * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions.We recommend that you take note of this limit when you call this operation.
+     * ## Operation description
+     * You can call this operation to query the details of a model service.
+     * ## Rate limit
+     * The maximum number of queries per second (QPS) per user for this operation is 1,000. If the number of calls exceeds the limit, throttling is triggered. Throttling may affect your business. Call this operation as needed.
      *
      * @param Request - DescribeModelServiceRequest
      *
@@ -12595,7 +12766,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * View table details.
+     * Queries the details of a table.
      *
      * @param Request - DescribeTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12662,7 +12833,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * View table details.
+     * Queries the details of a table.
      *
      * @param Request - DescribeTableRequest
      *
@@ -13625,7 +13796,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Execute an SQL statement.
+     * Executes an SQL statement.
      *
      * @param tmpReq - ExecuteStatementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13724,7 +13895,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Execute an SQL statement.
+     * Executes an SQL statement.
      *
      * @param Request - ExecuteStatementRequest
      *
@@ -13742,7 +13913,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a database account.
+     * Retrieves information about a specific account.
      *
      * @param Request - GetAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13785,7 +13956,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the information about a database account.
+     * Retrieves information about a specific account.
      *
      * @param Request - GetAccountRequest
      *
@@ -13800,6 +13971,73 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取API密钥详情.
+     *
+     * @remarks
+     * 获取API密钥详情。
+     *
+     * @param Request - GetApiKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApiKeyResponse
+     *
+     * @param GetApiKeyRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetApiKeyResponse
+     */
+    public function getApiKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyId) {
+            @$query['KeyId'] = $request->keyId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetApiKey',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetApiKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取API密钥详情.
+     *
+     * @remarks
+     * 获取API密钥详情。
+     *
+     * @param Request - GetApiKeyRequest
+     *
+     * @returns GetApiKeyResponse
+     *
+     * @param GetApiKeyRequest $request
+     *
+     * @return GetApiKeyResponse
+     */
+    public function getApiKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApiKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -14176,7 +14414,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Asynchronous SQL Execution Result.
+     * Retrieves the result of an asynchronous SQL execution.
      *
      * @param Request - GetStatementResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14235,7 +14473,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get Asynchronous SQL Execution Result.
+     * Retrieves the result of an asynchronous SQL execution.
      *
      * @param Request - GetStatementResultRequest
      *
@@ -14454,12 +14692,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the progress and result of an asynchronous document upload job based on the job ID.
+     * Retrieves the progress and result of an asynchronous document upload task by job ID.
      *
      * @remarks
-     * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-     * > Suggestions
-     * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
+     * This operation is related to UploadDocumentAsync. You can call UploadDocumentAsync to create an upload task and obtain a job ID, and then call this operation to view the execution information of the job.
+     * > Usage notes
+     * > - Estimate the timeout based on the document complexity and the number of vector entries after chunking. The timeout generally does not exceed 2 hours.
      *
      * @param Request - GetUploadDocumentJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14524,12 +14762,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries the progress and result of an asynchronous document upload job based on the job ID.
+     * Retrieves the progress and result of an asynchronous document upload task by job ID.
      *
      * @remarks
-     * This operation is related to the UploadDocumentAsync operation. You can call the UploadDocumentAsync operation to create an upload job and get the job ID, and then call the GetUploadDocumentJob operation to query the execution information of the job.
-     * > Suggestions
-     * *   Based on document complexity and the number of resulting vector chunks, the timeout is estimated and typically does not exceed 2 hours.
+     * This operation is related to UploadDocumentAsync. You can call UploadDocumentAsync to create an upload task and obtain a job ID, and then call this operation to view the execution information of the job.
+     * > Usage notes
+     * > - Estimate the timeout based on the document complexity and the number of vector entries after chunking. The timeout generally does not exceed 2 hours.
      *
      * @param Request - GetUploadDocumentJobRequest
      *
@@ -14639,6 +14877,75 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUpsertCollectionDataJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询SaaS工作空间.
+     *
+     * @remarks
+     * ## 使用说明
+     * 本接口用于查看指定工作空间信息。
+     *
+     * @param Request - GetWorkspaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWorkspaceResponse
+     *
+     * @param GetWorkspaceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetWorkspaceResponse
+     */
+    public function getWorkspaceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWorkspace',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询SaaS工作空间.
+     *
+     * @remarks
+     * ## 使用说明
+     * 本接口用于查看指定工作空间信息。
+     *
+     * @param Request - GetWorkspaceRequest
+     *
+     * @returns GetWorkspaceResponse
+     *
+     * @param GetWorkspaceRequest $request
+     *
+     * @return GetWorkspaceResponse
+     */
+    public function getWorkspace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWorkspaceWithOptions($request, $runtime);
     }
 
     /**
@@ -14873,10 +15180,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AINode resource pools.
+     * Queries the list of AI nodes.
      *
      * @remarks
-     * - This operation lists the AINode resource pools for the specified instance.
+     * - This operation is used to query the list of AI nodes.
      *
      * @param Request - ListAINodePoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14919,10 +15226,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Queries a list of AINode resource pools.
+     * Queries the list of AI nodes.
      *
      * @remarks
-     * - This operation lists the AINode resource pools for the specified instance.
+     * - This operation is used to query the list of AI nodes.
      *
      * @param Request - ListAINodePoolsRequest
      *
@@ -14940,7 +15247,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Lists AI services.
+     * Retrieves the list of AI services.
      *
      * @param Request - ListAIServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14991,7 +15298,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Lists AI services.
+     * Retrieves the list of AI services.
      *
      * @param Request - ListAIServicesRequest
      *
@@ -15006,6 +15313,85 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAIServicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询API密钥列表.
+     *
+     * @remarks
+     * 查询API密钥列表。
+     *
+     * @param Request - ListApiKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiKeysResponse
+     *
+     * @param ListApiKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListApiKeysResponse
+     */
+    public function listApiKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyName) {
+            @$query['KeyName'] = $request->keyName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListApiKeys',
+            'version' => '2016-05-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListApiKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询API密钥列表.
+     *
+     * @remarks
+     * 查询API密钥列表。
+     *
+     * @param Request - ListApiKeysRequest
+     *
+     * @returns ListApiKeysResponse
+     *
+     * @param ListApiKeysRequest $request
+     *
+     * @return ListApiKeysResponse
+     */
+    public function listApiKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApiKeysWithOptions($request, $runtime);
     }
 
     /**
@@ -15070,10 +15456,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query the branch list of a Supabase project.
+     * Queries the branch list of a Supabase project.
      *
      * @remarks
-     * This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+     * Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
      *
      * @param Request - ListBranchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15144,10 +15530,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query the branch list of a Supabase project.
+     * Queries the branch list of a Supabase project.
      *
      * @remarks
-     * This API is used to query all branches under a specified Supabase project with pagination, supporting filtering by parent branch, keyword, and sorting conditions.
+     * Performs a paged query for all branches under a specified Supabase project. You can filter branches by parent branch, keyword, and sorting criteria. Paging is supported.
      *
      * @param Request - ListBranchesRequest
      *
@@ -15165,7 +15551,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get document chunk details.
+     * Retrieves the details of document chunks.
      *
      * @param Request - ListChunksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15240,7 +15626,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Get document chunk details.
+     * Retrieves the details of document chunks.
      *
      * @param Request - ListChunksRequest
      *
@@ -15996,7 +16382,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取模型算子 API KEY 列表.
+     * Retrieves the list of API keys for model operators.
      *
      * @param Request - ListModelOperatorApiKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16039,7 +16425,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取模型算子 API KEY 列表.
+     * Retrieves the list of API keys for model operators.
      *
      * @param Request - ListModelOperatorApiKeysRequest
      *
@@ -16057,7 +16443,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取模型服务列表.
+     * Retrieves a list of model services.
      *
      * @param Request - ListModelOperatorServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16100,7 +16486,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * 获取模型服务列表.
+     * Retrieves a list of model services.
      *
      * @param Request - ListModelOperatorServicesRequest
      *
@@ -16341,11 +16727,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query SaaS Service List.
+     * Queries the list of SaaS services.
      *
      * @remarks
-     * ## Usage Notes
-     * This API operation is used to view information about all SaaS services.
+     * ## Operation description
+     * This operation is used to query information about all SaaS services.
      *
      * @param Request - ListSaasServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16400,11 +16786,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Query SaaS Service List.
+     * Queries the list of SaaS services.
      *
      * @remarks
-     * ## Usage Notes
-     * This API operation is used to view information about all SaaS services.
+     * ## Operation description
+     * This operation is used to query information about all SaaS services.
      *
      * @param Request - ListSaasServiceRequest
      *
@@ -16884,10 +17270,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Lists the tags of Supabase instances.
+     * Queries the tags of a Supabase instance.
      *
      * @remarks
-     * - This operation queries the tags of Supabase instances.
+     * - This operation queries the tag list of Supabase instances.
      *
      * @param Request - ListSupabaseProjectTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16942,10 +17328,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Lists the tags of Supabase instances.
+     * Queries the tags of a Supabase instance.
      *
      * @remarks
-     * - This operation queries the tags of Supabase instances.
+     * - This operation queries the tag list of Supabase instances.
      *
      * @param Request - ListSupabaseProjectTagsRequest
      *
@@ -17380,7 +17766,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist for an AI service.
+     * Modifies the whitelist of an AI service.
      *
      * @param Request - ModifyAIServiceSecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17431,7 +17817,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist for an AI service.
+     * Modifies the whitelist of an AI service.
      *
      * @param Request - ModifyAIServiceSecurityIpsRequest
      *
@@ -17826,7 +18212,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the development mode of an instance.
+     * Modifies the deployment mode of an instance.
      *
      * @param Request - ModifyDBInstanceDeploymentModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17877,7 +18263,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Changes the development mode of an instance.
+     * Modifies the deployment mode of an instance.
      *
      * @param Request - ModifyDBInstanceDeploymentModeRequest
      *
@@ -19375,10 +19761,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the auto-scaling policy of an ADBPG Supabase instance.
+     * Modifies the automatic start and stop policy for a Supabase instance.
      *
      * @remarks
-     * - This operation applies only to ADBPG Supabase instances.
+     * - Only ADBPG Supabase instances are supported.
      *
      * @param Request - ModifySupabaseAutoScalePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19425,10 +19811,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Modifies the auto-scaling policy of an ADBPG Supabase instance.
+     * Modifies the automatic start and stop policy for a Supabase instance.
      *
      * @remarks
-     * - This operation applies only to ADBPG Supabase instances.
+     * - Only ADBPG Supabase instances are supported.
      *
      * @param Request - ModifySupabaseAutoScalePolicyRequest
      *
@@ -19446,10 +19832,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Change the Supabase project description.
+     * Modifies the description of a Supabase project.
      *
      * @remarks
-     * *Before you use this operation, make sure you fully understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL (Supabase)**.
+     * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.。
      *
      * @param Request - ModifySupabaseProjectDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19496,10 +19882,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Change the Supabase project description.
+     * Modifies the description of a Supabase project.
      *
      * @remarks
-     * *Before you use this operation, make sure you fully understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL (Supabase)**.
+     * *Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.。
      *
      * @param Request - ModifySupabaseProjectDescriptionRequest
      *
@@ -19517,10 +19903,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Scales the compute resource or expands the storage resource (cloud disk size) for a Supabase project.
+     * Modifies the resources of a Supabase instance, including upgrading or downgrading compute resources and expanding storage resources (cloud disk size).
      *
      * @remarks
-     * *Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) for AnalyticDB PostgreSQL Supabase.**
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.
      *
      * @param Request - ModifySupabaseProjectResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19575,10 +19961,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Scales the compute resource or expands the storage resource (cloud disk size) for a Supabase project.
+     * Modifies the resources of a Supabase instance, including upgrading or downgrading compute resources and expanding storage resources (cloud disk size).
      *
      * @remarks
-     * *Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/zh/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1?spm=a2c4g.11186623.help-menu-92664.d_0_1_2.45b3601145cikn\\&scm=20140722.H_88098._.OR_help-T_cn~zh-V_1#9eefcc7b5acz1) for AnalyticDB PostgreSQL Supabase.**
+     * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/product-overview/pricing-1#9eefcc7b5acz1) of AnalyticDB for PostgreSQL Supabase**.
      *
      * @param Request - ModifySupabaseProjectResourceRequest
      *
@@ -19946,7 +20332,7 @@ class Gpdb extends OpenApiClient
      * Pauses a Supabase instance.
      *
      * @remarks
-     * This operation pauses a Supabase instance.
+     * Pauses a Supabase instance.
      *
      * @param Request - PauseSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19992,7 +20378,7 @@ class Gpdb extends OpenApiClient
      * Pauses a Supabase instance.
      *
      * @remarks
-     * This operation pauses a Supabase instance.
+     * Pauses a Supabase instance.
      *
      * @param Request - PauseSupabaseProjectRequest
      *
@@ -20436,7 +20822,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
+     * Retrieves vectors and metadata from multiple specified document collections using natural language statements, merges multi-channel recall results, and returns the combined results.
      *
      * @param tmpReq - QueryKnowledgeBasesContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20525,7 +20911,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Retrieves vectors and metadata from multiple specified document collections by using natural language statements, merges multi-channel recall results, and returns the combined results.
+     * Retrieves vectors and metadata from multiple specified document collections using natural language statements, merges multi-channel recall results, and returns the combined results.
      *
      * @param Request - QueryKnowledgeBasesContentRequest
      *
@@ -21270,7 +21656,7 @@ class Gpdb extends OpenApiClient
      * Restores a Supabase project from a snapshot.
      *
      * @remarks
-     * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+     * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and the target branch. FinalizeRestore controls whether to complete the restoration immediately.
      *
      * @param Request - RestoreSnapshotRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21336,7 +21722,7 @@ class Gpdb extends OpenApiClient
      * Restores a Supabase project from a snapshot.
      *
      * @remarks
-     * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and target branch. FinalizeRestore controls whether to complete the restoration immediately.
+     * Restores to a target branch based on a snapshot LSN. You can specify the restored branch name and the target branch. FinalizeRestore controls whether to complete the restoration immediately.
      *
      * @param Request - RestoreSnapshotRequest
      *
@@ -21560,7 +21946,7 @@ class Gpdb extends OpenApiClient
      * Resumes a Supabase instance.
      *
      * @remarks
-     * This operation retrieves details about a Supabase instance.
+     * Queries the details of a Supabase instance.
      *
      * @param Request - ResumeSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21606,7 +21992,7 @@ class Gpdb extends OpenApiClient
      * Resumes a Supabase instance.
      *
      * @remarks
-     * This operation retrieves details about a Supabase instance.
+     * Queries the details of a Supabase instance.
      *
      * @param Request - ResumeSupabaseProjectRequest
      *
@@ -22011,10 +22397,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Adds tags to Supabase project instances.
+     * Tags a Supabase project.
      *
      * @remarks
-     * Adds or overwrites tags on one or more Supabase instances. If a specified tag key already exists, its value is overwritten with the new value.
+     * Queries the details of a Supabase instance.
      *
      * @param Request - TagSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22065,10 +22451,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Adds tags to Supabase project instances.
+     * Tags a Supabase project.
      *
      * @remarks
-     * Adds or overwrites tags on one or more Supabase instances. If a specified tag key already exists, its value is overwritten with the new value.
+     * Queries the details of a Supabase instance.
      *
      * @param Request - TagSupabaseProjectRequest
      *
@@ -22086,7 +22472,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Generates text embeddings using an embedding model.
+     * Vectorizes text documents by using a model.
      *
      * @param tmpReq - TextEmbeddingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22153,7 +22539,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Generates text embeddings using an embedding model.
+     * Vectorizes text documents by using a model.
      *
      * @param Request - TextEmbeddingRequest
      *
@@ -22406,10 +22792,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Removes tags from one or more Supabase instances.
+     * Unbinds tags from a Supabase instance.
      *
      * @remarks
-     * This operation removes one or more specified tags from Supabase instances.
+     * Queries the details of a Supabase instance.
      *
      * @param Request - UntagSupabaseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22464,10 +22850,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Removes tags from one or more Supabase instances.
+     * Unbinds tags from a Supabase instance.
      *
      * @remarks
-     * This operation removes one or more specified tags from Supabase instances.
+     * Queries the details of a Supabase instance.
      *
      * @param Request - UntagSupabaseProjectRequest
      *
@@ -22781,8 +23167,8 @@ class Gpdb extends OpenApiClient
      * Changes the specifications of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation does not support modifying instances in storage-reserved mode.
-     * Before you call this operation, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+     * This operation does not support instances in storage reservation mode.
+     * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - UpgradeDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22884,8 +23270,8 @@ class Gpdb extends OpenApiClient
      * Changes the specifications of an AnalyticDB for PostgreSQL instance.
      *
      * @remarks
-     * This operation does not support modifying instances in storage-reserved mode.
-     * Before you call this operation, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
+     * This operation does not support instances in storage reservation mode.
+     * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
      *
      * @param Request - UpgradeDBInstanceRequest
      *
@@ -23053,17 +23439,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Asynchronous Document Upload.
+     * Asynchronously uploads a document.
      *
      * @remarks
-     * The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
+     * The server loads and splits a document based on the file name extension, performs vectorization by using the embedding model specified when you invoke the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multimodal embedding of text and images in various formats.
      * Related operations:
-     * *   You can call the GetUploadDocumentJob operation to query the progress and result of a document upload job.
-     * *   You can call the CancelUploadDocumentJob operation to cancel a document upload job.
-     * >
-     * *   After a document upload request is submitted, the request is queued for processing. Up to 20 documents in the Pending and Running states can be processed within a Resource Access Management (RAM) user or Alibaba Cloud account.
-     * *   A text document can be split into up to 100,000 chunks.
-     * *   If a document collection uses the OnePeace model, each RAM user or Alibaba Cloud account can upload and query up to 10,000 images.
+     * - You can invoke the GetUploadDocumentJob operation to query the progress and result of a document upload job.
+     * - You can invoke the CancelUploadDocumentJob operation to cancel a document upload job.
+     * > - After you commit a document upload request, the request is queued for processing. A maximum of 20 documents in the Pending and Running states can be processed for each Resource Access Management (RAM) user or Alibaba Cloud account.
+     * >- A text document can be split into a maximum of 100,000 chunks.
+     * >- If the document collection uses the OnePeace model, a maximum of 10,000 images can be uploaded and queried for each RAM user or Alibaba Cloud account.
      *
      * @param tmpReq - UploadDocumentAsyncRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23182,17 +23567,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Asynchronous Document Upload.
+     * Asynchronously uploads a document.
      *
      * @remarks
-     * The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
+     * The server loads and splits a document based on the file name extension, performs vectorization by using the embedding model specified when you invoke the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multimodal embedding of text and images in various formats.
      * Related operations:
-     * *   You can call the GetUploadDocumentJob operation to query the progress and result of a document upload job.
-     * *   You can call the CancelUploadDocumentJob operation to cancel a document upload job.
-     * >
-     * *   After a document upload request is submitted, the request is queued for processing. Up to 20 documents in the Pending and Running states can be processed within a Resource Access Management (RAM) user or Alibaba Cloud account.
-     * *   A text document can be split into up to 100,000 chunks.
-     * *   If a document collection uses the OnePeace model, each RAM user or Alibaba Cloud account can upload and query up to 10,000 images.
+     * - You can invoke the GetUploadDocumentJob operation to query the progress and result of a document upload job.
+     * - You can invoke the CancelUploadDocumentJob operation to cancel a document upload job.
+     * > - After you commit a document upload request, the request is queued for processing. A maximum of 20 documents in the Pending and Running states can be processed for each Resource Access Management (RAM) user or Alibaba Cloud account.
+     * >- A text document can be split into a maximum of 100,000 chunks.
+     * >- If the document collection uses the OnePeace model, a maximum of 10,000 images can be uploaded and queried for each RAM user or Alibaba Cloud account.
      *
      * @param Request - UploadDocumentAsyncRequest
      *
