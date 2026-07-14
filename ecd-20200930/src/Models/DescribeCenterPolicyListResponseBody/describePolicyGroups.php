@@ -59,6 +59,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $autoReconnect;
+
+    /**
+     * @var string
+     */
     public $cameraRedirect;
 
     /**
@@ -152,6 +157,11 @@ class describePolicyGroups extends Model
     public $desktopGroupCount;
 
     /**
+     * @var string
+     */
+    public $deviceConnectHint;
+
+    /**
      * @var deviceRedirects[]
      */
     public $deviceRedirects;
@@ -215,6 +225,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $externalDrive;
+
+    /**
+     * @var string
+     */
+    public $fileMigrate;
 
     /**
      * @var string
@@ -512,6 +527,11 @@ class describePolicyGroups extends Model
     public $remoteCoordinate;
 
     /**
+     * @var string
+     */
+    public $resetDesktop;
+
+    /**
      * @var int
      */
     public $resolutionDpi;
@@ -699,6 +719,11 @@ class describePolicyGroups extends Model
     /**
      * @var string
      */
+    public $wuyingKeeper;
+
+    /**
+     * @var string
+     */
     public $wyAssistant;
     protected $_name = [
         'academicProxy' => 'AcademicProxy',
@@ -709,6 +734,7 @@ class describePolicyGroups extends Model
         'appContentProtection' => 'AppContentProtection',
         'authorizeAccessPolicyRules' => 'AuthorizeAccessPolicyRules',
         'authorizeSecurityPolicyRules' => 'AuthorizeSecurityPolicyRules',
+        'autoReconnect' => 'AutoReconnect',
         'cameraRedirect' => 'CameraRedirect',
         'clientControlMenu' => 'ClientControlMenu',
         'clientCreateSnapshot' => 'ClientCreateSnapshot',
@@ -728,6 +754,7 @@ class describePolicyGroups extends Model
         'cpuSingleRateLimit' => 'CpuSingleRateLimit',
         'desktopCount' => 'DesktopCount',
         'desktopGroupCount' => 'DesktopGroupCount',
+        'deviceConnectHint' => 'DeviceConnectHint',
         'deviceRedirects' => 'DeviceRedirects',
         'deviceRules' => 'DeviceRules',
         'disconnectKeepSession' => 'DisconnectKeepSession',
@@ -741,6 +768,7 @@ class describePolicyGroups extends Model
         'endUserCount' => 'EndUserCount',
         'endUserGroupCoordinate' => 'EndUserGroupCoordinate',
         'externalDrive' => 'ExternalDrive',
+        'fileMigrate' => 'FileMigrate',
         'fileTransferAddress' => 'FileTransferAddress',
         'fileTransferSpeed' => 'FileTransferSpeed',
         'fileTransferSpeedLocation' => 'FileTransferSpeedLocation',
@@ -800,6 +828,7 @@ class describePolicyGroups extends Model
         'recordingUserNotify' => 'RecordingUserNotify',
         'recordingUserNotifyMessage' => 'RecordingUserNotifyMessage',
         'remoteCoordinate' => 'RemoteCoordinate',
+        'resetDesktop' => 'ResetDesktop',
         'resolutionDpi' => 'ResolutionDpi',
         'resolutionHeight' => 'ResolutionHeight',
         'resolutionModel' => 'ResolutionModel',
@@ -837,6 +866,7 @@ class describePolicyGroups extends Model
         'watermarkShadow' => 'WatermarkShadow',
         'watermarkTransparencyValue' => 'WatermarkTransparencyValue',
         'watermarkType' => 'WatermarkType',
+        'wuyingKeeper' => 'WuyingKeeper',
         'wyAssistant' => 'WyAssistant',
     ];
 
@@ -933,6 +963,10 @@ class describePolicyGroups extends Model
             }
         }
 
+        if (null !== $this->autoReconnect) {
+            $res['AutoReconnect'] = $this->autoReconnect;
+        }
+
         if (null !== $this->cameraRedirect) {
             $res['CameraRedirect'] = $this->cameraRedirect;
         }
@@ -1023,6 +1057,10 @@ class describePolicyGroups extends Model
             $res['DesktopGroupCount'] = $this->desktopGroupCount;
         }
 
+        if (null !== $this->deviceConnectHint) {
+            $res['DeviceConnectHint'] = $this->deviceConnectHint;
+        }
+
         if (null !== $this->deviceRedirects) {
             if (\is_array($this->deviceRedirects)) {
                 $res['DeviceRedirects'] = [];
@@ -1094,6 +1132,10 @@ class describePolicyGroups extends Model
 
         if (null !== $this->externalDrive) {
             $res['ExternalDrive'] = $this->externalDrive;
+        }
+
+        if (null !== $this->fileMigrate) {
+            $res['FileMigrate'] = $this->fileMigrate;
         }
 
         if (null !== $this->fileTransferAddress) {
@@ -1360,6 +1402,10 @@ class describePolicyGroups extends Model
             $res['RemoteCoordinate'] = $this->remoteCoordinate;
         }
 
+        if (null !== $this->resetDesktop) {
+            $res['ResetDesktop'] = $this->resetDesktop;
+        }
+
         if (null !== $this->resolutionDpi) {
             $res['ResolutionDpi'] = $this->resolutionDpi;
         }
@@ -1522,6 +1568,10 @@ class describePolicyGroups extends Model
             $res['WatermarkType'] = $this->watermarkType;
         }
 
+        if (null !== $this->wuyingKeeper) {
+            $res['WuyingKeeper'] = $this->wuyingKeeper;
+        }
+
         if (null !== $this->wyAssistant) {
             $res['WyAssistant'] = $this->wyAssistant;
         }
@@ -1581,6 +1631,10 @@ class describePolicyGroups extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['AutoReconnect'])) {
+            $model->autoReconnect = $map['AutoReconnect'];
         }
 
         if (isset($map['CameraRedirect'])) {
@@ -1673,6 +1727,10 @@ class describePolicyGroups extends Model
             $model->desktopGroupCount = $map['DesktopGroupCount'];
         }
 
+        if (isset($map['DeviceConnectHint'])) {
+            $model->deviceConnectHint = $map['DeviceConnectHint'];
+        }
+
         if (isset($map['DeviceRedirects'])) {
             if (!empty($map['DeviceRedirects'])) {
                 $model->deviceRedirects = [];
@@ -1744,6 +1802,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['ExternalDrive'])) {
             $model->externalDrive = $map['ExternalDrive'];
+        }
+
+        if (isset($map['FileMigrate'])) {
+            $model->fileMigrate = $map['FileMigrate'];
         }
 
         if (isset($map['FileTransferAddress'])) {
@@ -2010,6 +2072,10 @@ class describePolicyGroups extends Model
             $model->remoteCoordinate = $map['RemoteCoordinate'];
         }
 
+        if (isset($map['ResetDesktop'])) {
+            $model->resetDesktop = $map['ResetDesktop'];
+        }
+
         if (isset($map['ResolutionDpi'])) {
             $model->resolutionDpi = $map['ResolutionDpi'];
         }
@@ -2170,6 +2236,10 @@ class describePolicyGroups extends Model
 
         if (isset($map['WatermarkType'])) {
             $model->watermarkType = $map['WatermarkType'];
+        }
+
+        if (isset($map['WuyingKeeper'])) {
+            $model->wuyingKeeper = $map['WuyingKeeper'];
         }
 
         if (isset($map['WyAssistant'])) {

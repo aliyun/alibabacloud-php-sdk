@@ -114,6 +114,11 @@ class CreateDesktopsShrinkRequest extends Model
     public $officeSiteId;
 
     /**
+     * @var string
+     */
+    public $ouPath;
+
+    /**
      * @var int
      */
     public $period;
@@ -167,6 +172,11 @@ class CreateDesktopsShrinkRequest extends Model
      * @var string
      */
     public $snapshotPolicyId;
+
+    /**
+     * @var string
+     */
+    public $subPayType;
 
     /**
      * @var string
@@ -233,6 +243,7 @@ class CreateDesktopsShrinkRequest extends Model
         'hostname' => 'Hostname',
         'monthDesktopSetting' => 'MonthDesktopSetting',
         'officeSiteId' => 'OfficeSiteId',
+        'ouPath' => 'OuPath',
         'period' => 'Period',
         'periodUnit' => 'PeriodUnit',
         'policyGroupId' => 'PolicyGroupId',
@@ -244,6 +255,7 @@ class CreateDesktopsShrinkRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'savingPlanId' => 'SavingPlanId',
         'snapshotPolicyId' => 'SnapshotPolicyId',
+        'subPayType' => 'SubPayType',
         'subnetId' => 'SubnetId',
         'tag' => 'Tag',
         'timerGroupId' => 'TimerGroupId',
@@ -382,6 +394,10 @@ class CreateDesktopsShrinkRequest extends Model
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
 
+        if (null !== $this->ouPath) {
+            $res['OuPath'] = $this->ouPath;
+        }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
@@ -424,6 +440,10 @@ class CreateDesktopsShrinkRequest extends Model
 
         if (null !== $this->snapshotPolicyId) {
             $res['SnapshotPolicyId'] = $this->snapshotPolicyId;
+        }
+
+        if (null !== $this->subPayType) {
+            $res['SubPayType'] = $this->subPayType;
         }
 
         if (null !== $this->subnetId) {
@@ -588,6 +608,10 @@ class CreateDesktopsShrinkRequest extends Model
             $model->officeSiteId = $map['OfficeSiteId'];
         }
 
+        if (isset($map['OuPath'])) {
+            $model->ouPath = $map['OuPath'];
+        }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
@@ -630,6 +654,10 @@ class CreateDesktopsShrinkRequest extends Model
 
         if (isset($map['SnapshotPolicyId'])) {
             $model->snapshotPolicyId = $map['SnapshotPolicyId'];
+        }
+
+        if (isset($map['SubPayType'])) {
+            $model->subPayType = $map['SubPayType'];
         }
 
         if (isset($map['SubnetId'])) {

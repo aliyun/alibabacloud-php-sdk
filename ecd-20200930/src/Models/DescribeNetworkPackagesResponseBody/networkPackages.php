@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesResponseBody\networkPackages\tags;
 
 class networkPackages extends Model
 {
@@ -82,6 +83,11 @@ class networkPackages extends Model
      * @var string
      */
     public $reservationInternetChargeType;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'bandwidth' => 'Bandwidth',
         'businessStatus' => 'BusinessStatus',
@@ -98,12 +104,16 @@ class networkPackages extends Model
         'reservationActiveTime' => 'ReservationActiveTime',
         'reservationBandwidth' => 'ReservationBandwidth',
         'reservationInternetChargeType' => 'ReservationInternetChargeType',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
         if (\is_array($this->eipAddresses)) {
             Model::validateArray($this->eipAddresses);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -176,6 +186,17 @@ class networkPackages extends Model
 
         if (null !== $this->reservationInternetChargeType) {
             $res['ReservationInternetChargeType'] = $this->reservationInternetChargeType;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -254,6 +275,17 @@ class networkPackages extends Model
 
         if (isset($map['ReservationInternetChargeType'])) {
             $model->reservationInternetChargeType = $map['ReservationInternetChargeType'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

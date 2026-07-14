@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateNetworkPackageRequest\tag;
 
 class CreateNetworkPackageRequest extends Model
 {
@@ -67,6 +68,11 @@ class CreateNetworkPackageRequest extends Model
      * @var int
      */
     public $resellerOwnerUid;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'autoPay' => 'AutoPay',
         'autoRenew' => 'AutoRenew',
@@ -80,10 +86,14 @@ class CreateNetworkPackageRequest extends Model
         'promotionId' => 'PromotionId',
         'regionId' => 'RegionId',
         'resellerOwnerUid' => 'ResellerOwnerUid',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -136,6 +146,17 @@ class CreateNetworkPackageRequest extends Model
 
         if (null !== $this->resellerOwnerUid) {
             $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -195,6 +216,17 @@ class CreateNetworkPackageRequest extends Model
 
         if (isset($map['ResellerOwnerUid'])) {
             $model->resellerOwnerUid = $map['ResellerOwnerUid'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

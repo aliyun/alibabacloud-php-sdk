@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesRequest\tag;
 
 class DescribeNetworkPackagesRequest extends Model
 {
@@ -32,18 +33,27 @@ class DescribeNetworkPackagesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'internetChargeType' => 'InternetChargeType',
         'maxResults' => 'MaxResults',
         'networkPackageId' => 'NetworkPackageId',
         'nextToken' => 'NextToken',
         'regionId' => 'RegionId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
         if (\is_array($this->networkPackageId)) {
             Model::validateArray($this->networkPackageId);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
         }
         parent::validate();
     }
@@ -76,6 +86,17 @@ class DescribeNetworkPackagesRequest extends Model
 
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -114,6 +135,17 @@ class DescribeNetworkPackagesRequest extends Model
 
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
