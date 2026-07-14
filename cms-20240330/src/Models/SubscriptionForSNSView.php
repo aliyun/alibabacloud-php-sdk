@@ -44,6 +44,11 @@ class SubscriptionForSNSView extends Model
     public $regionId;
 
     /**
+     * @var bool
+     */
+    public $subscribeLegacyEvent;
+
+    /**
      * @var string
      */
     public $subscriptionType;
@@ -85,6 +90,7 @@ class SubscriptionForSNSView extends Model
         'name' => 'name',
         'notifyStrategyUuid' => 'notifyStrategyUuid',
         'regionId' => 'regionId',
+        'subscribeLegacyEvent' => 'subscribeLegacyEvent',
         'subscriptionType' => 'subscriptionType',
         'syncFromType' => 'syncFromType',
         'updateTime' => 'updateTime',
@@ -134,6 +140,10 @@ class SubscriptionForSNSView extends Model
 
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->subscribeLegacyEvent) {
+            $res['subscribeLegacyEvent'] = $this->subscribeLegacyEvent;
         }
 
         if (null !== $this->subscriptionType) {
@@ -201,6 +211,10 @@ class SubscriptionForSNSView extends Model
 
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['subscribeLegacyEvent'])) {
+            $model->subscribeLegacyEvent = $map['subscribeLegacyEvent'];
         }
 
         if (isset($map['subscriptionType'])) {

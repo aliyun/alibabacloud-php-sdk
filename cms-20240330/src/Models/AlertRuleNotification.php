@@ -49,6 +49,16 @@ class AlertRuleNotification extends Model
     public $qwencloudContacts;
 
     /**
+     * @var bool
+     */
+    public $sendOk;
+
+    /**
+     * @var SeverityNotifyConfig[]
+     */
+    public $severityNotifications;
+
+    /**
      * @var int
      */
     public $silenceTime;
@@ -71,6 +81,8 @@ class AlertRuleNotification extends Model
         'groups' => 'groups',
         'notifyTime' => 'notifyTime',
         'qwencloudContacts' => 'qwencloudContacts',
+        'sendOk' => 'sendOk',
+        'severityNotifications' => 'severityNotifications',
         'silenceTime' => 'silenceTime',
         'slackWebhooks' => 'slackWebhooks',
         'wxWebhooks' => 'wxWebhooks',
@@ -101,6 +113,9 @@ class AlertRuleNotification extends Model
         }
         if (\is_array($this->qwencloudContacts)) {
             Model::validateArray($this->qwencloudContacts);
+        }
+        if (\is_array($this->severityNotifications)) {
+            Model::validateArray($this->severityNotifications);
         }
         if (\is_array($this->slackWebhooks)) {
             Model::validateArray($this->slackWebhooks);
@@ -189,6 +204,19 @@ class AlertRuleNotification extends Model
                 $res['qwencloudContacts'] = [];
                 foreach ($this->qwencloudContacts as $key1 => $value1) {
                     $res['qwencloudContacts'][$key1] = $value1;
+                }
+            }
+        }
+
+        if (null !== $this->sendOk) {
+            $res['sendOk'] = $this->sendOk;
+        }
+
+        if (null !== $this->severityNotifications) {
+            if (\is_array($this->severityNotifications)) {
+                $res['severityNotifications'] = [];
+                foreach ($this->severityNotifications as $key1 => $value1) {
+                    $res['severityNotifications'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
@@ -305,6 +333,19 @@ class AlertRuleNotification extends Model
                 $model->qwencloudContacts = [];
                 foreach ($map['qwencloudContacts'] as $key1 => $value1) {
                     $model->qwencloudContacts[$key1] = $value1;
+                }
+            }
+        }
+
+        if (isset($map['sendOk'])) {
+            $model->sendOk = $map['sendOk'];
+        }
+
+        if (isset($map['severityNotifications'])) {
+            if (!empty($map['severityNotifications'])) {
+                $model->severityNotifications = [];
+                foreach ($map['severityNotifications'] as $key1 => $value1) {
+                    $model->severityNotifications[$key1] = SeverityNotifyConfig::fromMap($value1);
                 }
             }
         }

@@ -25,7 +25,7 @@ class ObserveGroup extends Model
     public $description;
 
     /**
-     * @var string
+     * @var ObserveGroupDiscoverRule[]
      */
     public $discoverRules;
 
@@ -70,6 +70,16 @@ class ObserveGroup extends Model
     public $modifyTime;
 
     /**
+     * @var bool
+     */
+    public $ogEntityInfoEnabled;
+
+    /**
+     * @var ObserveGroupPromInstance[]
+     */
+    public $ogEntityInfoPromInstances;
+
+    /**
      * @var string
      */
     public $originGroupId;
@@ -111,6 +121,8 @@ class ObserveGroup extends Model
         'groupType' => 'groupType',
         'health' => 'health',
         'modifyTime' => 'modifyTime',
+        'ogEntityInfoEnabled' => 'ogEntityInfoEnabled',
+        'ogEntityInfoPromInstances' => 'ogEntityInfoPromInstances',
         'originGroupId' => 'originGroupId',
         'regionId' => 'regionId',
         'resourceGroupId' => 'resourceGroupId',
@@ -121,8 +133,14 @@ class ObserveGroup extends Model
 
     public function validate()
     {
+        if (\is_array($this->discoverRules)) {
+            Model::validateArray($this->discoverRules);
+        }
         if (\is_array($this->entityCounts)) {
             Model::validateArray($this->entityCounts);
+        }
+        if (\is_array($this->ogEntityInfoPromInstances)) {
+            Model::validateArray($this->ogEntityInfoPromInstances);
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -146,7 +164,14 @@ class ObserveGroup extends Model
         }
 
         if (null !== $this->discoverRules) {
-            $res['discoverRules'] = $this->discoverRules;
+            if (\is_array($this->discoverRules)) {
+                $res['discoverRules'] = [];
+                $n1 = 0;
+                foreach ($this->discoverRules as $item1) {
+                    $res['discoverRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->entityCounts) {
@@ -184,6 +209,21 @@ class ObserveGroup extends Model
 
         if (null !== $this->modifyTime) {
             $res['modifyTime'] = $this->modifyTime;
+        }
+
+        if (null !== $this->ogEntityInfoEnabled) {
+            $res['ogEntityInfoEnabled'] = $this->ogEntityInfoEnabled;
+        }
+
+        if (null !== $this->ogEntityInfoPromInstances) {
+            if (\is_array($this->ogEntityInfoPromInstances)) {
+                $res['ogEntityInfoPromInstances'] = [];
+                $n1 = 0;
+                foreach ($this->ogEntityInfoPromInstances as $item1) {
+                    $res['ogEntityInfoPromInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->originGroupId) {
@@ -241,7 +281,14 @@ class ObserveGroup extends Model
         }
 
         if (isset($map['discoverRules'])) {
-            $model->discoverRules = $map['discoverRules'];
+            if (!empty($map['discoverRules'])) {
+                $model->discoverRules = [];
+                $n1 = 0;
+                foreach ($map['discoverRules'] as $item1) {
+                    $model->discoverRules[$n1] = ObserveGroupDiscoverRule::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['entityCounts'])) {
@@ -279,6 +326,21 @@ class ObserveGroup extends Model
 
         if (isset($map['modifyTime'])) {
             $model->modifyTime = $map['modifyTime'];
+        }
+
+        if (isset($map['ogEntityInfoEnabled'])) {
+            $model->ogEntityInfoEnabled = $map['ogEntityInfoEnabled'];
+        }
+
+        if (isset($map['ogEntityInfoPromInstances'])) {
+            if (!empty($map['ogEntityInfoPromInstances'])) {
+                $model->ogEntityInfoPromInstances = [];
+                $n1 = 0;
+                foreach ($map['ogEntityInfoPromInstances'] as $item1) {
+                    $model->ogEntityInfoPromInstances[$n1] = ObserveGroupPromInstance::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['originGroupId'])) {

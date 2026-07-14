@@ -2,12 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForSNSModify;
+namespace AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyDetail;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForSNSModify\routes\channels;
-use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForSNSModify\routes\effectTimeRange;
-use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyForSNSModify\routes\filterSetting;
+use AlibabaCloud\SDK\Cms\V20240330\Models\FilterSetting;
+use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyDetail\routes\channels;
+use AlibabaCloud\SDK\Cms\V20240330\Models\NotifyStrategyDetail\routes\effectTimeRange;
 
 class routes extends Model
 {
@@ -32,21 +32,15 @@ class routes extends Model
     public $enableRca;
 
     /**
-     * @var filterSetting
+     * @var FilterSetting
      */
     public $filterSetting;
-
-    /**
-     * @var string[]
-     */
-    public $severities;
     protected $_name = [
         'channels' => 'channels',
         'digitalEmployeeName' => 'digitalEmployeeName',
         'effectTimeRange' => 'effectTimeRange',
         'enableRca' => 'enableRca',
         'filterSetting' => 'filterSetting',
-        'severities' => 'severities',
     ];
 
     public function validate()
@@ -59,9 +53,6 @@ class routes extends Model
         }
         if (null !== $this->filterSetting) {
             $this->filterSetting->validate();
-        }
-        if (\is_array($this->severities)) {
-            Model::validateArray($this->severities);
         }
         parent::validate();
     }
@@ -94,17 +85,6 @@ class routes extends Model
 
         if (null !== $this->filterSetting) {
             $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
-        }
-
-        if (null !== $this->severities) {
-            if (\is_array($this->severities)) {
-                $res['severities'] = [];
-                $n1 = 0;
-                foreach ($this->severities as $item1) {
-                    $res['severities'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
         }
 
         return $res;
@@ -142,18 +122,7 @@ class routes extends Model
         }
 
         if (isset($map['filterSetting'])) {
-            $model->filterSetting = filterSetting::fromMap($map['filterSetting']);
-        }
-
-        if (isset($map['severities'])) {
-            if (!empty($map['severities'])) {
-                $model->severities = [];
-                $n1 = 0;
-                foreach ($map['severities'] as $item1) {
-                    $model->severities[$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
         }
 
         return $model;

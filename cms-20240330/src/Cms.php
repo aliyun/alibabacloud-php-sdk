@@ -35,6 +35,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateIntegrationPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreateMemoryStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateNotifyPolicyRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\CreateNotifyPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePipelineRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\CreatePrometheusInstanceRequest;
@@ -85,6 +87,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteMemoryStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteNotifyPolicyRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DeleteNotifyPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePipelineRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DeletePrometheusInstanceRequest;
@@ -110,6 +114,10 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeMetricMetaListResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeMetricMetaListShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DisableNotifyPolicyRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\DisableNotifyPolicyResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\EnableNotifyPolicyRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\EnableNotifyPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ExecuteQueryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetAddonCodeTemplateRequest;
@@ -154,6 +162,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetMemoryStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetNotifyPolicyRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\GetNotifyPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPipelineRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetPrometheusInstanceRequest;
@@ -228,6 +238,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequiremen
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListIntegrationPolicyStorageRequirementsResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListMemoryStoresResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListNotifyPoliciesRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ListNotifyPoliciesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPipelinesResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListPrometheusDashboardsRequest;
@@ -294,6 +306,8 @@ use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryStoreRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateMemoryStoreResponse;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyPolicyRequest;
+use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyPolicyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyRequest;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdateNotifyStrategyResponse;
 use AlibabaCloud\SDK\Cms\V20240330\Models\UpdatePipelineRequest;
@@ -1634,6 +1648,74 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->createMemoryStoreWithOptions($workspace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a notification policy.
+     *
+     * @remarks
+     * Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+     *
+     * @param request - CreateNotifyPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNotifyPolicyResponse
+     *
+     * @param CreateNotifyPolicyRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateNotifyPolicyResponse
+     */
+    public function createNotifyPolicyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateNotifyPolicy',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/eventbase/notify-policy/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a notification policy.
+     *
+     * @remarks
+     * Creates a notification policy in a specified workspace. The notifyStrategy field in the request body NotifyPolicyConfig is required, while subscription and responsePlan are optional. After the policy is created, the generated policy UUID and complete policy details are returned. If a policy with the same Policy Name already exists in the workspace, a ConflictName error is returned.
+     *
+     * @param request - CreateNotifyPolicyRequest
+     *
+     * @returns CreateNotifyPolicyResponse
+     *
+     * @param CreateNotifyPolicyRequest $request
+     *
+     * @return CreateNotifyPolicyResponse
+     */
+    public function createNotifyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createNotifyPolicyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3345,6 +3427,77 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+     *
+     * @remarks
+     * Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+     *
+     * @param request - DeleteNotifyPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNotifyPolicyResponse
+     *
+     * @param DeleteNotifyPolicyRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteNotifyPolicyResponse
+     */
+    public function deleteNotifyPolicyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->uuid) {
+            @$query['uuid'] = $request->uuid;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNotifyPolicy',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/eventbase/notify-policy',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a notification policy in a specified workspace. After deletion, the policy no longer sends notifications for subscribed events.
+     *
+     * @remarks
+     * Deletes a notification policy by specifying the workspace and uuid. Returns success to indicate the deletion result and the uuid of the deleted policy.
+     *
+     * @param request - DeleteNotifyPolicyRequest
+     *
+     * @returns DeleteNotifyPolicyResponse
+     *
+     * @param DeleteNotifyPolicyRequest $request
+     *
+     * @return DeleteNotifyPolicyResponse
+     */
+    public function deleteNotifyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteNotifyPolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a pipeline.
      *
      * @param request - DeletePipelineRequest
@@ -4132,6 +4285,144 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->describeRegionsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+     *
+     * @remarks
+     * Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+     *
+     * @param request - DisableNotifyPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableNotifyPolicyResponse
+     *
+     * @param string                     $uuid
+     * @param DisableNotifyPolicyRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DisableNotifyPolicyResponse
+     */
+    public function disableNotifyPolicyWithOptions($uuid, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DisableNotifyPolicy',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/eventbase/notify-policy/' . Url::percentEncode($uuid) . '/disable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DisableNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
+     *
+     * @remarks
+     * Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
+     *
+     * @param request - DisableNotifyPolicyRequest
+     *
+     * @returns DisableNotifyPolicyResponse
+     *
+     * @param string                     $uuid
+     * @param DisableNotifyPolicyRequest $request
+     *
+     * @return DisableNotifyPolicyResponse
+     */
+    public function disableNotifyPolicy($uuid, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->disableNotifyPolicyWithOptions($uuid, $request, $headers, $runtime);
+    }
+
+    /**
+     * Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
+     *
+     * @remarks
+     * Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+     *
+     * @param request - EnableNotifyPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableNotifyPolicyResponse
+     *
+     * @param string                    $uuid
+     * @param EnableNotifyPolicyRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EnableNotifyPolicyResponse
+     */
+    public function enableNotifyPolicyWithOptions($uuid, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EnableNotifyPolicy',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/eventbase/notify-policy/' . Url::percentEncode($uuid) . '/enable',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Enables a disabled notification policy in a specified workspace. After the policy is enabled, it resumes sending notifications for subscribed events.
+     *
+     * @remarks
+     * Enables a notification policy by specifying the workspace and uuid path parameters. Returns success and the policy uuid.
+     *
+     * @param request - EnableNotifyPolicyRequest
+     *
+     * @returns EnableNotifyPolicyResponse
+     *
+     * @param string                    $uuid
+     * @param EnableNotifyPolicyRequest $request
+     *
+     * @return EnableNotifyPolicyResponse
+     */
+    public function enableNotifyPolicy($uuid, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->enableNotifyPolicyWithOptions($uuid, $request, $headers, $runtime);
     }
 
     /**
@@ -5600,6 +5891,77 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->getMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a specified notification policy.
+     *
+     * @remarks
+     * Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+     *
+     * @param request - GetNotifyPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNotifyPolicyResponse
+     *
+     * @param GetNotifyPolicyRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetNotifyPolicyResponse
+     */
+    public function getNotifyPolicyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->uuid) {
+            @$query['uuid'] = $request->uuid;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetNotifyPolicy',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/eventbase/notify-policy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a specified notification policy.
+     *
+     * @remarks
+     * Queries a specified notification policy by workspace and UUID. If the UUID does not exist, a ResourceNotFound error is returned.
+     *
+     * @param request - GetNotifyPolicyRequest
+     *
+     * @returns GetNotifyPolicyResponse
+     *
+     * @param GetNotifyPolicyRequest $request
+     *
+     * @return GetNotifyPolicyResponse
+     */
+    public function getNotifyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getNotifyPolicyWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8084,6 +8446,93 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * Lists notify policies.
+     *
+     * @remarks
+     * Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+     *
+     * @param request - ListNotifyPoliciesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNotifyPoliciesResponse
+     *
+     * @param ListNotifyPoliciesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListNotifyPoliciesResponse
+     */
+    public function listNotifyPoliciesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDesc) {
+            @$query['orderDesc'] = $request->orderDesc;
+        }
+
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListNotifyPolicies',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/eventbase/notify-policies',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListNotifyPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists notify policies.
+     *
+     * @remarks
+     * Queries the list of notify policies in a specified workspace with paging. You can filter results by name using fuzzy match. The response contains a list of NotifyPolicySummary lightweight views.
+     *
+     * @param request - ListNotifyPoliciesRequest
+     *
+     * @returns ListNotifyPoliciesResponse
+     *
+     * @param ListNotifyPoliciesRequest $request
+     *
+     * @return ListNotifyPoliciesResponse
+     */
+    public function listNotifyPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listNotifyPoliciesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Lists pipelines.
      *
      * @param request - ListPipelinesRequest
@@ -10468,6 +10917,74 @@ class Cms extends OpenApiClient
         $headers = [];
 
         return $this->updateMemoryStoreWithOptions($workspace, $memoryStoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a notification policy.
+     *
+     * @remarks
+     * Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+     *
+     * @param request - UpdateNotifyPolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNotifyPolicyResponse
+     *
+     * @param UpdateNotifyPolicyRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateNotifyPolicyResponse
+     */
+    public function updateNotifyPolicyWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->workspace) {
+            @$query['workspace'] = $request->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateNotifyPolicy',
+            'version' => '2024-03-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/eventbase/notify-policy/update',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a notification policy.
+     *
+     * @remarks
+     * Updates a notification policy by workspace and body (containing uuid and version). The version field is an optimistic lock version number that must match the current record on the backend. Otherwise, OptimisticLockFailed is returned. After a successful update, the latest policy details are returned.
+     *
+     * @param request - UpdateNotifyPolicyRequest
+     *
+     * @returns UpdateNotifyPolicyResponse
+     *
+     * @param UpdateNotifyPolicyRequest $request
+     *
+     * @return UpdateNotifyPolicyResponse
+     */
+    public function updateNotifyPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateNotifyPolicyWithOptions($request, $headers, $runtime);
     }
 
     /**

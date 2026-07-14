@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class SubscriptionForSNSModify extends Model
+class SubscriptionConfig extends Model
 {
     /**
      * @var FilterSetting

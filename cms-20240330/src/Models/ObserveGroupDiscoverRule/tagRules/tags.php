@@ -23,9 +23,9 @@ class tags extends Model
      */
     public $tagValues;
     protected $_name = [
-        'op' => 'Op',
-        'tagKey' => 'TagKey',
-        'tagValues' => 'TagValues',
+        'op' => 'op',
+        'tagKey' => 'tagKey',
+        'tagValues' => 'tagValues',
     ];
 
     public function validate()
@@ -40,19 +40,19 @@ class tags extends Model
     {
         $res = [];
         if (null !== $this->op) {
-            $res['Op'] = $this->op;
+            $res['op'] = $this->op;
         }
 
         if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+            $res['tagKey'] = $this->tagKey;
         }
 
         if (null !== $this->tagValues) {
             if (\is_array($this->tagValues)) {
-                $res['TagValues'] = [];
+                $res['tagValues'] = [];
                 $n1 = 0;
                 foreach ($this->tagValues as $item1) {
-                    $res['TagValues'][$n1] = $item1;
+                    $res['tagValues'][$n1] = $item1;
                     ++$n1;
                 }
             }
@@ -69,19 +69,19 @@ class tags extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Op'])) {
-            $model->op = $map['Op'];
+        if (isset($map['op'])) {
+            $model->op = $map['op'];
         }
 
-        if (isset($map['TagKey'])) {
-            $model->tagKey = $map['TagKey'];
+        if (isset($map['tagKey'])) {
+            $model->tagKey = $map['tagKey'];
         }
 
-        if (isset($map['TagValues'])) {
-            if (!empty($map['TagValues'])) {
+        if (isset($map['tagValues'])) {
+            if (!empty($map['tagValues'])) {
                 $model->tagValues = [];
                 $n1 = 0;
-                foreach ($map['TagValues'] as $item1) {
+                foreach ($map['tagValues'] as $item1) {
                     $model->tagValues[$n1] = $item1;
                     ++$n1;
                 }

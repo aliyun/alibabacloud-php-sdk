@@ -34,6 +34,16 @@ class NotifyConfigUnified extends Model
     public $notifyStrategies;
 
     /**
+     * @var bool
+     */
+    public $sendRecoverNotification;
+
+    /**
+     * @var SeverityNotifyConfig[]
+     */
+    public $severityChannels;
+
+    /**
      * @var int
      */
     public $silenceTimeSecs;
@@ -53,6 +63,8 @@ class NotifyConfigUnified extends Model
         'activeStartTime' => 'activeStartTime',
         'channels' => 'channels',
         'notifyStrategies' => 'notifyStrategies',
+        'sendRecoverNotification' => 'sendRecoverNotification',
+        'severityChannels' => 'severityChannels',
         'silenceTimeSecs' => 'silenceTimeSecs',
         'type' => 'type',
         'utcOffset' => 'utcOffset',
@@ -68,6 +80,9 @@ class NotifyConfigUnified extends Model
         }
         if (\is_array($this->notifyStrategies)) {
             Model::validateArray($this->notifyStrategies);
+        }
+        if (\is_array($this->severityChannels)) {
+            Model::validateArray($this->severityChannels);
         }
         parent::validate();
     }
@@ -112,6 +127,19 @@ class NotifyConfigUnified extends Model
                 foreach ($this->notifyStrategies as $item1) {
                     $res['notifyStrategies'][$n1] = $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->sendRecoverNotification) {
+            $res['sendRecoverNotification'] = $this->sendRecoverNotification;
+        }
+
+        if (null !== $this->severityChannels) {
+            if (\is_array($this->severityChannels)) {
+                $res['severityChannels'] = [];
+                foreach ($this->severityChannels as $key1 => $value1) {
+                    $res['severityChannels'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
@@ -176,6 +204,19 @@ class NotifyConfigUnified extends Model
                 foreach ($map['notifyStrategies'] as $item1) {
                     $model->notifyStrategies[$n1] = $item1;
                     ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['sendRecoverNotification'])) {
+            $model->sendRecoverNotification = $map['sendRecoverNotification'];
+        }
+
+        if (isset($map['severityChannels'])) {
+            if (!empty($map['severityChannels'])) {
+                $model->severityChannels = [];
+                foreach ($map['severityChannels'] as $key1 => $value1) {
+                    $model->severityChannels[$key1] = SeverityNotifyConfig::fromMap($value1);
                 }
             }
         }

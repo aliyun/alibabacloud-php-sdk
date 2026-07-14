@@ -80,20 +80,20 @@ class ObserveGroupDiscoverRule extends Model
      */
     public $userId;
     protected $_name = [
-        'enabled' => 'Enabled',
-        'entityType' => 'EntityType',
-        'entityTypes' => 'EntityTypes',
-        'gmtCreate' => 'GmtCreate',
-        'instanceIds' => 'InstanceIds',
-        'nameRules' => 'NameRules',
-        'regionIds' => 'RegionIds',
-        'resourceGroupId' => 'ResourceGroupId',
-        'ruleId' => 'RuleId',
-        'ruleType' => 'RuleType',
-        'scope' => 'Scope',
-        'spl' => 'Spl',
-        'tagRules' => 'TagRules',
-        'userId' => 'UserId',
+        'enabled' => 'enabled',
+        'entityType' => 'entityType',
+        'entityTypes' => 'entityTypes',
+        'gmtCreate' => 'gmtCreate',
+        'instanceIds' => 'instanceIds',
+        'nameRules' => 'nameRules',
+        'regionIds' => 'regionIds',
+        'resourceGroupId' => 'resourceGroupId',
+        'ruleId' => 'ruleId',
+        'ruleType' => 'ruleType',
+        'scope' => 'scope',
+        'spl' => 'spl',
+        'tagRules' => 'tagRules',
+        'userId' => 'userId',
     ];
 
     public function validate()
@@ -120,80 +120,80 @@ class ObserveGroupDiscoverRule extends Model
     {
         $res = [];
         if (null !== $this->enabled) {
-            $res['Enabled'] = $this->enabled;
+            $res['enabled'] = $this->enabled;
         }
 
         if (null !== $this->entityType) {
-            $res['EntityType'] = $this->entityType;
+            $res['entityType'] = $this->entityType;
         }
 
         if (null !== $this->entityTypes) {
             if (\is_array($this->entityTypes)) {
-                $res['EntityTypes'] = [];
+                $res['entityTypes'] = [];
                 $n1 = 0;
                 foreach ($this->entityTypes as $item1) {
-                    $res['EntityTypes'][$n1] = $item1;
+                    $res['entityTypes'][$n1] = $item1;
                     ++$n1;
                 }
             }
         }
 
         if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
+            $res['gmtCreate'] = $this->gmtCreate;
         }
 
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
-                $res['InstanceIds'] = [];
+                $res['instanceIds'] = [];
                 $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1] = $item1;
+                    $res['instanceIds'][$n1] = $item1;
                     ++$n1;
                 }
             }
         }
 
         if (null !== $this->nameRules) {
-            $res['NameRules'] = null !== $this->nameRules ? $this->nameRules->toArray($noStream) : $this->nameRules;
+            $res['nameRules'] = null !== $this->nameRules ? $this->nameRules->toArray($noStream) : $this->nameRules;
         }
 
         if (null !== $this->regionIds) {
             if (\is_array($this->regionIds)) {
-                $res['RegionIds'] = [];
+                $res['regionIds'] = [];
                 $n1 = 0;
                 foreach ($this->regionIds as $item1) {
-                    $res['RegionIds'][$n1] = $item1;
+                    $res['regionIds'][$n1] = $item1;
                     ++$n1;
                 }
             }
         }
 
         if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+            $res['ruleId'] = $this->ruleId;
         }
 
         if (null !== $this->ruleType) {
-            $res['RuleType'] = $this->ruleType;
+            $res['ruleType'] = $this->ruleType;
         }
 
         if (null !== $this->scope) {
-            $res['Scope'] = $this->scope;
+            $res['scope'] = $this->scope;
         }
 
         if (null !== $this->spl) {
-            $res['Spl'] = $this->spl;
+            $res['spl'] = $this->spl;
         }
 
         if (null !== $this->tagRules) {
-            $res['TagRules'] = null !== $this->tagRules ? $this->tagRules->toArray($noStream) : $this->tagRules;
+            $res['tagRules'] = null !== $this->tagRules ? $this->tagRules->toArray($noStream) : $this->tagRules;
         }
 
         if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
+            $res['userId'] = $this->userId;
         }
 
         return $res;
@@ -207,81 +207,81 @@ class ObserveGroupDiscoverRule extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Enabled'])) {
-            $model->enabled = $map['Enabled'];
+        if (isset($map['enabled'])) {
+            $model->enabled = $map['enabled'];
         }
 
-        if (isset($map['EntityType'])) {
-            $model->entityType = $map['EntityType'];
+        if (isset($map['entityType'])) {
+            $model->entityType = $map['entityType'];
         }
 
-        if (isset($map['EntityTypes'])) {
-            if (!empty($map['EntityTypes'])) {
+        if (isset($map['entityTypes'])) {
+            if (!empty($map['entityTypes'])) {
                 $model->entityTypes = [];
                 $n1 = 0;
-                foreach ($map['EntityTypes'] as $item1) {
+                foreach ($map['entityTypes'] as $item1) {
                     $model->entityTypes[$n1] = $item1;
                     ++$n1;
                 }
             }
         }
 
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
+        if (isset($map['gmtCreate'])) {
+            $model->gmtCreate = $map['gmtCreate'];
         }
 
-        if (isset($map['InstanceIds'])) {
-            if (!empty($map['InstanceIds'])) {
+        if (isset($map['instanceIds'])) {
+            if (!empty($map['instanceIds'])) {
                 $model->instanceIds = [];
                 $n1 = 0;
-                foreach ($map['InstanceIds'] as $item1) {
+                foreach ($map['instanceIds'] as $item1) {
                     $model->instanceIds[$n1] = $item1;
                     ++$n1;
                 }
             }
         }
 
-        if (isset($map['NameRules'])) {
-            $model->nameRules = nameRules::fromMap($map['NameRules']);
+        if (isset($map['nameRules'])) {
+            $model->nameRules = nameRules::fromMap($map['nameRules']);
         }
 
-        if (isset($map['RegionIds'])) {
-            if (!empty($map['RegionIds'])) {
+        if (isset($map['regionIds'])) {
+            if (!empty($map['regionIds'])) {
                 $model->regionIds = [];
                 $n1 = 0;
-                foreach ($map['RegionIds'] as $item1) {
+                foreach ($map['regionIds'] as $item1) {
                     $model->regionIds[$n1] = $item1;
                     ++$n1;
                 }
             }
         }
 
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
-        if (isset($map['RuleId'])) {
-            $model->ruleId = $map['RuleId'];
+        if (isset($map['ruleId'])) {
+            $model->ruleId = $map['ruleId'];
         }
 
-        if (isset($map['RuleType'])) {
-            $model->ruleType = $map['RuleType'];
+        if (isset($map['ruleType'])) {
+            $model->ruleType = $map['ruleType'];
         }
 
-        if (isset($map['Scope'])) {
-            $model->scope = $map['Scope'];
+        if (isset($map['scope'])) {
+            $model->scope = $map['scope'];
         }
 
-        if (isset($map['Spl'])) {
-            $model->spl = $map['Spl'];
+        if (isset($map['spl'])) {
+            $model->spl = $map['spl'];
         }
 
-        if (isset($map['TagRules'])) {
-            $model->tagRules = tagRules::fromMap($map['TagRules']);
+        if (isset($map['tagRules'])) {
+            $model->tagRules = tagRules::fromMap($map['tagRules']);
         }
 
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
+        if (isset($map['userId'])) {
+            $model->userId = $map['userId'];
         }
 
         return $model;

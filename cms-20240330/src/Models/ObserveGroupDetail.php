@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ObserveGroupDetail\entitySummaries;
+use AlibabaCloud\SDK\Cms\V20240330\Models\ObserveGroupDetail\tags;
 
 class ObserveGroupDetail extends Model
 {
@@ -25,7 +26,7 @@ class ObserveGroupDetail extends Model
     public $description;
 
     /**
-     * @var string
+     * @var ObserveGroupDiscoverRule[]
      */
     public $discoverRules;
 
@@ -65,6 +66,16 @@ class ObserveGroupDetail extends Model
     public $modifyTime;
 
     /**
+     * @var bool
+     */
+    public $ogEntityInfoEnabled;
+
+    /**
+     * @var ObserveGroupPromInstance[]
+     */
+    public $ogEntityInfoPromInstances;
+
+    /**
      * @var string
      */
     public $originGroupId;
@@ -85,6 +96,11 @@ class ObserveGroupDetail extends Model
     public $sourceOrigin;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @var string
      */
     public $workspaceId;
@@ -100,17 +116,29 @@ class ObserveGroupDetail extends Model
         'groupName' => 'groupName',
         'groupType' => 'groupType',
         'modifyTime' => 'modifyTime',
+        'ogEntityInfoEnabled' => 'ogEntityInfoEnabled',
+        'ogEntityInfoPromInstances' => 'ogEntityInfoPromInstances',
         'originGroupId' => 'originGroupId',
         'regionId' => 'regionId',
         'resourceGroupId' => 'resourceGroupId',
         'sourceOrigin' => 'sourceOrigin',
+        'tags' => 'tags',
         'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->discoverRules)) {
+            Model::validateArray($this->discoverRules);
+        }
         if (\is_array($this->entitySummaries)) {
             Model::validateArray($this->entitySummaries);
+        }
+        if (\is_array($this->ogEntityInfoPromInstances)) {
+            Model::validateArray($this->ogEntityInfoPromInstances);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -131,7 +159,14 @@ class ObserveGroupDetail extends Model
         }
 
         if (null !== $this->discoverRules) {
-            $res['discoverRules'] = $this->discoverRules;
+            if (\is_array($this->discoverRules)) {
+                $res['discoverRules'] = [];
+                $n1 = 0;
+                foreach ($this->discoverRules as $item1) {
+                    $res['discoverRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->entitySummaries) {
@@ -169,6 +204,21 @@ class ObserveGroupDetail extends Model
             $res['modifyTime'] = $this->modifyTime;
         }
 
+        if (null !== $this->ogEntityInfoEnabled) {
+            $res['ogEntityInfoEnabled'] = $this->ogEntityInfoEnabled;
+        }
+
+        if (null !== $this->ogEntityInfoPromInstances) {
+            if (\is_array($this->ogEntityInfoPromInstances)) {
+                $res['ogEntityInfoPromInstances'] = [];
+                $n1 = 0;
+                foreach ($this->ogEntityInfoPromInstances as $item1) {
+                    $res['ogEntityInfoPromInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->originGroupId) {
             $res['originGroupId'] = $this->originGroupId;
         }
@@ -183,6 +233,17 @@ class ObserveGroupDetail extends Model
 
         if (null !== $this->sourceOrigin) {
             $res['sourceOrigin'] = $this->sourceOrigin;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->workspaceId) {
@@ -213,7 +274,14 @@ class ObserveGroupDetail extends Model
         }
 
         if (isset($map['discoverRules'])) {
-            $model->discoverRules = $map['discoverRules'];
+            if (!empty($map['discoverRules'])) {
+                $model->discoverRules = [];
+                $n1 = 0;
+                foreach ($map['discoverRules'] as $item1) {
+                    $model->discoverRules[$n1] = ObserveGroupDiscoverRule::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['entitySummaries'])) {
@@ -251,6 +319,21 @@ class ObserveGroupDetail extends Model
             $model->modifyTime = $map['modifyTime'];
         }
 
+        if (isset($map['ogEntityInfoEnabled'])) {
+            $model->ogEntityInfoEnabled = $map['ogEntityInfoEnabled'];
+        }
+
+        if (isset($map['ogEntityInfoPromInstances'])) {
+            if (!empty($map['ogEntityInfoPromInstances'])) {
+                $model->ogEntityInfoPromInstances = [];
+                $n1 = 0;
+                foreach ($map['ogEntityInfoPromInstances'] as $item1) {
+                    $model->ogEntityInfoPromInstances[$n1] = ObserveGroupPromInstance::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['originGroupId'])) {
             $model->originGroupId = $map['originGroupId'];
         }
@@ -265,6 +348,17 @@ class ObserveGroupDetail extends Model
 
         if (isset($map['sourceOrigin'])) {
             $model->sourceOrigin = $map['sourceOrigin'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['workspaceId'])) {

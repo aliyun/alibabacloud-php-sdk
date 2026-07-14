@@ -19,8 +19,8 @@ class nameRules extends Model
      */
     public $tags;
     protected $_name = [
-        'op' => 'Op',
-        'tags' => 'Tags',
+        'op' => 'op',
+        'tags' => 'tags',
     ];
 
     public function validate()
@@ -35,15 +35,15 @@ class nameRules extends Model
     {
         $res = [];
         if (null !== $this->op) {
-            $res['Op'] = $this->op;
+            $res['op'] = $this->op;
         }
 
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
-                $res['Tags'] = [];
+                $res['tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -60,15 +60,15 @@ class nameRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Op'])) {
-            $model->op = $map['Op'];
+        if (isset($map['op'])) {
+            $model->op = $map['op'];
         }
 
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
                 $model->tags = [];
                 $n1 = 0;
-                foreach ($map['Tags'] as $item1) {
+                foreach ($map['tags'] as $item1) {
                     $model->tags[$n1] = tags::fromMap($item1);
                     ++$n1;
                 }
