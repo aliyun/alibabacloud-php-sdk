@@ -156,6 +156,11 @@ class PushBroadcastRequest extends Model
     /**
      * @var string
      */
+    public $vendorTemplate;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'androidChannel' => 'AndroidChannel',
@@ -187,6 +192,7 @@ class PushBroadcastRequest extends Model
         'unBindEndTime' => 'UnBindEndTime',
         'unBindPeriod' => 'UnBindPeriod',
         'unBindStartTime' => 'UnBindStartTime',
+        'vendorTemplate' => 'VendorTemplate',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -330,6 +336,10 @@ class PushBroadcastRequest extends Model
             $res['UnBindStartTime'] = $this->unBindStartTime;
         }
 
+        if (null !== $this->vendorTemplate) {
+            $res['VendorTemplate'] = $this->vendorTemplate;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -469,6 +479,10 @@ class PushBroadcastRequest extends Model
 
         if (isset($map['UnBindStartTime'])) {
             $model->unBindStartTime = $map['UnBindStartTime'];
+        }
+
+        if (isset($map['VendorTemplate'])) {
+            $model->vendorTemplate = $map['VendorTemplate'];
         }
 
         if (isset($map['WorkspaceId'])) {

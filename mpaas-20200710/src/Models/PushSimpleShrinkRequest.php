@@ -151,6 +151,11 @@ class PushSimpleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $vendorTemplate;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'activityContentState' => 'ActivityContentState',
@@ -181,6 +186,7 @@ class PushSimpleShrinkRequest extends Model
         'transparentMessagePayload' => 'TransparentMessagePayload',
         'transparentMessageUrgency' => 'TransparentMessageUrgency',
         'uri' => 'Uri',
+        'vendorTemplate' => 'VendorTemplate',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -302,6 +308,10 @@ class PushSimpleShrinkRequest extends Model
 
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
+        }
+
+        if (null !== $this->vendorTemplate) {
+            $res['VendorTemplate'] = $this->vendorTemplate;
         }
 
         if (null !== $this->workspaceId) {
@@ -429,6 +439,10 @@ class PushSimpleShrinkRequest extends Model
 
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
+        }
+
+        if (isset($map['VendorTemplate'])) {
+            $model->vendorTemplate = $map['VendorTemplate'];
         }
 
         if (isset($map['WorkspaceId'])) {

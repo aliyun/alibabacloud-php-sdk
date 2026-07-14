@@ -127,6 +127,11 @@ class PushMultipleShrinkRequest extends Model
     /**
      * @var string
      */
+    public $vendorTemplate;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'activityContentState' => 'ActivityContentState',
@@ -152,6 +157,7 @@ class PushMultipleShrinkRequest extends Model
         'thirdChannelCategoryShrink' => 'ThirdChannelCategory',
         'transparentMessagePayload' => 'TransparentMessagePayload',
         'transparentMessageUrgency' => 'TransparentMessageUrgency',
+        'vendorTemplate' => 'VendorTemplate',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -263,6 +269,10 @@ class PushMultipleShrinkRequest extends Model
 
         if (null !== $this->transparentMessageUrgency) {
             $res['TransparentMessageUrgency'] = $this->transparentMessageUrgency;
+        }
+
+        if (null !== $this->vendorTemplate) {
+            $res['VendorTemplate'] = $this->vendorTemplate;
         }
 
         if (null !== $this->workspaceId) {
@@ -377,6 +387,10 @@ class PushMultipleShrinkRequest extends Model
 
         if (isset($map['TransparentMessageUrgency'])) {
             $model->transparentMessageUrgency = $map['TransparentMessageUrgency'];
+        }
+
+        if (isset($map['VendorTemplate'])) {
+            $model->vendorTemplate = $map['VendorTemplate'];
         }
 
         if (isset($map['WorkspaceId'])) {

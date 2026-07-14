@@ -131,6 +131,11 @@ class PushTemplateRequest extends Model
     /**
      * @var string
      */
+    public $vendorTemplate;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'activityContentState' => 'ActivityContentState',
@@ -157,6 +162,7 @@ class PushTemplateRequest extends Model
         'thirdChannelCategory' => 'ThirdChannelCategory',
         'transparentMessagePayload' => 'TransparentMessagePayload',
         'transparentMessageUrgency' => 'TransparentMessageUrgency',
+        'vendorTemplate' => 'VendorTemplate',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -280,6 +286,10 @@ class PushTemplateRequest extends Model
             $res['TransparentMessageUrgency'] = $this->transparentMessageUrgency;
         }
 
+        if (null !== $this->vendorTemplate) {
+            $res['VendorTemplate'] = $this->vendorTemplate;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -399,6 +409,10 @@ class PushTemplateRequest extends Model
 
         if (isset($map['TransparentMessageUrgency'])) {
             $model->transparentMessageUrgency = $map['TransparentMessageUrgency'];
+        }
+
+        if (isset($map['VendorTemplate'])) {
+            $model->vendorTemplate = $map['VendorTemplate'];
         }
 
         if (isset($map['WorkspaceId'])) {

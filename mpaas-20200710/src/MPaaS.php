@@ -3770,6 +3770,10 @@ class MPaaS extends OpenApiClient
             @$body['UnBindStartTime'] = $request->unBindStartTime;
         }
 
+        if (null !== $request->vendorTemplate) {
+            @$body['VendorTemplate'] = $request->vendorTemplate;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -3923,6 +3927,10 @@ class MPaaS extends OpenApiClient
 
         if (null !== $request->transparentMessageUrgency) {
             @$body['TransparentMessageUrgency'] = $request->transparentMessageUrgency;
+        }
+
+        if (null !== $request->vendorTemplate) {
+            @$body['VendorTemplate'] = $request->vendorTemplate;
         }
 
         if (null !== $request->workspaceId) {
@@ -4173,6 +4181,10 @@ class MPaaS extends OpenApiClient
             @$body['Uri'] = $request->uri;
         }
 
+        if (null !== $request->vendorTemplate) {
+            @$body['VendorTemplate'] = $request->vendorTemplate;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
@@ -4330,6 +4342,10 @@ class MPaaS extends OpenApiClient
 
         if (null !== $request->transparentMessageUrgency) {
             @$body['TransparentMessageUrgency'] = $request->transparentMessageUrgency;
+        }
+
+        if (null !== $request->vendorTemplate) {
+            @$body['VendorTemplate'] = $request->vendorTemplate;
         }
 
         if (null !== $request->workspaceId) {
