@@ -26,6 +26,11 @@ class senderList extends Model
     public $productAction;
 
     /**
+     * @var string
+     */
+    public $recipientType;
+
+    /**
      * @var string[]
      */
     public $templateParams;
@@ -38,6 +43,7 @@ class senderList extends Model
         'flowAction' => 'FlowAction',
         'payload' => 'Payload',
         'productAction' => 'ProductAction',
+        'recipientType' => 'RecipientType',
         'templateParams' => 'TemplateParams',
         'to' => 'To',
     ];
@@ -81,6 +87,10 @@ class senderList extends Model
             $res['ProductAction'] = null !== $this->productAction ? $this->productAction->toArray($noStream) : $this->productAction;
         }
 
+        if (null !== $this->recipientType) {
+            $res['RecipientType'] = $this->recipientType;
+        }
+
         if (null !== $this->templateParams) {
             if (\is_array($this->templateParams)) {
                 $res['TemplateParams'] = [];
@@ -122,6 +132,10 @@ class senderList extends Model
 
         if (isset($map['ProductAction'])) {
             $model->productAction = productAction::fromMap($map['ProductAction']);
+        }
+
+        if (isset($map['RecipientType'])) {
+            $model->recipientType = $map['RecipientType'];
         }
 
         if (isset($map['TemplateParams'])) {
