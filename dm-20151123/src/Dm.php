@@ -458,7 +458,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Sends emails in batch.
+     * Sends emails in batches.
      *
      * @param tmpReq - BatchSendMailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -577,7 +577,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Sends emails in batch.
+     * Sends emails in batches.
      *
      * @param Request - BatchSendMailRequest
      *
@@ -6404,7 +6404,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Validate an email address.
+     * Validates an email address.
      *
      * @param Request - ValidateEmailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6455,7 +6455,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * Validate an email address.
+     * Validates an email address.
      *
      * @param Request - ValidateEmailRequest
      *
