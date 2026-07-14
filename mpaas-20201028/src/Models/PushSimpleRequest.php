@@ -171,6 +171,11 @@ class PushSimpleRequest extends Model
     /**
      * @var string
      */
+    public $vendorTemplate;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'activityContentState' => 'ActivityContentState',
@@ -205,6 +210,7 @@ class PushSimpleRequest extends Model
         'transparentMessagePayload' => 'TransparentMessagePayload',
         'transparentMessageUrgency' => 'TransparentMessageUrgency',
         'uri' => 'Uri',
+        'vendorTemplate' => 'VendorTemplate',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -360,6 +366,10 @@ class PushSimpleRequest extends Model
             $res['Uri'] = $this->uri;
         }
 
+        if (null !== $this->vendorTemplate) {
+            $res['VendorTemplate'] = $this->vendorTemplate;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -511,6 +521,10 @@ class PushSimpleRequest extends Model
 
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
+        }
+
+        if (isset($map['VendorTemplate'])) {
+            $model->vendorTemplate = $map['VendorTemplate'];
         }
 
         if (isset($map['WorkspaceId'])) {
