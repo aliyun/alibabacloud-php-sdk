@@ -42,6 +42,11 @@ class ExecuteQueryRequest extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'from' => 'from',
         'length' => 'length',
@@ -50,6 +55,7 @@ class ExecuteQueryRequest extends Model
         'query' => 'query',
         'to' => 'to',
         'type' => 'type',
+        'version' => 'version',
     ];
 
     public function validate()
@@ -86,6 +92,10 @@ class ExecuteQueryRequest extends Model
 
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+
+        if (null !== $this->version) {
+            $res['version'] = $this->version;
         }
 
         return $res;
@@ -125,6 +135,10 @@ class ExecuteQueryRequest extends Model
 
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+
+        if (isset($map['version'])) {
+            $model->version = $map['version'];
         }
 
         return $model;

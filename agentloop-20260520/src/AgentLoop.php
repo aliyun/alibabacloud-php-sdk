@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorSkillRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorSkillResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteAgentSpaceRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteAgentSpaceResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteContextStoreAPIKeyRequest;
@@ -90,6 +92,8 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\PausePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\PausePipelineResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\PreviewPipelineRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\PreviewPipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ResumePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ResumePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\RunPipelineRequest;
@@ -912,6 +916,95 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
+     * Creates a pipeline.
+     *
+     * @param request - CreatePipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePipelineResponse
+     *
+     * @param string                $agentSpace
+     * @param CreatePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipelineWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->executePolicy) {
+            @$body['executePolicy'] = $request->executePolicy;
+        }
+
+        if (null !== $request->pipeline) {
+            @$body['pipeline'] = $request->pipeline;
+        }
+
+        if (null !== $request->pipelineName) {
+            @$body['pipelineName'] = $request->pipelineName;
+        }
+
+        if (null !== $request->sink) {
+            @$body['sink'] = $request->sink;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreatePipeline',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a pipeline.
+     *
+     * @param request - CreatePipelineRequest
+     *
+     * @returns CreatePipelineResponse
+     *
+     * @param string                $agentSpace
+     * @param CreatePipelineRequest $request
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipeline($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPipelineWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes an AgentSpace.
      *
      * @param request - DeleteAgentSpaceRequest
@@ -1586,6 +1679,10 @@ class AgentLoop extends OpenApiClient
 
         if (null !== $request->type) {
             @$body['type'] = $request->type;
+        }
+
+        if (null !== $request->version) {
+            @$body['version'] = $request->version;
         }
 
         $req = new OpenApiRequest([
@@ -3144,6 +3241,97 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->pausePipelineWithOptions($agentSpace, $pipelineName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+     *
+     * @remarks
+     * ## Request description
+     * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
+     * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
+     * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+     * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
+     * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+     *
+     * @param request - PreviewPipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewPipelineResponse
+     *
+     * @param string                 $agentSpace
+     * @param PreviewPipelineRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PreviewPipelineResponse
+     */
+    public function previewPipelineWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->fromTime) {
+            @$body['fromTime'] = $request->fromTime;
+        }
+
+        if (null !== $request->pipeline) {
+            @$body['pipeline'] = $request->pipeline;
+        }
+
+        if (null !== $request->source) {
+            @$body['source'] = $request->source;
+        }
+
+        if (null !== $request->toTime) {
+            @$body['toTime'] = $request->toTime;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PreviewPipeline',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/agentspace/' . Url::percentEncode($agentSpace) . '/pipeline/preview',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return PreviewPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Previews a pipeline. Without creating pipeline resources, performs a trial query based on the specified data source, node orchestration, and time range, and returns a small number of sample data records for authenticating parameter settings and previewing processing results.
+     *
+     * @remarks
+     * ## Request description
+     * - **agentSpace** must be an AgentSpace instance that has been created under the current account.
+     * - **source.type** currently supports only the `logstore` type. The `logstore.project` and `logstore.logstore` must be authorized within the AgentSpace and located in the same region.
+     * - **pipeline.nodes** must contain at least one node of the `Source` type and cannot be empty.
+     * - **fromTime** and **toTime** are UNIX timestamps in seconds. **fromTime** must be less than **toTime**.
+     * - A maximum of 5 records are returned, and internal system fields of the data source are automatically filtered out.
+     *
+     * @param request - PreviewPipelineRequest
+     *
+     * @returns PreviewPipelineResponse
+     *
+     * @param string                 $agentSpace
+     * @param PreviewPipelineRequest $request
+     *
+     * @return PreviewPipelineResponse
+     */
+    public function previewPipeline($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->previewPipelineWithOptions($agentSpace, $request, $headers, $runtime);
     }
 
     /**
