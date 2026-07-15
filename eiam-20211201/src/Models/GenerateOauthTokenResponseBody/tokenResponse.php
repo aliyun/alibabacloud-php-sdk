@@ -26,11 +26,17 @@ class tokenResponse extends Model
     /**
      * @var string
      */
+    public $issuedTokenType;
+
+    /**
+     * @var string
+     */
     public $tokenType;
     protected $_name = [
         'accessToken' => 'AccessToken',
         'expiresAt' => 'ExpiresAt',
         'expiresIn' => 'ExpiresIn',
+        'issuedTokenType' => 'IssuedTokenType',
         'tokenType' => 'TokenType',
     ];
 
@@ -52,6 +58,10 @@ class tokenResponse extends Model
 
         if (null !== $this->expiresIn) {
             $res['ExpiresIn'] = $this->expiresIn;
+        }
+
+        if (null !== $this->issuedTokenType) {
+            $res['IssuedTokenType'] = $this->issuedTokenType;
         }
 
         if (null !== $this->tokenType) {
@@ -79,6 +89,10 @@ class tokenResponse extends Model
 
         if (isset($map['ExpiresIn'])) {
             $model->expiresIn = $map['ExpiresIn'];
+        }
+
+        if (isset($map['IssuedTokenType'])) {
+            $model->issuedTokenType = $map['IssuedTokenType'];
         }
 
         if (isset($map['TokenType'])) {

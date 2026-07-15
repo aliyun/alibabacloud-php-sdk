@@ -21,17 +21,41 @@ class GenerateOauthTokenRequest extends Model
     /**
      * @var string
      */
+    public $grantType;
+
+    /**
+     * @var string
+     */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $requestedTokenType;
 
     /**
      * @var string[]
      */
     public $scopeValues;
+
+    /**
+     * @var string
+     */
+    public $subjectToken;
+
+    /**
+     * @var string
+     */
+    public $subjectTokenType;
     protected $_name = [
         'applicationId' => 'ApplicationId',
         'audience' => 'Audience',
+        'grantType' => 'GrantType',
         'instanceId' => 'InstanceId',
+        'requestedTokenType' => 'RequestedTokenType',
         'scopeValues' => 'ScopeValues',
+        'subjectToken' => 'SubjectToken',
+        'subjectTokenType' => 'SubjectTokenType',
     ];
 
     public function validate()
@@ -53,8 +77,16 @@ class GenerateOauthTokenRequest extends Model
             $res['Audience'] = $this->audience;
         }
 
+        if (null !== $this->grantType) {
+            $res['GrantType'] = $this->grantType;
+        }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->requestedTokenType) {
+            $res['RequestedTokenType'] = $this->requestedTokenType;
         }
 
         if (null !== $this->scopeValues) {
@@ -66,6 +98,14 @@ class GenerateOauthTokenRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->subjectToken) {
+            $res['SubjectToken'] = $this->subjectToken;
+        }
+
+        if (null !== $this->subjectTokenType) {
+            $res['SubjectTokenType'] = $this->subjectTokenType;
         }
 
         return $res;
@@ -87,8 +127,16 @@ class GenerateOauthTokenRequest extends Model
             $model->audience = $map['Audience'];
         }
 
+        if (isset($map['GrantType'])) {
+            $model->grantType = $map['GrantType'];
+        }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['RequestedTokenType'])) {
+            $model->requestedTokenType = $map['RequestedTokenType'];
         }
 
         if (isset($map['ScopeValues'])) {
@@ -100,6 +148,14 @@ class GenerateOauthTokenRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['SubjectToken'])) {
+            $model->subjectToken = $map['SubjectToken'];
+        }
+
+        if (isset($map['SubjectTokenType'])) {
+            $model->subjectTokenType = $map['SubjectTokenType'];
         }
 
         return $model;

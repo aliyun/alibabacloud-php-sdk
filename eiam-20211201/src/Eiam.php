@@ -9933,12 +9933,28 @@ class Eiam extends OpenApiClient
             @$query['Audience'] = $request->audience;
         }
 
+        if (null !== $request->grantType) {
+            @$query['GrantType'] = $request->grantType;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->requestedTokenType) {
+            @$query['RequestedTokenType'] = $request->requestedTokenType;
+        }
+
         if (null !== $request->scopeValues) {
             @$query['ScopeValues'] = $request->scopeValues;
+        }
+
+        if (null !== $request->subjectToken) {
+            @$query['SubjectToken'] = $request->subjectToken;
+        }
+
+        if (null !== $request->subjectTokenType) {
+            @$query['SubjectTokenType'] = $request->subjectTokenType;
         }
 
         $req = new OpenApiRequest([
