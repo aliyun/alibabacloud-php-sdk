@@ -1874,7 +1874,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * A node pool is a logical collection of nodes that share the same attributes, allowing unified management and operations such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
+     * Creates a node pool for a cluster. A node pool is a logical collection of nodes that share the same attributes, allowing unified management and operations such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs.
      *
      * @param request - CreateClusterNodePoolRequest
      * @param headers - map
@@ -1977,7 +1977,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * A node pool is a logical collection of nodes that share the same attributes, allowing unified management and operations such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs. You can call CreateClusterNodePool to create a node pool for a cluster.
+     * Creates a node pool for a cluster. A node pool is a logical collection of nodes that share the same attributes, allowing unified management and operations such as node upgrades and elastic scaling. You can further use the automated O&M capabilities of node pools, including automatic OS CVE vulnerability patching, automatic faulty node recovery, and automatic kubelet and containerd version upgrades, to reduce O&M costs.
      *
      * @param request - CreateClusterNodePoolRequest
      *
@@ -3899,6 +3899,14 @@ class CS extends OpenApiClient
     /**
      * Queries all node pools in a cluster.
      *
+     * @remarks
+     * - When removing nodes, perform standardized operations through this API or the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by using `kubectl delete node`.
+     * - Do not directly release nodes, remove instances, or allow nodes to be passively released due to subscription instance expiration in the ECS or ESS console (or through related APIs). In these cases, nodes are directly stopped and automatically removed from the Container Service console.
+     * - If the node pool has a desired node count configured, the node pool automatically scales out other instances based on the corresponding configuration to maintain the node count at the desired number.
+     * - Removing nodes involves Pod migration, which may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up relevant data in advance.
+     * - When removing nodes, ACK executes a drain operation. Ensure that other nodes in the cluster have sufficient resources to avoid application Pods that cannot be scheduled.
+     * - Check the node affinity rules and scheduling policies of Pods on the nodes to be removed to ensure that Pods are not left unschedulable after node removal.
+     *
      * @param request - DescribeClusterNodePoolsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3941,6 +3949,14 @@ class CS extends OpenApiClient
 
     /**
      * Queries all node pools in a cluster.
+     *
+     * @remarks
+     * - When removing nodes, perform standardized operations through this API or the [Container Service console](https://cs.console.aliyun.com). Do not manually remove nodes by using `kubectl delete node`.
+     * - Do not directly release nodes, remove instances, or allow nodes to be passively released due to subscription instance expiration in the ECS or ESS console (or through related APIs). In these cases, nodes are directly stopped and automatically removed from the Container Service console.
+     * - If the node pool has a desired node count configured, the node pool automatically scales out other instances based on the corresponding configuration to maintain the node count at the desired number.
+     * - Removing nodes involves Pod migration, which may affect your services. Perform this operation during off-peak hours. Unexpected risks may occur during the operation. Back up relevant data in advance.
+     * - When removing nodes, ACK executes a drain operation. Ensure that other nodes in the cluster have sufficient resources to avoid application Pods that cannot be scheduled.
+     * - Check the node affinity rules and scheduling policies of Pods on the nodes to be removed to ensure that Pods are not left unschedulable after node removal.
      *
      * @param request - DescribeClusterNodePoolsRequest
      *
@@ -7890,7 +7906,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
+     * Modifies the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
+     *
+     * @remarks
+     * <notice>Starting from July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Notice on changes to OpenAPI request and response parameters and OpenAPI deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
      *
      * @param request - ModifyClusterNodePoolRequest
      * @param headers - map
@@ -7966,7 +7985,10 @@ class CS extends OpenApiClient
     }
 
     /**
-     * Updates the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
+     * Modifies the configuration of a node pool based on the node pool ID by calling the ModifyClusterNodePool operation.
+     *
+     * @remarks
+     * <notice>Starting from July 4, 2026, the request parameters instance_deletion_protection, ingress_loadbalancer_id, and access_control_list will no longer take effect. For more information about the changes, see [Notice on changes to OpenAPI request and response parameters and OpenAPI deprecation for ACK cluster management](https://help.aliyun.com/document_detail/2932733.html).</notice>
      *
      * @param request - ModifyClusterNodePoolRequest
      *

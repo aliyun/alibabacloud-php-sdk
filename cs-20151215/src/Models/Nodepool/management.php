@@ -50,6 +50,11 @@ class management extends Model
     /**
      * @var bool
      */
+    public $driftEnabled;
+
+    /**
+     * @var bool
+     */
     public $enable;
 
     /**
@@ -64,6 +69,7 @@ class management extends Model
         'autoUpgradePolicy' => 'auto_upgrade_policy',
         'autoVulFix' => 'auto_vul_fix',
         'autoVulFixPolicy' => 'auto_vul_fix_policy',
+        'driftEnabled' => 'drift_enabled',
         'enable' => 'enable',
         'upgradeConfig' => 'upgrade_config',
     ];
@@ -116,6 +122,10 @@ class management extends Model
             $res['auto_vul_fix_policy'] = null !== $this->autoVulFixPolicy ? $this->autoVulFixPolicy->toArray($noStream) : $this->autoVulFixPolicy;
         }
 
+        if (null !== $this->driftEnabled) {
+            $res['drift_enabled'] = $this->driftEnabled;
+        }
+
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
@@ -161,6 +171,10 @@ class management extends Model
 
         if (isset($map['auto_vul_fix_policy'])) {
             $model->autoVulFixPolicy = autoVulFixPolicy::fromMap($map['auto_vul_fix_policy']);
+        }
+
+        if (isset($map['drift_enabled'])) {
+            $model->driftEnabled = $map['drift_enabled'];
         }
 
         if (isset($map['enable'])) {
