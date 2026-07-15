@@ -25,6 +25,11 @@ class DescribeApplicationPerformanceResponseBody extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $interval;
+
+    /**
      * @var performanceKeys
      */
     public $performanceKeys;
@@ -42,6 +47,7 @@ class DescribeApplicationPerformanceResponseBody extends Model
         'applicationId' => 'ApplicationId',
         'applicationType' => 'ApplicationType',
         'endTime' => 'EndTime',
+        'interval' => 'Interval',
         'performanceKeys' => 'PerformanceKeys',
         'requestId' => 'RequestId',
         'startTime' => 'StartTime',
@@ -68,6 +74,10 @@ class DescribeApplicationPerformanceResponseBody extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
 
         if (null !== $this->performanceKeys) {
@@ -103,6 +113,10 @@ class DescribeApplicationPerformanceResponseBody extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
 
         if (isset($map['PerformanceKeys'])) {

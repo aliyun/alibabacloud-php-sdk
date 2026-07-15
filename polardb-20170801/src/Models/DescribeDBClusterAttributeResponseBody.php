@@ -317,6 +317,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $standbyHAMode;
 
     /**
+     * @var string
+     */
+    public $storageAutoScale;
+
+    /**
      * @var int
      */
     public $storageMax;
@@ -335,6 +340,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
      * @var string
      */
     public $storageType;
+
+    /**
+     * @var int
+     */
+    public $storageUpperBound;
 
     /**
      * @var int
@@ -437,10 +447,12 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'sourceDBCluster' => 'SourceDBCluster',
         'sourceRegionId' => 'SourceRegionId',
         'standbyHAMode' => 'StandbyHAMode',
+        'storageAutoScale' => 'StorageAutoScale',
         'storageMax' => 'StorageMax',
         'storagePayType' => 'StoragePayType',
         'storageSpace' => 'StorageSpace',
         'storageType' => 'StorageType',
+        'storageUpperBound' => 'StorageUpperBound',
         'storageUsed' => 'StorageUsed',
         'strictConsistency' => 'StrictConsistency',
         'subCategory' => 'SubCategory',
@@ -719,6 +731,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
             $res['StandbyHAMode'] = $this->standbyHAMode;
         }
 
+        if (null !== $this->storageAutoScale) {
+            $res['StorageAutoScale'] = $this->storageAutoScale;
+        }
+
         if (null !== $this->storageMax) {
             $res['StorageMax'] = $this->storageMax;
         }
@@ -733,6 +749,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
+        }
+
+        if (null !== $this->storageUpperBound) {
+            $res['StorageUpperBound'] = $this->storageUpperBound;
         }
 
         if (null !== $this->storageUsed) {
@@ -1036,6 +1056,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
             $model->standbyHAMode = $map['StandbyHAMode'];
         }
 
+        if (isset($map['StorageAutoScale'])) {
+            $model->storageAutoScale = $map['StorageAutoScale'];
+        }
+
         if (isset($map['StorageMax'])) {
             $model->storageMax = $map['StorageMax'];
         }
@@ -1050,6 +1074,10 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+
+        if (isset($map['StorageUpperBound'])) {
+            $model->storageUpperBound = $map['StorageUpperBound'];
         }
 
         if (isset($map['StorageUsed'])) {

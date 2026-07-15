@@ -109,6 +109,21 @@ class DBNodes extends Model
     public $orca;
 
     /**
+     * @var int
+     */
+    public $remoteMemoryMax;
+
+    /**
+     * @var int
+     */
+    public $remoteMemoryMin;
+
+    /**
+     * @var int
+     */
+    public $remoteMemoryRecommended;
+
+    /**
      * @var string
      */
     public $remoteMemorySize;
@@ -163,6 +178,9 @@ class DBNodes extends Model
         'multiMasterLocalStandby' => 'MultiMasterLocalStandby',
         'multiMasterPrimaryNode' => 'MultiMasterPrimaryNode',
         'orca' => 'Orca',
+        'remoteMemoryMax' => 'RemoteMemoryMax',
+        'remoteMemoryMin' => 'RemoteMemoryMin',
+        'remoteMemoryRecommended' => 'RemoteMemoryRecommended',
         'remoteMemorySize' => 'RemoteMemorySize',
         'sccMode' => 'SccMode',
         'serverWeight' => 'ServerWeight',
@@ -258,6 +276,18 @@ class DBNodes extends Model
 
         if (null !== $this->orca) {
             $res['Orca'] = $this->orca;
+        }
+
+        if (null !== $this->remoteMemoryMax) {
+            $res['RemoteMemoryMax'] = $this->remoteMemoryMax;
+        }
+
+        if (null !== $this->remoteMemoryMin) {
+            $res['RemoteMemoryMin'] = $this->remoteMemoryMin;
+        }
+
+        if (null !== $this->remoteMemoryRecommended) {
+            $res['RemoteMemoryRecommended'] = $this->remoteMemoryRecommended;
         }
 
         if (null !== $this->remoteMemorySize) {
@@ -377,6 +407,18 @@ class DBNodes extends Model
 
         if (isset($map['Orca'])) {
             $model->orca = $map['Orca'];
+        }
+
+        if (isset($map['RemoteMemoryMax'])) {
+            $model->remoteMemoryMax = $map['RemoteMemoryMax'];
+        }
+
+        if (isset($map['RemoteMemoryMin'])) {
+            $model->remoteMemoryMin = $map['RemoteMemoryMin'];
+        }
+
+        if (isset($map['RemoteMemoryRecommended'])) {
+            $model->remoteMemoryRecommended = $map['RemoteMemoryRecommended'];
         }
 
         if (isset($map['RemoteMemorySize'])) {

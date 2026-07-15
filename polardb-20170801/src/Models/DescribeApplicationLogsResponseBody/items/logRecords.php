@@ -49,6 +49,11 @@ class logRecords extends Model
     public $hostname;
 
     /**
+     * @var string
+     */
+    public $insName;
+
+    /**
      * @var int
      */
     public $logLevelId;
@@ -82,6 +87,11 @@ class logRecords extends Model
      * @var string
      */
     public $time;
+
+    /**
+     * @var int
+     */
+    public $timestamp;
     protected $_name = [
         'componentName' => 'ComponentName',
         'containerName' => 'ContainerName',
@@ -91,6 +101,7 @@ class logRecords extends Model
         'fileName' => 'FileName',
         'fullFilePath' => 'FullFilePath',
         'hostname' => 'Hostname',
+        'insName' => 'InsName',
         'logLevelId' => 'LogLevelId',
         'logLevelName' => 'LogLevelName',
         'method' => 'Method',
@@ -98,6 +109,7 @@ class logRecords extends Model
         'runtime' => 'Runtime',
         'runtimeVersion' => 'RuntimeVersion',
         'time' => 'Time',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
@@ -140,6 +152,10 @@ class logRecords extends Model
             $res['Hostname'] = $this->hostname;
         }
 
+        if (null !== $this->insName) {
+            $res['InsName'] = $this->insName;
+        }
+
         if (null !== $this->logLevelId) {
             $res['LogLevelId'] = $this->logLevelId;
         }
@@ -166,6 +182,10 @@ class logRecords extends Model
 
         if (null !== $this->time) {
             $res['Time'] = $this->time;
+        }
+
+        if (null !== $this->timestamp) {
+            $res['Timestamp'] = $this->timestamp;
         }
 
         return $res;
@@ -211,6 +231,10 @@ class logRecords extends Model
             $model->hostname = $map['Hostname'];
         }
 
+        if (isset($map['InsName'])) {
+            $model->insName = $map['InsName'];
+        }
+
         if (isset($map['LogLevelId'])) {
             $model->logLevelId = $map['LogLevelId'];
         }
@@ -237,6 +261,10 @@ class logRecords extends Model
 
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
+        }
+
+        if (isset($map['Timestamp'])) {
+            $model->timestamp = $map['Timestamp'];
         }
 
         return $model;

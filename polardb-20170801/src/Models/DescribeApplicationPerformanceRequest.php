@@ -26,6 +26,16 @@ class DescribeApplicationPerformanceRequest extends Model
     /**
      * @var string
      */
+    public $downsample;
+
+    /**
+     * @var int
+     */
+    public $endStep;
+
+    /**
+     * @var string
+     */
     public $endTime;
 
     /**
@@ -39,9 +49,19 @@ class DescribeApplicationPerformanceRequest extends Model
     public $key;
 
     /**
+     * @var int
+     */
+    public $maxPoints;
+
+    /**
      * @var string
      */
     public $modelService;
+
+    /**
+     * @var int
+     */
+    public $startStep;
 
     /**
      * @var string
@@ -51,10 +71,14 @@ class DescribeApplicationPerformanceRequest extends Model
         'applicationId' => 'ApplicationId',
         'consumer' => 'Consumer',
         'consumerGroup' => 'ConsumerGroup',
+        'downsample' => 'Downsample',
+        'endStep' => 'EndStep',
         'endTime' => 'EndTime',
         'interval' => 'Interval',
         'key' => 'Key',
+        'maxPoints' => 'MaxPoints',
         'modelService' => 'ModelService',
+        'startStep' => 'StartStep',
         'startTime' => 'StartTime',
     ];
 
@@ -78,6 +102,14 @@ class DescribeApplicationPerformanceRequest extends Model
             $res['ConsumerGroup'] = $this->consumerGroup;
         }
 
+        if (null !== $this->downsample) {
+            $res['Downsample'] = $this->downsample;
+        }
+
+        if (null !== $this->endStep) {
+            $res['EndStep'] = $this->endStep;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -90,8 +122,16 @@ class DescribeApplicationPerformanceRequest extends Model
             $res['Key'] = $this->key;
         }
 
+        if (null !== $this->maxPoints) {
+            $res['MaxPoints'] = $this->maxPoints;
+        }
+
         if (null !== $this->modelService) {
             $res['ModelService'] = $this->modelService;
+        }
+
+        if (null !== $this->startStep) {
+            $res['StartStep'] = $this->startStep;
         }
 
         if (null !== $this->startTime) {
@@ -121,6 +161,14 @@ class DescribeApplicationPerformanceRequest extends Model
             $model->consumerGroup = $map['ConsumerGroup'];
         }
 
+        if (isset($map['Downsample'])) {
+            $model->downsample = $map['Downsample'];
+        }
+
+        if (isset($map['EndStep'])) {
+            $model->endStep = $map['EndStep'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -133,8 +181,16 @@ class DescribeApplicationPerformanceRequest extends Model
             $model->key = $map['Key'];
         }
 
+        if (isset($map['MaxPoints'])) {
+            $model->maxPoints = $map['MaxPoints'];
+        }
+
         if (isset($map['ModelService'])) {
             $model->modelService = $map['ModelService'];
+        }
+
+        if (isset($map['StartStep'])) {
+            $model->startStep = $map['StartStep'];
         }
 
         if (isset($map['StartTime'])) {

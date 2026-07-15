@@ -11,6 +11,11 @@ class performanceItemValue extends Model
     /**
      * @var int
      */
+    public $step;
+
+    /**
+     * @var int
+     */
     public $timestamp;
 
     /**
@@ -18,6 +23,7 @@ class performanceItemValue extends Model
      */
     public $value;
     protected $_name = [
+        'step' => 'Step',
         'timestamp' => 'Timestamp',
         'value' => 'Value',
     ];
@@ -30,6 +36,10 @@ class performanceItemValue extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->step) {
+            $res['Step'] = $this->step;
+        }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -49,6 +59,10 @@ class performanceItemValue extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Step'])) {
+            $model->step = $map['Step'];
+        }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

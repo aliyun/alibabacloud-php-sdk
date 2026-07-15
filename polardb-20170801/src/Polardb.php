@@ -315,6 +315,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationPromptsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationPromptsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationServerlessConfRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationServerlessConfResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionIdsRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionIdsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
@@ -13796,6 +13798,14 @@ class Polardb extends OpenApiClient
             @$query['ConsumerGroup'] = $request->consumerGroup;
         }
 
+        if (null !== $request->downsample) {
+            @$query['Downsample'] = $request->downsample;
+        }
+
+        if (null !== $request->endStep) {
+            @$query['EndStep'] = $request->endStep;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
         }
@@ -13808,8 +13818,16 @@ class Polardb extends OpenApiClient
             @$query['Key'] = $request->key;
         }
 
+        if (null !== $request->maxPoints) {
+            @$query['MaxPoints'] = $request->maxPoints;
+        }
+
         if (null !== $request->modelService) {
             @$query['ModelService'] = $request->modelService;
+        }
+
+        if (null !== $request->startStep) {
+            @$query['StartStep'] = $request->startStep;
         }
 
         if (null !== $request->startTime) {
@@ -13972,6 +13990,95 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApplicationServerlessConfWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries AI application sessions.
+     *
+     * @param request - DescribeApplicationSessionIdsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationSessionIdsResponse
+     *
+     * @param DescribeApplicationSessionIdsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeApplicationSessionIdsResponse
+     */
+    public function describeApplicationSessionIdsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationSessionIds',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationSessionIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries AI application sessions.
+     *
+     * @param request - DescribeApplicationSessionIdsRequest
+     *
+     * @returns DescribeApplicationSessionIdsResponse
+     *
+     * @param DescribeApplicationSessionIdsRequest $request
+     *
+     * @return DescribeApplicationSessionIdsResponse
+     */
+    public function describeApplicationSessionIds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationSessionIdsWithOptions($request, $runtime);
     }
 
     /**
