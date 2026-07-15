@@ -35,6 +35,11 @@ class DescribeFileSystemsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -49,6 +54,7 @@ class DescribeFileSystemsRequest extends Model
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
+        'storageType' => 'StorageType',
         'tag' => 'Tag',
         'vpcId' => 'VpcId',
     ];
@@ -82,6 +88,10 @@ class DescribeFileSystemsRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         if (null !== $this->tag) {
@@ -128,6 +138,10 @@ class DescribeFileSystemsRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         if (isset($map['Tag'])) {
