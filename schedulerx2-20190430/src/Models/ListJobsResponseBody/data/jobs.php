@@ -84,6 +84,11 @@ class jobs extends Model
     /**
      * @var int
      */
+    public $startTime;
+
+    /**
+     * @var int
+     */
     public $status;
 
     /**
@@ -110,6 +115,7 @@ class jobs extends Model
         'maxConcurrency' => 'MaxConcurrency',
         'name' => 'Name',
         'parameters' => 'Parameters',
+        'startTime' => 'StartTime',
         'status' => 'Status',
         'timeConfig' => 'TimeConfig',
         'XAttrs' => 'XAttrs',
@@ -186,6 +192,10 @@ class jobs extends Model
 
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->status) {
@@ -265,6 +275,10 @@ class jobs extends Model
 
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['Status'])) {

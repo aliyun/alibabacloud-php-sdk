@@ -140,6 +140,11 @@ class UpdateJobRequest extends Model
     public $sendChannel;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @var bool
      */
     public $successNoticeEnable;
@@ -225,6 +230,7 @@ class UpdateJobRequest extends Model
         'queueSize' => 'QueueSize',
         'regionId' => 'RegionId',
         'sendChannel' => 'SendChannel',
+        'startTime' => 'StartTime',
         'successNoticeEnable' => 'SuccessNoticeEnable',
         'taskAttemptInterval' => 'TaskAttemptInterval',
         'taskDispatchMode' => 'TaskDispatchMode',
@@ -359,6 +365,10 @@ class UpdateJobRequest extends Model
 
         if (null !== $this->sendChannel) {
             $res['SendChannel'] = $this->sendChannel;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->successNoticeEnable) {
@@ -529,6 +539,10 @@ class UpdateJobRequest extends Model
 
         if (isset($map['SendChannel'])) {
             $model->sendChannel = $map['SendChannel'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['SuccessNoticeEnable'])) {

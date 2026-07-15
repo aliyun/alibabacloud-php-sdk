@@ -142,6 +142,11 @@ class CreateJobRequest extends Model
     /**
      * @var int
      */
+    public $startTime;
+
+    /**
+     * @var int
+     */
     public $status;
 
     /**
@@ -220,6 +225,7 @@ class CreateJobRequest extends Model
         'queueSize' => 'QueueSize',
         'regionId' => 'RegionId',
         'sendChannel' => 'SendChannel',
+        'startTime' => 'StartTime',
         'status' => 'Status',
         'successNoticeEnable' => 'SuccessNoticeEnable',
         'taskAttemptInterval' => 'TaskAttemptInterval',
@@ -353,6 +359,10 @@ class CreateJobRequest extends Model
 
         if (null !== $this->sendChannel) {
             $res['SendChannel'] = $this->sendChannel;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->status) {
@@ -519,6 +529,10 @@ class CreateJobRequest extends Model
 
         if (isset($map['SendChannel'])) {
             $model->sendChannel = $map['SendChannel'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['Status'])) {

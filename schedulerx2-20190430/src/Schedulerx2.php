@@ -144,6 +144,26 @@ class Schedulerx2 extends OpenApiClient
             'cn-hangzhou' => 'schedulerx.cn-hangzhou.aliyuncs.com',
             'cn-shanghai' => 'schedulerx.cn-shanghai.aliyuncs.com',
             'cn-shenzhen' => 'schedulerx.cn-shenzhen.aliyuncs.com',
+            'us-west-1' => 'schedulerx.aliyuncs.com',
+            'us-east-1' => 'schedulerx.aliyuncs.com',
+            'public' => 'schedulerx.aliyuncs.com',
+            'eu-west-1' => 'schedulerx.aliyuncs.com',
+            'eu-central-1' => 'schedulerx.aliyuncs.com',
+            'cn-zhangjiakou' => 'schedulerx.aliyuncs.com',
+            'cn-wulanchabu' => 'schedulerx.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'schedulerx.aliyuncs.com',
+            'cn-qingdao' => 'schedulerx.aliyuncs.com',
+            'cn-huhehaote' => 'schedulerx.aliyuncs.com',
+            'cn-hongkong' => 'schedulerx.aliyuncs.com',
+            'cn-guangzhou' => 'schedulerx.aliyuncs.com',
+            'cn-chengdu' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-8' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-7' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-6' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-5' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-3' => 'schedulerx.aliyuncs.com',
+            'ap-southeast-1' => 'schedulerx.aliyuncs.com',
+            'ap-northeast-1' => 'schedulerx.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('schedulerx2', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -174,10 +194,10 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes multiple jobs at a time.
+     * Deletes multiple Jobs.
      *
      * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * Before you call this API, add the following dependency to your POM file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -241,10 +261,10 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes multiple jobs at a time.
+     * Deletes multiple Jobs.
      *
      * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * Before you call this API, add the following dependency to your POM file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -269,7 +289,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes multiple routing policies at a time.
+     * Deletes multiple Route Strategies in a batch.
      *
      * @param request - BatchDeleteRouteStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -322,7 +342,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes multiple routing policies at a time.
+     * Deletes multiple Route Strategies in a batch.
      *
      * @param request - BatchDeleteRouteStrategyRequest
      *
@@ -340,10 +360,10 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables multiple jobs at a time.
+     * Disables multiple jobs in a batch.
      *
      * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * To call this API, add the following dependency to your POM File:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -407,10 +427,10 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables multiple jobs at a time.
+     * Disables multiple jobs in a batch.
      *
      * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * To call this API, add the following dependency to your POM File:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -530,7 +550,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates an application group. The AppKey is returned.
+     * Creates an app group and returns an AppKey.
      *
      * @param request - CreateAppGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -565,7 +585,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates an application group. The AppKey is returned.
+     * Creates an app group and returns an AppKey.
      *
      * @param request - CreateAppGroupRequest
      *
@@ -583,7 +603,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a job and obtains the job ID.
+     * Creates a node and returns the node ID.
      *
      * @param request - CreateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -704,6 +724,10 @@ class Schedulerx2 extends OpenApiClient
             @$body['SendChannel'] = $request->sendChannel;
         }
 
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
         if (null !== $request->status) {
             @$body['Status'] = $request->status;
         }
@@ -768,7 +792,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Creates a job and obtains the job ID.
+     * Creates a node and returns the node ID.
      *
      * @param request - CreateJobRequest
      *
@@ -1549,7 +1573,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes a workflow.
+     * Deletes the specified workflow.
      *
      * @param request - DeleteWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1584,7 +1608,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Deletes a workflow.
+     * Deletes the specified workflow.
      *
      * @param request - DeleteWorkflowRequest
      *
@@ -1602,7 +1626,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Returns available regions.
+     * Returns a list of available regions.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1641,7 +1665,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Returns available regions.
+     * Returns a list of available regions.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -1712,7 +1736,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables a specified task.
+     * Disables a job.
      *
      * @param request - DisableJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1747,7 +1771,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Disables a specified task.
+     * Disables a job.
      *
      * @param request - DisableJobRequest
      *
@@ -1820,6 +1844,9 @@ class Schedulerx2 extends OpenApiClient
     /**
      * Enables a job.
      *
+     * @remarks
+     * 任务创建完成以后默认启用，所以该功能是在停用任务后使用。
+     *
      * @param request - EnableJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -1855,6 +1882,9 @@ class Schedulerx2 extends OpenApiClient
     /**
      * Enables a job.
      *
+     * @remarks
+     * 任务创建完成以后默认启用，所以该功能是在停用任务后使用。
+     *
      * @param request - EnableJobRequest
      *
      * @returns EnableJobResponse
@@ -1871,7 +1901,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Enables a specified workflow.
+     * Enables a workflow.
      *
      * @param request - EnableWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1906,7 +1936,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Enables a specified workflow.
+     * Enables a workflow.
      *
      * @param request - EnableWorkflowRequest
      *
@@ -1983,7 +2013,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Immediately triggers a workflow.
+     * Executes a workflow immediately.
      *
      * @param request - ExecuteWorkflowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2018,7 +2048,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Immediately triggers a workflow.
+     * Executes a workflow immediately.
      *
      * @param request - ExecuteWorkflowRequest
      *
@@ -2036,7 +2066,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
+     * Retrieves the details of an App Group.
      *
      * @param request - GetAppGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2083,7 +2113,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * The configuration of the alert. The value is a JSON string. For more information, see \\\\\\\\*\\\\\\\\*the additional information about response parameters below this table\\\\\\\\*\\\\\\\\*.
+     * Retrieves the details of an App Group.
      *
      * @param request - GetAppGroupRequest
      *
@@ -2154,7 +2184,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the information about a job instance. You can view the status and progress of the job instance.
+     * Returns the information of a job instance, allowing you to view its status and progress.
      *
      * @param request - GetJobInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2189,7 +2219,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the information about a job instance. You can view the status and progress of the job instance.
+     * Returns the information of a job instance, allowing you to view its status and progress.
      *
      * @param request - GetJobInstanceRequest
      *
@@ -2313,7 +2343,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Retrieves job scheduling data for Professional Edition applications.
+     * Retrieves the overview data of task scheduling for a professional edition application.
      *
      * @param request - GetOverviewRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2380,7 +2410,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Retrieves job scheduling data for Professional Edition applications.
+     * Retrieves the overview data of task scheduling for a professional edition application.
      *
      * @param request - GetOverviewRequest
      *
@@ -2398,7 +2428,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a workflow.
+     * Retrieves workflow information.
      *
      * @param request - GetWorkFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2433,7 +2463,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a workflow.
+     * Retrieves workflow information.
      *
      * @param request - GetWorkFlowRequest
      *
@@ -2638,10 +2668,10 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
+     * Gets the list of applications.
      *
      * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * Before you call this operation, add the following dependency to your POM file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -2699,10 +2729,10 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries a list of applications.
+     * Gets the list of applications.
      *
      * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     * Before you call this operation, add the following dependency to your POM file:
      * ```xml
      * <dependency>
      *     <groupId>com.aliyun</groupId>
@@ -2800,15 +2830,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries jobs.
+     * Retrieves a list of nodes.
      *
      * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *     <dependency>
-     *           <groupId>com.aliyun</groupId>
-     *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *           <version>1.0.5</version>
-     *     </dependency>
+     * Before calling this operation, add the following dependency to the POM file:
+     * ```
+     * <dependency>
+     *       <groupId>com.aliyun</groupId>
+     *       <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *       <version>1.0.5</version>
+     * </dependency>
+     * ```
      *
      * @param request - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2843,15 +2875,17 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries jobs.
+     * Retrieves a list of nodes.
      *
      * @remarks
-     * Before you call this operation, you must add the following dependency to the pom.xml file:
-     *     <dependency>
-     *           <groupId>com.aliyun</groupId>
-     *           <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *           <version>1.0.5</version>
-     *     </dependency>
+     * Before calling this operation, add the following dependency to the POM file:
+     * ```
+     * <dependency>
+     *       <groupId>com.aliyun</groupId>
+     *       <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *       <version>1.0.5</version>
+     * </dependency>
+     * ```
      *
      * @param request - ListJobsRequest
      *
@@ -3475,7 +3509,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of specified workers.
+     * Retrieves basic information for the specified instance.
      *
      * @param request - ReadSchedulerxDesignateInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3530,7 +3564,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Queries the basic information of specified workers.
+     * Retrieves basic information for the specified instance.
      *
      * @param request - ReadSchedulerxDesignateInfoRequest
      *
@@ -3702,7 +3736,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+     * Reruns a node instance in the failed or successful state. Only the professional edition supports this operation.
      *
      * @param request - RetryJobInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3761,7 +3795,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Reruns a successful or failed job instance. You can call this operation only in the professional edition.
+     * Reruns a node instance in the failed or successful state. Only the professional edition supports this operation.
      *
      * @param request - RetryJobInstanceRequest
      *
@@ -3852,7 +3886,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+     * Forcibly sets the instance status of a node to successful. Only the professional edition supports this operation.
      *
      * @param request - SetJobInstanceSuccessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3911,7 +3945,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Forcibly sets the state of a job instance to successful. You can call this operation only in the professional edition.
+     * Forcibly sets the instance status of a node to successful. Only the professional edition supports this operation.
      *
      * @param request - SetJobInstanceSuccessRequest
      *
@@ -4059,7 +4093,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the application group.
+     * Update the application group.
      *
      * @param request - UpdateAppGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4134,7 +4168,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the application group.
+     * Update the application group.
      *
      * @param request - UpdateAppGroupRequest
      *
@@ -4152,7 +4186,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+     * Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
      *
      * @param request - UpdateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4273,6 +4307,10 @@ class Schedulerx2 extends OpenApiClient
             @$body['SendChannel'] = $request->sendChannel;
         }
 
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
+        }
+
         if (null !== $request->successNoticeEnable) {
             @$body['SuccessNoticeEnable'] = $request->successNoticeEnable;
         }
@@ -4341,7 +4379,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Updates the configuration information about a job. By default, you need to call the GetJobInfo operation to obtain the original configuration of the job before you call this operation to modify the configuration as required.
+     * Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
      *
      * @param request - UpdateJobRequest
      *
@@ -4600,7 +4638,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+     * Updates the nodes and dependencies of a workflow. This operation is available only in the Enterprise Edition.
      *
      * @param request - UpdateWorkflowDagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4661,7 +4699,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * Modifies the nodes and dependencies of a workflow. You can call this operation only in the professional edition.
+     * Updates the nodes and dependencies of a workflow. This operation is available only in the Enterprise Edition.
      *
      * @param request - UpdateWorkflowDagRequest
      *
