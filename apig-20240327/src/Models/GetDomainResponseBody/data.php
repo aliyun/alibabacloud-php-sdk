@@ -23,6 +23,21 @@ class data extends Model
     /**
      * @var string
      */
+    public $certDetailErrorCode;
+
+    /**
+     * @var string
+     */
+    public $certDetailErrorMessage;
+
+    /**
+     * @var string
+     */
+    public $certDetailStatus;
+
+    /**
+     * @var string
+     */
     public $certIdentifier;
 
     /**
@@ -137,6 +152,9 @@ class data extends Model
     protected $_name = [
         'algorithm' => 'algorithm',
         'caCertIdentifier' => 'caCertIdentifier',
+        'certDetailErrorCode' => 'certDetailErrorCode',
+        'certDetailErrorMessage' => 'certDetailErrorMessage',
+        'certDetailStatus' => 'certDetailStatus',
         'certIdentifier' => 'certIdentifier',
         'certName' => 'certName',
         'clientCACert' => 'clientCACert',
@@ -182,6 +200,18 @@ class data extends Model
 
         if (null !== $this->caCertIdentifier) {
             $res['caCertIdentifier'] = $this->caCertIdentifier;
+        }
+
+        if (null !== $this->certDetailErrorCode) {
+            $res['certDetailErrorCode'] = $this->certDetailErrorCode;
+        }
+
+        if (null !== $this->certDetailErrorMessage) {
+            $res['certDetailErrorMessage'] = $this->certDetailErrorMessage;
+        }
+
+        if (null !== $this->certDetailStatus) {
+            $res['certDetailStatus'] = $this->certDetailStatus;
         }
 
         if (null !== $this->certIdentifier) {
@@ -293,6 +323,18 @@ class data extends Model
 
         if (isset($map['caCertIdentifier'])) {
             $model->caCertIdentifier = $map['caCertIdentifier'];
+        }
+
+        if (isset($map['certDetailErrorCode'])) {
+            $model->certDetailErrorCode = $map['certDetailErrorCode'];
+        }
+
+        if (isset($map['certDetailErrorMessage'])) {
+            $model->certDetailErrorMessage = $map['certDetailErrorMessage'];
+        }
+
+        if (isset($map['certDetailStatus'])) {
+            $model->certDetailStatus = $map['certDetailStatus'];
         }
 
         if (isset($map['certIdentifier'])) {

@@ -68,6 +68,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiRouteResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteMcpServerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginAttachmentResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginClassRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePluginClassResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyAttachmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeletePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteSecretResponse;
@@ -163,6 +165,7 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ListSslCertsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListTagResourcesShrinkRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListZonesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesResponse;
@@ -289,15 +292,15 @@ class APIG extends OpenApiClient
      * Creates a gateway quota throttling rule.
      *
      * @remarks
-     * This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+     * Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
      * >
-     * >  Recommended call logic:
-     * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflict: dryRun=false, overwrite=false.
-     * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+     * >  Recommended call sequence:
+     * > - Step 1: Perform a dry run to check for rule conflicts.
+     * > - - Set dryRun to true.
+     * > - - The response contains a conflict preview with a conflictHash value.
+     * > - Step 2: Submit the request after confirmation.
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - AddGatewayQuotaRuleRequest
      * @param headers - map
@@ -387,15 +390,15 @@ class APIG extends OpenApiClient
      * Creates a gateway quota throttling rule.
      *
      * @remarks
-     * This operation adds a consumer-based quota rule to an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+     * Creates a consumer-based quota rule for an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
      * >
-     * >  Recommended call logic:
-     * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
-     * > - - The response contains a conflict preview with conflictHash.
-     * > - 2. Submit the request after confirmation.
-     * > - - No conflict: dryRun=false, overwrite=false.
-     * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+     * >  Recommended call sequence:
+     * > - Step 1: Perform a dry run to check for rule conflicts.
+     * > - - Set dryRun to true.
+     * > - - The response contains a conflict preview with a conflictHash value.
+     * > - Step 2: Submit the request after confirmation.
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - AddGatewayQuotaRuleRequest
      *
@@ -415,7 +418,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Authorizes a security group to allow gateway access to services.
+     * Authorizes a security group that allows a gateway to access services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      * @param headers - map
@@ -466,7 +469,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Authorizes a security group to allow gateway access to services.
+     * Authorizes a security group that allows a gateway to access services.
      *
      * @param request - AddGatewaySecurityGroupRuleRequest
      *
@@ -547,7 +550,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Transfers a resource to a different resource group.
+     * Moves a resource to a different resource group.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -601,7 +604,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Transfers a resource to a different resource group.
+     * Moves a resource to a different resource group.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -1962,7 +1965,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a policy attachment.
+     * Creates a policy attachment to a resource.
      *
      * @param request - CreatePolicyAttachmentRequest
      * @param headers - map
@@ -2020,7 +2023,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Creates a policy attachment.
+     * Creates a policy attachment to a resource.
      *
      * @param request - CreatePolicyAttachmentRequest
      *
@@ -2614,7 +2617,7 @@ class APIG extends OpenApiClient
      * Deletes a quota throttling rule from a gateway.
      *
      * @remarks
-     * Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
+     * Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      * @param headers - map
@@ -2655,7 +2658,7 @@ class APIG extends OpenApiClient
      * Deletes a quota throttling rule from a gateway.
      *
      * @remarks
-     * Deletes a consumer-based quota rule from an AI gateway. This operation applies only to AI gateways of version 2.1.19 or later.
+     * Deletes a consumer-based quota rule from an AI gateway. This operation takes effect only for AI gateways of version 2.1.19 or later.
      *
      * @param request - DeleteGatewayQuotaRuleRequest
      *
@@ -2676,7 +2679,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a gateway security group rule.
+     * Deletes a security group rule from a gateway.
      *
      * @param request - DeleteGatewaySecurityGroupRuleRequest
      * @param headers - map
@@ -2720,7 +2723,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Deletes a gateway security group rule.
+     * Deletes a security group rule from a gateway.
      *
      * @param request - DeleteGatewaySecurityGroupRuleRequest
      *
@@ -2997,6 +3000,63 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->deletePluginAttachmentWithOptions($pluginAttachmentId, $headers, $runtime);
+    }
+
+    /**
+     * DeletePluginClass.
+     *
+     * @param request - DeletePluginClassRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePluginClassResponse
+     *
+     * @param string                   $pluginClassId
+     * @param DeletePluginClassRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeletePluginClassResponse
+     */
+    public function deletePluginClassWithOptions($pluginClassId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeletePluginClass',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/plugin-classes/' . Url::percentEncode($pluginClassId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePluginClassResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * DeletePluginClass.
+     *
+     * @param request - DeletePluginClassRequest
+     *
+     * @returns DeletePluginClassResponse
+     *
+     * @param string                   $pluginClassId
+     * @param DeletePluginClassRequest $request
+     *
+     * @return DeletePluginClassResponse
+     */
+    public function deletePluginClass($pluginClassId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deletePluginClassWithOptions($pluginClassId, $request, $headers, $runtime);
     }
 
     /**
@@ -3908,7 +3968,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
+     * Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3942,7 +4002,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about an instance, such as the virtual private cloud (VPC) and vSwitch to which the instance belongs and its ingress.
+     * Retrieves basic information about a gateway, including the associated VPC, vSwitch, and gateway ingress.
      *
      * @returns GetGatewayResponse
      *
@@ -3962,7 +4022,7 @@ class APIG extends OpenApiClient
      * Queries the details of a gateway quota rate limiting rule.
      *
      * @remarks
-     * This operation queries a specific consumer quota rule on an AI gateway.
+     * Queries the details of a consumer quota rule on an AI gateway.
      *
      * @param request - GetGatewayQuotaRuleRequest
      * @param headers - map
@@ -4017,7 +4077,7 @@ class APIG extends OpenApiClient
      * Queries the details of a gateway quota rate limiting rule.
      *
      * @remarks
-     * This operation queries a specific consumer quota rule on an AI gateway.
+     * Queries the details of a consumer quota rule on an AI gateway.
      *
      * @param request - GetGatewayQuotaRuleRequest
      *
@@ -4038,7 +4098,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+     * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
      * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
@@ -4090,7 +4150,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the usage details of a subject under a gateway quota rate-limiting rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
+     * Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
      *
      * @remarks
      * Retrieves the usage details of a specific consumer under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
@@ -4380,7 +4440,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a custom plugin class.
+     * Retrieves a custom plug-in class.
      *
      * @param request - GetPluginClassRequest
      * @param headers - map
@@ -4417,7 +4477,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves a custom plugin class.
+     * Retrieves a custom plug-in class.
      *
      * @param request - GetPluginClassRequest
      *
@@ -4879,7 +4939,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+     * Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
      *
      * @param request - ImportHttpApiRequest
      * @param headers - map
@@ -4973,7 +5033,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+     * Imports an HTTP API. This operation supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
      *
      * @param request - ImportHttpApiRequest
      *
@@ -5591,10 +5651,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of API consumer quota rules bound to a gateway.
+     * Queries the list of consumer quota rules bound to a gateway.
      *
      * @remarks
-     * Queries the list of API consumer quota rules bound to a gateway.
+     * Queries the list of consumer quota rules bound to a gateway.
      *
      * @param request - ListGatewayQuotaRulesRequest
      * @param headers - map
@@ -5653,10 +5713,10 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries the list of API consumer quota rules bound to a gateway.
+     * Queries the list of consumer quota rules bound to a gateway.
      *
      * @remarks
-     * Queries the list of API consumer quota rules bound to a gateway.
+     * Queries the list of consumer quota rules bound to a gateway.
      *
      * @param request - ListGatewayQuotaRulesRequest
      *
@@ -7073,22 +7133,31 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the zones available for a cloud-native API gateway in a specified region.
+     * Retrieves the zones available for a cloud-native API gateway in a specific region.
      *
+     * @param request - ListZonesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
      * @returns ListZonesResponse
      *
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param ListZonesRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
      *
      * @return ListZonesResponse
      */
-    public function listZonesWithOptions($headers, $runtime)
+    public function listZonesWithOptions($request, $headers, $runtime)
     {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayEdition) {
+            @$query['gatewayEdition'] = $request->gatewayEdition;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListZones',
@@ -7106,22 +7175,26 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Retrieves the zones available for a cloud-native API gateway in a specified region.
+     * Retrieves the zones available for a cloud-native API gateway in a specific region.
+     *
+     * @param request - ListZonesRequest
      *
      * @returns ListZonesResponse
      *
+     * @param ListZonesRequest $request
+     *
      * @return ListZonesResponse
      */
-    public function listZones()
+    public function listZones($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listZonesWithOptions($headers, $runtime);
+        return $this->listZonesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * Queries a list of consumer authorization rules.
+     * Queries the list of consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      * @param headers - map
@@ -7211,7 +7284,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Queries a list of consumer authorization rules.
+     * Queries the list of consumer authorization rules.
      *
      * @param request - QueryConsumerAuthorizationRulesRequest
      *
@@ -7281,18 +7354,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Resets a quota rate limiting rule on a gateway.
+     * Resets a quota throttling rule on a gateway.
      *
      * @remarks
-     * Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
+     * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
      * >
-     * >  Recommended call logic:
+     * >  Recommended call sequence:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
+     * > - - Set dryRun to true.
      * > - - The response contains a conflict preview with conflictHash.
      * > - 2. Submit the request after confirmation.
-     * > - - No conflict: dryRun=false, overwrite=false.
-     * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - ResetGatewayQuotaRuleRequest
      * @param headers - map
@@ -7364,18 +7437,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * Resets a quota rate limiting rule on a gateway.
+     * Resets a quota throttling rule on a gateway.
      *
      * @remarks
-     * Resets a quota rate limiting rule on a gateway. This operation takes effect only for AI gateways with a version later than 2.1.19. The reset clears the historical usage of consumers on the rule.
+     * Resets a quota throttling rule on a gateway. This operation takes effect only on AI gateways running version 2.1.19 or later. Resetting a rule clears the historical usage of consumers associated with the rule.
      * >
-     * >  Recommended call logic:
+     * >  Recommended call sequence:
      * > - 1. Perform a dry run to check for rule conflicts.
-     * > - - Set dryRun=true.
+     * > - - Set dryRun to true.
      * > - - The response contains a conflict preview with conflictHash.
      * > - 2. Submit the request after confirmation.
-     * > - - No conflict: dryRun=false, overwrite=false.
-     * > - - Conflict exists and overwrite confirmed: dryRun=false, overwrite=true, conflictHash=<value returned in the previous step>
+     * > - - No conflicts: Set dryRun to false and overwrite to false.
+     * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
      *
      * @param request - ResetGatewayQuotaRuleRequest
      *
@@ -8862,7 +8935,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
+     * Only sources of the **Container Service** type can update the Ingress listener configuration.
      *
      * @param request - UpdateMcpServerRequest
      * @param headers - map
@@ -8952,7 +9025,7 @@ class APIG extends OpenApiClient
      * Updates an MCP server.
      *
      * @remarks
-     * Only sources of the **Container Service** type are allowed to update the listener Ingress configuration.
+     * Only sources of the **Container Service** type can update the Ingress listener configuration.
      *
      * @param request - UpdateMcpServerRequest
      *

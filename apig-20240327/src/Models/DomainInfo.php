@@ -69,6 +69,16 @@ class DomainInfo extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $tlsMax;
+
+    /**
+     * @var string
+     */
+    public $tlsMin;
+
+    /**
      * @var int
      */
     public $updateTimestamp;
@@ -85,6 +95,8 @@ class DomainInfo extends Model
         'protocol' => 'protocol',
         'resourceGroupId' => 'resourceGroupId',
         'status' => 'status',
+        'tlsMax' => 'tlsMax',
+        'tlsMin' => 'tlsMin',
         'updateTimestamp' => 'updateTimestamp',
     ];
 
@@ -142,6 +154,14 @@ class DomainInfo extends Model
 
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+
+        if (null !== $this->tlsMax) {
+            $res['tlsMax'] = $this->tlsMax;
+        }
+
+        if (null !== $this->tlsMin) {
+            $res['tlsMin'] = $this->tlsMin;
         }
 
         if (null !== $this->updateTimestamp) {
@@ -205,6 +225,14 @@ class DomainInfo extends Model
 
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+
+        if (isset($map['tlsMax'])) {
+            $model->tlsMax = $map['tlsMax'];
+        }
+
+        if (isset($map['tlsMin'])) {
+            $model->tlsMin = $map['tlsMin'];
         }
 
         if (isset($map['updateTimestamp'])) {

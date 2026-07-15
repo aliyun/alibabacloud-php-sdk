@@ -103,6 +103,16 @@ class Service extends Model
     /**
      * @var string
      */
+    public $runtimeDetailErrorCode;
+
+    /**
+     * @var string
+     */
+    public $runtimeDetailStatus;
+
+    /**
+     * @var string
+     */
     public $serviceId;
 
     /**
@@ -143,6 +153,8 @@ class Service extends Model
         'protocol' => 'protocol',
         'qualifier' => 'qualifier',
         'resourceGroupId' => 'resourceGroupId',
+        'runtimeDetailErrorCode' => 'runtimeDetailErrorCode',
+        'runtimeDetailStatus' => 'runtimeDetailStatus',
         'serviceId' => 'serviceId',
         'sourceType' => 'sourceType',
         'unhealthyEndpoints' => 'unhealthyEndpoints',
@@ -283,6 +295,14 @@ class Service extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->runtimeDetailErrorCode) {
+            $res['runtimeDetailErrorCode'] = $this->runtimeDetailErrorCode;
+        }
+
+        if (null !== $this->runtimeDetailStatus) {
+            $res['runtimeDetailStatus'] = $this->runtimeDetailStatus;
         }
 
         if (null !== $this->serviceId) {
@@ -428,6 +448,14 @@ class Service extends Model
 
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+
+        if (isset($map['runtimeDetailErrorCode'])) {
+            $model->runtimeDetailErrorCode = $map['runtimeDetailErrorCode'];
+        }
+
+        if (isset($map['runtimeDetailStatus'])) {
+            $model->runtimeDetailStatus = $map['runtimeDetailStatus'];
         }
 
         if (isset($map['serviceId'])) {
