@@ -187,6 +187,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntitySetShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryV2Headers;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryV2Request;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EstimatedPriceQueryV2Response;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ExceedApplySyncResponse;
@@ -3050,8 +3053,8 @@ class BtripOpen extends OpenApiClient
      *
      * @remarks
      * Synchronizes an intra-city car service approval form for a specified enterprise.
-     * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
-     * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
+     * 1. To use this operation, you must enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+     * 2. To use this operation, you must include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
      *
      * @param tmpReq - CarApplyAddRequest
      * @param headers - CarApplyAddHeaders
@@ -3184,8 +3187,8 @@ class BtripOpen extends OpenApiClient
      *
      * @remarks
      * Synchronizes an intra-city car service approval form for a specified enterprise.
-     * 1. To use this operation, enable the permission for synchronizing intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
-     * 2. To use this operation, include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
+     * 1. To use this operation, you must enable the permission to synchronize intra-city car service approvals in your application. For more information about how to apply for data permissions, see [API Permission Application Process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+     * 2. To use this operation, you must include the enterprise access credential (x-acs-btrip-so-corp-token) in the request header. For more information about how to obtain the enterprise access credential, see [Enterprise Access Credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
      *
      * @param request - CarApplyAddRequest
      *
@@ -6054,6 +6057,96 @@ class BtripOpen extends OpenApiClient
         $headers = new EstimatedPriceQueryHeaders([]);
 
         return $this->estimatedPriceQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 预估价格查询v2.0.
+     *
+     * @param request - EstimatedPriceQueryV2Request
+     * @param headers - EstimatedPriceQueryV2Headers
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EstimatedPriceQueryV2Response
+     *
+     * @param EstimatedPriceQueryV2Request $request
+     * @param EstimatedPriceQueryV2Headers $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return EstimatedPriceQueryV2Response
+     */
+    public function estimatedPriceQueryV2WithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizType) {
+            @$query['biz_type'] = $request->bizType;
+        }
+
+        if (null !== $request->departDate) {
+            @$query['depart_date'] = $request->departDate;
+        }
+
+        if (null !== $request->fromCity) {
+            @$query['from_city'] = $request->fromCity;
+        }
+
+        if (null !== $request->leaveDate) {
+            @$query['leave_date'] = $request->leaveDate;
+        }
+
+        if (null !== $request->toCity) {
+            @$query['to_city'] = $request->toCity;
+        }
+
+        if (null !== $request->userId) {
+            @$query['user_id'] = $request->userId;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripSoCorpToken) {
+            @$realHeaders['x-acs-btrip-so-corp-token'] = '' . $headers->xAcsBtripSoCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'EstimatedPriceQueryV2',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/costcenter/v3/estimated-price',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return EstimatedPriceQueryV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 预估价格查询v2.0.
+     *
+     * @param request - EstimatedPriceQueryV2Request
+     *
+     * @returns EstimatedPriceQueryV2Response
+     *
+     * @param EstimatedPriceQueryV2Request $request
+     *
+     * @return EstimatedPriceQueryV2Response
+     */
+    public function estimatedPriceQueryV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new EstimatedPriceQueryV2Headers([]);
+
+        return $this->estimatedPriceQueryV2WithOptions($request, $headers, $runtime);
     }
 
     /**
