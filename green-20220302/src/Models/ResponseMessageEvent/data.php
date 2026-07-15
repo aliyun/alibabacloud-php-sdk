@@ -28,11 +28,17 @@ class data extends Model
      * @var string[]
      */
     public $seqList;
+
+    /**
+     * @var string
+     */
+    public $processedOutput;
     protected $_name = [
         'detail' => 'Detail',
         'suggestion' => 'Suggestion',
         'dataId' => 'DataId',
         'seqList' => 'SeqList',
+        'processedOutput' => 'ProcessedOutput',
     ];
 
     public function validate()
@@ -79,6 +85,10 @@ class data extends Model
             }
         }
 
+        if (null !== $this->processedOutput) {
+            $res['ProcessedOutput'] = $this->processedOutput;
+        }
+
         return $res;
     }
 
@@ -118,6 +128,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ProcessedOutput'])) {
+            $model->processedOutput = $map['ProcessedOutput'];
         }
 
         return $model;

@@ -34,6 +34,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ManualModerationResultResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalAgentRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalAgentResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalAgentSSERequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalAgentSSEResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultimodalAsyncModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultimodalAsyncModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\MultiModalGuardAsyncRequest;
@@ -1089,6 +1091,140 @@ class Green extends OpenApiClient
     }
 
     /**
+     * Synchronously detects multimodal content by using the Agent API.
+     *
+     * @remarks
+     * The content moderation Agent.
+     *
+     * @param request - MultiModalAgentSSERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultiModalAgentSSEResponse
+     *
+     * @param MultiModalAgentSSERequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return MultiModalAgentSSEResponse
+     */
+    public function multiModalAgentSSEWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appID) {
+            @$body['AppID'] = $request->appID;
+        }
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MultiModalAgentSSE',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield MultiModalAgentSSEResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Synchronously detects multimodal content by using the Agent API.
+     *
+     * @remarks
+     * The content moderation Agent.
+     *
+     * @param request - MultiModalAgentSSERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns MultiModalAgentSSEResponse
+     *
+     * @param MultiModalAgentSSERequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return MultiModalAgentSSEResponse
+     */
+    public function multiModalAgentSSEWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appID) {
+            @$body['AppID'] = $request->appID;
+        }
+
+        if (null !== $request->serviceParameters) {
+            @$body['ServiceParameters'] = $request->serviceParameters;
+        }
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'MultiModalAgentSSE',
+            'version' => '2022-03-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return MultiModalAgentSSEResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Synchronously detects multimodal content by using the Agent API.
+     *
+     * @remarks
+     * The content moderation Agent.
+     *
+     * @param request - MultiModalAgentSSERequest
+     *
+     * @returns MultiModalAgentSSEResponse
+     *
+     * @param MultiModalAgentSSERequest $request
+     *
+     * @return MultiModalAgentSSEResponse
+     */
+    public function multiModalAgentSSE($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->multiModalAgentSSEWithOptions($request, $runtime);
+    }
+
+    /**
      * API for synchronous detection.
      *
      * @param request - MultiModalGuardRequest
@@ -1284,7 +1420,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 多模态同步检测接口，支持图片base64字符串.
+     * Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
      *
      * @param request - MultiModalGuardForBase64Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1333,7 +1469,7 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 多模态同步检测接口，支持图片base64字符串.
+     * Performs synchronous multimodal content moderation. Supports base64-encoded image strings.
      *
      * @param request - MultiModalGuardForBase64Request
      *
