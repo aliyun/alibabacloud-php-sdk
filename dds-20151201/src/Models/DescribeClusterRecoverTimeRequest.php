@@ -19,6 +19,11 @@ class DescribeClusterRecoverTimeRequest extends Model
     public $destRegion;
 
     /**
+     * @var bool
+     */
+    public $onlyDbTableRecovery;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -50,6 +55,7 @@ class DescribeClusterRecoverTimeRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'destRegion' => 'DestRegion',
+        'onlyDbTableRecovery' => 'OnlyDbTableRecovery',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -72,6 +78,10 @@ class DescribeClusterRecoverTimeRequest extends Model
 
         if (null !== $this->destRegion) {
             $res['DestRegion'] = $this->destRegion;
+        }
+
+        if (null !== $this->onlyDbTableRecovery) {
+            $res['OnlyDbTableRecovery'] = $this->onlyDbTableRecovery;
         }
 
         if (null !== $this->ownerAccount) {
@@ -115,6 +125,10 @@ class DescribeClusterRecoverTimeRequest extends Model
 
         if (isset($map['DestRegion'])) {
             $model->destRegion = $map['DestRegion'];
+        }
+
+        if (isset($map['OnlyDbTableRecovery'])) {
+            $model->onlyDbTableRecovery = $map['OnlyDbTableRecovery'];
         }
 
         if (isset($map['OwnerAccount'])) {

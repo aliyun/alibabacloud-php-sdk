@@ -21,6 +21,11 @@ class RestartDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $nodeType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -45,6 +50,7 @@ class RestartDBInstanceRequest extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'nodeId' => 'NodeId',
+        'nodeType' => 'NodeType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -66,6 +72,10 @@ class RestartDBInstanceRequest extends Model
 
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
 
         if (null !== $this->ownerAccount) {
@@ -105,6 +115,10 @@ class RestartDBInstanceRequest extends Model
 
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
 
         if (isset($map['OwnerAccount'])) {

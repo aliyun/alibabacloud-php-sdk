@@ -84,6 +84,21 @@ class CreateNodeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $searchDBInstanceClass;
+
+    /**
+     * @var int
+     */
+    public $searchNodeCount;
+
+    /**
+     * @var int
+     */
+    public $searchStorage;
+
+    /**
      * @var bool
      */
     public $shardDirect;
@@ -103,6 +118,9 @@ class CreateNodeRequest extends Model
         'readonlyReplicas' => 'ReadonlyReplicas',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId' => 'ResourceOwnerId',
+        'searchDBInstanceClass' => 'SearchDBInstanceClass',
+        'searchNodeCount' => 'SearchNodeCount',
+        'searchStorage' => 'SearchStorage',
         'shardDirect' => 'ShardDirect',
     ];
 
@@ -172,6 +190,18 @@ class CreateNodeRequest extends Model
 
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->searchDBInstanceClass) {
+            $res['SearchDBInstanceClass'] = $this->searchDBInstanceClass;
+        }
+
+        if (null !== $this->searchNodeCount) {
+            $res['SearchNodeCount'] = $this->searchNodeCount;
+        }
+
+        if (null !== $this->searchStorage) {
+            $res['SearchStorage'] = $this->searchStorage;
         }
 
         if (null !== $this->shardDirect) {
@@ -247,6 +277,18 @@ class CreateNodeRequest extends Model
 
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['SearchDBInstanceClass'])) {
+            $model->searchDBInstanceClass = $map['SearchDBInstanceClass'];
+        }
+
+        if (isset($map['SearchNodeCount'])) {
+            $model->searchNodeCount = $map['SearchNodeCount'];
+        }
+
+        if (isset($map['SearchStorage'])) {
+            $model->searchStorage = $map['SearchStorage'];
         }
 
         if (isset($map['ShardDirect'])) {

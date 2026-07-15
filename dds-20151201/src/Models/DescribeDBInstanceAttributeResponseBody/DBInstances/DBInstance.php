@@ -9,10 +9,16 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeResponseBod
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeResponseBody\DBInstances\DBInstance\mongosList;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeResponseBody\DBInstances\DBInstance\replicaSets;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeResponseBody\DBInstances\DBInstance\shardList;
+use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeResponseBody\DBInstances\DBInstance\shardSearchNodes;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeResponseBody\DBInstances\DBInstance\tags;
 
 class DBInstance extends Model
 {
+    /**
+     * @var bool
+     */
+    public $AIGatewayEnabled;
+
     /**
      * @var bool
      */
@@ -249,6 +255,11 @@ class DBInstance extends Model
     public $shardList;
 
     /**
+     * @var shardSearchNodes
+     */
+    public $shardSearchNodes;
+
+    /**
      * @var string
      */
     public $storageEngine;
@@ -298,6 +309,7 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'AIGatewayEnabled' => 'AIGatewayEnabled',
         'burstingEnabled' => 'BurstingEnabled',
         'capacityUnit' => 'CapacityUnit',
         'chargeType' => 'ChargeType',
@@ -345,6 +357,7 @@ class DBInstance extends Model
         'searchNodeStorage' => 'SearchNodeStorage',
         'secondaryZoneId' => 'SecondaryZoneId',
         'shardList' => 'ShardList',
+        'shardSearchNodes' => 'ShardSearchNodes',
         'storageEngine' => 'StorageEngine',
         'storageType' => 'StorageType',
         'syncPercent' => 'SyncPercent',
@@ -371,6 +384,9 @@ class DBInstance extends Model
         if (null !== $this->shardList) {
             $this->shardList->validate();
         }
+        if (null !== $this->shardSearchNodes) {
+            $this->shardSearchNodes->validate();
+        }
         if (null !== $this->tags) {
             $this->tags->validate();
         }
@@ -380,6 +396,10 @@ class DBInstance extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->AIGatewayEnabled) {
+            $res['AIGatewayEnabled'] = $this->AIGatewayEnabled;
+        }
+
         if (null !== $this->burstingEnabled) {
             $res['BurstingEnabled'] = $this->burstingEnabled;
         }
@@ -568,6 +588,10 @@ class DBInstance extends Model
             $res['ShardList'] = null !== $this->shardList ? $this->shardList->toArray($noStream) : $this->shardList;
         }
 
+        if (null !== $this->shardSearchNodes) {
+            $res['ShardSearchNodes'] = null !== $this->shardSearchNodes ? $this->shardSearchNodes->toArray($noStream) : $this->shardSearchNodes;
+        }
+
         if (null !== $this->storageEngine) {
             $res['StorageEngine'] = $this->storageEngine;
         }
@@ -619,6 +643,10 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AIGatewayEnabled'])) {
+            $model->AIGatewayEnabled = $map['AIGatewayEnabled'];
+        }
+
         if (isset($map['BurstingEnabled'])) {
             $model->burstingEnabled = $map['BurstingEnabled'];
         }
@@ -805,6 +833,10 @@ class DBInstance extends Model
 
         if (isset($map['ShardList'])) {
             $model->shardList = shardList::fromMap($map['ShardList']);
+        }
+
+        if (isset($map['ShardSearchNodes'])) {
+            $model->shardSearchNodes = shardSearchNodes::fromMap($map['ShardSearchNodes']);
         }
 
         if (isset($map['StorageEngine'])) {
