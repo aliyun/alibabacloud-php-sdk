@@ -119,9 +119,19 @@ class JobSettings extends Model
     public $sanityCheckArgs;
 
     /**
+     * @var string
+     */
+    public $shell;
+
+    /**
      * @var string[]
      */
     public $tags;
+
+    /**
+     * @var int
+     */
+    public $terminationGracePeriodSeconds;
     protected $_name = [
         'advancedSettings' => 'AdvancedSettings',
         'allocateAllRDMADevices' => 'AllocateAllRDMADevices',
@@ -145,7 +155,9 @@ class JobSettings extends Model
         'oversoldType' => 'OversoldType',
         'pipelineId' => 'PipelineId',
         'sanityCheckArgs' => 'SanityCheckArgs',
+        'shell' => 'Shell',
         'tags' => 'Tags',
+        'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
     ];
 
     public function validate()
@@ -261,6 +273,10 @@ class JobSettings extends Model
             $res['SanityCheckArgs'] = $this->sanityCheckArgs;
         }
 
+        if (null !== $this->shell) {
+            $res['Shell'] = $this->shell;
+        }
+
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
@@ -268,6 +284,10 @@ class JobSettings extends Model
                     $res['Tags'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->terminationGracePeriodSeconds) {
+            $res['TerminationGracePeriodSeconds'] = $this->terminationGracePeriodSeconds;
         }
 
         return $res;
@@ -374,6 +394,10 @@ class JobSettings extends Model
             $model->sanityCheckArgs = $map['SanityCheckArgs'];
         }
 
+        if (isset($map['Shell'])) {
+            $model->shell = $map['Shell'];
+        }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
@@ -381,6 +405,10 @@ class JobSettings extends Model
                     $model->tags[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['TerminationGracePeriodSeconds'])) {
+            $model->terminationGracePeriodSeconds = $map['TerminationGracePeriodSeconds'];
         }
 
         return $model;

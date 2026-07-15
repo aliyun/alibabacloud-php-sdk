@@ -136,6 +136,24 @@ class Paidlc extends OpenApiClient
             'eu-west-1-oxs' => 'pai-dlc.aliyuncs.com',
             'me-east-1' => 'pai-dlc.aliyuncs.com',
             'rus-west-1-pop' => 'pai-dlc.aliyuncs.com',
+            'us-west-1' => 'pai-dlc.us-west-1.aliyuncs.com',
+            'us-southeast-1' => 'pai-dlc.us-southeast-1.aliyuncs.com',
+            'us-east-1' => 'pai-dlc.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'pai-dlc.eu-central-1.aliyuncs.com',
+            'cn-wulanchabu' => 'pai-dlc.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'pai-dlc.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'pai-dlc.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'pai-dlc.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'pai-dlc.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'pai-dlc.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'pai-dlc.cn-guangzhou.aliyuncs.com',
+            'cn-beijing' => 'pai-dlc.cn-beijing.aliyuncs.com',
+            'ap-southeast-8' => 'pai-dlc.ap-southeast-8.aliyuncs.com',
+            'ap-southeast-7' => 'pai-dlc.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-5' => 'pai-dlc.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'pai-dlc.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-1' => 'pai-dlc.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'pai-dlc.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('pai-dlc', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -166,10 +184,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+     * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node on which the job runs.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     * Before you call this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+     * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
      *
      * @param request - CreateJobRequest
      * @param headers - map
@@ -311,10 +330,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job that runs in a cluster. You can configure the data source, code source, startup command, and computing resources of each node on which a job runs.
+     * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node on which the job runs.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     * Before you call this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+     * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
      *
      * @param request - CreateJobRequest
      *
@@ -333,7 +353,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Create a job template.
+     * Creates a job template.
      *
      * @param request - CreateJobTemplateRequest
      * @param headers - map
@@ -395,7 +415,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Create a job template.
+     * Creates a job template.
      *
      * @param request - CreateJobTemplateRequest
      *
@@ -414,7 +434,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Create RayHistoryServer.
+     * Creates a RayHistoryServer.
+     *
+     * @remarks
+     * Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
+     * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
      *
      * @param request - CreateRayHistoryServerRequest
      * @param headers - map
@@ -480,7 +504,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Create RayHistoryServer.
+     * Creates a RayHistoryServer.
+     *
+     * @remarks
+     * Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
+     * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
      *
      * @param request - CreateRayHistoryServerRequest
      *
@@ -687,7 +715,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Deletes an unused job template. Templates that are used by jobs cannot be deleted.
+     * Deletes a job template. You cannot delete a job template that is in use by a job.
      *
      * @param request - DeleteJobTemplateRequest
      * @param headers - map
@@ -724,7 +752,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Deletes an unused job template. Templates that are used by jobs cannot be deleted.
+     * Deletes a job template. You cannot delete a job template that is in use by a job.
      *
      * @param request - DeleteJobTemplateRequest
      *
@@ -744,7 +772,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Delete RayHistoryServer.
+     * Deletes a Ray History Server.
+     *
+     * @remarks
+     * Before calling this API, ensure you understand the billing methods and [Pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
      *
      * @param request - DeleteRayHistoryServerRequest
      * @param headers - map
@@ -781,7 +812,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Delete RayHistoryServer.
+     * Deletes a Ray History Server.
+     *
+     * @remarks
+     * Before calling this API, ensure you understand the billing methods and [Pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
      *
      * @param request - DeleteRayHistoryServerRequest
      *
@@ -864,10 +898,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Gets the DLC task\\"s Dashboard URL, if one exists.
+     * Retrieves the Dashboard URL for a DLC job, if available.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     * Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
      *
      * @param request - GetDashboardRequest
      * @param headers - map
@@ -914,10 +948,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Gets the DLC task\\"s Dashboard URL, if one exists.
+     * Retrieves the Dashboard URL for a DLC job, if available.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     * Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
      *
      * @param request - GetDashboardRequest
      *
@@ -937,7 +971,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains the configuration and runtime information of a job.
+     * Retrieves the detailed configuration and runtime information of a DLC job.
      *
      * @param request - GetJobRequest
      * @param headers - map
@@ -980,7 +1014,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains the configuration and runtime information of a job.
+     * Retrieves the detailed configuration and runtime information of a DLC job.
      *
      * @param request - GetJobRequest
      *
@@ -1221,7 +1255,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a job template.
+     * Retrieves the details of a job template.
      *
      * @param request - GetJobTemplateRequest
      * @param headers - map
@@ -1264,7 +1298,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains the details of a job template.
+     * Retrieves the details of a job template.
      *
      * @param request - GetJobTemplateRequest
      *
@@ -1284,7 +1318,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries metrics data.
+     * Retrieve metrics data.
+     *
+     * @remarks
+     * ## Request description
+     * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
+     * - It supports custom time ranges. By default, it returns data from the last hour.
+     * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
+     * - To paginate through large datasets, use the `NextToken` parameter.
+     * - The `MetricName` parameter is required and specifies the monitoring metric to query.
+     * - For advanced features or specific metric types, see the related documentation.
      *
      * @param request - GetMetricsRequest
      * @param headers - map
@@ -1362,7 +1405,16 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries metrics data.
+     * Retrieve metrics data.
+     *
+     * @remarks
+     * ## Request description
+     * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
+     * - It supports custom time ranges. By default, it returns data from the last hour.
+     * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
+     * - To paginate through large datasets, use the `NextToken` parameter.
+     * - The `MetricName` parameter is required and specifies the monitoring metric to query.
+     * - For advanced features or specific metric types, see the related documentation.
      *
      * @param request - GetMetricsRequest
      *
@@ -1539,10 +1591,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains a Ray Dashboard URL.
+     * Retrieve the Ray Dashboard URL.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     * Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
      *
      * @param request - GetRayDashboardRequest
      * @param headers - map
@@ -1589,10 +1641,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Obtains a Ray Dashboard URL.
+     * Retrieve the Ray Dashboard URL.
      *
      * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of Deep Learning Containers (DLC) of Platform for AI (PAI).
+     * Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
      *
      * @param request - GetRayDashboardRequest
      *
@@ -1612,7 +1664,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Query RayHistoryServer.
+     * Retrieves the details of a specific RayHistoryServer.
+     *
+     * @remarks
+     * Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
      *
      * @param request - GetRayHistoryServerRequest
      * @param headers - map
@@ -1649,7 +1704,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Query RayHistoryServer.
+     * Retrieves the details of a specific RayHistoryServer.
+     *
+     * @remarks
+     * Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
      *
      * @param request - GetRayHistoryServerRequest
      *
@@ -1669,7 +1727,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries the information of a TensorBoard instance.
+     * Retrieves the details of a Tensorboard instance.
      *
      * @param request - GetTensorboardRequest
      * @param headers - map
@@ -1720,7 +1778,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries the information of a TensorBoard instance.
+     * Retrieves the details of a Tensorboard instance.
      *
      * @param request - GetTensorboardRequest
      *
@@ -2089,7 +2147,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
+     * Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
      *
      * @param request - ListJobTemplatesRequest
      * @param headers - map
@@ -2159,7 +2217,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
+     * Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
      *
      * @param request - ListJobTemplatesRequest
      *
@@ -2178,7 +2236,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
+     * Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
      *
      * @param tmpReq - ListJobsRequest
      * @param headers - map
@@ -2366,7 +2424,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
+     * Retrieves a list of jobs with support for pagination, sorting, and conditional filtering.
      *
      * @param request - ListJobsRequest
      *
@@ -2385,7 +2443,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * List resource RayHistoryServer.
+     * Lists RayHistoryServer resources.
+     *
+     * @remarks
+     * Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
+     * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
      *
      * @param request - ListRayHistoryServersRequest
      * @param headers - map
@@ -2455,6 +2517,10 @@ class Paidlc extends OpenApiClient
             @$query['Status'] = $request->status;
         }
 
+        if (null !== $request->storagePath) {
+            @$query['StoragePath'] = $request->storagePath;
+        }
+
         if (null !== $request->userIdForFilter) {
             @$query['UserIdForFilter'] = $request->userIdForFilter;
         }
@@ -2487,7 +2553,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * List resource RayHistoryServer.
+     * Lists RayHistoryServer resources.
+     *
+     * @remarks
+     * Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
+     * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
      *
      * @param request - ListRayHistoryServersRequest
      *
@@ -2506,7 +2576,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries a list of TensorBoard instances.
+     * Queries a list of created Tensorboard instances.
      *
      * @param request - ListTensorboardsRequest
      * @param headers - map
@@ -2624,7 +2694,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Queries a list of TensorBoard instances.
+     * Queries a list of created Tensorboard instances.
      *
      * @param request - ListTensorboardsRequest
      *
@@ -2643,7 +2713,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Sets the default version of the template.
+     * Sets the default version of a job template.
      *
      * @param request - SetJobTemplateDefaultVersionRequest
      * @param headers - map
@@ -2686,7 +2756,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Sets the default version of the template.
+     * Sets the default version of a job template.
      *
      * @param request - SetJobTemplateDefaultVersionRequest
      *
@@ -2706,7 +2776,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Start Ray History Server.
+     * Starts a Ray History Server.
+     *
+     * @remarks
+     * Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
      *
      * @param request - StartRayHistoryServerRequest
      * @param headers - map
@@ -2743,7 +2816,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Start Ray History Server.
+     * Starts a Ray History Server.
+     *
+     * @remarks
+     * Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
      *
      * @param request - StartRayHistoryServerRequest
      *
@@ -2877,7 +2953,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Stop Ray History Server.
+     * Stops a Ray History Server.
+     *
+     * @remarks
+     * Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.>Notice: The total length of the parameters for the CreateJob interface, including system-generated parameters, cannot exceed 65,536 bytes.
      *
      * @param request - StopRayHistoryServerRequest
      * @param headers - map
@@ -2914,7 +2993,10 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Stop Ray History Server.
+     * Stops a Ray History Server.
+     *
+     * @remarks
+     * Before calling this operation, ensure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.>Notice: The total length of the parameters for the CreateJob interface, including system-generated parameters, cannot exceed 65,536 bytes.
      *
      * @param request - StopRayHistoryServerRequest
      *
@@ -2997,7 +3079,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
+     * Updates a job\\"s configuration, such as its priority.
      *
      * @param request - UpdateJobRequest
      * @param headers - map
@@ -3052,7 +3134,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Updates the configuration information of a job. For example, you can modify the priority of a job in a queue.
+     * Updates a job\\"s configuration, such as its priority.
      *
      * @param request - UpdateJobRequest
      *
@@ -3159,7 +3241,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Updates a TensorBoard instance.
+     * Update a Tensorboard.
      *
      * @param request - UpdateTensorboardRequest
      * @param headers - map
@@ -3214,7 +3296,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Updates a TensorBoard instance.
+     * Update a Tensorboard.
      *
      * @param request - UpdateTensorboardRequest
      *

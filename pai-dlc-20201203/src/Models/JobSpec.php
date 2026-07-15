@@ -39,6 +39,11 @@ class JobSpec extends Model
     public $extraPodSpec;
 
     /**
+     * @var HyperNodeSchedulingConfig
+     */
+    public $hyperNodeSchedulingConfig;
+
+    /**
      * @var string
      */
     public $image;
@@ -62,6 +67,11 @@ class JobSpec extends Model
      * @var LocalMountSpec[]
      */
     public $localMountSpecs;
+
+    /**
+     * @var string
+     */
+    public $oversoldType;
 
     /**
      * @var int
@@ -119,11 +129,13 @@ class JobSpec extends Model
         'ecsSpec' => 'EcsSpec',
         'elasticSpotSpecs' => 'ElasticSpotSpecs',
         'extraPodSpec' => 'ExtraPodSpec',
+        'hyperNodeSchedulingConfig' => 'HyperNodeSchedulingConfig',
         'image' => 'Image',
         'imageConfig' => 'ImageConfig',
         'isCheif' => 'IsCheif',
         'isChief' => 'IsChief',
         'localMountSpecs' => 'LocalMountSpecs',
+        'oversoldType' => 'OversoldType',
         'podCount' => 'PodCount',
         'quotaId' => 'QuotaId',
         'resourceConfig' => 'ResourceConfig',
@@ -149,6 +161,9 @@ class JobSpec extends Model
         }
         if (null !== $this->extraPodSpec) {
             $this->extraPodSpec->validate();
+        }
+        if (null !== $this->hyperNodeSchedulingConfig) {
+            $this->hyperNodeSchedulingConfig->validate();
         }
         if (null !== $this->imageConfig) {
             $this->imageConfig->validate();
@@ -208,6 +223,10 @@ class JobSpec extends Model
             $res['ExtraPodSpec'] = null !== $this->extraPodSpec ? $this->extraPodSpec->toArray($noStream) : $this->extraPodSpec;
         }
 
+        if (null !== $this->hyperNodeSchedulingConfig) {
+            $res['HyperNodeSchedulingConfig'] = null !== $this->hyperNodeSchedulingConfig ? $this->hyperNodeSchedulingConfig->toArray($noStream) : $this->hyperNodeSchedulingConfig;
+        }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
@@ -233,6 +252,10 @@ class JobSpec extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->oversoldType) {
+            $res['OversoldType'] = $this->oversoldType;
         }
 
         if (null !== $this->podCount) {
@@ -324,6 +347,10 @@ class JobSpec extends Model
             $model->extraPodSpec = ExtraPodSpec::fromMap($map['ExtraPodSpec']);
         }
 
+        if (isset($map['HyperNodeSchedulingConfig'])) {
+            $model->hyperNodeSchedulingConfig = HyperNodeSchedulingConfig::fromMap($map['HyperNodeSchedulingConfig']);
+        }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
@@ -349,6 +376,10 @@ class JobSpec extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['OversoldType'])) {
+            $model->oversoldType = $map['OversoldType'];
         }
 
         if (isset($map['PodCount'])) {

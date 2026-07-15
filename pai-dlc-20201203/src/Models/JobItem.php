@@ -212,6 +212,11 @@ class JobItem extends Model
     public $restartTimes;
 
     /**
+     * @var int
+     */
+    public $retryCount;
+
+    /**
      * @var string
      */
     public $schedulingStrategy;
@@ -351,6 +356,7 @@ class JobItem extends Model
         'resourceQuotaName' => 'ResourceQuotaName',
         'resourceType' => 'ResourceType',
         'restartTimes' => 'RestartTimes',
+        'retryCount' => 'RetryCount',
         'schedulingStrategy' => 'SchedulingStrategy',
         'settings' => 'Settings',
         'status' => 'Status',
@@ -621,6 +627,10 @@ class JobItem extends Model
 
         if (null !== $this->restartTimes) {
             $res['RestartTimes'] = $this->restartTimes;
+        }
+
+        if (null !== $this->retryCount) {
+            $res['RetryCount'] = $this->retryCount;
         }
 
         if (null !== $this->schedulingStrategy) {
@@ -931,6 +941,10 @@ class JobItem extends Model
 
         if (isset($map['RestartTimes'])) {
             $model->restartTimes = $map['RestartTimes'];
+        }
+
+        if (isset($map['RetryCount'])) {
+            $model->retryCount = $map['RetryCount'];
         }
 
         if (isset($map['SchedulingStrategy'])) {

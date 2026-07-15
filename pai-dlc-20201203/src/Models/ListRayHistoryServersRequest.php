@@ -76,6 +76,11 @@ class ListRayHistoryServersRequest extends Model
     /**
      * @var string
      */
+    public $storagePath;
+
+    /**
+     * @var string
+     */
     public $userIdForFilter;
 
     /**
@@ -101,6 +106,7 @@ class ListRayHistoryServersRequest extends Model
         'sortBy' => 'SortBy',
         'startTime' => 'StartTime',
         'status' => 'Status',
+        'storagePath' => 'StoragePath',
         'userIdForFilter' => 'UserIdForFilter',
         'username' => 'Username',
         'workspaceId' => 'WorkspaceId',
@@ -164,6 +170,10 @@ class ListRayHistoryServersRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->storagePath) {
+            $res['StoragePath'] = $this->storagePath;
         }
 
         if (null !== $this->userIdForFilter) {
@@ -239,6 +249,10 @@ class ListRayHistoryServersRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StoragePath'])) {
+            $model->storagePath = $map['StoragePath'];
         }
 
         if (isset($map['UserIdForFilter'])) {
