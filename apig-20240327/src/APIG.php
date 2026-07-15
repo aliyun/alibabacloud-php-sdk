@@ -10,10 +10,16 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewayQuotaRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewayQuotaRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchAddConsumerGroupConsumersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchAddConsumerGroupConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\BatchDeleteConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchRemoveConsumerGroupConsumersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\BatchRemoveConsumerGroupConsumersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAiModelCardRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAiModelCardResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAiModelProviderRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAiModelProviderResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateAndAttachPolicyRequest;
@@ -22,6 +28,8 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRuleReques
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRulesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerGroupRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDomainRequest;
@@ -54,7 +62,13 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceVersionRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSourceRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateSourceResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteAiModelCardRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteAiModelCardResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteAiModelProviderRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteAiModelProviderResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerGroupRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteEnvironmentResponse;
@@ -83,7 +97,13 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ExportHttpApiResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelCardRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelCardResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelProviderRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetAiModelProviderResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerGroupRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerGroupResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDashboardRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDashboardResponse;
@@ -118,8 +138,16 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\InstallPluginResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelCardsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelCardsResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelProvidersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListAiModelProvidersResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerAuthorizationRulesResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupConsumersRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupConsumersResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupsRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerGroupsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerQuotaRulesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumerQuotaRulesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListConsumersRequest;
@@ -184,10 +212,16 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UninstallPluginResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UntagResourcesShrinkRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAiModelCardRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAiModelCardResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAiModelProviderRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAiModelProviderResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateAndAttachPolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerAuthorizationRuleResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerGroupRequest;
+use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerGroupResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateConsumerResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainRequest;
@@ -489,6 +523,69 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 批量添加消费者组成员.
+     *
+     * @param request - BatchAddConsumerGroupConsumersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchAddConsumerGroupConsumersResponse
+     *
+     * @param string                                $consumerGroupId
+     * @param BatchAddConsumerGroupConsumersRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return BatchAddConsumerGroupConsumersResponse
+     */
+    public function batchAddConsumerGroupConsumersWithOptions($consumerGroupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->consumerIds) {
+            @$body['consumerIds'] = $request->consumerIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchAddConsumerGroupConsumers',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumer-groups/' . Url::percentEncode($consumerGroupId) . '/consumers/batch-add',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchAddConsumerGroupConsumersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量添加消费者组成员.
+     *
+     * @param request - BatchAddConsumerGroupConsumersRequest
+     *
+     * @returns BatchAddConsumerGroupConsumersResponse
+     *
+     * @param string                                $consumerGroupId
+     * @param BatchAddConsumerGroupConsumersRequest $request
+     *
+     * @return BatchAddConsumerGroupConsumersResponse
+     */
+    public function batchAddConsumerGroupConsumers($consumerGroupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchAddConsumerGroupConsumersWithOptions($consumerGroupId, $request, $headers, $runtime);
+    }
+
+    /**
      * Revokes consumer authorization rules in batches.
      *
      * @param request - BatchDeleteConsumerAuthorizationRuleRequest
@@ -547,6 +644,69 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->batchDeleteConsumerAuthorizationRuleWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 批量移除消费者组成员.
+     *
+     * @param request - BatchRemoveConsumerGroupConsumersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchRemoveConsumerGroupConsumersResponse
+     *
+     * @param string                                   $consumerGroupId
+     * @param BatchRemoveConsumerGroupConsumersRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return BatchRemoveConsumerGroupConsumersResponse
+     */
+    public function batchRemoveConsumerGroupConsumersWithOptions($consumerGroupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->consumerIds) {
+            @$body['consumerIds'] = $request->consumerIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchRemoveConsumerGroupConsumers',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumer-groups/' . Url::percentEncode($consumerGroupId) . '/consumers/batch-remove',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchRemoveConsumerGroupConsumersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 批量移除消费者组成员.
+     *
+     * @param request - BatchRemoveConsumerGroupConsumersRequest
+     *
+     * @returns BatchRemoveConsumerGroupConsumersResponse
+     *
+     * @param string                                   $consumerGroupId
+     * @param BatchRemoveConsumerGroupConsumersRequest $request
+     *
+     * @return BatchRemoveConsumerGroupConsumersResponse
+     */
+    public function batchRemoveConsumerGroupConsumers($consumerGroupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchRemoveConsumerGroupConsumersWithOptions($consumerGroupId, $request, $headers, $runtime);
     }
 
     /**
@@ -620,6 +780,99 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建AI模型卡片.
+     *
+     * @remarks
+     * 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
+     * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+     *
+     * @param request - CreateAiModelCardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAiModelCardResponse
+     *
+     * @param CreateAiModelCardRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAiModelCardResponse
+     */
+    public function createAiModelCardWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->availablePaths) {
+            @$body['availablePaths'] = $request->availablePaths;
+        }
+
+        if (null !== $request->credit) {
+            @$body['credit'] = $request->credit;
+        }
+
+        if (null !== $request->features) {
+            @$body['features'] = $request->features;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->meta) {
+            @$body['meta'] = $request->meta;
+        }
+
+        if (null !== $request->modelName) {
+            @$body['modelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelProvider) {
+            @$body['modelProvider'] = $request->modelProvider;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAiModelCard',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-model-cards',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAiModelCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建AI模型卡片.
+     *
+     * @remarks
+     * 在指定AI网关实例的已有模型供应商下创建模型卡片。目标网关必须存在、属于当前账号且类型为AI网关，modelProvider必须引用该网关中已存在的模型供应商。
+     * 同一AI网关实例、同一模型供应商下的modelName必须唯一；单个网关实例最多可创建1000张模型卡片。credit当前仅支持fixed类型，费用单位为Credits/百万Token；未传时type默认为fixed，各项费用默认为0。availablePaths中的每一项必须同时包含path和type。
+     *
+     * @param request - CreateAiModelCardRequest
+     *
+     * @returns CreateAiModelCardResponse
+     *
+     * @param CreateAiModelCardRequest $request
+     *
+     * @return CreateAiModelCardResponse
+     */
+    public function createAiModelCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAiModelCardWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1007,6 +1260,79 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createConsumerAuthorizationRulesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建消费者组.
+     *
+     * @param request - CreateConsumerGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConsumerGroupResponse
+     *
+     * @param CreateConsumerGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateConsumerGroupResponse
+     */
+    public function createConsumerGroupWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->consumerGroupId) {
+            @$body['consumerGroupId'] = $request->consumerGroupId;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->gatewayType) {
+            @$body['gatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateConsumerGroup',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumer-groups',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建消费者组.
+     *
+     * @param request - CreateConsumerGroupRequest
+     *
+     * @returns CreateConsumerGroupResponse
+     *
+     * @param CreateConsumerGroupRequest $request
+     *
+     * @return CreateConsumerGroupResponse
+     */
+    public function createConsumerGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createConsumerGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2352,6 +2678,120 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 删除AI模型卡片.
+     *
+     * @param request - DeleteAiModelCardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAiModelCardResponse
+     *
+     * @param string                   $modelCardId
+     * @param DeleteAiModelCardRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAiModelCardResponse
+     */
+    public function deleteAiModelCardWithOptions($modelCardId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAiModelCard',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-model-cards/' . Url::percentEncode($modelCardId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAiModelCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除AI模型卡片.
+     *
+     * @param request - DeleteAiModelCardRequest
+     *
+     * @returns DeleteAiModelCardResponse
+     *
+     * @param string                   $modelCardId
+     * @param DeleteAiModelCardRequest $request
+     *
+     * @return DeleteAiModelCardResponse
+     */
+    public function deleteAiModelCard($modelCardId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAiModelCardWithOptions($modelCardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 删除AI模型供应商.
+     *
+     * @param request - DeleteAiModelProviderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAiModelProviderResponse
+     *
+     * @param string                       $modelProviderId
+     * @param DeleteAiModelProviderRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteAiModelProviderResponse
+     */
+    public function deleteAiModelProviderWithOptions($modelProviderId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAiModelProvider',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-model-providers/' . Url::percentEncode($modelProviderId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAiModelProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除AI模型供应商.
+     *
+     * @param request - DeleteAiModelProviderRequest
+     *
+     * @returns DeleteAiModelProviderResponse
+     *
+     * @param string                       $modelProviderId
+     * @param DeleteAiModelProviderRequest $request
+     *
+     * @return DeleteAiModelProviderResponse
+     */
+    public function deleteAiModelProvider($modelProviderId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAiModelProviderWithOptions($modelProviderId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes an API consumer.
      *
      * @param headers - map
@@ -2453,6 +2893,63 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->deleteConsumerAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $consumerId, $headers, $runtime);
+    }
+
+    /**
+     * 删除消费者组.
+     *
+     * @param request - DeleteConsumerGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
+     * @param string                     $consumerGroupId
+     * @param DeleteConsumerGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteConsumerGroupResponse
+     */
+    public function deleteConsumerGroupWithOptions($consumerGroupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteConsumerGroup',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumer-groups/' . Url::percentEncode($consumerGroupId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除消费者组.
+     *
+     * @param request - DeleteConsumerGroupRequest
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
+     * @param string                     $consumerGroupId
+     * @param DeleteConsumerGroupRequest $request
+     *
+     * @return DeleteConsumerGroupResponse
+     */
+    public function deleteConsumerGroup($consumerGroupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConsumerGroupWithOptions($consumerGroupId, $request, $headers, $runtime);
     }
 
     /**
@@ -3628,6 +4125,120 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 查询AI模型卡片详情.
+     *
+     * @param request - GetAiModelCardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiModelCardResponse
+     *
+     * @param string                $modelCardId
+     * @param GetAiModelCardRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAiModelCardResponse
+     */
+    public function getAiModelCardWithOptions($modelCardId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetAiModelCard',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-model-cards/' . Url::percentEncode($modelCardId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiModelCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询AI模型卡片详情.
+     *
+     * @param request - GetAiModelCardRequest
+     *
+     * @returns GetAiModelCardResponse
+     *
+     * @param string                $modelCardId
+     * @param GetAiModelCardRequest $request
+     *
+     * @return GetAiModelCardResponse
+     */
+    public function getAiModelCard($modelCardId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAiModelCardWithOptions($modelCardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询AI模型供应商详情.
+     *
+     * @param request - GetAiModelProviderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAiModelProviderResponse
+     *
+     * @param string                    $modelProviderId
+     * @param GetAiModelProviderRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAiModelProviderResponse
+     */
+    public function getAiModelProviderWithOptions($modelProviderId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetAiModelProvider',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-model-providers/' . Url::percentEncode($modelProviderId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAiModelProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询AI模型供应商详情.
+     *
+     * @param request - GetAiModelProviderRequest
+     *
+     * @returns GetAiModelProviderResponse
+     *
+     * @param string                    $modelProviderId
+     * @param GetAiModelProviderRequest $request
+     *
+     * @return GetAiModelProviderResponse
+     */
+    public function getAiModelProvider($modelProviderId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAiModelProviderWithOptions($modelProviderId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves an API consumer.
      *
      * @param headers - map
@@ -3729,6 +4340,63 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getConsumerAuthorizationRuleWithOptions($consumerAuthorizationRuleId, $consumerId, $headers, $runtime);
+    }
+
+    /**
+     * 查询消费者组.
+     *
+     * @param request - GetConsumerGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConsumerGroupResponse
+     *
+     * @param string                  $consumerGroupId
+     * @param GetConsumerGroupRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetConsumerGroupResponse
+     */
+    public function getConsumerGroupWithOptions($consumerGroupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetConsumerGroup',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumer-groups/' . Url::percentEncode($consumerGroupId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消费者组.
+     *
+     * @param request - GetConsumerGroupRequest
+     *
+     * @returns GetConsumerGroupResponse
+     *
+     * @param string                  $consumerGroupId
+     * @param GetConsumerGroupRequest $request
+     *
+     * @return GetConsumerGroupResponse
+     */
+    public function getConsumerGroup($consumerGroupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getConsumerGroupWithOptions($consumerGroupId, $request, $headers, $runtime);
     }
 
     /**
@@ -5117,6 +5785,152 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 查询AI模型卡片列表.
+     *
+     * @param request - ListAiModelCardsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAiModelCardsResponse
+     *
+     * @param ListAiModelCardsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAiModelCardsResponse
+     */
+    public function listAiModelCardsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAiModelCards',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-model-cards',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAiModelCardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询AI模型卡片列表.
+     *
+     * @param request - ListAiModelCardsRequest
+     *
+     * @returns ListAiModelCardsResponse
+     *
+     * @param ListAiModelCardsRequest $request
+     *
+     * @return ListAiModelCardsResponse
+     */
+    public function listAiModelCards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAiModelCardsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 查询AI模型供应商列表.
+     *
+     * @param request - ListAiModelProvidersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAiModelProvidersResponse
+     *
+     * @param ListAiModelProvidersRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAiModelProvidersResponse
+     */
+    public function listAiModelProvidersWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAiModelProviders',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-model-providers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAiModelProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询AI模型供应商列表.
+     *
+     * @param request - ListAiModelProvidersRequest
+     *
+     * @returns ListAiModelProvidersResponse
+     *
+     * @param ListAiModelProvidersRequest $request
+     *
+     * @return ListAiModelProvidersResponse
+     */
+    public function listAiModelProviders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAiModelProvidersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the list of consumer authorization rules.
      *
      * @param request - ListConsumerAuthorizationRulesRequest
@@ -5185,6 +5999,150 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listConsumerAuthorizationRulesWithOptions($consumerId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询消费者组成员列表.
+     *
+     * @param request - ListConsumerGroupConsumersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConsumerGroupConsumersResponse
+     *
+     * @param string                            $consumerGroupId
+     * @param ListConsumerGroupConsumersRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListConsumerGroupConsumersResponse
+     */
+    public function listConsumerGroupConsumersWithOptions($consumerGroupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConsumerGroupConsumers',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumer-groups/' . Url::percentEncode($consumerGroupId) . '/consumers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConsumerGroupConsumersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消费者组成员列表.
+     *
+     * @param request - ListConsumerGroupConsumersRequest
+     *
+     * @returns ListConsumerGroupConsumersResponse
+     *
+     * @param string                            $consumerGroupId
+     * @param ListConsumerGroupConsumersRequest $request
+     *
+     * @return ListConsumerGroupConsumersResponse
+     */
+    public function listConsumerGroupConsumers($consumerGroupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConsumerGroupConsumersWithOptions($consumerGroupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 查询消费者组列表.
+     *
+     * @param request - ListConsumerGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConsumerGroupsResponse
+     *
+     * @param ListConsumerGroupsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListConsumerGroupsResponse
+     */
+    public function listConsumerGroupsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->gatewayType) {
+            @$query['gatewayType'] = $request->gatewayType;
+        }
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListConsumerGroups',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumer-groups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListConsumerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询消费者组列表.
+     *
+     * @param request - ListConsumerGroupsRequest
+     *
+     * @returns ListConsumerGroupsResponse
+     *
+     * @param ListConsumerGroupsRequest $request
+     *
+     * @return ListConsumerGroupsResponse
+     */
+    public function listConsumerGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConsumerGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -7926,6 +8884,156 @@ class APIG extends OpenApiClient
     }
 
     /**
+     * 更新AI模型卡片.
+     *
+     * @param request - UpdateAiModelCardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAiModelCardResponse
+     *
+     * @param string                   $modelCardId
+     * @param UpdateAiModelCardRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateAiModelCardResponse
+     */
+    public function updateAiModelCardWithOptions($modelCardId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->availablePaths) {
+            @$body['availablePaths'] = $request->availablePaths;
+        }
+
+        if (null !== $request->credit) {
+            @$body['credit'] = $request->credit;
+        }
+
+        if (null !== $request->features) {
+            @$body['features'] = $request->features;
+        }
+
+        if (null !== $request->meta) {
+            @$body['meta'] = $request->meta;
+        }
+
+        if (null !== $request->modelName) {
+            @$body['modelName'] = $request->modelName;
+        }
+
+        if (null !== $request->modelProvider) {
+            @$body['modelProvider'] = $request->modelProvider;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAiModelCard',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-model-cards/' . Url::percentEncode($modelCardId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAiModelCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新AI模型卡片.
+     *
+     * @param request - UpdateAiModelCardRequest
+     *
+     * @returns UpdateAiModelCardResponse
+     *
+     * @param string                   $modelCardId
+     * @param UpdateAiModelCardRequest $request
+     *
+     * @return UpdateAiModelCardResponse
+     */
+    public function updateAiModelCard($modelCardId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAiModelCardWithOptions($modelCardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新AI模型供应商.
+     *
+     * @param request - UpdateAiModelProviderRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAiModelProviderResponse
+     *
+     * @param string                       $modelProviderId
+     * @param UpdateAiModelProviderRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateAiModelProviderResponse
+     */
+    public function updateAiModelProviderWithOptions($modelProviderId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->displayName) {
+            @$body['displayName'] = $request->displayName;
+        }
+
+        if (null !== $request->serviceIds) {
+            @$body['serviceIds'] = $request->serviceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAiModelProvider',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/ai-model-providers/' . Url::percentEncode($modelProviderId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAiModelProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新AI模型供应商.
+     *
+     * @param request - UpdateAiModelProviderRequest
+     *
+     * @returns UpdateAiModelProviderResponse
+     *
+     * @param string                       $modelProviderId
+     * @param UpdateAiModelProviderRequest $request
+     *
+     * @return UpdateAiModelProviderResponse
+     */
+    public function updateAiModelProvider($modelProviderId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAiModelProviderWithOptions($modelProviderId, $request, $headers, $runtime);
+    }
+
+    /**
      * Updates and mounts a policy.
      *
      * @param request - UpdateAndAttachPolicyRequest
@@ -8162,6 +9270,73 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updateConsumerAuthorizationRuleWithOptions($consumerId, $consumerAuthorizationRuleId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新消费者组.
+     *
+     * @param request - UpdateConsumerGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConsumerGroupResponse
+     *
+     * @param string                     $consumerGroupId
+     * @param UpdateConsumerGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateConsumerGroupResponse
+     */
+    public function updateConsumerGroupWithOptions($consumerGroupId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConsumerGroup',
+            'version' => '2024-03-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v1/consumer-groups/' . Url::percentEncode($consumerGroupId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新消费者组.
+     *
+     * @param request - UpdateConsumerGroupRequest
+     *
+     * @returns UpdateConsumerGroupResponse
+     *
+     * @param string                     $consumerGroupId
+     * @param UpdateConsumerGroupRequest $request
+     *
+     * @return UpdateConsumerGroupResponse
+     */
+    public function updateConsumerGroup($consumerGroupId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConsumerGroupWithOptions($consumerGroupId, $request, $headers, $runtime);
     }
 
     /**
