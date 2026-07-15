@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateVersionManagementRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateVersionManagementResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\AddUserBusinessFormRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\AddUserBusinessFormResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCustomHostnameCertificateRequest;
@@ -50,6 +52,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckAssumeSlrRoleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteFeaturesMatchPlanRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteFeaturesMatchPlanResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteNameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteNameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteProjectNameRequest;
@@ -1176,6 +1180,87 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Creates a user opportunity order.
+     *
+     * @param Request - AddUserBusinessFormRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddUserBusinessFormResponse
+     *
+     * @param AddUserBusinessFormRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddUserBusinessFormResponse
+     */
+    public function addUserBusinessFormWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->company) {
+            @$query['Company'] = $request->company;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
+        }
+
+        if (null !== $request->position) {
+            @$query['Position'] = $request->position;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
+        }
+
+        if (null !== $request->website) {
+            @$query['Website'] = $request->website;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddUserBusinessForm',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddUserBusinessFormResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a user opportunity order.
+     *
+     * @param Request - AddUserBusinessFormRequest
+     *
+     * @returns AddUserBusinessFormResponse
+     *
+     * @param AddUserBusinessFormRequest $request
+     *
+     * @return AddUserBusinessFormResponse
+     */
+    public function addUserBusinessForm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addUserBusinessFormWithOptions($request, $runtime);
+    }
+
+    /**
      * Applies for a free certificate.
      *
      * @param Request - ApplyCertificateRequest
@@ -1764,7 +1849,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves match fields for a batch of expressions.
+     * Retrieves matching items for expressions in batches.
      *
      * @param tmpReq - BatchGetExpressionFieldsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1831,7 +1916,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves match fields for a batch of expressions.
+     * Retrieves matching items for expressions in batches.
      *
      * @param Request - BatchGetExpressionFieldsRequest
      *
@@ -2367,6 +2452,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkAssumeSlrRoleWithOptions($runtime);
+    }
+
+    /**
+     * Validates whether a site is compatible with the target plan during site plan migration.
+     *
+     * @param Request - CheckSiteFeaturesMatchPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckSiteFeaturesMatchPlanResponse
+     *
+     * @param CheckSiteFeaturesMatchPlanRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CheckSiteFeaturesMatchPlanResponse
+     */
+    public function checkSiteFeaturesMatchPlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->newInstanceId) {
+            @$query['NewInstanceId'] = $request->newInstanceId;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CheckSiteFeaturesMatchPlan',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CheckSiteFeaturesMatchPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Validates whether a site is compatible with the target plan during site plan migration.
+     *
+     * @param Request - CheckSiteFeaturesMatchPlanRequest
+     *
+     * @returns CheckSiteFeaturesMatchPlanResponse
+     *
+     * @param CheckSiteFeaturesMatchPlanRequest $request
+     *
+     * @return CheckSiteFeaturesMatchPlanResponse
+     */
+    public function checkSiteFeaturesMatchPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkSiteFeaturesMatchPlanWithOptions($request, $runtime);
     }
 
     /**
@@ -3680,7 +3826,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Adds a Configuration for modifying a Site\\"s HTTP Request Headers.
+     * Creates an HTTP request header modification configuration for a site.
      *
      * @param tmpReq - CreateHttpRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3749,7 +3895,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Adds a Configuration for modifying a Site\\"s HTTP Request Headers.
+     * Creates an HTTP request header modification configuration for a site.
      *
      * @param Request - CreateHttpRequestHeaderModificationRuleRequest
      *
@@ -3767,7 +3913,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a rule to modify HTTP response headers.
+     * Creates an HTTP response header modification configuration.
      *
      * @param tmpReq - CreateHttpResponseHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3836,7 +3982,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a rule to modify HTTP response headers.
+     * Creates an HTTP response header modification configuration.
      *
      * @param Request - CreateHttpResponseHeaderModificationRuleRequest
      *
@@ -5386,7 +5532,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Adds a new record to a site that triggers a specified edge function Routine.
+     * Adds an associated site record for an Edge Routine function. This creates a new record under the site to trigger the execution of the Edge Routine function code.
      *
      * @param Request - CreateRoutineRelatedRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5433,7 +5579,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Adds a new record to a site that triggers a specified edge function Routine.
+     * Adds an associated site record for an Edge Routine function. This creates a new record under the site to trigger the execution of the Edge Routine function code.
      *
      * @param Request - CreateRoutineRelatedRecordRequest
      *
@@ -9275,7 +9421,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a routine in Edge Routine.
+     * Deletes an Edge Routine.
      *
      * @param Request - DeleteRoutineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9314,7 +9460,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a routine in Edge Routine.
+     * Deletes an Edge Routine.
      *
      * @param Request - DeleteRoutineRequest
      *
@@ -9393,7 +9539,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a record that is associated with a routine.
+     * Deletes an association record of an Edge Routine.
      *
      * @param Request - DeleteRoutineRelatedRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9446,7 +9592,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a record that is associated with a routine.
+     * Deletes an association record of an Edge Routine.
      *
      * @param Request - DeleteRoutineRelatedRecordRequest
      *
@@ -10576,7 +10722,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price for a configuration change of a cache reserve instance.
+     * Queries the price for a cache-retained specification change.
      *
      * @param Request - DescribeCacheReservePriceGapRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10619,7 +10765,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the price for a configuration change of a cache reserve instance.
+     * Queries the price for a cache-retained specification change.
      *
      * @param Request - DescribeCacheReservePriceGapRequest
      *
@@ -13844,7 +13990,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * GetEdgeImage.
+     * Retrieves the details of an edge container plan instance.
      *
      * @param Request - GetEdgeContainerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13883,7 +14029,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * GetEdgeImage.
+     * Retrieves the details of an edge container plan instance.
      *
      * @param Request - GetEdgeContainerRequest
      *
@@ -17905,7 +18051,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
+     * Retrieves the details of a single rule in Web Application Firewall (WAF). You can use this operation to query the configuration and status of a specific rule.
      *
      * @param Request - GetWafRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17948,7 +18094,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a single rule in Web Application Firewall (WAF). You can call this operation to query the configuration and status of a specific rule.
+     * Retrieves the details of a single rule in Web Application Firewall (WAF). You can use this operation to query the configuration and status of a specific rule.
      *
      * @param Request - GetWafRuleRequest
      *
@@ -18137,7 +18283,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询证书列表，支持翻页.
+     * Queries the list of China Shield certificates.
      *
      * @param Request - ListCasCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18188,7 +18334,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询证书列表，支持翻页.
+     * Queries the list of China Shield certificates.
      *
      * @param Request - ListCasCertificatesRequest
      *
@@ -19990,10 +20136,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query Load Balancer Region List.
+     * Queries the primary and secondary region information of a load balancing instance to obtain geographic region codes, descriptions, and other basic information that are active and can be used to configure a country/region-based scheduling policy for the load balancing instance.
      *
      * @remarks
-     * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
+     * When you create a country/region-based scheduling policy for a load balancing instance by calling an OpenAPI operation, use the primary or secondary region code from the lookup table to represent traffic originating from the corresponding geographic region.
      *
      * @param Request - ListLoadBalancerRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20028,10 +20174,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query Load Balancer Region List.
+     * Queries the primary and secondary region information of a load balancing instance to obtain geographic region codes, descriptions, and other basic information that are active and can be used to configure a country/region-based scheduling policy for the load balancing instance.
      *
      * @remarks
-     * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
+     * When you create a country/region-based scheduling policy for a load balancing instance by calling an OpenAPI operation, use the primary or secondary region code from the lookup table to represent traffic originating from the corresponding geographic region.
      *
      * @param Request - ListLoadBalancerRegionsRequest
      *
@@ -20102,7 +20248,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * List Custom Managed Rule Groups.
+     * Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
      *
      * @param Request - ListManagedRulesGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20145,7 +20291,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * List Custom Managed Rule Groups.
+     * Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
      *
      * @param Request - ListManagedRulesGroupsRequest
      *
@@ -22029,7 +22175,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of WAF managed rules, optionally filtered by specific criteria. The response is paginated.
+     * Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
      *
      * @param tmpReq - ListWafManagedRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22114,7 +22260,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of WAF managed rules, optionally filtered by specific criteria. The response is paginated.
+     * Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
      *
      * @param Request - ListWafManagedRulesRequest
      *
@@ -22621,10 +22767,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries all waiting rooms in a website.
+     * Queries the details of all configured waiting rooms for a specified site.
      *
      * @remarks
-     * Use this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+     * This API allows you to query the configuration details of all waiting rooms for a specified site, including the enabled status, name, and queuing rules.
      *
      * @param Request - ListWaitingRoomsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22659,10 +22805,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries all waiting rooms in a website.
+     * Queries the details of all configured waiting rooms for a specified site.
      *
      * @remarks
-     * Use this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+     * This API allows you to query the configuration details of all waiting rooms for a specified site, including the enabled status, name, and queuing rules.
      *
      * @param Request - ListWaitingRoomsRequest
      *
@@ -22966,7 +23112,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
+     * Publishes a specific version of Edge Routine code to a staging or production environment. When publishing to the production environment, you can perform a canary release to specific regions.
      *
      * @param Request - PublishRoutineCodeVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23013,7 +23159,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Publishes a specific version of Edge Routine code to the staging or production environment. When publishing to the production environment, you can choose canary release to specific regions.
+     * Publishes a specific version of Edge Routine code to a staging or production environment. When publishing to the production environment, you can perform a canary release to specific regions.
      *
      * @param Request - PublishRoutineCodeVersionRequest
      *
