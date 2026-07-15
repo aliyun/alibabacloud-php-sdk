@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Aidge\V20260428\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationPlusResponseBody\data;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageRemovalProResponseBody\data;
 
-class ImageTranslationPlusResponseBody extends Model
+class ImageRemovalProResponseBody extends Model
 {
     /**
      * @var string

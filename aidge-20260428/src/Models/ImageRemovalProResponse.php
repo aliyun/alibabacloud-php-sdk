@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Aidge\V20260428\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ImageTranslationPlusResponse extends Model
+class ImageRemovalProResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ImageTranslationPlusResponse extends Model
     public $statusCode;
 
     /**
-     * @var ImageTranslationPlusResponseBody
+     * @var ImageRemovalProResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class ImageTranslationPlusResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ImageTranslationPlusResponseBody::fromMap($map['body']);
+            $model->body = ImageRemovalProResponseBody::fromMap($map['body']);
         }
 
         return $model;

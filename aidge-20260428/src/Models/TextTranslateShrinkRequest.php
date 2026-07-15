@@ -11,6 +11,11 @@ class TextTranslateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $bizName;
+
+    /**
+     * @var string
+     */
     public $formatType;
 
     /**
@@ -32,12 +37,19 @@ class TextTranslateShrinkRequest extends Model
      * @var string
      */
     public $targetLanguage;
+
+    /**
+     * @var string
+     */
+    public $translateScene;
     protected $_name = [
+        'bizName' => 'BizName',
         'formatType' => 'FormatType',
         'glossary' => 'Glossary',
         'sourceLanguage' => 'SourceLanguage',
         'sourceTextListShrink' => 'SourceTextList',
         'targetLanguage' => 'TargetLanguage',
+        'translateScene' => 'TranslateScene',
     ];
 
     public function validate()
@@ -48,6 +60,10 @@ class TextTranslateShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizName) {
+            $res['BizName'] = $this->bizName;
+        }
+
         if (null !== $this->formatType) {
             $res['FormatType'] = $this->formatType;
         }
@@ -68,6 +84,10 @@ class TextTranslateShrinkRequest extends Model
             $res['TargetLanguage'] = $this->targetLanguage;
         }
 
+        if (null !== $this->translateScene) {
+            $res['TranslateScene'] = $this->translateScene;
+        }
+
         return $res;
     }
 
@@ -79,6 +99,10 @@ class TextTranslateShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizName'])) {
+            $model->bizName = $map['BizName'];
+        }
+
         if (isset($map['FormatType'])) {
             $model->formatType = $map['FormatType'];
         }
@@ -97,6 +121,10 @@ class TextTranslateShrinkRequest extends Model
 
         if (isset($map['TargetLanguage'])) {
             $model->targetLanguage = $map['TargetLanguage'];
+        }
+
+        if (isset($map['TranslateScene'])) {
+            $model->translateScene = $map['TranslateScene'];
         }
 
         return $model;
