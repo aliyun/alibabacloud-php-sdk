@@ -494,9 +494,21 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopCancelResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopConsultHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopConsultRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopConsultResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopCreateHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopCreateRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopCreateResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopCreateShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopDetailHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopDetailRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopDetailResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopListSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopListSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopListSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopListSearchShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopOtaSearchHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopOtaSearchRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopOtaSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopOtaSearchShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopPayHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopPayRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IntlFlightReShopPayResponse;
@@ -3677,7 +3689,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * 查询企业用车场景.
+     * Queries enterprise car service scenario templates.
+     *
+     * @remarks
+     * Queries enterprise car service scenario templates.
+     * 1. To use this operation, enable business management permissions in your application. For the permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+     * 2. To use this operation, include the enterprise access credential (x-acs-btrip-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
      *
      * @param headers - CarSceneQueryHeaders
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3719,7 +3736,12 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * 查询企业用车场景.
+     * Queries enterprise car service scenario templates.
+     *
+     * @remarks
+     * Queries enterprise car service scenario templates.
+     * 1. To use this operation, enable business management permissions in your application. For the permission application process, see [API permission application process](https://openapi.alibtrip.com/doc/toDocDetail?docId=3771435).
+     * 2. To use this operation, include the enterprise access credential (x-acs-btrip-corp-token) in the request header. For information about how to obtain the enterprise access credential, see [Enterprise access credential](https://openapi.alibtrip.com/doc/toDocDetail?docId=3769985).
      *
      * @returns CarSceneQueryResponse
      *
@@ -6062,6 +6084,12 @@ class BtripOpen extends OpenApiClient
     /**
      * 预估价格查询v2.0.
      *
+     * @remarks
+     * 使用该接口可以查询预估价格。
+     * 增值接口需特殊审批，提交权限前请先和商旅客户运营沟通确认。
+     * 使用该接口需要在应用中开通增值服务数据权限，具体的数据权限申请流程请查看接口权限申请流程接口权限申请流程。
+     * 使用该接口需要在请求头中放入企业调用凭证数据信息（x-acs-btrip-so-corp-token），企业调用凭证数据获取接口请查看企业访问凭证企业访问凭证。
+     *
      * @param request - EstimatedPriceQueryV2Request
      * @param headers - EstimatedPriceQueryV2Headers
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6132,6 +6160,12 @@ class BtripOpen extends OpenApiClient
 
     /**
      * 预估价格查询v2.0.
+     *
+     * @remarks
+     * 使用该接口可以查询预估价格。
+     * 增值接口需特殊审批，提交权限前请先和商旅客户运营沟通确认。
+     * 使用该接口需要在应用中开通增值服务数据权限，具体的数据权限申请流程请查看接口权限申请流程接口权限申请流程。
+     * 使用该接口需要在请求头中放入企业调用凭证数据信息（x-acs-btrip-so-corp-token），企业调用凭证数据获取接口请查看企业访问凭证企业访问凭证。
      *
      * @param request - EstimatedPriceQueryV2Request
      *
@@ -14732,6 +14766,118 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * 国际机票改签生单.
+     *
+     * @param tmpReq - IntlFlightReShopCreateRequest
+     * @param headers - IntlFlightReShopCreateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightReShopCreateResponse
+     *
+     * @param IntlFlightReShopCreateRequest $tmpReq
+     * @param IntlFlightReShopCreateHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return IntlFlightReShopCreateResponse
+     */
+    public function intlFlightReShopCreateWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new IntlFlightReShopCreateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->selectedPassengers) {
+            $request->selectedPassengersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedPassengers, 'selected_passengers', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->asyncApplyKey) {
+            @$body['async_apply_key'] = $request->asyncApplyKey;
+        }
+
+        if (null !== $request->asyncApplyMode) {
+            @$body['async_apply_mode'] = $request->asyncApplyMode;
+        }
+
+        if (null !== $request->orderId) {
+            @$body['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->otaItemId) {
+            @$body['ota_item_id'] = $request->otaItemId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$body['out_order_id'] = $request->outOrderId;
+        }
+
+        if (null !== $request->outReShopApplyId) {
+            @$body['out_re_shop_apply_id'] = $request->outReShopApplyId;
+        }
+
+        if (null !== $request->passengerJourneyGroupKey) {
+            @$body['passenger_journey_group_key'] = $request->passengerJourneyGroupKey;
+        }
+
+        if (null !== $request->reShopReasonCode) {
+            @$body['re_shop_reason_code'] = $request->reShopReasonCode;
+        }
+
+        if (null !== $request->selectedPassengersShrink) {
+            @$body['selected_passengers'] = $request->selectedPassengersShrink;
+        }
+
+        if (null !== $request->totalReShopFee) {
+            @$body['total_re_shop_fee'] = $request->totalReShopFee;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightReShopCreate',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/reshop/create',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightReShopCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票改签生单.
+     *
+     * @param request - IntlFlightReShopCreateRequest
+     *
+     * @returns IntlFlightReShopCreateResponse
+     *
+     * @param IntlFlightReShopCreateRequest $request
+     *
+     * @return IntlFlightReShopCreateResponse
+     */
+    public function intlFlightReShopCreate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightReShopCreateHeaders([]);
+
+        return $this->intlFlightReShopCreateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 国际机票改签详情.
      *
      * @param request - IntlFlightReShopDetailRequest
@@ -14811,6 +14957,222 @@ class BtripOpen extends OpenApiClient
         $headers = new IntlFlightReShopDetailHeaders([]);
 
         return $this->intlFlightReShopDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 国际机票改签航班列表查询.
+     *
+     * @param tmpReq - IntlFlightReShopListSearchRequest
+     * @param headers - IntlFlightReShopListSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightReShopListSearchResponse
+     *
+     * @param IntlFlightReShopListSearchRequest $tmpReq
+     * @param IntlFlightReShopListSearchHeaders $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return IntlFlightReShopListSearchResponse
+     */
+    public function intlFlightReShopListSearchWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new IntlFlightReShopListSearchShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->searchJourneys) {
+            $request->searchJourneysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
+        }
+
+        if (null !== $tmpReq->selectedPassengers) {
+            $request->selectedPassengersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedPassengers, 'selected_passengers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
+        }
+
+        if (null !== $request->outWheelSearch) {
+            @$query['out_wheel_search'] = $request->outWheelSearch;
+        }
+
+        if (null !== $request->passengerJourneyGroupKey) {
+            @$query['passenger_journey_group_key'] = $request->passengerJourneyGroupKey;
+        }
+
+        if (null !== $request->reShopReasonCode) {
+            @$query['re_shop_reason_code'] = $request->reShopReasonCode;
+        }
+
+        if (null !== $request->searchJourneysShrink) {
+            @$query['search_journeys'] = $request->searchJourneysShrink;
+        }
+
+        if (null !== $request->selectedPassengersShrink) {
+            @$query['selected_passengers'] = $request->selectedPassengersShrink;
+        }
+
+        if (null !== $request->token) {
+            @$query['token'] = $request->token;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightReShopListSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/reshop/listSearch',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightReShopListSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票改签航班列表查询.
+     *
+     * @param request - IntlFlightReShopListSearchRequest
+     *
+     * @returns IntlFlightReShopListSearchResponse
+     *
+     * @param IntlFlightReShopListSearchRequest $request
+     *
+     * @return IntlFlightReShopListSearchResponse
+     */
+    public function intlFlightReShopListSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightReShopListSearchHeaders([]);
+
+        return $this->intlFlightReShopListSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 国际机票改签航班报价.
+     *
+     * @param tmpReq - IntlFlightReShopOtaSearchRequest
+     * @param headers - IntlFlightReShopOtaSearchHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns IntlFlightReShopOtaSearchResponse
+     *
+     * @param IntlFlightReShopOtaSearchRequest $tmpReq
+     * @param IntlFlightReShopOtaSearchHeaders $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return IntlFlightReShopOtaSearchResponse
+     */
+    public function intlFlightReShopOtaSearchWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new IntlFlightReShopOtaSearchShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->searchJourneys) {
+            $request->searchJourneysShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
+        }
+
+        if (null !== $tmpReq->selectedPassengers) {
+            $request->selectedPassengersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->selectedPassengers, 'selected_passengers', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->orderId) {
+            @$query['order_id'] = $request->orderId;
+        }
+
+        if (null !== $request->outOrderId) {
+            @$query['out_order_id'] = $request->outOrderId;
+        }
+
+        if (null !== $request->outWheelSearch) {
+            @$query['out_wheel_search'] = $request->outWheelSearch;
+        }
+
+        if (null !== $request->passengerJourneyGroupKey) {
+            @$query['passenger_journey_group_key'] = $request->passengerJourneyGroupKey;
+        }
+
+        if (null !== $request->reShopReasonCode) {
+            @$query['re_shop_reason_code'] = $request->reShopReasonCode;
+        }
+
+        if (null !== $request->searchJourneysShrink) {
+            @$query['search_journeys'] = $request->searchJourneysShrink;
+        }
+
+        if (null !== $request->selectedPassengersShrink) {
+            @$query['selected_passengers'] = $request->selectedPassengersShrink;
+        }
+
+        if (null !== $request->token) {
+            @$query['token'] = $request->token;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->xAcsBtripCorpToken) {
+            @$realHeaders['x-acs-btrip-corp-token'] = '' . $headers->xAcsBtripCorpToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'IntlFlightReShopOtaSearch',
+            'version' => '2022-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/intl-flight/v1/flights/action/reshop/otaSerach',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return IntlFlightReShopOtaSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 国际机票改签航班报价.
+     *
+     * @param request - IntlFlightReShopOtaSearchRequest
+     *
+     * @returns IntlFlightReShopOtaSearchResponse
+     *
+     * @param IntlFlightReShopOtaSearchRequest $request
+     *
+     * @return IntlFlightReShopOtaSearchResponse
+     */
+    public function intlFlightReShopOtaSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IntlFlightReShopOtaSearchHeaders([]);
+
+        return $this->intlFlightReShopOtaSearchWithOptions($request, $headers, $runtime);
     }
 
     /**
