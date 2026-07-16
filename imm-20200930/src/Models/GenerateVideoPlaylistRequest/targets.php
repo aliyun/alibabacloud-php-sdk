@@ -17,6 +17,11 @@ class targets extends Model
     public $audio;
 
     /**
+     * @var string
+     */
+    public $container;
+
+    /**
      * @var float
      */
     public $duration;
@@ -57,6 +62,7 @@ class targets extends Model
     public $video;
     protected $_name = [
         'audio' => 'Audio',
+        'container' => 'Container',
         'duration' => 'Duration',
         'initialSegments' => 'InitialSegments',
         'initialTranscode' => 'InitialTranscode',
@@ -92,6 +98,10 @@ class targets extends Model
         $res = [];
         if (null !== $this->audio) {
             $res['Audio'] = null !== $this->audio ? $this->audio->toArray($noStream) : $this->audio;
+        }
+
+        if (null !== $this->container) {
+            $res['Container'] = $this->container;
         }
 
         if (null !== $this->duration) {
@@ -151,6 +161,10 @@ class targets extends Model
         $model = new self();
         if (isset($map['Audio'])) {
             $model->audio = TargetAudio::fromMap($map['Audio']);
+        }
+
+        if (isset($map['Container'])) {
+            $model->container = $map['Container'];
         }
 
         if (isset($map['Duration'])) {
