@@ -15,6 +15,16 @@ class frames extends Model
     public $detail;
 
     /**
+     * @var int
+     */
+    public $errorCode;
+
+    /**
+     * @var string
+     */
+    public $errorMsg;
+
+    /**
      * @var float
      */
     public $offset;
@@ -35,6 +45,8 @@ class frames extends Model
     public $url;
     protected $_name = [
         'detail' => 'Detail',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
         'offset' => 'Offset',
         'suggestion' => 'Suggestion',
         'timestamp' => 'Timestamp',
@@ -61,6 +73,14 @@ class frames extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
         }
 
         if (null !== $this->offset) {
@@ -99,6 +119,14 @@ class frames extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
         }
 
         if (isset($map['Offset'])) {
