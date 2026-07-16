@@ -405,6 +405,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DocUpdateContentShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\EnableSceneGroupTemplateHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\EnableSceneGroupTemplateRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\EnableSceneGroupTemplateResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\EnableSceneGroupTemplateShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\EnableSceneGroupTemplateShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ExecuteBatchTaskResponse;
@@ -9805,6 +9810,96 @@ class Aliding extends OpenApiClient
         $headers = new DocUpdateContentHeaders([]);
 
         return $this->docUpdateContentWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 场景群升级：向群主发送升级通知卡片.
+     *
+     * @param tmpReq - EnableSceneGroupTemplateRequest
+     * @param tmpHeader - EnableSceneGroupTemplateHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSceneGroupTemplateResponse
+     *
+     * @param EnableSceneGroupTemplateRequest $tmpReq
+     * @param EnableSceneGroupTemplateHeaders $tmpHeader
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EnableSceneGroupTemplateResponse
+     */
+    public function enableSceneGroupTemplateWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new EnableSceneGroupTemplateShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new EnableSceneGroupTemplateShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->openConversationId) {
+            @$body['OpenConversationId'] = $request->openConversationId;
+        }
+
+        if (null !== $request->templateId) {
+            @$body['TemplateId'] = $request->templateId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, \JSON_UNESCAPED_UNICODE + \JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'EnableSceneGroupTemplate',
+            'version' => '2023-04-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/dingtalk/v1/im/enableSceneGroupTemplate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return EnableSceneGroupTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 场景群升级：向群主发送升级通知卡片.
+     *
+     * @param request - EnableSceneGroupTemplateRequest
+     *
+     * @returns EnableSceneGroupTemplateResponse
+     *
+     * @param EnableSceneGroupTemplateRequest $request
+     *
+     * @return EnableSceneGroupTemplateResponse
+     */
+    public function enableSceneGroupTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new EnableSceneGroupTemplateHeaders([]);
+
+        return $this->enableSceneGroupTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
