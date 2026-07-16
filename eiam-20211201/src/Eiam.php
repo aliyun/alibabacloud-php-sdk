@@ -13907,7 +13907,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve information about one or more EIAM applications with paging.
+     * Queries information about one or more EIAM applications by using paged query. Paging is supported.
      *
      * @param request - ListApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13937,6 +13937,10 @@ class Eiam extends OpenApiClient
 
         if (null !== $request->applicationName) {
             @$query['ApplicationName'] = $request->applicationName;
+        }
+
+        if (null !== $request->applicationTemplateId) {
+            @$query['ApplicationTemplateId'] = $request->applicationTemplateId;
         }
 
         if (null !== $request->authorizationType) {
@@ -14002,7 +14006,7 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * Performs a paged query to retrieve information about one or more EIAM applications with paging.
+     * Queries information about one or more EIAM applications by using paged query. Paging is supported.
      *
      * @param request - ListApplicationsRequest
      *

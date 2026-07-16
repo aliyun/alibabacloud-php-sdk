@@ -32,6 +32,11 @@ class ListApplicationsRequest extends Model
     /**
      * @var string
      */
+    public $applicationTemplateId;
+
+    /**
+     * @var string
+     */
     public $authorizationType;
 
     /**
@@ -88,6 +93,7 @@ class ListApplicationsRequest extends Model
         'applicationIdentityType' => 'ApplicationIdentityType',
         'applicationIds' => 'ApplicationIds',
         'applicationName' => 'ApplicationName',
+        'applicationTemplateId' => 'ApplicationTemplateId',
         'authorizationType' => 'AuthorizationType',
         'customFields' => 'CustomFields',
         'instanceId' => 'InstanceId',
@@ -136,6 +142,10 @@ class ListApplicationsRequest extends Model
 
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
+        }
+
+        if (null !== $this->applicationTemplateId) {
+            $res['ApplicationTemplateId'] = $this->applicationTemplateId;
         }
 
         if (null !== $this->authorizationType) {
@@ -221,6 +231,10 @@ class ListApplicationsRequest extends Model
 
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
+        }
+
+        if (isset($map['ApplicationTemplateId'])) {
+            $model->applicationTemplateId = $map['ApplicationTemplateId'];
         }
 
         if (isset($map['AuthorizationType'])) {
