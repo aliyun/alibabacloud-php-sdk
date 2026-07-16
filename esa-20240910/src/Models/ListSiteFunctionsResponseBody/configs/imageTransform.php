@@ -1,0 +1,146 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponseBody\configs;
+
+use AlibabaCloud\Dara\Model;
+
+class imageTransform extends Model
+{
+    /**
+     * @var string
+     */
+    public $autoAvif;
+
+    /**
+     * @var string
+     */
+    public $autoWebp;
+
+    /**
+     * @var int
+     */
+    public $configId;
+
+    /**
+     * @var string
+     */
+    public $enable;
+
+    /**
+     * @var string
+     */
+    public $rule;
+
+    /**
+     * @var string
+     */
+    public $ruleEnable;
+
+    /**
+     * @var string
+     */
+    public $ruleName;
+
+    /**
+     * @var string
+     */
+    public $sequence;
+    protected $_name = [
+        'autoAvif' => 'AutoAvif',
+        'autoWebp' => 'AutoWebp',
+        'configId' => 'ConfigId',
+        'enable' => 'Enable',
+        'rule' => 'Rule',
+        'ruleEnable' => 'RuleEnable',
+        'ruleName' => 'RuleName',
+        'sequence' => 'Sequence',
+    ];
+
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->autoAvif) {
+            $res['AutoAvif'] = $this->autoAvif;
+        }
+
+        if (null !== $this->autoWebp) {
+            $res['AutoWebp'] = $this->autoWebp;
+        }
+
+        if (null !== $this->configId) {
+            $res['ConfigId'] = $this->configId;
+        }
+
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
+        }
+
+        if (null !== $this->rule) {
+            $res['Rule'] = $this->rule;
+        }
+
+        if (null !== $this->ruleEnable) {
+            $res['RuleEnable'] = $this->ruleEnable;
+        }
+
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
+
+        if (null !== $this->sequence) {
+            $res['Sequence'] = $this->sequence;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['AutoAvif'])) {
+            $model->autoAvif = $map['AutoAvif'];
+        }
+
+        if (isset($map['AutoWebp'])) {
+            $model->autoWebp = $map['AutoWebp'];
+        }
+
+        if (isset($map['ConfigId'])) {
+            $model->configId = $map['ConfigId'];
+        }
+
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
+
+        if (isset($map['Rule'])) {
+            $model->rule = $map['Rule'];
+        }
+
+        if (isset($map['RuleEnable'])) {
+            $model->ruleEnable = $map['RuleEnable'];
+        }
+
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
+
+        if (isset($map['Sequence'])) {
+            $model->sequence = $map['Sequence'];
+        }
+
+        return $model;
+    }
+}

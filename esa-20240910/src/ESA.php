@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteProjectNameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteProjectNameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckUserProjectNameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckUserProjectNameResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CloneVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CloneVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCacheRuleRequest;
@@ -83,6 +85,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppVersionShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEnvironmentRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEnvironmentResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpIncomingRequestHeaderModificationRuleShrinkRequest;
@@ -205,6 +209,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEnvironmentRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEnvironmentResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpDDoSIntelligentRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpDDoSIntelligentRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteHttpIncomingRequestHeaderModificationRuleRequest;
@@ -277,6 +283,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserWafRulesetRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserWafRulesetResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteVideoProcessingRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWafRuleRequest;
@@ -295,6 +303,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeCacheReservePriceGapRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeCacheReservePriceGapResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeCacheReservePriceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeCacheReservePriceResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeConditionIPBInfoRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeConditionIPBInfoResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeCustomScenePoliciesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeCustomScenePoliciesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSAllEventListRequest;
@@ -334,6 +344,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanPriceGapRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanPriceGapResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanPriceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanPriceResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRuleMetadataRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRuleMetadataResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteLogsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteLogsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeSiteTimeSeriesDataRequest;
@@ -361,6 +373,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\EditSiteWafSettingsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\EditSiteWafSettingsShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordCnamesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordCnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GenerateTraceDiagnoseRequest;
@@ -369,6 +383,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetApiSchemaUsageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetApiSchemaUsageResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetAutomaticFrequencyControlConfigRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetAutomaticFrequencyControlConfigResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveSpecificationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheRuleResponse;
@@ -457,8 +473,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetLoadBalancerRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetLoadBalancerResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetMainDomainNameRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetMainDomainNameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetManagedTransformRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetManagedTransformResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetMatchSiteRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetMatchSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetNetworkOptimizationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetNetworkOptimizationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginCaCertificateRequest;
@@ -475,6 +495,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageShieldRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageShieldResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPerformanceDataCollectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPerformanceDataCollectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPurgeQuotaRequest;
@@ -521,6 +543,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetSitePauseRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSitePauseResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteTrafficSequenceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteTrafficSequenceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteWafSettingsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteWafSettingsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetTieredCacheRequest;
@@ -546,6 +570,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetWaitingRoomPreviewPageRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetWaitingRoomPreviewPageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListAsyncTasksRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListAsyncTasksResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListAWSRegionInfosRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListAWSRegionInfosResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheRulesRequest;
@@ -583,6 +613,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutinePlansResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutineRecordsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListEnvironmentsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListEnvironmentsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListESAIPInfoRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListESAIPInfoResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpIncomingRequestHeaderModificationRulesRequest;
@@ -633,6 +665,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidRatePlanInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidRatePlanInstancesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidSitePlansRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidSitePlansResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRedirectRulesRequest;
@@ -652,6 +686,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteOriginClientCertificatesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteOriginClientCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteRoutesRequest;
@@ -678,6 +714,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserRoutinesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserWafRulesetsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserWafRulesetsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListUserWafRulesetsShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListVersionsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListVersionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListVideoProcessingsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListVideoProcessingsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesRequest;
@@ -730,6 +768,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvWithHighCapacityRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PutKvWithHighCapacityResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RecoverSiteRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RecoverSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ResetScheduledPreloadJobRequest;
@@ -738,6 +778,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\RevokeClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RevokeClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEnvironmentVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEnvironmentVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetAutomaticFrequencyControlConfigRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetAutomaticFrequencyControlConfigResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetCertificateRequest;
@@ -767,12 +809,16 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\StopSiteRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\StopSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SubmitUploadTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SubmitUploadTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheReserveRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheReserveResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheReserveSpecRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheReserveSpecResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCacheRuleRequest;
@@ -783,6 +829,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCnameFlatteningRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCnameFlatteningResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCompressionRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateConfigSequenceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateConfigSequenceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCrossBorderOptimizationRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCrossBorderOptimizationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomHostnameRequest;
@@ -798,6 +846,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppLogRiverResponse
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppResourceReserveRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppResourceReserveResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppResourceReserveShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEnvironmentRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEnvironmentResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEnvironmentVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEnvironmentVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpIncomingRequestHeaderModificationRuleShrinkRequest;
@@ -890,6 +942,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserWafRulesetRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserWafRulesetResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserWafRulesetShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateVersionDescRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateVersionDescResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateVideoProcessingRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateVideoProcessingResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRuleRequest;
@@ -904,6 +958,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpgradeEnvironmentVersionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpgradeEnvironmentVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadClientCaCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadClientCaCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadFileAdvanceRequest;
@@ -2679,6 +2735,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Clones a new site version based on a specified site version.
+     *
+     * @param Request - CloneVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloneVersionResponse
+     *
+     * @param CloneVersionRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CloneVersionResponse
+     */
+    public function cloneVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CloneVersion',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CloneVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Clones a new site version based on a specified site version.
+     *
+     * @param Request - CloneVersionRequest
+     *
+     * @returns CloneVersionResponse
+     *
+     * @param CloneVersionRequest $request
+     *
+     * @return CloneVersionResponse
+     */
+    public function cloneVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cloneVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * Submits the staging (unstable) code of an Edge Routine and generates a production version.
      * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
      *
@@ -3334,7 +3451,8 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+     * Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+     * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
      *
      * @param Request - CreateEdgeContainerAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3425,7 +3543,8 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+     * Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+     * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
      *
      * @param Request - CreateEdgeContainerAppRequest
      *
@@ -3577,7 +3696,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a version for a containerized application. You can iterate the application based on the version.
+     * Creates an edge container application version. You can iteratively publish applications by version.
+     * Note:
+     * 1) Your account must have an ESA plan with the Edge Container feature enabled.
+     * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
+     * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
      *
      * @param tmpReq - CreateEdgeContainerAppVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3634,7 +3757,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a version for a containerized application. You can iterate the application based on the version.
+     * Creates an edge container application version. You can iteratively publish applications by version.
+     * Note:
+     * 1) Your account must have an ESA plan with the Edge Container feature enabled.
+     * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
+     * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
      *
      * @param Request - CreateEdgeContainerAppVersionRequest
      *
@@ -3649,6 +3776,75 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEdgeContainerAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a site environment.
+     *
+     * @param Request - CreateEnvironmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEnvironmentResponse
+     *
+     * @param CreateEnvironmentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateEnvironmentResponse
+     */
+    public function createEnvironmentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environmentName) {
+            @$query['EnvironmentName'] = $request->environmentName;
+        }
+
+        if (null !== $request->nextEnvironmentName) {
+            @$query['NextEnvironmentName'] = $request->nextEnvironmentName;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateEnvironment',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a site environment.
+     *
+     * @param Request - CreateEnvironmentRequest
+     *
+     * @returns CreateEnvironmentResponse
+     *
+     * @param CreateEnvironmentRequest $request
+     *
+     * @return CreateEnvironmentResponse
+     */
+    public function createEnvironment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnvironmentWithOptions($request, $runtime);
     }
 
     /**
@@ -7922,7 +8118,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+     * Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
+     * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
+     * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
+     * 3) Provide a complete three-step call example: create → bindomain → delete.
      *
      * @param Request - DeleteEdgeContainerAppRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7969,7 +8168,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+     * Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
+     * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
+     * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
+     * 3) Provide a complete three-step call example: create → bindomain → delete.
      *
      * @param Request - DeleteEdgeContainerAppRecordRequest
      *
@@ -8045,6 +8247,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEdgeContainerAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a site environment. The default environment cannot be deleted.
+     *
+     * @param Request - DeleteEnvironmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEnvironmentResponse
+     *
+     * @param DeleteEnvironmentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteEnvironmentResponse
+     */
+    public function deleteEnvironmentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environmentName) {
+            @$query['EnvironmentName'] = $request->environmentName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEnvironment',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a site environment. The default environment cannot be deleted.
+     *
+     * @param Request - DeleteEnvironmentRequest
+     *
+     * @returns DeleteEnvironmentResponse
+     *
+     * @param DeleteEnvironmentRequest $request
+     *
+     * @return DeleteEnvironmentResponse
+     */
+    public function deleteEnvironment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnvironmentWithOptions($request, $runtime);
     }
 
     /**
@@ -10222,6 +10485,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Deletes a version of a site. Version 0 cannot be deleted.
+     *
+     * @param Request - DeleteVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteVersionResponse
+     *
+     * @param DeleteVersionRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteVersionResponse
+     */
+    public function deleteVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteVersion',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a version of a site. Version 0 cannot be deleted.
+     *
+     * @param Request - DeleteVersionRequest
+     *
+     * @returns DeleteVersionResponse
+     *
+     * @param DeleteVersionRequest $request
+     *
+     * @return DeleteVersionResponse
+     */
+    public function deleteVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVersionWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a video processing configuration.
      *
      * @param Request - DeleteVideoProcessingRequest
@@ -10780,6 +11104,59 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCacheReservePriceGapWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+     *
+     * @param Request - DescribeConditionIPBInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeConditionIPBInfoResponse
+     *
+     * @param DescribeConditionIPBInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeConditionIPBInfoResponse
+     */
+    public function describeConditionIPBInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeConditionIPBInfo',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeConditionIPBInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the region information supported by the rules engine, including information in three dimensions: country, region, and ISP.
+     *
+     * @param Request - DescribeConditionIPBInfoRequest
+     *
+     * @returns DescribeConditionIPBInfoResponse
+     *
+     * @param DescribeConditionIPBInfoRequest $request
+     *
+     * @return DescribeConditionIPBInfoResponse
+     */
+    public function describeConditionIPBInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeConditionIPBInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -12003,6 +12380,59 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Retrieves metadata related to the rules engine.
+     *
+     * @param Request - DescribeRuleMetadataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRuleMetadataResponse
+     *
+     * @param DescribeRuleMetadataRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeRuleMetadataResponse
+     */
+    public function describeRuleMetadataWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRuleMetadata',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeRuleMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves metadata related to the rules engine.
+     *
+     * @param Request - DescribeRuleMetadataRequest
+     *
+     * @returns DescribeRuleMetadataResponse
+     *
+     * @param DescribeRuleMetadataRequest $request
+     *
+     * @return DescribeRuleMetadataResponse
+     */
+    public function describeRuleMetadata($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRuleMetadataWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the URLs from which you can download the raw access logs of a website.
      *
      * @remarks
@@ -12888,6 +13318,59 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+     *
+     * @param Request - ExportRecordCnamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportRecordCnamesResponse
+     *
+     * @param ExportRecordCnamesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ExportRecordCnamesResponse
+     */
+    public function exportRecordCnamesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ExportRecordCnames',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportRecordCnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+     *
+     * @param Request - ExportRecordCnamesRequest
+     *
+     * @returns ExportRecordCnamesResponse
+     *
+     * @param ExportRecordCnamesRequest $request
+     *
+     * @return ExportRecordCnamesResponse
+     */
+    public function exportRecordCnames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportRecordCnamesWithOptions($request, $runtime);
+    }
+
+    /**
      * Exports all DNS records of a website domain as a TXT file.
      *
      * @param Request - ExportRecordsRequest
@@ -13121,6 +13604,59 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAutomaticFrequencyControlConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the cache reserve configuration of a site.
+     *
+     * @param Request - GetCacheReserveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCacheReserveResponse
+     *
+     * @param GetCacheReserveRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCacheReserveResponse
+     */
+    public function getCacheReserveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCacheReserve',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCacheReserveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the cache reserve configuration of a site.
+     *
+     * @param Request - GetCacheReserveRequest
+     *
+     * @returns GetCacheReserveResponse
+     *
+     * @param GetCacheReserveRequest $request
+     *
+     * @return GetCacheReserveResponse
+     */
+    public function getCacheReserve($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCacheReserveWithOptions($request, $runtime);
     }
 
     /**
@@ -15575,6 +16111,59 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries the root domain name of a website.
+     *
+     * @param Request - GetMainDomainNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMainDomainNameResponse
+     *
+     * @param GetMainDomainNameRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetMainDomainNameResponse
+     */
+    public function getMainDomainNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMainDomainName',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMainDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the root domain name of a website.
+     *
+     * @param Request - GetMainDomainNameRequest
+     *
+     * @returns GetMainDomainNameResponse
+     *
+     * @param GetMainDomainNameRequest $request
+     *
+     * @return GetMainDomainNameResponse
+     */
+    public function getMainDomainName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMainDomainNameWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the managed transform configuration for a site.
      *
      * @param Request - GetManagedTransformRequest
@@ -15625,6 +16214,65 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getManagedTransformWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+     *
+     * @remarks
+     * Used with the Edge Routine (ER) feature to automatically match an active site.
+     *
+     * @param Request - GetMatchSiteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMatchSiteResponse
+     *
+     * @param GetMatchSiteRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetMatchSiteResponse
+     */
+    public function getMatchSiteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetMatchSite',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetMatchSiteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the information of the longest-matching active site for a given record name under the current user. For example, if the input record name is www.test.example.com and the user has two active sites (test.example.com and example.com), the API returns the longest-matching active site test.example.com. If no matching active site is found, an error is returned.
+     *
+     * @remarks
+     * Used with the Edge Routine (ER) feature to automatically match an active site.
+     *
+     * @param Request - GetMatchSiteRequest
+     *
+     * @returns GetMatchSiteResponse
+     *
+     * @param GetMatchSiteRequest $request
+     *
+     * @return GetMatchSiteResponse
+     */
+    public function getMatchSite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMatchSiteWithOptions($request, $runtime);
     }
 
     /**
@@ -16053,6 +16701,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the page protection configuration of a site.
+     *
+     * @param Request - GetPageShieldRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPageShieldResponse
+     *
+     * @param GetPageShieldRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetPageShieldResponse
+     */
+    public function getPageShieldWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetPageShield',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetPageShieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the page protection configuration of a site.
+     *
+     * @param Request - GetPageShieldRequest
+     *
+     * @returns GetPageShieldResponse
+     *
+     * @param GetPageShieldRequest $request
+     *
+     * @return GetPageShieldResponse
+     */
+    public function getPageShield($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPageShieldWithOptions($request, $runtime);
     }
 
     /**
@@ -17408,6 +18117,59 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries the traffic sequences and their details for the current site.
+     *
+     * @param Request - GetSiteTrafficSequenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSiteTrafficSequenceResponse
+     *
+     * @param GetSiteTrafficSequenceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetSiteTrafficSequenceResponse
+     */
+    public function getSiteTrafficSequenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSiteTrafficSequence',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSiteTrafficSequenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the traffic sequences and their details for the current site.
+     *
+     * @param Request - GetSiteTrafficSequenceRequest
+     *
+     * @returns GetSiteTrafficSequenceResponse
+     *
+     * @param GetSiteTrafficSequenceRequest $request
+     *
+     * @return GetSiteTrafficSequenceResponse
+     */
+    public function getSiteTrafficSequence($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSiteTrafficSequenceWithOptions($request, $runtime);
+    }
+
+    /**
      * Get WAF Configuration for a Site.
      *
      * @param Request - GetSiteWafSettingsRequest
@@ -18174,6 +18936,165 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWafRulesetWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the preview page URL of a waiting room.
+     *
+     * @param Request - GetWaitingRoomPreviewPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWaitingRoomPreviewPageResponse
+     *
+     * @param GetWaitingRoomPreviewPageRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetWaitingRoomPreviewPageResponse
+     */
+    public function getWaitingRoomPreviewPageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetWaitingRoomPreviewPage',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetWaitingRoomPreviewPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the preview page URL of a waiting room.
+     *
+     * @param Request - GetWaitingRoomPreviewPageRequest
+     *
+     * @returns GetWaitingRoomPreviewPageResponse
+     *
+     * @param GetWaitingRoomPreviewPageRequest $request
+     *
+     * @return GetWaitingRoomPreviewPageResponse
+     */
+    public function getWaitingRoomPreviewPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWaitingRoomPreviewPageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of regions supported by AWS S3.
+     *
+     * @param Request - ListAWSRegionInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAWSRegionInfosResponse
+     *
+     * @param ListAWSRegionInfosRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAWSRegionInfosResponse
+     */
+    public function listAWSRegionInfosWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAWSRegionInfos',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAWSRegionInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of regions supported by AWS S3.
+     *
+     * @param Request - ListAWSRegionInfosRequest
+     *
+     * @returns ListAWSRegionInfosResponse
+     *
+     * @param ListAWSRegionInfosRequest $request
+     *
+     * @return ListAWSRegionInfosResponse
+     */
+    public function listAWSRegionInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAWSRegionInfosWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询异步任务列表.
+     *
+     * @param Request - ListAsyncTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAsyncTasksResponse
+     *
+     * @param ListAsyncTasksRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAsyncTasksResponse
+     */
+    public function listAsyncTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAsyncTasks',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询异步任务列表.
+     *
+     * @param Request - ListAsyncTasksRequest
+     *
+     * @returns ListAsyncTasksResponse
+     *
+     * @param ListAsyncTasksRequest $request
+     *
+     * @return ListAsyncTasksResponse
+     */
+    public function listAsyncTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAsyncTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -19400,6 +20321,59 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listEdgeRoutineRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of environments for a site.
+     *
+     * @param Request - ListEnvironmentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEnvironmentsResponse
+     *
+     * @param ListEnvironmentsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListEnvironmentsResponse
+     */
+    public function listEnvironmentsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEnvironments',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of environments for a site.
+     *
+     * @param Request - ListEnvironmentsRequest
+     *
+     * @returns ListEnvironmentsResponse
+     *
+     * @param ListEnvironmentsRequest $request
+     *
+     * @return ListEnvironmentsResponse
+     */
+    public function listEnvironments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEnvironmentsWithOptions($request, $runtime);
     }
 
     /**
@@ -20704,6 +21678,62 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries the list of pay-as-you-go site plans available for purchase by a user.
+     *
+     * @remarks
+     * By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+     *
+     * @param Request - ListPostpaidSitePlansRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPostpaidSitePlansResponse
+     *
+     * @param ListPostpaidSitePlansRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListPostpaidSitePlansResponse
+     */
+    public function listPostpaidSitePlansWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'ListPostpaidSitePlans',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListPostpaidSitePlansResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of pay-as-you-go site plans available for purchase by a user.
+     *
+     * @remarks
+     * By specifying the AliUid of a user and the service region (China site or international site), the API returns all pay-as-you-go site plans applicable to the user, including plan names, billing methods, and pricing information.
+     *
+     * @param Request - ListPostpaidSitePlansRequest
+     *
+     * @returns ListPostpaidSitePlansResponse
+     *
+     * @param ListPostpaidSitePlansRequest $request
+     *
+     * @return ListPostpaidSitePlansResponse
+     */
+    public function listPostpaidSitePlans($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPostpaidSitePlansWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
      *
      * @remarks
@@ -21285,6 +22315,59 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSiteDeliveryTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+     *
+     * @param Request - ListSiteFunctionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSiteFunctionsResponse
+     *
+     * @param ListSiteFunctionsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListSiteFunctionsResponse
+     */
+    public function listSiteFunctionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSiteFunctions',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSiteFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the feature configurations of a site. You can query all feature configurations of a site or specify FunctionName to query a specific feature configuration.
+     *
+     * @param Request - ListSiteFunctionsRequest
+     *
+     * @returns ListSiteFunctionsResponse
+     *
+     * @param ListSiteFunctionsRequest $request
+     *
+     * @return ListSiteFunctionsResponse
+     */
+    public function listSiteFunctions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSiteFunctionsWithOptions($request, $runtime);
     }
 
     /**
@@ -22091,6 +23174,59 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserWafRulesetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the version list of a site.
+     *
+     * @param Request - ListVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVersionsResponse
+     *
+     * @param ListVersionsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListVersionsResponse
+     */
+    public function listVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListVersions',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the version list of a site.
+     *
+     * @param Request - ListVersionsRequest
+     *
+     * @returns ListVersionsResponse
+     *
+     * @param ListVersionsRequest $request
+     *
+     * @return ListVersionsResponse
+     */
+    public function listVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVersionsWithOptions($request, $runtime);
     }
 
     /**
@@ -23870,6 +25006,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Restores the status of a site that has been disabled.
+     *
+     * @param Request - RecoverSiteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecoverSiteResponse
+     *
+     * @param RecoverSiteRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RecoverSiteResponse
+     */
+    public function recoverSiteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RecoverSite',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RecoverSiteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restores the status of a site that has been disabled.
+     *
+     * @param Request - RecoverSiteRequest
+     *
+     * @returns RecoverSiteResponse
+     *
+     * @param RecoverSiteRequest $request
+     *
+     * @return RecoverSiteResponse
+     */
+    public function recoverSite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoverSiteWithOptions($request, $runtime);
+    }
+
+    /**
      * Schedules the release of a security instance.
      *
      * @param Request - ReleaseInstanceRequest
@@ -24111,6 +25304,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rollbackEdgeContainerAppVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Rolls back the deployment version of an environment.
+     *
+     * @param Request - RollbackEnvironmentVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RollbackEnvironmentVersionResponse
+     *
+     * @param RollbackEnvironmentVersionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RollbackEnvironmentVersionResponse
+     */
+    public function rollbackEnvironmentVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environmentName) {
+            @$query['EnvironmentName'] = $request->environmentName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RollbackEnvironmentVersion',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RollbackEnvironmentVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Rolls back the deployment version of an environment.
+     *
+     * @param Request - RollbackEnvironmentVersionRequest
+     *
+     * @returns RollbackEnvironmentVersionResponse
+     *
+     * @param RollbackEnvironmentVersionRequest $request
+     *
+     * @return RollbackEnvironmentVersionResponse
+     */
+    public function rollbackEnvironmentVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackEnvironmentVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -25023,6 +26277,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Manually deactivates a site.
+     *
+     * @param Request - StopSiteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopSiteResponse
+     *
+     * @param StopSiteRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return StopSiteResponse
+     */
+    public function stopSiteWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopSite',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopSiteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Manually deactivates a site.
+     *
+     * @param Request - StopSiteRequest
+     *
+     * @returns StopSiteResponse
+     *
+     * @param StopSiteRequest $request
+     *
+     * @return StopSiteResponse
+     */
+    public function stopSite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopSiteWithOptions($request, $runtime);
+    }
+
+    /**
      * Submits a purge or prefetch task after a file that contains resources to be purged or prefetched is uploaded.
      *
      * @param Request - SubmitUploadTaskRequest
@@ -25227,6 +26538,71 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the cache reserve configuration of a site.
+     *
+     * @param Request - UpdateCacheReserveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCacheReserveResponse
+     *
+     * @param UpdateCacheReserveRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateCacheReserveResponse
+     */
+    public function updateCacheReserveWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cacheReserveInstanceId) {
+            @$query['CacheReserveInstanceId'] = $request->cacheReserveInstanceId;
+        }
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCacheReserve',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCacheReserveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the cache reserve configuration of a site.
+     *
+     * @param Request - UpdateCacheReserveRequest
+     *
+     * @returns UpdateCacheReserveResponse
+     *
+     * @param UpdateCacheReserveRequest $request
+     *
+     * @return UpdateCacheReserveResponse
+     */
+    public function updateCacheReserve($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCacheReserveWithOptions($request, $runtime);
     }
 
     /**
@@ -25684,6 +27060,77 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCompressionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the priority of a single rule configuration.
+     *
+     * @remarks
+     * You can only modify the priority of a rule configuration. You cannot modify global configurations.
+     *
+     * @param Request - UpdateConfigSequenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConfigSequenceResponse
+     *
+     * @param UpdateConfigSequenceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateConfigSequenceResponse
+     */
+    public function updateConfigSequenceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configId) {
+            @$query['ConfigId'] = $request->configId;
+        }
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateConfigSequence',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateConfigSequenceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the priority of a single rule configuration.
+     *
+     * @remarks
+     * You can only modify the priority of a rule configuration. You cannot modify global configurations.
+     *
+     * @param Request - UpdateConfigSequenceRequest
+     *
+     * @returns UpdateConfigSequenceResponse
+     *
+     * @param UpdateConfigSequenceRequest $request
+     *
+     * @return UpdateConfigSequenceResponse
+     */
+    public function updateConfigSequence($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateConfigSequenceWithOptions($request, $runtime);
     }
 
     /**
@@ -26207,6 +27654,148 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEdgeContainerAppResourceReserveWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates an environment.
+     *
+     * @param Request - UpdateEnvironmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEnvironmentResponse
+     *
+     * @param UpdateEnvironmentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateEnvironmentResponse
+     */
+    public function updateEnvironmentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environmentName) {
+            @$query['EnvironmentName'] = $request->environmentName;
+        }
+
+        if (null !== $request->newName) {
+            @$query['NewName'] = $request->newName;
+        }
+
+        if (null !== $request->readOnly) {
+            @$query['ReadOnly'] = $request->readOnly;
+        }
+
+        if (null !== $request->rule) {
+            @$query['Rule'] = $request->rule;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEnvironment',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an environment.
+     *
+     * @param Request - UpdateEnvironmentRequest
+     *
+     * @returns UpdateEnvironmentResponse
+     *
+     * @param UpdateEnvironmentRequest $request
+     *
+     * @return UpdateEnvironmentResponse
+     */
+    public function updateEnvironment($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnvironmentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the deployment version of an environment.
+     *
+     * @param Request - UpdateEnvironmentVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEnvironmentVersionResponse
+     *
+     * @param UpdateEnvironmentVersionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateEnvironmentVersionResponse
+     */
+    public function updateEnvironmentVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environmentName) {
+            @$query['EnvironmentName'] = $request->environmentName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEnvironmentVersion',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEnvironmentVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the deployment version of an environment.
+     *
+     * @param Request - UpdateEnvironmentVersionRequest
+     *
+     * @returns UpdateEnvironmentVersionResponse
+     *
+     * @param UpdateEnvironmentVersionRequest $request
+     *
+     * @return UpdateEnvironmentVersionResponse
+     */
+    public function updateEnvironmentVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnvironmentVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -29524,6 +31113,71 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Updates the description of a version.
+     *
+     * @param Request - UpdateVersionDescRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateVersionDescResponse
+     *
+     * @param UpdateVersionDescRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateVersionDescResponse
+     */
+    public function updateVersionDescWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->siteVersion) {
+            @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateVersionDesc',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateVersionDescResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the description of a version.
+     *
+     * @param Request - UpdateVersionDescRequest
+     *
+     * @returns UpdateVersionDescResponse
+     *
+     * @param UpdateVersionDescRequest $request
+     *
+     * @return UpdateVersionDescResponse
+     */
+    public function updateVersionDesc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateVersionDescWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the video processing configuration of a website.
      *
      * @param Request - UpdateVideoProcessingRequest
@@ -30121,6 +31775,67 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateWaitingRoomRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Upgrades the deployment version of an environment.
+     *
+     * @param Request - UpgradeEnvironmentVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeEnvironmentVersionResponse
+     *
+     * @param UpgradeEnvironmentVersionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpgradeEnvironmentVersionResponse
+     */
+    public function upgradeEnvironmentVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->environmentName) {
+            @$query['EnvironmentName'] = $request->environmentName;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeEnvironmentVersion',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeEnvironmentVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Upgrades the deployment version of an environment.
+     *
+     * @param Request - UpgradeEnvironmentVersionRequest
+     *
+     * @returns UpgradeEnvironmentVersionResponse
+     *
+     * @param UpgradeEnvironmentVersionRequest $request
+     *
+     * @return UpgradeEnvironmentVersionResponse
+     */
+    public function upgradeEnvironmentVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeEnvironmentVersionWithOptions($request, $runtime);
     }
 
     /**
