@@ -54,6 +54,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolardbxSupabaseInstanceReq
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreatePolardbxSupabaseInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateRplInspectionTaskResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateServiceAccountRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateServiceAccountResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSQLEvaluateTaskRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSQLEvaluateTaskResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateStoragePoolRequest;
@@ -84,6 +86,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Request;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteMem0Response;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePolardbxSupabaseInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeletePolardbxSupabaseInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteServiceAccountRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteServiceAccountResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteSubCNInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteSubCNInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DeleteSupabaseNetTypeRequest;
@@ -189,6 +193,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListRe
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeServiceAccountRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeServiceAccountResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeShowStorageInfoRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeShowStorageInfoResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSlowLogRecordsRequest;
@@ -225,6 +231,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableRightsSeparationRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableRightsSeparationResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableSqlAuditRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\EnableSqlAuditResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ExecuteMetaQueryRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\ExecuteMetaQueryResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\MigrateDBInstanceRequest;
@@ -2269,6 +2277,10 @@ class Polardbx extends OpenApiClient
             @$query['DbPassword'] = $request->dbPassword;
         }
 
+        if (null !== $request->nodeSpec) {
+            @$query['NodeSpec'] = $request->nodeSpec;
+        }
+
         if (null !== $request->payType) {
             @$query['PayType'] = $request->payType;
         }
@@ -2537,6 +2549,77 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSQLEvaluateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a service account.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - CreateServiceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceAccountResponse
+     *
+     * @param CreateServiceAccountRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateServiceAccountResponse
+     */
+    public function createServiceAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceAccountType) {
+            @$query['ServiceAccountType'] = $request->serviceAccountType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateServiceAccount',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateServiceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a service account.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - CreateServiceAccountRequest
+     *
+     * @returns CreateServiceAccountResponse
+     *
+     * @param CreateServiceAccountRequest $request
+     *
+     * @return CreateServiceAccountResponse
+     */
+    public function createServiceAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -3491,6 +3574,77 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePolardbxSupabaseInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a service account.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DeleteServiceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteServiceAccountResponse
+     *
+     * @param DeleteServiceAccountRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteServiceAccountResponse
+     */
+    public function deleteServiceAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->serviceAccountType) {
+            @$query['ServiceAccountType'] = $request->serviceAccountType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteServiceAccount',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteServiceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a service account.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DeleteServiceAccountRequest
+     *
+     * @returns DeleteServiceAccountResponse
+     *
+     * @param DeleteServiceAccountRequest $request
+     *
+     * @return DeleteServiceAccountResponse
+     */
+    public function deleteServiceAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServiceAccountWithOptions($request, $runtime);
     }
 
     /**
@@ -7043,6 +7197,73 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * Queries the status of a service account.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DescribeServiceAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeServiceAccountResponse
+     *
+     * @param DescribeServiceAccountRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeServiceAccountResponse
+     */
+    public function describeServiceAccountWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeServiceAccount',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeServiceAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status of a service account.
+     *
+     * @remarks
+     * <props="china">For more information about instance accounts, see [Account management](https://help.aliyun.com/document_detail/172163.html).
+     *
+     * @param request - DescribeServiceAccountRequest
+     *
+     * @returns DescribeServiceAccountResponse
+     *
+     * @param DescribeServiceAccountRequest $request
+     *
+     * @return DescribeServiceAccountResponse
+     */
+    public function describeServiceAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServiceAccountWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the storage usage details of an instance, including the total capacity, used space, remaining space, and other information.
      *
      * @param request - DescribeShowStorageInfoRequest
@@ -8352,6 +8573,81 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableSqlAuditWithOptions($request, $runtime);
+    }
+
+    /**
+     * Executes a metadata query.
+     *
+     * @remarks
+     * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+     *
+     * @param request - ExecuteMetaQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteMetaQueryResponse
+     *
+     * @param ExecuteMetaQueryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExecuteMetaQueryResponse
+     */
+    public function executeMetaQueryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sql) {
+            @$query['Sql'] = $request->sql;
+        }
+
+        if (null !== $request->storageInstId) {
+            @$query['StorageInstId'] = $request->storageInstId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteMetaQuery',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecuteMetaQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes a metadata query.
+     *
+     * @remarks
+     * Deletes a custom endpoint of a specified database instance and disables access through the domain name.
+     *
+     * @param request - ExecuteMetaQueryRequest
+     *
+     * @returns ExecuteMetaQueryResponse
+     *
+     * @param ExecuteMetaQueryRequest $request
+     *
+     * @return ExecuteMetaQueryResponse
+     */
+    public function executeMetaQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeMetaQueryWithOptions($request, $runtime);
     }
 
     /**

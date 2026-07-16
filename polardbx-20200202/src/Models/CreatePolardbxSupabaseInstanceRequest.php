@@ -36,6 +36,11 @@ class CreatePolardbxSupabaseInstanceRequest extends Model
     /**
      * @var string
      */
+    public $nodeSpec;
+
+    /**
+     * @var string
+     */
     public $payType;
 
     /**
@@ -83,6 +88,7 @@ class CreatePolardbxSupabaseInstanceRequest extends Model
         'dashboardPassword' => 'DashboardPassword',
         'dbInstanceDescription' => 'DbInstanceDescription',
         'dbPassword' => 'DbPassword',
+        'nodeSpec' => 'NodeSpec',
         'payType' => 'PayType',
         'period' => 'Period',
         'regionId' => 'RegionId',
@@ -120,6 +126,10 @@ class CreatePolardbxSupabaseInstanceRequest extends Model
 
         if (null !== $this->dbPassword) {
             $res['DbPassword'] = $this->dbPassword;
+        }
+
+        if (null !== $this->nodeSpec) {
+            $res['NodeSpec'] = $this->nodeSpec;
         }
 
         if (null !== $this->payType) {
@@ -187,6 +197,10 @@ class CreatePolardbxSupabaseInstanceRequest extends Model
 
         if (isset($map['DbPassword'])) {
             $model->dbPassword = $map['DbPassword'];
+        }
+
+        if (isset($map['NodeSpec'])) {
+            $model->nodeSpec = $map['NodeSpec'];
         }
 
         if (isset($map['PayType'])) {
