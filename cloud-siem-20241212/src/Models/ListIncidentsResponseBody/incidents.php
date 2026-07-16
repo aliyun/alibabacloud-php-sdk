@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class incidents extends Model
 {
     /**
+     * @var string
+     */
+    public $alertInfos;
+
+    /**
+     * @var string
+     */
+    public $attckTactics;
+
+    /**
      * @var int
      */
     public $createTime;
@@ -17,6 +27,16 @@ class incidents extends Model
      * @var string
      */
     public $detectionRuleId;
+
+    /**
+     * @var string
+     */
+    public $entityInfos;
+
+    /**
+     * @var string
+     */
+    public $incidentDescription;
 
     /**
      * @var string
@@ -73,8 +93,12 @@ class incidents extends Model
      */
     public $updateTime;
     protected $_name = [
+        'alertInfos' => 'AlertInfos',
+        'attckTactics' => 'AttckTactics',
         'createTime' => 'CreateTime',
         'detectionRuleId' => 'DetectionRuleId',
+        'entityInfos' => 'EntityInfos',
+        'incidentDescription' => 'IncidentDescription',
         'incidentName' => 'IncidentName',
         'incidentRemark' => 'IncidentRemark',
         'incidentStatus' => 'IncidentStatus',
@@ -96,12 +120,28 @@ class incidents extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->alertInfos) {
+            $res['AlertInfos'] = $this->alertInfos;
+        }
+
+        if (null !== $this->attckTactics) {
+            $res['AttckTactics'] = $this->attckTactics;
+        }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
 
         if (null !== $this->detectionRuleId) {
             $res['DetectionRuleId'] = $this->detectionRuleId;
+        }
+
+        if (null !== $this->entityInfos) {
+            $res['EntityInfos'] = $this->entityInfos;
+        }
+
+        if (null !== $this->incidentDescription) {
+            $res['IncidentDescription'] = $this->incidentDescription;
         }
 
         if (null !== $this->incidentName) {
@@ -159,12 +199,28 @@ class incidents extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlertInfos'])) {
+            $model->alertInfos = $map['AlertInfos'];
+        }
+
+        if (isset($map['AttckTactics'])) {
+            $model->attckTactics = $map['AttckTactics'];
+        }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
 
         if (isset($map['DetectionRuleId'])) {
             $model->detectionRuleId = $map['DetectionRuleId'];
+        }
+
+        if (isset($map['EntityInfos'])) {
+            $model->entityInfos = $map['EntityInfos'];
+        }
+
+        if (isset($map['IncidentDescription'])) {
+            $model->incidentDescription = $map['IncidentDescription'];
         }
 
         if (isset($map['IncidentName'])) {

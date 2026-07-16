@@ -49,6 +49,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteNormalizationRuleRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteNormalizationRuleResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteNormalizationRuleVersionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteNormalizationRuleVersionResponse;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteNormalizationSchemaRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteNormalizationSchemaResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteProductRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteProductResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\DeleteResponseRuleRequest;
@@ -177,6 +179,8 @@ use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateAutoDisposeRecordResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataBatchIngestionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataBatchIngestionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataBatchIngestionShrinkRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataConnectorRequest;
+use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataConnectorResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataIngestionRequest;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataIngestionResponse;
 use AlibabaCloud\SDK\Cloudsiem\V20241212\Models\UpdateDataIngestionTemplateRequest;
@@ -2235,6 +2239,85 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNormalizationRuleVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a normalization schema.
+     *
+     * @remarks
+     * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     *
+     * @param request - DeleteNormalizationSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNormalizationSchemaResponse
+     *
+     * @param DeleteNormalizationSchemaRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteNormalizationSchemaResponse
+     */
+    public function deleteNormalizationSchemaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->normalizationSchemaId) {
+            @$body['NormalizationSchemaId'] = $request->normalizationSchemaId;
+        }
+
+        if (null !== $request->normalizationSchemaType) {
+            @$body['NormalizationSchemaType'] = $request->normalizationSchemaType;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteNormalizationSchema',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteNormalizationSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a normalization schema.
+     *
+     * @remarks
+     * The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+     *
+     * @param request - DeleteNormalizationSchemaRequest
+     *
+     * @returns DeleteNormalizationSchemaResponse
+     *
+     * @param DeleteNormalizationSchemaRequest $request
+     *
+     * @return DeleteNormalizationSchemaResponse
+     */
+    public function deleteNormalizationSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNormalizationSchemaWithOptions($request, $runtime);
     }
 
     /**
@@ -4982,7 +5065,7 @@ class Cloudsiem extends OpenApiClient
      *
      * @remarks
      * Notifications are subject to frequency and time restrictions.
-     * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
      *
      * @param tmpReq - ListIncidentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5023,6 +5106,10 @@ class Cloudsiem extends OpenApiClient
 
         if (null !== $request->incidentStatus) {
             @$body['IncidentStatus'] = $request->incidentStatus;
+        }
+
+        if (null !== $request->incidentStatusList) {
+            @$body['IncidentStatusList'] = $request->incidentStatusList;
         }
 
         if (null !== $request->incidentTags) {
@@ -5113,7 +5200,7 @@ class Cloudsiem extends OpenApiClient
      *
      * @remarks
      * Notifications are subject to frequency and time restrictions.
-     * Each user can receive a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
+     * Each user receives a maximum of two notifications per day between 08:00 and 20:00. No notifications are sent outside this time window.
      *
      * @param request - ListIncidentsRequest
      *
@@ -7355,6 +7442,103 @@ class Cloudsiem extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataBatchIngestionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a collector.
+     *
+     * @remarks
+     * Notifications are subject to frequency and time restrictions.
+     * Each user can receive a maximum of two notifications per day between 08:00 and 20:00 (UTC+8). No notifications are sent outside this time range.
+     *
+     * @param request - UpdateDataConnectorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDataConnectorResponse
+     *
+     * @param UpdateDataConnectorRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDataConnectorResponse
+     */
+    public function updateDataConnectorWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authConfigId) {
+            @$body['AuthConfigId'] = $request->authConfigId;
+        }
+
+        if (null !== $request->authConfigProduct) {
+            @$body['AuthConfigProduct'] = $request->authConfigProduct;
+        }
+
+        if (null !== $request->authConfigVendor) {
+            @$body['AuthConfigVendor'] = $request->authConfigVendor;
+        }
+
+        if (null !== $request->dataConnectorConfig) {
+            @$body['DataConnectorConfig'] = $request->dataConnectorConfig;
+        }
+
+        if (null !== $request->dataConnectorId) {
+            @$body['DataConnectorId'] = $request->dataConnectorId;
+        }
+
+        if (null !== $request->dataConnectorStatus) {
+            @$body['DataConnectorStatus'] = $request->dataConnectorStatus;
+        }
+
+        if (null !== $request->lang) {
+            @$body['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->roleFor) {
+            @$body['RoleFor'] = $request->roleFor;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataConnector',
+            'version' => '2024-12-12',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataConnectorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a collector.
+     *
+     * @remarks
+     * Notifications are subject to frequency and time restrictions.
+     * Each user can receive a maximum of two notifications per day between 08:00 and 20:00 (UTC+8). No notifications are sent outside this time range.
+     *
+     * @param request - UpdateDataConnectorRequest
+     *
+     * @returns UpdateDataConnectorResponse
+     *
+     * @param UpdateDataConnectorRequest $request
+     *
+     * @return UpdateDataConnectorResponse
+     */
+    public function updateDataConnector($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataConnectorWithOptions($request, $runtime);
     }
 
     /**

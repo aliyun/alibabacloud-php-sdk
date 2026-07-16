@@ -29,6 +29,11 @@ class ListIncidentsShrinkRequest extends Model
     public $incidentStatus;
 
     /**
+     * @var string[]
+     */
+    public $incidentStatusList;
+
+    /**
      * @var string
      */
     public $incidentTags;
@@ -117,6 +122,7 @@ class ListIncidentsShrinkRequest extends Model
         'endTime' => 'EndTime',
         'incidentName' => 'IncidentName',
         'incidentStatus' => 'IncidentStatus',
+        'incidentStatusList' => 'IncidentStatusList',
         'incidentTags' => 'IncidentTags',
         'incidentUuidsShrink' => 'IncidentUuids',
         'lang' => 'Lang',
@@ -138,6 +144,9 @@ class ListIncidentsShrinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->incidentStatusList)) {
+            Model::validateArray($this->incidentStatusList);
+        }
         if (\is_array($this->owners)) {
             Model::validateArray($this->owners);
         }
@@ -164,6 +173,17 @@ class ListIncidentsShrinkRequest extends Model
 
         if (null !== $this->incidentStatus) {
             $res['IncidentStatus'] = $this->incidentStatus;
+        }
+
+        if (null !== $this->incidentStatusList) {
+            if (\is_array($this->incidentStatusList)) {
+                $res['IncidentStatusList'] = [];
+                $n1 = 0;
+                foreach ($this->incidentStatusList as $item1) {
+                    $res['IncidentStatusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->incidentTags) {
@@ -273,6 +293,17 @@ class ListIncidentsShrinkRequest extends Model
 
         if (isset($map['IncidentStatus'])) {
             $model->incidentStatus = $map['IncidentStatus'];
+        }
+
+        if (isset($map['IncidentStatusList'])) {
+            if (!empty($map['IncidentStatusList'])) {
+                $model->incidentStatusList = [];
+                $n1 = 0;
+                foreach ($map['IncidentStatusList'] as $item1) {
+                    $model->incidentStatusList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['IncidentTags'])) {
