@@ -674,6 +674,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightExtractJobShrinkRequest
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCosyVoiceCustomizedVoiceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCosyVoiceCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobRequest;
@@ -24265,6 +24267,87 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitCopyrightJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * Submits a CosyVoice voice cloning training task.
+     *
+     * @remarks
+     * - During training, you can call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to check whether the current task is complete and to obtain the training status.
+     * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit the task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is sent through a callback notification. You can also call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to query the task status.
+     *
+     * @param request - SubmitCosyVoiceCustomizedVoiceJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitCosyVoiceCustomizedVoiceJobResponse
+     *
+     * @param SubmitCosyVoiceCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return SubmitCosyVoiceCustomizedVoiceJobResponse
+     */
+    public function submitCosyVoiceCustomizedVoiceJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->audios) {
+            @$query['Audios'] = $request->audios;
+        }
+
+        if (null !== $request->demoAudioMediaURL) {
+            @$query['DemoAudioMediaURL'] = $request->demoAudioMediaURL;
+        }
+
+        if (null !== $request->gender) {
+            @$query['Gender'] = $request->gender;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->voiceName) {
+            @$query['VoiceName'] = $request->voiceName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitCosyVoiceCustomizedVoiceJob',
+            'version' => '2020-11-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitCosyVoiceCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Submits a CosyVoice voice cloning training task.
+     *
+     * @remarks
+     * - During training, you can call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to check whether the current task is complete and to obtain the training status.
+     * - This is an [asynchronous operation](https://help.aliyun.com/document_detail/3027141.html). After you submit the task, a task ID is returned. The task is not yet complete at this point and enters a background queue for asynchronous execution. The final result is sent through a callback notification. You can also call the [GetCustomizedVoiceJob](https://help.aliyun.com/document_detail/2384473.html) operation to query the task status.
+     *
+     * @param request - SubmitCosyVoiceCustomizedVoiceJobRequest
+     *
+     * @returns SubmitCosyVoiceCustomizedVoiceJobResponse
+     *
+     * @param SubmitCosyVoiceCustomizedVoiceJobRequest $request
+     *
+     * @return SubmitCosyVoiceCustomizedVoiceJobResponse
+     */
+    public function submitCosyVoiceCustomizedVoiceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCosyVoiceCustomizedVoiceJobWithOptions($request, $runtime);
     }
 
     /**
