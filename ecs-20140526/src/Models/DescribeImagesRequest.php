@@ -141,6 +141,11 @@ class DescribeImagesRequest extends Model
     public $tag;
 
     /**
+     * @var bool
+     */
+    public $usable;
+
+    /**
      * @var string
      */
     public $usage;
@@ -171,6 +176,7 @@ class DescribeImagesRequest extends Model
         'snapshotId' => 'SnapshotId',
         'status' => 'Status',
         'tag' => 'Tag',
+        'usable' => 'Usable',
         'usage' => 'Usage',
     ];
 
@@ -306,6 +312,10 @@ class DescribeImagesRequest extends Model
             }
         }
 
+        if (null !== $this->usable) {
+            $res['Usable'] = $this->usable;
+        }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -437,6 +447,10 @@ class DescribeImagesRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['Usable'])) {
+            $model->usable = $map['Usable'];
         }
 
         if (isset($map['Usage'])) {

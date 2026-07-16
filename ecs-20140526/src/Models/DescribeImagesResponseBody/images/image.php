@@ -173,6 +173,11 @@ class image extends Model
     public $tags;
 
     /**
+     * @var bool
+     */
+    public $usable;
+
+    /**
      * @var string
      */
     public $usage;
@@ -209,6 +214,7 @@ class image extends Model
         'status' => 'Status',
         'supplierName' => 'SupplierName',
         'tags' => 'Tags',
+        'usable' => 'Usable',
         'usage' => 'Usage',
     ];
 
@@ -360,6 +366,10 @@ class image extends Model
             $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
+        if (null !== $this->usable) {
+            $res['Usable'] = $this->usable;
+        }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -501,6 +511,10 @@ class image extends Model
 
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+
+        if (isset($map['Usable'])) {
+            $model->usable = $map['Usable'];
         }
 
         if (isset($map['Usage'])) {
