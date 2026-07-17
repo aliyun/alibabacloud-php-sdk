@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\BatchGetYikeAssetMediaInfosRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\BatchGetYikeAssetMediaInfosResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeAssetUploadRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeAssetUploadResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeEditingProjectRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeEditingProjectResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeProductionRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeProductionResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\CreateYikeUserRequest;
@@ -27,6 +29,8 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\GetImageGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetImageGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetVideoGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAccountCreditRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAccountCreditResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAgentJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAgentJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAIAppJobRequest;
@@ -98,6 +102,7 @@ class Yike extends OpenApiClient
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
             'cn-shanghai' => 'yike.cn-shanghai.aliyuncs.com',
+            'ap-southeast-1' => 'yike.ap-southeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('yike', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -128,7 +133,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Adds a member to a Yike project.
+     * Adds members to a Yike project.
      *
      * @param request - AddYikeProductionMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -171,7 +176,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Adds a member to a Yike project.
+     * Adds members to a Yike project.
      *
      * @param request - AddYikeProductionMembersRequest
      *
@@ -307,7 +312,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves information about multiple media assets in a batch.
+     * Retrieves media asset information in batches.
      *
      * @param request - BatchGetYikeAssetMediaInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -346,7 +351,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves information about multiple media assets in a batch.
+     * Retrieves media asset information in batches.
      *
      * @param request - BatchGetYikeAssetMediaInfosRequest
      *
@@ -425,6 +430,77 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 创建一刻云剪辑工程.
+     *
+     * @param request - CreateYikeEditingProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateYikeEditingProjectResponse
+     *
+     * @param CreateYikeEditingProjectRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateYikeEditingProjectResponse
+     */
+    public function createYikeEditingProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->coverURL) {
+            @$query['CoverURL'] = $request->coverURL;
+        }
+
+        if (null !== $request->materialMaps) {
+            @$query['MaterialMaps'] = $request->materialMaps;
+        }
+
+        if (null !== $request->title) {
+            @$query['Title'] = $request->title;
+        }
+
+        $body = [];
+        if (null !== $request->timeline) {
+            @$body['Timeline'] = $request->timeline;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateYikeEditingProject',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateYikeEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一刻云剪辑工程.
+     *
+     * @param request - CreateYikeEditingProjectRequest
+     *
+     * @returns CreateYikeEditingProjectResponse
+     *
+     * @param CreateYikeEditingProjectRequest $request
+     *
+     * @return CreateYikeEditingProjectResponse
+     */
+    public function createYikeEditingProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createYikeEditingProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a project.
      *
      * @param request - CreateYikeProductionRequest
@@ -486,7 +562,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Creates a sub-account user in WonderClip.
+     * Creates a sub-user.
      *
      * @param request - CreateYikeUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -541,7 +617,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Creates a sub-account user in WonderClip.
+     * Creates a sub-user.
      *
      * @param request - CreateYikeUserRequest
      *
@@ -685,7 +761,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - GetImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -728,7 +804,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This API generates a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - GetImageGenerationJobRequest
      *
@@ -746,7 +822,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries an AI video generation task.
+     * Queries a video generation task.
      *
      * @param request - GetVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -762,10 +838,6 @@ class Yike extends OpenApiClient
     {
         $request->validate();
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
-        }
-
         if (null !== $request->jobId) {
             @$query['JobId'] = $request->jobId;
         }
@@ -789,7 +861,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries an AI video generation task.
+     * Queries a video generation task.
      *
      * @param request - GetVideoGenerationJobRequest
      *
@@ -807,7 +879,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an AI application task.
+     * Retrieves an AI application task from China International Communications Group (YIKE) AI.
      *
      * @param request - GetYikeAIAppJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -846,7 +918,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of an AI application task.
+     * Retrieves an AI application task from China International Communications Group (YIKE) AI.
      *
      * @param request - GetYikeAIAppJobRequest
      *
@@ -864,7 +936,57 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries an agent task.
+     * Retrieves the membership plan and credit information for a Yike primary account.
+     *
+     * @param request - GetYikeAccountCreditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeAccountCreditResponse
+     *
+     * @param GetYikeAccountCreditRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetYikeAccountCreditResponse
+     */
+    public function getYikeAccountCreditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetYikeAccountCredit',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeAccountCreditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the membership plan and credit information for a Yike primary account.
+     *
+     * @param request - GetYikeAccountCreditRequest
+     *
+     * @returns GetYikeAccountCreditResponse
+     *
+     * @param GetYikeAccountCreditRequest $request
+     *
+     * @return GetYikeAccountCreditResponse
+     */
+    public function getYikeAccountCredit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeAccountCreditWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries an intelligent agent task.
      *
      * @param request - GetYikeAgentJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -903,7 +1025,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries an agent task.
+     * Queries an intelligent agent task.
      *
      * @param request - GetYikeAgentJobRequest
      *
@@ -1149,7 +1271,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a WonderClip sub-account.
+     * Retrieves the information of a Yike RAM user.
      *
      * @param request - GetYikeUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1188,7 +1310,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves information about a WonderClip sub-account.
+     * Retrieves the information of a Yike RAM user.
      *
      * @param request - GetYikeUserRequest
      *
@@ -1206,7 +1328,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries the credit balance of a WonderClip user.
+     * Queries the credits of a Yike user.
      *
      * @param request - GetYikeUserCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1245,7 +1367,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries the credit balance of a WonderClip user.
+     * Queries the credits of a Yike user.
      *
      * @param request - GetYikeUserCreditRequest
      *
@@ -1263,7 +1385,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries an intelligent video generation task for a narration-only video without a digital human.
+     * Queries the status of an intelligent video generation task for narration-only videos (without digital humans).
      *
      * @param request - GetYikeVoiceNarratorJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1302,7 +1424,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries an intelligent video generation task for a narration-only video without a digital human.
+     * Queries the status of an intelligent video generation task for narration-only videos (without digital humans).
      *
      * @param request - GetYikeVoiceNarratorJobRequest
      *
@@ -1385,7 +1507,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Yike projects.
+     * Retrieves the list of Yike projects.
      *
      * @param request - ListYikeProductionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1440,7 +1562,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Retrieves a list of Yike projects.
+     * Retrieves the list of Yike projects.
      *
      * @param request - ListYikeProductionsRequest
      *
@@ -1458,7 +1580,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Get Yike Workspace List.
+     * Retrieves the list of Yike workspaces.
      *
      * @param request - ListYikeWorkspacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1501,7 +1623,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Get Yike Workspace List.
+     * Retrieves the list of Yike workspaces.
      *
      * @param request - ListYikeWorkspacesRequest
      *
@@ -1580,7 +1702,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Registers a Yike media asset.
+     * Registers a media asset.
      *
      * @param request - RegisterYikeAssetMediaInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1631,7 +1753,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Registers a Yike media asset.
+     * Registers a media asset.
      *
      * @param request - RegisterYikeAssetMediaInfoRequest
      *
@@ -1767,7 +1889,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Sets the user role.
+     * Sets the role of a user.
      *
      * @param request - SetYikeUserRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1810,7 +1932,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Sets the user role.
+     * Sets the role of a user.
      *
      * @param request - SetYikeUserRoleRequest
      *
@@ -1828,7 +1950,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Reclaims credits from a user.
+     * Deducts user credits.
      *
      * @param request - SubYikeUserCreditRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1871,7 +1993,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Reclaims credits from a user.
+     * Deducts user credits.
      *
      * @param request - SubYikeUserCreditRequest
      *
@@ -1892,8 +2014,8 @@ class Yike extends OpenApiClient
      * Submits an image generation task.
      *
      * @remarks
-     * ## Operation description
-     * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
+     * ## Request description
+     * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1971,8 +2093,8 @@ class Yike extends OpenApiClient
      * Submits an image generation task.
      *
      * @remarks
-     * ## Operation description
-     * This API operation generates a video in which a virtual human delivers a spoken narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the UserData field, which are returned as-is in the callback.
+     * ## Request description
+     * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitImageGenerationJobRequest
      *
@@ -1994,7 +2116,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2077,7 +2199,7 @@ class Yike extends OpenApiClient
      *
      * @remarks
      * ## Request description
-     * This API operation generates a video featuring a virtual human narration based on the provided text content and other parameters such as digital human information and common scenarios type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
      *
      * @param request - SubmitVideoGenerationJobRequest
      *
@@ -2673,7 +2795,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Modifies the permissions of a Yike project member.
+     * Modifies the permissions of a China Short Video (Yike) project member.
      *
      * @param request - UpdateYikeProductionMemberAuthRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2720,7 +2842,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Modifies the permissions of a Yike project member.
+     * Modifies the permissions of a China Short Video (Yike) project member.
      *
      * @param request - UpdateYikeProductionMemberAuthRequest
      *

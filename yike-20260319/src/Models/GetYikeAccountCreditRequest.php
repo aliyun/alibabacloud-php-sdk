@@ -6,14 +6,9 @@ namespace AlibabaCloud\SDK\Yike\V20260319\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetVideoGenerationJobRequest extends Model
+class GetYikeAccountCreditRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $jobId;
     protected $_name = [
-        'jobId' => 'JobId',
     ];
 
     public function validate()
@@ -23,12 +18,7 @@ class GetVideoGenerationJobRequest extends Model
 
     public function toArray($noStream = false)
     {
-        $res = [];
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
-        }
-
-        return $res;
+        return [];
     }
 
     public function toMap($noStream = false)
@@ -38,11 +28,6 @@ class GetVideoGenerationJobRequest extends Model
 
     public static function fromMap($map = [])
     {
-        $model = new self();
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
-        }
-
-        return $model;
+        return new self();
     }
 }
