@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobTemplateRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateJobTemplateResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateRayHistoryServerRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateRayHistoryServerResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateSignalRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateSignalResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\CreateTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\DeleteJobResponse;
@@ -43,6 +45,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayDashboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayDashboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayHistoryServerRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetRayHistoryServerResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetSignalRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetSignalResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardSharedUrlRequest;
@@ -62,6 +66,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobTemplatesRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobTemplatesResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListRayHistoryServersRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListRayHistoryServersResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListSignalsRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListSignalsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListTensorboardsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListTensorboardsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\SetJobTemplateDefaultVersionRequest;
@@ -524,6 +530,85 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->createRayHistoryServerWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 创建信号.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该API用于向指定作业的一个或多个Pod发送特定信号。
+     * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
+     * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+     *
+     * @param request - CreateSignalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSignalResponse
+     *
+     * @param string              $JobId
+     * @param CreateSignalRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSignalResponse
+     */
+    public function createSignalWithOptions($JobId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->signal) {
+            @$body['Signal'] = $request->signal;
+        }
+
+        if (null !== $request->target) {
+            @$body['Target'] = $request->target;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSignal',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/signals',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSignalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建信号.
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该API用于向指定作业的一个或多个Pod发送特定信号。
+     * - 发送信号后，API立即返回一个`SignalId`，实际的信号投递由后台worker处理。
+     * - 信号的状态可以通过`GetSignal`或`ListSignals`接口查询。
+     *
+     * @param request - CreateSignalRequest
+     *
+     * @returns CreateSignalResponse
+     *
+     * @param string              $JobId
+     * @param CreateSignalRequest $request
+     *
+     * @return CreateSignalResponse
+     */
+    public function createSignal($JobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSignalWithOptions($JobId, $request, $headers, $runtime);
     }
 
     /**
@@ -1727,6 +1812,79 @@ class Paidlc extends OpenApiClient
     }
 
     /**
+     * 获取信号.
+     *
+     * @remarks
+     * ## 请求说明
+     * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+     *
+     * @param request - GetSignalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSignalResponse
+     *
+     * @param string           $JobId
+     * @param string           $SignalId
+     * @param GetSignalRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetSignalResponse
+     */
+    public function getSignalWithOptions($JobId, $SignalId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSignal',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/signals/' . Url::percentEncode($SignalId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSignalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取信号.
+     *
+     * @remarks
+     * ## 请求说明
+     * 通过此 API，用户可以获取到指定 `JobId` 和 `SignalId` 对应的信号详情，包括信号的状态、发送范围等信息。请注意，返回的结果中不再包含每个 Pod 的原始结果结构，而是通过 `Status`, `Reason`, 和 `Message` 字段来表达信号处理的整体情况。
+     *
+     * @param request - GetSignalRequest
+     *
+     * @returns GetSignalResponse
+     *
+     * @param string           $JobId
+     * @param string           $SignalId
+     * @param GetSignalRequest $request
+     *
+     * @return GetSignalResponse
+     */
+    public function getSignal($JobId, $SignalId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSignalWithOptions($JobId, $SignalId, $request, $headers, $runtime);
+    }
+
+    /**
      * Retrieves the details of a Tensorboard instance.
      *
      * @param request - GetTensorboardRequest
@@ -2573,6 +2731,97 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->listRayHistoryServersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取信号列表.
+     *
+     * @remarks
+     * ## 请求说明
+     * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+     *
+     * @param request - ListSignalsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSignalsResponse
+     *
+     * @param string             $JobId
+     * @param ListSignalsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSignalsResponse
+     */
+    public function listSignalsWithOptions($JobId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListSignals',
+            'version' => '2020-12-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/jobs/' . Url::percentEncode($JobId) . '/signals',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListSignalsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取信号列表.
+     *
+     * @remarks
+     * ## 请求说明
+     * 通过此 API 可以获取特定作业下的所有信号记录详情，包括信号 ID、状态、创建时间等信息。支持通过查询参数进一步筛选或排序结果。
+     *
+     * @param request - ListSignalsRequest
+     *
+     * @returns ListSignalsResponse
+     *
+     * @param string             $JobId
+     * @param ListSignalsRequest $request
+     *
+     * @return ListSignalsResponse
+     */
+    public function listSignals($JobId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSignalsWithOptions($JobId, $request, $headers, $runtime);
     }
 
     /**
