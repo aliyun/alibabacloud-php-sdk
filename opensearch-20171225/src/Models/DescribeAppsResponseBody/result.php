@@ -94,6 +94,11 @@ class result extends Model
     public $quota;
 
     /**
+     * @var bool
+     */
+    public $realtimeShared;
+
+    /**
      * @var schema
      */
     public $schema;
@@ -138,6 +143,7 @@ class result extends Model
         'prompts' => 'prompts',
         'queryProcessors' => 'queryProcessors',
         'quota' => 'quota',
+        'realtimeShared' => 'realtimeShared',
         'schema' => 'schema',
         'schemas' => 'schemas',
         'secondRanks' => 'secondRanks',
@@ -296,6 +302,10 @@ class result extends Model
 
         if (null !== $this->quota) {
             $res['quota'] = null !== $this->quota ? $this->quota->toArray($noStream) : $this->quota;
+        }
+
+        if (null !== $this->realtimeShared) {
+            $res['realtimeShared'] = $this->realtimeShared;
         }
 
         if (null !== $this->schema) {
@@ -457,6 +467,10 @@ class result extends Model
 
         if (isset($map['quota'])) {
             $model->quota = quota::fromMap($map['quota']);
+        }
+
+        if (isset($map['realtimeShared'])) {
+            $model->realtimeShared = $map['realtimeShared'];
         }
 
         if (isset($map['schema'])) {

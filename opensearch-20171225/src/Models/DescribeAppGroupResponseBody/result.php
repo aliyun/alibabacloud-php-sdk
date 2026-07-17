@@ -46,6 +46,11 @@ class result extends Model
     public $domain;
 
     /**
+     * @var int
+     */
+    public $elasticLcu;
+
+    /**
      * @var string
      */
     public $engineType;
@@ -157,6 +162,7 @@ class result extends Model
         'currentVersion' => 'currentVersion',
         'description' => 'description',
         'domain' => 'domain',
+        'elasticLcu' => 'elasticLcu',
         'engineType' => 'engineType',
         'expireOn' => 'expireOn',
         'firstRankAlgoDeploymentId' => 'firstRankAlgoDeploymentId',
@@ -220,6 +226,10 @@ class result extends Model
 
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
+        }
+
+        if (null !== $this->elasticLcu) {
+            $res['elasticLcu'] = $this->elasticLcu;
         }
 
         if (null !== $this->engineType) {
@@ -350,6 +360,10 @@ class result extends Model
 
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
+        }
+
+        if (isset($map['elasticLcu'])) {
+            $model->elasticLcu = $map['elasticLcu'];
         }
 
         if (isset($map['engineType'])) {

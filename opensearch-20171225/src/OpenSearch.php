@@ -23,6 +23,8 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppGroupRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppGroupResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateAppResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateElasticPlanRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateElasticPlanResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFirstRankRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFirstRankResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\CreateFunctionInstanceRequest;
@@ -60,6 +62,8 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppsResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeAppStatisticsResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeDataCollctionResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeElasticPlanRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeElasticPlanResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeFirstRankResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeInterventionDictionaryResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\DescribeQueryProcessorResponse;
@@ -101,6 +105,8 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListDataSourceTableFieldsReques
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListDataSourceTableFieldsResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListDataSourceTablesRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListDataSourceTablesResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListElasticPlansRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListElasticPlansResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFirstRanksResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFunctionInstancesRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ListFunctionInstancesResponse;
@@ -148,6 +154,8 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyAppGroupQuotaRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyAppGroupQuotaResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyAppGroupRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyAppGroupResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyElasticPlanRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyElasticPlanResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyFirstRankRequest;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyFirstRankResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ModifyQueryProcessorRequest;
@@ -164,6 +172,8 @@ use AlibabaCloud\SDK\OpenSearch\V20171225\Models\ReleaseSortScriptResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveAppGroupResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveAppResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveDataCollectionResponse;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveElasticPlanRequest;
+use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveElasticPlanResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveFirstRankResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveInterventionDictionaryResponse;
 use AlibabaCloud\SDK\OpenSearch\V20171225\Models\RemoveQueryProcessorResponse;
@@ -222,6 +232,19 @@ class OpenSearch extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-east-1' => 'opensearch.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'opensearch.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'opensearch.cn-zhangjiakou.aliyuncs.com',
+            'cn-shenzhen' => 'opensearch.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'opensearch.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'opensearch.cn-qingdao.aliyuncs.com',
+            'cn-hongkong' => 'opensearch.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'opensearch.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'opensearch.cn-beijing.aliyuncs.com',
+            'ap-southeast-5' => 'opensearch.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-1' => 'opensearch.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('opensearch', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -311,7 +334,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Binds an Elasticsearch instance.
+     * Binds an Elasticsearch instance as a dependency.
      *
      * @param request - BindEsInstanceRequest
      * @param headers - map
@@ -354,7 +377,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Binds an Elasticsearch instance.
+     * Binds an Elasticsearch instance as a dependency.
      *
      * @param request - BindEsInstanceRequest
      *
@@ -497,7 +520,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a test group.
+     * Creates an experiment group.
      *
      * @param request - CreateABTestGroupRequest
      * @param headers - map
@@ -542,7 +565,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a test group.
+     * Creates an experiment group.
      *
      * @param request - CreateABTestGroupRequest
      *
@@ -563,7 +586,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates an scenario.
+     * Creates an experiment scenario.
      *
      * @param request - CreateABTestSceneRequest
      * @param headers - map
@@ -607,7 +630,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates an scenario.
+     * Creates an experiment scenario.
      *
      * @param request - CreateABTestSceneRequest
      *
@@ -627,13 +650,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a version for an OpenSearch application.
+     * Creates a new version of an OpenSearch application.
      *
      * @remarks
-     *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-     * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-     * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+     * - If a Standard Edition application with the same name already exists, a new version is created.
+     * - The autoSwitch and realtimeShared parameters are required to create a new version.
+     * - The quota for the new version is automatically inherited from the previous version.
+     * - You cannot modify the quota when you create the new version.
      *
      * @param request - CreateAppRequest
      * @param headers - map
@@ -746,13 +769,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a version for an OpenSearch application.
+     * Creates a new version of an OpenSearch application.
      *
      * @remarks
-     *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-     * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-     * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+     * - If a Standard Edition application with the same name already exists, a new version is created.
+     * - The autoSwitch and realtimeShared parameters are required to create a new version.
+     * - The quota for the new version is automatically inherited from the previous version.
+     * - You cannot modify the quota when you create the new version.
      *
      * @param request - CreateAppRequest
      *
@@ -853,6 +876,8 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Creates access credentials for a specified application group. This operation supports a dry run to preview the results.
+     *
      * @param request - CreateAppGroupCredentialsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -900,6 +925,8 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Creates access credentials for a specified application group. This operation supports a dry run to preview the results.
+     *
      * @param request - CreateAppGroupCredentialsRequest
      *
      * @returns CreateAppGroupCredentialsResponse
@@ -918,7 +945,100 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+     * 创建弹性计划.
+     *
+     * @param request - CreateElasticPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateElasticPlanResponse
+     *
+     * @param string                   $appGroupIdentity
+     * @param CreateElasticPlanRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateElasticPlanResponse
+     */
+    public function createElasticPlanWithOptions($appGroupIdentity, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
+        $body = [];
+        if (null !== $request->customDates) {
+            @$body['customDates'] = $request->customDates;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->elasticLcu) {
+            @$body['elasticLcu'] = $request->elasticLcu;
+        }
+
+        if (null !== $request->endHour) {
+            @$body['endHour'] = $request->endHour;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->scheduleType) {
+            @$body['scheduleType'] = $request->scheduleType;
+        }
+
+        if (null !== $request->startHour) {
+            @$body['startHour'] = $request->startHour;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateElasticPlan',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/elastic-plans',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateElasticPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建弹性计划.
+     *
+     * @param request - CreateElasticPlanRequest
+     *
+     * @returns CreateElasticPlanResponse
+     *
+     * @param string                   $appGroupIdentity
+     * @param CreateElasticPlanRequest $request
+     *
+     * @return CreateElasticPlanResponse
+     */
+    public function createElasticPlan($appGroupIdentity, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createElasticPlanWithOptions($appGroupIdentity, $request, $headers, $runtime);
+    }
+
+    /**
+     * Creates a rough sort expression for a version of an OpenSearch application. If you set `dryRun` to true, this operation validates the specified rough sort expression. By default, the value of `dryRun` is `false`.
      *
      * @param request - CreateFirstRankRequest
      * @param headers - map
@@ -963,7 +1083,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a rough sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified rough sort expression. By default, the value of dryRun is false if you do not set this parameter.
+     * Creates a rough sort expression for a version of an OpenSearch application. If you set `dryRun` to true, this operation validates the specified rough sort expression. By default, the value of `dryRun` is `false`.
      *
      * @param request - CreateFirstRankRequest
      *
@@ -1079,7 +1199,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates an algorithm resource for a specific feature.
+     * Creates an algorithm resource for a specified feature.
      *
      * @param request - CreateFunctionResourceRequest
      * @param headers - map
@@ -1135,7 +1255,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates an algorithm resource for a specific feature.
+     * Creates an algorithm resource for a specified feature.
      *
      * @param request - CreateFunctionResourceRequest
      *
@@ -1156,7 +1276,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Starts a training task for an algorithm instance.
+     * Starts a training task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1192,7 +1312,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Starts a training task for an algorithm instance.
+     * Starts a training task.
      *
      * @returns CreateFunctionTaskResponse
      *
@@ -1211,7 +1331,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Create an intervention dictionary.
+     * Creates an intervention dictionary.
      *
      * @param request - CreateInterventionDictionaryRequest
      * @param headers - map
@@ -1267,7 +1387,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Create an intervention dictionary.
+     * Creates an intervention dictionary.
      *
      * @param request - CreateInterventionDictionaryRequest
      *
@@ -1410,7 +1530,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a query policy.
+     * Creates a search strategy.
      *
      * @param request - CreateSearchStrategyRequest
      * @param headers - map
@@ -1449,7 +1569,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a query policy.
+     * Creates a search strategy.
      *
      * @param request - CreateSearchStrategyRequest
      *
@@ -1470,7 +1590,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+     * Creates a fine sort expression for a version of an OpenSearch application. If you set the dryRun parameter to true, this operation validates the specified fine sort expression. The default value of this parameter is false.
      *
      * @param request - CreateSecondRankRequest
      * @param headers - map
@@ -1515,7 +1635,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Creates a fine sort expression for a version of an OpenSearch application. If you set dryRun to true, this operation checks the specified fine sort expression. The default value of dryRun is false if you do not set this parameter.
+     * Creates a fine sort expression for a version of an OpenSearch application. If you set the dryRun parameter to true, this operation validates the specified fine sort expression. The default value of this parameter is false.
      *
      * @param request - CreateSecondRankRequest
      *
@@ -1613,7 +1733,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Create a custom analyzer.
+     * Creates a custom analyzer.
      *
      * @param request - CreateUserAnalyzerRequest
      * @param headers - map
@@ -1677,7 +1797,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Create a custom analyzer.
+     * Creates a custom analyzer.
      *
      * @param request - CreateUserAnalyzerRequest
      *
@@ -1696,7 +1816,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a test.
+     * Deletes an experiment.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1733,7 +1853,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a test.
+     * Deletes an experiment.
      *
      * @returns DeleteABTestExperimentResponse
      *
@@ -1753,7 +1873,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 删除实验组.
+     * Deletes an A/B test group.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1789,7 +1909,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 删除实验组.
+     * Deletes an A/B test group.
      *
      * @returns DeleteABTestGroupResponse
      *
@@ -1861,7 +1981,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+     * Deletes an algorithm instance. Before you delete an instance, ensure that it is not in use to prevent service interruptions.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1897,7 +2017,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes an algorithm instance. Before you delete an instance, make sure that it is not in use to prevent service interruptions.
+     * Deletes an algorithm instance. Before you delete an instance, ensure that it is not in use to prevent service interruptions.
      *
      * @returns DeleteFunctionInstanceResponse
      *
@@ -1916,7 +2036,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes an algorithm resource.
+     * Deletes a specified algorithm resource.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1952,7 +2072,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes an algorithm resource.
+     * Deletes a specified algorithm resource.
      *
      * @returns DeleteFunctionResourceResponse
      *
@@ -1971,7 +2091,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a training task. The training task in progress cannot be deleted.
+     * Deletes a training record. A training record that is in progress cannot be deleted.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2008,7 +2128,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a training task. The training task in progress cannot be deleted.
+     * Deletes a training record. A training record that is in progress cannot be deleted.
      *
      * @returns DeleteFunctionTaskResponse
      *
@@ -2028,7 +2148,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 删除排序脚本.
+     * Deletes a sort script.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2064,7 +2184,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 删除排序脚本.
+     * Deletes a sort script.
      *
      * @returns DeleteSortScriptResponse
      *
@@ -2140,7 +2260,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取实验详情.
+     * Retrieves the details of an experiment.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2177,7 +2297,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取实验详情.
+     * Retrieves the details of an experiment.
      *
      * @returns DescribeABTestExperimentResponse
      *
@@ -2197,7 +2317,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a test group.
+     * Retrieves the details of an A/B test group.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2233,7 +2353,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a test group.
+     * Retrieves the details of an A/B test group.
      *
      * @returns DescribeABTestGroupResponse
      *
@@ -2252,7 +2372,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about an A/B test scenario.
+     * Query an A/B test scenario.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2287,7 +2407,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the information about an A/B test scenario.
+     * Query an A/B test scenario.
      *
      * @returns DescribeABTestSceneResponse
      *
@@ -2358,7 +2478,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of an OpenSearch application.
+     * Query an OpenSearch application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2392,7 +2512,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of an OpenSearch application.
+     * Query an OpenSearch application.
      *
      * @returns DescribeAppGroupResponse
      *
@@ -2462,13 +2582,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the version list of an OpenSearch application.
+     * Queries the versions of an OpenSearch application.
      *
      * @remarks
-     *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-     * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-     * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+     * - If a Standard Edition application with the same name exists, a new version is created.
+     * - When you create a new version, the autoSwitch and realtimeShared parameters are required.
+     * - When you create a new version, the quota is inherited from the previous version.
+     * - When you create a new version, modifications to the quota do not take effect.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2502,13 +2622,13 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the version list of an OpenSearch application.
+     * Queries the versions of an OpenSearch application.
      *
      * @remarks
-     *   When you create a standard application, a new version of the application is created if the specified application name already exists.
-     * *   When you create a version of an existing application, you must specify the autoSwitch and realtimeShared parameters.
-     * *   When you create a version of an existing application, the value of the quota parameter is the same as that of the quota parameter in the previous version of the application.
-     * *   When you create a version of an existing application, the modification of the value of the quota parameter does not take effect.
+     * - If a Standard Edition application with the same name exists, a new version is created.
+     * - When you create a new version, the autoSwitch and realtimeShared parameters are required.
+     * - When you create a new version, the quota is inherited from the previous version.
+     * - When you create a new version, modifications to the quota do not take effect.
      *
      * @returns DescribeAppsResponse
      *
@@ -2525,7 +2645,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data collection task of an application.
+     * Retrieves the details of a data collection for a specified application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2560,7 +2680,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data collection task of an application.
+     * Retrieves the details of a data collection for a specified application.
      *
      * @returns DescribeDataCollctionResponse
      *
@@ -2578,7 +2698,84 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a rough sort expression that is configured for an OpenSearch application version.
+     * 获取弹性计划详情.
+     *
+     * @remarks
+     * - 若已存在同名标准版应用，则创建新版本；
+     * - 在新建版本情况下，autoSwitch 和 realtimeShared 也是必填的；
+     * - 在新建版本情况下，quota 是自动从上一个版本继承的；
+     * - 在新建版本情况下，修改 quota 是无效的。
+     *
+     * @param request - DescribeElasticPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeElasticPlanResponse
+     *
+     * @param string                     $appGroupIdentity
+     * @param string                     $planId
+     * @param DescribeElasticPlanRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeElasticPlanResponse
+     */
+    public function describeElasticPlanWithOptions($appGroupIdentity, $planId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeElasticPlan',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/elastic-plans/' . Url::percentEncode($planId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeElasticPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取弹性计划详情.
+     *
+     * @remarks
+     * - 若已存在同名标准版应用，则创建新版本；
+     * - 在新建版本情况下，autoSwitch 和 realtimeShared 也是必填的；
+     * - 在新建版本情况下，quota 是自动从上一个版本继承的；
+     * - 在新建版本情况下，修改 quota 是无效的。
+     *
+     * @param request - DescribeElasticPlanRequest
+     *
+     * @returns DescribeElasticPlanResponse
+     *
+     * @param string                     $appGroupIdentity
+     * @param string                     $planId
+     * @param DescribeElasticPlanRequest $request
+     *
+     * @return DescribeElasticPlanResponse
+     */
+    public function describeElasticPlan($appGroupIdentity, $planId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeElasticPlanWithOptions($appGroupIdentity, $planId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the rough sort expression configured for an OpenSearch application version.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2614,7 +2811,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a rough sort expression that is configured for an OpenSearch application version.
+     * Queries the rough sort expression configured for an OpenSearch application version.
      *
      * @returns DescribeFirstRankResponse
      *
@@ -2633,7 +2830,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of an intervention dictionary.
+     * Retrieves the details of an intervention dictionary.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2667,7 +2864,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of an intervention dictionary.
+     * Retrieves the details of an intervention dictionary.
      *
      * @returns DescribeInterventionDictionaryResponse
      *
@@ -2684,7 +2881,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the query analysis rule for a version of an OpenSearch application.
+     * Describes a query analysis rule for a version of an OpenSearch application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2720,7 +2917,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the query analysis rule for a version of an OpenSearch application.
+     * Describes a query analysis rule for a version of an OpenSearch application.
      *
      * @returns DescribeQueryProcessorResponse
      *
@@ -2739,7 +2936,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the endpoints of all regions that support OpenSearch.
+     * Retrieves the endpoints for all regions.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2772,7 +2969,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the endpoints of all regions that support OpenSearch.
+     * Retrieves the endpoints for all regions.
      *
      * @returns DescribeRegionsResponse
      *
@@ -2787,7 +2984,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 查看应用定时任务详情.
+     * Query a scheduled task for an OpenSearch application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2822,7 +3019,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 查看应用定时任务详情.
+     * Query a scheduled task for an OpenSearch application.
      *
      * @returns DescribeScheduledTaskResponse
      *
@@ -2840,7 +3037,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a fine sort expression that is configured for a version of an OpenSearch application.
+     * Queries the fine sort expression for a version of an OpenSearch application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2876,7 +3073,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a fine sort expression that is configured for a version of an OpenSearch application.
+     * Queries the fine sort expression for a version of an OpenSearch application.
      *
      * @returns DescribeSecondRankResponse
      *
@@ -2895,7 +3092,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取优化大师慢查询开通状态
+     * Queries the status of the slow query feature.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2929,7 +3126,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取优化大师慢查询开通状态
+     * Queries the status of the slow query feature.
      *
      * @returns DescribeSlowQueryStatusResponse
      *
@@ -2946,7 +3143,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取自定义分析器详情.
+     * Retrieves the details of a custom analyzer.
      *
      * @param request - DescribeUserAnalyzerRequest
      * @param headers - map
@@ -2989,7 +3186,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取自定义分析器详情.
+     * Retrieves the details of a custom analyzer.
      *
      * @param request - DescribeUserAnalyzerRequest
      *
@@ -3009,7 +3206,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 禁用优化大师慢查询服务
+     * Disables the slow query service for Search Diagnoser.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3043,7 +3240,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 禁用优化大师慢查询服务
+     * Disables the slow query service for Search Diagnoser.
      *
      * @returns DisableSlowQueryResponse
      *
@@ -3060,7 +3257,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Enables slow query optimization of Optimization Master.
+     * Enables the slow query service for the optimizer.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3094,7 +3291,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Enables slow query optimization of Optimization Master.
+     * Enables the slow query service for the optimizer.
      *
      * @returns EnableSlowQueryResponse
      *
@@ -3173,7 +3370,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the type of an industry.
+     * Retrieves the industry type.
      *
      * @param request - GetDomainRequest
      * @param headers - map
@@ -3216,7 +3413,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the type of an industry.
+     * Retrieves the industry type.
      *
      * @param request - GetDomainRequest
      *
@@ -3236,7 +3433,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the version information about the current feature when you create an instance.
+     * Retrieves the version information of the feature that is used to create an instance.
      *
      * @param request - GetFunctionCurrentVersionRequest
      * @param headers - map
@@ -3291,7 +3488,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the version information about the current feature when you create an instance.
+     * Retrieves the version information of the feature that is used to create an instance.
      *
      * @param request - GetFunctionCurrentVersionRequest
      *
@@ -3311,7 +3508,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the algorithm instance that an application uses by default.
+     * Queries the default algorithm instance for an application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3346,7 +3543,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the algorithm instance that an application uses by default.
+     * Queries the default algorithm instance for an application.
      *
      * @returns GetFunctionDefaultInstanceResponse
      *
@@ -3364,7 +3561,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of an algorithm instance by instance name.
+     * Query an algorithm instance by instance name.
      *
      * @param request - GetFunctionInstanceRequest
      * @param headers - map
@@ -3409,7 +3606,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of an algorithm instance by instance name.
+     * Query an algorithm instance by instance name.
      *
      * @param request - GetFunctionInstanceRequest
      *
@@ -3431,7 +3628,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries an algorithm resource.
+     * Retrieves the specified algorithm resource.
      *
      * @param request - GetFunctionResourceRequest
      * @param headers - map
@@ -3476,7 +3673,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries an algorithm resource.
+     * Retrieves the specified algorithm resource.
      *
      * @param request - GetFunctionResourceRequest
      *
@@ -3555,7 +3752,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries version information by version ID.
+     * Queries the information about a function version.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3590,7 +3787,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries version information by version ID.
+     * Queries the information about a function version.
      *
      * @returns GetFunctionVersionResponse
      *
@@ -3608,6 +3805,8 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Retrieves the names of all files in a specified script for a specific application version.
+     *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3642,6 +3841,8 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
+     * Retrieves the names of all files in a specified script for a specific application version.
+     *
      * @returns GetScriptFileNamesResponse
      *
      * @param string $appGroupIdentity
@@ -3659,7 +3860,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a query policy.
+     * Retrieves the details of a query policy.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3695,7 +3896,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a query policy.
+     * Retrieves the details of a query policy.
      *
      * @returns GetSearchStrategyResponse
      *
@@ -3714,7 +3915,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a sort script.
+     * Retrieves the details of a sort script.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3750,7 +3951,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of a sort script.
+     * Retrieves the details of a sort script.
      *
      * @returns GetSortScriptResponse
      *
@@ -3769,7 +3970,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the content of a sort script.
+     * Retrieves the content of a sort script.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3806,7 +4007,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the content of a sort script.
+     * Retrieves the content of a sort script.
      *
      * @returns GetSortScriptFileResponse
      *
@@ -3881,7 +4082,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries whitelists.
+     * Lists whitelists.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3918,7 +4119,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries whitelists.
+     * Lists whitelists.
      *
      * @returns ListABTestFixedFlowDividersResponse
      *
@@ -3938,7 +4139,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取实验组清单.
+     * Retrieves a list of test groups.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3973,7 +4174,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取实验组清单.
+     * Retrieves a list of test groups.
      *
      * @returns ListABTestGroupsResponse
      *
@@ -4045,9 +4246,9 @@ class OpenSearch extends OpenApiClient
      * Queries a list of OpenSearch applications.
      *
      * @remarks
-     *   This operation allows you to query applications by application name, instance ID, and application type.
-     * *   This operation allows you to sort the applications based on their creation time.
-     * *   This operation supports the parameters for paging.
+     * - Filters applications by name, instance ID, and type.
+     * - Sorts applications by their creation time.
+     * - Supports paging.
      *
      * @param tmpReq - ListAppGroupsRequest
      * @param headers - map
@@ -4126,9 +4327,9 @@ class OpenSearch extends OpenApiClient
      * Queries a list of OpenSearch applications.
      *
      * @remarks
-     *   This operation allows you to query applications by application name, instance ID, and application type.
-     * *   This operation allows you to sort the applications based on their creation time.
-     * *   This operation supports the parameters for paging.
+     * - Filters applications by name, instance ID, and type.
+     * - Sorts applications by their creation time.
+     * - Supports paging.
      *
      * @param request - ListAppGroupsRequest
      *
@@ -4147,7 +4348,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the data collection tasks of an OpenSearch application.
+     * Lists the data collections for an OpenSearch application.
      *
      * @param request - ListDataCollectionsRequest
      * @param headers - map
@@ -4194,7 +4395,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the data collection tasks of an OpenSearch application.
+     * Lists the data collections for an OpenSearch application.
      *
      * @param request - ListDataCollectionsRequest
      *
@@ -4214,7 +4415,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries all fields in a table of a data source. This operation is for internal use only.
+     * This internal API retrieves all fields from a specified data table.
      *
      * @param request - ListDataSourceTableFieldsRequest
      * @param headers - map
@@ -4261,7 +4462,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries all fields in a table of a data source. This operation is for internal use only.
+     * This internal API retrieves all fields from a specified data table.
      *
      * @param request - ListDataSourceTableFieldsRequest
      *
@@ -4281,7 +4482,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Obtains all data from a specified data source.
+     * Retrieves all data from a specified data source.
      *
      * @param request - ListDataSourceTablesRequest
      * @param headers - map
@@ -4324,7 +4525,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Obtains all data from a specified data source.
+     * Retrieves all data from a specified data source.
      *
      * @param request - ListDataSourceTablesRequest
      *
@@ -4341,6 +4542,89 @@ class OpenSearch extends OpenApiClient
         $headers = [];
 
         return $this->listDataSourceTablesWithOptions($dataSourceType, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取弹性计划列表.
+     *
+     * @param request - ListElasticPlansRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListElasticPlansResponse
+     *
+     * @param string                  $appGroupIdentity
+     * @param ListElasticPlansRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListElasticPlansResponse
+     */
+    public function listElasticPlansWithOptions($appGroupIdentity, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->enabled) {
+            @$query['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListElasticPlans',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/elastic-plans',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListElasticPlansResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取弹性计划列表.
+     *
+     * @param request - ListElasticPlansRequest
+     *
+     * @returns ListElasticPlansResponse
+     *
+     * @param string                  $appGroupIdentity
+     * @param ListElasticPlansRequest $request
+     *
+     * @return ListElasticPlansResponse
+     */
+    public function listElasticPlans($appGroupIdentity, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listElasticPlansWithOptions($appGroupIdentity, $request, $headers, $runtime);
     }
 
     /**
@@ -4397,7 +4681,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries all algorithm instances of a user, which meet specified conditions.
+     * Lists all instances that match the specified conditions.
      *
      * @param request - ListFunctionInstancesRequest
      * @param headers - map
@@ -4461,7 +4745,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries all algorithm instances of a user, which meet specified conditions.
+     * Lists all instances that match the specified conditions.
      *
      * @param request - ListFunctionInstancesRequest
      *
@@ -4482,7 +4766,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries algorithm resources.
+     * Lists the algorithm resources.
      *
      * @param request - ListFunctionResourcesRequest
      * @param headers - map
@@ -4538,7 +4822,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries algorithm resources.
+     * Lists the algorithm resources.
      *
      * @param request - ListFunctionResourcesRequest
      *
@@ -4559,7 +4843,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the training tasks. The returned results are sorted by start time in descending order.
+     * Queries the training tasks. The results are sorted in descending order by start time.
      *
      * @param request - ListFunctionTasksRequest
      * @param headers - map
@@ -4620,7 +4904,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the training tasks. The returned results are sorted by start time in descending order.
+     * Queries the training tasks. The results are sorted in descending order by start time.
      *
      * @param request - ListFunctionTasksRequest
      *
@@ -4642,7 +4926,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取用户的干预词典列表.
+     * Retrieves a list of intervention dictionaries.
      *
      * @param request - ListInterventionDictionariesRequest
      * @param headers - map
@@ -4692,7 +4976,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取用户的干预词典列表.
+     * Retrieves a list of intervention dictionaries.
      *
      * @param request - ListInterventionDictionariesRequest
      *
@@ -4782,7 +5066,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取实体识别结果.
+     * Retrieves the Named Entity Recognition (NER) results.
      *
      * @param request - ListInterventionDictionaryNerResultsRequest
      * @param headers - map
@@ -4825,7 +5109,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 获取实体识别结果.
+     * Retrieves the Named Entity Recognition (NER) results.
      *
      * @param request - ListInterventionDictionaryNerResultsRequest
      *
@@ -4845,7 +5129,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the resources that are associated with an intervention dictionary. If the intervention dictionary is referenced by query analysis rules, this operation returns all applications that use the intervention dictionary and the information about the query analysis rules.
+     * Queries the list of resources associated with an intervention dictionary. If a query processor (QP) references the dictionary, the operation returns all associated applications and information about the QP.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4879,7 +5163,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the resources that are associated with an intervention dictionary. If the intervention dictionary is referenced by query analysis rules, this operation returns all applications that use the intervention dictionary and the information about the query analysis rules.
+     * Queries the list of resources associated with an intervention dictionary. If a query processor (QP) references the dictionary, the operation returns all associated applications and information about the QP.
      *
      * @returns ListInterventionDictionaryRelatedEntitiesResponse
      *
@@ -4896,7 +5180,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 查看当前的处理流
+     * Lists the current proceedings.
      *
      * @param request - ListProceedingsRequest
      * @param headers - map
@@ -4939,7 +5223,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 查看当前的处理流
+     * Lists the current proceedings.
      *
      * @param request - ListProceedingsRequest
      *
@@ -4959,7 +5243,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+     * Tests the results of query analysis. This operation can be called only for existing applications of the Open Source-compatible Edition.
      *
      * @param request - ListQueryProcessorAnalyzerResultsRequest
      * @param headers - map
@@ -5004,7 +5288,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the results of a query analysis test. This API operation is available only to existing applications of OpenSearch Open Source Compatible Edition.
+     * Tests the results of query analysis. This operation can be called only for existing applications of the Open Source-compatible Edition.
      *
      * @param request - ListQueryProcessorAnalyzerResultsRequest
      *
@@ -5026,7 +5310,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the recommended priority settings of entity types for named entity recognition (NER).
+     * Queries the recommended priority settings for entity types in Named Entity Recognition (NER).
      *
      * @param request - ListQueryProcessorNersRequest
      * @param headers - map
@@ -5068,7 +5352,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the recommended priority settings of entity types for named entity recognition (NER).
+     * Queries the recommended priority settings for entity types in Named Entity Recognition (NER).
      *
      * @param request - ListQueryProcessorNersRequest
      *
@@ -5087,7 +5371,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+     * Queries a list of query analysis rules configured for a specific version of an OpenSearch application.
      *
      * @param request - ListQueryProcessorsRequest
      * @param headers - map
@@ -5131,7 +5415,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of query analysis rules that are configured for a version of an OpenSearch application.
+     * Queries a list of query analysis rules configured for a specific version of an OpenSearch application.
      *
      * @param request - ListQueryProcessorsRequest
      *
@@ -5152,7 +5436,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries tickets that are submitted to apply for quotas for an OpenSearch application.
+     * Lists the quota approval tickets for a specified OpenSearch application.
      *
      * @param request - ListQuotaReviewTasksRequest
      * @param headers - map
@@ -5199,7 +5483,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries tickets that are submitted to apply for quotas for an OpenSearch application.
+     * Lists the quota approval tickets for a specified OpenSearch application.
      *
      * @param request - ListQuotaReviewTasksRequest
      *
@@ -5219,7 +5503,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of scheduled tasks of an OpenSearch application.
+     * Queries a list of scheduled tasks for an OpenSearch application.
      *
      * @param request - ListScheduledTasksRequest
      * @param headers - map
@@ -5270,7 +5554,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of scheduled tasks of an OpenSearch application.
+     * Queries a list of scheduled tasks for an OpenSearch application.
      *
      * @param request - ListScheduledTasksRequest
      *
@@ -5290,7 +5574,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of query policies.
+     * Retrieves the details of query policies.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5325,7 +5609,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the details of query policies.
+     * Retrieves the details of query policies.
      *
      * @returns ListSearchStrategiesResponse
      *
@@ -5343,7 +5627,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the fine sort expressions that are configured for a version of an OpenSearch application.
+     * Lists the fine sort expressions for a specific version of an OpenSearch application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5378,7 +5662,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the fine sort expressions that are configured for a version of an OpenSearch application.
+     * Lists the fine sort expressions for a specific version of an OpenSearch application.
      *
      * @returns ListSecondRanksResponse
      *
@@ -5396,7 +5680,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the suggestions that are provided by Optimization Master for slow queries.
+     * Lists the optimization suggestions for slow queries from Search Diagnosis.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5430,7 +5714,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the suggestions that are provided by Optimization Master for slow queries.
+     * Lists the optimization suggestions for slow queries from Search Diagnosis.
      *
      * @returns ListSlowQueryCategoriesResponse
      *
@@ -5447,7 +5731,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 列出优化大师慢查询Query清单.
+     * Lists the slow queries from the Query Optimizer.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5482,7 +5766,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 列出优化大师慢查询Query清单.
+     * Lists the slow queries from the Query Optimizer.
      *
      * @returns ListSlowQueryQueriesResponse
      *
@@ -5500,7 +5784,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+     * Lists the sort expressions that are configured for a version of an OpenSearch application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5535,7 +5819,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries a list of sort expressions that are configured for a version of an OpenSearch application.
+     * Lists the sort expressions that are configured for a version of an OpenSearch application.
      *
      * @returns ListSortExpressionsResponse
      *
@@ -5553,7 +5837,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries all sort scripts of an application version.
+     * Lists all sort scripts for a specified application version.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5588,7 +5872,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries all sort scripts of an application version.
+     * Lists all sort scripts for a specified application version.
      *
      * @returns ListSortScriptsResponse
      *
@@ -5699,7 +5983,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries statistical reports, such as application reports, drop-down suggestion reports, hotword shading reports, A/B test reports, and data quality reports.
+     * Queries statistical reports, such as application, drop-down suggestion, top search hint, A/B test, and data quality reports.
      *
      * @param request - ListStatisticReportRequest
      * @param headers - map
@@ -5763,7 +6047,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries statistical reports, such as application reports, drop-down suggestion reports, hotword shading reports, A/B test reports, and data quality reports.
+     * Queries statistical reports, such as application, drop-down suggestion, top search hint, A/B test, and data quality reports.
      *
      * @param request - ListStatisticReportRequest
      *
@@ -5784,7 +6068,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries tagged resources.
+     * Queries the tags of specified resources.
      *
      * @param tmpReq - ListTagResourcesRequest
      * @param headers - map
@@ -5848,7 +6132,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries tagged resources.
+     * Queries the tags of specified resources.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -5938,7 +6222,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the custom analyzers that belong to the current account.
+     * Retrieves a list of custom analyzers for your account.
      *
      * @param request - ListUserAnalyzersRequest
      * @param headers - map
@@ -5984,7 +6268,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Queries the custom analyzers that belong to the current account.
+     * Retrieves a list of custom analyzers for your account.
      *
      * @param request - ListUserAnalyzersRequest
      *
@@ -6003,7 +6287,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
+     * Modifies the properties of an OpenSearch application or sets its online version.
      *
      * @param request - ModifyAppGroupRequest
      * @param headers - map
@@ -6064,7 +6348,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies the properties of an OpenSearch application or sets the online version of an OpenSearch application.
+     * Modifies the properties of an OpenSearch application or sets its online version.
      *
      * @param request - ModifyAppGroupRequest
      *
@@ -6084,7 +6368,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies the quotas of an OpenSearch application.
+     * Modifies the quota of an OpenSearch application.
      *
      * @param request - ModifyAppGroupQuotaRequest
      * @param headers - map
@@ -6132,7 +6416,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies the quotas of an OpenSearch application.
+     * Modifies the quota of an OpenSearch application.
      *
      * @param request - ModifyAppGroupQuotaRequest
      *
@@ -6152,7 +6436,102 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+     * 更新弹性计划.
+     *
+     * @param request - ModifyElasticPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyElasticPlanResponse
+     *
+     * @param string                   $appGroupIdentity
+     * @param string                   $planId
+     * @param ModifyElasticPlanRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyElasticPlanResponse
+     */
+    public function modifyElasticPlanWithOptions($appGroupIdentity, $planId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dryRun) {
+            @$query['dryRun'] = $request->dryRun;
+        }
+
+        $body = [];
+        if (null !== $request->customDates) {
+            @$body['customDates'] = $request->customDates;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->elasticLcu) {
+            @$body['elasticLcu'] = $request->elasticLcu;
+        }
+
+        if (null !== $request->enabled) {
+            @$body['enabled'] = $request->enabled;
+        }
+
+        if (null !== $request->endHour) {
+            @$body['endHour'] = $request->endHour;
+        }
+
+        if (null !== $request->scheduleType) {
+            @$body['scheduleType'] = $request->scheduleType;
+        }
+
+        if (null !== $request->startHour) {
+            @$body['startHour'] = $request->startHour;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyElasticPlan',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/elastic-plans/' . Url::percentEncode($planId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyElasticPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新弹性计划.
+     *
+     * @param request - ModifyElasticPlanRequest
+     *
+     * @returns ModifyElasticPlanResponse
+     *
+     * @param string                   $appGroupIdentity
+     * @param string                   $planId
+     * @param ModifyElasticPlanRequest $request
+     *
+     * @return ModifyElasticPlanResponse
+     */
+    public function modifyElasticPlan($appGroupIdentity, $planId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modifyElasticPlanWithOptions($appGroupIdentity, $planId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Modifies the rough sort expression for an OpenSearch application version. If you set the dryRun parameter to true, this operation validates the modified rough sort expression. The default value of this parameter is false.
      *
      * @param request - ModifyFirstRankRequest
      * @param headers - map
@@ -6198,7 +6577,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies a rough sort expression for an OpenSearch application. If you set dryRun to true, this operation checks the rough sort expression after the expression is modified. If you do not specify this parameter, false is used by default.
+     * Modifies the rough sort expression for an OpenSearch application version. If you set the dryRun parameter to true, this operation validates the modified rough sort expression. The default value of this parameter is false.
      *
      * @param request - ModifyFirstRankRequest
      *
@@ -6220,7 +6599,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+     * Modifies a query analysis rule for a specific application version. If you set the dryRun parameter to true, this operation checks the specified query analysis rule. If you do not specify the dryRun parameter, the default value is false.
      *
      * @param request - ModifyQueryProcessorRequest
      * @param headers - map
@@ -6266,7 +6645,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies a query analysis rule for a specific application version. If you set dryRun to true, this operation checks the specified query analysis rule. By default, the value of dryRun is false if you do not specify this parameter.
+     * Modifies a query analysis rule for a specific application version. If you set the dryRun parameter to true, this operation checks the specified query analysis rule. If you do not specify the dryRun parameter, the default value is false.
      *
      * @param request - ModifyQueryProcessorRequest
      *
@@ -6348,7 +6727,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+     * Modifies a fine sort expression for an OpenSearch application version. If you set `dryRun` to `true`, the modified fine sort expression is validated. The `dryRun` parameter is `false` by default.
      *
      * @param request - ModifySecondRankRequest
      * @param headers - map
@@ -6394,7 +6773,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies a fine sort expression that is configured for a specific OpenSearch application version. If you set dryRun to true, the specified fine sort expression is checked after the expression is modified. By default, the value of dryRun is false if you do not specify this parameter.
+     * Modifies a fine sort expression for an OpenSearch application version. If you set `dryRun` to `true`, the modified fine sort expression is validated. The `dryRun` parameter is `false` by default.
      *
      * @param request - ModifySecondRankRequest
      *
@@ -6416,7 +6795,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Accepts the changes in intervention entries.
+     * Applies changes to intervention dictionary entries.
      *
      * @param request - PushInterventionDictionaryEntriesRequest
      * @param headers - map
@@ -6460,7 +6839,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Accepts the changes in intervention entries.
+     * Applies changes to intervention dictionary entries.
      *
      * @param request - PushInterventionDictionaryEntriesRequest
      *
@@ -6480,7 +6859,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Accepts the changes in the entries of a custom analyzer.
+     * Applies changes to the entries of a custom analyzer.
      *
      * @param request - PushUserAnalyzerEntriesRequest
      * @param headers - map
@@ -6529,7 +6908,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Accepts the changes in the entries of a custom analyzer.
+     * Applies changes to the entries of a custom analyzer.
      *
      * @param request - PushUserAnalyzerEntriesRequest
      *
@@ -6549,7 +6928,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 发布排序脚本.
+     * Releases a sort script.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6585,7 +6964,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 发布排序脚本.
+     * Releases a sort script.
      *
      * @returns ReleaseSortScriptResponse
      *
@@ -6660,7 +7039,7 @@ class OpenSearch extends OpenApiClient
      * Deletes an OpenSearch application.
      *
      * @remarks
-     * You can delete only pay-as-you-go applications. You cannot delete subscription applications.
+     * You can only delete pay-as-you-go applications. Subscription applications cannot be deleted.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6697,7 +7076,7 @@ class OpenSearch extends OpenApiClient
      * Deletes an OpenSearch application.
      *
      * @remarks
-     * You can delete only pay-as-you-go applications. You cannot delete subscription applications.
+     * You can only delete pay-as-you-go applications. Subscription applications cannot be deleted.
      *
      * @returns RemoveAppGroupResponse
      *
@@ -6767,7 +7146,66 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a rough sort expression for a version of an OpenSearch application.
+     * 获取弹性计划详情.
+     *
+     * @param request - RemoveElasticPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveElasticPlanResponse
+     *
+     * @param string                   $appGroupIdentity
+     * @param string                   $planId
+     * @param RemoveElasticPlanRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RemoveElasticPlanResponse
+     */
+    public function removeElasticPlanWithOptions($appGroupIdentity, $planId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'RemoveElasticPlan',
+            'version' => '2017-12-25',
+            'protocol' => 'HTTPS',
+            'pathname' => '/v4/openapi/app-groups/' . Url::percentEncode($appGroupIdentity) . '/elastic-plans/' . Url::percentEncode($planId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return RemoveElasticPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取弹性计划详情.
+     *
+     * @param request - RemoveElasticPlanRequest
+     *
+     * @returns RemoveElasticPlanResponse
+     *
+     * @param string                   $appGroupIdentity
+     * @param string                   $planId
+     * @param RemoveElasticPlanRequest $request
+     *
+     * @return RemoveElasticPlanResponse
+     */
+    public function removeElasticPlan($appGroupIdentity, $planId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeElasticPlanWithOptions($appGroupIdentity, $planId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes the rough sort configuration of an OpenSearch application version.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6803,7 +7241,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a rough sort expression for a version of an OpenSearch application.
+     * Deletes the rough sort configuration of an OpenSearch application version.
      *
      * @returns RemoveFirstRankResponse
      *
@@ -6873,7 +7311,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a query analysis rule for an OpenSearch application version.
+     * Removes a query analysis rule from an OpenSearch application version.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6909,7 +7347,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a query analysis rule for an OpenSearch application version.
+     * Removes a query analysis rule from an OpenSearch application version.
      *
      * @returns RemoveQueryProcessorResponse
      *
@@ -6928,7 +7366,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a scheduled task of an OpenSearch application.
+     * Deletes a scheduled task from an OpenSearch application.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6963,7 +7401,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a scheduled task of an OpenSearch application.
+     * Deletes a scheduled task from an OpenSearch application.
      *
      * @returns RemoveScheduledTaskResponse
      *
@@ -6981,7 +7419,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a query policy.
+     * Deletes a search strategy.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7017,7 +7455,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Deletes a query policy.
+     * Deletes a search strategy.
      *
      * @returns RemoveSearchStrategyResponse
      *
@@ -7142,7 +7580,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
+     * Renews an application. This API operation is unavailable. To renew an application, use the OpenSearch console.
      *
      * @param request - RenewAppGroupRequest
      * @param headers - map
@@ -7186,7 +7624,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Renews an application. This operation is not available now. You must renew an application in the OpenSearch console.
+     * Renews an application. This API operation is unavailable. To renew an application, use the OpenSearch console.
      *
      * @param request - RenewAppGroupRequest
      *
@@ -7330,7 +7768,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 立即进行慢查询分析.
+     * Starts a slow query analysis task.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7364,7 +7802,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 立即进行慢查询分析.
+     * Starts a slow query analysis task.
      *
      * @returns StartSlowQueryAnalyzerResponse
      *
@@ -7450,10 +7888,10 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Unbinds a custom analyzer from an Elasticsearch instance.
+     * Detaches a custom analyzer from an Elasticsearch instance.
      *
      * @remarks
-     * You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+     * Use this operation to detach a custom analyzer from an Elasticsearch instance.
      *
      * @param request - UnbindESUserAnalyzerRequest
      * @param headers - map
@@ -7492,10 +7930,10 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Unbinds a custom analyzer from an Elasticsearch instance.
+     * Detaches a custom analyzer from an Elasticsearch instance.
      *
      * @remarks
-     * You can call this operation to unbind a custom analyzer from an Elasticsearch instance.
+     * Use this operation to detach a custom analyzer from an Elasticsearch instance.
      *
      * @param request - UnbindESUserAnalyzerRequest
      *
@@ -7567,7 +8005,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Remove tags from resources.
+     * Removes tags from resources.
      *
      * @param tmpReq - UntagResourcesRequest
      * @param headers - map
@@ -7631,7 +8069,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Remove tags from resources.
+     * Removes tags from resources.
      *
      * @param request - UntagResourcesRequest
      *
@@ -7650,7 +8088,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of an A/B test.
+     * Updates the parameters of an A/B test experiment.
      *
      * @param request - UpdateABTestExperimentRequest
      * @param headers - map
@@ -7697,7 +8135,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of an A/B test.
+     * Updates the parameters of an A/B test experiment.
      *
      * @param request - UpdateABTestExperimentRequest
      *
@@ -7720,7 +8158,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies whitelists.
+     * Updates the whitelist data.
      *
      * @param request - UpdateABTestFixedFlowDividersRequest
      * @param headers - map
@@ -7761,7 +8199,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies whitelists.
+     * Updates the whitelist data.
      *
      * @param request - UpdateABTestFixedFlowDividersRequest
      *
@@ -7852,7 +8290,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies an A/B test scenario.
+     * Modifies an experiment scenario.
      *
      * @param request - UpdateABTestSceneRequest
      * @param headers - map
@@ -7897,7 +8335,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies an A/B test scenario.
+     * Modifies an experiment scenario.
      *
      * @param request - UpdateABTestSceneRequest
      *
@@ -7918,7 +8356,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 应用删除保护.
+     * Updates the delete protection status for an application group.
      *
      * @param request - UpdateAppGroupDeleteProtectionRequest
      * @param headers - map
@@ -7961,7 +8399,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * 应用删除保护.
+     * Updates the delete protection status for an application group.
      *
      * @param request - UpdateAppGroupDeleteProtectionRequest
      *
@@ -7981,7 +8419,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Updates fetch fields. A dry run is supported.
+     * This operation supports dry runs.
      *
      * @param request - UpdateFetchFieldsRequest
      * @param headers - map
@@ -8026,7 +8464,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Updates fetch fields. A dry run is supported.
+     * This operation supports dry runs.
      *
      * @param request - UpdateFetchFieldsRequest
      *
@@ -8047,7 +8485,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+     * Sets the default algorithm instance for the specified application. The new algorithm instance automatically overwrites the previously set default instance. If no instance is specified, the default instance is canceled.
      *
      * @param request - UpdateFunctionDefaultInstanceRequest
      * @param headers - map
@@ -8091,7 +8529,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Sets the default algorithm instance used by the specified application. The new algorithm instance automatically overwrites the most recently set default instance. If no instance is set, the default instance is canceled.
+     * Sets the default algorithm instance for the specified application. The new algorithm instance automatically overwrites the previously set default instance. If no instance is specified, the default instance is canceled.
      *
      * @param request - UpdateFunctionDefaultInstanceRequest
      *
@@ -8112,7 +8550,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Updates an algorithm instance.
+     * Updates the configuration of a function instance.
      *
      * @param request - UpdateFunctionInstanceRequest
      * @param headers - map
@@ -8169,7 +8607,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Updates an algorithm instance.
+     * Updates the configuration of a function instance.
      *
      * @param request - UpdateFunctionInstanceRequest
      *
@@ -8194,7 +8632,7 @@ class OpenSearch extends OpenApiClient
      * Updates an algorithm resource.
      *
      * @remarks
-     * You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+     * Updates the information of a resource specified by its name. You can modify only the data and description of the resource.
      *
      * @param request - UpdateFunctionResourceRequest
      * @param headers - map
@@ -8246,7 +8684,7 @@ class OpenSearch extends OpenApiClient
      * Updates an algorithm resource.
      *
      * @remarks
-     * You can call this operation to update the information about resources by resource name. You can modify only the values of data and description.
+     * Updates the information of a resource specified by its name. You can modify only the data and description of the resource.
      *
      * @param request - UpdateFunctionResourceRequest
      *
@@ -8268,7 +8706,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies a query policy.
+     * This operation supports dry runs.
      *
      * @param request - UpdateSearchStrategyRequest
      * @param headers - map
@@ -8308,7 +8746,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Modifies a query policy.
+     * This operation supports dry runs.
      *
      * @param request - UpdateSearchStrategyRequest
      *
@@ -8333,7 +8771,7 @@ class OpenSearch extends OpenApiClient
      * Modifies the description of a sort script.
      *
      * @remarks
-     * You can call this operation to modify the description of a sort script.
+     * Modifies the description of a sort script.
      *
      * @param request - UpdateSortScriptRequest
      * @param headers - map
@@ -8381,7 +8819,7 @@ class OpenSearch extends OpenApiClient
      * Modifies the description of a sort script.
      *
      * @remarks
-     * You can call this operation to modify the description of a sort script.
+     * Modifies the description of a sort script.
      *
      * @param request - UpdateSortScriptRequest
      *
@@ -8403,7 +8841,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Updates summaries. A dry run is supported.
+     * This operation supports dry runs.
      *
      * @param request - UpdateSummariesRequest
      * @param headers - map
@@ -8448,7 +8886,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Updates summaries. A dry run is supported.
+     * This operation supports dry runs.
      *
      * @param request - UpdateSummariesRequest
      *
@@ -8469,7 +8907,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Verifies data sources.
+     * Validates data sources.
      *
      * @param request - ValidateDataSourcesRequest
      * @param headers - map
@@ -8506,7 +8944,7 @@ class OpenSearch extends OpenApiClient
     }
 
     /**
-     * Verifies data sources.
+     * Validates data sources.
      *
      * @param request - ValidateDataSourcesRequest
      *
