@@ -19,12 +19,24 @@ class autoRepairPolicy extends Model
     public $autoRepairPolicyId;
 
     /**
+     * @var string
+     */
+    public $maxParallelRepairingNodes;
+
+    /**
+     * @var string
+     */
+    public $maxUnhealthyNodesThreshold;
+
+    /**
      * @var bool
      */
     public $restartNode;
     protected $_name = [
         'approvalRequired' => 'approval_required',
         'autoRepairPolicyId' => 'auto_repair_policy_id',
+        'maxParallelRepairingNodes' => 'max_parallel_repairing_nodes',
+        'maxUnhealthyNodesThreshold' => 'max_unhealthy_nodes_threshold',
         'restartNode' => 'restart_node',
     ];
 
@@ -42,6 +54,14 @@ class autoRepairPolicy extends Model
 
         if (null !== $this->autoRepairPolicyId) {
             $res['auto_repair_policy_id'] = $this->autoRepairPolicyId;
+        }
+
+        if (null !== $this->maxParallelRepairingNodes) {
+            $res['max_parallel_repairing_nodes'] = $this->maxParallelRepairingNodes;
+        }
+
+        if (null !== $this->maxUnhealthyNodesThreshold) {
+            $res['max_unhealthy_nodes_threshold'] = $this->maxUnhealthyNodesThreshold;
         }
 
         if (null !== $this->restartNode) {
@@ -65,6 +85,14 @@ class autoRepairPolicy extends Model
 
         if (isset($map['auto_repair_policy_id'])) {
             $model->autoRepairPolicyId = $map['auto_repair_policy_id'];
+        }
+
+        if (isset($map['max_parallel_repairing_nodes'])) {
+            $model->maxParallelRepairingNodes = $map['max_parallel_repairing_nodes'];
+        }
+
+        if (isset($map['max_unhealthy_nodes_threshold'])) {
+            $model->maxUnhealthyNodesThreshold = $map['max_unhealthy_nodes_threshold'];
         }
 
         if (isset($map['restart_node'])) {

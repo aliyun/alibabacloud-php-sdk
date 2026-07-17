@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CS\V20151215\Models\DataDisk;
 use AlibabaCloud\SDK\CS\V20151215\Models\DiskInit;
 use AlibabaCloud\SDK\CS\V20151215\Models\InstanceMetadataOptions;
+use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup\cpuOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup\privatePoolOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup\resourcePoolOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\Nodepool\scalingGroup\spotPriceLimit;
@@ -29,6 +30,11 @@ class scalingGroup extends Model
      * @var bool
      */
     public $compensateWithOnDemand;
+
+    /**
+     * @var cpuOptions
+     */
+    public $cpuOptions;
 
     /**
      * @var DataDisk[]
@@ -243,6 +249,7 @@ class scalingGroup extends Model
         'autoRenew' => 'auto_renew',
         'autoRenewPeriod' => 'auto_renew_period',
         'compensateWithOnDemand' => 'compensate_with_on_demand',
+        'cpuOptions' => 'cpu_options',
         'dataDisks' => 'data_disks',
         'deploymentsetId' => 'deploymentset_id',
         'desiredSize' => 'desired_size',
@@ -289,6 +296,9 @@ class scalingGroup extends Model
 
     public function validate()
     {
+        if (null !== $this->cpuOptions) {
+            $this->cpuOptions->validate();
+        }
         if (\is_array($this->dataDisks)) {
             Model::validateArray($this->dataDisks);
         }
@@ -341,6 +351,10 @@ class scalingGroup extends Model
 
         if (null !== $this->compensateWithOnDemand) {
             $res['compensate_with_on_demand'] = $this->compensateWithOnDemand;
+        }
+
+        if (null !== $this->cpuOptions) {
+            $res['cpu_options'] = null !== $this->cpuOptions ? $this->cpuOptions->toArray($noStream) : $this->cpuOptions;
         }
 
         if (null !== $this->dataDisks) {
@@ -595,6 +609,10 @@ class scalingGroup extends Model
 
         if (isset($map['compensate_with_on_demand'])) {
             $model->compensateWithOnDemand = $map['compensate_with_on_demand'];
+        }
+
+        if (isset($map['cpu_options'])) {
+            $model->cpuOptions = cpuOptions::fromMap($map['cpu_options']);
         }
 
         if (isset($map['data_disks'])) {

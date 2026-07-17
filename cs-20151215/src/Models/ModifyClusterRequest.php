@@ -36,6 +36,11 @@ class ModifyClusterRequest extends Model
     /**
      * @var string
      */
+    public $clientToken;
+
+    /**
+     * @var string
+     */
     public $clusterName;
 
     /**
@@ -117,6 +122,7 @@ class ModifyClusterRequest extends Model
         'apiServerCustomCertSans' => 'api_server_custom_cert_sans',
         'apiServerEip' => 'api_server_eip',
         'apiServerEipId' => 'api_server_eip_id',
+        'clientToken' => 'client_token',
         'clusterName' => 'cluster_name',
         'clusterSpec' => 'cluster_spec',
         'controlPlaneConfig' => 'control_plane_config',
@@ -188,6 +194,10 @@ class ModifyClusterRequest extends Model
 
         if (null !== $this->apiServerEipId) {
             $res['api_server_eip_id'] = $this->apiServerEipId;
+        }
+
+        if (null !== $this->clientToken) {
+            $res['client_token'] = $this->clientToken;
         }
 
         if (null !== $this->clusterName) {
@@ -293,6 +303,10 @@ class ModifyClusterRequest extends Model
 
         if (isset($map['api_server_eip_id'])) {
             $model->apiServerEipId = $map['api_server_eip_id'];
+        }
+
+        if (isset($map['client_token'])) {
+            $model->clientToken = $map['client_token'];
         }
 
         if (isset($map['cluster_name'])) {
