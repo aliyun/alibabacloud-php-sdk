@@ -1,3 +1,9 @@
+2026-07-17 Version: 4.15.0
+- Support API GetComputeEngineJobDetail.
+- Support API GetComputeEngineJobLog.
+- Support API ListComputeEngineJob.
+
+
 2026-05-15 Version: 4.14.1
 - Update API CreateAdditionalVpcLink: add request parameters AdditionalAliBid.
 - Update API CreateAdditionalVpcLink: add request parameters AdditionalAliUid.

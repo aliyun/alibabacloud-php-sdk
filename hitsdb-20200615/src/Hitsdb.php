@@ -42,6 +42,10 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetAutoScalingRuleRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetAutoScalingRuleResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetClientSourceIpRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetClientSourceIpResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetComputeEngineJobDetailRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetComputeEngineJobDetailResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetComputeEngineJobLogRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetComputeEngineJobLogResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetEngineDefaultAuthResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListRequest;
@@ -88,6 +92,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRecordsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRecordsShrinkRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRulesRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListAutoScalingRulesResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListComputeEngineJobRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListComputeEngineJobResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListLdpsComputeGroupsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListLdpsComputeGroupsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\ListTagResourcesRequest;
@@ -158,6 +164,30 @@ class Hitsdb extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'hitsdb.us-west-1.aliyuncs.com',
+            'us-east-1' => 'hitsdb.us-east-1.aliyuncs.com',
+            'eu-west-1' => 'hitsdb.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'hitsdb.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'hitsdb.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'hitsdb.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'hitsdb.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shenzhen' => 'hitsdb.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'hitsdb.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'hitsdb.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'hitsdb.cn-qingdao.aliyuncs.com',
+            'cn-north-2-gov-1' => 'hitsdb.cn-north-2-gov-1.aliyuncs.com',
+            'cn-huhehaote' => 'hitsdb.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'hitsdb.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou-finance' => 'hitsdb.cn-hangzhou-finance.aliyuncs.com',
+            'cn-hangzhou' => 'hitsdb.cn-hangzhou.aliyuncs.com',
+            'cn-chengdu' => 'hitsdb.cn-chengdu.aliyuncs.com',
+            'cn-beijing' => 'hitsdb.cn-beijing.aliyuncs.com',
+            'ap-southeast-5' => 'hitsdb.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'hitsdb.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-1' => 'hitsdb.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'hitsdb.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('hitsdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -187,7 +217,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Changes a resource group to another.
+     * Moves a resource to a different resource group.
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -234,7 +264,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Changes a resource group to another.
+     * Moves a resource to a different resource group.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -900,10 +930,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Creates a Lindorm instance.
+     * Create a Lindorm instance.
      *
      * @remarks
-     * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+     * To create an instance, you must specify at least one data engine. For example, to create a wide table engine, you must specify both the **LindormNum** (node count) and **LindormSpec** (node specification) parameters. For details on data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+     * >Notice:
+     * If you do not specify any data engine parameters when you create an instance, the API call fails.
      *
      * @param request - CreateLindormInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1122,10 +1154,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Creates a Lindorm instance.
+     * Create a Lindorm instance.
      *
      * @remarks
-     * You must select at least one engine when you create a Lindorm instance. For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine types](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+     * To create an instance, you must specify at least one data engine. For example, to create a wide table engine, you must specify both the **LindormNum** (node count) and **LindormSpec** (node specification) parameters. For details on data engines and storage specifications, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select a storage specification](https://help.aliyun.com/document_detail/181971.html).
+     * >Notice:
+     * If you do not specify any data engine parameters when you create an instance, the API call fails.
      *
      * @param request - CreateLindormInstanceRequest
      *
@@ -1143,7 +1177,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 创建Lindorm实例.
+     * Creates a Lindorm V2 instance.
+     *
+     * @remarks
+     * You must specify at least one DPI engine when you create an instance. For more information about DPI engines and storage specifications, see [How to select a DPI engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+     * >Notice:
+     * If you do not specify a DPI engine parameter when you create an instance, the API call fails.
      *
      * @param request - CreateLindormV2InstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1298,7 +1337,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 创建Lindorm实例.
+     * Creates a Lindorm V2 instance.
+     *
+     * @remarks
+     * You must specify at least one DPI engine when you create an instance. For more information about DPI engines and storage specifications, see [How to select a DPI engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+     * >Notice:
+     * If you do not specify a DPI engine parameter when you create an instance, the API call fails.
      *
      * @param request - CreateLindormV2InstanceRequest
      *
@@ -1717,7 +1761,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Obtains the regions supported by Lindorm.
+     * Queries all regions where Lindorm is available.
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1776,7 +1820,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Obtains the regions supported by Lindorm.
+     * Queries all regions where Lindorm is available.
      *
      * @param request - DescribeRegionsRequest
      *
@@ -2029,6 +2073,180 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 获取计算引擎作业详情.
+     *
+     * @param request - GetComputeEngineJobDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetComputeEngineJobDetailResponse
+     *
+     * @param GetComputeEngineJobDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetComputeEngineJobDetailResponse
+     */
+    public function getComputeEngineJobDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetComputeEngineJobDetail',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetComputeEngineJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取计算引擎作业详情.
+     *
+     * @param request - GetComputeEngineJobDetailRequest
+     *
+     * @returns GetComputeEngineJobDetailResponse
+     *
+     * @param GetComputeEngineJobDetailRequest $request
+     *
+     * @return GetComputeEngineJobDetailResponse
+     */
+    public function getComputeEngineJobDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getComputeEngineJobDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取计算引擎作业日志.
+     *
+     * @param request - GetComputeEngineJobLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetComputeEngineJobLogResponse
+     *
+     * @param GetComputeEngineJobLogRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetComputeEngineJobLogResponse
+     */
+    public function getComputeEngineJobLogWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetComputeEngineJobLog',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetComputeEngineJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取计算引擎作业日志.
+     *
+     * @param request - GetComputeEngineJobLogRequest
+     *
+     * @returns GetComputeEngineJobLogResponse
+     *
+     * @param GetComputeEngineJobLogRequest $request
+     *
+     * @return GetComputeEngineJobLogResponse
+     */
+    public function getComputeEngineJobLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getComputeEngineJobLogWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - GetEngineDefaultAuthRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2106,7 +2324,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Queries the whitelists configured for a Lindorm instance.
+     * Retrieves the access whitelist for a Lindorm instance.
      *
      * @param request - GetInstanceIpWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2165,7 +2383,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Queries the whitelists configured for a Lindorm instance.
+     * Retrieves the access whitelist for a Lindorm instance.
      *
      * @param request - GetInstanceIpWhiteListRequest
      *
@@ -2256,6 +2474,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * Retrieves a summary of Lindorm instances in your account.
+     *
      * @param request - GetInstanceSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2313,6 +2533,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * Retrieves a summary of Lindorm instances in your account.
+     *
      * @param request - GetInstanceSummaryRequest
      *
      * @returns GetInstanceSummaryResponse
@@ -2665,10 +2887,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Queries the details of each storage type in a Lindorm instance.
+     * Retrieves the storage details for each storage medium in a specified Lindorm instance.
      *
      * @remarks
-     * If the version of the underlying storage engine in a Lindorm cluster is 4.1.9 or later, the storage usage values returned for the LStorageUsageList parameter prevail.
+     * For Lindorm clusters with a storage version of 4.1.9 or later, storage usage details are available in the list returned by `LStorageUsageList`.
      *
      * @param request - GetLindormFsUsedDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2731,10 +2953,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Queries the details of each storage type in a Lindorm instance.
+     * Retrieves the storage details for each storage medium in a specified Lindorm instance.
      *
      * @remarks
-     * If the version of the underlying storage engine in a Lindorm cluster is 4.1.9 or later, the storage usage values returned for the LStorageUsageList parameter prevail.
+     * For Lindorm clusters with a storage version of 4.1.9 or later, storage usage details are available in the list returned by `LStorageUsageList`.
      *
      * @param request - GetLindormFsUsedDetailRequest
      *
@@ -2752,7 +2974,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
+     * Retrieves detailed information about a Lindorm instance, including its instance type, billing method, and VPC.
      *
      * @param request - GetLindormInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2811,7 +3033,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Obtains the detailed information about a Lindorm instance, including the instance type, billing method, and VPC.
+     * Retrieves detailed information about a Lindorm instance, including its instance type, billing method, and VPC.
      *
      * @param request - GetLindormInstanceRequest
      *
@@ -2829,7 +3051,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Obtains the engine types supported by the specified Lindorm instance.
+     * Queries the engine types that a Lindorm instance supports.
      *
      * @param request - GetLindormInstanceEngineListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2892,7 +3114,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Obtains the engine types supported by the specified Lindorm instance.
+     * Queries the engine types that a Lindorm instance supports.
      *
      * @param request - GetLindormInstanceEngineListRequest
      *
@@ -2910,7 +3132,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Queries the instances that meet the specified conditions.
+     * Queries a list of Lindorm instances.
      *
      * @param request - GetLindormInstanceListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2997,7 +3219,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Queries the instances that meet the specified conditions.
+     * Queries a list of Lindorm instances.
      *
      * @param request - GetLindormInstanceListRequest
      *
@@ -3092,7 +3314,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 查询新架构实例详情.
+     * Queries the details of an instance that uses the new architecture.
+     *
+     * @remarks
+     * For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the values in the list returned by LStorageUsageList for storage usage details.
      *
      * @param request - GetLindormV2InstanceDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3151,7 +3376,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 查询新架构实例详情.
+     * Queries the details of an instance that uses the new architecture.
+     *
+     * @remarks
+     * For Lindorm clusters with an underlying storage version of 4.1.9 or later, refer to the values in the list returned by LStorageUsageList for storage usage details.
      *
      * @param request - GetLindormV2InstanceDetailsRequest
      *
@@ -3400,6 +3628,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * Retrieves the storage details for each storage medium of a specific Lindorm instance that uses the new architecture.
+     *
      * @param request - GetLindormV2StorageUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -3457,6 +3687,8 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * Retrieves the storage details for each storage medium of a specific Lindorm instance that uses the new architecture.
+     *
      * @param request - GetLindormV2StorageUsageRequest
      *
      * @returns GetLindormV2StorageUsageResponse
@@ -3809,6 +4041,119 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
+     * 查询计算引擎作业列表.
+     *
+     * @param request - ListComputeEngineJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListComputeEngineJobResponse
+     *
+     * @param ListComputeEngineJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListComputeEngineJobResponse
+     */
+    public function listComputeEngineJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->computeGroup) {
+            @$query['ComputeGroup'] = $request->computeGroup;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
+        }
+
+        if (null !== $request->jobName) {
+            @$query['JobName'] = $request->jobName;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->securityToken) {
+            @$query['SecurityToken'] = $request->securityToken;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListComputeEngineJob',
+            'version' => '2020-06-15',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListComputeEngineJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询计算引擎作业列表.
+     *
+     * @param request - ListComputeEngineJobRequest
+     *
+     * @returns ListComputeEngineJobResponse
+     *
+     * @param ListComputeEngineJobRequest $request
+     *
+     * @return ListComputeEngineJobResponse
+     */
+    public function listComputeEngineJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listComputeEngineJobWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取计算引擎资源组列表.
      *
      * @param request - ListLdpsComputeGroupsRequest
@@ -3890,7 +4235,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Queries the tags associated with the specified Lindorm instance.
+     * Get Lindorm instance-to-tag bindings.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3965,7 +4310,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Queries the tags associated with the specified Lindorm instance.
+     * Get Lindorm instance-to-tag bindings.
      *
      * @param request - ListTagResourcesRequest
      *
@@ -4356,11 +4701,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of the specified Lindorm instance.
+     * Changes the billing method of a Lindorm instance.
      *
      * @remarks
-     * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/en/pricing-calculator?spm=a2c63.p38356.0.0.2b024c2adcHeXL&_p_lc=1#/commodity/hitsdb_lindormpre_public_intl) of Lindorm. Published on only international site (alibabacloud.com).
+     * Switches the billing method of an instance between subscription and pay-as-you-go.
+     * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn)
+     * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1\\&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl) of Lindorm.
      *
      * @param request - ModifyInstancePayTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4431,11 +4777,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of the specified Lindorm instance.
+     * Changes the billing method of a Lindorm instance.
      *
      * @remarks
-     * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/en/pricing-calculator?spm=a2c63.p38356.0.0.2b024c2adcHeXL&_p_lc=1#/commodity/hitsdb_lindormpre_public_intl) of Lindorm. Published on only international site (alibabacloud.com).
+     * Switches the billing method of an instance between subscription and pay-as-you-go.
+     * Before you call this operation, make sure that you understand the billing methods and <props="china">[pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn)
+     * <props="intl">[pricing](https://www.alibabacloud.com/zh/pricing-calculator?_p_lc=1\\&spm=a2796.7960336.3034855210.1.7396b91aC5VjZ7#/commodity/vm_intl) of Lindorm.
      *
      * @param request - ModifyInstancePayTypeRequest
      *
@@ -5056,7 +5403,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 释放实例.
+     * Releases a Lindorm instance.
      *
      * @param request - ReleaseLindormV2InstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5119,7 +5466,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 释放实例.
+     * Releases a Lindorm instance.
      *
      * @param request - ReleaseLindormV2InstanceRequest
      *
@@ -5140,7 +5487,7 @@ class Hitsdb extends OpenApiClient
      * Renews a subscription Lindorm instance.
      *
      * @remarks
-     * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+     * You can renew a subscription instance for a specific duration. The renewal period can be specified in months (1 to 9) or years (1 to 3).
      * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
      *
      * @param request - RenewLindormInstanceRequest
@@ -5215,7 +5562,7 @@ class Hitsdb extends OpenApiClient
      * Renews a subscription Lindorm instance.
      *
      * @remarks
-     * You can call this operation to renew a subscription Lindorm instance for 1 to 9 months or 1 to 3 years.
+     * You can renew a subscription instance for a specific duration. The renewal period can be specified in months (1 to 9) or years (1 to 3).
      * Before you call this operation, make sure that you fully understand the billing methods and pricing of Lindorm.
      *
      * @param request - RenewLindormInstanceRequest
@@ -5400,13 +5747,13 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the MySQL compatibility feature for a Lindorm instance.
+     * Enables or disables the Lindorm protocol that is compatible with MySQL.
      *
      * @remarks
-     * Prerequisites
-     * *   The LindormTable version of your instance is 2.6.0 or later.
-     * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
-     * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+     * Before you call this operation, make sure that the following requirements are met:
+     * - The version of LindormTable for the instance is 2.6.0 or later.
+     * - LindormTable supports Lindorm SQL (LSQL) V3. You can check whether LSQL V3 is supported by calling the GetLindormInstance operation. If the EnableLsqlVersionV3 parameter in the response is true, LSQL V3 is supported. For instances that are purchased after October 24, 2023, this feature is enabled by default. For existing instances, contact Alibaba Cloud support for an evaluation before enabling this feature.
+     * You can enable the MySQL protocol only if the two preceding conditions are met.
      *
      * @param request - SwitchLSQLV3MySQLServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5469,13 +5816,13 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Enables or disables the MySQL compatibility feature for a Lindorm instance.
+     * Enables or disables the Lindorm protocol that is compatible with MySQL.
      *
      * @remarks
-     * Prerequisites
-     * *   The LindormTable version of your instance is 2.6.0 or later.
-     * *   The LindormTable of your instance supports LindormSQL V3. The value of the EnableLsqlVersionV3 parameter in the response of the GetLindormInstance operation is true for Lindorm instances purchased after Oct 24, 2023, which indicates that LindormSQL is supported by these instances by default. If you want to enable LindormSQL for instances purchased before Oct 24, 2023, contact the on-duty technical support.
-     * You can enable the MySQL compatibility feature for a Lindorm instance only when the instance meets the preceding requirements.
+     * Before you call this operation, make sure that the following requirements are met:
+     * - The version of LindormTable for the instance is 2.6.0 or later.
+     * - LindormTable supports Lindorm SQL (LSQL) V3. You can check whether LSQL V3 is supported by calling the GetLindormInstance operation. If the EnableLsqlVersionV3 parameter in the response is true, LSQL V3 is supported. For instances that are purchased after October 24, 2023, this feature is enabled by default. For existing instances, contact Alibaba Cloud support for an evaluation before enabling this feature.
+     * You can enable the MySQL protocol only if the two preceding conditions are met.
      *
      * @param request - SwitchLSQLV3MySQLServiceRequest
      *
@@ -5493,7 +5840,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Adds tags to one or more Lindorm instances.
+     * Attaches tags to one or more Lindorm instances.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5564,7 +5911,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Adds tags to one or more Lindorm instances.
+     * Attaches tags to one or more Lindorm instances.
      *
      * @param request - TagResourcesRequest
      *
@@ -5582,10 +5929,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Removes tags from a Lindorm instance.
+     * Detaches tags from Lindorm instances.
      *
      * @remarks
-     * If a tag is not added to any Lindorm instance, it is deleted.
+     * If a tag is not attached to any Lindorm instance, the tag is deleted.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5656,10 +6003,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Removes tags from a Lindorm instance.
+     * Detaches tags from Lindorm instances.
      *
      * @remarks
-     * If a tag is not added to any Lindorm instance, it is deleted.
+     * If a tag is not attached to any Lindorm instance, the tag is deleted.
      *
      * @param request - UntagResourcesRequest
      *
@@ -5677,7 +6024,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Configures an IP address whitelist for a Lindorm instance.
+     * Sets the access whitelist for a Lindorm instance.
      *
      * @param request - UpdateInstanceIpWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5748,7 +6095,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Configures an IP address whitelist for a Lindorm instance.
+     * Sets the access whitelist for a Lindorm instance.
      *
      * @param request - UpdateInstanceIpWhiteListRequest
      *
@@ -5928,7 +6275,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 更新实例名称或删除保护.
+     * Updates the name or deletion protection settings of an instance.
+     *
+     * @remarks
+     * You must select at least one data engine when you create an instance. For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable nodes) and **LindormSpec** (node specifications for LindormTable) parameters. For more information, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+     * >Notice:
+     * If you do not specify data engine parameters when you create an instance, the API call fails.
      *
      * @param request - UpdateLindormInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5995,7 +6347,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 更新实例名称或删除保护.
+     * Updates the name or deletion protection settings of an instance.
+     *
+     * @remarks
+     * You must select at least one data engine when you create an instance. For example, to create a LindormTable engine, you must specify both the **LindormNum** (number of LindormTable nodes) and **LindormSpec** (node specifications for LindormTable) parameters. For more information, see [How to select a data engine](https://help.aliyun.com/document_detail/174643.html) and [How to select storage specifications](https://help.aliyun.com/document_detail/181971.html).
+     * >Notice:
+     * If you do not specify data engine parameters when you create an instance, the API call fails.
      *
      * @param request - UpdateLindormInstanceAttributeRequest
      *
@@ -6013,7 +6370,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 更新LindormV2Instance.
+     * Updates a Lindorm instance.
      *
      * @param request - UpdateLindormV2InstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6096,7 +6453,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 更新LindormV2Instance.
+     * Updates a Lindorm instance.
      *
      * @param request - UpdateLindormV2InstanceRequest
      *
@@ -6199,7 +6556,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 修改Lindorm新版实例白名单分组列表.
+     * Modifies the IP whitelists for a LindormV2 instance.
      *
      * @param request - UpdateLindormV2WhiteIpListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6266,7 +6623,7 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * 修改Lindorm新版实例白名单分组列表.
+     * Modifies the IP whitelists for a LindormV2 instance.
      *
      * @param request - UpdateLindormV2WhiteIpListRequest
      *
@@ -6284,10 +6641,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+     * Enable cold storage for a Lindorm instance, change the node specification or the number of nodes, and adjust the storage space.
      *
      * @remarks
-     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+     * For information about how to select the data engine and storage type for a Lindorm instance, see [Select a data engine](https://help.aliyun.com/document_detail/174643.html) and [Select a storage type](https://help.aliyun.com/document_detail/181971.html).
      *
      * @param request - UpgradeLindormInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6430,10 +6787,10 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+     * Enable cold storage for a Lindorm instance, change the node specification or the number of nodes, and adjust the storage space.
      *
      * @remarks
-     * For more information about how to select the storage type and engine type when you create a Lindorm instance, see [Select engine typpes](https://help.aliyun.com/document_detail/181971.html) and [Select storage types](https://help.aliyun.com/document_detail/174643.html).
+     * For information about how to select the data engine and storage type for a Lindorm instance, see [Select a data engine](https://help.aliyun.com/document_detail/174643.html) and [Select a storage type](https://help.aliyun.com/document_detail/181971.html).
      *
      * @param request - UpgradeLindormInstanceRequest
      *
