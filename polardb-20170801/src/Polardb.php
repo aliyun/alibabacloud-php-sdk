@@ -817,6 +817,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeZonalResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartPolarClawGatewayRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartPolarClawGatewayResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreTableRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreTableResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RevokeAccountPrivilegeRequest;
@@ -13531,10 +13533,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific application in a PolarDB instance.
+     * Retrieves the detailed information of a specified PolarDB application.
      *
      * @remarks
-     * Retrieves all information about a specific PolarDB application, such as component details and endpoints.
+     * This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13573,10 +13575,10 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of a specific application in a PolarDB instance.
+     * Retrieves the detailed information of a specified PolarDB application.
      *
      * @remarks
-     * Retrieves all information about a specific PolarDB application, such as component details and endpoints.
+     * This API is used to query all related information of a specific PolarDB application, including but not limited to component details and endpoints.
      *
      * @param request - DescribeApplicationAttributeRequest
      *
@@ -34740,6 +34742,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartDBNodeZonalWithOptions($request, $runtime);
+    }
+
+    /**
+     * Restarts a PolarClaw gateway.
+     *
+     * @param request - RestartPolarClawGatewayRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartPolarClawGatewayResponse
+     *
+     * @param RestartPolarClawGatewayRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RestartPolarClawGatewayResponse
+     */
+    public function restartPolarClawGatewayWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartPolarClawGateway',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartPolarClawGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restarts a PolarClaw gateway.
+     *
+     * @param request - RestartPolarClawGatewayRequest
+     *
+     * @returns RestartPolarClawGatewayResponse
+     *
+     * @param RestartPolarClawGatewayRequest $request
+     *
+     * @return RestartPolarClawGatewayResponse
+     */
+    public function restartPolarClawGateway($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartPolarClawGatewayWithOptions($request, $runtime);
     }
 
     /**

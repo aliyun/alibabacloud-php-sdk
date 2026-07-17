@@ -16,6 +16,11 @@ class endpoints extends Model
     /**
      * @var string
      */
+    public $domain;
+
+    /**
+     * @var string
+     */
     public $endpointId;
 
     /**
@@ -39,6 +44,7 @@ class endpoints extends Model
     public $portDescription;
     protected $_name = [
         'description' => 'Description',
+        'domain' => 'Domain',
         'endpointId' => 'EndpointId',
         'IP' => 'IP',
         'netType' => 'NetType',
@@ -56,6 +62,10 @@ class endpoints extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         if (null !== $this->endpointId) {
@@ -91,6 +101,10 @@ class endpoints extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
 
         if (isset($map['EndpointId'])) {
