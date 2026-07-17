@@ -106,6 +106,8 @@ use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteRecursionZoneRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteRecursionZoneResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteSubDomainRecordsRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DeleteSubDomainRecordsResponse;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiAgentRegisterInfoMarketRequest;
+use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiAgentRegisterInfoMarketResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiAgentRegisterInfoRequest;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiAgentRegisterInfoResponse;
 use AlibabaCloud\SDK\Alidns\V20150109\Models\DescribeAtiAlertSettingsRequest;
@@ -4338,6 +4340,79 @@ class Alidns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAtiAgentRegisterInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 为sdk查询agent信息功能.
+     *
+     * @param request - DescribeAtiAgentRegisterInfoMarketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAtiAgentRegisterInfoMarketResponse
+     *
+     * @param DescribeAtiAgentRegisterInfoMarketRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeAtiAgentRegisterInfoMarketResponse
+     */
+    public function describeAtiAgentRegisterInfoMarketWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentHost) {
+            @$query['AgentHost'] = $request->agentHost;
+        }
+
+        if (null !== $request->agentVersion) {
+            @$query['AgentVersion'] = $request->agentVersion;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAtiAgentRegisterInfoMarket',
+            'version' => '2015-01-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAtiAgentRegisterInfoMarketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 为sdk查询agent信息功能.
+     *
+     * @param request - DescribeAtiAgentRegisterInfoMarketRequest
+     *
+     * @returns DescribeAtiAgentRegisterInfoMarketResponse
+     *
+     * @param DescribeAtiAgentRegisterInfoMarketRequest $request
+     *
+     * @return DescribeAtiAgentRegisterInfoMarketResponse
+     */
+    public function describeAtiAgentRegisterInfoMarket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAtiAgentRegisterInfoMarketWithOptions($request, $runtime);
     }
 
     /**
