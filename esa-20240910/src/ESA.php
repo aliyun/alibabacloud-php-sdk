@@ -557,6 +557,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserLogDeliveryQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserLogDeliveryQuotaResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserMaxPlanQuotaRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserMaxPlanQuotaResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserWafRulesetRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetUserWafRulesetResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetVideoProcessingRequest;
@@ -576,6 +578,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListAsyncTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListAsyncTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListAWSRegionInfosRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListAWSRegionInfosResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListBotInstancesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListBotInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheRulesRequest;
@@ -635,6 +639,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasWithUsageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstancesQuotaRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListInstancesQuotaResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListKeylessServersRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListKeylessServersResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListKvsRequest;
@@ -667,6 +673,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidRatePlanInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidRatePlanInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidSitePlansRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPostpaidSitePlansResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListQuotasMinEffectPlanRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListQuotasMinEffectPlanResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRedirectRulesRequest;
@@ -740,6 +748,11 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ModifyInstanceFeaturesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ModifyInstanceFeaturesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ModifyInstanceFeaturesShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ModifySiteFeaturesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ModifySiteFeaturesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\OpenEdgeContainerRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\OpenEdgeContainerResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\OpenErServiceRequest;
@@ -3451,7 +3464,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+     * Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
      * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
      *
      * @param Request - CreateEdgeContainerAppRequest
@@ -3543,7 +3556,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an application for edge containers. You can deploy and publish application versions to containerize edge services.
+     * Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
      * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
      *
      * @param Request - CreateEdgeContainerAppRequest
@@ -3631,7 +3644,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+     * Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
      *
      * @param Request - CreateEdgeContainerAppRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3678,7 +3691,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+     * Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
      *
      * @param Request - CreateEdgeContainerAppRecordRequest
      *
@@ -3696,7 +3709,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an edge container application version. You can iteratively publish applications by version.
+     * Creates an edge container application version. You can iteratively release applications by version.
      * Note:
      * 1) Your account must have an ESA plan with the Edge Container feature enabled.
      * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
@@ -3757,7 +3770,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an edge container application version. You can iteratively publish applications by version.
+     * Creates an edge container application version. You can iteratively release applications by version.
      * Note:
      * 1) Your account must have an ESA plan with the Edge Container feature enabled.
      * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
@@ -8119,9 +8132,9 @@ class ESA extends OpenApiClient
 
     /**
      * Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
-     * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
-     * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
-     * 3) Provide a complete three-step call example: create → bindomain → delete.
+     * Note: 1) You must first call CreateEdgeContainerApp to create an edge container application and record the returned AppId.
+     * 2) You must first call CreateEdgeContainerAppRecord to bind a domain name record (RecordName) to the application.
+     * 3) A complete three-step call example of create, bind, and delete is provided.
      *
      * @param Request - DeleteEdgeContainerAppRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8169,9 +8182,9 @@ class ESA extends OpenApiClient
 
     /**
      * Deletes an associated domain name from an edge container application. After deletion, the edge container service can no longer be accessed through this domain name.
-     * Note: 1) Call CreateEdgeContainerApp first to create an edge container application and record the returned AppId.
-     * 2) Call CreateEdgeContainerAppRecord first to bindomain name record (RecordName) to the application.
-     * 3) Provide a complete three-step call example: create → bindomain → delete.
+     * Note: 1) You must first call CreateEdgeContainerApp to create an edge container application and record the returned AppId.
+     * 2) You must first call CreateEdgeContainerAppRecord to bind a domain name record (RecordName) to the application.
+     * 3) A complete three-step call example of create, bind, and delete is provided.
      *
      * @param Request - DeleteEdgeContainerAppRecordRequest
      *
@@ -12518,17 +12531,17 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query traffic analysis time series data.
+     * Queries network traffic analysis timing data at the account dimension or site dimension.
      *
      * @remarks
-     * - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
-     * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
-     *   * For a span of 3 hours or less, it returns 1-minute granularity data.
-     *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
-     *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
-     *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
-     *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
-     * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+     * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+     *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+     *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+     *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+     *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+     *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+     * - Due to the large number of access requests during the query time range, data analytics results may involve sampling.
      *
      * @param tmpReq - DescribeSiteTimeSeriesDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12589,17 +12602,17 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Query traffic analysis time series data.
+     * Queries network traffic analysis timing data at the account dimension or site dimension.
      *
      * @remarks
-     * - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
-     * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
-     *   * For a span of 3 hours or less, it returns 1-minute granularity data.
-     *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
-     *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
-     *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
-     *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
-     * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+     * - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
+     * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+     *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
+     *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
+     *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
+     *   * Greater than 1 day and less than or equal to 10 days: returns data at 1-hour granularity.
+     *   * Greater than 10 days and less than or equal to 31 days: returns data at 1-day granularity.
+     * - Due to the large number of access requests during the query time range, data analytics results may involve sampling.
      *
      * @param Request - DescribeSiteTimeSeriesDataRequest
      *
@@ -12965,7 +12978,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the page monitoring data.
+     * Queries web page observation quality data.
+     *
+     * @remarks
+     * If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
      *
      * @param Request - DescribeUrlObservationDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13024,7 +13040,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the page monitoring data.
+     * Queries web page observation quality data.
+     *
+     * @remarks
+     * If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
      *
      * @param Request - DescribeUrlObservationDataRequest
      *
@@ -14583,7 +14602,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the information about a containerized application, including basic application configurations and health check configurations.
+     * Retrieves application information for an edge container, including basic application configurations and health check settings.
      *
      * @param Request - GetEdgeContainerAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14622,7 +14641,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the information about a containerized application, including basic application configurations and health check configurations.
+     * Retrieves application information for an edge container, including basic application configurations and health check settings.
      *
      * @param Request - GetEdgeContainerAppRequest
      *
@@ -14864,7 +14883,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+     * Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
      *
      * @param Request - GetEdgeContainerAppStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14907,7 +14926,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+     * Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
      *
      * @param Request - GetEdgeContainerAppStatusRequest
      *
@@ -14925,7 +14944,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+     * Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
      *
      * @param Request - GetEdgeContainerAppVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14960,7 +14979,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+     * Retrieves the version information of an edge container application. You can use the version information to select a specific version for publishing.
      *
      * @param Request - GetEdgeContainerAppVersionRequest
      *
@@ -18514,6 +18533,69 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries the maximum value of a numeric quota across all plans under a user account.
+     *
+     * @remarks
+     * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+     *
+     * @param Request - GetUserMaxPlanQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserMaxPlanQuotaResponse
+     *
+     * @param GetUserMaxPlanQuotaRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetUserMaxPlanQuotaResponse
+     */
+    public function getUserMaxPlanQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->quotaName) {
+            @$query['QuotaName'] = $request->quotaName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUserMaxPlanQuota',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUserMaxPlanQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the maximum value of a numeric quota across all plans under a user account.
+     *
+     * @remarks
+     * This operation allows you to query the real-time log delivery quota for different business types in your Alibaba Cloud account. You must provide your Alibaba Cloud user ID (aliUid) and the business type (BusinessType). The system returns the remaining quota for the specified business type, helping you understand the current quota usage.
+     *
+     * @param Request - GetUserMaxPlanQuotaRequest
+     *
+     * @returns GetUserMaxPlanQuotaResponse
+     *
+     * @param GetUserMaxPlanQuotaRequest $request
+     *
+     * @return GetUserMaxPlanQuotaResponse
+     */
+    public function getUserMaxPlanQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserMaxPlanQuotaWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of a WAF ruleset for a specified instance.
      *
      * @remarks
@@ -19098,7 +19180,84 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the cache reserve instances for your account.
+     * Queries the list of Bot security instances.
+     *
+     * @param Request - ListBotInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBotInstancesResponse
+     *
+     * @param ListBotInstancesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListBotInstancesResponse
+     */
+    public function listBotInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListBotInstances',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListBotInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of Bot security instances.
+     *
+     * @param Request - ListBotInstancesRequest
+     *
+     * @returns ListBotInstancesResponse
+     *
+     * @param ListBotInstancesRequest $request
+     *
+     * @return ListBotInstancesResponse
+     */
+    public function listBotInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBotInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of cache reserve instances for the current user.
      *
      * @param Request - ListCacheReserveInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19133,7 +19292,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the cache reserve instances for your account.
+     * Queries the list of cache reserve instances for the current user.
      *
      * @param Request - ListCacheReserveInstancesRequest
      *
@@ -20039,7 +20198,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists versions of all containerized applications.
+     * Retrieves the version list of an edge container application, including information about all successfully created applications.
      *
      * @param Request - ListEdgeContainerAppVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20074,7 +20233,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists versions of all containerized applications.
+     * Retrieves the version list of an edge container application, including information about all successfully created applications.
      *
      * @param Request - ListEdgeContainerAppVersionsRequest
      *
@@ -20092,7 +20251,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries all containerized applications in your Alibaba Cloud account.
+     * Retrieves a list of edge container applications, including all edge applications created under the current account.
      *
      * @param Request - ListEdgeContainerAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20151,7 +20310,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries all containerized applications in your Alibaba Cloud account.
+     * Retrieves a list of edge container applications, including all edge applications created under the current account.
      *
      * @param Request - ListEdgeContainerAppsRequest
      *
@@ -20851,6 +21010,69 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstanceQuotasWithUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the quota information of multiple instances.
+     *
+     * @param Request - ListInstancesQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstancesQuotaResponse
+     *
+     * @param ListInstancesQuotaRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInstancesQuotaResponse
+     */
+    public function listInstancesQuotaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->quotaName) {
+            @$query['QuotaName'] = $request->quotaName;
+        }
+
+        $body = [];
+        if (null !== $request->instanceIds) {
+            @$body['InstanceIds'] = $request->instanceIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListInstancesQuota',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListInstancesQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the quota information of multiple instances.
+     *
+     * @param Request - ListInstancesQuotaRequest
+     *
+     * @returns ListInstancesQuotaResponse
+     *
+     * @param ListInstancesQuotaRequest $request
+     *
+     * @return ListInstancesQuotaResponse
+     */
+    public function listInstancesQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listInstancesQuotaWithOptions($request, $runtime);
     }
 
     /**
@@ -21731,6 +21953,59 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPostpaidSitePlansWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+     *
+     * @param Request - ListQuotasMinEffectPlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQuotasMinEffectPlanResponse
+     *
+     * @param ListQuotasMinEffectPlanRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListQuotasMinEffectPlanResponse
+     */
+    public function listQuotasMinEffectPlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListQuotasMinEffectPlan',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListQuotasMinEffectPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+     *
+     * @param Request - ListQuotasMinEffectPlanRequest
+     *
+     * @returns ListQuotasMinEffectPlanResponse
+     *
+     * @param ListQuotasMinEffectPlanRequest $request
+     *
+     * @return ListQuotasMinEffectPlanResponse
+     */
+    public function listQuotasMinEffectPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listQuotasMinEffectPlanWithOptions($request, $runtime);
     }
 
     /**
@@ -23962,6 +24237,138 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Modifies the feature configurations of a plan instance.
+     *
+     * @param tmpReq - ModifyInstanceFeaturesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceFeaturesResponse
+     *
+     * @param ModifyInstanceFeaturesRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyInstanceFeaturesResponse
+     */
+    public function modifyInstanceFeaturesWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyInstanceFeaturesShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->siteFeatures) {
+            $request->siteFeaturesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->siteFeatures, 'SiteFeatures', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->siteFeaturesShrink) {
+            @$query['SiteFeatures'] = $request->siteFeaturesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInstanceFeatures',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInstanceFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the feature configurations of a plan instance.
+     *
+     * @param Request - ModifyInstanceFeaturesRequest
+     *
+     * @returns ModifyInstanceFeaturesResponse
+     *
+     * @param ModifyInstanceFeaturesRequest $request
+     *
+     * @return ModifyInstanceFeaturesResponse
+     */
+    public function modifyInstanceFeatures($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceFeaturesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Disables plan-related configurations with one click when changing the plan for a site.
+     *
+     * @param Request - ModifySiteFeaturesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySiteFeaturesResponse
+     *
+     * @param ModifySiteFeaturesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifySiteFeaturesResponse
+     */
+    public function modifySiteFeaturesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->newInstanceId) {
+            @$query['NewInstanceId'] = $request->newInstanceId;
+        }
+
+        if (null !== $request->siteFeatures) {
+            @$query['SiteFeatures'] = $request->siteFeatures;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifySiteFeatures',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifySiteFeaturesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Disables plan-related configurations with one click when changing the plan for a site.
+     *
+     * @param Request - ModifySiteFeaturesRequest
+     *
+     * @returns ModifySiteFeaturesResponse
+     *
+     * @param ModifySiteFeaturesRequest $request
+     *
+     * @return ModifySiteFeaturesResponse
+     */
+    public function modifySiteFeatures($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySiteFeaturesWithOptions($request, $runtime);
+    }
+
+    /**
      * Activates the edge container service.
      *
      * @param Request - OpenEdgeContainerRequest
@@ -24151,7 +24558,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Releases a specific version of a containerized application.
+     * Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
      *
      * @param tmpReq - PublishEdgeContainerAppVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24230,7 +24637,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Releases a specific version of a containerized application.
+     * Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
      *
      * @param Request - PublishEdgeContainerAppVersionRequest
      *

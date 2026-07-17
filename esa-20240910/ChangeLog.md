@@ -1,3 +1,12 @@
+2026-07-17 Version: 3.7.0
+- Support API GetUserMaxPlanQuota.
+- Support API ListBotInstances.
+- Support API ListInstancesQuota.
+- Support API ListQuotasMinEffectPlan.
+- Support API ModifyInstanceFeatures.
+- Support API ModifySiteFeatures.
+
+
 2026-07-16 Version: 3.6.0
 - Support API CloneVersion.
 - Support API CreateEnvironment.
