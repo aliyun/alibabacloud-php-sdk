@@ -1,3 +1,6 @@
+2026-07-20 Version: 1.1.1
+- Generated php 2026-04-24 for RiskManagement.
+
 2026-07-20 Version: 1.1.0
 - Support API DescribeVersionConfig.
 - Support API GetCompliancePackId.
