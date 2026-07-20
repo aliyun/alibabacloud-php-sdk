@@ -25,6 +25,9 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeServiceLinkedRoleSt
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeSuspEventsRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeSuspEventsResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeSuspEventsShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeVersionConfigRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeVersionConfigResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\DescribeVersionConfigShrinkRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAlertRecordAnalysisResultRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAlertRecordAnalysisResultResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAlertRecordAnalysisResultShrinkRequest;
@@ -34,8 +37,30 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetAliYunSafeCenterResultSh
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetCanTrySasRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetCanTrySasResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetCanTrySasShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetCompliancePackIdRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetCompliancePackIdResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetDisposalToolStatusRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetDisposalToolStatusResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetNotificationClickRecordRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetNotificationClickRecordResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetNotificationContactsRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetNotificationContactsResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetNotificationPendNumberRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetNotificationPendNumberResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetResourceControlEventRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetResourceControlEventResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetResourceControlEventShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetSecurityCheckBaseInfoRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetSecurityCheckBaseInfoResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetSecurityCheckResultBaseInfoRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetSecurityCheckResultBaseInfoResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetSecuritySuggestionListRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetSecuritySuggestionListResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetSecuritySuggestionListShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetSecuritySuggestionNumberRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetSecuritySuggestionNumberResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetServiceLinkedRoleStatusRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetServiceLinkedRoleStatusResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetValidDeductInstancesRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetValidDeductInstancesResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\GetValidDeductInstancesShrinkRequest;
@@ -46,13 +71,27 @@ use AlibabaCloud\SDK\RiskManagement\V20260424\Models\ListVirusScanMachineEventRe
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\ListVirusScanMachineEventResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\OpenTrialPackageRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\OpenTrialPackageResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryAccountSafetyIncidentResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryGuideSubStatusRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryGuideSubStatusResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryResourceControlEventsRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryResourceControlEventsResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QueryResourceControlEventsShrinkRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QuerySecurityCheckReportRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\QuerySecurityCheckReportResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\StartDisposalToolServiceRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\StartDisposalToolServiceResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\StartSecurityCheckServiceRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\StartSecurityCheckServiceResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitApplyRecordRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitApplyRecordResponse;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\SubmitApplyRecordShrinkRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\UpdatePostPaidBindRelRequest;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\UpdatePostPaidBindRelResponse;
 use AlibabaCloud\SDK\RiskManagement\V20260424\Models\UpdatePostPaidBindRelShrinkRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\UpdateSecurityCheckResultRequest;
+use AlibabaCloud\SDK\RiskManagement\V20260424\Models\UpdateSecurityCheckResultResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -63,7 +102,7 @@ class RiskManagement extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('riskmanagement', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -560,6 +599,73 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
+     * sas-查看已购买的云安全中心实例的版本详情.
+     *
+     * @param tmpReq - DescribeVersionConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeVersionConfigResponse
+     *
+     * @param DescribeVersionConfigRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeVersionConfigResponse
+     */
+    public function describeVersionConfigWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeVersionConfigShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sdkRequest) {
+            $request->sdkRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sdkRequest, 'SdkRequest', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->sdkRequestShrink) {
+            @$query['SdkRequest'] = $request->sdkRequestShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeVersionConfig',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeVersionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * sas-查看已购买的云安全中心实例的版本详情.
+     *
+     * @param request - DescribeVersionConfigRequest
+     *
+     * @returns DescribeVersionConfigResponse
+     *
+     * @param DescribeVersionConfigRequest $request
+     *
+     * @return DescribeVersionConfigResponse
+     */
+    public function describeVersionConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVersionConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取告警记录分析结果.
      *
      * @param tmpReq - GetAlertRecordAnalysisResultRequest
@@ -833,6 +939,56 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
+     * 获取安全合规包id.
+     *
+     * @param request - GetCompliancePackIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCompliancePackIdResponse
+     *
+     * @param GetCompliancePackIdRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetCompliancePackIdResponse
+     */
+    public function getCompliancePackIdWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetCompliancePackId',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCompliancePackIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安全合规包id.
+     *
+     * @param request - GetCompliancePackIdRequest
+     *
+     * @returns GetCompliancePackIdResponse
+     *
+     * @param GetCompliancePackIdRequest $request
+     *
+     * @return GetCompliancePackIdResponse
+     */
+    public function getCompliancePackId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCompliancePackIdWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取一键处置赋权状态
      *
      * @param request - GetDisposalToolStatusRequest
@@ -887,6 +1043,497 @@ class RiskManagement extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDisposalToolStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取用户确认安全联系人记录.
+     *
+     * @param request - GetNotificationClickRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNotificationClickRecordResponse
+     *
+     * @param GetNotificationClickRecordRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetNotificationClickRecordResponse
+     */
+    public function getNotificationClickRecordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetNotificationClickRecord',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNotificationClickRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取用户确认安全联系人记录.
+     *
+     * @param request - GetNotificationClickRecordRequest
+     *
+     * @returns GetNotificationClickRecordResponse
+     *
+     * @param GetNotificationClickRecordRequest $request
+     *
+     * @return GetNotificationClickRecordResponse
+     */
+    public function getNotificationClickRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNotificationClickRecordWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取安全联系人全部信息.
+     *
+     * @param request - GetNotificationContactsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNotificationContactsResponse
+     *
+     * @param GetNotificationContactsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetNotificationContactsResponse
+     */
+    public function getNotificationContactsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetNotificationContacts',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNotificationContactsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安全联系人全部信息.
+     *
+     * @param request - GetNotificationContactsRequest
+     *
+     * @returns GetNotificationContactsResponse
+     *
+     * @param GetNotificationContactsRequest $request
+     *
+     * @return GetNotificationContactsResponse
+     */
+    public function getNotificationContacts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNotificationContactsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取安全联系人待处理数.
+     *
+     * @param request - GetNotificationPendNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNotificationPendNumberResponse
+     *
+     * @param GetNotificationPendNumberRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetNotificationPendNumberResponse
+     */
+    public function getNotificationPendNumberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetNotificationPendNumber',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetNotificationPendNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安全联系人待处理数.
+     *
+     * @param request - GetNotificationPendNumberRequest
+     *
+     * @returns GetNotificationPendNumberResponse
+     *
+     * @param GetNotificationPendNumberRequest $request
+     *
+     * @return GetNotificationPendNumberResponse
+     */
+    public function getNotificationPendNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getNotificationPendNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云资源管控事件详情.
+     *
+     * @param tmpReq - GetResourceControlEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceControlEventResponse
+     *
+     * @param GetResourceControlEventRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetResourceControlEventResponse
+     */
+    public function getResourceControlEventWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetResourceControlEventShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->eventIdList) {
+            $request->eventIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventIdList, 'EventIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->eventIdListShrink) {
+            @$query['EventIdList'] = $request->eventIdListShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetResourceControlEvent',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetResourceControlEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云资源管控事件详情.
+     *
+     * @param request - GetResourceControlEventRequest
+     *
+     * @returns GetResourceControlEventResponse
+     *
+     * @param GetResourceControlEventRequest $request
+     *
+     * @return GetResourceControlEventResponse
+     */
+    public function getResourceControlEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceControlEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取安全体检基础信息.
+     *
+     * @param request - GetSecurityCheckBaseInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityCheckBaseInfoResponse
+     *
+     * @param GetSecurityCheckBaseInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetSecurityCheckBaseInfoResponse
+     */
+    public function getSecurityCheckBaseInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetSecurityCheckBaseInfo',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecurityCheckBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安全体检基础信息.
+     *
+     * @param request - GetSecurityCheckBaseInfoRequest
+     *
+     * @returns GetSecurityCheckBaseInfoResponse
+     *
+     * @param GetSecurityCheckBaseInfoRequest $request
+     *
+     * @return GetSecurityCheckBaseInfoResponse
+     */
+    public function getSecurityCheckBaseInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecurityCheckBaseInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取安全检查结果基础信息.
+     *
+     * @param request - GetSecurityCheckResultBaseInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecurityCheckResultBaseInfoResponse
+     *
+     * @param GetSecurityCheckResultBaseInfoRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetSecurityCheckResultBaseInfoResponse
+     */
+    public function getSecurityCheckResultBaseInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetSecurityCheckResultBaseInfo',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecurityCheckResultBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安全检查结果基础信息.
+     *
+     * @param request - GetSecurityCheckResultBaseInfoRequest
+     *
+     * @returns GetSecurityCheckResultBaseInfoResponse
+     *
+     * @param GetSecurityCheckResultBaseInfoRequest $request
+     *
+     * @return GetSecurityCheckResultBaseInfoResponse
+     */
+    public function getSecurityCheckResultBaseInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecurityCheckResultBaseInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取安全优化建议列表.
+     *
+     * @param tmpReq - GetSecuritySuggestionListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecuritySuggestionListResponse
+     *
+     * @param GetSecuritySuggestionListRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetSecuritySuggestionListResponse
+     */
+    public function getSecuritySuggestionListWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetSecuritySuggestionListShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listConfigRulesRequest) {
+            $request->listConfigRulesRequestShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listConfigRulesRequest, 'ListConfigRulesRequest', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->listConfigRulesRequestShrink) {
+            @$query['ListConfigRulesRequest'] = $request->listConfigRulesRequestShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetSecuritySuggestionList',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecuritySuggestionListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安全优化建议列表.
+     *
+     * @param request - GetSecuritySuggestionListRequest
+     *
+     * @returns GetSecuritySuggestionListResponse
+     *
+     * @param GetSecuritySuggestionListRequest $request
+     *
+     * @return GetSecuritySuggestionListResponse
+     */
+    public function getSecuritySuggestionList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecuritySuggestionListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取安全优化建议条数.
+     *
+     * @param request - GetSecuritySuggestionNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSecuritySuggestionNumberResponse
+     *
+     * @param GetSecuritySuggestionNumberRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetSecuritySuggestionNumberResponse
+     */
+    public function getSecuritySuggestionNumberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'GetSecuritySuggestionNumber',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSecuritySuggestionNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取安全优化建议条数.
+     *
+     * @param request - GetSecuritySuggestionNumberRequest
+     *
+     * @returns GetSecuritySuggestionNumberResponse
+     *
+     * @param GetSecuritySuggestionNumberRequest $request
+     *
+     * @return GetSecuritySuggestionNumberResponse
+     */
+    public function getSecuritySuggestionNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSecuritySuggestionNumberWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取服务关联角色状态
+     *
+     * @param request - GetServiceLinkedRoleStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceLinkedRoleStatusResponse
+     *
+     * @param GetServiceLinkedRoleStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetServiceLinkedRoleStatusResponse
+     */
+    public function getServiceLinkedRoleStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->authType) {
+            @$query['AuthType'] = $request->authType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceLinkedRoleStatus',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetServiceLinkedRoleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取服务关联角色状态
+     *
+     * @param request - GetServiceLinkedRoleStatusRequest
+     *
+     * @returns GetServiceLinkedRoleStatusResponse
+     *
+     * @param GetServiceLinkedRoleStatusRequest $request
+     *
+     * @return GetServiceLinkedRoleStatusResponse
+     */
+    public function getServiceLinkedRoleStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceLinkedRoleStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -1170,6 +1817,340 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
+     * 查询账号安全事件.
+     *
+     * @param request - QueryAccountSafetyIncidentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAccountSafetyIncidentResponse
+     *
+     * @param QueryAccountSafetyIncidentRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryAccountSafetyIncidentResponse
+     */
+    public function queryAccountSafetyIncidentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->caseCode) {
+            @$query['CaseCode'] = $request->caseCode;
+        }
+
+        if (null !== $request->current) {
+            @$query['Current'] = $request->current;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->punishEndTime) {
+            @$query['PunishEndTime'] = $request->punishEndTime;
+        }
+
+        if (null !== $request->punishStartTime) {
+            @$query['PunishStartTime'] = $request->punishStartTime;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryAccountSafetyIncident',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryAccountSafetyIncidentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询账号安全事件.
+     *
+     * @param request - QueryAccountSafetyIncidentRequest
+     *
+     * @returns QueryAccountSafetyIncidentResponse
+     *
+     * @param QueryAccountSafetyIncidentRequest $request
+     *
+     * @return QueryAccountSafetyIncidentResponse
+     */
+    public function queryAccountSafetyIncident($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAccountSafetyIncidentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云上安全指南的订阅状态
+     *
+     * @param request - QueryGuideSubStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryGuideSubStatusResponse
+     *
+     * @param QueryGuideSubStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryGuideSubStatusResponse
+     */
+    public function queryGuideSubStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'QueryGuideSubStatus',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryGuideSubStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云上安全指南的订阅状态
+     *
+     * @param request - QueryGuideSubStatusRequest
+     *
+     * @returns QueryGuideSubStatusResponse
+     *
+     * @param QueryGuideSubStatusRequest $request
+     *
+     * @return QueryGuideSubStatusResponse
+     */
+    public function queryGuideSubStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryGuideSubStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询云资源管控事件.
+     *
+     * @param tmpReq - QueryResourceControlEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryResourceControlEventsResponse
+     *
+     * @param QueryResourceControlEventsRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryResourceControlEventsResponse
+     */
+    public function queryResourceControlEventsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new QueryResourceControlEventsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionCodes) {
+            $request->actionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionCodes, 'ActionCodes', 'json');
+        }
+
+        if (null !== $tmpReq->caseCodesPrefix) {
+            $request->caseCodesPrefixShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->caseCodesPrefix, 'CaseCodesPrefix', 'json');
+        }
+
+        if (null !== $tmpReq->eventCodes) {
+            $request->eventCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventCodes, 'EventCodes', 'json');
+        }
+
+        if (null !== $tmpReq->eventIdList) {
+            $request->eventIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventIdList, 'EventIdList', 'json');
+        }
+
+        if (null !== $tmpReq->excludeActionCodes) {
+            $request->excludeActionCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeActionCodes, 'ExcludeActionCodes', 'json');
+        }
+
+        if (null !== $tmpReq->excludeEventCodes) {
+            $request->excludeEventCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeEventCodes, 'ExcludeEventCodes', 'json');
+        }
+
+        if (null !== $tmpReq->excludeReasons) {
+            $request->excludeReasonsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->excludeReasons, 'ExcludeReasons', 'json');
+        }
+
+        if (null !== $tmpReq->includeReasons) {
+            $request->includeReasonsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->includeReasons, 'IncludeReasons', 'json');
+        }
+
+        if (null !== $tmpReq->sourceCodes) {
+            $request->sourceCodesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceCodes, 'SourceCodes', 'json');
+        }
+
+        if (null !== $tmpReq->statusList) {
+            $request->statusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->actionCode) {
+            @$query['ActionCode'] = $request->actionCode;
+        }
+
+        if (null !== $request->actionCodesShrink) {
+            @$query['ActionCodes'] = $request->actionCodesShrink;
+        }
+
+        if (null !== $request->aliyunLang) {
+            @$query['AliyunLang'] = $request->aliyunLang;
+        }
+
+        if (null !== $request->businessCode) {
+            @$query['BusinessCode'] = $request->businessCode;
+        }
+
+        if (null !== $request->caseCodesPrefixShrink) {
+            @$query['CaseCodesPrefix'] = $request->caseCodesPrefixShrink;
+        }
+
+        if (null !== $request->current) {
+            @$query['Current'] = $request->current;
+        }
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->eventCode) {
+            @$query['EventCode'] = $request->eventCode;
+        }
+
+        if (null !== $request->eventCodesShrink) {
+            @$query['EventCodes'] = $request->eventCodesShrink;
+        }
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
+        }
+
+        if (null !== $request->eventIdListShrink) {
+            @$query['EventIdList'] = $request->eventIdListShrink;
+        }
+
+        if (null !== $request->excludeActionCodesShrink) {
+            @$query['ExcludeActionCodes'] = $request->excludeActionCodesShrink;
+        }
+
+        if (null !== $request->excludeEventCodesShrink) {
+            @$query['ExcludeEventCodes'] = $request->excludeEventCodesShrink;
+        }
+
+        if (null !== $request->excludeReasonsShrink) {
+            @$query['ExcludeReasons'] = $request->excludeReasonsShrink;
+        }
+
+        if (null !== $request->includeReasonsShrink) {
+            @$query['IncludeReasons'] = $request->includeReasonsShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->punishEndTime) {
+            @$query['PunishEndTime'] = $request->punishEndTime;
+        }
+
+        if (null !== $request->punishStartTime) {
+            @$query['PunishStartTime'] = $request->punishStartTime;
+        }
+
+        if (null !== $request->reason) {
+            @$query['Reason'] = $request->reason;
+        }
+
+        if (null !== $request->sourceCodesShrink) {
+            @$query['SourceCodes'] = $request->sourceCodesShrink;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->statusListShrink) {
+            @$query['StatusList'] = $request->statusListShrink;
+        }
+
+        if (null !== $request->url) {
+            @$query['Url'] = $request->url;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryResourceControlEvents',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryResourceControlEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询云资源管控事件.
+     *
+     * @param request - QueryResourceControlEventsRequest
+     *
+     * @returns QueryResourceControlEventsResponse
+     *
+     * @param QueryResourceControlEventsRequest $request
+     *
+     * @return QueryResourceControlEventsResponse
+     */
+    public function queryResourceControlEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryResourceControlEventsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询安全体检简报.
      *
      * @param request - QuerySecurityCheckReportRequest
@@ -1277,6 +2258,139 @@ class RiskManagement extends OpenApiClient
     }
 
     /**
+     * 开启安全体检
+     *
+     * @param request - StartSecurityCheckServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartSecurityCheckServiceResponse
+     *
+     * @param StartSecurityCheckServiceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return StartSecurityCheckServiceResponse
+     */
+    public function startSecurityCheckServiceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'StartSecurityCheckService',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StartSecurityCheckServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 开启安全体检
+     *
+     * @param request - StartSecurityCheckServiceRequest
+     *
+     * @returns StartSecurityCheckServiceResponse
+     *
+     * @param StartSecurityCheckServiceRequest $request
+     *
+     * @return StartSecurityCheckServiceResponse
+     */
+    public function startSecurityCheckService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startSecurityCheckServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 申请解封
+     *
+     * @param tmpReq - SubmitApplyRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitApplyRecordResponse
+     *
+     * @param SubmitApplyRecordRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubmitApplyRecordResponse
+     */
+    public function submitApplyRecordWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubmitApplyRecordShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->eventIdList) {
+            $request->eventIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventIdList, 'EventIdList', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applyRequest) {
+            @$query['ApplyRequest'] = $request->applyRequest;
+        }
+
+        if (null !== $request->commitmentLetter) {
+            @$query['CommitmentLetter'] = $request->commitmentLetter;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->eventIdListShrink) {
+            @$query['EventIdList'] = $request->eventIdListShrink;
+        }
+
+        if (null !== $request->qualificationProof) {
+            @$query['QualificationProof'] = $request->qualificationProof;
+        }
+
+        if (null !== $request->trial) {
+            @$query['Trial'] = $request->trial;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitApplyRecord',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitApplyRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 申请解封
+     *
+     * @param request - SubmitApplyRecordRequest
+     *
+     * @returns SubmitApplyRecordResponse
+     *
+     * @param SubmitApplyRecordRequest $request
+     *
+     * @return SubmitApplyRecordResponse
+     */
+    public function submitApplyRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitApplyRecordWithOptions($request, $runtime);
+    }
+
+    /**
      * sas-更新后付费绑定关系.
      *
      * @param tmpReq - UpdatePostPaidBindRelRequest
@@ -1341,5 +2455,55 @@ class RiskManagement extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePostPaidBindRelWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新体检结果.
+     *
+     * @param request - UpdateSecurityCheckResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSecurityCheckResultResponse
+     *
+     * @param UpdateSecurityCheckResultRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateSecurityCheckResultResponse
+     */
+    public function updateSecurityCheckResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'UpdateSecurityCheckResult',
+            'version' => '2026-04-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSecurityCheckResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新体检结果.
+     *
+     * @param request - UpdateSecurityCheckResultRequest
+     *
+     * @returns UpdateSecurityCheckResultResponse
+     *
+     * @param UpdateSecurityCheckResultRequest $request
+     *
+     * @return UpdateSecurityCheckResultResponse
+     */
+    public function updateSecurityCheckResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSecurityCheckResultWithOptions($request, $runtime);
     }
 }
