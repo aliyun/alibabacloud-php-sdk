@@ -15,6 +15,11 @@ class Permission extends Model
     public $access;
 
     /**
+     * @var ColumnMask[]
+     */
+    public $columnMasking;
+
+    /**
      * @var columns
      */
     public $columns;
@@ -60,6 +65,7 @@ class Permission extends Model
     public $view;
     protected $_name = [
         'access' => 'access',
+        'columnMasking' => 'columnMasking',
         'columns' => 'columns',
         'database' => 'database',
         'expireTime' => 'expireTime',
@@ -73,6 +79,9 @@ class Permission extends Model
 
     public function validate()
     {
+        if (\is_array($this->columnMasking)) {
+            Model::validateArray($this->columnMasking);
+        }
         if (null !== $this->columns) {
             $this->columns->validate();
         }
@@ -87,6 +96,15 @@ class Permission extends Model
         $res = [];
         if (null !== $this->access) {
             $res['access'] = $this->access;
+        }
+
+        if (null !== $this->columnMasking) {
+            if (\is_array($this->columnMasking)) {
+                $res['columnMasking'] = [];
+                foreach ($this->columnMasking as $key1 => $value1) {
+                    $res['columnMasking'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
+                }
+            }
         }
 
         if (null !== $this->columns) {
@@ -138,6 +156,15 @@ class Permission extends Model
         $model = new self();
         if (isset($map['access'])) {
             $model->access = $map['access'];
+        }
+
+        if (isset($map['columnMasking'])) {
+            if (!empty($map['columnMasking'])) {
+                $model->columnMasking = [];
+                foreach ($map['columnMasking'] as $key1 => $value1) {
+                    $model->columnMasking[$key1] = ColumnMask::fromMap($value1);
+                }
+            }
         }
 
         if (isset($map['columns'])) {

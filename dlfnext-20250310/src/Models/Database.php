@@ -44,6 +44,11 @@ class Database extends Model
     public $owner;
 
     /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var int
      */
     public $tableCount;
@@ -65,6 +70,7 @@ class Database extends Model
         'name' => 'name',
         'options' => 'options',
         'owner' => 'owner',
+        'status' => 'status',
         'tableCount' => 'tableCount',
         'updatedAt' => 'updatedAt',
         'updatedBy' => 'updatedBy',
@@ -112,6 +118,10 @@ class Database extends Model
 
         if (null !== $this->owner) {
             $res['owner'] = $this->owner;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->tableCount) {
@@ -168,6 +178,10 @@ class Database extends Model
 
         if (isset($map['owner'])) {
             $model->owner = $map['owner'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['tableCount'])) {

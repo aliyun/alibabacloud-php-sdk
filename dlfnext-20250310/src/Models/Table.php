@@ -61,6 +61,11 @@ class Table extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $storageAction;
 
     /**
@@ -98,6 +103,7 @@ class Table extends Model
         'path' => 'path',
         'schema' => 'schema',
         'schemaId' => 'schemaId',
+        'status' => 'status',
         'storageAction' => 'storageAction',
         'storageActionTimestamp' => 'storageActionTimestamp',
         'storageClass' => 'storageClass',
@@ -158,6 +164,10 @@ class Table extends Model
 
         if (null !== $this->schemaId) {
             $res['schemaId'] = $this->schemaId;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->storageAction) {
@@ -233,6 +243,10 @@ class Table extends Model
 
         if (isset($map['schemaId'])) {
             $model->schemaId = $map['schemaId'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['storageAction'])) {

@@ -22,10 +22,16 @@ class ListDatabaseDetailsRequest extends Model
      * @var string
      */
     public $pageToken;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'databaseNamePattern' => 'databaseNamePattern',
         'maxResults' => 'maxResults',
         'pageToken' => 'pageToken',
+        'status' => 'status',
     ];
 
     public function validate()
@@ -46,6 +52,10 @@ class ListDatabaseDetailsRequest extends Model
 
         if (null !== $this->pageToken) {
             $res['pageToken'] = $this->pageToken;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         return $res;
@@ -69,6 +79,10 @@ class ListDatabaseDetailsRequest extends Model
 
         if (isset($map['pageToken'])) {
             $model->pageToken = $map['pageToken'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         return $model;

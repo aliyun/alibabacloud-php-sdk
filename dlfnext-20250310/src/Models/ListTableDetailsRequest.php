@@ -21,6 +21,11 @@ class ListTableDetailsRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $tableNamePattern;
 
     /**
@@ -30,6 +35,7 @@ class ListTableDetailsRequest extends Model
     protected $_name = [
         'maxResults' => 'maxResults',
         'pageToken' => 'pageToken',
+        'status' => 'status',
         'tableNamePattern' => 'tableNamePattern',
         'type' => 'type',
     ];
@@ -48,6 +54,10 @@ class ListTableDetailsRequest extends Model
 
         if (null !== $this->pageToken) {
             $res['pageToken'] = $this->pageToken;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->tableNamePattern) {
@@ -75,6 +85,10 @@ class ListTableDetailsRequest extends Model
 
         if (isset($map['pageToken'])) {
             $model->pageToken = $map['pageToken'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['tableNamePattern'])) {
