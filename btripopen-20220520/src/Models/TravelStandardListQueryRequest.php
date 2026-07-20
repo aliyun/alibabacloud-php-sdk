@@ -27,11 +27,17 @@ class TravelStandardListQueryRequest extends Model
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
         'fromGroup' => 'from_group',
         'pageNo' => 'page_no',
         'pageSize' => 'page_size',
         'ruleName' => 'rule_name',
+        'userId' => 'user_id',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class TravelStandardListQueryRequest extends Model
 
         if (null !== $this->ruleName) {
             $res['rule_name'] = $this->ruleName;
+        }
+
+        if (null !== $this->userId) {
+            $res['user_id'] = $this->userId;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class TravelStandardListQueryRequest extends Model
 
         if (isset($map['rule_name'])) {
             $model->ruleName = $map['rule_name'];
+        }
+
+        if (isset($map['user_id'])) {
+            $model->userId = $map['user_id'];
         }
 
         return $model;
