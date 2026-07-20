@@ -916,6 +916,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRedirectRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRewriteUrlRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineBuildConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineBuildConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineBuildConfigurationShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineConfigDescriptionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineConfigDescriptionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRoutineRouteRequest;
@@ -3464,8 +3467,8 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
-     * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
+     * Creates an edge container application. You can deploy and release the application by version to containerize edge services.
+     * Note: Activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
      *
      * @param Request - CreateEdgeContainerAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3556,8 +3559,8 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an application for edge containers. You can deploy and release the application through versioning to containerize edge services.
-     * Note: You must activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
+     * Creates an edge container application. You can deploy and release the application by version to containerize edge services.
+     * Note: Activate the EdgeContainer service in the console before calling this operation. Calls from accounts that have not activated the service will return a service activation error.
      *
      * @param Request - CreateEdgeContainerAppRequest
      *
@@ -3644,7 +3647,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
+     * Creates an associated domain name for an edge container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
      *
      * @param Request - CreateEdgeContainerAppRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3691,7 +3694,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates an associated domain name for an Edge Container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
+     * Creates an associated domain name for an edge container application. When a user sends a request from a client to access the associated domain name, the request is forwarded to the edge application deployed by the user.
      *
      * @param Request - CreateEdgeContainerAppRecordRequest
      *
@@ -14885,6 +14888,9 @@ class ESA extends OpenApiClient
     /**
      * Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
      *
+     * @remarks
+     * You must first activate the edge container service by calling OpenEdgeContainer, and then confirm that an available application exists by calling ListEdgeContainerApps or create an application by calling CreateEdgeContainerApp.
+     *
      * @param Request - GetEdgeContainerAppStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -14927,6 +14933,9 @@ class ESA extends OpenApiClient
 
     /**
      * Retrieves the application status information of an edge container, including deployment, publishing, and rollback details.
+     *
+     * @remarks
+     * You must first activate the edge container service by calling OpenEdgeContainer, and then confirm that an available application exists by calling ListEdgeContainerApps or create an application by calling CreateEdgeContainerApp.
      *
      * @param Request - GetEdgeContainerAppStatusRequest
      *
@@ -24558,7 +24567,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
+     * Publishes a specified version of an edge container application, allowing users to iterate application versions through this operation.
+     *
+     * @remarks
+     * Prerequisites: 1) Activate the edge container service (by calling the OpenEdgeContainer operation or using the console). 2) Create an application (by calling CreateEdgeContainerApp to obtain the AppId). 3) Create an application version (by calling CreateEdgeContainerAppVersion to obtain the VersionId).
      *
      * @param tmpReq - PublishEdgeContainerAppVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24637,7 +24649,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Publishes a specified version of an edge container application. You can use this operation to iterate application versions.
+     * Publishes a specified version of an edge container application, allowing users to iterate application versions through this operation.
+     *
+     * @remarks
+     * Prerequisites: 1) Activate the edge container service (by calling the OpenEdgeContainer operation or using the console). 2) Create an application (by calling CreateEdgeContainerApp to obtain the AppId). 3) Create an application version (by calling CreateEdgeContainerAppVersion to obtain the VersionId).
      *
      * @param Request - PublishEdgeContainerAppVersionRequest
      *
@@ -30211,6 +30226,117 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRewriteUrlRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the build configuration of an EdgeRoutine (ER).
+     *
+     * @param tmpReq - UpdateRoutineBuildConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRoutineBuildConfigurationResponse
+     *
+     * @param UpdateRoutineBuildConfigurationRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateRoutineBuildConfigurationResponse
+     */
+    public function updateRoutineBuildConfigurationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateRoutineBuildConfigurationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->environmentVariables) {
+            $request->environmentVariablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->environmentVariables, 'EnvironmentVariables', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->assetsDirectory) {
+            @$query['AssetsDirectory'] = $request->assetsDirectory;
+        }
+
+        if (null !== $request->buildBranches) {
+            @$query['BuildBranches'] = $request->buildBranches;
+        }
+
+        if (null !== $request->buildCommand) {
+            @$query['BuildCommand'] = $request->buildCommand;
+        }
+
+        if (null !== $request->environmentVariablesShrink) {
+            @$query['EnvironmentVariables'] = $request->environmentVariablesShrink;
+        }
+
+        if (null !== $request->gitAccountId) {
+            @$query['GitAccountId'] = $request->gitAccountId;
+        }
+
+        if (null !== $request->installCommand) {
+            @$query['InstallCommand'] = $request->installCommand;
+        }
+
+        if (null !== $request->isPrivate) {
+            @$query['IsPrivate'] = $request->isPrivate;
+        }
+
+        if (null !== $request->nodeVersion) {
+            @$query['NodeVersion'] = $request->nodeVersion;
+        }
+
+        if (null !== $request->productionBranch) {
+            @$query['ProductionBranch'] = $request->productionBranch;
+        }
+
+        if (null !== $request->repository) {
+            @$query['Repository'] = $request->repository;
+        }
+
+        if (null !== $request->rootDirectory) {
+            @$query['RootDirectory'] = $request->rootDirectory;
+        }
+
+        if (null !== $request->routineEntry) {
+            @$query['RoutineEntry'] = $request->routineEntry;
+        }
+
+        if (null !== $request->routineName) {
+            @$query['RoutineName'] = $request->routineName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRoutineBuildConfiguration',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRoutineBuildConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the build configuration of an EdgeRoutine (ER).
+     *
+     * @param Request - UpdateRoutineBuildConfigurationRequest
+     *
+     * @returns UpdateRoutineBuildConfigurationResponse
+     *
+     * @param UpdateRoutineBuildConfigurationRequest $request
+     *
+     * @return UpdateRoutineBuildConfigurationResponse
+     */
+    public function updateRoutineBuildConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRoutineBuildConfigurationWithOptions($request, $runtime);
     }
 
     /**

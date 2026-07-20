@@ -1,3 +1,7 @@
+2026-07-20 Version: 3.8.0
+- Support API UpdateRoutineBuildConfiguration.
+
+
 2026-07-17 Version: 3.7.0
 - Support API GetUserMaxPlanQuota.
 - Support API ListBotInstances.
