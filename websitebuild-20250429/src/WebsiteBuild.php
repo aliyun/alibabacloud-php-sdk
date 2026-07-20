@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\WebsiteBuild\V20250429;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AllocateSupabaseForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AllocateSupabaseForAdminResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AssignRbacUserRoleRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AssignRbacUserRoleResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AuthorizeAppProxyOpsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\AuthorizeAppProxyOpsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\BatchCheckResourceMeasureRequest;
@@ -50,6 +52,10 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateLogoTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateMaterialDirectoryRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateMaterialDirectoryResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateRbacOrgUnitRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateRbacOrgUnitResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateRbacPermissionRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateRbacPermissionResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateRbacRoleRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateRbacRoleResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppDomainCertificateRequest;
@@ -69,6 +75,10 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialDirectoryRespon
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialTaskRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialTaskResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialTaskShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteRbacOrgUnitRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteRbacOrgUnitResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteRbacPermissionRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteRbacPermissionResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteRbacRoleRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteRbacRoleResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DescribeAppDomainDnsRecordRequest;
@@ -256,6 +266,12 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskDetailRespon
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryMaterialTaskListShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryRbacRolePermissionsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryRbacRolePermissionsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryRbacRoleRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryRbacRoleResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryRbacUserRolesRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QueryRbacUserRolesResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseAuthConfigsForAdminRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseAuthConfigsForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\QuerySupabaseConfigsForAdminRequest;
@@ -274,6 +290,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppSandboxRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RenewAppSandboxResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RevokeRbacUserRoleRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RevokeRbacUserRoleResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppCodeSnapshotRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppCodeSnapshotResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppInstancePublishRequest;
@@ -317,6 +335,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseSecretReques
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseSecretResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateMiniAppBindingRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateMiniAppBindingResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateRbacOrgUnitRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateRbacOrgUnitResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateRbacRoleRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateRbacRoleResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadAppSiteValidationFileRequest;
@@ -451,6 +471,67 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateSupabaseForAdminWithOptions($request, $runtime);
+    }
+
+    /**
+     * 授予用户角色.
+     *
+     * @param request - AssignRbacUserRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssignRbacUserRoleResponse
+     *
+     * @param AssignRbacUserRoleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AssignRbacUserRoleResponse
+     */
+    public function assignRbacUserRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->userRoleData) {
+            @$query['UserRoleData'] = $request->userRoleData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AssignRbacUserRole',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AssignRbacUserRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 授予用户角色.
+     *
+     * @param request - AssignRbacUserRoleRequest
+     *
+     * @returns AssignRbacUserRoleResponse
+     *
+     * @param AssignRbacUserRoleRequest $request
+     *
+     * @return AssignRbacUserRoleResponse
+     */
+    public function assignRbacUserRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->assignRbacUserRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -2164,10 +2245,132 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 创建RBAC角色.
+     * 创建组织单元.
+     *
+     * @param request - CreateRbacOrgUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRbacOrgUnitResponse
+     *
+     * @param CreateRbacOrgUnitRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateRbacOrgUnitResponse
+     */
+    public function createRbacOrgUnitWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->orgUnitData) {
+            @$query['OrgUnitData'] = $request->orgUnitData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRbacOrgUnit',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRbacOrgUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建组织单元.
+     *
+     * @param request - CreateRbacOrgUnitRequest
+     *
+     * @returns CreateRbacOrgUnitResponse
+     *
+     * @param CreateRbacOrgUnitRequest $request
+     *
+     * @return CreateRbacOrgUnitResponse
+     */
+    public function createRbacOrgUnit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRbacOrgUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建RBAC权限.
+     *
+     * @param request - CreateRbacPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRbacPermissionResponse
+     *
+     * @param CreateRbacPermissionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateRbacPermissionResponse
+     */
+    public function createRbacPermissionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->permissionData) {
+            @$query['PermissionData'] = $request->permissionData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRbacPermission',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRbacPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建RBAC权限.
+     *
+     * @param request - CreateRbacPermissionRequest
+     *
+     * @returns CreateRbacPermissionResponse
+     *
+     * @param CreateRbacPermissionRequest $request
+     *
+     * @return CreateRbacPermissionResponse
+     */
+    public function createRbacPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRbacPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an RBAC role.
      *
      * @remarks
-     * 万小智2.0AI对话
+     * Wanxiaozhi 2.0 AI conversation.
      *
      * @param request - CreateRbacRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2210,10 +2413,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 创建RBAC角色.
+     * Creates an RBAC role.
      *
      * @remarks
-     * 万小智2.0AI对话
+     * Wanxiaozhi 2.0 AI conversation.
      *
      * @param request - CreateRbacRoleRequest
      *
@@ -2745,10 +2948,132 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除RBAC角色.
+     * 删除组织单元.
+     *
+     * @param request - DeleteRbacOrgUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRbacOrgUnitResponse
+     *
+     * @param DeleteRbacOrgUnitRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteRbacOrgUnitResponse
+     */
+    public function deleteRbacOrgUnitWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->orgUnitId) {
+            @$query['OrgUnitId'] = $request->orgUnitId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRbacOrgUnit',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRbacOrgUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除组织单元.
+     *
+     * @param request - DeleteRbacOrgUnitRequest
+     *
+     * @returns DeleteRbacOrgUnitResponse
+     *
+     * @param DeleteRbacOrgUnitRequest $request
+     *
+     * @return DeleteRbacOrgUnitResponse
+     */
+    public function deleteRbacOrgUnit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRbacOrgUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除RBAC权限.
+     *
+     * @param request - DeleteRbacPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRbacPermissionResponse
+     *
+     * @param DeleteRbacPermissionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteRbacPermissionResponse
+     */
+    public function deleteRbacPermissionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->permissionId) {
+            @$query['PermissionId'] = $request->permissionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRbacPermission',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRbacPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除RBAC权限.
+     *
+     * @param request - DeleteRbacPermissionRequest
+     *
+     * @returns DeleteRbacPermissionResponse
+     *
+     * @param DeleteRbacPermissionRequest $request
+     *
+     * @return DeleteRbacPermissionResponse
+     */
+    public function deleteRbacPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRbacPermissionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes an RBAC role.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - DeleteRbacRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2791,10 +3116,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除RBAC角色.
+     * Deletes an RBAC role.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - DeleteRbacRoleRequest
      *
@@ -3090,10 +3415,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 导出RBAC配置.
+     * Exports the RBAC configuration.
      *
      * @remarks
-     * 查询资源对应的supabase实例配置信息
+     * Queries the Supabase instance configuration information corresponding to a resource.
      *
      * @param request - ExportRbacConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3132,10 +3457,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 导出RBAC配置.
+     * Exports the RBAC configuration.
      *
      * @remarks
-     * 查询资源对应的supabase实例配置信息
+     * Queries the Supabase instance configuration information corresponding to a resource.
      *
      * @param request - ExportRbacConfigRequest
      *
@@ -7182,10 +7507,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询RBAC组织树.
+     * Queries the RBAC organization tree.
      *
      * @remarks
-     * 获取生码插件配置信息
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - ListRbacOrgTreeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7248,10 +7573,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询RBAC组织树.
+     * Queries the RBAC organization tree.
      *
      * @remarks
-     * 获取生码插件配置信息
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - ListRbacOrgTreeRequest
      *
@@ -7269,10 +7594,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询RBAC权限列表.
+     * Queries the RBAC permission list.
      *
      * @remarks
-     * 万小智2.0创建AI会话接口
+     * Creates an AI conversation session through WanXiaoZhi 2.0.
      *
      * @param request - ListRbacPermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7335,10 +7660,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询RBAC权限列表.
+     * Queries the RBAC permission list.
      *
      * @remarks
-     * 万小智2.0创建AI会话接口
+     * Creates an AI conversation session through WanXiaoZhi 2.0.
      *
      * @param request - ListRbacPermissionsRequest
      *
@@ -7356,10 +7681,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询RBAC角色层级.
+     * Queries the RBAC role hierarchy.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - ListRbacRoleHierarchyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7422,10 +7747,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询RBAC角色层级.
+     * Queries the RBAC role hierarchy.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - ListRbacRoleHierarchyRequest
      *
@@ -7443,10 +7768,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询RBAC角色列表.
+     * Queries the list of RBAC roles.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - ListRbacRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7509,10 +7834,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询RBAC角色列表.
+     * Queries the list of RBAC roles.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - ListRbacRolesRequest
      *
@@ -9346,6 +9671,221 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * 查询单个RBAC角色.
+     *
+     * @param request - QueryRbacRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRbacRoleResponse
+     *
+     * @param QueryRbacRoleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryRbacRoleResponse
+     */
+    public function queryRbacRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->roleId) {
+            @$query['RoleId'] = $request->roleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryRbacRole',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryRbacRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询单个RBAC角色.
+     *
+     * @param request - QueryRbacRoleRequest
+     *
+     * @returns QueryRbacRoleResponse
+     *
+     * @param QueryRbacRoleRequest $request
+     *
+     * @return QueryRbacRoleResponse
+     */
+    public function queryRbacRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRbacRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询角色权限列表.
+     *
+     * @param request - QueryRbacRolePermissionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRbacRolePermissionsResponse
+     *
+     * @param QueryRbacRolePermissionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return QueryRbacRolePermissionsResponse
+     */
+    public function queryRbacRolePermissionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->roleId) {
+            @$query['RoleId'] = $request->roleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryRbacRolePermissions',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryRbacRolePermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询角色权限列表.
+     *
+     * @param request - QueryRbacRolePermissionsRequest
+     *
+     * @returns QueryRbacRolePermissionsResponse
+     *
+     * @param QueryRbacRolePermissionsRequest $request
+     *
+     * @return QueryRbacRolePermissionsResponse
+     */
+    public function queryRbacRolePermissions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRbacRolePermissionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询用户角色绑定.
+     *
+     * @param request - QueryRbacUserRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryRbacUserRolesResponse
+     *
+     * @param QueryRbacUserRolesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryRbacUserRolesResponse
+     */
+    public function queryRbacUserRolesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationUserId) {
+            @$query['ApplicationUserId'] = $request->applicationUserId;
+        }
+
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->orderColumn) {
+            @$query['OrderColumn'] = $request->orderColumn;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryRbacUserRoles',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryRbacUserRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询用户角色绑定.
+     *
+     * @param request - QueryRbacUserRolesRequest
+     *
+     * @returns QueryRbacUserRolesResponse
+     *
+     * @param QueryRbacUserRolesRequest $request
+     *
+     * @return QueryRbacUserRolesResponse
+     */
+    public function queryRbacUserRoles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryRbacUserRolesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the auth configuration of a Supabase instance associated with a resource.
      *
      * @remarks
@@ -9879,10 +10419,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 移除RBAC角色层级.
+     * Removes an RBAC role hierarchy.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - RemoveRbacRoleHierarchyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9929,10 +10469,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 移除RBAC角色层级.
+     * Removes an RBAC role hierarchy.
      *
      * @remarks
-     * 查询应用实例信息
+     * Queries application instance information.
      *
      * @param request - RemoveRbacRoleHierarchyRequest
      *
@@ -10087,6 +10627,67 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->renewAppSandboxWithOptions($request, $runtime);
+    }
+
+    /**
+     * 撤销用户角色.
+     *
+     * @param request - RevokeRbacUserRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevokeRbacUserRoleResponse
+     *
+     * @param RevokeRbacUserRoleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RevokeRbacUserRoleResponse
+     */
+    public function revokeRbacUserRoleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->userRoleData) {
+            @$query['UserRoleData'] = $request->userRoleData;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RevokeRbacUserRole',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RevokeRbacUserRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 撤销用户角色.
+     *
+     * @param request - RevokeRbacUserRoleRequest
+     *
+     * @returns RevokeRbacUserRoleResponse
+     *
+     * @param RevokeRbacUserRoleRequest $request
+     *
+     * @return RevokeRbacUserRoleResponse
+     */
+    public function revokeRbacUserRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeRbacUserRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -10564,10 +11165,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 设置RBAC角色层级.
+     * Sets the RBAC role hierarchy.
      *
      * @remarks
-     * 获取生码插件配置信息
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - SetRbacRoleHierarchyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10614,10 +11215,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 设置RBAC角色层级.
+     * Sets the RBAC role hierarchy.
      *
      * @remarks
-     * 获取生码插件配置信息
+     * Retrieves the configuration information of the code generation plugin.
      *
      * @param request - SetRbacRoleHierarchyRequest
      *
@@ -11608,10 +12209,75 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 更新RBAC角色.
+     * 更新组织单元.
+     *
+     * @param request - UpdateRbacOrgUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRbacOrgUnitResponse
+     *
+     * @param UpdateRbacOrgUnitRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateRbacOrgUnitResponse
+     */
+    public function updateRbacOrgUnitWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->orgUnitData) {
+            @$query['OrgUnitData'] = $request->orgUnitData;
+        }
+
+        if (null !== $request->orgUnitId) {
+            @$query['OrgUnitId'] = $request->orgUnitId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateRbacOrgUnit',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateRbacOrgUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新组织单元.
+     *
+     * @param request - UpdateRbacOrgUnitRequest
+     *
+     * @returns UpdateRbacOrgUnitResponse
+     *
+     * @param UpdateRbacOrgUnitRequest $request
+     *
+     * @return UpdateRbacOrgUnitResponse
+     */
+    public function updateRbacOrgUnit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRbacOrgUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates an RBAC role.
      *
      * @remarks
-     * 获取生码插件配置信息
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - UpdateRbacRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11658,10 +12324,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 更新RBAC角色.
+     * Updates an RBAC role.
      *
      * @remarks
-     * 获取生码插件配置信息
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - UpdateRbacRoleRequest
      *
