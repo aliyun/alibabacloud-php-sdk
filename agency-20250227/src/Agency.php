@@ -5,6 +5,14 @@
 namespace AlibabaCloud\SDK\Agency\V20250227;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\Agency\V20250227\Models\CustomerNoteCreateRequest;
+use AlibabaCloud\SDK\Agency\V20250227\Models\CustomerNoteCreateResponse;
+use AlibabaCloud\SDK\Agency\V20250227\Models\CustomerNoteEditRequest;
+use AlibabaCloud\SDK\Agency\V20250227\Models\CustomerNoteEditResponse;
+use AlibabaCloud\SDK\Agency\V20250227\Models\CustomerNoteListDetailRequest;
+use AlibabaCloud\SDK\Agency\V20250227\Models\CustomerNoteListDetailResponse;
+use AlibabaCloud\SDK\Agency\V20250227\Models\CustomerNoteListRequest;
+use AlibabaCloud\SDK\Agency\V20250227\Models\CustomerNoteListResponse;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetBillDetailFileListRequest;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetBillDetailFileListResponse;
 use AlibabaCloud\SDK\Agency\V20250227\Models\GetCommissionDetailFileListRequest;
@@ -117,6 +125,278 @@ class Agency extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 创建客户小记.
+     *
+     * @param request - CustomerNoteCreateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CustomerNoteCreateResponse
+     *
+     * @param CustomerNoteCreateRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CustomerNoteCreateResponse
+     */
+    public function customerNoteCreateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contactInformation) {
+            @$body['ContactInformation'] = $request->contactInformation;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->customerName) {
+            @$body['CustomerName'] = $request->customerName;
+        }
+
+        if (null !== $request->customerUid) {
+            @$body['CustomerUid'] = $request->customerUid;
+        }
+
+        if (null !== $request->noteContent) {
+            @$body['NoteContent'] = $request->noteContent;
+        }
+
+        if (null !== $request->touchDate) {
+            @$body['TouchDate'] = $request->touchDate;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CustomerNoteCreate',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CustomerNoteCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建客户小记.
+     *
+     * @param request - CustomerNoteCreateRequest
+     *
+     * @returns CustomerNoteCreateResponse
+     *
+     * @param CustomerNoteCreateRequest $request
+     *
+     * @return CustomerNoteCreateResponse
+     */
+    public function customerNoteCreate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->customerNoteCreateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 编辑客户小记.
+     *
+     * @param request - CustomerNoteEditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CustomerNoteEditResponse
+     *
+     * @param CustomerNoteEditRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CustomerNoteEditResponse
+     */
+    public function customerNoteEditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->contactInformation) {
+            @$body['ContactInformation'] = $request->contactInformation;
+        }
+
+        if (null !== $request->contactName) {
+            @$body['ContactName'] = $request->contactName;
+        }
+
+        if (null !== $request->noteContent) {
+            @$body['NoteContent'] = $request->noteContent;
+        }
+
+        if (null !== $request->noteId) {
+            @$body['NoteId'] = $request->noteId;
+        }
+
+        if (null !== $request->touchDate) {
+            @$body['TouchDate'] = $request->touchDate;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CustomerNoteEdit',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CustomerNoteEditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 编辑客户小记.
+     *
+     * @param request - CustomerNoteEditRequest
+     *
+     * @returns CustomerNoteEditResponse
+     *
+     * @param CustomerNoteEditRequest $request
+     *
+     * @return CustomerNoteEditResponse
+     */
+    public function customerNoteEdit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->customerNoteEditWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询客户小记列表.
+     *
+     * @param request - CustomerNoteListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CustomerNoteListResponse
+     *
+     * @param CustomerNoteListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CustomerNoteListResponse
+     */
+    public function customerNoteListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->customerUid) {
+            @$body['CustomerUid'] = $request->customerUid;
+        }
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CustomerNoteList',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CustomerNoteListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询客户小记列表.
+     *
+     * @param request - CustomerNoteListRequest
+     *
+     * @returns CustomerNoteListResponse
+     *
+     * @param CustomerNoteListRequest $request
+     *
+     * @return CustomerNoteListResponse
+     */
+    public function customerNoteList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->customerNoteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询客户小记详情.
+     *
+     * @param request - CustomerNoteListDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CustomerNoteListDetailResponse
+     *
+     * @param CustomerNoteListDetailRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CustomerNoteListDetailResponse
+     */
+    public function customerNoteListDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->noteId) {
+            @$body['NoteId'] = $request->noteId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CustomerNoteListDetail',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CustomerNoteListDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询客户小记详情.
+     *
+     * @param request - CustomerNoteListDetailRequest
+     *
+     * @returns CustomerNoteListDetailResponse
+     *
+     * @param CustomerNoteListDetailRequest $request
+     *
+     * @return CustomerNoteListDetailResponse
+     */
+    public function customerNoteListDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->customerNoteListDetailWithOptions($request, $runtime);
     }
 
     /**
