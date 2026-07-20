@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class Session extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowInternetAccess;
+
+    /**
      * @var string
      */
     public $containerId;
@@ -54,6 +59,11 @@ class Session extends Model
     public $nasConfig;
 
     /**
+     * @var CreateSessionNetworkConfig
+     */
+    public $network;
+
+    /**
      * @var OSSMountConfig
      */
     public $ossMountConfig;
@@ -92,7 +102,13 @@ class Session extends Model
      * @var int
      */
     public $sessionTTLInSeconds;
+
+    /**
+     * @var string
+     */
+    public $trafficAccessToken;
     protected $_name = [
+        'allowInternetAccess' => 'allowInternetAccess',
         'containerId' => 'containerId',
         'createdTime' => 'createdTime',
         'disableSessionIdReuse' => 'disableSessionIdReuse',
@@ -102,6 +118,7 @@ class Session extends Model
         'juiceFsConfig' => 'juiceFsConfig',
         'lastModifiedTime' => 'lastModifiedTime',
         'nasConfig' => 'nasConfig',
+        'network' => 'network',
         'ossMountConfig' => 'ossMountConfig',
         'polarFsConfig' => 'polarFsConfig',
         'qualifier' => 'qualifier',
@@ -110,6 +127,7 @@ class Session extends Model
         'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
         'sessionStatus' => 'sessionStatus',
         'sessionTTLInSeconds' => 'sessionTTLInSeconds',
+        'trafficAccessToken' => 'trafficAccessToken',
     ];
 
     public function validate()
@@ -119,6 +137,9 @@ class Session extends Model
         }
         if (null !== $this->nasConfig) {
             $this->nasConfig->validate();
+        }
+        if (null !== $this->network) {
+            $this->network->validate();
         }
         if (null !== $this->ossMountConfig) {
             $this->ossMountConfig->validate();
@@ -132,6 +153,10 @@ class Session extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowInternetAccess) {
+            $res['allowInternetAccess'] = $this->allowInternetAccess;
+        }
+
         if (null !== $this->containerId) {
             $res['containerId'] = $this->containerId;
         }
@@ -168,6 +193,10 @@ class Session extends Model
             $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
         }
 
+        if (null !== $this->network) {
+            $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
+        }
+
         if (null !== $this->ossMountConfig) {
             $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
         }
@@ -200,6 +229,10 @@ class Session extends Model
             $res['sessionTTLInSeconds'] = $this->sessionTTLInSeconds;
         }
 
+        if (null !== $this->trafficAccessToken) {
+            $res['trafficAccessToken'] = $this->trafficAccessToken;
+        }
+
         return $res;
     }
 
@@ -211,6 +244,10 @@ class Session extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['allowInternetAccess'])) {
+            $model->allowInternetAccess = $map['allowInternetAccess'];
+        }
+
         if (isset($map['containerId'])) {
             $model->containerId = $map['containerId'];
         }
@@ -247,6 +284,10 @@ class Session extends Model
             $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
         }
 
+        if (isset($map['network'])) {
+            $model->network = CreateSessionNetworkConfig::fromMap($map['network']);
+        }
+
         if (isset($map['ossMountConfig'])) {
             $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
         }
@@ -277,6 +318,10 @@ class Session extends Model
 
         if (isset($map['sessionTTLInSeconds'])) {
             $model->sessionTTLInSeconds = $map['sessionTTLInSeconds'];
+        }
+
+        if (isset($map['trafficAccessToken'])) {
+            $model->trafficAccessToken = $map['trafficAccessToken'];
         }
 
         return $model;

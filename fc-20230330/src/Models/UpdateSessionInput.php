@@ -11,6 +11,11 @@ class UpdateSessionInput extends Model
     /**
      * @var bool
      */
+    public $allowInternetAccess;
+
+    /**
+     * @var bool
+     */
     public $disableSessionIdReuse;
 
     /**
@@ -34,6 +39,11 @@ class UpdateSessionInput extends Model
     public $nasConfig;
 
     /**
+     * @var UpdateSessionNetworkConfig
+     */
+    public $network;
+
+    /**
      * @var OSSMountConfig
      */
     public $ossMountConfig;
@@ -53,11 +63,13 @@ class UpdateSessionInput extends Model
      */
     public $sessionTTLInSeconds;
     protected $_name = [
+        'allowInternetAccess' => 'allowInternetAccess',
         'disableSessionIdReuse' => 'disableSessionIdReuse',
         'enableAutoPause' => 'enableAutoPause',
         'enableAutoResume' => 'enableAutoResume',
         'juiceFsConfig' => 'juiceFsConfig',
         'nasConfig' => 'nasConfig',
+        'network' => 'network',
         'ossMountConfig' => 'ossMountConfig',
         'polarFsConfig' => 'polarFsConfig',
         'sessionIdleTimeoutInSeconds' => 'sessionIdleTimeoutInSeconds',
@@ -72,6 +84,9 @@ class UpdateSessionInput extends Model
         if (null !== $this->nasConfig) {
             $this->nasConfig->validate();
         }
+        if (null !== $this->network) {
+            $this->network->validate();
+        }
         if (null !== $this->ossMountConfig) {
             $this->ossMountConfig->validate();
         }
@@ -84,6 +99,10 @@ class UpdateSessionInput extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->allowInternetAccess) {
+            $res['allowInternetAccess'] = $this->allowInternetAccess;
+        }
+
         if (null !== $this->disableSessionIdReuse) {
             $res['disableSessionIdReuse'] = $this->disableSessionIdReuse;
         }
@@ -102,6 +121,10 @@ class UpdateSessionInput extends Model
 
         if (null !== $this->nasConfig) {
             $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
+        }
+
+        if (null !== $this->network) {
+            $res['network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
 
         if (null !== $this->ossMountConfig) {
@@ -131,6 +154,10 @@ class UpdateSessionInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['allowInternetAccess'])) {
+            $model->allowInternetAccess = $map['allowInternetAccess'];
+        }
+
         if (isset($map['disableSessionIdReuse'])) {
             $model->disableSessionIdReuse = $map['disableSessionIdReuse'];
         }
@@ -149,6 +176,10 @@ class UpdateSessionInput extends Model
 
         if (isset($map['nasConfig'])) {
             $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
+        }
+
+        if (isset($map['network'])) {
+            $model->network = UpdateSessionNetworkConfig::fromMap($map['network']);
         }
 
         if (isset($map['ossMountConfig'])) {
