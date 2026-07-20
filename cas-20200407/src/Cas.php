@@ -23,6 +23,10 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCompanyRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCompanyResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateContactRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateContactResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateDeploymentJobRequest;
@@ -37,6 +41,10 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCertificateRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCloudAccessRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCloudAccessResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCompanyRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCompanyResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteContactRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteContactResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\DeleteDeploymentJobRequest;
@@ -69,6 +77,10 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\GetAssetCountResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificateDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertificateDetailResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCertWarehouseQuotaResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetCompanyRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetCompanyResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetContactRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\GetContactResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCsrDetailRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetCsrDetailResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\GetInstanceDetailRequest;
@@ -95,6 +107,8 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\ListCloudAccessResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCloudResourcesRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCloudResourcesResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCloudResourcesShrinkRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCompaniesRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\ListCompaniesResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListContactRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListContactResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListCsrRequest;
@@ -126,6 +140,10 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\RevokeWHClientCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\SignResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCompanyRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCompanyResponse;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateContactRequest;
+use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateContactResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCsrRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateCsrResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UpdateDeploymentJobRequest;
@@ -314,7 +332,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Submits a certificate application for a Certificate Management Service instance.
+     * Applies for a certificate.
      *
      * @param request - ApplyCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -353,7 +371,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Submits a certificate application for a Certificate Management Service instance.
+     * Applies for a certificate.
      *
      * @param request - ApplyCertificateRequest
      *
@@ -582,7 +600,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Cancels a pending certificate application that has not been issued.
+     * Revokes a certificate application.
      *
      * @param request - CancelPendingCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -621,7 +639,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Cancels a pending certificate application that has not been issued.
+     * Revokes a certificate application.
      *
      * @param request - CancelPendingCertificateRequest
      *
@@ -921,6 +939,180 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCertificateWithCsrRequestWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a company.
+     *
+     * @param request - CreateCompanyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCompanyResponse
+     *
+     * @param CreateCompanyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateCompanyResponse
+     */
+    public function createCompanyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
+        }
+
+        if (null !== $request->companyAddress) {
+            @$query['CompanyAddress'] = $request->companyAddress;
+        }
+
+        if (null !== $request->companyCode) {
+            @$query['CompanyCode'] = $request->companyCode;
+        }
+
+        if (null !== $request->companyEmail) {
+            @$query['CompanyEmail'] = $request->companyEmail;
+        }
+
+        if (null !== $request->companyName) {
+            @$query['CompanyName'] = $request->companyName;
+        }
+
+        if (null !== $request->companyPhone) {
+            @$query['CompanyPhone'] = $request->companyPhone;
+        }
+
+        if (null !== $request->companyType) {
+            @$query['CompanyType'] = $request->companyType;
+        }
+
+        if (null !== $request->countryCode) {
+            @$query['CountryCode'] = $request->countryCode;
+        }
+
+        if (null !== $request->department) {
+            @$query['Department'] = $request->department;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->postCode) {
+            @$query['PostCode'] = $request->postCode;
+        }
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCompany',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCompanyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a company.
+     *
+     * @param request - CreateCompanyRequest
+     *
+     * @returns CreateCompanyResponse
+     *
+     * @param CreateCompanyRequest $request
+     *
+     * @return CreateCompanyResponse
+     */
+    public function createCompany($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCompanyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a certificate application contact.
+     *
+     * @param request - CreateContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateContactResponse
+     *
+     * @param CreateContactRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateContactResponse
+     */
+    public function createContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->idcard) {
+            @$query['Idcard'] = $request->idcard;
+        }
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->webhooks) {
+            @$query['Webhooks'] = $request->webhooks;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateContact',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a certificate application contact.
+     *
+     * @param request - CreateContactRequest
+     *
+     * @returns CreateContactResponse
+     *
+     * @param CreateContactRequest $request
+     *
+     * @return CreateContactResponse
+     */
+    public function createContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createContactWithOptions($request, $runtime);
     }
 
     /**
@@ -1502,6 +1694,120 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCloudAccessWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a company.
+     *
+     * @param request - DeleteCompanyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCompanyResponse
+     *
+     * @param DeleteCompanyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteCompanyResponse
+     */
+    public function deleteCompanyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->companyId) {
+            @$query['CompanyId'] = $request->companyId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteCompany',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteCompanyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a company.
+     *
+     * @param request - DeleteCompanyRequest
+     *
+     * @returns DeleteCompanyResponse
+     *
+     * @param DeleteCompanyRequest $request
+     *
+     * @return DeleteCompanyResponse
+     */
+    public function deleteCompany($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCompanyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a contact.
+     *
+     * @param request - DeleteContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContactResponse
+     *
+     * @param DeleteContactRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteContactResponse
+     */
+    public function deleteContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteContact',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a contact.
+     *
+     * @param request - DeleteContactRequest
+     *
+     * @returns DeleteContactResponse
+     *
+     * @param DeleteContactRequest $request
+     *
+     * @return DeleteContactResponse
+     */
+    public function deleteContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteContactWithOptions($request, $runtime);
     }
 
     /**
@@ -2371,12 +2677,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the total number of certificate-related assets, such as websites and cloud resources.
+     * Queries the number of assets.
      *
      * @remarks
-     * This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
-     * ## QPS Limit
-     * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
+     * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+     * ## QPS limit
+     * The China single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -2405,12 +2711,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the total number of certificate-related assets, such as websites and cloud resources.
+     * Queries the number of assets.
      *
      * @remarks
-     * This API call queries the number of CA certificates that you have created, including root CA certificates and sub-CA certificates.
-     * ## QPS Limit
-     * This API call has a single-user limit of 10 queries per second (QPS). If you exceed this limit, API calls are rate-limited. This may affect your business. We recommend that you call this API operation at a reasonable rate.
+     * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
+     * ## QPS limit
+     * The China single-user QPS limit for this API is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this API appropriately.
      *
      * @returns GetAssetCountResponse
      *
@@ -2527,6 +2833,120 @@ class Cas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCertificateDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a company.
+     *
+     * @param request - GetCompanyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCompanyResponse
+     *
+     * @param GetCompanyRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetCompanyResponse
+     */
+    public function getCompanyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->companyId) {
+            @$query['CompanyId'] = $request->companyId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetCompany',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetCompanyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a company.
+     *
+     * @param request - GetCompanyRequest
+     *
+     * @returns GetCompanyResponse
+     *
+     * @param GetCompanyRequest $request
+     *
+     * @return GetCompanyResponse
+     */
+    public function getCompany($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCompanyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a contact.
+     *
+     * @param request - GetContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetContactResponse
+     *
+     * @param GetContactRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetContactResponse
+     */
+    public function getContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetContact',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a contact.
+     *
+     * @param request - GetContactRequest
+     *
+     * @returns GetContactResponse
+     *
+     * @param GetContactRequest $request
+     *
+     * @return GetContactResponse
+     */
+    public function getContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getContactWithOptions($request, $runtime);
     }
 
     /**
@@ -2896,10 +3316,10 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
+     * Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
      *
      * @remarks
-     * The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
+     * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - GetUserCertificateDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2942,10 +3362,10 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Retrieves certificate details, including the basic information, certificate body, and private key. You can also use this operation to download the certificate content and private key.
+     * Retrieves the details of a certificate, including basic information and public/private key content. You can use this operation to download the certificate content and private key.
      *
      * @remarks
-     * The queries per second (QPS) limit for each user is 100. If you exceed this limit, the system throttles your API calls, which may affect your business. We recommend that you call this operation within this limit.
+     * The China single-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - GetUserCertificateDetailRequest
      *
@@ -2963,12 +3383,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the certificate deployment statistics by cloud service type.
+     * Queries the resource statistics list of cloud services.
      *
      * @remarks
-     * Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+     * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
      * ## QPS limit
-     * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
+     * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
      *
      * @param request - ListAssetCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3019,12 +3439,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the certificate deployment statistics by cloud service type.
+     * Queries the resource statistics list of cloud services.
      *
      * @remarks
-     * Queries the number of created Certificate Authority (CA) certificates, including root and subordinate CA certificates.
+     * Queries the number of CA certificates (including root CA certificates and subordinate CA certificates) that you have created.
      * ## QPS limit
-     * Each user can make up to 10 queries per second (QPS). If you exceed this limit, the system applies rate limiting to your API calls. This may affect your business. Make API calls at a reasonable rate.
+     * The China single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API calls are throttled, which may affect your business. Call this operation as needed.
      *
      * @param request - ListAssetCountRequest
      *
@@ -3453,7 +3873,76 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the contacts that receive certificate deployment notifications.
+     * Retrieves a list of companies.
+     *
+     * @param request - ListCompaniesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListCompaniesResponse
+     *
+     * @param ListCompaniesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListCompaniesResponse
+     */
+    public function listCompaniesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->companyId) {
+            @$query['CompanyId'] = $request->companyId;
+        }
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListCompanies',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListCompaniesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves a list of companies.
+     *
+     * @param request - ListCompaniesRequest
+     *
+     * @returns ListCompaniesResponse
+     *
+     * @param ListCompaniesRequest $request
+     *
+     * @return ListCompaniesResponse
+     */
+    public function listCompanies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCompaniesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves a list of contacts.
      *
      * @param request - ListContactRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3500,7 +3989,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the contacts that receive certificate deployment notifications.
+     * Retrieves a list of contacts.
      *
      * @param request - ListContactRequest
      *
@@ -3587,7 +4076,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the certificate deployment tasks that are created in your account.
+     * Retrieves a list of deployment tasks after you create a deployment task.
      *
      * @param request - ListDeploymentJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3638,7 +4127,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the certificate deployment tasks that are created in your account.
+     * Retrieves a list of deployment tasks after you create a deployment task.
      *
      * @param request - ListDeploymentJobRequest
      *
@@ -3859,12 +4348,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the SSL certificates and certificate orders in your account.
+     * Queries the list of user certificates or orders.
      *
      * @remarks
-     * This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+     * This operation is used to query the list of user certificates or orders. If OrderType is set to CERT or UPLOAD, the certificate list is queried. If OrderType is set to CPACK or BUY, the order list is queried.
      * ## QPS limit
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - ListUserCertificateOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3923,12 +4412,12 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Queries the SSL certificates and certificate orders in your account.
+     * Queries the list of user certificates or orders.
      *
      * @remarks
-     * This operation queries a list of your certificates or orders. Set OrderType to CERT or UPLOAD to query certificates. Set OrderType to CPACK or BUY to query orders.
+     * This operation is used to query the list of user certificates or orders. If OrderType is set to CERT or UPLOAD, the certificate list is queried. If OrderType is set to CPACK or BUY, the order list is queried.
      * ## QPS limit
-     * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, API calls are throttled, which may affect your business. Plan your calls accordingly.
+     * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, the API call is throttled, which may affect your business. Call this operation appropriately.
      *
      * @param request - ListUserCertificateOrderRequest
      *
@@ -4177,7 +4666,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
+     * Refunds an instance within 7 days.
      *
      * @param request - RefundInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4216,7 +4705,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Refunds a Certificate Management Service instance if the refund is requested within seven days of purchase.
+     * Refunds an instance within 7 days.
      *
      * @param request - RefundInstanceRequest
      *
@@ -4518,7 +5007,189 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Updates the private key associated with a certificate signing request (CSR).
+     * Updates company information.
+     *
+     * @param request - UpdateCompanyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCompanyResponse
+     *
+     * @param UpdateCompanyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateCompanyResponse
+     */
+    public function updateCompanyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
+        }
+
+        if (null !== $request->companyAddress) {
+            @$query['CompanyAddress'] = $request->companyAddress;
+        }
+
+        if (null !== $request->companyCode) {
+            @$query['CompanyCode'] = $request->companyCode;
+        }
+
+        if (null !== $request->companyEmail) {
+            @$query['CompanyEmail'] = $request->companyEmail;
+        }
+
+        if (null !== $request->companyId) {
+            @$query['CompanyId'] = $request->companyId;
+        }
+
+        if (null !== $request->companyName) {
+            @$query['CompanyName'] = $request->companyName;
+        }
+
+        if (null !== $request->companyPhone) {
+            @$query['CompanyPhone'] = $request->companyPhone;
+        }
+
+        if (null !== $request->companyType) {
+            @$query['CompanyType'] = $request->companyType;
+        }
+
+        if (null !== $request->countryCode) {
+            @$query['CountryCode'] = $request->countryCode;
+        }
+
+        if (null !== $request->department) {
+            @$query['Department'] = $request->department;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->postCode) {
+            @$query['PostCode'] = $request->postCode;
+        }
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateCompany',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateCompanyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates company information.
+     *
+     * @param request - UpdateCompanyRequest
+     *
+     * @returns UpdateCompanyResponse
+     *
+     * @param UpdateCompanyRequest $request
+     *
+     * @return UpdateCompanyResponse
+     */
+    public function updateCompany($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCompanyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates a contact.
+     *
+     * @param request - UpdateContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateContactResponse
+     *
+     * @param UpdateContactRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateContactResponse
+     */
+    public function updateContactWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->contactId) {
+            @$query['ContactId'] = $request->contactId;
+        }
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
+        }
+
+        if (null !== $request->idcard) {
+            @$query['Idcard'] = $request->idcard;
+        }
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->webhooks) {
+            @$query['Webhooks'] = $request->webhooks;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateContact',
+            'version' => '2020-04-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateContactResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a contact.
+     *
+     * @param request - UpdateContactRequest
+     *
+     * @returns UpdateContactResponse
+     *
+     * @param UpdateContactRequest $request
+     *
+     * @return UpdateContactResponse
+     */
+    public function updateContact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateContactWithOptions($request, $runtime);
+    }
+
+    /**
+     * Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
      *
      * @param request - UpdateCsrRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4561,7 +5232,7 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * Updates the private key associated with a certificate signing request (CSR).
+     * Uploads the private key corresponding to a CSR if the private key was not provided when the local CSR was uploaded.
      *
      * @param request - UpdateCsrRequest
      *
