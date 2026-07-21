@@ -12,6 +12,11 @@ class PushQueryDeviceStateResponseBody extends Model
     /**
      * @var string
      */
+    public $accessDeniedDetail;
+
+    /**
+     * @var string
+     */
     public $code;
 
     /**
@@ -34,6 +39,7 @@ class PushQueryDeviceStateResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'code' => 'Code',
         'data' => 'Data',
         'message' => 'Message',
@@ -52,6 +58,10 @@ class PushQueryDeviceStateResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -83,6 +93,10 @@ class PushQueryDeviceStateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

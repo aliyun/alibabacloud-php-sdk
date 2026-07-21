@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\RevokePushTaskResponseBody\pushResul
 class RevokePushTaskResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @var pushResult
      */
     public $pushResult;
@@ -29,6 +34,7 @@ class RevokePushTaskResponseBody extends Model
      */
     public $resultMessage;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'pushResult' => 'PushResult',
         'requestId' => 'RequestId',
         'resultCode' => 'ResultCode',
@@ -46,6 +52,10 @@ class RevokePushTaskResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->pushResult) {
             $res['PushResult'] = null !== $this->pushResult ? $this->pushResult->toArray($noStream) : $this->pushResult;
         }
@@ -73,6 +83,10 @@ class RevokePushTaskResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['PushResult'])) {
             $model->pushResult = pushResult::fromMap($map['PushResult']);
         }
