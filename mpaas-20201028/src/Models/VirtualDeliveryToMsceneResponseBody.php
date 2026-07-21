@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\VirtualDeliveryToMsceneResponseBody\
 class VirtualDeliveryToMsceneResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @var mpaasUserGamecenterPaymentVirtualdeliveryResponse
      */
     public $mpaasUserGamecenterPaymentVirtualdeliveryResponse;
@@ -34,6 +39,7 @@ class VirtualDeliveryToMsceneResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'mpaasUserGamecenterPaymentVirtualdeliveryResponse' => 'MpaasUserGamecenterPaymentVirtualdeliveryResponse',
         'requestId' => 'RequestId',
         'resultCode' => 'ResultCode',
@@ -52,6 +58,10 @@ class VirtualDeliveryToMsceneResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->mpaasUserGamecenterPaymentVirtualdeliveryResponse) {
             $res['MpaasUserGamecenterPaymentVirtualdeliveryResponse'] = null !== $this->mpaasUserGamecenterPaymentVirtualdeliveryResponse ? $this->mpaasUserGamecenterPaymentVirtualdeliveryResponse->toArray($noStream) : $this->mpaasUserGamecenterPaymentVirtualdeliveryResponse;
         }
@@ -83,6 +93,10 @@ class VirtualDeliveryToMsceneResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['MpaasUserGamecenterPaymentVirtualdeliveryResponse'])) {
             $model->mpaasUserGamecenterPaymentVirtualdeliveryResponse = mpaasUserGamecenterPaymentVirtualdeliveryResponse::fromMap($map['MpaasUserGamecenterPaymentVirtualdeliveryResponse']);
         }

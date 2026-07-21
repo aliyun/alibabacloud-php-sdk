@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\CheckUserAuthToMsceneResponseBody\mp
 class CheckUserAuthToMsceneResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @var mpaasUserAuthCheckResponse
      */
     public $mpaasUserAuthCheckResponse;
@@ -34,6 +39,7 @@ class CheckUserAuthToMsceneResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'mpaasUserAuthCheckResponse' => 'MpaasUserAuthCheckResponse',
         'requestId' => 'RequestId',
         'resultCode' => 'ResultCode',
@@ -52,6 +58,10 @@ class CheckUserAuthToMsceneResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->mpaasUserAuthCheckResponse) {
             $res['MpaasUserAuthCheckResponse'] = null !== $this->mpaasUserAuthCheckResponse ? $this->mpaasUserAuthCheckResponse->toArray($noStream) : $this->mpaasUserAuthCheckResponse;
         }
@@ -83,6 +93,10 @@ class CheckUserAuthToMsceneResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['MpaasUserAuthCheckResponse'])) {
             $model->mpaasUserAuthCheckResponse = mpaasUserAuthCheckResponse::fromMap($map['MpaasUserAuthCheckResponse']);
         }

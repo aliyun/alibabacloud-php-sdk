@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPayOrderToMsenceResponseBody\mp
 class QueryPayOrderToMsenceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @var mpaasUserGamecenterPaymentQuerystatusResponse
      */
     public $mpaasUserGamecenterPaymentQuerystatusResponse;
@@ -34,6 +39,7 @@ class QueryPayOrderToMsenceResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'mpaasUserGamecenterPaymentQuerystatusResponse' => 'MpaasUserGamecenterPaymentQuerystatusResponse',
         'requestId' => 'RequestId',
         'resultCode' => 'ResultCode',
@@ -52,6 +58,10 @@ class QueryPayOrderToMsenceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->mpaasUserGamecenterPaymentQuerystatusResponse) {
             $res['MpaasUserGamecenterPaymentQuerystatusResponse'] = null !== $this->mpaasUserGamecenterPaymentQuerystatusResponse ? $this->mpaasUserGamecenterPaymentQuerystatusResponse->toArray($noStream) : $this->mpaasUserGamecenterPaymentQuerystatusResponse;
         }
@@ -83,6 +93,10 @@ class QueryPayOrderToMsenceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['MpaasUserGamecenterPaymentQuerystatusResponse'])) {
             $model->mpaasUserGamecenterPaymentQuerystatusResponse = mpaasUserGamecenterPaymentQuerystatusResponse::fromMap($map['MpaasUserGamecenterPaymentQuerystatusResponse']);
         }

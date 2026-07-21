@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveOrderRelationInfoToMsenceRespons
 class SaveOrderRelationInfoToMsenceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @var mpaasSaveOrderRelationResponse
      */
     public $mpaasSaveOrderRelationResponse;
@@ -34,6 +39,7 @@ class SaveOrderRelationInfoToMsenceResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'mpaasSaveOrderRelationResponse' => 'MpaasSaveOrderRelationResponse',
         'requestId' => 'RequestId',
         'resultCode' => 'ResultCode',
@@ -52,6 +58,10 @@ class SaveOrderRelationInfoToMsenceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->mpaasSaveOrderRelationResponse) {
             $res['MpaasSaveOrderRelationResponse'] = null !== $this->mpaasSaveOrderRelationResponse ? $this->mpaasSaveOrderRelationResponse->toArray($noStream) : $this->mpaasSaveOrderRelationResponse;
         }
@@ -83,6 +93,10 @@ class SaveOrderRelationInfoToMsenceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['MpaasSaveOrderRelationResponse'])) {
             $model->mpaasSaveOrderRelationResponse = mpaasSaveOrderRelationResponse::fromMap($map['MpaasSaveOrderRelationResponse']);
         }
