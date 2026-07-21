@@ -12,6 +12,11 @@ class QueryPushSchedulerListResponseBody extends Model
     /**
      * @var string
      */
+    public $accessDeniedDetail;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -29,6 +34,7 @@ class QueryPushSchedulerListResponseBody extends Model
      */
     public $resultMessage;
     protected $_name = [
+        'accessDeniedDetail' => 'AccessDeniedDetail',
         'requestId' => 'RequestId',
         'resultCode' => 'ResultCode',
         'resultContent' => 'ResultContent',
@@ -46,6 +52,10 @@ class QueryPushSchedulerListResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -73,6 +83,10 @@ class QueryPushSchedulerListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
