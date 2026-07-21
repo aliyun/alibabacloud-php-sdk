@@ -27,11 +27,17 @@ class UpdateContextStoreRequest extends Model
     /**
      * @var string
      */
+    public $status;
+
+    /**
+     * @var string
+     */
     public $clientToken;
     protected $_name = [
         'config' => 'config',
         'contextType' => 'contextType',
         'description' => 'description',
+        'status' => 'status',
         'clientToken' => 'clientToken',
     ];
 
@@ -56,6 +62,10 @@ class UpdateContextStoreRequest extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
 
         if (null !== $this->clientToken) {
@@ -83,6 +93,10 @@ class UpdateContextStoreRequest extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
 
         if (isset($map['clientToken'])) {

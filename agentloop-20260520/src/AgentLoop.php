@@ -3727,6 +3727,10 @@ class AgentLoop extends OpenApiClient
             @$body['description'] = $request->description;
         }
 
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query' => Utils::query($query),

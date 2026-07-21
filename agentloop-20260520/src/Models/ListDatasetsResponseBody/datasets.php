@@ -29,6 +29,11 @@ class datasets extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $isFavorite;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -42,6 +47,7 @@ class datasets extends Model
         'createTime' => 'createTime',
         'datasetName' => 'datasetName',
         'description' => 'description',
+        'isFavorite' => 'isFavorite',
         'regionId' => 'regionId',
         'updateTime' => 'updateTime',
     ];
@@ -68,6 +74,10 @@ class datasets extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->isFavorite) {
+            $res['isFavorite'] = $this->isFavorite;
         }
 
         if (null !== $this->regionId) {
@@ -103,6 +113,10 @@ class datasets extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['isFavorite'])) {
+            $model->isFavorite = $map['isFavorite'];
         }
 
         if (isset($map['regionId'])) {

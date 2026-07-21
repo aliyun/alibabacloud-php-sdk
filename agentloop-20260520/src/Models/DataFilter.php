@@ -27,17 +27,26 @@ class DataFilter extends Model
      * @var int
      */
     public $samplingRate;
+
+    /**
+     * @var string[]
+     */
+    public $serviceNames;
     protected $_name = [
         'maxRecords' => 'maxRecords',
         'provided' => 'provided',
         'query' => 'query',
         'samplingRate' => 'samplingRate',
+        'serviceNames' => 'serviceNames',
     ];
 
     public function validate()
     {
         if (\is_array($this->provided)) {
             Model::validateArray($this->provided);
+        }
+        if (\is_array($this->serviceNames)) {
+            Model::validateArray($this->serviceNames);
         }
         parent::validate();
     }
@@ -64,6 +73,17 @@ class DataFilter extends Model
 
         if (null !== $this->samplingRate) {
             $res['samplingRate'] = $this->samplingRate;
+        }
+
+        if (null !== $this->serviceNames) {
+            if (\is_array($this->serviceNames)) {
+                $res['serviceNames'] = [];
+                $n1 = 0;
+                foreach ($this->serviceNames as $item1) {
+                    $res['serviceNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -96,6 +116,17 @@ class DataFilter extends Model
 
         if (isset($map['samplingRate'])) {
             $model->samplingRate = $map['samplingRate'];
+        }
+
+        if (isset($map['serviceNames'])) {
+            if (!empty($map['serviceNames'])) {
+                $model->serviceNames = [];
+                $n1 = 0;
+                foreach ($map['serviceNames'] as $item1) {
+                    $model->serviceNames[$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $model;
