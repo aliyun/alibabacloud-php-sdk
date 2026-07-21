@@ -97,6 +97,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateConversationReq
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateConversationResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateModelResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateSubscriptionRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterCreateSubscriptionResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteApiKeyResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteClientResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterDeleteConversationResponse;
@@ -105,6 +107,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsR
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceLogsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterGetClientBalanceResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListSubscriptionsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterListSubscriptionsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryApiKeyResponse;
@@ -146,6 +150,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownRe
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterQueryUsageBreakdownResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSaveFlowConfigRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterSaveFlowConfigResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterStopSubscriptionRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterStopSubscriptionResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateBillingRuleResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ModelRouterUpdateClientRequest;
@@ -189,7 +195,13 @@ class AiContent extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'public' => 'aicontent.aliyuncs.com',
+            'cn-shanghai' => 'aicontent.aliyuncs.com',
+            'cn-hangzhou' => 'aicontent.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'aicontent.cn-beijing.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('aicontent', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -219,7 +231,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 拓展练问答对生成.
+     * Generate Q&A pairs to expand data.
      *
      * @param request - AITeacherExpansionPracticeTaskGenerateRequest
      * @param headers - map
@@ -289,7 +301,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 拓展练问答对生成.
+     * Generate Q&A pairs to expand data.
      *
      * @param request - AITeacherExpansionPracticeTaskGenerateRequest
      *
@@ -308,7 +320,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 同步基础练问答对生成.
+     * Synchronous basic practice is primarily for dialogue tasks with a ground truth. Although this mode allows some deviation from the ground truth, the AI strictly requires users to follow it.
      *
      * @param request - AITeacherSyncPracticeTaskGenerateRequest
      * @param headers - map
@@ -378,7 +390,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 同步基础练问答对生成.
+     * Synchronous basic practice is primarily for dialogue tasks with a ground truth. Although this mode allows some deviation from the ground truth, the AI strictly requires users to follow it.
      *
      * @param request - AITeacherSyncPracticeTaskGenerateRequest
      *
@@ -397,7 +409,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/列出阿里云控制台上可使用的服务列表.
+     * Lists the services available on the Alibaba Cloud Console.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -430,7 +442,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/列出阿里云控制台上可使用的服务列表.
+     * Lists the services available on the Alibaba Cloud Console.
      *
      * @returns AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse
      *
@@ -445,7 +457,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/列出阿里云控制台上可使用的服务列表.
+     * Lists the services available in the Alibaba Cloud console.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -478,7 +490,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/列出阿里云控制台上可使用的服务列表.
+     * Lists the services available in the Alibaba Cloud console.
      *
      * @returns AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse
      *
@@ -493,7 +505,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/列出购买过的资源列表.
+     * Alibaba Cloud Management Console / List purchased resources.
      *
      * @param request - AliyunConsoleOpenApiQueryPaidResourceRequest
      * @param headers - map
@@ -567,7 +579,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/列出购买过的资源列表.
+     * Alibaba Cloud Management Console / List purchased resources.
      *
      * @param request - AliyunConsoleOpenApiQueryPaidResourceRequest
      *
@@ -586,7 +598,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 智能批改/口语评测/统计/调用量.
+     * Intelligent Correction / Oral Evaluation / Statistics / call volume.
      *
      * @param request - CountOralEvaluationStatisticsCallsRequest
      * @param headers - map
@@ -623,7 +635,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 智能批改/口语评测/统计/调用量.
+     * Intelligent Correction / Oral Evaluation / Statistics / call volume.
      *
      * @param request - CountOralEvaluationStatisticsCallsRequest
      *
@@ -642,7 +654,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 智能批改/口语评测/统计/并发数.
+     * Intelligent grading / oral evaluation / statistics / concurrency.
      *
      * @param request - CountOralEvaluationStatisticsConcurrentRequest
      * @param headers - map
@@ -679,7 +691,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 智能批改/口语评测/统计/并发数.
+     * Intelligent grading / oral evaluation / statistics / concurrency.
      *
      * @param request - CountOralEvaluationStatisticsConcurrentRequest
      *
@@ -698,7 +710,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 智能批改/口语评测/统计/调用错误.
+     * Retrieves statistics about API call errors for the oral evaluation service.
      *
      * @param request - CountOralEvaluationStatisticsErrorRequest
      * @param headers - map
@@ -735,7 +747,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 智能批改/口语评测/统计/调用错误.
+     * Retrieves statistics about API call errors for the oral evaluation service.
      *
      * @param request - CountOralEvaluationStatisticsErrorRequest
      *
@@ -754,7 +766,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/授权凭证创建.
+     * Creates an access warrant.
      *
      * @param request - CreateAccessWarrantRequest
      * @param headers - map
@@ -816,7 +828,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/授权凭证创建.
+     * Creates an access warrant.
      *
      * @param request - CreateAccessWarrantRequest
      *
@@ -835,7 +847,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/创建项目.
+     * Alibaba Cloud console > Create Project.
      *
      * @param request - CreateProjectRequest
      * @param headers - map
@@ -881,7 +893,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/创建项目.
+     * Alibaba Cloud console > Create Project.
      *
      * @param request - CreateProjectRequest
      *
@@ -900,7 +912,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 中文作文辅导
+     * Executes a workflow for Chinese composition tutoring.
      *
      * @param request - ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
      * @param headers - map
@@ -983,7 +995,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 中文作文辅导
+     * Executes a workflow for Chinese composition tutoring.
      *
      * @param request - ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
      * @param headers - map
@@ -1053,7 +1065,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 中文作文辅导
+     * Executes a workflow for Chinese composition tutoring.
      *
      * @param request - ExecuteAITeacherChineseCompositionTutoringWorkflowRunRequest
      *
@@ -1072,7 +1084,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 英语作文辅导
+     * English Composition Tutoring.
      *
      * @param request - ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
      * @param headers - map
@@ -1155,7 +1167,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 英语作文辅导
+     * English Composition Tutoring.
      *
      * @param request - ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
      * @param headers - map
@@ -1225,7 +1237,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 英语作文辅导
+     * English Composition Tutoring.
      *
      * @param request - ExecuteAITeacherEnglishCompositionTutoringWorkflowRunRequest
      *
@@ -1244,7 +1256,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 英文释义.
+     * Answers English-related questions.
      *
      * @param request - ExecuteAITeacherEnglishParaphraseChatMessageRequest
      * @param headers - map
@@ -1327,7 +1339,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 英文释义.
+     * Answers English-related questions.
      *
      * @param request - ExecuteAITeacherEnglishParaphraseChatMessageRequest
      * @param headers - map
@@ -1397,7 +1409,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 英文释义.
+     * Answers English-related questions.
      *
      * @param request - ExecuteAITeacherEnglishParaphraseChatMessageRequest
      *
@@ -1416,7 +1428,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 进行拓展练对话.
+     * Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
      *
      * @param request - ExecuteAITeacherExpansionDialogueRequest
      * @param headers - map
@@ -1486,7 +1498,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 进行拓展练对话.
+     * Expansion dialogues are for open-ended conversations. In these conversations, the AI poses open-ended questions, but the user must stay on topic. If a user\\"s response is off-topic, the AI steers the conversation back on topic. If the user gives two consecutive off-topic responses, the AI moves on to the next topic.
      *
      * @param request - ExecuteAITeacherExpansionDialogueRequest
      *
@@ -1505,7 +1517,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 拓展练根据上下文进行润色.
+     * Uses context to polish the expanded text.
      *
      * @param request - ExecuteAITeacherExpansionDialogueRefineRequest
      * @param headers - map
@@ -1575,7 +1587,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 拓展练根据上下文进行润色.
+     * Uses context to polish the expanded text.
      *
      * @param request - ExecuteAITeacherExpansionDialogueRefineRequest
      *
@@ -1594,7 +1606,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 拓展练语境翻译.
+     * Further Contextual Translation Practice.
      *
      * @param request - ExecuteAITeacherExpansionDialogueTranslateRequest
      * @param headers - map
@@ -1660,7 +1672,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 拓展练语境翻译.
+     * Further Contextual Translation Practice.
      *
      * @param request - ExecuteAITeacherExpansionDialogueTranslateRequest
      *
@@ -1679,7 +1691,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 语法检测.
+     * Performs a grammar check.
      *
      * @param request - ExecuteAITeacherGrammarCheckRequest
      * @param headers - map
@@ -1725,7 +1737,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 语法检测.
+     * Performs a grammar check.
      *
      * @param request - ExecuteAITeacherGrammarCheckRequest
      *
@@ -1744,7 +1756,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 进行同步练对话.
+     * Practice synchronous dialogue.
      *
      * @param request - ExecuteAITeacherSyncDialogueRequest
      * @param headers - map
@@ -1798,7 +1810,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 进行同步练对话.
+     * Practice synchronous dialogue.
      *
      * @param request - ExecuteAITeacherSyncDialogueRequest
      *
@@ -1817,7 +1829,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 同步练语境翻译.
+     * You can practice contextual translation in real-time.
      *
      * @param request - ExecuteAITeacherSyncDialogueTranslateRequest
      * @param headers - map
@@ -1867,7 +1879,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 同步练语境翻译.
+     * You can practice contextual translation in real-time.
      *
      * @param request - ExecuteAITeacherSyncDialogueTranslateRequest
      *
@@ -1886,7 +1898,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 进行AI对话.
+     * Executes a dialogue turn with the Textbook Assistant.
      *
      * @param request - ExecuteTextbookAssistantDialogueRequest
      * @param headers - map
@@ -1940,7 +1952,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 进行AI对话.
+     * Executes a dialogue turn with the Textbook Assistant.
      *
      * @param request - ExecuteTextbookAssistantDialogueRequest
      *
@@ -1959,7 +1971,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 调整难度.
+     * Adjusts the difficulty of the textbook assistant\\"s dialogue.
      *
      * @param request - ExecuteTextbookAssistantDifficultyRequest
      * @param headers - map
@@ -2017,7 +2029,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 调整难度.
+     * Adjusts the difficulty of the textbook assistant\\"s dialogue.
      *
      * @param request - ExecuteTextbookAssistantDifficultyRequest
      *
@@ -2036,7 +2048,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 语法检测.
+     * Performs a grammar check.
      *
      * @param request - ExecuteTextbookAssistantGrammarCheckRequest
      * @param headers - map
@@ -2090,7 +2102,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 语法检测.
+     * Performs a grammar check.
      *
      * @param request - ExecuteTextbookAssistantGrammarCheckRequest
      *
@@ -2109,7 +2121,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 句子润色.
+     * Refines a sentence based on the conversational context.
      *
      * @param request - ExecuteTextbookAssistantRefineByContextRequest
      * @param headers - map
@@ -2163,7 +2175,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 句子润色.
+     * Refines a sentence based on the conversational context.
      *
      * @param request - ExecuteTextbookAssistantRefineByContextRequest
      *
@@ -2182,7 +2194,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话重试.
+     * This operation retries a conversation.
      *
      * @param request - ExecuteTextbookAssistantRetryConversationRequest
      * @param headers - map
@@ -2236,7 +2248,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话重试.
+     * This operation retries a conversation.
      *
      * @param request - ExecuteTextbookAssistantRetryConversationRequest
      *
@@ -2255,7 +2267,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 进行对话-流式输出.
+     * Starts a conversation and returns a streaming output.
      *
      * @param request - ExecuteTextbookAssistantSseDialogueRequest
      * @param headers - map
@@ -2322,7 +2334,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 进行对话-流式输出.
+     * Starts a conversation and returns a streaming output.
      *
      * @param request - ExecuteTextbookAssistantSseDialogueRequest
      * @param headers - map
@@ -2376,7 +2388,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 进行对话-流式输出.
+     * Starts a conversation and returns a streaming output.
      *
      * @param request - ExecuteTextbookAssistantSseDialogueRequest
      *
@@ -2395,7 +2407,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 开启自由对话.
+     * Starts a conversation with the AI teacher. The teacher then sends the initial message.
      *
      * @param request - ExecuteTextbookAssistantStartConversationRequest
      * @param headers - map
@@ -2445,7 +2457,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 开启自由对话.
+     * Starts a conversation with the AI teacher. The teacher then sends the initial message.
      *
      * @param request - ExecuteTextbookAssistantStartConversationRequest
      *
@@ -2464,7 +2476,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取鉴权参数.
+     * Generates a suggested response from the textbook-based AI teacher.
      *
      * @param request - ExecuteTextbookAssistantSuggestionRequest
      * @param headers - map
@@ -2518,7 +2530,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取鉴权参数.
+     * Generates a suggested response from the textbook-based AI teacher.
      *
      * @param request - ExecuteTextbookAssistantSuggestionRequest
      *
@@ -2537,7 +2549,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 翻译消息内容.
+     * Translates the content of a message.
      *
      * @param request - ExecuteTextbookAssistantTranslateRequest
      * @param headers - map
@@ -2591,7 +2603,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 翻译消息内容.
+     * Translates the content of a message.
      *
      * @param request - ExecuteTextbookAssistantTranslateRequest
      *
@@ -2610,7 +2622,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 拓展练小助手.
+     * Supplemental Practice Assistant.
      *
      * @param request - GetAITeacherExpansionDialogueSuggestionRequest
      * @param headers - map
@@ -2680,7 +2692,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 拓展练小助手.
+     * Supplemental Practice Assistant.
      *
      * @param request - GetAITeacherExpansionDialogueSuggestionRequest
      *
@@ -2699,7 +2711,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 同步练小助手.
+     * Sync Practice Assistant.
      *
      * @param request - GetAITeacherSyncDialogueSuggestionRequest
      * @param headers - map
@@ -2753,7 +2765,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 同步练小助手.
+     * Sync Practice Assistant.
      *
      * @param request - GetAITeacherSyncDialogueSuggestionRequest
      *
@@ -2772,7 +2784,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取请求鉴权参数.
+     * Obtains an authorization token to make API calls.
      *
      * @param request - GetTextbookAssistantTokenRequest
      * @param headers - map
@@ -2818,7 +2830,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取请求鉴权参数.
+     * Obtains an authorization token to make API calls.
      *
      * @param request - GetTextbookAssistantTokenRequest
      *
@@ -2837,7 +2849,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 批量获取文章详情.
+     * Batch get article details.
      *
      * @param request - ListTextbookAssistantArticleDetailsRequest
      * @param headers - map
@@ -2883,7 +2895,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 批量获取文章详情.
+     * Batch get article details.
      *
      * @param request - ListTextbookAssistantArticleDetailsRequest
      *
@@ -2902,7 +2914,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取文章列表.
+     * Returns a list of articles.
      *
      * @param request - ListTextbookAssistantArticlesRequest
      * @param headers - map
@@ -2948,7 +2960,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取文章列表.
+     * Returns a list of articles.
      *
      * @param request - ListTextbookAssistantArticlesRequest
      *
@@ -2967,7 +2979,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取书本下的目录信息.
+     * Gets the table of contents of a book.
      *
      * @param request - ListTextbookAssistantBookDirectoriesRequest
      * @param headers - map
@@ -3017,7 +3029,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取书本下的目录信息.
+     * Gets the table of contents of a book.
      *
      * @param request - ListTextbookAssistantBookDirectoriesRequest
      *
@@ -3036,7 +3048,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取包含年级下的书本列表.
+     * Retrieves a list of books for a specified grade.
      *
      * @param request - ListTextbookAssistantBooksRequest
      * @param headers - map
@@ -3102,7 +3114,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取包含年级下的书本列表.
+     * Retrieves a list of books for a specified grade.
      *
      * @param request - ListTextbookAssistantBooksRequest
      *
@@ -3121,7 +3133,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取有资源的年级信息.
+     * Retrieves the available grades and volumes for the Textbook Assistant.
      *
      * @param request - ListTextbookAssistantGradeVolumesRequest
      * @param headers - map
@@ -3167,7 +3179,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取有资源的年级信息.
+     * Retrieves the available grades and volumes for the Textbook Assistant.
      *
      * @param request - ListTextbookAssistantGradeVolumesRequest
      *
@@ -3186,7 +3198,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取文章内容详情.
+     * Get Article Details.
      *
      * @param request - ListTextbookAssistantSceneDetailsRequest
      * @param headers - map
@@ -3232,7 +3244,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 获取文章内容详情.
+     * Get Article Details.
      *
      * @param request - ListTextbookAssistantSceneDetailsRequest
      *
@@ -3251,7 +3263,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取成本监控Tab配置.
+     * Retrieves the tab configuration for usage monitoring.
      *
      * @param request - ModelRouterBillingCostTabsRequest
      * @param headers - map
@@ -3297,7 +3309,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取成本监控Tab配置.
+     * Retrieves the tab configuration for usage monitoring.
      *
      * @param request - ModelRouterBillingCostTabsRequest
      *
@@ -3316,7 +3328,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 聊天/聊天接口.
+     * Generates a chat completion.
      *
      * @param request - ModelRouterChatCompletionsRequest
      * @param headers - map
@@ -3366,7 +3378,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 聊天/聊天接口.
+     * Generates a chat completion.
      *
      * @param request - ModelRouterChatCompletionsRequest
      * @param headers - map
@@ -3403,7 +3415,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 聊天/聊天接口.
+     * Generates a chat completion.
      *
      * @param request - ModelRouterChatCompletionsRequest
      *
@@ -3422,7 +3434,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/启用部门余额限流
+     * Configures balance throttling for a department.
      *
      * @param request - ModelRouterConfigureClientBalanceRequest
      * @param headers - map
@@ -3473,7 +3485,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/启用部门余额限流
+     * Configures balance throttling for a department.
      *
      * @param request - ModelRouterConfigureClientBalanceRequest
      *
@@ -3493,7 +3505,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/复制API密钥.
+     * Copies an API key.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3527,7 +3539,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/复制API密钥.
+     * Copies an API key.
      *
      * @returns ModelRouterCopyApiKeyResponse
      *
@@ -3544,7 +3556,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/创建API密钥.
+     * API key management / Create an API key.
      *
      * @param request - ModelRouterCreateApiKeyRequest
      * @param headers - map
@@ -3586,7 +3598,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/创建API密钥.
+     * API key management / Create an API key.
      *
      * @param request - ModelRouterCreateApiKeyRequest
      *
@@ -3605,7 +3617,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/创建余额交易.
+     * Creates a balance transaction for customer management.
+     *
+     * @remarks
+     * This operation is deprecated. Do not use it.
      *
      * @param request - ModelRouterCreateBalanceTransactionRequest
      * @param headers - map
@@ -3626,6 +3641,14 @@ class AiContent extends OpenApiClient
         $body = [];
         if (null !== $request->amount) {
             @$body['amount'] = $request->amount;
+        }
+
+        if (null !== $request->balanceType) {
+            @$body['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->idempotencyKey) {
+            @$body['idempotencyKey'] = $request->idempotencyKey;
         }
 
         if (null !== $request->remark) {
@@ -3656,7 +3679,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/创建余额交易.
+     * Creates a balance transaction for customer management.
+     *
+     * @remarks
+     * This operation is deprecated. Do not use it.
      *
      * @param request - ModelRouterCreateBalanceTransactionRequest
      *
@@ -3676,7 +3702,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/创建计费规则.
+     * Billing Management/Create Billing Rule.
      *
      * @param request - ModelRouterCreateBillingRuleRequest
      * @param headers - map
@@ -3738,7 +3764,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/创建计费规则.
+     * Billing Management/Create Billing Rule.
      *
      * @param request - ModelRouterCreateBillingRuleRequest
      *
@@ -3757,7 +3783,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/创建客户.
+     * Client management / Create client.
      *
      * @param request - ModelRouterCreateClientRequest
      * @param headers - map
@@ -3823,7 +3849,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/创建客户.
+     * Client management / Create client.
      *
      * @param request - ModelRouterCreateClientRequest
      *
@@ -3842,7 +3868,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/新建对话.
+     * Conversation management / Create conversation.
      *
      * @param request - ModelRouterCreateConversationRequest
      * @param headers - map
@@ -3892,7 +3918,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/新建对话.
+     * Conversation management / Create conversation.
      *
      * @param request - ModelRouterCreateConversationRequest
      *
@@ -3911,7 +3937,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/创建模型.
+     * Creates a model.
      *
      * @param request - ModelRouterCreateModelRequest
      * @param headers - map
@@ -3997,7 +4023,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/创建模型.
+     * Creates a model.
      *
      * @param request - ModelRouterCreateModelRequest
      *
@@ -4016,7 +4042,88 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/删除API密钥.
+     * 客户管理/创建周期充值订阅.
+     *
+     * @remarks
+     * 该接口已弃用，请勿使用
+     *
+     * @param request - ModelRouterCreateSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterCreateSubscriptionResponse
+     *
+     * @param string                               $id
+     * @param ModelRouterCreateSubscriptionRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModelRouterCreateSubscriptionResponse
+     */
+    public function modelRouterCreateSubscriptionWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->balanceType) {
+            @$body['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->effectiveTime) {
+            @$body['effectiveTime'] = $request->effectiveTime;
+        }
+
+        if (null !== $request->idempotencyKey) {
+            @$body['idempotencyKey'] = $request->idempotencyKey;
+        }
+
+        if (null !== $request->subscriptionAmount) {
+            @$body['subscriptionAmount'] = $request->subscriptionAmount;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterCreateSubscription',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/balance/subscription',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterCreateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/创建周期充值订阅.
+     *
+     * @remarks
+     * 该接口已弃用，请勿使用
+     *
+     * @param request - ModelRouterCreateSubscriptionRequest
+     *
+     * @returns ModelRouterCreateSubscriptionResponse
+     *
+     * @param string                               $id
+     * @param ModelRouterCreateSubscriptionRequest $request
+     *
+     * @return ModelRouterCreateSubscriptionResponse
+     */
+    public function modelRouterCreateSubscription($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterCreateSubscriptionWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * API Key Management / Delete API Key.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4050,7 +4157,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/删除API密钥.
+     * API Key Management / Delete API Key.
      *
      * @returns ModelRouterDeleteApiKeyResponse
      *
@@ -4067,7 +4174,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/删除客户.
+     * Deletes a client.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4101,7 +4208,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/删除客户.
+     * Deletes a client.
      *
      * @returns ModelRouterDeleteClientResponse
      *
@@ -4118,7 +4225,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/删除对话.
+     * Conversation management/Delete conversation.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4152,7 +4259,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/删除对话.
+     * Conversation management/Delete conversation.
      *
      * @returns ModelRouterDeleteConversationResponse
      *
@@ -4169,7 +4276,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/删除模型.
+     * Model Management / Delete Model.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4203,7 +4310,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/删除模型.
+     * Model Management / Delete Model.
      *
      * @returns ModelRouterDeleteModelResponse
      *
@@ -4220,7 +4327,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取部门余额.
+     * Client Management/Get department balance.
      *
      * @param request - ModelRouterGetClientBalanceRequest
      * @param headers - map
@@ -4257,7 +4364,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取部门余额.
+     * Client Management/Get department balance.
      *
      * @param request - ModelRouterGetClientBalanceRequest
      *
@@ -4277,7 +4384,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取部门余额变更日志.
+     * Gets the balance change log for a specified department.
      *
      * @param request - ModelRouterGetClientBalanceLogsRequest
      * @param headers - map
@@ -4336,7 +4443,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取部门余额变更日志.
+     * Gets the balance change log for a specified department.
      *
      * @param request - ModelRouterGetClientBalanceLogsRequest
      *
@@ -4356,7 +4463,88 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/获取API密钥详情.
+     * 客户管理/查询周期充值订阅列表.
+     *
+     * @remarks
+     * 该接口已弃用，请勿使用
+     *
+     * @param request - ModelRouterListSubscriptionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterListSubscriptionsResponse
+     *
+     * @param string                              $id
+     * @param ModelRouterListSubscriptionsRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModelRouterListSubscriptionsResponse
+     */
+    public function modelRouterListSubscriptionsWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->balanceType) {
+            @$query['balanceType'] = $request->balanceType;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterListSubscriptions',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/balance/subscription',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterListSubscriptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/查询周期充值订阅列表.
+     *
+     * @remarks
+     * 该接口已弃用，请勿使用
+     *
+     * @param request - ModelRouterListSubscriptionsRequest
+     *
+     * @returns ModelRouterListSubscriptionsResponse
+     *
+     * @param string                              $id
+     * @param ModelRouterListSubscriptionsRequest $request
+     *
+     * @return ModelRouterListSubscriptionsResponse
+     */
+    public function modelRouterListSubscriptions($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterListSubscriptionsWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a specific API key.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4390,7 +4578,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/获取API密钥详情.
+     * Retrieves the details of a specific API key.
      *
      * @returns ModelRouterQueryApiKeyResponse
      *
@@ -4407,7 +4595,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/获取API密钥列表.
+     * Retrieves a list of API keys.
      *
      * @param request - ModelRouterQueryApiKeyListRequest
      * @param headers - map
@@ -4489,7 +4677,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * API密钥管理/获取API密钥列表.
+     * Retrieves a list of API keys.
      *
      * @param request - ModelRouterQueryApiKeyListRequest
      *
@@ -4508,7 +4696,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/批量查询计费明细.
+     * Billing > Query billing cost breakdown.
      *
      * @param request - ModelRouterQueryBillingCostBreakdownRequest
      * @param headers - map
@@ -4590,7 +4778,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/批量查询计费明细.
+     * Billing > Query billing cost breakdown.
      *
      * @param request - ModelRouterQueryBillingCostBreakdownRequest
      *
@@ -4609,7 +4797,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/查询计费规则列表.
+     * Billing management / Query billing rule list.
      *
      * @param request - ModelRouterQueryBillingRuleListRequest
      * @param headers - map
@@ -4683,7 +4871,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/查询计费规则列表.
+     * Billing management / Query billing rule list.
      *
      * @param request - ModelRouterQueryBillingRuleListRequest
      *
@@ -4702,7 +4890,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取部门折扣修改历史.
+     * Retrieves the discount modification history for a client.
      *
      * @param request - ModelRouterQueryClientDiscountLogsRequest
      * @param headers - map
@@ -4749,7 +4937,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取部门折扣修改历史.
+     * Retrieves the discount modification history for a client.
      *
      * @param request - ModelRouterQueryClientDiscountLogsRequest
      *
@@ -4769,7 +4957,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取客户列表.
+     * Retrieves a list of clients.
      *
      * @param request - ModelRouterQueryClientListRequest
      * @param headers - map
@@ -4847,7 +5035,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取客户列表.
+     * Retrieves a list of clients.
      *
      * @param request - ModelRouterQueryClientListRequest
      *
@@ -4866,7 +5054,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取客户树.
+     * Returns a hierarchical tree of customers.
      *
      * @param request - ModelRouterQueryClientTreeRequest
      * @param headers - map
@@ -4912,7 +5100,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/获取客户树.
+     * Returns a hierarchical tree of customers.
      *
      * @param request - ModelRouterQueryClientTreeRequest
      *
@@ -4931,7 +5119,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/获取对话详情.
+     * Retrieves the details of a conversation.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4965,7 +5153,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/获取对话详情.
+     * Retrieves the details of a conversation.
      *
      * @returns ModelRouterQueryConversationResponse
      *
@@ -4982,7 +5170,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/获取对话列表.
+     * Conversation management/Conversation list.
      *
      * @param request - ModelRouterQueryConversationListRequest
      * @param headers - map
@@ -5060,7 +5248,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/获取对话列表.
+     * Conversation management/Conversation list.
      *
      * @param request - ModelRouterQueryConversationListRequest
      *
@@ -5079,7 +5267,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取模型明细.
+     * billing management / Model details.
      *
      * @param request - ModelRouterQueryCostModelDetailRequest
      * @param headers - map
@@ -5157,7 +5345,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取模型明细.
+     * billing management / Model details.
      *
      * @param request - ModelRouterQueryCostModelDetailRequest
      *
@@ -5176,7 +5364,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取调用模型列表.
+     * billing management / Retrieves a list of invoked models.
      *
      * @param request - ModelRouterQueryCostModelListRequest
      * @param headers - map
@@ -5250,7 +5438,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取调用模型列表.
+     * billing management / Retrieves a list of invoked models.
      *
      * @param request - ModelRouterQueryCostModelListRequest
      *
@@ -5269,7 +5457,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取成本概览指标.
+     * billing management / Get cost overview metrics.
      *
      * @param request - ModelRouterQueryCostOverviewMetricsRequest
      * @param headers - map
@@ -5339,7 +5527,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取成本概览指标.
+     * billing management / Get cost overview metrics.
      *
      * @param request - ModelRouterQueryCostOverviewMetricsRequest
      *
@@ -5358,7 +5546,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取费用趋势
+     * billing management / Cost trends.
      *
      * @param request - ModelRouterQueryCostTrendMetricsRequest
      * @param headers - map
@@ -5428,7 +5616,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/获取费用趋势
+     * billing management / Cost trends.
      *
      * @param request - ModelRouterQueryCostTrendMetricsRequest
      *
@@ -5447,7 +5635,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/获取模型详情.
+     * Retrieves details for a specific model.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5481,7 +5669,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/获取模型详情.
+     * Retrieves details for a specific model.
      *
      * @returns ModelRouterQueryModelResponse
      *
@@ -5498,7 +5686,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/获取模型列表.
+     * Model management/Get model list.
      *
      * @param request - ModelRouterQueryModelListRequest
      * @param headers - map
@@ -5580,7 +5768,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/获取模型列表.
+     * Model management/Get model list.
      *
      * @param request - ModelRouterQueryModelListRequest
      *
@@ -5599,7 +5787,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Nacos配置/获取Nacos服务提供者列表.
+     * Configures Nacos or retrieves the list of Nacos service providers.
+     *
+     * @remarks
+     * This operation is deprecated. Do not use it.
      *
      * @param request - ModelRouterQueryNacosProvidersRequest
      * @param headers - map
@@ -5669,7 +5860,10 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Nacos配置/获取Nacos服务提供者列表.
+     * Configures Nacos or retrieves the list of Nacos service providers.
+     *
+     * @remarks
+     * This operation is deprecated. Do not use it.
      *
      * @param request - ModelRouterQueryNacosProvidersRequest
      *
@@ -5688,7 +5882,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Nacos配置/获取Nacos标签列表.
+     * Retrieves a list of tags from Nacos.
      *
      * @param request - ModelRouterQueryNacosTagsRequest
      * @param headers - map
@@ -5762,7 +5956,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * Nacos配置/获取Nacos标签列表.
+     * Retrieves a list of tags from Nacos.
      *
      * @param request - ModelRouterQueryNacosTagsRequest
      *
@@ -5781,7 +5975,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型观测/获取观测图表数据.
+     * Retrieves chart data for model observation.
      *
      * @param request - ModelRouterQueryObservationChartsRequest
      * @param headers - map
@@ -5843,7 +6037,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型观测/获取观测图表数据.
+     * Retrieves chart data for model observation.
      *
      * @param request - ModelRouterQueryObservationChartsRequest
      *
@@ -5862,7 +6056,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型观测/获取观测日志列表.
+     * Model Observation / Observation Logs.
      *
      * @param request - ModelRouterQueryObservationLogsRequest
      * @param headers - map
@@ -5956,7 +6150,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型观测/获取观测日志列表.
+     * Model Observation / Observation Logs.
      *
      * @param request - ModelRouterQueryObservationLogsRequest
      *
@@ -5975,7 +6169,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型观测/获取观测指标数据.
+     * Model Observation > Get Observation Metric Data.
      *
      * @param request - ModelRouterQueryObservationMetricsRequest
      * @param headers - map
@@ -6069,7 +6263,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型观测/获取观测指标数据.
+     * Model Observation > Get Observation Metric Data.
      *
      * @param request - ModelRouterQueryObservationMetricsRequest
      *
@@ -6088,7 +6282,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 用量管理/批量查询用量明细.
+     * Queries usage details in batches for usage management.
      *
      * @param request - ModelRouterQueryUsageBreakdownRequest
      * @param headers - map
@@ -6162,7 +6356,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 用量管理/批量查询用量明细.
+     * Queries usage details in batches for usage management.
      *
      * @param request - ModelRouterQueryUsageBreakdownRequest
      *
@@ -6181,7 +6375,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 流控管理/写入流控配置.
+     * Flow control management / Save flow control configuration.
      *
      * @param request - ModelRouterSaveFlowConfigRequest
      * @param headers - map
@@ -6235,7 +6429,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 流控管理/写入流控配置.
+     * Flow control management / Save flow control configuration.
      *
      * @param request - ModelRouterSaveFlowConfigRequest
      *
@@ -6254,7 +6448,70 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/更新计费规则.
+     * 客户管理/停止周期充值订阅.
+     *
+     * @param request - ModelRouterStopSubscriptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModelRouterStopSubscriptionResponse
+     *
+     * @param string                             $id
+     * @param ModelRouterStopSubscriptionRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModelRouterStopSubscriptionResponse
+     */
+    public function modelRouterStopSubscriptionWithOptions($id, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->balanceType) {
+            @$body['balanceType'] = $request->balanceType;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ModelRouterStopSubscription',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/modelRouter/open/clients/' . Url::percentEncode($id) . '/balance/subscription/stop',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ModelRouterStopSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 客户管理/停止周期充值订阅.
+     *
+     * @param request - ModelRouterStopSubscriptionRequest
+     *
+     * @returns ModelRouterStopSubscriptionResponse
+     *
+     * @param string                             $id
+     * @param ModelRouterStopSubscriptionRequest $request
+     *
+     * @return ModelRouterStopSubscriptionResponse
+     */
+    public function modelRouterStopSubscription($id, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->modelRouterStopSubscriptionWithOptions($id, $request, $headers, $runtime);
+    }
+
+    /**
+     * Billing management/Update billing rules.
      *
      * @param request - ModelRouterUpdateBillingRuleRequest
      * @param headers - map
@@ -6317,7 +6574,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 计费管理/更新计费规则.
+     * Billing management/Update billing rules.
      *
      * @param request - ModelRouterUpdateBillingRuleRequest
      *
@@ -6337,7 +6594,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/更新客户.
+     * Updates a specified client\\"s information.
      *
      * @param request - ModelRouterUpdateClientRequest
      * @param headers - map
@@ -6404,7 +6661,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 客户管理/更新客户.
+     * Updates a specified client\\"s information.
      *
      * @param request - ModelRouterUpdateClientRequest
      *
@@ -6424,7 +6681,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/更新对话.
+     * Conversation management / Update conversation.
      *
      * @param request - ModelRouterUpdateConversationRequest
      * @param headers - map
@@ -6479,7 +6736,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 对话管理/更新对话.
+     * Conversation management / Update conversation.
      *
      * @param request - ModelRouterUpdateConversationRequest
      *
@@ -6499,7 +6756,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/更新模型.
+     * Model Management / Update Model.
      *
      * @param request - ModelRouterUpdateModelRequest
      * @param headers - map
@@ -6582,7 +6839,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 模型管理/更新模型.
+     * Model Management / Update Model.
      *
      * @param request - ModelRouterUpdateModelRequest
      *
@@ -6602,7 +6859,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/基于一个预训练模型创建图片推理任务
+     * Personalized text-to-image: Create image inference tasks using a pre-trained model.
      *
      * @param request - PersonalizedTextToImageAddInferenceJobRequest
      * @param headers - map
@@ -6664,7 +6921,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/基于一个预训练模型创建图片推理任务
+     * Personalized text-to-image: Create image inference tasks using a pre-trained model.
      *
      * @param request - PersonalizedTextToImageAddInferenceJobRequest
      *
@@ -6683,7 +6940,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/通过唯一的图片编号获取图片内容.
+     * Retrieves the content of an image from the personalized text-to-image service using its unique image ID.
      *
      * @param request - PersonalizedTextToImageQueryImageAssetRequest
      * @param headers - map
@@ -6729,7 +6986,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/通过唯一的图片编号获取图片内容.
+     * Retrieves the content of an image from the personalized text-to-image service using its unique image ID.
      *
      * @param request - PersonalizedTextToImageQueryImageAssetRequest
      *
@@ -6748,7 +7005,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/查询预制模型推理任务的状态
+     * Queries the status of a personalized text-to-image inference job.
      *
      * @param request - PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
      * @param headers - map
@@ -6790,7 +7047,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/查询预制模型推理任务的状态
+     * Queries the status of a personalized text-to-image inference job.
      *
      * @param request - PersonalizedTextToImageQueryPreModelInferenceJobInfoRequest
      *
@@ -6809,7 +7066,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/基于一个模型创建图片推理任务
+     * Creates an inference job to generate images based on a personalized text-to-image model.
      *
      * @param request - Personalizedtxt2imgAddInferenceJobRequest
      * @param headers - map
@@ -6863,7 +7120,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/基于一个模型创建图片推理任务
+     * Creates an inference job to generate images based on a personalized text-to-image model.
      *
      * @param request - Personalizedtxt2imgAddInferenceJobRequest
      *
@@ -6882,7 +7139,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/创建一个模型训练任务
+     * Personalized text-to-image: Create a model training task.
      *
      * @param request - Personalizedtxt2imgAddModelTrainJobRequest
      * @param headers - map
@@ -6936,7 +7193,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/创建一个模型训练任务
+     * Personalized text-to-image: Create a model training task.
      *
      * @param request - Personalizedtxt2imgAddModelTrainJobRequest
      *
@@ -6955,7 +7212,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/图片二进制内容获取.
+     * Retrieves the binary data of an image generated by the personalized text-to-image service.
      *
      * @param request - Personalizedtxt2imgQueryImageAssetRequest
      * @param headers - map
@@ -7009,7 +7266,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/图片二进制内容获取.
+     * Retrieves the binary data of an image generated by the personalized text-to-image service.
      *
      * @param request - Personalizedtxt2imgQueryImageAssetRequest
      *
@@ -7028,7 +7285,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/查询模型推理任务的状态和结果信息.
+     * Retrieves the status and results of a Personalizedtxt2img inference job.
      *
      * @param request - Personalizedtxt2imgQueryInferenceJobInfoRequest
      * @param headers - map
@@ -7070,7 +7327,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/查询模型推理任务的状态和结果信息.
+     * Retrieves the status and results of a Personalizedtxt2img inference job.
      *
      * @param request - Personalizedtxt2imgQueryInferenceJobInfoRequest
      *
@@ -7089,7 +7346,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/查询模型训练任务列表.
+     * Your personalized model training tasks: image generation and query models.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7122,7 +7379,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/查询模型训练任务列表.
+     * Your personalized model training tasks: image generation and query models.
      *
      * @returns Personalizedtxt2imgQueryModelTrainJobListResponse
      *
@@ -7137,7 +7394,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/模型训练状态查询.
+     * Queries the training status of a personalized text-to-image model.
      *
      * @param request - Personalizedtxt2imgQueryModelTrainStatusRequest
      * @param headers - map
@@ -7179,7 +7436,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 个性化文生图/模型训练状态查询.
+     * Queries the training status of a personalized text-to-image model.
      *
      * @param request - Personalizedtxt2imgQueryModelTrainStatusRequest
      *
@@ -7198,7 +7455,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/获取应用访问识别码(appkey)信息.
+     * Queries information about an application access ID (appkey).
      *
      * @param request - QueryApplicationAccessIdRequest
      * @param headers - map
@@ -7240,7 +7497,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/获取应用访问识别码(appkey)信息.
+     * Queries information about an application access ID (appkey).
      *
      * @param request - QueryApplicationAccessIdRequest
      *
@@ -7259,7 +7516,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/获取项目列表.
+     * Alibaba Cloud console / Project list.
      *
      * @param request - QueryProjectRequest
      * @param headers - map
@@ -7301,7 +7558,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/获取项目列表.
+     * Alibaba Cloud console / Project list.
      *
      * @param request - QueryProjectRequest
      *
@@ -7320,7 +7577,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/获取项目列表.
+     * Alibaba Cloud console / Project List.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7353,7 +7610,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/获取项目列表.
+     * Alibaba Cloud console / Project List.
      *
      * @returns QueryProjectListResponse
      *
@@ -7368,7 +7625,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/已经购买过的服务项目.
+     * Alibaba Cloud Console / Purchased Services.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7401,7 +7658,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/已经购买过的服务项目.
+     * Alibaba Cloud Console / Purchased Services.
      *
      * @returns QueryPurchasedServiceResponse
      *
@@ -7416,7 +7673,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/更新项目信息.
+     * Alibaba Cloud Console / Update project information.
      *
      * @param request - UpdateProjectRequest
      * @param headers - map
@@ -7462,7 +7719,7 @@ class AiContent extends OpenApiClient
     }
 
     /**
-     * 阿里云控制台/更新项目信息.
+     * Alibaba Cloud Console / Update project information.
      *
      * @param request - UpdateProjectRequest
      *

@@ -6,17 +6,17 @@ namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModelRouterCreateBalanceTransactionRequest extends Model
+class ModelRouterCreateSubscriptionRequest extends Model
 {
-    /**
-     * @var float
-     */
-    public $amount;
-
     /**
      * @var string
      */
     public $balanceType;
+
+    /**
+     * @var int
+     */
+    public $effectiveTime;
 
     /**
      * @var string
@@ -24,20 +24,14 @@ class ModelRouterCreateBalanceTransactionRequest extends Model
     public $idempotencyKey;
 
     /**
-     * @var string
+     * @var float
      */
-    public $remark;
-
-    /**
-     * @var string
-     */
-    public $type;
+    public $subscriptionAmount;
     protected $_name = [
-        'amount' => 'amount',
         'balanceType' => 'balanceType',
+        'effectiveTime' => 'effectiveTime',
         'idempotencyKey' => 'idempotencyKey',
-        'remark' => 'remark',
-        'type' => 'type',
+        'subscriptionAmount' => 'subscriptionAmount',
     ];
 
     public function validate()
@@ -48,24 +42,20 @@ class ModelRouterCreateBalanceTransactionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->amount) {
-            $res['amount'] = $this->amount;
-        }
-
         if (null !== $this->balanceType) {
             $res['balanceType'] = $this->balanceType;
+        }
+
+        if (null !== $this->effectiveTime) {
+            $res['effectiveTime'] = $this->effectiveTime;
         }
 
         if (null !== $this->idempotencyKey) {
             $res['idempotencyKey'] = $this->idempotencyKey;
         }
 
-        if (null !== $this->remark) {
-            $res['remark'] = $this->remark;
-        }
-
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->subscriptionAmount) {
+            $res['subscriptionAmount'] = $this->subscriptionAmount;
         }
 
         return $res;
@@ -79,24 +69,20 @@ class ModelRouterCreateBalanceTransactionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['amount'])) {
-            $model->amount = $map['amount'];
-        }
-
         if (isset($map['balanceType'])) {
             $model->balanceType = $map['balanceType'];
+        }
+
+        if (isset($map['effectiveTime'])) {
+            $model->effectiveTime = $map['effectiveTime'];
         }
 
         if (isset($map['idempotencyKey'])) {
             $model->idempotencyKey = $map['idempotencyKey'];
         }
 
-        if (isset($map['remark'])) {
-            $model->remark = $map['remark'];
-        }
-
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['subscriptionAmount'])) {
+            $model->subscriptionAmount = $map['subscriptionAmount'];
         }
 
         return $model;
