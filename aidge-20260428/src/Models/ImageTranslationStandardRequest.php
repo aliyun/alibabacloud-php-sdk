@@ -37,6 +37,11 @@ class ImageTranslationStandardRequest extends Model
      * @var bool
      */
     public $translatingBrandInTheProduct;
+
+    /**
+     * @var bool
+     */
+    public $useImageEditor;
     protected $_name = [
         'glossary' => 'Glossary',
         'imageUrl' => 'ImageUrl',
@@ -44,6 +49,7 @@ class ImageTranslationStandardRequest extends Model
         'sourceLanguage' => 'SourceLanguage',
         'targetLanguage' => 'TargetLanguage',
         'translatingBrandInTheProduct' => 'TranslatingBrandInTheProduct',
+        'useImageEditor' => 'UseImageEditor',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class ImageTranslationStandardRequest extends Model
 
         if (null !== $this->translatingBrandInTheProduct) {
             $res['TranslatingBrandInTheProduct'] = $this->translatingBrandInTheProduct;
+        }
+
+        if (null !== $this->useImageEditor) {
+            $res['UseImageEditor'] = $this->useImageEditor;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class ImageTranslationStandardRequest extends Model
 
         if (isset($map['TranslatingBrandInTheProduct'])) {
             $model->translatingBrandInTheProduct = $map['TranslatingBrandInTheProduct'];
+        }
+
+        if (isset($map['UseImageEditor'])) {
+            $model->useImageEditor = $map['UseImageEditor'];
         }
 
         return $model;

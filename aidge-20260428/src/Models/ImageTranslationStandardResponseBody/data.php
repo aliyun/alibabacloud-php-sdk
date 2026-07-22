@@ -5,9 +5,15 @@
 namespace AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationStandardResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aidge\V20260428\Models\ImageTranslationStandardResponseBody\data\editInfo;
 
 class data extends Model
 {
+    /**
+     * @var editInfo
+     */
+    public $editInfo;
+
     /**
      * @var string
      */
@@ -18,12 +24,16 @@ class data extends Model
      */
     public $usageMap;
     protected $_name = [
+        'editInfo' => 'EditInfo',
         'imageUrl' => 'ImageUrl',
         'usageMap' => 'UsageMap',
     ];
 
     public function validate()
     {
+        if (null !== $this->editInfo) {
+            $this->editInfo->validate();
+        }
         if (\is_array($this->usageMap)) {
             Model::validateArray($this->usageMap);
         }
@@ -33,6 +43,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->editInfo) {
+            $res['EditInfo'] = null !== $this->editInfo ? $this->editInfo->toArray($noStream) : $this->editInfo;
+        }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
@@ -57,6 +71,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EditInfo'])) {
+            $model->editInfo = editInfo::fromMap($map['EditInfo']);
+        }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
