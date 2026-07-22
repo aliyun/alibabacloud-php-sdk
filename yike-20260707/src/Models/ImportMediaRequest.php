@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class ImportMediaRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $categoryId;
+
+    /**
      * @var string
      */
     public $coverURL;
@@ -68,6 +73,7 @@ class ImportMediaRequest extends Model
      */
     public $userData;
     protected $_name = [
+        'categoryId' => 'CategoryId',
         'coverURL' => 'CoverURL',
         'description' => 'Description',
         'dynamicMetaData' => 'DynamicMetaData',
@@ -90,6 +96,10 @@ class ImportMediaRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
+        }
+
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
@@ -149,6 +159,10 @@ class ImportMediaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
+        }
+
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }

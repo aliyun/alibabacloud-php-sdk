@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaResponseBody\mediaInfo;
+namespace AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponseBody\mediaInfoList;
 
 use AlibabaCloud\Dara\Model;
 
@@ -96,6 +96,11 @@ class mediaBasicInfo extends Model
     /**
      * @var string
      */
+    public $transcodeStatus;
+
+    /**
+     * @var string
+     */
     public $uploadSource;
 
     /**
@@ -120,6 +125,7 @@ class mediaBasicInfo extends Model
         'spriteImages' => 'SpriteImages',
         'status' => 'Status',
         'title' => 'Title',
+        'transcodeStatus' => 'TranscodeStatus',
         'uploadSource' => 'UploadSource',
         'userData' => 'UserData',
     ];
@@ -198,6 +204,10 @@ class mediaBasicInfo extends Model
 
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+
+        if (null !== $this->transcodeStatus) {
+            $res['TranscodeStatus'] = $this->transcodeStatus;
         }
 
         if (null !== $this->uploadSource) {
@@ -285,6 +295,10 @@ class mediaBasicInfo extends Model
 
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+
+        if (isset($map['TranscodeStatus'])) {
+            $model->transcodeStatus = $map['TranscodeStatus'];
         }
 
         if (isset($map['UploadSource'])) {

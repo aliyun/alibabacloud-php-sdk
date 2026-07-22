@@ -1,0 +1,130 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponseBody;
+
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponseBody\mediaInfoList\fileInfoList;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponseBody\mediaInfoList\mediaBasicInfo;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponseBody\mediaInfoList\mediaDynamicInfo;
+
+class mediaInfoList extends Model
+{
+    /**
+     * @var string
+     */
+    public $customFields;
+
+    /**
+     * @var fileInfoList[]
+     */
+    public $fileInfoList;
+
+    /**
+     * @var mediaBasicInfo
+     */
+    public $mediaBasicInfo;
+
+    /**
+     * @var mediaDynamicInfo
+     */
+    public $mediaDynamicInfo;
+
+    /**
+     * @var string
+     */
+    public $mediaId;
+    protected $_name = [
+        'customFields' => 'CustomFields',
+        'fileInfoList' => 'FileInfoList',
+        'mediaBasicInfo' => 'MediaBasicInfo',
+        'mediaDynamicInfo' => 'MediaDynamicInfo',
+        'mediaId' => 'MediaId',
+    ];
+
+    public function validate()
+    {
+        if (\is_array($this->fileInfoList)) {
+            Model::validateArray($this->fileInfoList);
+        }
+        if (null !== $this->mediaBasicInfo) {
+            $this->mediaBasicInfo->validate();
+        }
+        if (null !== $this->mediaDynamicInfo) {
+            $this->mediaDynamicInfo->validate();
+        }
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
+    {
+        $res = [];
+        if (null !== $this->customFields) {
+            $res['CustomFields'] = $this->customFields;
+        }
+
+        if (null !== $this->fileInfoList) {
+            if (\is_array($this->fileInfoList)) {
+                $res['FileInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->fileInfoList as $item1) {
+                    $res['FileInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->mediaBasicInfo) {
+            $res['MediaBasicInfo'] = null !== $this->mediaBasicInfo ? $this->mediaBasicInfo->toArray($noStream) : $this->mediaBasicInfo;
+        }
+
+        if (null !== $this->mediaDynamicInfo) {
+            $res['MediaDynamicInfo'] = null !== $this->mediaDynamicInfo ? $this->mediaDynamicInfo->toArray($noStream) : $this->mediaDynamicInfo;
+        }
+
+        if (null !== $this->mediaId) {
+            $res['MediaId'] = $this->mediaId;
+        }
+
+        return $res;
+    }
+
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['CustomFields'])) {
+            $model->customFields = $map['CustomFields'];
+        }
+
+        if (isset($map['FileInfoList'])) {
+            if (!empty($map['FileInfoList'])) {
+                $model->fileInfoList = [];
+                $n1 = 0;
+                foreach ($map['FileInfoList'] as $item1) {
+                    $model->fileInfoList[$n1] = fileInfoList::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['MediaBasicInfo'])) {
+            $model->mediaBasicInfo = mediaBasicInfo::fromMap($map['MediaBasicInfo']);
+        }
+
+        if (isset($map['MediaDynamicInfo'])) {
+            $model->mediaDynamicInfo = mediaDynamicInfo::fromMap($map['MediaDynamicInfo']);
+        }
+
+        if (isset($map['MediaId'])) {
+            $model->mediaId = $map['MediaId'];
+        }
+
+        return $model;
+    }
+}

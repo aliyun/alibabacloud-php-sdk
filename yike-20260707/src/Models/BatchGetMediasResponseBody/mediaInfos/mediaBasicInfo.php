@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class mediaBasicInfo extends Model
 {
     /**
+     * @var int
+     */
+    public $categoryId;
+
+    /**
+     * @var string
+     */
+    public $categoryName;
+
+    /**
      * @var string
      */
     public $coverURL;
@@ -78,6 +88,8 @@ class mediaBasicInfo extends Model
      */
     public $userData;
     protected $_name = [
+        'categoryId' => 'CategoryId',
+        'categoryName' => 'CategoryName',
         'coverURL' => 'CoverURL',
         'createTime' => 'CreateTime',
         'description' => 'Description',
@@ -102,6 +114,14 @@ class mediaBasicInfo extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryId) {
+            $res['CategoryId'] = $this->categoryId;
+        }
+
+        if (null !== $this->categoryName) {
+            $res['CategoryName'] = $this->categoryName;
+        }
+
         if (null !== $this->coverURL) {
             $res['CoverURL'] = $this->coverURL;
         }
@@ -169,6 +189,14 @@ class mediaBasicInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CategoryId'])) {
+            $model->categoryId = $map['CategoryId'];
+        }
+
+        if (isset($map['CategoryName'])) {
+            $model->categoryName = $map['CategoryName'];
+        }
+
         if (isset($map['CoverURL'])) {
             $model->coverURL = $map['CoverURL'];
         }

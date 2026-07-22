@@ -7,8 +7,14 @@ namespace AlibabaCloud\SDK\Yike\V20260707;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetMediasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\BatchGetMediasResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\CreateAssetCategoryResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteAssetCategoryRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteMediasRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\DeleteMediasResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetAssetCategoryRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\GetAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetImageGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetImageGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetMediaComprehensionJobRequest;
@@ -19,12 +25,18 @@ use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\GetVideoGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ImportMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\ImportMediaResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListAssetCategoriesRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\ListAssetCategoriesResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\SearchMediaResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitImageGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitImageGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitMediaComprehensionJobResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\SubmitVideoGenerationJobResponse;
+use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateAssetCategoryRequest;
+use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateAssetCategoryResponse;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateMediaRequest;
 use AlibabaCloud\SDK\Yike\V20260707\Models\UpdateMediaResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -140,6 +152,136 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 创建分类.
+     *
+     * @remarks
+     * 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+     *
+     * @param request - CreateAssetCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAssetCategoryResponse
+     *
+     * @param CreateAssetCategoryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateAssetCategoryResponse
+     */
+    public function createAssetCategoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryName) {
+            @$query['CategoryName'] = $request->categoryName;
+        }
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAssetCategory',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAssetCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建分类.
+     *
+     * @remarks
+     * 分类最多支持三级分类，每级分类最多支持创建 100 个子分类。
+     *
+     * @param request - CreateAssetCategoryRequest
+     *
+     * @returns CreateAssetCategoryResponse
+     *
+     * @param CreateAssetCategoryRequest $request
+     *
+     * @return CreateAssetCategoryResponse
+     */
+    public function createAssetCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAssetCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除分类.
+     *
+     * @remarks
+     * 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+     *
+     * @param request - DeleteAssetCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAssetCategoryResponse
+     *
+     * @param DeleteAssetCategoryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteAssetCategoryResponse
+     */
+    public function deleteAssetCategoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAssetCategory',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAssetCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除分类.
+     *
+     * @remarks
+     * 此接口会同时删除其子分类（包括二级分类和三级分类），请慎重操作。
+     *
+     * @param request - DeleteAssetCategoryRequest
+     *
+     * @returns DeleteAssetCategoryResponse
+     *
+     * @param DeleteAssetCategoryRequest $request
+     *
+     * @return DeleteAssetCategoryResponse
+     */
+    public function deleteAssetCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAssetCategoryWithOptions($request, $runtime);
+    }
+
+    /**
      * 删除媒资信息.
      *
      * @param request - DeleteMediasRequest
@@ -202,6 +344,63 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMediasWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询分类.
+     *
+     * @param request - GetAssetCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAssetCategoryResponse
+     *
+     * @param GetAssetCategoryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAssetCategoryResponse
+     */
+    public function getAssetCategoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAssetCategory',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAssetCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询分类.
+     *
+     * @param request - GetAssetCategoryRequest
+     *
+     * @returns GetAssetCategoryResponse
+     *
+     * @param GetAssetCategoryRequest $request
+     *
+     * @return GetAssetCategoryResponse
+     */
+    public function getAssetCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAssetCategoryWithOptions($request, $runtime);
     }
 
     /**
@@ -473,6 +672,10 @@ class Yike extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
+        }
+
         if (null !== $request->coverURL) {
             @$query['CoverURL'] = $request->coverURL;
         }
@@ -559,6 +762,152 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->importMediaWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列出分类.
+     *
+     * @param request - ListAssetCategoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAssetCategoriesResponse
+     *
+     * @param ListAssetCategoriesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAssetCategoriesResponse
+     */
+    public function listAssetCategoriesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAssetCategories',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAssetCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 列出分类.
+     *
+     * @param request - ListAssetCategoriesRequest
+     *
+     * @returns ListAssetCategoriesResponse
+     *
+     * @param ListAssetCategoriesRequest $request
+     *
+     * @return ListAssetCategoriesResponse
+     */
+    public function listAssetCategories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssetCategoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 搜索媒资.
+     *
+     * @param request - SearchMediaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SearchMediaResponse
+     *
+     * @param SearchMediaRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SearchMediaResponse
+     */
+    public function searchMediaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
+        }
+
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->match) {
+            @$query['Match'] = $request->match;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scrollToken) {
+            @$query['ScrollToken'] = $request->scrollToken;
+        }
+
+        if (null !== $request->searchLibName) {
+            @$query['SearchLibName'] = $request->searchLibName;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchMedia',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 搜索媒资.
+     *
+     * @param request - SearchMediaRequest
+     *
+     * @returns SearchMediaResponse
+     *
+     * @param SearchMediaRequest $request
+     *
+     * @return SearchMediaResponse
+     */
+    public function searchMedia($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchMediaWithOptions($request, $runtime);
     }
 
     /**
@@ -813,6 +1162,73 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 更新媒资分类.
+     *
+     * @remarks
+     * 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+     *
+     * @param request - UpdateAssetCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAssetCategoryResponse
+     *
+     * @param UpdateAssetCategoryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateAssetCategoryResponse
+     */
+    public function updateAssetCategoryWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
+        }
+
+        if (null !== $request->categoryName) {
+            @$query['CategoryName'] = $request->categoryName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAssetCategory',
+            'version' => '2026-07-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAssetCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新媒资分类.
+     *
+     * @remarks
+     * 创建媒资分类后，可调用本接口通过分类 ID 来定位并更新媒资分类的名称。
+     *
+     * @param request - UpdateAssetCategoryRequest
+     *
+     * @returns UpdateAssetCategoryResponse
+     *
+     * @param UpdateAssetCategoryRequest $request
+     *
+     * @return UpdateAssetCategoryResponse
+     */
+    public function updateAssetCategory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAssetCategoryWithOptions($request, $runtime);
+    }
+
+    /**
      * UpdateMedia.
      *
      * @remarks
@@ -835,6 +1251,10 @@ class Yike extends OpenApiClient
         $query = [];
         if (null !== $request->appendTags) {
             @$query['AppendTags'] = $request->appendTags;
+        }
+
+        if (null !== $request->categoryId) {
+            @$query['CategoryId'] = $request->categoryId;
         }
 
         if (null !== $request->coverURL) {
