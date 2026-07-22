@@ -47,6 +47,9 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateMobileAgentPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreatePolicyGroupShrinkRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScheduledTaskRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScheduledTaskResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScheduledTaskShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScreenshotRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateScreenshotResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateSystemPropertyTemplateRequest;
@@ -69,6 +72,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteMobileAgentPackageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteMobileAgentPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeletePolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeletePolicyGroupResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteScheduledTaskRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteScheduledTaskResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteSystemPropertyTemplatesRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DeleteSystemPropertyTemplatesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAgentTaskRequest;
@@ -111,6 +116,10 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMobileAgentPackageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMobileAgentPackageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeScheduledTaskExecutionsRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeScheduledTaskExecutionsResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeScheduledTasksRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeScheduledTasksResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSpecResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSystemPropertyTemplatesRequest;
@@ -175,6 +184,9 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupShrinkRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyScheduledTaskRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyScheduledTaskResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyScheduledTaskShrinkRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateShrinkRequest;
@@ -2139,6 +2151,89 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * 创建定时任务
+     *
+     * @param tmpReq - CreateScheduledTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScheduledTaskResponse
+     *
+     * @param CreateScheduledTaskRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateScheduledTaskResponse
+     */
+    public function createScheduledTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateScheduledTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->runConfig) {
+            $request->runConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runConfig, 'RunConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->cronExpression) {
+            @$query['CronExpression'] = $request->cronExpression;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->maxExecutions) {
+            @$query['MaxExecutions'] = $request->maxExecutions;
+        }
+
+        if (null !== $request->runConfigShrink) {
+            @$query['RunConfig'] = $request->runConfigShrink;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->userPrompt) {
+            @$query['UserPrompt'] = $request->userPrompt;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateScheduledTask',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建定时任务
+     *
+     * @param request - CreateScheduledTaskRequest
+     *
+     * @returns CreateScheduledTaskResponse
+     *
+     * @param CreateScheduledTaskRequest $request
+     *
+     * @return CreateScheduledTaskResponse
+     */
+    public function createScheduledTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createScheduledTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * This asynchronous API operation generates a screenshot of a cloud phone.
      *
      * @remarks
@@ -2785,6 +2880,63 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * Deletes an agent scheduled task.
+     *
+     * @param request - DeleteScheduledTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteScheduledTaskResponse
+     *
+     * @param DeleteScheduledTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteScheduledTaskResponse
+     */
+    public function deleteScheduledTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->scheduledId) {
+            @$query['ScheduledId'] = $request->scheduledId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteScheduledTask',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an agent scheduled task.
+     *
+     * @param request - DeleteScheduledTaskRequest
+     *
+     * @returns DeleteScheduledTaskResponse
+     *
+     * @param DeleteScheduledTaskRequest $request
+     *
+     * @return DeleteScheduledTaskResponse
+     */
+    public function deleteScheduledTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteScheduledTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes system property templates.
      *
      * @remarks
@@ -2905,7 +3057,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cloud phone instance group.
+     * Queries the details of cloud phone instance groups.
      *
      * @param request - DescribeAndroidInstanceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2961,6 +3113,14 @@ class Edsaic extends OpenApiClient
             @$query['SaleMode'] = $request->saleMode;
         }
 
+        if (null !== $request->sortKey) {
+            @$query['SortKey'] = $request->sortKey;
+        }
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
+        }
+
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
         }
@@ -2988,7 +3148,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries the details of a cloud phone instance group.
+     * Queries the details of cloud phone instance groups.
      *
      * @param request - DescribeAndroidInstanceGroupsRequest
      *
@@ -3418,8 +3578,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries the details of Cloud Phone matrices.
-     * In the Cloud Phone service, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. This physical server can be partitioned into multiple independent Cloud Phone instances that share the underlying computing, storage, and network resources of the matrix. Creating a matrix is equivalent to provisioning a physical server on which you can create Cloud Phone instances. The number of instances that you can create varies depending on the configuration.
+     * Queries the details of a cloud phone matrix.
+     * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
      *
      * @param request - DescribeCloudPhoneNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3471,6 +3631,14 @@ class Edsaic extends OpenApiClient
             @$query['ServerType'] = $request->serverType;
         }
 
+        if (null !== $request->sortKey) {
+            @$query['SortKey'] = $request->sortKey;
+        }
+
+        if (null !== $request->sortType) {
+            @$query['SortType'] = $request->sortType;
+        }
+
         if (null !== $request->status) {
             @$query['Status'] = $request->status;
         }
@@ -3498,8 +3666,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Queries the details of Cloud Phone matrices.
-     * In the Cloud Phone service, a matrix (Cloud Phone Server) is a logical resource management unit that represents a physical server instance. This physical server can be partitioned into multiple independent Cloud Phone instances that share the underlying computing, storage, and network resources of the matrix. Creating a matrix is equivalent to provisioning a physical server on which you can create Cloud Phone instances. The number of instances that you can create varies depending on the configuration.
+     * Queries the details of a cloud phone matrix.
+     * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
      *
      * @param request - DescribeCloudPhoneNodesRequest
      *
@@ -4481,6 +4649,172 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the execution records of agent scheduled tasks.
+     *
+     * @param request - DescribeScheduledTaskExecutionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScheduledTaskExecutionsResponse
+     *
+     * @param DescribeScheduledTaskExecutionsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeScheduledTaskExecutionsResponse
+     */
+    public function describeScheduledTaskExecutionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->scheduledId) {
+            @$query['ScheduledId'] = $request->scheduledId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeScheduledTaskExecutions',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeScheduledTaskExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the execution records of agent scheduled tasks.
+     *
+     * @param request - DescribeScheduledTaskExecutionsRequest
+     *
+     * @returns DescribeScheduledTaskExecutionsResponse
+     *
+     * @param DescribeScheduledTaskExecutionsRequest $request
+     *
+     * @return DescribeScheduledTaskExecutionsResponse
+     */
+    public function describeScheduledTaskExecutions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScheduledTaskExecutionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of scheduled tasks for an agent.
+     *
+     * @param request - DescribeScheduledTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeScheduledTasksResponse
+     *
+     * @param DescribeScheduledTasksRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeScheduledTasksResponse
+     */
+    public function describeScheduledTasksWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->scheduledIds) {
+            @$query['ScheduledIds'] = $request->scheduledIds;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeScheduledTasks',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeScheduledTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of scheduled tasks for an agent.
+     *
+     * @param request - DescribeScheduledTasksRequest
+     *
+     * @returns DescribeScheduledTasksResponse
+     *
+     * @param DescribeScheduledTasksRequest $request
+     *
+     * @return DescribeScheduledTasksResponse
+     */
+    public function describeScheduledTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeScheduledTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -6782,6 +7116,97 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPolicyGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies an agent scheduled task.
+     *
+     * @param tmpReq - ModifyScheduledTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyScheduledTaskResponse
+     *
+     * @param ModifyScheduledTaskRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyScheduledTaskResponse
+     */
+    public function modifyScheduledTaskWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyScheduledTaskShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->runConfig) {
+            $request->runConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runConfig, 'RunConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->cronExpression) {
+            @$query['CronExpression'] = $request->cronExpression;
+        }
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
+        }
+
+        if (null !== $request->runConfigShrink) {
+            @$query['RunConfig'] = $request->runConfigShrink;
+        }
+
+        if (null !== $request->scheduledId) {
+            @$query['ScheduledId'] = $request->scheduledId;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
+        }
+
+        if (null !== $request->taskVersion) {
+            @$query['TaskVersion'] = $request->taskVersion;
+        }
+
+        if (null !== $request->userPrompt) {
+            @$query['UserPrompt'] = $request->userPrompt;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyScheduledTask',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies an agent scheduled task.
+     *
+     * @param request - ModifyScheduledTaskRequest
+     *
+     * @returns ModifyScheduledTaskResponse
+     *
+     * @param ModifyScheduledTaskRequest $request
+     *
+     * @return ModifyScheduledTaskResponse
+     */
+    public function modifyScheduledTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyScheduledTaskWithOptions($request, $runtime);
     }
 
     /**

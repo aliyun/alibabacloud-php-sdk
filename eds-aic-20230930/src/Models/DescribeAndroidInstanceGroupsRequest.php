@@ -62,6 +62,16 @@ class DescribeAndroidInstanceGroupsRequest extends Model
     /**
      * @var string
      */
+    public $sortKey;
+
+    /**
+     * @var string
+     */
+    public $sortType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -79,6 +89,8 @@ class DescribeAndroidInstanceGroupsRequest extends Model
         'nextToken' => 'NextToken',
         'policyGroupId' => 'PolicyGroupId',
         'saleMode' => 'SaleMode',
+        'sortKey' => 'SortKey',
+        'sortType' => 'SortType',
         'status' => 'Status',
         'tags' => 'Tags',
     ];
@@ -142,6 +154,14 @@ class DescribeAndroidInstanceGroupsRequest extends Model
 
         if (null !== $this->saleMode) {
             $res['SaleMode'] = $this->saleMode;
+        }
+
+        if (null !== $this->sortKey) {
+            $res['SortKey'] = $this->sortKey;
+        }
+
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
         }
 
         if (null !== $this->status) {
@@ -215,6 +235,14 @@ class DescribeAndroidInstanceGroupsRequest extends Model
 
         if (isset($map['SaleMode'])) {
             $model->saleMode = $map['SaleMode'];
+        }
+
+        if (isset($map['SortKey'])) {
+            $model->sortKey = $map['SortKey'];
+        }
+
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
         }
 
         if (isset($map['Status'])) {

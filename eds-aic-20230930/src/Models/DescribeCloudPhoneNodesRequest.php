@@ -57,6 +57,16 @@ class DescribeCloudPhoneNodesRequest extends Model
     /**
      * @var string
      */
+    public $sortKey;
+
+    /**
+     * @var string
+     */
+    public $sortType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -73,6 +83,8 @@ class DescribeCloudPhoneNodesRequest extends Model
         'nodeName' => 'NodeName',
         'nodeNameList' => 'NodeNameList',
         'serverType' => 'ServerType',
+        'sortKey' => 'SortKey',
+        'sortType' => 'SortType',
         'status' => 'Status',
         'tags' => 'Tags',
     ];
@@ -142,6 +154,14 @@ class DescribeCloudPhoneNodesRequest extends Model
 
         if (null !== $this->serverType) {
             $res['ServerType'] = $this->serverType;
+        }
+
+        if (null !== $this->sortKey) {
+            $res['SortKey'] = $this->sortKey;
+        }
+
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
         }
 
         if (null !== $this->status) {
@@ -218,6 +238,14 @@ class DescribeCloudPhoneNodesRequest extends Model
 
         if (isset($map['ServerType'])) {
             $model->serverType = $map['ServerType'];
+        }
+
+        if (isset($map['SortKey'])) {
+            $model->sortKey = $map['SortKey'];
+        }
+
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
         }
 
         if (isset($map['Status'])) {
