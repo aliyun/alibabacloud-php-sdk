@@ -15,11 +15,17 @@ class PutEnableFwSwitchResponseBody extends Model
     public $abnormalResourceStatusList;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'abnormalResourceStatusList' => 'AbnormalResourceStatusList',
+        'dryRun' => 'DryRun',
         'requestId' => 'RequestId',
     ];
 
@@ -43,6 +49,10 @@ class PutEnableFwSwitchResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
 
         if (null !== $this->requestId) {
@@ -69,6 +79,10 @@ class PutEnableFwSwitchResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
 
         if (isset($map['RequestId'])) {

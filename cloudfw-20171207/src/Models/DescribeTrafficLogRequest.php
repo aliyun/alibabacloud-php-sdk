@@ -141,6 +141,11 @@ class DescribeTrafficLogRequest extends Model
     /**
      * @var string
      */
+    public $queryId;
+
+    /**
+     * @var string
+     */
     public $ruleId;
 
     /**
@@ -239,6 +244,7 @@ class DescribeTrafficLogRequest extends Model
         'natFirewallId' => 'NatFirewallId',
         'natGatewayId' => 'NatGatewayId',
         'pageSize' => 'PageSize',
+        'queryId' => 'QueryId',
         'ruleId' => 'RuleId',
         'ruleResult' => 'RuleResult',
         'ruleSource' => 'RuleSource',
@@ -366,6 +372,10 @@ class DescribeTrafficLogRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->queryId) {
+            $res['QueryId'] = $this->queryId;
         }
 
         if (null !== $this->ruleId) {
@@ -541,6 +551,10 @@ class DescribeTrafficLogRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['QueryId'])) {
+            $model->queryId = $map['QueryId'];
         }
 
         if (isset($map['RuleId'])) {

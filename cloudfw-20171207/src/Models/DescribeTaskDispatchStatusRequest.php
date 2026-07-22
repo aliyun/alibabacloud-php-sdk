@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class PutDisableFwSwitchResponseBody extends Model
+class DescribeTaskDispatchStatusRequest extends Model
 {
-    /**
-     * @var bool
-     */
-    public $dryRun;
-
     /**
      * @var string
      */
-    public $requestId;
+    public $taskId;
     protected $_name = [
-        'dryRun' => 'DryRun',
-        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class PutDisableFwSwitchResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->dryRun) {
-            $res['DryRun'] = $this->dryRun;
-        }
-
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class PutDisableFwSwitchResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DryRun'])) {
-            $model->dryRun = $map['DryRun'];
-        }
-
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

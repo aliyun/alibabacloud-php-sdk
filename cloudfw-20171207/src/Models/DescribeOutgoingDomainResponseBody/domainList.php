@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainResponseBody\domainList\applicationPortList;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainResponseBody\domainList\tagList;
 
 class domainList extends Model
@@ -38,6 +39,11 @@ class domainList extends Model
      * @var string[]
      */
     public $applicationNameList;
+
+    /**
+     * @var applicationPortList[]
+     */
+    public $applicationPortList;
 
     /**
      * @var int
@@ -150,6 +156,7 @@ class domainList extends Model
         'addressGroupName' => 'AddressGroupName',
         'addressGroupUUID' => 'AddressGroupUUID',
         'applicationNameList' => 'ApplicationNameList',
+        'applicationPortList' => 'ApplicationPortList',
         'assetCount' => 'AssetCount',
         'business' => 'Business',
         'categoryClassId' => 'CategoryClassId',
@@ -177,6 +184,9 @@ class domainList extends Model
     {
         if (\is_array($this->applicationNameList)) {
             Model::validateArray($this->applicationNameList);
+        }
+        if (\is_array($this->applicationPortList)) {
+            Model::validateArray($this->applicationPortList);
         }
         if (\is_array($this->tagList)) {
             Model::validateArray($this->tagList);
@@ -213,6 +223,17 @@ class domainList extends Model
                 $n1 = 0;
                 foreach ($this->applicationNameList as $item1) {
                     $res['ApplicationNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->applicationPortList) {
+            if (\is_array($this->applicationPortList)) {
+                $res['ApplicationPortList'] = [];
+                $n1 = 0;
+                foreach ($this->applicationPortList as $item1) {
+                    $res['ApplicationPortList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -346,6 +367,17 @@ class domainList extends Model
                 $n1 = 0;
                 foreach ($map['ApplicationNameList'] as $item1) {
                     $model->applicationNameList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ApplicationPortList'])) {
+            if (!empty($map['ApplicationPortList'])) {
+                $model->applicationPortList = [];
+                $n1 = 0;
+                foreach ($map['ApplicationPortList'] as $item1) {
+                    $model->applicationPortList[$n1] = applicationPortList::fromMap($item1);
                     ++$n1;
                 }
             }

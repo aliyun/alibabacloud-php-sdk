@@ -23,10 +23,16 @@ class DescribeTrafficLogResponseBody extends Model
     /**
      * @var string
      */
+    public $queryId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'dataList' => 'DataList',
         'pageInfo' => 'PageInfo',
+        'queryId' => 'QueryId',
         'requestId' => 'RequestId',
     ];
 
@@ -59,6 +65,10 @@ class DescribeTrafficLogResponseBody extends Model
             $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
 
+        if (null !== $this->queryId) {
+            $res['QueryId'] = $this->queryId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -87,6 +97,10 @@ class DescribeTrafficLogResponseBody extends Model
 
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
+        }
+
+        if (isset($map['QueryId'])) {
+            $model->queryId = $map['QueryId'];
         }
 
         if (isset($map['RequestId'])) {
