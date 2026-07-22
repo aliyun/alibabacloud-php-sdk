@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class OperateRerunJobRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $appId;
+
+    /**
      * @var string
      */
     public $appName;
@@ -38,6 +43,7 @@ class OperateRerunJobRequest extends Model
      */
     public $startDate;
     protected $_name = [
+        'appId' => 'AppId',
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
         'dataTime' => 'DataTime',
@@ -54,6 +60,10 @@ class OperateRerunJobRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -89,6 +99,10 @@ class OperateRerunJobRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

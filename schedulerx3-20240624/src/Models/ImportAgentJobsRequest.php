@@ -6,17 +6,12 @@ namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetDesigateInfoRequest extends Model
+class ImportAgentJobsRequest extends Model
 {
-    /**
-     * @var int
-     */
-    public $appGroupId;
-
     /**
      * @var string
      */
-    public $appName;
+    public $agentName;
 
     /**
      * @var string
@@ -26,12 +21,11 @@ class GetDesigateInfoRequest extends Model
     /**
      * @var int
      */
-    public $jobId;
+    public $migrateStrategy;
     protected $_name = [
-        'appGroupId' => 'AppGroupId',
-        'appName' => 'AppName',
+        'agentName' => 'AgentName',
         'clusterId' => 'ClusterId',
-        'jobId' => 'JobId',
+        'migrateStrategy' => 'MigrateStrategy',
     ];
 
     public function validate()
@@ -42,20 +36,16 @@ class GetDesigateInfoRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->appGroupId) {
-            $res['AppGroupId'] = $this->appGroupId;
-        }
-
-        if (null !== $this->appName) {
-            $res['AppName'] = $this->appName;
+        if (null !== $this->agentName) {
+            $res['AgentName'] = $this->agentName;
         }
 
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
 
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->migrateStrategy) {
+            $res['MigrateStrategy'] = $this->migrateStrategy;
         }
 
         return $res;
@@ -69,20 +59,16 @@ class GetDesigateInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppGroupId'])) {
-            $model->appGroupId = $map['AppGroupId'];
-        }
-
-        if (isset($map['AppName'])) {
-            $model->appName = $map['AppName'];
+        if (isset($map['AgentName'])) {
+            $model->agentName = $map['AgentName'];
         }
 
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
 
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['MigrateStrategy'])) {
+            $model->migrateStrategy = $map['MigrateStrategy'];
         }
 
         return $model;

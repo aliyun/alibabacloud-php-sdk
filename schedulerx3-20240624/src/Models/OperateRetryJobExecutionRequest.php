@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class OperateRetryJobExecutionRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $appGroupId;
+
+    /**
      * @var string
      */
     public $appName;
@@ -33,6 +38,7 @@ class OperateRetryJobExecutionRequest extends Model
      */
     public $triggerChild;
     protected $_name = [
+        'appGroupId' => 'AppGroupId',
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
         'jobExecutionId' => 'JobExecutionId',
@@ -51,6 +57,10 @@ class OperateRetryJobExecutionRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appGroupId) {
+            $res['AppGroupId'] = $this->appGroupId;
+        }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -89,6 +99,10 @@ class OperateRetryJobExecutionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppGroupId'])) {
+            $model->appGroupId = $map['AppGroupId'];
+        }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

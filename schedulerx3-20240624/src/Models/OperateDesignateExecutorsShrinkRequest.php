@@ -14,6 +14,11 @@ class OperateDesignateExecutorsShrinkRequest extends Model
     public $addressListShrink;
 
     /**
+     * @var int
+     */
+    public $appGroupId;
+
+    /**
      * @var string
      */
     public $appName;
@@ -39,6 +44,7 @@ class OperateDesignateExecutorsShrinkRequest extends Model
     public $transferable;
     protected $_name = [
         'addressListShrink' => 'AddressList',
+        'appGroupId' => 'AppGroupId',
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
         'designateType' => 'DesignateType',
@@ -56,6 +62,10 @@ class OperateDesignateExecutorsShrinkRequest extends Model
         $res = [];
         if (null !== $this->addressListShrink) {
             $res['AddressList'] = $this->addressListShrink;
+        }
+
+        if (null !== $this->appGroupId) {
+            $res['AppGroupId'] = $this->appGroupId;
         }
 
         if (null !== $this->appName) {
@@ -91,6 +101,10 @@ class OperateDesignateExecutorsShrinkRequest extends Model
         $model = new self();
         if (isset($map['AddressList'])) {
             $model->addressListShrink = $map['AddressList'];
+        }
+
+        if (isset($map['AppGroupId'])) {
+            $model->appGroupId = $map['AppGroupId'];
         }
 
         if (isset($map['AppName'])) {

@@ -14,6 +14,11 @@ class OperateDesignateExecutorsRequest extends Model
     public $addressList;
 
     /**
+     * @var int
+     */
+    public $appGroupId;
+
+    /**
      * @var string
      */
     public $appName;
@@ -39,6 +44,7 @@ class OperateDesignateExecutorsRequest extends Model
     public $transferable;
     protected $_name = [
         'addressList' => 'AddressList',
+        'appGroupId' => 'AppGroupId',
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
         'designateType' => 'DesignateType',
@@ -66,6 +72,10 @@ class OperateDesignateExecutorsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->appGroupId) {
+            $res['AppGroupId'] = $this->appGroupId;
         }
 
         if (null !== $this->appName) {
@@ -108,6 +118,10 @@ class OperateDesignateExecutorsRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['AppGroupId'])) {
+            $model->appGroupId = $map['AppGroupId'];
         }
 
         if (isset($map['AppName'])) {

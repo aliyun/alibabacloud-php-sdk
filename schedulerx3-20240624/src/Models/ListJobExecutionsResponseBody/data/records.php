@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class records extends Model
 {
     /**
+     * @var int
+     */
+    public $appGroupId;
+
+    /**
      * @var string
      */
     public $appName;
@@ -128,6 +133,7 @@ class records extends Model
      */
     public $XAttrs;
     protected $_name = [
+        'appGroupId' => 'AppGroupId',
         'appName' => 'AppName',
         'attempt' => 'Attempt',
         'dataTime' => 'DataTime',
@@ -162,6 +168,10 @@ class records extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appGroupId) {
+            $res['AppGroupId'] = $this->appGroupId;
+        }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -269,6 +279,10 @@ class records extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppGroupId'])) {
+            $model->appGroupId = $map['AppGroupId'];
+        }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

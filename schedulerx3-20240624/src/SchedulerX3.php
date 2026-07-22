@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetWorkflowExecutionDAGRequest
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetWorkflowExecutionDAGResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetWorkflowRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\GetWorkflowResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ImportAgentJobsRequest;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ImportAgentJobsResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ImportCalendarRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ImportCalendarResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\ImportJobsRequest;
@@ -1516,7 +1518,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Deletes multiple jobs in a batch.
+     * Deletes nodes in batches.
      *
      * @param tmpReq - DeleteJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1538,6 +1540,10 @@ class SchedulerX3 extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->appGroupId) {
+            @$body['AppGroupId'] = $request->appGroupId;
+        }
+
         if (null !== $request->appName) {
             @$body['AppName'] = $request->appName;
         }
@@ -1569,7 +1575,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Deletes multiple jobs in a batch.
+     * Deletes nodes in batches.
      *
      * @param request - DeleteJobsRequest
      *
@@ -2056,7 +2062,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Retrieves the designation information for a job.
+     * Retrieves the information about a specified machine.
      *
      * @param request - GetDesigateInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2091,7 +2097,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Retrieves the designation information for a job.
+     * Retrieves the information about a specified machine.
      *
      * @param request - GetDesigateInfoRequest
      *
@@ -2251,13 +2257,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Gets the details of a sharding task execution.
+     * Retrieves the execution details of a sharding task.
      *
      * @remarks
-     * # Add the enhancement plugin
-     * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
-     * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
-     * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+     * # Import the enhanced plugin
+     * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
+     * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+     * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - GetJobExecutionProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2292,13 +2298,13 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Gets the details of a sharding task execution.
+     * Retrieves the execution details of a sharding task.
      *
      * @remarks
-     * # Add the enhancement plugin
-     * Add the Enhancement Plugin to your `pom.xml` file to enhance the capabilities of the Executor.
-     * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml.
-     * **See also**: [Plugin Release Notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+     * # Import the enhanced plugin
+     * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
+     * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+     * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
      *
      * @param request - GetJobExecutionProgressRequest
      *
@@ -2857,6 +2863,140 @@ class SchedulerX3 extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getWorkflowExecutionDAGWithOptions($request, $runtime);
+    }
+
+    /**
+     * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+     *
+     * @remarks
+     * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+     *
+     * @param request - ImportAgentJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportAgentJobsResponse
+     *
+     * @param ImportAgentJobsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ImportAgentJobsResponse
+     */
+    public function importAgentJobsWithSSE($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->migrateStrategy) {
+            @$body['MigrateStrategy'] = $request->migrateStrategy;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportAgentJobs',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ImportAgentJobsResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+     *
+     * @remarks
+     * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+     *
+     * @param request - ImportAgentJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportAgentJobsResponse
+     *
+     * @param ImportAgentJobsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ImportAgentJobsResponse
+     */
+    public function importAgentJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->agentName) {
+            @$body['AgentName'] = $request->agentName;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
+        }
+
+        if (null !== $request->migrateStrategy) {
+            @$body['MigrateStrategy'] = $request->migrateStrategy;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportAgentJobs',
+            'version' => '2024-06-24',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportAgentJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+     *
+     * @remarks
+     * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+     *
+     * @param request - ImportAgentJobsRequest
+     *
+     * @returns ImportAgentJobsResponse
+     *
+     * @param ImportAgentJobsRequest $request
+     *
+     * @return ImportAgentJobsResponse
+     */
+    public function importAgentJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importAgentJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -3654,7 +3794,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Lists executors.
+     * Queries the list of executors.
      *
      * @param request - ListExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3689,7 +3829,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Lists executors.
+     * Queries the list of executors.
      *
      * @param request - ListExecutorsRequest
      *
@@ -3707,7 +3847,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Returns a list of task instances.
+     * Retrieves a list of job instances.
      *
      * @param request - ListJobExecutionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3786,7 +3926,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Returns a list of task instances.
+     * Retrieves a list of job instances.
      *
      * @param request - ListJobExecutionsRequest
      *
@@ -3877,7 +4017,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Returns a task list.
+     * Retrieves a list of jobs.
      *
      * @param request - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3952,7 +4092,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Returns a task list.
+     * Retrieves a list of jobs.
      *
      * @param request - ListJobsRequest
      *
@@ -4709,7 +4849,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Designates one or more executors for a job.
+     * Specifies the executor.
      *
      * @param tmpReq - OperateDesignateExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4733,6 +4873,10 @@ class SchedulerX3 extends OpenApiClient
         $body = [];
         if (null !== $request->addressListShrink) {
             @$body['AddressList'] = $request->addressListShrink;
+        }
+
+        if (null !== $request->appGroupId) {
+            @$body['AppGroupId'] = $request->appGroupId;
         }
 
         if (null !== $request->appName) {
@@ -4774,7 +4918,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Designates one or more executors for a job.
+     * Specifies the executor.
      *
      * @param request - OperateDesignateExecutorsRequest
      *
@@ -4792,7 +4936,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Disables multiple jobs.
+     * Disables nodes in batches.
      *
      * @param tmpReq - OperateDisableJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4814,6 +4958,10 @@ class SchedulerX3 extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->appGroupId) {
+            @$body['AppGroupId'] = $request->appGroupId;
+        }
+
         if (null !== $request->appName) {
             @$body['AppName'] = $request->appName;
         }
@@ -4845,7 +4993,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Disables multiple jobs.
+     * Disables nodes in batches.
      *
      * @param request - OperateDisableJobsRequest
      *
@@ -4940,7 +5088,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Enables multiple jobs in a batch.
+     * Starts nodes in batches.
      *
      * @param tmpReq - OperateEnableJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4962,6 +5110,10 @@ class SchedulerX3 extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->appGroupId) {
+            @$body['AppGroupId'] = $request->appGroupId;
+        }
+
         if (null !== $request->appName) {
             @$body['AppName'] = $request->appName;
         }
@@ -4993,7 +5145,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Enables multiple jobs in a batch.
+     * Starts nodes in batches.
      *
      * @param request - OperateEnableJobsRequest
      *
@@ -5082,7 +5234,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Executes a job on demand.
+     * Runs a node once.
      *
      * @param request - OperateExecuteJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5098,6 +5250,10 @@ class SchedulerX3 extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->appGroupId) {
+            @$body['AppGroupId'] = $request->appGroupId;
+        }
+
         if (null !== $request->appName) {
             @$body['AppName'] = $request->appName;
         }
@@ -5141,7 +5297,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Executes a job on demand.
+     * Runs a node once.
      *
      * @param request - OperateExecuteJobRequest
      *
@@ -5490,7 +5646,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Reruns historical data for a job within a specified time range.
+     * Reruns historical data for a node.
      *
      * @param request - OperateRerunJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5506,6 +5662,10 @@ class SchedulerX3 extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
         if (null !== $request->appName) {
             @$query['AppName'] = $request->appName;
         }
@@ -5549,7 +5709,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Reruns historical data for a job within a specified time range.
+     * Reruns historical data for a node.
      *
      * @param request - OperateRerunJobRequest
      *
@@ -5567,7 +5727,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Retries a failed Job Instance.
+     * Reruns a failed job instance.
      *
      * @param tmpReq - OperateRetryJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5589,6 +5749,10 @@ class SchedulerX3 extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appGroupId) {
+            @$query['AppGroupId'] = $request->appGroupId;
+        }
+
         if (null !== $request->appName) {
             @$query['AppName'] = $request->appName;
         }
@@ -5628,7 +5792,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Retries a failed Job Instance.
+     * Reruns a failed job instance.
      *
      * @param request - OperateRetryJobExecutionRequest
      *
@@ -5780,7 +5944,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Stops a running Job Execution.
+     * Stops a running task instance.
      *
      * @param tmpReq - OperateStopJobExecutionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5802,6 +5966,10 @@ class SchedulerX3 extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->appGroupId) {
+            @$query['AppGroupId'] = $request->appGroupId;
+        }
+
         if (null !== $request->appName) {
             @$query['AppName'] = $request->appName;
         }
@@ -5837,7 +6005,7 @@ class SchedulerX3 extends OpenApiClient
     }
 
     /**
-     * Stops a running Job Execution.
+     * Stops a running task instance.
      *
      * @param request - OperateStopJobExecutionRequest
      *
@@ -6797,6 +6965,10 @@ class SchedulerX3 extends OpenApiClient
         }
 
         $body = [];
+        if (null !== $request->appGroupId) {
+            @$body['AppGroupId'] = $request->appGroupId;
+        }
+
         if (null !== $request->appName) {
             @$body['AppName'] = $request->appName;
         }

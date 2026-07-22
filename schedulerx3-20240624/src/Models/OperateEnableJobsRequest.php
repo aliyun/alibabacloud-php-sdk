@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class OperateEnableJobsRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $appGroupId;
+
+    /**
      * @var string
      */
     public $appName;
@@ -23,6 +28,7 @@ class OperateEnableJobsRequest extends Model
      */
     public $jobIds;
     protected $_name = [
+        'appGroupId' => 'AppGroupId',
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
         'jobIds' => 'JobIds',
@@ -39,6 +45,10 @@ class OperateEnableJobsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appGroupId) {
+            $res['AppGroupId'] = $this->appGroupId;
+        }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -69,6 +79,10 @@ class OperateEnableJobsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppGroupId'])) {
+            $model->appGroupId = $map['AppGroupId'];
+        }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

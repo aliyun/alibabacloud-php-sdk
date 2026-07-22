@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class OperateStopJobExecutionShrinkRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $appGroupId;
+
+    /**
      * @var string
      */
     public $appName;
@@ -28,6 +33,7 @@ class OperateStopJobExecutionShrinkRequest extends Model
      */
     public $taskListShrink;
     protected $_name = [
+        'appGroupId' => 'AppGroupId',
         'appName' => 'AppName',
         'clusterId' => 'ClusterId',
         'jobExecutionId' => 'JobExecutionId',
@@ -42,6 +48,10 @@ class OperateStopJobExecutionShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appGroupId) {
+            $res['AppGroupId'] = $this->appGroupId;
+        }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -69,6 +79,10 @@ class OperateStopJobExecutionShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppGroupId'])) {
+            $model->appGroupId = $map['AppGroupId'];
+        }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
