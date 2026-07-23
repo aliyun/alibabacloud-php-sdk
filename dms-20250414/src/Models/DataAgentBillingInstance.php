@@ -46,6 +46,11 @@ class DataAgentBillingInstance extends Model
     /**
      * @var int
      */
+    public $freeLLM;
+
+    /**
+     * @var int
+     */
     public $gmtCreated;
 
     /**
@@ -90,6 +95,7 @@ class DataAgentBillingInstance extends Model
         'commodityCode' => 'CommodityCode',
         'expireTime' => 'ExpireTime',
         'freeAgentSeats' => 'FreeAgentSeats',
+        'freeLLM' => 'FreeLLM',
         'gmtCreated' => 'GmtCreated',
         'gmtModified' => 'GmtModified',
         'isDefault' => 'IsDefault',
@@ -144,6 +150,10 @@ class DataAgentBillingInstance extends Model
 
         if (null !== $this->freeAgentSeats) {
             $res['FreeAgentSeats'] = $this->freeAgentSeats;
+        }
+
+        if (null !== $this->freeLLM) {
+            $res['FreeLLM'] = $this->freeLLM;
         }
 
         if (null !== $this->gmtCreated) {
@@ -222,6 +232,10 @@ class DataAgentBillingInstance extends Model
 
         if (isset($map['FreeAgentSeats'])) {
             $model->freeAgentSeats = $map['FreeAgentSeats'];
+        }
+
+        if (isset($map['FreeLLM'])) {
+            $model->freeLLM = $map['FreeLLM'];
         }
 
         if (isset($map['GmtCreated'])) {

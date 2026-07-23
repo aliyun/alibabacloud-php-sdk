@@ -42,11 +42,6 @@ class AgenticTableBaseInfo extends Model
      * @var string
      */
     public $tableType;
-
-    /**
-     * @var string
-     */
-    public $tableUuid;
     protected $_name = [
         'catalogType' => 'CatalogType',
         'databaseUuid' => 'DatabaseUuid',
@@ -55,7 +50,6 @@ class AgenticTableBaseInfo extends Model
         'name' => 'Name',
         'qualifiedName' => 'QualifiedName',
         'tableType' => 'TableType',
-        'tableUuid' => 'TableUuid',
     ];
 
     public function validate()
@@ -97,10 +91,6 @@ class AgenticTableBaseInfo extends Model
             $res['TableType'] = $this->tableType;
         }
 
-        if (null !== $this->tableUuid) {
-            $res['TableUuid'] = $this->tableUuid;
-        }
-
         return $res;
     }
 
@@ -138,10 +128,6 @@ class AgenticTableBaseInfo extends Model
 
         if (isset($map['TableType'])) {
             $model->tableType = $map['TableType'];
-        }
-
-        if (isset($map['TableUuid'])) {
-            $model->tableUuid = $map['TableUuid'];
         }
 
         return $model;

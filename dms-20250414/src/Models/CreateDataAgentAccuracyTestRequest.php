@@ -21,6 +21,11 @@ class CreateDataAgentAccuracyTestRequest extends Model
     /**
      * @var string
      */
+    public $datasource;
+
+    /**
+     * @var string
+     */
     public $desc;
 
     /**
@@ -75,6 +80,7 @@ class CreateDataAgentAccuracyTestRequest extends Model
     protected $_name = [
         'customAgentId' => 'CustomAgentId',
         'dataset' => 'Dataset',
+        'datasource' => 'Datasource',
         'desc' => 'Desc',
         'dmsUnit' => 'DmsUnit',
         'evaluationPrompt' => 'EvaluationPrompt',
@@ -102,6 +108,10 @@ class CreateDataAgentAccuracyTestRequest extends Model
 
         if (null !== $this->dataset) {
             $res['Dataset'] = $this->dataset;
+        }
+
+        if (null !== $this->datasource) {
+            $res['Datasource'] = $this->datasource;
         }
 
         if (null !== $this->desc) {
@@ -165,6 +175,10 @@ class CreateDataAgentAccuracyTestRequest extends Model
 
         if (isset($map['Dataset'])) {
             $model->dataset = $map['Dataset'];
+        }
+
+        if (isset($map['Datasource'])) {
+            $model->datasource = $map['Datasource'];
         }
 
         if (isset($map['Desc'])) {

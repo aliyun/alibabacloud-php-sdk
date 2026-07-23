@@ -26,6 +26,16 @@ class data extends Model
     /**
      * @var string
      */
+    public $datasource;
+
+    /**
+     * @var string
+     */
+    public $desc;
+
+    /**
+     * @var string
+     */
     public $evaluationPrompt;
 
     /**
@@ -36,7 +46,22 @@ class data extends Model
     /**
      * @var int
      */
+    public $maxConcurrent;
+
+    /**
+     * @var int
+     */
     public $mode;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var bool
+     */
+    public $needDelete;
 
     /**
      * @var string
@@ -46,9 +71,14 @@ class data extends Model
         'accuracyTest' => 'AccuracyTest',
         'agentId' => 'AgentId',
         'dataset' => 'Dataset',
+        'datasource' => 'Datasource',
+        'desc' => 'Desc',
         'evaluationPrompt' => 'EvaluationPrompt',
         'fileId' => 'FileId',
+        'maxConcurrent' => 'MaxConcurrent',
         'mode' => 'Mode',
+        'name' => 'Name',
+        'needDelete' => 'NeedDelete',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -72,6 +102,14 @@ class data extends Model
             $res['Dataset'] = $this->dataset;
         }
 
+        if (null !== $this->datasource) {
+            $res['Datasource'] = $this->datasource;
+        }
+
+        if (null !== $this->desc) {
+            $res['Desc'] = $this->desc;
+        }
+
         if (null !== $this->evaluationPrompt) {
             $res['EvaluationPrompt'] = $this->evaluationPrompt;
         }
@@ -80,8 +118,20 @@ class data extends Model
             $res['FileId'] = $this->fileId;
         }
 
+        if (null !== $this->maxConcurrent) {
+            $res['MaxConcurrent'] = $this->maxConcurrent;
+        }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->needDelete) {
+            $res['NeedDelete'] = $this->needDelete;
         }
 
         if (null !== $this->workspaceId) {
@@ -111,6 +161,14 @@ class data extends Model
             $model->dataset = $map['Dataset'];
         }
 
+        if (isset($map['Datasource'])) {
+            $model->datasource = $map['Datasource'];
+        }
+
+        if (isset($map['Desc'])) {
+            $model->desc = $map['Desc'];
+        }
+
         if (isset($map['EvaluationPrompt'])) {
             $model->evaluationPrompt = $map['EvaluationPrompt'];
         }
@@ -119,8 +177,20 @@ class data extends Model
             $model->fileId = $map['FileId'];
         }
 
+        if (isset($map['MaxConcurrent'])) {
+            $model->maxConcurrent = $map['MaxConcurrent'];
+        }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
+        if (isset($map['NeedDelete'])) {
+            $model->needDelete = $map['NeedDelete'];
         }
 
         if (isset($map['WorkspaceId'])) {

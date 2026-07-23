@@ -12,6 +12,11 @@ class OpenClawInstanceVO extends Model
     /**
      * @var string
      */
+    public $agentType;
+
+    /**
+     * @var string
+     */
     public $aliyunAccountUid;
 
     /**
@@ -90,6 +95,16 @@ class OpenClawInstanceVO extends Model
     public $memorySize;
 
     /**
+     * @var int
+     */
+    public $modelCallQuota;
+
+    /**
+     * @var int
+     */
+    public $modelCallUsed;
+
+    /**
      * @var string
      */
     public $openclawToken;
@@ -129,6 +144,7 @@ class OpenClawInstanceVO extends Model
      */
     public $variables;
     protected $_name = [
+        'agentType' => 'AgentType',
         'aliyunAccountUid' => 'AliyunAccountUid',
         'authType' => 'AuthType',
         'basicAuthPassword' => 'BasicAuthPassword',
@@ -145,6 +161,8 @@ class OpenClawInstanceVO extends Model
         'lastActiveTime' => 'LastActiveTime',
         'lockTime' => 'LockTime',
         'memorySize' => 'MemorySize',
+        'modelCallQuota' => 'ModelCallQuota',
+        'modelCallUsed' => 'ModelCallUsed',
         'openclawToken' => 'OpenclawToken',
         'ownerUid' => 'OwnerUid',
         'publicDomain' => 'PublicDomain',
@@ -166,6 +184,10 @@ class OpenClawInstanceVO extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentType) {
+            $res['AgentType'] = $this->agentType;
+        }
+
         if (null !== $this->aliyunAccountUid) {
             $res['AliyunAccountUid'] = $this->aliyunAccountUid;
         }
@@ -230,6 +252,14 @@ class OpenClawInstanceVO extends Model
             $res['MemorySize'] = $this->memorySize;
         }
 
+        if (null !== $this->modelCallQuota) {
+            $res['ModelCallQuota'] = $this->modelCallQuota;
+        }
+
+        if (null !== $this->modelCallUsed) {
+            $res['ModelCallUsed'] = $this->modelCallUsed;
+        }
+
         if (null !== $this->openclawToken) {
             $res['OpenclawToken'] = $this->openclawToken;
         }
@@ -273,6 +303,10 @@ class OpenClawInstanceVO extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentType'])) {
+            $model->agentType = $map['AgentType'];
+        }
+
         if (isset($map['AliyunAccountUid'])) {
             $model->aliyunAccountUid = $map['AliyunAccountUid'];
         }
@@ -335,6 +369,14 @@ class OpenClawInstanceVO extends Model
 
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
+        }
+
+        if (isset($map['ModelCallQuota'])) {
+            $model->modelCallQuota = $map['ModelCallQuota'];
+        }
+
+        if (isset($map['ModelCallUsed'])) {
+            $model->modelCallUsed = $map['ModelCallUsed'];
         }
 
         if (isset($map['OpenclawToken'])) {

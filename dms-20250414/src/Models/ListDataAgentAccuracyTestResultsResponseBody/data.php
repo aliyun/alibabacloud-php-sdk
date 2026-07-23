@@ -30,6 +30,11 @@ class data extends Model
     public $correctCount;
 
     /**
+     * @var string
+     */
+    public $failedCount;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -38,6 +43,11 @@ class data extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $pendingCount;
 
     /**
      * @var int
@@ -53,8 +63,10 @@ class data extends Model
         'accuracyTestTaskId' => 'AccuracyTestTaskId',
         'content' => 'Content',
         'correctCount' => 'CorrectCount',
+        'failedCount' => 'FailedCount',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'pendingCount' => 'PendingCount',
         'totalElements' => 'TotalElements',
         'totalPages' => 'TotalPages',
     ];
@@ -93,12 +105,20 @@ class data extends Model
             $res['CorrectCount'] = $this->correctCount;
         }
 
+        if (null !== $this->failedCount) {
+            $res['FailedCount'] = $this->failedCount;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->pendingCount) {
+            $res['PendingCount'] = $this->pendingCount;
         }
 
         if (null !== $this->totalElements) {
@@ -143,12 +163,20 @@ class data extends Model
             $model->correctCount = $map['CorrectCount'];
         }
 
+        if (isset($map['FailedCount'])) {
+            $model->failedCount = $map['FailedCount'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['PendingCount'])) {
+            $model->pendingCount = $map['PendingCount'];
         }
 
         if (isset($map['TotalElements'])) {

@@ -32,12 +32,18 @@ class ListDataCenterDatabaseRequest extends Model
      * @var string
      */
     public $searchKey;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'callFrom' => 'CallFrom',
         'dmsUnit' => 'DmsUnit',
         'importType' => 'ImportType',
         'language' => 'Language',
         'searchKey' => 'SearchKey',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -66,6 +72,10 @@ class ListDataCenterDatabaseRequest extends Model
 
         if (null !== $this->searchKey) {
             $res['SearchKey'] = $this->searchKey;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -97,6 +107,10 @@ class ListDataCenterDatabaseRequest extends Model
 
         if (isset($map['SearchKey'])) {
             $model->searchKey = $map['SearchKey'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

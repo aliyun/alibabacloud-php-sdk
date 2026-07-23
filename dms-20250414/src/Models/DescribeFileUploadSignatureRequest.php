@@ -17,9 +17,15 @@ class DescribeFileUploadSignatureRequest extends Model
      * @var string
      */
     public $dmsUnit;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'callFrom' => 'CallFrom',
         'dmsUnit' => 'DmsUnit',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class DescribeFileUploadSignatureRequest extends Model
 
         if (null !== $this->dmsUnit) {
             $res['DmsUnit'] = $this->dmsUnit;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class DescribeFileUploadSignatureRequest extends Model
 
         if (isset($map['DmsUnit'])) {
             $model->dmsUnit = $map['DmsUnit'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

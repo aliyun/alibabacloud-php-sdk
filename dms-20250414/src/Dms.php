@@ -55,6 +55,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentAccuracyTestRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentAccuracyTestResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentKnowledgeBaseResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataAgentWorkspaceResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteDataLakeDatabaseRequest;
@@ -77,6 +79,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteWorkspaceCodeRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DeleteWorkspaceCodeResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeCustomAgentResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentMetricsRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentMetricsResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDataAgentSessionResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeDocumentRequest;
@@ -89,6 +93,8 @@ use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseUploadSignatureRe
 use AlibabaCloud\SDK\Dms\V20250414\Models\DescribeKnowledgeBaseUploadSignatureResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\FileUploadCallbackResponse;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticAgentByInstallTokenRequest;
+use AlibabaCloud\SDK\Dms\V20250414\Models\GetAgenticAgentByInstallTokenResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowRequest;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetAirflowResponse;
 use AlibabaCloud\SDK\Dms\V20250414\Models\GetChatContentRequest;
@@ -1041,6 +1047,10 @@ class Dms extends OpenApiClient
             @$query['Dataset'] = $request->dataset;
         }
 
+        if (null !== $request->datasource) {
+            @$query['Datasource'] = $request->datasource;
+        }
+
         if (null !== $request->desc) {
             @$query['Desc'] = $request->desc;
         }
@@ -1274,7 +1284,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a DataAgent collaborative workspace.
+     * Creates a DataAgent workspace.
      *
      * @param request - CreateDataAgentWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1325,7 +1335,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Creates a DataAgent collaborative workspace.
+     * Creates a DataAgent workspace.
      *
      * @param request - CreateDataAgentWorkspaceRequest
      *
@@ -1808,6 +1818,63 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Releases a DataAgent seat.
+     *
+     * @param request - DeleteDataAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDataAgentResponse
+     *
+     * @param DeleteDataAgentRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteDataAgentResponse
+     */
+    public function deleteDataAgentWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DMSUnit) {
+            @$query['DMSUnit'] = $request->DMSUnit;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataAgent',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Releases a DataAgent seat.
+     *
+     * @param request - DeleteDataAgentRequest
+     *
+     * @returns DeleteDataAgentResponse
+     *
+     * @param DeleteDataAgentRequest $request
+     *
+     * @return DeleteDataAgentResponse
+     */
+    public function deleteDataAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataAgentWithOptions($request, $runtime);
     }
 
     /**
@@ -2647,6 +2714,75 @@ class Dms extends OpenApiClient
     }
 
     /**
+     * Queries DataAgent metrics.
+     *
+     * @param request - DescribeDataAgentMetricsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDataAgentMetricsResponse
+     *
+     * @param DescribeDataAgentMetricsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDataAgentMetricsResponse
+     */
+    public function describeDataAgentMetricsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->metricNames) {
+            @$query['MetricNames'] = $request->metricNames;
+        }
+
+        if (null !== $request->metricType) {
+            @$query['MetricType'] = $request->metricType;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDataAgentMetrics',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDataAgentMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries DataAgent metrics.
+     *
+     * @param request - DescribeDataAgentMetricsRequest
+     *
+     * @returns DescribeDataAgentMetricsResponse
+     *
+     * @param DescribeDataAgentMetricsRequest $request
+     *
+     * @return DescribeDataAgentMetricsResponse
+     */
+    public function describeDataAgentMetrics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataAgentMetricsWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the description of a DataAgent session.
      *
      * @param request - DescribeDataAgentSessionRequest
@@ -2773,7 +2909,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * DescribeFileUploadSignature.
+     * Retrieves the signature information for file uploads.
      *
      * @param request - DescribeFileUploadSignatureRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2797,6 +2933,10 @@ class Dms extends OpenApiClient
             @$query['DmsUnit'] = $request->dmsUnit;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -2816,7 +2956,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * DescribeFileUploadSignature.
+     * Retrieves the signature information for file uploads.
      *
      * @param request - DescribeFileUploadSignatureRequest
      *
@@ -2948,7 +3088,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * FileUploadCallback.
+     * Calls back after a file is uploaded.
      *
      * @param request - FileUploadCallbackRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2988,6 +3128,10 @@ class Dms extends OpenApiClient
             @$query['UploadLocation'] = $request->uploadLocation;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -3007,7 +3151,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * FileUploadCallback.
+     * Calls back after a file is uploaded.
      *
      * @param request - FileUploadCallbackRequest
      *
@@ -3022,6 +3166,63 @@ class Dms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fileUploadCallbackWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries agent information by install token.
+     *
+     * @param request - GetAgenticAgentByInstallTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAgenticAgentByInstallTokenResponse
+     *
+     * @param GetAgenticAgentByInstallTokenRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetAgenticAgentByInstallTokenResponse
+     */
+    public function getAgenticAgentByInstallTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->installToken) {
+            @$query['InstallToken'] = $request->installToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAgenticAgentByInstallToken',
+            'version' => '2025-04-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAgenticAgentByInstallTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries agent information by install token.
+     *
+     * @param request - GetAgenticAgentByInstallTokenRequest
+     *
+     * @returns GetAgenticAgentByInstallTokenResponse
+     *
+     * @param GetAgenticAgentByInstallTokenRequest $request
+     *
+     * @return GetAgenticAgentByInstallTokenResponse
+     */
+    public function getAgenticAgentByInstallToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgenticAgentByInstallTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -4536,11 +4737,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the running status of self-test tasks by paging.
+     * Queries the running status of accuracy test nodes by using paging.
      *
      * @remarks
-     * Queries the running status of self-test tasks by paging.
-     * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+     * Queries the running status of self-test nodes by using paging. If AccuracyTestInsId or AccuracyTestTaskId is empty, all test nodes are queried.
      *
      * @param request - ListDataAgentAccuracyTestTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4603,11 +4803,10 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Queries the running status of self-test tasks by paging.
+     * Queries the running status of accuracy test nodes by using paging.
      *
      * @remarks
-     * Queries the running status of self-test tasks by paging.
-     * If AccuracyTestInsId or AccuracyTestTaskId is empty, all test tasks are queried.
+     * Queries the running status of self-test nodes by using paging. If AccuracyTestInsId or AccuracyTestTaskId is empty, all test nodes are queried.
      *
      * @param request - ListDataAgentAccuracyTestTasksRequest
      *
@@ -4904,7 +5103,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists user-uploaded files in a data center, excluding databases.
+     * Retrieves the list of files uploaded by users in the data center. Only file types are supported. Database types are not supported.
      *
      * @param request - ListDataCenterDatabaseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4940,6 +5139,10 @@ class Dms extends OpenApiClient
             @$query['SearchKey'] = $request->searchKey;
         }
 
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -4959,7 +5162,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Lists user-uploaded files in a data center, excluding databases.
+     * Retrieves the list of files uploaded by users in the data center. Only file types are supported. Database types are not supported.
      *
      * @param request - ListDataCenterDatabaseRequest
      *
@@ -6809,10 +7012,10 @@ class Dms extends OpenApiClient
      * ## Request description
      * - `agent_id` and `session_id` are required fields.
      * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-     * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+     * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
      * - `quoted_message` can be used to quote the content of a previous user message.
-     * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
+     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
      *
      * @param tmpReq - SendChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6931,10 +7134,10 @@ class Dms extends OpenApiClient
      * ## Request description
      * - `agent_id` and `session_id` are required fields.
      * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-     * - The `reply_to` field indicates which Agent message this message is responding to. The default value is `0`.
+     * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
      * - When `message_type` is `additional`, the `question` field is required.
      * - `quoted_message` can be used to quote the content of a previous user message.
-     * - The `data_source`, `dms_user`, `db_metadata`, and `session_config` fields are optional but provide more detailed context information.
+     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
      *
      * @param request - SendChatMessageRequest
      *
@@ -7394,6 +7597,10 @@ class Dms extends OpenApiClient
 
         if (null !== $request->dataset) {
             @$query['Dataset'] = $request->dataset;
+        }
+
+        if (null !== $request->datasource) {
+            @$query['Datasource'] = $request->datasource;
         }
 
         if (null !== $request->desc) {

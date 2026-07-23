@@ -37,6 +37,11 @@ class FileUploadCallbackRequest extends Model
      * @var string
      */
     public $uploadLocation;
+
+    /**
+     * @var string
+     */
+    public $workspaceId;
     protected $_name = [
         'callFrom' => 'CallFrom',
         'dmsUnit' => 'DmsUnit',
@@ -44,6 +49,7 @@ class FileUploadCallbackRequest extends Model
         'filename' => 'Filename',
         'ossBucket' => 'OssBucket',
         'uploadLocation' => 'UploadLocation',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -76,6 +82,10 @@ class FileUploadCallbackRequest extends Model
 
         if (null !== $this->uploadLocation) {
             $res['UploadLocation'] = $this->uploadLocation;
+        }
+
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -111,6 +121,10 @@ class FileUploadCallbackRequest extends Model
 
         if (isset($map['UploadLocation'])) {
             $model->uploadLocation = $map['UploadLocation'];
+        }
+
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

@@ -26,12 +26,12 @@ class AgenticCatalog extends Model
     /**
      * @var string
      */
-    public $dataSourceType;
+    public $dataSourceUuid;
 
     /**
      * @var string
      */
-    public $dataSourceUuid;
+    public $dbType;
 
     /**
      * @var string
@@ -66,8 +66,8 @@ class AgenticCatalog extends Model
         'catalogBizAttrs' => 'CatalogBizAttrs',
         'catalogType' => 'CatalogType',
         'catalogUuid' => 'CatalogUuid',
-        'dataSourceType' => 'DataSourceType',
         'dataSourceUuid' => 'DataSourceUuid',
+        'dbType' => 'DbType',
         'description' => 'Description',
         'name' => 'Name',
         'properties' => 'Properties',
@@ -107,12 +107,12 @@ class AgenticCatalog extends Model
             $res['CatalogUuid'] = $this->catalogUuid;
         }
 
-        if (null !== $this->dataSourceType) {
-            $res['DataSourceType'] = $this->dataSourceType;
-        }
-
         if (null !== $this->dataSourceUuid) {
             $res['DataSourceUuid'] = $this->dataSourceUuid;
+        }
+
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
         }
 
         if (null !== $this->description) {
@@ -172,12 +172,12 @@ class AgenticCatalog extends Model
             $model->catalogUuid = $map['CatalogUuid'];
         }
 
-        if (isset($map['DataSourceType'])) {
-            $model->dataSourceType = $map['DataSourceType'];
-        }
-
         if (isset($map['DataSourceUuid'])) {
             $model->dataSourceUuid = $map['DataSourceUuid'];
+        }
+
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
         }
 
         if (isset($map['Description'])) {

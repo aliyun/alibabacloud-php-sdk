@@ -29,6 +29,16 @@ class DmsGatewayOrder extends Model
     public $expireTime;
 
     /**
+     * @var bool
+     */
+    public $freeOrder;
+
+    /**
+     * @var string
+     */
+    public $gmtCreate;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -62,6 +72,8 @@ class DmsGatewayOrder extends Model
         'chargeType' => 'ChargeType',
         'commodityCode' => 'CommodityCode',
         'expireTime' => 'ExpireTime',
+        'freeOrder' => 'FreeOrder',
+        'gmtCreate' => 'GmtCreate',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
         'orderId' => 'OrderId',
@@ -92,6 +104,14 @@ class DmsGatewayOrder extends Model
 
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
+        }
+
+        if (null !== $this->freeOrder) {
+            $res['FreeOrder'] = $this->freeOrder;
+        }
+
+        if (null !== $this->gmtCreate) {
+            $res['GmtCreate'] = $this->gmtCreate;
         }
 
         if (null !== $this->instanceId) {
@@ -143,6 +163,14 @@ class DmsGatewayOrder extends Model
 
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
+        }
+
+        if (isset($map['FreeOrder'])) {
+            $model->freeOrder = $map['FreeOrder'];
+        }
+
+        if (isset($map['GmtCreate'])) {
+            $model->gmtCreate = $map['GmtCreate'];
         }
 
         if (isset($map['InstanceId'])) {

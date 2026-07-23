@@ -26,6 +26,11 @@ class OpenClawInstanceQuotaVO extends Model
     /**
      * @var string
      */
+    public $instanceDesc;
+
+    /**
+     * @var string
+     */
     public $instanceGmtCreate;
 
     /**
@@ -67,10 +72,16 @@ class OpenClawInstanceQuotaVO extends Model
      * @var string
      */
     public $skillPlanCallUsed;
+
+    /**
+     * @var int
+     */
+    public $status;
     protected $_name = [
         'aliyunAccountUid' => 'AliyunAccountUid',
         'deepResearchCallQuota' => 'DeepResearchCallQuota',
         'deepResearchCallUsed' => 'DeepResearchCallUsed',
+        'instanceDesc' => 'InstanceDesc',
         'instanceGmtCreate' => 'InstanceGmtCreate',
         'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
@@ -80,6 +91,7 @@ class OpenClawInstanceQuotaVO extends Model
         'refreshDay' => 'RefreshDay',
         'skillPlanCallQuota' => 'SkillPlanCallQuota',
         'skillPlanCallUsed' => 'SkillPlanCallUsed',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -100,6 +112,10 @@ class OpenClawInstanceQuotaVO extends Model
 
         if (null !== $this->deepResearchCallUsed) {
             $res['DeepResearchCallUsed'] = $this->deepResearchCallUsed;
+        }
+
+        if (null !== $this->instanceDesc) {
+            $res['InstanceDesc'] = $this->instanceDesc;
         }
 
         if (null !== $this->instanceGmtCreate) {
@@ -138,6 +154,10 @@ class OpenClawInstanceQuotaVO extends Model
             $res['SkillPlanCallUsed'] = $this->skillPlanCallUsed;
         }
 
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+
         return $res;
     }
 
@@ -159,6 +179,10 @@ class OpenClawInstanceQuotaVO extends Model
 
         if (isset($map['DeepResearchCallUsed'])) {
             $model->deepResearchCallUsed = $map['DeepResearchCallUsed'];
+        }
+
+        if (isset($map['InstanceDesc'])) {
+            $model->instanceDesc = $map['InstanceDesc'];
         }
 
         if (isset($map['InstanceGmtCreate'])) {
@@ -195,6 +219,10 @@ class OpenClawInstanceQuotaVO extends Model
 
         if (isset($map['SkillPlanCallUsed'])) {
             $model->skillPlanCallUsed = $map['SkillPlanCallUsed'];
+        }
+
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

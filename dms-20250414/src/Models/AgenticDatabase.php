@@ -24,11 +24,6 @@ class AgenticDatabase extends Model
     public $catalogUuid;
 
     /**
-     * @var string
-     */
-    public $dataSourceType;
-
-    /**
      * @var mixed[]
      */
     public $databaseBizAttrs;
@@ -37,6 +32,11 @@ class AgenticDatabase extends Model
      * @var string
      */
     public $databaseUuid;
+
+    /**
+     * @var string
+     */
+    public $dbType;
 
     /**
      * @var string
@@ -86,9 +86,9 @@ class AgenticDatabase extends Model
         'catalogName' => 'CatalogName',
         'catalogType' => 'CatalogType',
         'catalogUuid' => 'CatalogUuid',
-        'dataSourceType' => 'DataSourceType',
         'databaseBizAttrs' => 'DatabaseBizAttrs',
         'databaseUuid' => 'DatabaseUuid',
+        'dbType' => 'DbType',
         'description' => 'Description',
         'engineMeta' => 'EngineMeta',
         'name' => 'Name',
@@ -129,10 +129,6 @@ class AgenticDatabase extends Model
             $res['CatalogUuid'] = $this->catalogUuid;
         }
 
-        if (null !== $this->dataSourceType) {
-            $res['DataSourceType'] = $this->dataSourceType;
-        }
-
         if (null !== $this->databaseBizAttrs) {
             if (\is_array($this->databaseBizAttrs)) {
                 $res['DatabaseBizAttrs'] = [];
@@ -144,6 +140,10 @@ class AgenticDatabase extends Model
 
         if (null !== $this->databaseUuid) {
             $res['DatabaseUuid'] = $this->databaseUuid;
+        }
+
+        if (null !== $this->dbType) {
+            $res['DbType'] = $this->dbType;
         }
 
         if (null !== $this->description) {
@@ -210,10 +210,6 @@ class AgenticDatabase extends Model
             $model->catalogUuid = $map['CatalogUuid'];
         }
 
-        if (isset($map['DataSourceType'])) {
-            $model->dataSourceType = $map['DataSourceType'];
-        }
-
         if (isset($map['DatabaseBizAttrs'])) {
             if (!empty($map['DatabaseBizAttrs'])) {
                 $model->databaseBizAttrs = [];
@@ -225,6 +221,10 @@ class AgenticDatabase extends Model
 
         if (isset($map['DatabaseUuid'])) {
             $model->databaseUuid = $map['DatabaseUuid'];
+        }
+
+        if (isset($map['DbType'])) {
+            $model->dbType = $map['DbType'];
         }
 
         if (isset($map['Description'])) {

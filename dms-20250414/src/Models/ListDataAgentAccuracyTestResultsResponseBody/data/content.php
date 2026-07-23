@@ -21,6 +21,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $agentSql;
+
+    /**
+     * @var string
+     */
     public $answerResult;
 
     /**
@@ -56,10 +61,16 @@ class content extends Model
     /**
      * @var string
      */
+    public $sessionId;
+
+    /**
+     * @var string
+     */
     public $subtaskId;
     protected $_name = [
         'accuracyTestTaskId' => 'AccuracyTestTaskId',
         'agentResult' => 'AgentResult',
+        'agentSql' => 'AgentSql',
         'answerResult' => 'AnswerResult',
         'answerSql' => 'AnswerSql',
         'isTrue' => 'IsTrue',
@@ -67,6 +78,7 @@ class content extends Model
         'reason' => 'Reason',
         'recommendation' => 'Recommendation',
         'resultId' => 'ResultId',
+        'sessionId' => 'SessionId',
         'subtaskId' => 'SubtaskId',
     ];
 
@@ -84,6 +96,10 @@ class content extends Model
 
         if (null !== $this->agentResult) {
             $res['AgentResult'] = $this->agentResult;
+        }
+
+        if (null !== $this->agentSql) {
+            $res['AgentSql'] = $this->agentSql;
         }
 
         if (null !== $this->answerResult) {
@@ -114,6 +130,10 @@ class content extends Model
             $res['ResultId'] = $this->resultId;
         }
 
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
+        }
+
         if (null !== $this->subtaskId) {
             $res['SubtaskId'] = $this->subtaskId;
         }
@@ -135,6 +155,10 @@ class content extends Model
 
         if (isset($map['AgentResult'])) {
             $model->agentResult = $map['AgentResult'];
+        }
+
+        if (isset($map['AgentSql'])) {
+            $model->agentSql = $map['AgentSql'];
         }
 
         if (isset($map['AnswerResult'])) {
@@ -163,6 +187,10 @@ class content extends Model
 
         if (isset($map['ResultId'])) {
             $model->resultId = $map['ResultId'];
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         if (isset($map['SubtaskId'])) {
