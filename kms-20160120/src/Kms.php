@@ -95,6 +95,8 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceQuotaInfosRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceQuotaInfosResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\GetManagedDataKeyRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\GetManagedDataKeyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetParametersForImportRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetParametersForImportResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetPublicKeyRequest;
@@ -121,6 +123,8 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeyVersionsRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeyVersionsResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKmsInstancesRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKmsInstancesResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListManagedDataKeyVersionsRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListManagedDataKeyVersionsResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListNetworkRulesRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListNetworkRulesResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListPoliciesRequest;
@@ -228,9 +232,7 @@ class Kms extends OpenApiClient
             'ap-southeast-6' => 'kms.ap-southeast-6.aliyuncs.com',
             'ap-southeast-5' => 'kms.ap-southeast-5.aliyuncs.com',
             'ap-southeast-3' => 'kms.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-2' => 'kms.ap-southeast-2.aliyuncs.com',
             'ap-southeast-1' => 'kms.ap-southeast-1.aliyuncs.com',
-            'ap-south-1' => 'kms.ap-south-1.aliyuncs.com',
             'ap-northeast-2' => 'kms.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'kms.ap-northeast-1.aliyuncs.com',
         ];
@@ -3694,6 +3696,81 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * Retrieves the plaintext of a managed data key (DK).
+     *
+     * @remarks
+     * For information about the access policy that must be granted to a RAM user or RAM role to call this operation, refer to access control.
+     * This operation can be called through a shared gateway. For more information, refer to Alibaba Cloud SDK.
+     * - Shared gateway: Access KMS through public or VPC endpoints.
+     *
+     * @param request - GetManagedDataKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetManagedDataKeyResponse
+     *
+     * @param GetManagedDataKeyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetManagedDataKeyResponse
+     */
+    public function getManagedDataKeyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dataKeyName) {
+            @$query['DataKeyName'] = $request->dataKeyName;
+        }
+
+        if (null !== $request->dataKeyVersionId) {
+            @$query['DataKeyVersionId'] = $request->dataKeyVersionId;
+        }
+
+        if (null !== $request->useLatest) {
+            @$query['UseLatest'] = $request->useLatest;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetManagedDataKey',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetManagedDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the plaintext of a managed data key (DK).
+     *
+     * @remarks
+     * For information about the access policy that must be granted to a RAM user or RAM role to call this operation, refer to access control.
+     * This operation can be called through a shared gateway. For more information, refer to Alibaba Cloud SDK.
+     * - Shared gateway: Access KMS through public or VPC endpoints.
+     *
+     * @param request - GetManagedDataKeyRequest
+     *
+     * @returns GetManagedDataKeyResponse
+     *
+     * @param GetManagedDataKeyRequest $request
+     *
+     * @return GetManagedDataKeyResponse
+     */
+    public function getManagedDataKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getManagedDataKeyWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the parameters that are used to import key material for a customer master key (CMK).
      *
      * @remarks
@@ -4674,6 +4751,81 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listKmsInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the key versions of a specified managed data key (DK).
+     *
+     * @remarks
+     * For details about the access policy required when a RAM user or RAM role invokes this operation, refer to access control.
+     * This operation can be invoked through the shared gateway. For more information, refer to Alibaba Cloud SDK.
+     * - Shared gateway: Access KMS through public or VPC endpoints.
+     *
+     * @param request - ListManagedDataKeyVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListManagedDataKeyVersionsResponse
+     *
+     * @param ListManagedDataKeyVersionsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListManagedDataKeyVersionsResponse
+     */
+    public function listManagedDataKeyVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dataKeyName) {
+            @$query['DataKeyName'] = $request->dataKeyName;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListManagedDataKeyVersions',
+            'version' => '2016-01-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListManagedDataKeyVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the key versions of a specified managed data key (DK).
+     *
+     * @remarks
+     * For details about the access policy required when a RAM user or RAM role invokes this operation, refer to access control.
+     * This operation can be invoked through the shared gateway. For more information, refer to Alibaba Cloud SDK.
+     * - Shared gateway: Access KMS through public or VPC endpoints.
+     *
+     * @param request - ListManagedDataKeyVersionsRequest
+     *
+     * @returns ListManagedDataKeyVersionsResponse
+     *
+     * @param ListManagedDataKeyVersionsRequest $request
+     *
+     * @return ListManagedDataKeyVersionsResponse
+     */
+    public function listManagedDataKeyVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listManagedDataKeyVersionsWithOptions($request, $runtime);
     }
 
     /**
@@ -5673,9 +5825,9 @@ class Kms extends OpenApiClient
      * Enables or disables deletion protection for a customer master key (CMK).
      *
      * @remarks
-     * - For more information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-     * - After you enable deletion protection for a CMK, you cannot delete it. To delete the CMK, you must first disable deletion protection.
-     * - Before you call the SetDeletionProtection operation, ensure that the CMK is not in the PendingDeletion state. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK.
+     * - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+     * - After you enable deletion protection for a CMK, you cannot delete the CMK. To delete the CMK, disable deletion protection first.
+     * - Before you invoke the SetDeletionProtection operation, make sure that the CMK is not in the PendingDeletion state. You can invoke the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status (KeyState) of the CMK.
      *
      * @param request - SetDeletionProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5733,9 +5885,9 @@ class Kms extends OpenApiClient
      * Enables or disables deletion protection for a customer master key (CMK).
      *
      * @remarks
-     * - For more information about the access policy required for a RAM user or RAM role to call this API operation, see [Resource Access Management](https://help.aliyun.com/document_detail/2767210.html).
-     * - After you enable deletion protection for a CMK, you cannot delete it. To delete the CMK, you must first disable deletion protection.
-     * - Before you call the SetDeletionProtection operation, ensure that the CMK is not in the PendingDeletion state. You can call the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status of the CMK.
+     * - For details about the access policy that must be granted to a Resource Access Management (RAM) user or RAM role to invoke this operation, see [Access control](https://help.aliyun.com/document_detail/2767210.html).
+     * - After you enable deletion protection for a CMK, you cannot delete the CMK. To delete the CMK, disable deletion protection first.
+     * - Before you invoke the SetDeletionProtection operation, make sure that the CMK is not in the PendingDeletion state. You can invoke the [DescribeKey](https://help.aliyun.com/document_detail/28952.html) operation to query the status (KeyState) of the CMK.
      *
      * @param request - SetDeletionProtectionRequest
      *
