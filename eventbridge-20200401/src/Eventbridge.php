@@ -42,8 +42,13 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteApiDestinationRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteApiDestinationResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteConnectionRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteConnectionResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventAnalysisJobRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventAnalysisJobResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventAnalysisJobShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventBusRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventBusResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventHouseRuntimeRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventHouseRuntimeResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventSourceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventSourceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteEventStreamingRequest;
@@ -77,6 +82,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventBusRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventBusResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventHouseRuntimeRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventHouseRuntimeResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetNamespaceRequest;
@@ -96,6 +103,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventBusesRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventBusesResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventHouseRuntimesRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventHouseRuntimesResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListNamespacesRequest;
@@ -145,6 +154,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateConnectionResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateConnectionShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventBusRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventBusResponse;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventHouseRuntimeRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventHouseRuntimeResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventSourceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventSourceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventSourceShrinkRequest;
@@ -170,7 +181,35 @@ class Eventbridge extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'eventbridge-console.us-west-1.aliyuncs.com',
+            'us-east-1' => 'eventbridge-console.us-east-1.aliyuncs.com',
+            'eu-west-1' => 'eventbridge-console.eu-west-1.aliyuncs.com',
+            'eu-central-1' => 'eventbridge-console.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'eventbridge-console.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'eventbridge-console.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'eventbridge-console.cn-shenzhen-finance-1.aliyuncs.com',
+            'cn-shenzhen' => 'eventbridge-console.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'eventbridge-console.cn-shanghai-finance-1.aliyuncs.com',
+            'cn-shanghai' => 'eventbridge-console.cn-shanghai.aliyuncs.com',
+            'cn-qingdao' => 'eventbridge-console.cn-qingdao.aliyuncs.com',
+            'cn-huhehaote' => 'eventbridge-console.cn-huhehaote.aliyuncs.com',
+            'cn-hongkong' => 'eventbridge-console.cn-hongkong.aliyuncs.com',
+            'cn-heyuan' => 'eventbridge-console.cn-heyuan.aliyuncs.com',
+            'cn-hangzhou' => 'eventbridge-console.cn-hangzhou.aliyuncs.com',
+            'cn-guangzhou' => 'eventbridge-console.cn-guangzhou.aliyuncs.com',
+            'cn-chengdu' => 'eventbridge-console.cn-chengdu.aliyuncs.com',
+            'cn-beijing-finance-1' => 'eventbridge-console.cn-beijing-finance-1.aliyuncs.com',
+            'cn-beijing' => 'eventbridge-console.cn-beijing.aliyuncs.com',
+            'ap-southeast-7' => 'eventbridge-console.ap-southeast-7.aliyuncs.com',
+            'ap-southeast-6' => 'eventbridge-console.ap-southeast-6.aliyuncs.com',
+            'ap-southeast-5' => 'eventbridge-console.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-3' => 'eventbridge-console.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-1' => 'eventbridge-console.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-2' => 'eventbridge-console.ap-northeast-2.aliyuncs.com',
+            'ap-northeast-1' => 'eventbridge-console.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eventbridge', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -200,7 +239,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 用自然语言查询事件数据。输入问题后系统自动生成SQL并执行，返回结构化结果；若问题含糊则返回澄清提示。支持通过ConversationId进行多轮追问。
+     * Queries data using natural language.
      *
      * @param request - AskLumaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -251,7 +290,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 用自然语言查询事件数据。输入问题后系统自动生成SQL并执行，返回结构化结果；若问题含糊则返回澄清提示。支持通过ConversationId进行多轮追问。
+     * Queries data using natural language.
      *
      * @param request - AskLumaRequest
      *
@@ -269,7 +308,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Checks whether a service-linked role is created for an Alibaba Cloud account.
+     * Checks whether a service-linked role is authorized for an account.
+     *
+     * @remarks
+     * Checks for a service-linked role by name.
      *
      * @param request - CheckServiceLinkedRoleForProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -308,7 +350,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Checks whether a service-linked role is created for an Alibaba Cloud account.
+     * Checks whether a service-linked role is authorized for an account.
+     *
+     * @remarks
+     * Checks for a service-linked role by name.
      *
      * @param request - CheckServiceLinkedRoleForProductRequest
      *
@@ -326,7 +371,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询历史会话.
+     * Creates a custom agent.
      *
      * @param tmpReq - CreateAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -383,7 +428,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询历史会话.
+     * Creates a custom agent.
      *
      * @param request - CreateAgentRequest
      *
@@ -482,10 +527,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates a connection.
+     * Creates a connection configuration.
      *
      * @remarks
-     * You can call this API operation to create a connection.
+     * Creates a connection configuration.
      *
      * @param tmpReq - CreateConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -558,10 +603,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates a connection.
+     * Creates a connection configuration.
      *
      * @remarks
-     * You can call this API operation to create a connection.
+     * Creates a connection configuration.
      *
      * @param request - CreateConnectionRequest
      *
@@ -646,10 +691,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates an event source.
+     * Creates an external event source.
      *
      * @remarks
-     * You can call this operation to create an event source.
+     * Creates an external event source.
      *
      * @param tmpReq - CreateEventSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -778,10 +823,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates an event source.
+     * Creates an external event source.
      *
      * @remarks
-     * You can call this operation to create an event source.
+     * Creates an external event source.
      *
      * @param request - CreateEventSourceRequest
      *
@@ -802,7 +847,7 @@ class Eventbridge extends OpenApiClient
      * Creates an event stream.
      *
      * @remarks
-     * You can call this API operation to create an event stream.
+     * Creates an event stream.
      *
      * @param tmpReq - CreateEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -848,6 +893,10 @@ class Eventbridge extends OpenApiClient
             @$body['FilterPattern'] = $request->filterPattern;
         }
 
+        if (null !== $request->metadata) {
+            @$body['Metadata'] = $request->metadata;
+        }
+
         if (null !== $request->runOptionsShrink) {
             @$body['RunOptions'] = $request->runOptionsShrink;
         }
@@ -890,7 +939,7 @@ class Eventbridge extends OpenApiClient
      * Creates an event stream.
      *
      * @remarks
-     * You can call this API operation to create an event stream.
+     * Creates an event stream.
      *
      * @param request - CreateEventStreamingRequest
      *
@@ -908,7 +957,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 创建命名空间.
+     * Create Namespace.
      *
      * @param request - CreateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -961,7 +1010,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 创建命名空间.
+     * Create Namespace.
      *
      * @param request - CreateNamespaceRequest
      *
@@ -982,7 +1031,7 @@ class Eventbridge extends OpenApiClient
      * Creates an event rule.
      *
      * @remarks
-     * You can call this API operation to create an event rule.
+     * Creates an event rule.
      *
      * @param tmpReq - CreateRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1050,7 +1099,7 @@ class Eventbridge extends OpenApiClient
      * Creates an event rule.
      *
      * @remarks
-     * You can call this API operation to create an event rule.
+     * Creates an event rule.
      *
      * @param request - CreateRuleRequest
      *
@@ -1068,10 +1117,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role for your cloud service.
+     * Creates the service-linked role (SLR) that is associated with a specified product.
      *
      * @remarks
-     * You can call this API operation to create a service-linked role for your cloud service.
+     * Creates the service-linked role (SLR) that is associated with a specified product.
      *
      * @param request - CreateServiceLinkedRoleForProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1110,10 +1159,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates a service-linked role for your cloud service.
+     * Creates the service-linked role (SLR) that is associated with a specified product.
      *
      * @remarks
-     * You can call this API operation to create a service-linked role for your cloud service.
+     * Creates the service-linked role (SLR) that is associated with a specified product.
      *
      * @param request - CreateServiceLinkedRoleForProductRequest
      *
@@ -1131,7 +1180,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 创建表.
+     * Create a data catalog.
+     *
+     * @remarks
+     * Creates an event target under the specified rule.
      *
      * @param tmpReq - CreateTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1204,7 +1256,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 创建表.
+     * Create a data catalog.
+     *
+     * @remarks
+     * Creates an event target under the specified rule.
      *
      * @param request - CreateTableRequest
      *
@@ -1222,7 +1277,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * DeleteAgent.
+     * Deletes a custom agent.
      *
      * @param request - DeleteAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1261,7 +1316,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * DeleteAgent.
+     * Deletes a custom agent.
      *
      * @param request - DeleteAgentRequest
      *
@@ -1405,10 +1460,73 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Deletes a data integration job.
+     *
+     * @param tmpReq - DeleteEventAnalysisJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventAnalysisJobResponse
+     *
+     * @param DeleteEventAnalysisJobRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteEventAnalysisJobResponse
+     */
+    public function deleteEventAnalysisJobWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DeleteEventAnalysisJobShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sourceResource) {
+            $request->sourceResourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceResource, 'SourceResource', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->sourceResourceShrink) {
+            @$body['SourceResource'] = $request->sourceResourceShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEventAnalysisJob',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEventAnalysisJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a data integration job.
+     *
+     * @param request - DeleteEventAnalysisJobRequest
+     *
+     * @returns DeleteEventAnalysisJobResponse
+     *
+     * @param DeleteEventAnalysisJobRequest $request
+     *
+     * @return DeleteEventAnalysisJobResponse
+     */
+    public function deleteEventAnalysisJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEventAnalysisJobWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an event bus.
      *
      * @remarks
-     * You can call this API operation to delete an event bus.
+     * Deletes an event bus.
      *
      * @param request - DeleteEventBusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1450,7 +1568,7 @@ class Eventbridge extends OpenApiClient
      * Deletes an event bus.
      *
      * @remarks
-     * You can call this API operation to delete an event bus.
+     * Deletes an event bus.
      *
      * @param request - DeleteEventBusRequest
      *
@@ -1468,10 +1586,67 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Deletes an EventHouse Runtime.
+     *
+     * @param request - DeleteEventHouseRuntimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventHouseRuntimeResponse
+     *
+     * @param DeleteEventHouseRuntimeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteEventHouseRuntimeResponse
+     */
+    public function deleteEventHouseRuntimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteEventHouseRuntime',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteEventHouseRuntimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an EventHouse Runtime.
+     *
+     * @param request - DeleteEventHouseRuntimeRequest
+     *
+     * @returns DeleteEventHouseRuntimeResponse
+     *
+     * @param DeleteEventHouseRuntimeRequest $request
+     *
+     * @return DeleteEventHouseRuntimeResponse
+     */
+    public function deleteEventHouseRuntime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEventHouseRuntimeWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes an event source.
      *
      * @remarks
-     * You can call this API operation to delete an event source.
+     * Deletes an event source.
      *
      * @param request - DeleteEventSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1517,7 +1692,7 @@ class Eventbridge extends OpenApiClient
      * Deletes an event source.
      *
      * @remarks
-     * You can call this API operation to delete an event source.
+     * Deletes an event source.
      *
      * @param request - DeleteEventSourceRequest
      *
@@ -1538,7 +1713,7 @@ class Eventbridge extends OpenApiClient
      * Deletes an event stream.
      *
      * @remarks
-     * You can call this API operation to delete an event stream.
+     * Deletes an event stream.
      *
      * @param request - DeleteEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1580,7 +1755,7 @@ class Eventbridge extends OpenApiClient
      * Deletes an event stream.
      *
      * @remarks
-     * You can call this API operation to delete an event stream.
+     * Deletes an event stream.
      *
      * @param request - DeleteEventStreamingRequest
      *
@@ -1598,7 +1773,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 删除命名空间.
+     * Delete Namespace.
      *
      * @param request - DeleteNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1647,7 +1822,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 删除命名空间.
+     * Delete Namespace.
      *
      * @param request - DeleteNamespaceRequest
      *
@@ -1732,7 +1907,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 删除表.
+     * Delete table.
      *
      * @param request - DeleteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1785,7 +1960,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 删除表.
+     * Delete table.
      *
      * @param request - DeleteTableRequest
      *
@@ -1947,7 +2122,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Discovers the schema and simple data of an event source (such as MySQL).
+     * Discovers the schema and simple data of an event source, such as MySQL.
+     *
+     * @remarks
+     * Discovers information about an event source.
      *
      * @param tmpReq - DiscoverEventSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1992,7 +2170,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Discovers the schema and simple data of an event source (such as MySQL).
+     * Discovers the schema and simple data of an event source, such as MySQL.
+     *
+     * @remarks
+     * Discovers information about an event source.
      *
      * @param request - DiscoverEventSourceRequest
      *
@@ -2077,7 +2258,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * EventCenterQueryEvents.
+     * Queries events from the event center.
      *
      * @param tmpReq - EventCenterQueryEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2136,7 +2317,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * EventCenterQueryEvents.
+     * Queries events from the event center.
      *
      * @param request - EventCenterQueryEventsRequest
      *
@@ -2154,7 +2335,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 获取当前Agent的基本信息，包括名称、描述和已绑定的数据目录列表。用于了解当前接入点的能力范围。
+     * Retrieves agent metadata.
      *
      * @param request - GetAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2193,7 +2374,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 获取当前Agent的基本信息，包括名称、描述和已绑定的数据目录列表。用于了解当前接入点的能力范围。
+     * Retrieves agent metadata.
      *
      * @param request - GetAgentRequest
      *
@@ -2274,7 +2455,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 获取指定数据目录的详细信息，包括目录名称和描述。传入Name即可查询。
+     * Get data catalog.
      *
      * @param request - GetCatalogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2319,7 +2500,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 获取指定数据目录的详细信息，包括目录名称和描述。传入Name即可查询。
+     * Get data catalog.
      *
      * @param request - GetCatalogRequest
      *
@@ -2337,10 +2518,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a connection.
+     * Queries the configuration information of a single connection.
      *
      * @remarks
-     * You can call this API operation to query the configurations of a connection.
+     * Queries the configuration information of a single connection.
      *
      * @param request - GetConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2379,10 +2560,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the configurations of a connection.
+     * Queries the configuration information of a single connection.
      *
      * @remarks
-     * You can call this API operation to query the configurations of a connection.
+     * Queries the configuration information of a single connection.
      *
      * @param request - GetConnectionRequest
      *
@@ -2463,10 +2644,67 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the details of an event stream.
+     * Queries the status and operation progress of an EventHouse Runtime.
+     *
+     * @param request - GetEventHouseRuntimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEventHouseRuntimeResponse
+     *
+     * @param GetEventHouseRuntimeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetEventHouseRuntimeResponse
+     */
+    public function getEventHouseRuntimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetEventHouseRuntime',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetEventHouseRuntimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the status and operation progress of an EventHouse Runtime.
+     *
+     * @param request - GetEventHouseRuntimeRequest
+     *
+     * @returns GetEventHouseRuntimeResponse
+     *
+     * @param GetEventHouseRuntimeRequest $request
+     *
+     * @return GetEventHouseRuntimeResponse
+     */
+    public function getEventHouseRuntime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEventHouseRuntimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the details of an event stream.
      *
      * @remarks
-     * You can call this API operation to query the details of an event stream.
+     * Retrieves the details of an event stream.
      *
      * @param request - GetEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2505,10 +2743,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the details of an event stream.
+     * Retrieves the details of an event stream.
      *
      * @remarks
-     * You can call this API operation to query the details of an event stream.
+     * Retrieves the details of an event stream.
      *
      * @param request - GetEventStreamingRequest
      *
@@ -2526,7 +2764,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 获取指定命名空间的详细信息。需传入Catalog和Name。
+     * Get namespace.
      *
      * @param request - GetNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2575,7 +2813,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 获取指定命名空间的详细信息。需传入Catalog和Name。
+     * Get namespace.
      *
      * @param request - GetNamespaceRequest
      *
@@ -2593,10 +2831,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the details of an event rule.
+     * Retrieves the details of an event rule.
      *
      * @remarks
-     * You can call this API operation to query the details of an event rule.
+     * Gets the details of an event rule.
      *
      * @param request - GetRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2639,10 +2877,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries the details of an event rule.
+     * Retrieves the details of an event rule.
      *
      * @remarks
-     * You can call this API operation to query the details of an event rule.
+     * Gets the details of an event rule.
      *
      * @param request - GetRuleRequest
      *
@@ -2660,7 +2898,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 获取指定数据表的完整结构，包括所有列的名称、类型和描述。在编写查询前调用此工具了解表结构。
+     * Get Table.
      *
      * @param request - GetTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2713,7 +2951,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 获取指定数据表的完整结构，包括所有列的名称、类型和描述。在编写查询前调用此工具了解表结构。
+     * Get Table.
      *
      * @param request - GetTableRequest
      *
@@ -2731,7 +2969,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询 Agent 列表.
+     * Retrieves a list of custom agents.
      *
      * @param request - ListAgentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2778,7 +3016,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询 Agent 列表.
+     * Retrieves a list of custom agents.
      *
      * @param request - ListAgentsRequest
      *
@@ -2920,7 +3158,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 列出当前Agent可访问的所有数据目录。每个Catalog是一个独立的数据源，内含多个命名空间和表。支持分页。
+     * Query data catalog list.
      *
      * @param request - ListCatalogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2963,7 +3201,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 列出当前Agent可访问的所有数据目录。每个Catalog是一个独立的数据源，内含多个命名空间和表。支持分页。
+     * Query data catalog list.
      *
      * @param request - ListCatalogsRequest
      *
@@ -2981,10 +3219,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries connections.
+     * Queries the list of connection configurations.
      *
      * @remarks
-     * You can call this API operation to query connections.
+     * Queries the list of connection configurations.
      *
      * @param request - ListConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3035,10 +3273,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries connections.
+     * Queries the list of connection configurations.
      *
      * @remarks
-     * You can call this API operation to query connections.
+     * Queries the list of connection configurations.
      *
      * @param request - ListConnectionsRequest
      *
@@ -3127,10 +3365,71 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
+     * Queries the list of EventHouse runtimes.
+     *
+     * @param request - ListEventHouseRuntimesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEventHouseRuntimesResponse
+     *
+     * @param ListEventHouseRuntimesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListEventHouseRuntimesResponse
+     */
+    public function listEventHouseRuntimesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListEventHouseRuntimes',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListEventHouseRuntimesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of EventHouse runtimes.
+     *
+     * @param request - ListEventHouseRuntimesRequest
+     *
+     * @returns ListEventHouseRuntimesResponse
+     *
+     * @param ListEventHouseRuntimesRequest $request
+     *
+     * @return ListEventHouseRuntimesResponse
+     */
+    public function listEventHouseRuntimes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEventHouseRuntimesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries event streams.
      *
      * @remarks
-     * You can call this API operation to query event streams.
+     * Queries event streams.
      *
      * @param request - ListEventStreamingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3192,7 +3491,7 @@ class Eventbridge extends OpenApiClient
      * Queries event streams.
      *
      * @remarks
-     * You can call this API operation to query event streams.
+     * Queries event streams.
      *
      * @param request - ListEventStreamingsRequest
      *
@@ -3210,7 +3509,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 列出指定数据目录下的所有命名空间。命名空间用于组织同一目录内的表，类似数据库中的schema。支持分页。
+     * Query namespace list.
      *
      * @param request - ListNamespacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3257,7 +3556,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 列出指定数据目录下的所有命名空间。命名空间用于组织同一目录内的表，类似数据库中的schema。支持分页。
+     * Query namespace list.
      *
      * @param request - ListNamespacesRequest
      *
@@ -3350,7 +3649,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 列出指定命名空间下的数据表，支持按表名模糊搜索。返回表名和描述列表，支持分页。
+     * Query table list.
      *
      * @param request - ListTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3401,7 +3700,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 列出指定命名空间下的数据表，支持按表名模糊搜索。返回表名和描述列表，支持分页。
+     * Query table list.
      *
      * @param request - ListTablesRequest
      *
@@ -3492,10 +3791,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries all custom event sources.
+     * This operation queries all custom event sources.
      *
      * @remarks
-     * You can call this API operation to query custom event sources.
+     * Queries all custom event sources.
      *
      * @param request - ListUserDefinedEventSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3546,10 +3845,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries all custom event sources.
+     * This operation queries all custom event sources.
      *
      * @remarks
-     * You can call this API operation to query custom event sources.
+     * Queries all custom event sources.
      *
      * @param request - ListUserDefinedEventSourcesRequest
      *
@@ -3567,10 +3866,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Stops an event stream that is running.
+     * Pauses a running event stream.
      *
      * @remarks
-     * You can call this API operation to stop an event stream that is running.
+     * Pauses a running event stream.
      *
      * @param request - PauseEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3609,10 +3908,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Stops an event stream that is running.
+     * Pauses a running event stream.
      *
      * @remarks
-     * You can call this API operation to stop an event stream that is running.
+     * Pauses a running event stream.
      *
      * @param request - PauseEventStreamingRequest
      *
@@ -3630,7 +3929,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 轮询AskLuma的异步查询结果。传入AskLuma返回的MessageId，获取执行状态和最终结果；状态为RUNNING时应立即重试，无需退避。
+     * Polls for natural language query results.
      *
      * @param request - PollAskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3673,7 +3972,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 轮询AskLuma的异步查询结果。传入AskLuma返回的MessageId，获取执行状态和最终结果；状态为RUNNING时应立即重试，无需退避。
+     * Polls for natural language query results.
      *
      * @param request - PollAskResultRequest
      *
@@ -3691,10 +3990,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates or updates event targets under a rule.
+     * Create or update event targets for the specified rule.
      *
      * @remarks
-     * You can call this API operation to create or update event targets under a rule.
+     * Creates or updates event targets for a specified rule.
      *
      * @param tmpReq - PutTargetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3747,10 +4046,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Creates or updates event targets under a rule.
+     * Create or update event targets for the specified rule.
      *
      * @remarks
-     * You can call this API operation to create or update event targets under a rule.
+     * Creates or updates event targets for a specified rule.
      *
      * @param request - PutTargetsRequest
      *
@@ -3768,7 +4067,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询历史会话.
+     * Queries the history logs of natural language queries.
      *
      * @param request - QueryAskLumaLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3815,7 +4114,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询历史会话.
+     * Queries the history logs of natural language queries.
      *
      * @param request - QueryAskLumaLogRequest
      *
@@ -3904,7 +4203,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 直接执行SQL语句查询事件仓数据。适用于已知确切SQL的场景，无需自然语言转换，无对话上下文。返回结构化结果集。
+     * Query event store data.
      *
      * @param request - QueryEventHouseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3947,7 +4246,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 直接执行SQL语句查询事件仓数据。适用于已知确切SQL的场景，无需自然语言转换，无对话上下文。返回结构化结果集。
+     * Query event store data.
      *
      * @param request - QueryEventHouseRequest
      *
@@ -4103,10 +4402,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries event traces by time range.
+     * This operation queries `event trace` data within a `time range`.
      *
      * @remarks
-     * You can call this API operation to query event traces by time range.
+     * Queries for event traces within a specified time range.
      *
      * @param request - QueryTracedEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4177,10 +4476,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Queries event traces by time range.
+     * This operation queries `event trace` data within a `time range`.
      *
      * @remarks
-     * You can call this API operation to query event traces by time range.
+     * Queries for event traces within a specified time range.
      *
      * @param request - QueryTracedEventsRequest
      *
@@ -4198,10 +4497,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Enables a created or deactivated event stream.
+     * Enables a created or disabled event stream.
      *
      * @remarks
-     * You can call this API operation to enable a created or deactivated event stream.
+     * Enables a created or disabled event stream.
      *
      * @param request - StartEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4240,10 +4539,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Enables a created or deactivated event stream.
+     * Enables a created or disabled event stream.
      *
      * @remarks
-     * You can call this API operation to enable a created or deactivated event stream.
+     * Enables a created or disabled event stream.
      *
      * @param request - StartEventStreamingRequest
      *
@@ -4261,10 +4560,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Checks whether the event pattern matches the provided JSON format.
+     * Tests if an event pattern matches a given event.
      *
      * @remarks
-     * You can call this API operation to check whether the event pattern matches the provided JSON format.
+     * Use this action to test an event pattern before you apply it to a rule.
      *
      * @param request - TestEventPatternRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4307,10 +4606,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Checks whether the event pattern matches the provided JSON format.
+     * Tests if an event pattern matches a given event.
      *
      * @remarks
-     * You can call this API operation to check whether the event pattern matches the provided JSON format.
+     * Use this action to test an event pattern before you apply it to a rule.
      *
      * @param request - TestEventPatternRequest
      *
@@ -4328,10 +4627,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Checks whether event source configurations are available.
+     * Checks whether the event source configuration is active.
      *
      * @remarks
-     * You can call this API operation to query all custom event sources.
+     * Returns a list of all external event sources.
      *
      * @param tmpReq - TestEventSourceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4376,10 +4675,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Checks whether event source configurations are available.
+     * Checks whether the event source configuration is active.
      *
      * @remarks
-     * You can call this API operation to query all custom event sources.
+     * Returns a list of all external event sources.
      *
      * @param request - TestEventSourceConfigRequest
      *
@@ -4397,7 +4696,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询历史会话.
+     * Updates a custom agent.
      *
      * @param tmpReq - UpdateAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4458,7 +4757,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 查询历史会话.
+     * Updates a custom agent.
      *
      * @param request - UpdateAgentRequest
      *
@@ -4557,10 +4856,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Updates a connection.
+     * Updates the connection configuration.
      *
      * @remarks
-     * You can call this API operation to update a connection.
+     * Updates the connection configuration.
      *
      * @param tmpReq - UpdateConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4633,10 +4932,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Updates a connection.
+     * Updates the connection configuration.
      *
      * @remarks
-     * You can call this API operation to update a connection.
+     * Updates the connection configuration.
      *
      * @param request - UpdateConnectionRequest
      *
@@ -4718,6 +5017,67 @@ class Eventbridge extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEventBusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates an EventHouse Runtime.
+     *
+     * @param request - UpdateEventHouseRuntimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEventHouseRuntimeResponse
+     *
+     * @param UpdateEventHouseRuntimeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateEventHouseRuntimeResponse
+     */
+    public function updateEventHouseRuntimeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cu) {
+            @$query['Cu'] = $request->cu;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEventHouseRuntime',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEventHouseRuntimeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an EventHouse Runtime.
+     *
+     * @param request - UpdateEventHouseRuntimeRequest
+     *
+     * @returns UpdateEventHouseRuntimeResponse
+     *
+     * @param UpdateEventHouseRuntimeRequest $request
+     *
+     * @return UpdateEventHouseRuntimeResponse
+     */
+    public function updateEventHouseRuntime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEventHouseRuntimeWithOptions($request, $runtime);
     }
 
     /**
@@ -4874,10 +5234,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     * Modifies the basic information, event source information, event filtering pattern, or event target information of an event stream.
      *
      * @remarks
-     * You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     * Modifies the basic information, event source information, event filtering pattern, or event target information of an event stream.
      *
      * @param tmpReq - UpdateEventStreamingRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4923,6 +5283,10 @@ class Eventbridge extends OpenApiClient
             @$body['FilterPattern'] = $request->filterPattern;
         }
 
+        if (null !== $request->metadata) {
+            @$body['Metadata'] = $request->metadata;
+        }
+
         if (null !== $request->runOptionsShrink) {
             @$body['RunOptions'] = $request->runOptionsShrink;
         }
@@ -4958,10 +5322,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     * Modifies the basic information, event source information, event filtering pattern, or event target information of an event stream.
      *
      * @remarks
-     * You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     * Modifies the basic information, event source information, event filtering pattern, or event target information of an event stream.
      *
      * @param request - UpdateEventStreamingRequest
      *
@@ -4979,7 +5343,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * This API operation allows you to query event streams.
+     * Querying an event stream.
+     *
+     * @remarks
+     * Updates the billing method, compute unit (CU) resources, and other configurations of an event stream.
      *
      * @param request - UpdateEventStreamingBusinessOptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5030,7 +5397,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * This API operation allows you to query event streams.
+     * Querying an event stream.
+     *
+     * @remarks
+     * Updates the billing method, compute unit (CU) resources, and other configurations of an event stream.
      *
      * @param request - UpdateEventStreamingBusinessOptionRequest
      *
@@ -5048,7 +5418,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 修改命名空间.
+     * Modify namespace.
      *
      * @param request - UpdateNamespaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5101,7 +5471,7 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 修改命名空间.
+     * Modify namespace.
      *
      * @param request - UpdateNamespaceRequest
      *
@@ -5198,7 +5568,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 修改表.
+     * Update table.
+     *
+     * @remarks
+     * Updates the configuration of an event rule.
      *
      * @param tmpReq - UpdateTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5303,7 +5676,10 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * 修改表.
+     * Update table.
+     *
+     * @remarks
+     * Updates the configuration of an event rule.
      *
      * @param request - UpdateTableRequest
      *

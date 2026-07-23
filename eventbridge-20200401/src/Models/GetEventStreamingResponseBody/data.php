@@ -34,6 +34,11 @@ class data extends Model
     public $filterPattern;
 
     /**
+     * @var string
+     */
+    public $metadata;
+
+    /**
      * @var runOptions
      */
     public $runOptions;
@@ -62,6 +67,7 @@ class data extends Model
         'detailedStatus' => 'DetailedStatus',
         'eventStreamingName' => 'EventStreamingName',
         'filterPattern' => 'FilterPattern',
+        'metadata' => 'Metadata',
         'runOptions' => 'RunOptions',
         'sink' => 'Sink',
         'source' => 'Source',
@@ -106,6 +112,10 @@ class data extends Model
 
         if (null !== $this->filterPattern) {
             $res['FilterPattern'] = $this->filterPattern;
+        }
+
+        if (null !== $this->metadata) {
+            $res['Metadata'] = $this->metadata;
         }
 
         if (null !== $this->runOptions) {
@@ -160,6 +170,10 @@ class data extends Model
 
         if (isset($map['FilterPattern'])) {
             $model->filterPattern = $map['FilterPattern'];
+        }
+
+        if (isset($map['Metadata'])) {
+            $model->metadata = $map['Metadata'];
         }
 
         if (isset($map['RunOptions'])) {

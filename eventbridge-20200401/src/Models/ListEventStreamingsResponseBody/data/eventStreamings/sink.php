@@ -21,6 +21,7 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBod
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkSLSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkAgentRunParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkApiDestinationParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkBaiLianParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkHttpsParameters;
@@ -31,6 +32,11 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SinkRabbitMQMsgSyncParameters;
 
 class sink extends Model
 {
+    /**
+     * @var SinkAgentRunParameters
+     */
+    public $sinkAgentRunParameters;
+
     /**
      * @var sinkApacheRocketMQCheckpointParameters
      */
@@ -146,6 +152,7 @@ class sink extends Model
      */
     public $sinkSLSParameters;
     protected $_name = [
+        'sinkAgentRunParameters' => 'SinkAgentRunParameters',
         'sinkApacheRocketMQCheckpointParameters' => 'SinkApacheRocketMQCheckpointParameters',
         'sinkApiDestinationParameters' => 'SinkApiDestinationParameters',
         'sinkBaiLianParameters' => 'SinkBaiLianParameters',
@@ -173,6 +180,9 @@ class sink extends Model
 
     public function validate()
     {
+        if (null !== $this->sinkAgentRunParameters) {
+            $this->sinkAgentRunParameters->validate();
+        }
         if (null !== $this->sinkApacheRocketMQCheckpointParameters) {
             $this->sinkApacheRocketMQCheckpointParameters->validate();
         }
@@ -248,6 +258,10 @@ class sink extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->sinkAgentRunParameters) {
+            $res['SinkAgentRunParameters'] = null !== $this->sinkAgentRunParameters ? $this->sinkAgentRunParameters->toArray($noStream) : $this->sinkAgentRunParameters;
+        }
+
         if (null !== $this->sinkApacheRocketMQCheckpointParameters) {
             $res['SinkApacheRocketMQCheckpointParameters'] = null !== $this->sinkApacheRocketMQCheckpointParameters ? $this->sinkApacheRocketMQCheckpointParameters->toArray($noStream) : $this->sinkApacheRocketMQCheckpointParameters;
         }
@@ -351,6 +365,10 @@ class sink extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SinkAgentRunParameters'])) {
+            $model->sinkAgentRunParameters = SinkAgentRunParameters::fromMap($map['SinkAgentRunParameters']);
+        }
+
         if (isset($map['SinkApacheRocketMQCheckpointParameters'])) {
             $model->sinkApacheRocketMQCheckpointParameters = sinkApacheRocketMQCheckpointParameters::fromMap($map['SinkApacheRocketMQCheckpointParameters']);
         }

@@ -16,6 +16,11 @@ class sourceRabbitMQParameters extends Model
     /**
      * @var string
      */
+    public $networkType;
+
+    /**
+     * @var string
+     */
     public $queueName;
 
     /**
@@ -26,12 +31,31 @@ class sourceRabbitMQParameters extends Model
     /**
      * @var string
      */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchIds;
+
+    /**
+     * @var string
+     */
     public $virtualHostName;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'networkType' => 'NetworkType',
         'queueName' => 'QueueName',
         'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
+        'vSwitchIds' => 'VSwitchIds',
         'virtualHostName' => 'VirtualHostName',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -46,6 +70,10 @@ class sourceRabbitMQParameters extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
+        }
+
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
@@ -54,8 +82,20 @@ class sourceRabbitMQParameters extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
+        }
+
         if (null !== $this->virtualHostName) {
             $res['VirtualHostName'] = $this->virtualHostName;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -73,6 +113,10 @@ class sourceRabbitMQParameters extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
+        }
+
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
@@ -81,8 +125,20 @@ class sourceRabbitMQParameters extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['VSwitchIds'])) {
+            $model->vSwitchIds = $map['VSwitchIds'];
+        }
+
         if (isset($map['VirtualHostName'])) {
             $model->virtualHostName = $map['VirtualHostName'];
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

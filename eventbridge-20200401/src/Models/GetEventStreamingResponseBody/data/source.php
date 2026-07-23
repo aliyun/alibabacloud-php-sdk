@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceRocketMQCheckpointParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceSLSParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceFeiShuDocsParameters;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceJDBCParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceMySQLParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourcePostgreSQLParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\SourceRabbitMQMetaParameters;
@@ -57,6 +59,16 @@ class source extends Model
      * @var sourceEventBusParameters
      */
     public $sourceEventBusParameters;
+
+    /**
+     * @var SourceFeiShuDocsParameters
+     */
+    public $sourceFeiShuDocsParameters;
+
+    /**
+     * @var SourceJDBCParameters
+     */
+    public $sourceJDBCParameters;
 
     /**
      * @var sourceKafkaParameters
@@ -134,6 +146,8 @@ class source extends Model
         'sourceCustomizedKafkaParameters' => 'SourceCustomizedKafkaParameters',
         'sourceDTSParameters' => 'SourceDTSParameters',
         'sourceEventBusParameters' => 'SourceEventBusParameters',
+        'sourceFeiShuDocsParameters' => 'SourceFeiShuDocsParameters',
+        'sourceJDBCParameters' => 'SourceJDBCParameters',
         'sourceKafkaParameters' => 'SourceKafkaParameters',
         'sourceMNSParameters' => 'SourceMNSParameters',
         'sourceMQTTParameters' => 'SourceMQTTParameters',
@@ -169,6 +183,12 @@ class source extends Model
         }
         if (null !== $this->sourceEventBusParameters) {
             $this->sourceEventBusParameters->validate();
+        }
+        if (null !== $this->sourceFeiShuDocsParameters) {
+            $this->sourceFeiShuDocsParameters->validate();
+        }
+        if (null !== $this->sourceJDBCParameters) {
+            $this->sourceJDBCParameters->validate();
         }
         if (null !== $this->sourceKafkaParameters) {
             $this->sourceKafkaParameters->validate();
@@ -240,6 +260,14 @@ class source extends Model
 
         if (null !== $this->sourceEventBusParameters) {
             $res['SourceEventBusParameters'] = null !== $this->sourceEventBusParameters ? $this->sourceEventBusParameters->toArray($noStream) : $this->sourceEventBusParameters;
+        }
+
+        if (null !== $this->sourceFeiShuDocsParameters) {
+            $res['SourceFeiShuDocsParameters'] = null !== $this->sourceFeiShuDocsParameters ? $this->sourceFeiShuDocsParameters->toArray($noStream) : $this->sourceFeiShuDocsParameters;
+        }
+
+        if (null !== $this->sourceJDBCParameters) {
+            $res['SourceJDBCParameters'] = null !== $this->sourceJDBCParameters ? $this->sourceJDBCParameters->toArray($noStream) : $this->sourceJDBCParameters;
         }
 
         if (null !== $this->sourceKafkaParameters) {
@@ -331,6 +359,14 @@ class source extends Model
 
         if (isset($map['SourceEventBusParameters'])) {
             $model->sourceEventBusParameters = sourceEventBusParameters::fromMap($map['SourceEventBusParameters']);
+        }
+
+        if (isset($map['SourceFeiShuDocsParameters'])) {
+            $model->sourceFeiShuDocsParameters = SourceFeiShuDocsParameters::fromMap($map['SourceFeiShuDocsParameters']);
+        }
+
+        if (isset($map['SourceJDBCParameters'])) {
+            $model->sourceJDBCParameters = SourceJDBCParameters::fromMap($map['SourceJDBCParameters']);
         }
 
         if (isset($map['SourceKafkaParameters'])) {

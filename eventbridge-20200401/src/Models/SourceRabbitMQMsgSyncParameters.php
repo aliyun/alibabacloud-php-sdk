@@ -16,6 +16,21 @@ class SourceRabbitMQMsgSyncParameters extends Model
     /**
      * @var string
      */
+    public $cloudMigrationTaskId;
+
+    /**
+     * @var string
+     */
+    public $dstClusterHost;
+
+    /**
+     * @var string
+     */
+    public $dstClusterType;
+
+    /**
+     * @var string
+     */
     public $endpoint;
 
     /**
@@ -51,7 +66,27 @@ class SourceRabbitMQMsgSyncParameters extends Model
     /**
      * @var string
      */
+    public $regex;
+
+    /**
+     * @var string
+     */
     public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $srcClusterHost;
+
+    /**
+     * @var string
+     */
+    public $srcClusterType;
+
+    /**
+     * @var string
+     */
+    public $syncMetaType;
 
     /**
      * @var string
@@ -74,6 +109,9 @@ class SourceRabbitMQMsgSyncParameters extends Model
     public $vpcId;
     protected $_name = [
         'bodyDataType' => 'BodyDataType',
+        'cloudMigrationTaskId' => 'CloudMigrationTaskId',
+        'dstClusterHost' => 'DstClusterHost',
+        'dstClusterType' => 'DstClusterType',
         'endpoint' => 'Endpoint',
         'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
@@ -81,7 +119,11 @@ class SourceRabbitMQMsgSyncParameters extends Model
         'orderConsume' => 'OrderConsume',
         'password' => 'Password',
         'prefetchCount' => 'PrefetchCount',
+        'regex' => 'Regex',
         'securityGroupId' => 'SecurityGroupId',
+        'srcClusterHost' => 'SrcClusterHost',
+        'srcClusterType' => 'SrcClusterType',
+        'syncMetaType' => 'SyncMetaType',
         'username' => 'Username',
         'vSwitchIds' => 'VSwitchIds',
         'virtualHostName' => 'VirtualHostName',
@@ -98,6 +140,18 @@ class SourceRabbitMQMsgSyncParameters extends Model
         $res = [];
         if (null !== $this->bodyDataType) {
             $res['BodyDataType'] = $this->bodyDataType;
+        }
+
+        if (null !== $this->cloudMigrationTaskId) {
+            $res['CloudMigrationTaskId'] = $this->cloudMigrationTaskId;
+        }
+
+        if (null !== $this->dstClusterHost) {
+            $res['DstClusterHost'] = $this->dstClusterHost;
+        }
+
+        if (null !== $this->dstClusterType) {
+            $res['DstClusterType'] = $this->dstClusterType;
         }
 
         if (null !== $this->endpoint) {
@@ -128,8 +182,24 @@ class SourceRabbitMQMsgSyncParameters extends Model
             $res['PrefetchCount'] = $this->prefetchCount;
         }
 
+        if (null !== $this->regex) {
+            $res['Regex'] = $this->regex;
+        }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->srcClusterHost) {
+            $res['SrcClusterHost'] = $this->srcClusterHost;
+        }
+
+        if (null !== $this->srcClusterType) {
+            $res['SrcClusterType'] = $this->srcClusterType;
+        }
+
+        if (null !== $this->syncMetaType) {
+            $res['SyncMetaType'] = $this->syncMetaType;
         }
 
         if (null !== $this->username) {
@@ -163,6 +233,18 @@ class SourceRabbitMQMsgSyncParameters extends Model
             $model->bodyDataType = $map['BodyDataType'];
         }
 
+        if (isset($map['CloudMigrationTaskId'])) {
+            $model->cloudMigrationTaskId = $map['CloudMigrationTaskId'];
+        }
+
+        if (isset($map['DstClusterHost'])) {
+            $model->dstClusterHost = $map['DstClusterHost'];
+        }
+
+        if (isset($map['DstClusterType'])) {
+            $model->dstClusterType = $map['DstClusterType'];
+        }
+
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
         }
@@ -191,8 +273,24 @@ class SourceRabbitMQMsgSyncParameters extends Model
             $model->prefetchCount = $map['PrefetchCount'];
         }
 
+        if (isset($map['Regex'])) {
+            $model->regex = $map['Regex'];
+        }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['SrcClusterHost'])) {
+            $model->srcClusterHost = $map['SrcClusterHost'];
+        }
+
+        if (isset($map['SrcClusterType'])) {
+            $model->srcClusterType = $map['SrcClusterType'];
+        }
+
+        if (isset($map['SyncMetaType'])) {
+            $model->syncMetaType = $map['SyncMetaType'];
         }
 
         if (isset($map['Username'])) {

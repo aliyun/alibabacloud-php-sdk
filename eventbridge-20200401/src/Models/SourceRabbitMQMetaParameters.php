@@ -61,6 +61,11 @@ class SourceRabbitMQMetaParameters extends Model
     /**
      * @var string
      */
+    public $syncMetaType;
+
+    /**
+     * @var string
+     */
     public $username;
 
     /**
@@ -88,6 +93,7 @@ class SourceRabbitMQMetaParameters extends Model
         'password' => 'Password',
         'regex' => 'Regex',
         'securityGroupId' => 'SecurityGroupId',
+        'syncMetaType' => 'SyncMetaType',
         'username' => 'Username',
         'vSwitchIds' => 'VSwitchIds',
         'virtualHostName' => 'VirtualHostName',
@@ -140,6 +146,10 @@ class SourceRabbitMQMetaParameters extends Model
 
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->syncMetaType) {
+            $res['SyncMetaType'] = $this->syncMetaType;
         }
 
         if (null !== $this->username) {
@@ -207,6 +217,10 @@ class SourceRabbitMQMetaParameters extends Model
 
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['SyncMetaType'])) {
+            $model->syncMetaType = $map['SyncMetaType'];
         }
 
         if (isset($map['Username'])) {

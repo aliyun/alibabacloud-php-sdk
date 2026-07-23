@@ -28,6 +28,11 @@ class AguiMessage extends Model
     /**
      * @var string
      */
+    public $reasoning;
+
+    /**
+     * @var string
+     */
     public $role;
 
     /**
@@ -43,6 +48,7 @@ class AguiMessage extends Model
         'content' => 'Content',
         'id' => 'Id',
         'metadata' => 'Metadata',
+        'reasoning' => 'Reasoning',
         'role' => 'Role',
         'toolCallId' => 'ToolCallId',
         'toolCalls' => 'ToolCalls',
@@ -72,6 +78,10 @@ class AguiMessage extends Model
 
         if (null !== $this->metadata) {
             $res['Metadata'] = null !== $this->metadata ? $this->metadata->toArray($noStream) : $this->metadata;
+        }
+
+        if (null !== $this->reasoning) {
+            $res['Reasoning'] = $this->reasoning;
         }
 
         if (null !== $this->role) {
@@ -114,6 +124,10 @@ class AguiMessage extends Model
 
         if (isset($map['Metadata'])) {
             $model->metadata = metadata::fromMap($map['Metadata']);
+        }
+
+        if (isset($map['Reasoning'])) {
+            $model->reasoning = $map['Reasoning'];
         }
 
         if (isset($map['Role'])) {

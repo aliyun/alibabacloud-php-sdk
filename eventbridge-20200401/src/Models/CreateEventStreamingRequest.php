@@ -29,6 +29,11 @@ class CreateEventStreamingRequest extends Model
     public $filterPattern;
 
     /**
+     * @var string
+     */
+    public $metadata;
+
+    /**
      * @var runOptions
      */
     public $runOptions;
@@ -56,6 +61,7 @@ class CreateEventStreamingRequest extends Model
         'description' => 'Description',
         'eventStreamingName' => 'EventStreamingName',
         'filterPattern' => 'FilterPattern',
+        'metadata' => 'Metadata',
         'runOptions' => 'RunOptions',
         'sink' => 'Sink',
         'source' => 'Source',
@@ -96,6 +102,10 @@ class CreateEventStreamingRequest extends Model
 
         if (null !== $this->filterPattern) {
             $res['FilterPattern'] = $this->filterPattern;
+        }
+
+        if (null !== $this->metadata) {
+            $res['Metadata'] = $this->metadata;
         }
 
         if (null !== $this->runOptions) {
@@ -153,6 +163,10 @@ class CreateEventStreamingRequest extends Model
 
         if (isset($map['FilterPattern'])) {
             $model->filterPattern = $map['FilterPattern'];
+        }
+
+        if (isset($map['Metadata'])) {
+            $model->metadata = $map['Metadata'];
         }
 
         if (isset($map['RunOptions'])) {

@@ -9,11 +9,15 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\si
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\exchange;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\instanceId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\messageId;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\networkType;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\properties;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\queueName;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\routingKey;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\securityGroupId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\targetType;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\virtualHostName;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\vpcId;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkRabbitMQParameters\vSwitchIds;
 
 class sinkRabbitMQParameters extends Model
 {
@@ -38,6 +42,11 @@ class sinkRabbitMQParameters extends Model
     public $messageId;
 
     /**
+     * @var networkType
+     */
+    public $networkType;
+
+    /**
      * @var properties
      */
     public $properties;
@@ -53,24 +62,43 @@ class sinkRabbitMQParameters extends Model
     public $routingKey;
 
     /**
+     * @var securityGroupId
+     */
+    public $securityGroupId;
+
+    /**
      * @var targetType
      */
     public $targetType;
 
     /**
+     * @var vSwitchIds
+     */
+    public $vSwitchIds;
+
+    /**
      * @var virtualHostName
      */
     public $virtualHostName;
+
+    /**
+     * @var vpcId
+     */
+    public $vpcId;
     protected $_name = [
         'body' => 'Body',
         'exchange' => 'Exchange',
         'instanceId' => 'InstanceId',
         'messageId' => 'MessageId',
+        'networkType' => 'NetworkType',
         'properties' => 'Properties',
         'queueName' => 'QueueName',
         'routingKey' => 'RoutingKey',
+        'securityGroupId' => 'SecurityGroupId',
         'targetType' => 'TargetType',
+        'vSwitchIds' => 'VSwitchIds',
         'virtualHostName' => 'VirtualHostName',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -87,6 +115,9 @@ class sinkRabbitMQParameters extends Model
         if (null !== $this->messageId) {
             $this->messageId->validate();
         }
+        if (null !== $this->networkType) {
+            $this->networkType->validate();
+        }
         if (null !== $this->properties) {
             $this->properties->validate();
         }
@@ -96,11 +127,20 @@ class sinkRabbitMQParameters extends Model
         if (null !== $this->routingKey) {
             $this->routingKey->validate();
         }
+        if (null !== $this->securityGroupId) {
+            $this->securityGroupId->validate();
+        }
         if (null !== $this->targetType) {
             $this->targetType->validate();
         }
+        if (null !== $this->vSwitchIds) {
+            $this->vSwitchIds->validate();
+        }
         if (null !== $this->virtualHostName) {
             $this->virtualHostName->validate();
+        }
+        if (null !== $this->vpcId) {
+            $this->vpcId->validate();
         }
         parent::validate();
     }
@@ -124,6 +164,10 @@ class sinkRabbitMQParameters extends Model
             $res['MessageId'] = null !== $this->messageId ? $this->messageId->toArray($noStream) : $this->messageId;
         }
 
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = null !== $this->networkType ? $this->networkType->toArray($noStream) : $this->networkType;
+        }
+
         if (null !== $this->properties) {
             $res['Properties'] = null !== $this->properties ? $this->properties->toArray($noStream) : $this->properties;
         }
@@ -136,12 +180,24 @@ class sinkRabbitMQParameters extends Model
             $res['RoutingKey'] = null !== $this->routingKey ? $this->routingKey->toArray($noStream) : $this->routingKey;
         }
 
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = null !== $this->securityGroupId ? $this->securityGroupId->toArray($noStream) : $this->securityGroupId;
+        }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = null !== $this->targetType ? $this->targetType->toArray($noStream) : $this->targetType;
         }
 
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = null !== $this->vSwitchIds ? $this->vSwitchIds->toArray($noStream) : $this->vSwitchIds;
+        }
+
         if (null !== $this->virtualHostName) {
             $res['VirtualHostName'] = null !== $this->virtualHostName ? $this->virtualHostName->toArray($noStream) : $this->virtualHostName;
+        }
+
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = null !== $this->vpcId ? $this->vpcId->toArray($noStream) : $this->vpcId;
         }
 
         return $res;
@@ -171,6 +227,10 @@ class sinkRabbitMQParameters extends Model
             $model->messageId = messageId::fromMap($map['MessageId']);
         }
 
+        if (isset($map['NetworkType'])) {
+            $model->networkType = networkType::fromMap($map['NetworkType']);
+        }
+
         if (isset($map['Properties'])) {
             $model->properties = properties::fromMap($map['Properties']);
         }
@@ -183,12 +243,24 @@ class sinkRabbitMQParameters extends Model
             $model->routingKey = routingKey::fromMap($map['RoutingKey']);
         }
 
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = securityGroupId::fromMap($map['SecurityGroupId']);
+        }
+
         if (isset($map['TargetType'])) {
             $model->targetType = targetType::fromMap($map['TargetType']);
         }
 
+        if (isset($map['VSwitchIds'])) {
+            $model->vSwitchIds = vSwitchIds::fromMap($map['VSwitchIds']);
+        }
+
         if (isset($map['VirtualHostName'])) {
             $model->virtualHostName = virtualHostName::fromMap($map['VirtualHostName']);
+        }
+
+        if (isset($map['VpcId'])) {
+            $model->vpcId = vpcId::fromMap($map['VpcId']);
         }
 
         return $model;

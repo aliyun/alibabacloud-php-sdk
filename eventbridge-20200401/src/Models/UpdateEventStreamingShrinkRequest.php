@@ -26,6 +26,11 @@ class UpdateEventStreamingShrinkRequest extends Model
     /**
      * @var string
      */
+    public $metadata;
+
+    /**
+     * @var string
+     */
     public $runOptionsShrink;
 
     /**
@@ -46,6 +51,7 @@ class UpdateEventStreamingShrinkRequest extends Model
         'description' => 'Description',
         'eventStreamingName' => 'EventStreamingName',
         'filterPattern' => 'FilterPattern',
+        'metadata' => 'Metadata',
         'runOptionsShrink' => 'RunOptions',
         'sinkShrink' => 'Sink',
         'sourceShrink' => 'Source',
@@ -70,6 +76,10 @@ class UpdateEventStreamingShrinkRequest extends Model
 
         if (null !== $this->filterPattern) {
             $res['FilterPattern'] = $this->filterPattern;
+        }
+
+        if (null !== $this->metadata) {
+            $res['Metadata'] = $this->metadata;
         }
 
         if (null !== $this->runOptionsShrink) {
@@ -109,6 +119,10 @@ class UpdateEventStreamingShrinkRequest extends Model
 
         if (isset($map['FilterPattern'])) {
             $model->filterPattern = $map['FilterPattern'];
+        }
+
+        if (isset($map['Metadata'])) {
+            $model->metadata = $map['Metadata'];
         }
 
         if (isset($map['RunOptions'])) {
