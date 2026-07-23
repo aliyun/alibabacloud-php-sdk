@@ -218,6 +218,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsApirestRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsApirestResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsTestreqbodyautogenRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsTestreqbodyautogenResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMiniGameInfoByAppRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMiniGameInfoByAppResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMpsSchedulerListRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMpsSchedulerListResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMscpRiskInfoRequest;
@@ -8767,6 +8769,75 @@ class MPaaS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryMgsTestreqbodyautogenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询小游戏信息(含资质).
+     *
+     * @param request - QueryMiniGameInfoByAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMiniGameInfoByAppResponse
+     *
+     * @param QueryMiniGameInfoByAppRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryMiniGameInfoByAppResponse
+     */
+    public function queryMiniGameInfoByAppWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->miniProgramCode) {
+            @$body['MiniProgramCode'] = $request->miniProgramCode;
+        }
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryMiniGameInfoByApp',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryMiniGameInfoByAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询小游戏信息(含资质).
+     *
+     * @param request - QueryMiniGameInfoByAppRequest
+     *
+     * @returns QueryMiniGameInfoByAppResponse
+     *
+     * @param QueryMiniGameInfoByAppRequest $request
+     *
+     * @return QueryMiniGameInfoByAppResponse
+     */
+    public function queryMiniGameInfoByApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryMiniGameInfoByAppWithOptions($request, $runtime);
     }
 
     /**
