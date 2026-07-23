@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateRoutineBuildConfigurationRequest extends Model
+class CreateRoutineBuildConfigurationRequest extends Model
 {
     /**
      * @var string
@@ -77,6 +77,11 @@ class UpdateRoutineBuildConfigurationRequest extends Model
      * @var string
      */
     public $routineName;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
         'assetsDirectory' => 'AssetsDirectory',
         'buildBranches' => 'BuildBranches',
@@ -92,6 +97,7 @@ class UpdateRoutineBuildConfigurationRequest extends Model
         'rootDirectory' => 'RootDirectory',
         'routineEntry' => 'RoutineEntry',
         'routineName' => 'RoutineName',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -166,6 +172,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
             $res['RoutineName'] = $this->routineName;
         }
 
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+
         return $res;
     }
 
@@ -236,6 +246,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
 
         if (isset($map['RoutineName'])) {
             $model->routineName = $map['RoutineName'];
+        }
+
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

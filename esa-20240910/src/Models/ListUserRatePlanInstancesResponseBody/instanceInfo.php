@@ -92,6 +92,11 @@ class instanceInfo extends Model
     /**
      * @var string
      */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $planName;
 
     /**
@@ -113,6 +118,16 @@ class instanceInfo extends Model
      * @var string
      */
     public $renewalStatus;
+
+    /**
+     * @var int
+     */
+    public $resourceOwner;
+
+    /**
+     * @var string
+     */
+    public $shareType;
 
     /**
      * @var string
@@ -160,11 +175,14 @@ class instanceInfo extends Model
         'instanceId' => 'InstanceId',
         'layer4Traffic' => 'Layer4Traffic',
         'layer4TrafficIntl' => 'Layer4TrafficIntl',
+        'ownerId' => 'OwnerId',
         'planName' => 'PlanName',
         'planTraffic' => 'PlanTraffic',
         'planType' => 'PlanType',
         'renewalDuration' => 'RenewalDuration',
         'renewalStatus' => 'RenewalStatus',
+        'resourceOwner' => 'ResourceOwner',
+        'shareType' => 'ShareType',
         'siteQuota' => 'SiteQuota',
         'sites' => 'Sites',
         'smartRoutingRequest' => 'SmartRoutingRequest',
@@ -248,6 +266,10 @@ class instanceInfo extends Model
             $res['Layer4TrafficIntl'] = $this->layer4TrafficIntl;
         }
 
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
         if (null !== $this->planName) {
             $res['PlanName'] = $this->planName;
         }
@@ -266,6 +288,14 @@ class instanceInfo extends Model
 
         if (null !== $this->renewalStatus) {
             $res['RenewalStatus'] = $this->renewalStatus;
+        }
+
+        if (null !== $this->resourceOwner) {
+            $res['ResourceOwner'] = $this->resourceOwner;
+        }
+
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
         }
 
         if (null !== $this->siteQuota) {
@@ -374,6 +404,10 @@ class instanceInfo extends Model
             $model->layer4TrafficIntl = $map['Layer4TrafficIntl'];
         }
 
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
         if (isset($map['PlanName'])) {
             $model->planName = $map['PlanName'];
         }
@@ -392,6 +426,14 @@ class instanceInfo extends Model
 
         if (isset($map['RenewalStatus'])) {
             $model->renewalStatus = $map['RenewalStatus'];
+        }
+
+        if (isset($map['ResourceOwner'])) {
+            $model->resourceOwner = $map['ResourceOwner'];
+        }
+
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
         }
 
         if (isset($map['SiteQuota'])) {

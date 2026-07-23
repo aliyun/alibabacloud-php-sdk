@@ -29,6 +29,11 @@ class CreateSiteRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var int
+     */
+    public $resourceOwner;
+
+    /**
      * @var string
      */
     public $siteName;
@@ -37,6 +42,7 @@ class CreateSiteRequest extends Model
         'coverage' => 'Coverage',
         'instanceId' => 'InstanceId',
         'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwner' => 'ResourceOwner',
         'siteName' => 'SiteName',
     ];
 
@@ -62,6 +68,10 @@ class CreateSiteRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->resourceOwner) {
+            $res['ResourceOwner'] = $this->resourceOwner;
         }
 
         if (null !== $this->siteName) {
@@ -93,6 +103,10 @@ class CreateSiteRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ResourceOwner'])) {
+            $model->resourceOwner = $map['ResourceOwner'];
         }
 
         if (isset($map['SiteName'])) {

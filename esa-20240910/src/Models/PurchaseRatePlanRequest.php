@@ -39,6 +39,11 @@ class PurchaseRatePlanRequest extends Model
     public $coverage;
 
     /**
+     * @var string
+     */
+    public $overagePolicy;
+
+    /**
      * @var int
      */
     public $period;
@@ -69,6 +74,7 @@ class PurchaseRatePlanRequest extends Model
         'channel' => 'Channel',
         'chargeType' => 'ChargeType',
         'coverage' => 'Coverage',
+        'overagePolicy' => 'OveragePolicy',
         'period' => 'Period',
         'planCode' => 'PlanCode',
         'planName' => 'PlanName',
@@ -106,6 +112,10 @@ class PurchaseRatePlanRequest extends Model
 
         if (null !== $this->coverage) {
             $res['Coverage'] = $this->coverage;
+        }
+
+        if (null !== $this->overagePolicy) {
+            $res['OveragePolicy'] = $this->overagePolicy;
         }
 
         if (null !== $this->period) {
@@ -161,6 +171,10 @@ class PurchaseRatePlanRequest extends Model
 
         if (isset($map['Coverage'])) {
             $model->coverage = $map['Coverage'];
+        }
+
+        if (isset($map['OveragePolicy'])) {
+            $model->overagePolicy = $map['OveragePolicy'];
         }
 
         if (isset($map['Period'])) {

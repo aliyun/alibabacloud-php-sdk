@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeRatePlanInstanceStatusRequest extends Model
+class PurchaseDDoSInstanceResponseBody extends Model
 {
     /**
      * @var string
@@ -14,12 +14,18 @@ class DescribeRatePlanInstanceStatusRequest extends Model
     public $instanceId;
 
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwner;
+    public $orderId;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'resourceOwner' => 'ResourceOwner',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -34,8 +40,12 @@ class DescribeRatePlanInstanceStatusRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
-        if (null !== $this->resourceOwner) {
-            $res['ResourceOwner'] = $this->resourceOwner;
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
+
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -53,8 +63,12 @@ class DescribeRatePlanInstanceStatusRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
-        if (isset($map['ResourceOwner'])) {
-            $model->resourceOwner = $map['ResourceOwner'];
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

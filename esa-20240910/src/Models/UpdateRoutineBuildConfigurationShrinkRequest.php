@@ -36,6 +36,11 @@ class UpdateRoutineBuildConfigurationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $gitPlatform;
+
+    /**
+     * @var string
+     */
     public $installCommand;
 
     /**
@@ -78,6 +83,7 @@ class UpdateRoutineBuildConfigurationShrinkRequest extends Model
         'buildCommand' => 'BuildCommand',
         'environmentVariablesShrink' => 'EnvironmentVariables',
         'gitAccountId' => 'GitAccountId',
+        'gitPlatform' => 'GitPlatform',
         'installCommand' => 'InstallCommand',
         'isPrivate' => 'IsPrivate',
         'nodeVersion' => 'NodeVersion',
@@ -114,6 +120,10 @@ class UpdateRoutineBuildConfigurationShrinkRequest extends Model
 
         if (null !== $this->gitAccountId) {
             $res['GitAccountId'] = $this->gitAccountId;
+        }
+
+        if (null !== $this->gitPlatform) {
+            $res['GitPlatform'] = $this->gitPlatform;
         }
 
         if (null !== $this->installCommand) {
@@ -177,6 +187,10 @@ class UpdateRoutineBuildConfigurationShrinkRequest extends Model
 
         if (isset($map['GitAccountId'])) {
             $model->gitAccountId = $map['GitAccountId'];
+        }
+
+        if (isset($map['GitPlatform'])) {
+            $model->gitPlatform = $map['GitPlatform'];
         }
 
         if (isset($map['InstallCommand'])) {

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateRoutineBuildConfigurationRequest extends Model
+class GetRoutineBuildConfigurationResponseBody extends Model
 {
     /**
      * @var string
@@ -24,6 +24,11 @@ class UpdateRoutineBuildConfigurationRequest extends Model
     public $buildCommand;
 
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @var string[]
      */
     public $environmentVariables;
@@ -32,6 +37,11 @@ class UpdateRoutineBuildConfigurationRequest extends Model
      * @var int
      */
     public $gitAccountId;
+
+    /**
+     * @var string
+     */
+    public $gitAccountType;
 
     /**
      * @var string
@@ -66,7 +76,17 @@ class UpdateRoutineBuildConfigurationRequest extends Model
     /**
      * @var string
      */
+    public $requestId;
+
+    /**
+     * @var string
+     */
     public $rootDirectory;
+
+    /**
+     * @var int
+     */
+    public $routineBuildConfigurationId;
 
     /**
      * @var string
@@ -77,21 +97,31 @@ class UpdateRoutineBuildConfigurationRequest extends Model
      * @var string
      */
     public $routineName;
+
+    /**
+     * @var string
+     */
+    public $updateTime;
     protected $_name = [
         'assetsDirectory' => 'AssetsDirectory',
         'buildBranches' => 'BuildBranches',
         'buildCommand' => 'BuildCommand',
+        'createTime' => 'CreateTime',
         'environmentVariables' => 'EnvironmentVariables',
         'gitAccountId' => 'GitAccountId',
+        'gitAccountType' => 'GitAccountType',
         'gitPlatform' => 'GitPlatform',
         'installCommand' => 'InstallCommand',
         'isPrivate' => 'IsPrivate',
         'nodeVersion' => 'NodeVersion',
         'productionBranch' => 'ProductionBranch',
         'repository' => 'Repository',
+        'requestId' => 'RequestId',
         'rootDirectory' => 'RootDirectory',
+        'routineBuildConfigurationId' => 'RoutineBuildConfigurationId',
         'routineEntry' => 'RoutineEntry',
         'routineName' => 'RoutineName',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -117,6 +147,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
             $res['BuildCommand'] = $this->buildCommand;
         }
 
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
         if (null !== $this->environmentVariables) {
             if (\is_array($this->environmentVariables)) {
                 $res['EnvironmentVariables'] = [];
@@ -128,6 +162,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
 
         if (null !== $this->gitAccountId) {
             $res['GitAccountId'] = $this->gitAccountId;
+        }
+
+        if (null !== $this->gitAccountType) {
+            $res['GitAccountType'] = $this->gitAccountType;
         }
 
         if (null !== $this->gitPlatform) {
@@ -154,8 +192,16 @@ class UpdateRoutineBuildConfigurationRequest extends Model
             $res['Repository'] = $this->repository;
         }
 
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
         if (null !== $this->rootDirectory) {
             $res['RootDirectory'] = $this->rootDirectory;
+        }
+
+        if (null !== $this->routineBuildConfigurationId) {
+            $res['RoutineBuildConfigurationId'] = $this->routineBuildConfigurationId;
         }
 
         if (null !== $this->routineEntry) {
@@ -164,6 +210,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
 
         if (null !== $this->routineName) {
             $res['RoutineName'] = $this->routineName;
+        }
+
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
 
         return $res;
@@ -189,6 +239,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
             $model->buildCommand = $map['BuildCommand'];
         }
 
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
         if (isset($map['EnvironmentVariables'])) {
             if (!empty($map['EnvironmentVariables'])) {
                 $model->environmentVariables = [];
@@ -200,6 +254,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
 
         if (isset($map['GitAccountId'])) {
             $model->gitAccountId = $map['GitAccountId'];
+        }
+
+        if (isset($map['GitAccountType'])) {
+            $model->gitAccountType = $map['GitAccountType'];
         }
 
         if (isset($map['GitPlatform'])) {
@@ -226,8 +284,16 @@ class UpdateRoutineBuildConfigurationRequest extends Model
             $model->repository = $map['Repository'];
         }
 
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
         if (isset($map['RootDirectory'])) {
             $model->rootDirectory = $map['RootDirectory'];
+        }
+
+        if (isset($map['RoutineBuildConfigurationId'])) {
+            $model->routineBuildConfigurationId = $map['RoutineBuildConfigurationId'];
         }
 
         if (isset($map['RoutineEntry'])) {
@@ -236,6 +302,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
 
         if (isset($map['RoutineName'])) {
             $model->routineName = $map['RoutineName'];
+        }
+
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
 
         return $model;

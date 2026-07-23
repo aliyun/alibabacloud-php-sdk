@@ -6,22 +6,12 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListPostpaidRatePlanInstancesRequest extends Model
+class ListRoutineBuildsRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $checkRemainingSiteQuota;
-
-    /**
-     * @var string
-     */
-    public $instanceId;
-
     /**
      * @var int
      */
-    public $pageNumber;
+    public $pageIndex;
 
     /**
      * @var int
@@ -29,9 +19,9 @@ class ListPostpaidRatePlanInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @var int
+     * @var string
      */
-    public $resourceOwner;
+    public $routineName;
 
     /**
      * @var string
@@ -47,21 +37,13 @@ class ListPostpaidRatePlanInstancesRequest extends Model
      * @var string
      */
     public $status;
-
-    /**
-     * @var string
-     */
-    public $unrelatedType;
     protected $_name = [
-        'checkRemainingSiteQuota' => 'CheckRemainingSiteQuota',
-        'instanceId' => 'InstanceId',
-        'pageNumber' => 'PageNumber',
+        'pageIndex' => 'PageIndex',
         'pageSize' => 'PageSize',
-        'resourceOwner' => 'ResourceOwner',
+        'routineName' => 'RoutineName',
         'sortBy' => 'SortBy',
         'sortOrder' => 'SortOrder',
         'status' => 'Status',
-        'unrelatedType' => 'UnrelatedType',
     ];
 
     public function validate()
@@ -72,24 +54,16 @@ class ListPostpaidRatePlanInstancesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->checkRemainingSiteQuota) {
-            $res['CheckRemainingSiteQuota'] = $this->checkRemainingSiteQuota;
-        }
-
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
-        }
-
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->pageIndex) {
+            $res['PageIndex'] = $this->pageIndex;
         }
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
 
-        if (null !== $this->resourceOwner) {
-            $res['ResourceOwner'] = $this->resourceOwner;
+        if (null !== $this->routineName) {
+            $res['RoutineName'] = $this->routineName;
         }
 
         if (null !== $this->sortBy) {
@@ -104,10 +78,6 @@ class ListPostpaidRatePlanInstancesRequest extends Model
             $res['Status'] = $this->status;
         }
 
-        if (null !== $this->unrelatedType) {
-            $res['UnrelatedType'] = $this->unrelatedType;
-        }
-
         return $res;
     }
 
@@ -119,24 +89,16 @@ class ListPostpaidRatePlanInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CheckRemainingSiteQuota'])) {
-            $model->checkRemainingSiteQuota = $map['CheckRemainingSiteQuota'];
-        }
-
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
-        }
-
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['PageIndex'])) {
+            $model->pageIndex = $map['PageIndex'];
         }
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
 
-        if (isset($map['ResourceOwner'])) {
-            $model->resourceOwner = $map['ResourceOwner'];
+        if (isset($map['RoutineName'])) {
+            $model->routineName = $map['RoutineName'];
         }
 
         if (isset($map['SortBy'])) {
@@ -149,10 +111,6 @@ class ListPostpaidRatePlanInstancesRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-
-        if (isset($map['UnrelatedType'])) {
-            $model->unrelatedType = $map['UnrelatedType'];
         }
 
         return $model;

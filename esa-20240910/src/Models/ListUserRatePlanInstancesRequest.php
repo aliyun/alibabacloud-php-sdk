@@ -19,6 +19,11 @@ class ListUserRatePlanInstancesRequest extends Model
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $isShared;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -44,6 +49,11 @@ class ListUserRatePlanInstancesRequest extends Model
     public $remainingExpireDays;
 
     /**
+     * @var int
+     */
+    public $resourceOwner;
+
+    /**
      * @var string
      */
     public $sortBy;
@@ -65,11 +75,13 @@ class ListUserRatePlanInstancesRequest extends Model
     protected $_name = [
         'checkRemainingSiteQuota' => 'CheckRemainingSiteQuota',
         'instanceId' => 'InstanceId',
+        'isShared' => 'IsShared',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
         'planNameEn' => 'PlanNameEn',
         'planType' => 'PlanType',
         'remainingExpireDays' => 'RemainingExpireDays',
+        'resourceOwner' => 'ResourceOwner',
         'sortBy' => 'SortBy',
         'sortOrder' => 'SortOrder',
         'status' => 'Status',
@@ -92,6 +104,10 @@ class ListUserRatePlanInstancesRequest extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->isShared) {
+            $res['IsShared'] = $this->isShared;
+        }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -110,6 +126,10 @@ class ListUserRatePlanInstancesRequest extends Model
 
         if (null !== $this->remainingExpireDays) {
             $res['RemainingExpireDays'] = $this->remainingExpireDays;
+        }
+
+        if (null !== $this->resourceOwner) {
+            $res['ResourceOwner'] = $this->resourceOwner;
         }
 
         if (null !== $this->sortBy) {
@@ -147,6 +167,10 @@ class ListUserRatePlanInstancesRequest extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['IsShared'])) {
+            $model->isShared = $map['IsShared'];
+        }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -165,6 +189,10 @@ class ListUserRatePlanInstancesRequest extends Model
 
         if (isset($map['RemainingExpireDays'])) {
             $model->remainingExpireDays = $map['RemainingExpireDays'];
+        }
+
+        if (isset($map['ResourceOwner'])) {
+            $model->resourceOwner = $map['ResourceOwner'];
         }
 
         if (isset($map['SortBy'])) {

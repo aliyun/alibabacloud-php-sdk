@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesResponseBody\pages\moderation;
 
 class pages extends Model
 {
@@ -34,6 +35,11 @@ class pages extends Model
     public $kind;
 
     /**
+     * @var moderation
+     */
+    public $moderation;
+
+    /**
      * @var string
      */
     public $name;
@@ -48,12 +54,16 @@ class pages extends Model
         'description' => 'Description',
         'id' => 'Id',
         'kind' => 'Kind',
+        'moderation' => 'Moderation',
         'name' => 'Name',
         'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->moderation) {
+            $this->moderation->validate();
+        }
         parent::validate();
     }
 
@@ -78,6 +88,10 @@ class pages extends Model
 
         if (null !== $this->kind) {
             $res['Kind'] = $this->kind;
+        }
+
+        if (null !== $this->moderation) {
+            $res['Moderation'] = null !== $this->moderation ? $this->moderation->toArray($noStream) : $this->moderation;
         }
 
         if (null !== $this->name) {
@@ -117,6 +131,10 @@ class pages extends Model
 
         if (isset($map['Kind'])) {
             $model->kind = $map['Kind'];
+        }
+
+        if (isset($map['Moderation'])) {
+            $model->moderation = moderation::fromMap($map['Moderation']);
         }
 
         if (isset($map['Name'])) {

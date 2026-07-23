@@ -6,20 +6,26 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeRatePlanInstanceStatusRequest extends Model
+class UpdateSiteInstanceRequest extends Model
 {
     /**
      * @var string
      */
-    public $instanceId;
+    public $newInstanceId;
 
     /**
      * @var int
      */
     public $resourceOwner;
+
+    /**
+     * @var int
+     */
+    public $siteId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'newInstanceId' => 'NewInstanceId',
         'resourceOwner' => 'ResourceOwner',
+        'siteId' => 'SiteId',
     ];
 
     public function validate()
@@ -30,12 +36,16 @@ class DescribeRatePlanInstanceStatusRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->newInstanceId) {
+            $res['NewInstanceId'] = $this->newInstanceId;
         }
 
         if (null !== $this->resourceOwner) {
             $res['ResourceOwner'] = $this->resourceOwner;
+        }
+
+        if (null !== $this->siteId) {
+            $res['SiteId'] = $this->siteId;
         }
 
         return $res;
@@ -49,12 +59,16 @@ class DescribeRatePlanInstanceStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['NewInstanceId'])) {
+            $model->newInstanceId = $map['NewInstanceId'];
         }
 
         if (isset($map['ResourceOwner'])) {
             $model->resourceOwner = $map['ResourceOwner'];
+        }
+
+        if (isset($map['SiteId'])) {
+            $model->siteId = $map['SiteId'];
         }
 
         return $model;

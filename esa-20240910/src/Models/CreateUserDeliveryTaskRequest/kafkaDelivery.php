@@ -41,6 +41,11 @@ class kafkaDelivery extends Model
     /**
      * @var bool
      */
+    public $useTLS;
+
+    /**
+     * @var bool
+     */
     public $userAuth;
 
     /**
@@ -54,6 +59,7 @@ class kafkaDelivery extends Model
         'machanismType' => 'MachanismType',
         'password' => 'Password',
         'topic' => 'Topic',
+        'useTLS' => 'UseTLS',
         'userAuth' => 'UserAuth',
         'userName' => 'UserName',
     ];
@@ -98,6 +104,10 @@ class kafkaDelivery extends Model
 
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
+        }
+
+        if (null !== $this->useTLS) {
+            $res['UseTLS'] = $this->useTLS;
         }
 
         if (null !== $this->userAuth) {
@@ -148,6 +158,10 @@ class kafkaDelivery extends Model
 
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
+        }
+
+        if (isset($map['UseTLS'])) {
+            $model->useTLS = $map['UseTLS'];
         }
 
         if (isset($map['UserAuth'])) {

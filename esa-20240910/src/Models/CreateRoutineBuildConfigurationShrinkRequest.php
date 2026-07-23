@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateRoutineBuildConfigurationRequest extends Model
+class CreateRoutineBuildConfigurationShrinkRequest extends Model
 {
     /**
      * @var string
@@ -24,9 +24,9 @@ class UpdateRoutineBuildConfigurationRequest extends Model
     public $buildCommand;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $environmentVariables;
+    public $environmentVariablesShrink;
 
     /**
      * @var int
@@ -77,11 +77,16 @@ class UpdateRoutineBuildConfigurationRequest extends Model
      * @var string
      */
     public $routineName;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
         'assetsDirectory' => 'AssetsDirectory',
         'buildBranches' => 'BuildBranches',
         'buildCommand' => 'BuildCommand',
-        'environmentVariables' => 'EnvironmentVariables',
+        'environmentVariablesShrink' => 'EnvironmentVariables',
         'gitAccountId' => 'GitAccountId',
         'gitPlatform' => 'GitPlatform',
         'installCommand' => 'InstallCommand',
@@ -92,13 +97,11 @@ class UpdateRoutineBuildConfigurationRequest extends Model
         'rootDirectory' => 'RootDirectory',
         'routineEntry' => 'RoutineEntry',
         'routineName' => 'RoutineName',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
     {
-        if (\is_array($this->environmentVariables)) {
-            Model::validateArray($this->environmentVariables);
-        }
         parent::validate();
     }
 
@@ -117,13 +120,8 @@ class UpdateRoutineBuildConfigurationRequest extends Model
             $res['BuildCommand'] = $this->buildCommand;
         }
 
-        if (null !== $this->environmentVariables) {
-            if (\is_array($this->environmentVariables)) {
-                $res['EnvironmentVariables'] = [];
-                foreach ($this->environmentVariables as $key1 => $value1) {
-                    $res['EnvironmentVariables'][$key1] = $value1;
-                }
-            }
+        if (null !== $this->environmentVariablesShrink) {
+            $res['EnvironmentVariables'] = $this->environmentVariablesShrink;
         }
 
         if (null !== $this->gitAccountId) {
@@ -166,6 +164,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
             $res['RoutineName'] = $this->routineName;
         }
 
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
+        }
+
         return $res;
     }
 
@@ -190,12 +192,7 @@ class UpdateRoutineBuildConfigurationRequest extends Model
         }
 
         if (isset($map['EnvironmentVariables'])) {
-            if (!empty($map['EnvironmentVariables'])) {
-                $model->environmentVariables = [];
-                foreach ($map['EnvironmentVariables'] as $key1 => $value1) {
-                    $model->environmentVariables[$key1] = $value1;
-                }
-            }
+            $model->environmentVariablesShrink = $map['EnvironmentVariables'];
         }
 
         if (isset($map['GitAccountId'])) {
@@ -236,6 +233,10 @@ class UpdateRoutineBuildConfigurationRequest extends Model
 
         if (isset($map['RoutineName'])) {
             $model->routineName = $map['RoutineName'];
+        }
+
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

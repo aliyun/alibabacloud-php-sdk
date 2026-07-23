@@ -42,6 +42,11 @@ class instanceInfo extends Model
     /**
      * @var string
      */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
     public $planName;
 
     /**
@@ -53,6 +58,11 @@ class instanceInfo extends Model
      * @var string
      */
     public $planType;
+
+    /**
+     * @var string
+     */
+    public $shareType;
 
     /**
      * @var string
@@ -75,9 +85,11 @@ class instanceInfo extends Model
         'createTime' => 'CreateTime',
         'expectedUpdateTime' => 'ExpectedUpdateTime',
         'instanceId' => 'InstanceId',
+        'ownerId' => 'OwnerId',
         'planName' => 'PlanName',
         'planNameCn' => 'PlanNameCn',
         'planType' => 'PlanType',
+        'shareType' => 'ShareType',
         'siteQuota' => 'SiteQuota',
         'sites' => 'Sites',
         'status' => 'Status',
@@ -118,6 +130,10 @@ class instanceInfo extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
         if (null !== $this->planName) {
             $res['PlanName'] = $this->planName;
         }
@@ -128,6 +144,10 @@ class instanceInfo extends Model
 
         if (null !== $this->planType) {
             $res['PlanType'] = $this->planType;
+        }
+
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
         }
 
         if (null !== $this->siteQuota) {
@@ -184,6 +204,10 @@ class instanceInfo extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
         if (isset($map['PlanName'])) {
             $model->planName = $map['PlanName'];
         }
@@ -194,6 +218,10 @@ class instanceInfo extends Model
 
         if (isset($map['PlanType'])) {
             $model->planType = $map['PlanType'];
+        }
+
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
         }
 
         if (isset($map['SiteQuota'])) {

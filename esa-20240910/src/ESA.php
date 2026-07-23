@@ -132,6 +132,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRedirectRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRewriteUrlRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineBuildConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineBuildConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineBuildConfigurationShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineCodeDeploymentRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineCodeDeploymentResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateRoutineCodeDeploymentShrinkRequest;
@@ -257,6 +260,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRedirectRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRedirectRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRewriteUrlRuleResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineBuildConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineBuildConfigurationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineCodeVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteRoutineRelatedRecordRequest;
@@ -511,6 +516,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRewriteUrlRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineAccessTokenRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineAccessTokenResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineBuildConfigurationRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineBuildConfigurationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineBuildRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineBuildResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineCodeVersionInfoRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineCodeVersionInfoResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineCodeVersionRequest;
@@ -681,6 +690,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListRedirectRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRedirectRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRewriteUrlRulesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineBuildConfigurationsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineBuildConfigurationsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineBuildsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineBuildsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCanaryAreasResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCodeVersionsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCodeVersionsResponse;
@@ -769,6 +782,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseBotInstanceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseBotInstanceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseCacheReserveRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseCacheReserveResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseDDoSInstanceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseDDoSInstanceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseRatePlanRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseRatePlanResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesRequest;
@@ -783,6 +798,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvReque
 use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RecoverSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RecoverSiteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ReDoRoutineBuildRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ReDoRoutineBuildResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ResetScheduledPreloadJobRequest;
@@ -820,6 +837,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesRes
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetOriginClientCertificateHostnamesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StartScheduledPreloadExecutionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\StopRoutineBuildRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\StopRoutineBuildResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopScheduledPreloadExecutionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\StopSiteRequest;
@@ -938,6 +957,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteInstanceRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteInstanceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteNameExclusiveRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteNameExclusiveResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSitePauseRequest;
@@ -5659,6 +5680,125 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Creates an Edge Routine (ER) build configuration.
+     *
+     * @param tmpReq - CreateRoutineBuildConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRoutineBuildConfigurationResponse
+     *
+     * @param CreateRoutineBuildConfigurationRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateRoutineBuildConfigurationResponse
+     */
+    public function createRoutineBuildConfigurationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateRoutineBuildConfigurationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->environmentVariables) {
+            $request->environmentVariablesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->environmentVariables, 'EnvironmentVariables', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->assetsDirectory) {
+            @$query['AssetsDirectory'] = $request->assetsDirectory;
+        }
+
+        if (null !== $request->buildBranches) {
+            @$query['BuildBranches'] = $request->buildBranches;
+        }
+
+        if (null !== $request->buildCommand) {
+            @$query['BuildCommand'] = $request->buildCommand;
+        }
+
+        if (null !== $request->environmentVariablesShrink) {
+            @$query['EnvironmentVariables'] = $request->environmentVariablesShrink;
+        }
+
+        if (null !== $request->gitAccountId) {
+            @$query['GitAccountId'] = $request->gitAccountId;
+        }
+
+        if (null !== $request->gitPlatform) {
+            @$query['GitPlatform'] = $request->gitPlatform;
+        }
+
+        if (null !== $request->installCommand) {
+            @$query['InstallCommand'] = $request->installCommand;
+        }
+
+        if (null !== $request->isPrivate) {
+            @$query['IsPrivate'] = $request->isPrivate;
+        }
+
+        if (null !== $request->nodeVersion) {
+            @$query['NodeVersion'] = $request->nodeVersion;
+        }
+
+        if (null !== $request->productionBranch) {
+            @$query['ProductionBranch'] = $request->productionBranch;
+        }
+
+        if (null !== $request->repository) {
+            @$query['Repository'] = $request->repository;
+        }
+
+        if (null !== $request->rootDirectory) {
+            @$query['RootDirectory'] = $request->rootDirectory;
+        }
+
+        if (null !== $request->routineEntry) {
+            @$query['RoutineEntry'] = $request->routineEntry;
+        }
+
+        if (null !== $request->routineName) {
+            @$query['RoutineName'] = $request->routineName;
+        }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateRoutineBuildConfiguration',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateRoutineBuildConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an Edge Routine (ER) build configuration.
+     *
+     * @param Request - CreateRoutineBuildConfigurationRequest
+     *
+     * @returns CreateRoutineBuildConfigurationResponse
+     *
+     * @param CreateRoutineBuildConfigurationRequest $request
+     *
+     * @return CreateRoutineBuildConfigurationResponse
+     */
+    public function createRoutineBuildConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRoutineBuildConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a percentage-based canary deployment for a Routine code version in a specified environment.
      *
      * @remarks
@@ -6127,7 +6267,7 @@ class ESA extends OpenApiClient
      *
      * @remarks
      * - Before creating a site, you must have an active plan instance.
-     * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a completed Internet Content Provider (ICP) filing.
+     * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
      * - Each user can invoke this operation up to 100 times per hour.
      *
      * @param Request - CreateSiteRequest
@@ -6160,6 +6300,10 @@ class ESA extends OpenApiClient
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
+        if (null !== $request->resourceOwner) {
+            @$query['ResourceOwner'] = $request->resourceOwner;
+        }
+
         if (null !== $request->siteName) {
             @$query['SiteName'] = $request->siteName;
         }
@@ -6187,7 +6331,7 @@ class ESA extends OpenApiClient
      *
      * @remarks
      * - Before creating a site, you must have an active plan instance.
-     * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a completed Internet Content Provider (ICP) filing.
+     * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
      * - Each user can invoke this operation up to 100 times per hour.
      *
      * @param Request - CreateSiteRequest
@@ -6299,7 +6443,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Create a real-time log shipping task.
+     * Creates a real-time log delivery task.
      *
      * @param tmpReq - CreateSiteDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6408,7 +6552,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Create a real-time log shipping task.
+     * Creates a real-time log delivery task.
      *
      * @param Request - CreateSiteDeliveryTaskRequest
      *
@@ -6631,18 +6775,18 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a custom log shipping task to SLS, HTTP, OSS, S3, or Kafka.
+     * Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
      *
      * @remarks
-     * Use this API to create a delivery task for specific log data. It supports multiple delivery destinations, including SLS, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can set a custom task name, select log fields, specify a data center, set the discard rate, choose a delivery type, and configure delivery details for the selected type.
-     * - **Field Filtering**: Use `FieldName` to specify the log fields to deliver.
-     * - **Filter Rules**: Use `FilterRules` to filter log data before delivery.
-     * - **Supported delivery destinations**: Deliver logs to various destinations, including SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka. Each method has specific configuration parameters.
-     * ## Notes
-     * - Ensure that your AccessKey and SecretKey have the required permissions for the delivery operation.
-     * - If a delivery method requires encryption or authentication, configure its security parameters accordingly.
-     * - Verify that the `FilterRules` syntax is correct.
-     * - Adjust advanced parameters, such as the number of retries and timeout, to optimize delivery efficiency and stability.
+     * This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
+     * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
+     * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
+     * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
+     * ## Usage notes
+     * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
+     * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
+     * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
+     * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
      *
      * @param tmpReq - CreateUserDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6751,18 +6895,18 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Creates a custom log shipping task to SLS, HTTP, OSS, S3, or Kafka.
+     * Creates a custom log delivery task for the user to destinations such as Simple Log Service (SLS), HTTP, Object Storage Service (OSS), S3, or Kafka.
      *
      * @remarks
-     * Use this API to create a delivery task for specific log data. It supports multiple delivery destinations, including SLS, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can set a custom task name, select log fields, specify a data center, set the discard rate, choose a delivery type, and configure delivery details for the selected type.
-     * - **Field Filtering**: Use `FieldName` to specify the log fields to deliver.
-     * - **Filter Rules**: Use `FilterRules` to filter log data before delivery.
-     * - **Supported delivery destinations**: Deliver logs to various destinations, including SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka. Each method has specific configuration parameters.
-     * ## Notes
-     * - Ensure that your AccessKey and SecretKey have the required permissions for the delivery operation.
-     * - If a delivery method requires encryption or authentication, configure its security parameters accordingly.
-     * - Verify that the `FilterRules` syntax is correct.
-     * - Adjust advanced parameters, such as the number of retries and timeout, to optimize delivery efficiency and stability.
+     * This operation allows you to create a delivery task for specific log data. Multiple delivery destinations and detailed configuration options are supported, including but not limited to SLS storage, HTTP services, Alibaba Cloud OSS, S3-compatible storage, and Kafka message queues. You can customize the task name, select log fields, specify the data center, set the discard rate, choose the delivery type, and configure the delivery details based on the selected type.
+     * - **Field selection**: Use `FieldName` to specify the log fields to be delivered.
+     * - **Filter rules**: Use `FilterRules` to preprocess and filter log data.
+     * - **Diverse delivery**: Supports SLS, HTTP(S), Alibaba Cloud OSS, S3-compatible storage, and Kafka, each with its specific configuration parameters.
+     * ## Usage notes
+     * - Ensure that the authentication information (such as AccessKey and SecretKey) has sufficient permissions to perform the delivery operation.
+     * - When you select an encrypted or authenticated delivery method, correctly configure the related security parameters.
+     * - Verify the syntax correctness of `FilterRules` to ensure that the filtering logic meets expectations.
+     * - Adjust advanced parameters such as retries and timeout based on actual requirements to optimize delivery efficiency and stability.
      *
      * @param Request - CreateUserDeliveryTaskRequest
      *
@@ -9757,6 +9901,63 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Deletes the ER build configuration.
+     *
+     * @param Request - DeleteRoutineBuildConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRoutineBuildConfigurationResponse
+     *
+     * @param DeleteRoutineBuildConfigurationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteRoutineBuildConfigurationResponse
+     */
+    public function deleteRoutineBuildConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->routineName) {
+            @$query['RoutineName'] = $request->routineName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteRoutineBuildConfiguration',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteRoutineBuildConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the ER build configuration.
+     *
+     * @param Request - DeleteRoutineBuildConfigurationRequest
+     *
+     * @returns DeleteRoutineBuildConfigurationResponse
+     *
+     * @param DeleteRoutineBuildConfigurationRequest $request
+     *
+     * @return DeleteRoutineBuildConfigurationResponse
+     */
+    public function deleteRoutineBuildConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRoutineBuildConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a code version of a routine.
      *
      * @param Request - DeleteRoutineCodeVersionRequest
@@ -10125,7 +10326,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time log delivery task.
+     * Deletes an ongoing log delivery task.
      *
      * @param Request - DeleteSiteDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10168,7 +10369,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a real-time log delivery task.
+     * Deletes an ongoing log delivery task.
      *
      * @param Request - DeleteSiteDeliveryTaskRequest
      *
@@ -10361,13 +10562,14 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a log delivery task from your Alibaba Cloud account.
+     * Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
      *
      * @remarks
-     * *****>
-     * *   Deleted tasks cannot be restored. Proceed with caution.
-     * *   To call this operation, you must have an account that has the required permissions.
-     * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+     * This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+     * **Note:**
+     * - The deletion operation is irreversible. Proceed with caution.
+     * - Only accounts with the required permissions can call this operation.
+     * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
      *
      * @param Request - DeleteUserDeliveryTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10406,13 +10608,14 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Deletes a log delivery task from your Alibaba Cloud account.
+     * Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
      *
      * @remarks
-     * *****>
-     * *   Deleted tasks cannot be restored. Proceed with caution.
-     * *   To call this operation, you must have an account that has the required permissions.
-     * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+     * This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+     * **Note:**
+     * - The deletion operation is irreversible. Proceed with caution.
+     * - Only accounts with the required permissions can call this operation.
+     * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
      *
      * @param Request - DeleteUserDeliveryTaskRequest
      *
@@ -12187,10 +12390,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the status of an instance that uses a plan.
+     * Queries the status of a plan instance.
      *
      * @remarks
-     * You can query the status of an instance after you purchase a plan for the instance.
+     * You can query the status of a plan instance only after you purchase and create the instance.
      *
      * @param Request - DescribeRatePlanInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12208,6 +12411,10 @@ class ESA extends OpenApiClient
         $query = [];
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->resourceOwner) {
+            @$query['ResourceOwner'] = $request->resourceOwner;
         }
 
         $req = new OpenApiRequest([
@@ -12229,10 +12436,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the status of an instance that uses a plan.
+     * Queries the status of a plan instance.
      *
      * @remarks
-     * You can query the status of an instance after you purchase a plan for the instance.
+     * You can query the status of a plan instance only after you purchase and create the instance.
      *
      * @param Request - DescribeRatePlanInstanceStatusRequest
      *
@@ -13210,7 +13417,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Edit WAF Configuration for a Site.
+     * Modifies the Web Application Firewall (WAF) configuration of a site. You can call this operation to update WAF settings for a site, such as modifying the client IP address identified by WAF.
      *
      * @param tmpReq - EditSiteWafSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13265,7 +13472,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Edit WAF Configuration for a Site.
+     * Modifies the Web Application Firewall (WAF) configuration of a site. You can call this operation to update WAF settings for a site, such as modifying the client IP address identified by WAF.
      *
      * @param Request - EditSiteWafSettingsRequest
      *
@@ -17237,6 +17444,120 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * Queries a single ER build task.
+     *
+     * @param Request - GetRoutineBuildRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRoutineBuildResponse
+     *
+     * @param GetRoutineBuildRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRoutineBuildResponse
+     */
+    public function getRoutineBuildWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->routineBuildId) {
+            @$query['RoutineBuildId'] = $request->routineBuildId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRoutineBuild',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRoutineBuildResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a single ER build task.
+     *
+     * @param Request - GetRoutineBuildRequest
+     *
+     * @returns GetRoutineBuildResponse
+     *
+     * @param GetRoutineBuildRequest $request
+     *
+     * @return GetRoutineBuildResponse
+     */
+    public function getRoutineBuild($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoutineBuildWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the build configuration.
+     *
+     * @param Request - GetRoutineBuildConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRoutineBuildConfigurationResponse
+     *
+     * @param GetRoutineBuildConfigurationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetRoutineBuildConfigurationResponse
+     */
+    public function getRoutineBuildConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->routineName) {
+            @$query['RoutineName'] = $request->routineName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetRoutineBuildConfiguration',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetRoutineBuildConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the build configuration.
+     *
+     * @param Request - GetRoutineBuildConfigurationRequest
+     *
+     * @returns GetRoutineBuildConfigurationResponse
+     *
+     * @param GetRoutineBuildConfigurationRequest $request
+     *
+     * @return GetRoutineBuildConfigurationResponse
+     */
+    public function getRoutineBuildConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRoutineBuildConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the code information of a specific version of an Edge Routine.
      *
      * @param Request - GetRoutineCodeVersionRequest
@@ -17428,11 +17749,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+     * Retrieves the upload information for uploading test version code of an Edge Routine to OSS.
      *
      * @remarks
-     *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-     * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+     * - Each upload of test code for an Edge Routine generates a version number, which occupies one CodeRev code version slot. This is used for testing purposes only.
+     * - An Edge Routine can retain a maximum of 10 version numbers. After the limit is exceeded, manually call DeleteRoutineCodeRevision to delete unused versions.
      *
      * @param Request - GetRoutineStagingCodeUploadInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17475,11 +17796,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+     * Retrieves the upload information for uploading test version code of an Edge Routine to OSS.
      *
      * @remarks
-     *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-     * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+     * - Each upload of test code for an Edge Routine generates a version number, which occupies one CodeRev code version slot. This is used for testing purposes only.
+     * - An Edge Routine can retain a maximum of 10 version numbers. After the limit is exceeded, manually call DeleteRoutineCodeRevision to delete unused versions.
      *
      * @param Request - GetRoutineStagingCodeUploadInfoRequest
      *
@@ -17909,16 +18230,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the remaining quota for delivering a specific category of real-time logs in a website.
+     * Queries the remaining real-time log delivery quota for a specified site and business type.
      *
      * @remarks
-     * Use this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
-     * **Take note of the following parameters:**
-     * - \\`\\`
-     * - `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
-     * - `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+     * You can call this operation to query the remaining quota of the real-time log delivery service for a specific site and business type under a specified Alibaba Cloud account. This is important for monitoring and managing your log delivery capacity to ensure that logs can be smoothly pushed to the destination storage and to prevent data loss or delays caused by insufficient quota.
+     * **Parameter notes:**
+     * - `BusinessType` is required. Specify the business type to obtain the corresponding quota information.
+     * - `SiteId` must be a valid site ID in integer format and must correspond to the site configured in Alibaba Cloud.
      * **Response:**
-     * - If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+     * - A successful response returns the delivery quota (`FreeQuota`), request ID (`RequestId`), site ID (`SiteId`), and business type (`BusinessType`) for confirmation and logging purposes.
      *
      * @param Request - GetSiteLogDeliveryQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17953,16 +18273,15 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the remaining quota for delivering a specific category of real-time logs in a website.
+     * Queries the remaining real-time log delivery quota for a specified site and business type.
      *
      * @remarks
-     * Use this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
-     * **Take note of the following parameters:**
-     * - \\`\\`
-     * - `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
-     * - `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+     * You can call this operation to query the remaining quota of the real-time log delivery service for a specific site and business type under a specified Alibaba Cloud account. This is important for monitoring and managing your log delivery capacity to ensure that logs can be smoothly pushed to the destination storage and to prevent data loss or delays caused by insufficient quota.
+     * **Parameter notes:**
+     * - `BusinessType` is required. Specify the business type to obtain the corresponding quota information.
+     * - `SiteId` must be a valid site ID in integer format and must correspond to the site configured in Alibaba Cloud.
      * **Response:**
-     * - If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+     * - A successful response returns the delivery quota (`FreeQuota`), request ID (`RequestId`), site ID (`SiteId`), and business type (`BusinessType`) for confirmation and logging purposes.
      *
      * @param Request - GetSiteLogDeliveryQuotaRequest
      *
@@ -18198,7 +18517,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Get WAF Configuration for a Site.
+     * Retrieves the WAF configuration of a site.
      *
      * @param Request - GetSiteWafSettingsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18245,7 +18564,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Get WAF Configuration for a Site.
+     * Retrieves the WAF configuration of a site.
      *
      * @param Request - GetSiteWafSettingsRequest
      *
@@ -21779,7 +22098,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
+     * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
      *
      * @param tmpReq - ListPagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21832,7 +22151,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by specifying the page number and page size.
+     * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list based on page number and page size.
      *
      * @param Request - ListPagesRequest
      *
@@ -21853,7 +22172,7 @@ class ESA extends OpenApiClient
      * Queries the list of pay-as-you-go plan instances.
      *
      * @remarks
-     * Queries the list of pay-as-you-go plan instances under your account. You can filter and sort the results by multiple conditions.
+     * This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
      *
      * @param Request - ListPostpaidRatePlanInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -21891,7 +22210,7 @@ class ESA extends OpenApiClient
      * Queries the list of pay-as-you-go plan instances.
      *
      * @remarks
-     * Queries the list of pay-as-you-go plan instances under your account. You can filter and sort the results by multiple conditions.
+     * This operation queries the list of pay-as-you-go plan instances under your account. You can filter and sort results by multiple conditions.
      *
      * @param Request - ListPostpaidRatePlanInstancesRequest
      *
@@ -22180,6 +22499,140 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listRewriteUrlRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists the build configurations for multiple routines by name.
+     *
+     * @param Request - ListRoutineBuildConfigurationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRoutineBuildConfigurationsResponse
+     *
+     * @param ListRoutineBuildConfigurationsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListRoutineBuildConfigurationsResponse
+     */
+    public function listRoutineBuildConfigurationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->routineNames) {
+            @$query['RoutineNames'] = $request->routineNames;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRoutineBuildConfigurations',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRoutineBuildConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the build configurations for multiple routines by name.
+     *
+     * @param Request - ListRoutineBuildConfigurationsRequest
+     *
+     * @returns ListRoutineBuildConfigurationsResponse
+     *
+     * @param ListRoutineBuildConfigurationsRequest $request
+     *
+     * @return ListRoutineBuildConfigurationsResponse
+     */
+    public function listRoutineBuildConfigurations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoutineBuildConfigurationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves the list of ER build tasks.
+     *
+     * @param Request - ListRoutineBuildsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRoutineBuildsResponse
+     *
+     * @param ListRoutineBuildsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListRoutineBuildsResponse
+     */
+    public function listRoutineBuildsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->routineName) {
+            @$query['RoutineName'] = $request->routineName;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListRoutineBuilds',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListRoutineBuildsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the list of ER build tasks.
+     *
+     * @param Request - ListRoutineBuildsRequest
+     *
+     * @returns ListRoutineBuildsResponse
+     *
+     * @param ListRoutineBuildsRequest $request
+     *
+     * @return ListRoutineBuildsResponse
+     */
+    public function listRoutineBuilds($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRoutineBuildsWithOptions($request, $runtime);
     }
 
     /**
@@ -24873,11 +25326,80 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Purchases a plan by calling PurchaseRatePlan.
+     * 新购DDoS实例.
+     *
+     * @param Request - PurchaseDDoSInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PurchaseDDoSInstanceResponse
+     *
+     * @param PurchaseDDoSInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PurchaseDDoSInstanceResponse
+     */
+    public function purchaseDDoSInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DDoSBillingMode) {
+            @$query['DDoSBillingMode'] = $request->DDoSBillingMode;
+        }
+
+        if (null !== $request->DDoSBurstableDomesticProtection) {
+            @$query['DDoSBurstableDomesticProtection'] = $request->DDoSBurstableDomesticProtection;
+        }
+
+        if (null !== $request->DDoSBurstableOverseasProtection) {
+            @$query['DDoSBurstableOverseasProtection'] = $request->DDoSBurstableOverseasProtection;
+        }
+
+        if (null !== $request->siteInstanceId) {
+            @$query['SiteInstanceId'] = $request->siteInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PurchaseDDoSInstance',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PurchaseDDoSInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 新购DDoS实例.
+     *
+     * @param Request - PurchaseDDoSInstanceRequest
+     *
+     * @returns PurchaseDDoSInstanceResponse
+     *
+     * @param PurchaseDDoSInstanceRequest $request
+     *
+     * @return PurchaseDDoSInstanceResponse
+     */
+    public function purchaseDDoSInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->purchaseDDoSInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Calls the PurchaseRatePlan operation to purchase a plan.
      *
      * @remarks
-     * 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
-     * 2. If the acceleration region is not set to overseas, the site must have a valid China Internet Content Provider (ICP) filing.
+     * 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+     * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
      *
      * @param Request - PurchaseRatePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24915,6 +25437,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->coverage) {
             @$query['Coverage'] = $request->coverage;
+        }
+
+        if (null !== $request->overagePolicy) {
+            @$query['OveragePolicy'] = $request->overagePolicy;
         }
 
         if (null !== $request->period) {
@@ -24956,11 +25482,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Purchases a plan by calling PurchaseRatePlan.
+     * Calls the PurchaseRatePlan operation to purchase a plan.
      *
      * @remarks
-     * 1. Obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
-     * 2. If the acceleration region is not set to overseas, the site must have a valid China Internet Content Provider (ICP) filing.
+     * 1. You can obtain the plan name and plan code by calling the DescribeRatePlanPrice operation.
+     * 2. If the acceleration region is not set to overseas, the site must have a valid Internet Content Provider (ICP) filing.
      *
      * @param Request - PurchaseRatePlanRequest
      *
@@ -25368,6 +25894,63 @@ class ESA extends OpenApiClient
         }
 
         return $this->putKvWithHighCapacityWithOptions($putKvWithHighCapacityReq, $runtime);
+    }
+
+    /**
+     * Retries a task replication.
+     *
+     * @param Request - ReDoRoutineBuildRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReDoRoutineBuildResponse
+     *
+     * @param ReDoRoutineBuildRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ReDoRoutineBuildResponse
+     */
+    public function reDoRoutineBuildWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->routineBuildId) {
+            @$query['RoutineBuildId'] = $request->routineBuildId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReDoRoutineBuild',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReDoRoutineBuildResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retries a task replication.
+     *
+     * @param Request - ReDoRoutineBuildRequest
+     *
+     * @returns ReDoRoutineBuildResponse
+     *
+     * @param ReDoRoutineBuildRequest $request
+     *
+     * @return ReDoRoutineBuildResponse
+     */
+    public function reDoRoutineBuild($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reDoRoutineBuildWithOptions($request, $runtime);
     }
 
     /**
@@ -26637,6 +27220,63 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startScheduledPreloadExecutionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Stops a task.
+     *
+     * @param Request - StopRoutineBuildRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopRoutineBuildResponse
+     *
+     * @param StopRoutineBuildRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StopRoutineBuildResponse
+     */
+    public function stopRoutineBuildWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->routineBuildId) {
+            @$query['RoutineBuildId'] = $request->routineBuildId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopRoutineBuild',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopRoutineBuildResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops a task.
+     *
+     * @param Request - StopRoutineBuildRequest
+     *
+     * @returns StopRoutineBuildResponse
+     *
+     * @param StopRoutineBuildRequest $request
+     *
+     * @return StopRoutineBuildResponse
+     */
+    public function stopRoutineBuild($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopRoutineBuildWithOptions($request, $runtime);
     }
 
     /**
@@ -30229,7 +30869,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the build configuration of an EdgeRoutine (ER).
+     * Modifies the ER build configuration.
      *
      * @param tmpReq - UpdateRoutineBuildConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30269,6 +30909,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->gitAccountId) {
             @$query['GitAccountId'] = $request->gitAccountId;
+        }
+
+        if (null !== $request->gitPlatform) {
+            @$query['GitPlatform'] = $request->gitPlatform;
         }
 
         if (null !== $request->installCommand) {
@@ -30322,7 +30966,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Modifies the build configuration of an EdgeRoutine (ER).
+     * Modifies the ER build configuration.
      *
      * @param Request - UpdateRoutineBuildConfigurationRequest
      *
@@ -30972,6 +31616,71 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSiteDeliveryTaskStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * Changes the plan instance associated with a site.
+     *
+     * @param Request - UpdateSiteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSiteInstanceResponse
+     *
+     * @param UpdateSiteInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateSiteInstanceResponse
+     */
+    public function updateSiteInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->newInstanceId) {
+            @$query['NewInstanceId'] = $request->newInstanceId;
+        }
+
+        if (null !== $request->resourceOwner) {
+            @$query['ResourceOwner'] = $request->resourceOwner;
+        }
+
+        if (null !== $request->siteId) {
+            @$query['SiteId'] = $request->siteId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSiteInstance',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSiteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Changes the plan instance associated with a site.
+     *
+     * @param Request - UpdateSiteInstanceRequest
+     *
+     * @returns UpdateSiteInstanceResponse
+     *
+     * @param UpdateSiteInstanceRequest $request
+     *
+     * @return UpdateSiteInstanceResponse
+     */
+    public function updateSiteInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSiteInstanceWithOptions($request, $runtime);
     }
 
     /**

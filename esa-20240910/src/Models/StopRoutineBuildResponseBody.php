@@ -2,24 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings;
+namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class securityLevel extends Model
+class StopRoutineBuildResponseBody extends Model
 {
-    /**
-     * @var int
-     */
-    public $id;
-
     /**
      * @var string
      */
-    public $value;
+    public $requestId;
     protected $_name = [
-        'id' => 'Id',
-        'value' => 'Value',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class securityLevel extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class securityLevel extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
