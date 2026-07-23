@@ -146,6 +146,11 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
     /**
      * @var string
      */
+    public $maxcomputeSchema;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -265,6 +270,7 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
         'itemTable' => 'ItemTable',
         'itemTablePartitionField' => 'ItemTablePartitionField',
         'itemTablePartitionFieldFormat' => 'ItemTablePartitionFieldFormat',
+        'maxcomputeSchema' => 'MaxcomputeSchema',
         'name' => 'Name',
         'ossResourceId' => 'OssResourceId',
         'predictWorkerCount' => 'PredictWorkerCount',
@@ -400,6 +406,10 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
 
         if (null !== $this->itemTablePartitionFieldFormat) {
             $res['ItemTablePartitionFieldFormat'] = $this->itemTablePartitionFieldFormat;
+        }
+
+        if (null !== $this->maxcomputeSchema) {
+            $res['MaxcomputeSchema'] = $this->maxcomputeSchema;
         }
 
         if (null !== $this->name) {
@@ -595,6 +605,10 @@ class CreateFeatureConsistencyCheckJobConfigRequest extends Model
 
         if (isset($map['ItemTablePartitionFieldFormat'])) {
             $model->itemTablePartitionFieldFormat = $map['ItemTablePartitionFieldFormat'];
+        }
+
+        if (isset($map['MaxcomputeSchema'])) {
+            $model->maxcomputeSchema = $map['MaxcomputeSchema'];
         }
 
         if (isset($map['Name'])) {

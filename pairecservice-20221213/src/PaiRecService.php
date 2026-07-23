@@ -317,6 +317,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReportABMetricGroupRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReportABMetricGroupResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReportSampleConsistencyJobRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ReportSampleConsistencyJobResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ShoppingAssistantRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\ShoppingAssistantResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\SplitTrafficControlTargetRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\SplitTrafficControlTargetResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StartTrafficControlTargetRequest;
@@ -325,6 +327,8 @@ use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StartTrafficControlTaskReque
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StartTrafficControlTaskResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopSampleConsistencyJobRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopSampleConsistencyJobResponse;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopTrafficControlFlinkTaskRequest;
+use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopTrafficControlFlinkTaskResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopTrafficControlTargetRequest;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopTrafficControlTargetResponse;
 use AlibabaCloud\SDK\PaiRecService\V20221213\Models\StopTrafficControlTaskRequest;
@@ -391,7 +395,19 @@ class PaiRecService extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'us-west-1' => 'pairecservice.us-west-1.aliyuncs.com',
+            'us-east-1' => 'pairecservice.us-east-1.aliyuncs.com',
+            'eu-central-1' => 'pairecservice.eu-central-1.aliyuncs.com',
+            'cn-shenzhen' => 'pairecservice.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'pairecservice.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'pairecservice.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'pairecservice.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'pairecservice.cn-beijing.aliyuncs.com',
+            'ap-southeast-5' => 'pairecservice.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-1' => 'pairecservice.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('pairecservice', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -421,7 +437,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 应用/发布指定的推荐引擎配置.
+     * Applies an engine configuration.
      *
      * @param request - ApplyEngineConfigRequest
      * @param headers - map
@@ -464,7 +480,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 应用/发布指定的推荐引擎配置.
+     * Applies an engine configuration.
      *
      * @param request - ApplyEngineConfigRequest
      *
@@ -484,7 +500,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 特征一致性检查数据回流。
+     * Performs data backflow for the latest job of a specified feature consistency check job configuration.
      *
      * @param request - BackflowFeatureConsistencyCheckJobDataRequest
      * @param headers - map
@@ -566,7 +582,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 特征一致性检查数据回流。
+     * Performs data backflow for the latest job of a specified feature consistency check job configuration.
      *
      * @param request - BackflowFeatureConsistencyCheckJobDataRequest
      *
@@ -585,7 +601,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更改召回管理服务的版本.
+     * This API changes the version of a recall management service.
+     *
+     * @remarks
+     * ## Request
+     * Use this API to change the version of a recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid, and that you have the required permissions for these resources.
+     * - **RecallManagementServiceId**: The unique identifier of the recall management service.
+     * - **InstanceId**: The instance ID associated with the recall management service.
+     * - **RecallManagementServiceVersionId**: The target version ID to switch to.
+     * Note: Before changing the version, confirm that the new version is fully tested and ready for production.
      *
      * @param request - ChangeRecallManagementServiceVersionRequest
      * @param headers - map
@@ -632,7 +656,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更改召回管理服务的版本.
+     * This API changes the version of a recall management service.
+     *
+     * @remarks
+     * ## Request
+     * Use this API to change the version of a recall management service. Ensure that the provided `RecallManagementServiceId`, `InstanceId`, and target `RecallManagementServiceVersionId` are valid, and that you have the required permissions for these resources.
+     * - **RecallManagementServiceId**: The unique identifier of the recall management service.
+     * - **InstanceId**: The instance ID associated with the recall management service.
+     * - **RecallManagementServiceVersionId**: The target version ID to switch to.
+     * Note: Before changing the version, confirm that the new version is fully tested and ready for production.
      *
      * @param request - ChangeRecallManagementServiceVersionRequest
      *
@@ -652,7 +684,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 向智能体发送对话消息.
+     * Sends a conversation message to an agent. Supports Server-Sent Events (SSE). Creates a new session or continues a conversation in an existing session.
+     *
+     * @remarks
+     * ## Operation description
+     * - Call this API operation to send a conversation message to an agent. Server-Sent Events (SSE) is supported.
+     * - If the `ConversationId` parameter is specified, the conversation continues in the context of the specified existing session. If this parameter is not specified, automatic creation of a new session is performed.
+     * - The `Config` field allows you to pass additional information input. The value must be in JSON format.
+     * - If the request succeeds, the response includes the message ID, reply content, and other information for this conversation. If a fault occurs, the corresponding error code and error message are returned.
      *
      * @param request - ChatConversationRequest
      * @param headers - map
@@ -719,7 +758,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 向智能体发送对话消息.
+     * Sends a conversation message to an agent. Supports Server-Sent Events (SSE). Creates a new session or continues a conversation in an existing session.
+     *
+     * @remarks
+     * ## Operation description
+     * - Call this API operation to send a conversation message to an agent. Server-Sent Events (SSE) is supported.
+     * - If the `ConversationId` parameter is specified, the conversation continues in the context of the specified existing session. If this parameter is not specified, automatic creation of a new session is performed.
+     * - The `Config` field allows you to pass additional information input. The value must be in JSON format.
+     * - If the request succeeds, the response includes the message ID, reply content, and other information for this conversation. If a fault occurs, the corresponding error code and error message are returned.
      *
      * @param request - ChatConversationRequest
      * @param headers - map
@@ -773,7 +819,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 向智能体发送对话消息.
+     * Sends a conversation message to an agent. Supports Server-Sent Events (SSE). Creates a new session or continues a conversation in an existing session.
+     *
+     * @remarks
+     * ## Operation description
+     * - Call this API operation to send a conversation message to an agent. Server-Sent Events (SSE) is supported.
+     * - If the `ConversationId` parameter is specified, the conversation continues in the context of the specified existing session. If this parameter is not specified, automatic creation of a new session is performed.
+     * - The `Config` field allows you to pass additional information input. The value must be in JSON format.
+     * - If the request succeeds, the response includes the message ID, reply content, and other information for this conversation. If a fault occurs, the corresponding error code and error message are returned.
      *
      * @param request - ChatConversationRequest
      *
@@ -792,7 +845,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 检测实例下配置的资源的连接状态。
+     * Verifies access to resources configured for an instance.
      *
      * @param request - CheckInstanceResourcesRequest
      * @param headers - map
@@ -843,7 +896,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 检测实例下配置的资源的连接状态。
+     * Verifies access to resources configured for an instance.
      *
      * @param request - CheckInstanceResourcesRequest
      *
@@ -863,7 +916,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 校验流量调控任务中的表达式.
+     * Validates a traffic control task expression.
+     *
+     * @remarks
+     * ## Description
+     * This operation validates a traffic control task expression for a specific instance and table. Provide the correct `InstanceId`, `TableMetaId`, and `Expression` parameters.
      *
      * @param request - CheckTrafficControlTaskExpressionRequest
      * @param headers - map
@@ -913,7 +970,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 校验流量调控任务中的表达式.
+     * Validates a traffic control task expression.
+     *
+     * @remarks
+     * ## Description
+     * This operation validates a traffic control task expression for a specific instance and table. Provide the correct `InstanceId`, `TableMetaId`, and `Expression` parameters.
      *
      * @param request - CheckTrafficControlTaskExpressionRequest
      *
@@ -932,7 +993,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆指定的推荐引擎配置.
+     * Clones an engine configuration.
      *
      * @param request - CloneEngineConfigRequest
      * @param headers - map
@@ -987,7 +1048,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆指定的推荐引擎配置.
+     * Clones an engine configuration.
      *
      * @param request - CloneEngineConfigRequest
      *
@@ -1007,7 +1068,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆实验。
+     * Clones a specified experiment.
      *
      * @param request - CloneExperimentRequest
      * @param headers - map
@@ -1050,7 +1111,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆实验。
+     * Clones a specified experiment.
      *
      * @param request - CloneExperimentRequest
      *
@@ -1070,7 +1131,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
+     * Clones an experiment group to a specified environment.
      *
      * @param request - CloneExperimentGroupRequest
      * @param headers - map
@@ -1121,7 +1182,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆实验组，并克隆实验组下的所有实验至新的实验组中。
+     * Clones an experiment group to a specified environment.
      *
      * @param request - CloneExperimentGroupRequest
      *
@@ -1141,7 +1202,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆特征一致性检查配置。
+     * Clones a feature consistency check job configuration.
      *
      * @param request - CloneFeatureConsistencyCheckJobConfigRequest
      * @param headers - map
@@ -1184,7 +1245,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆特征一致性检查配置。
+     * Clones a feature consistency check job configuration.
      *
      * @param request - CloneFeatureConsistencyCheckJobConfigRequest
      *
@@ -1204,7 +1265,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆实验室。
+     * Clones a specified laboratory to a designated environment. You can specify whether to clone the experiment groups within the laboratory.
      *
      * @param request - CloneLaboratoryRequest
      * @param headers - map
@@ -1255,7 +1316,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆实验室。
+     * Clones a specified laboratory to a designated environment. You can specify whether to clone the experiment groups within the laboratory.
      *
      * @param request - CloneLaboratoryRequest
      *
@@ -1275,7 +1336,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆流量调控任务
+     * Clones a specified traffic control task to a new instance.
+     *
+     * @remarks
+     * ## Request description
+     * This API clones an existing traffic control task to another specified instance. Ensure that the `InstanceId` you provide is valid and that you have the required permissions for the target instance.
+     * Note: The cloning process does not affect the status or configuration of the original task.
      *
      * @param request - CloneTrafficControlTaskRequest
      * @param headers - map
@@ -1318,7 +1384,12 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 克隆流量调控任务
+     * Clones a specified traffic control task to a new instance.
+     *
+     * @remarks
+     * ## Request description
+     * This API clones an existing traffic control task to another specified instance. Ensure that the `InstanceId` you provide is valid and that you have the required permissions for the target instance.
+     * Note: The cloning process does not affect the status or configuration of the original task.
      *
      * @param request - CloneTrafficControlTaskRequest
      *
@@ -1401,7 +1472,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建AB test实验指标.
+     * Creates an AB metric.
      *
      * @param request - CreateABMetricRequest
      * @param headers - map
@@ -1511,7 +1582,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建AB test实验指标.
+     * Creates an AB metric.
      *
      * @param request - CreateABMetricRequest
      *
@@ -1530,7 +1601,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建指标组.
+     * Creates an A/B metric group.
      *
      * @param request - CreateABMetricGroupRequest
      * @param headers - map
@@ -1592,7 +1663,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建指标组.
+     * Creates an A/B metric group.
      *
      * @param request - CreateABMetricGroupRequest
      *
@@ -1611,7 +1682,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建AB指标的计算任务。
+     * Creates multiple calculation jobs.
      *
      * @param request - CreateCalculationJobsRequest
      * @param headers - map
@@ -1665,7 +1736,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建AB指标的计算任务。
+     * Creates multiple calculation jobs.
      *
      * @param request - CreateCalculationJobsRequest
      *
@@ -1684,7 +1755,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建人群。
+     * Creates a crowd that represents a group of users.
      *
      * @param request - CreateCrowdRequest
      * @param headers - map
@@ -1746,7 +1817,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建人群。
+     * Creates a crowd that represents a group of users.
      *
      * @param request - CreateCrowdRequest
      *
@@ -1765,7 +1836,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建数据诊断。
+     * Creates a data diagnosis task. This API supports various analysis types.
+     *
+     * @remarks
+     * ## Description
+     * - This API creates a data diagnosis task. It supports various analysis types, including item or user change rate analysis, user preference statistics cycle analysis, two-table join analysis, basic statistical analysis, and abnormal behavior analysis.
+     * - The content of the `Config` parameter depends on the value of the `Type` parameter. For more information, see the example configurations in this topic.
+     * - To run the task on a schedule, specify the `CycleTime` parameter. If this parameter is omitted, the task runs only once.
+     * - The optional `TopNQuantity` parameter specifies the number of top results to return.
      *
      * @param request - CreateDataDiagnosisRequest
      * @param headers - map
@@ -1851,7 +1929,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建数据诊断。
+     * Creates a data diagnosis task. This API supports various analysis types.
+     *
+     * @remarks
+     * ## Description
+     * - This API creates a data diagnosis task. It supports various analysis types, including item or user change rate analysis, user preference statistics cycle analysis, two-table join analysis, basic statistical analysis, and abnormal behavior analysis.
+     * - The content of the `Config` parameter depends on the value of the `Type` parameter. For more information, see the example configurations in this topic.
+     * - To run the task on a schedule, specify the `CycleTime` parameter. If this parameter is omitted, the task runs only once.
+     * - The optional `TopNQuantity` parameter specifies the number of top results to return.
      *
      * @param request - CreateDataDiagnosisRequest
      *
@@ -1870,7 +1955,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建数据诊断（重跑）任务。
+     * Creates a data diagnosis (rerun) job for a specified time period.
+     *
+     * @remarks
+     * ## Description
+     * This operation creates a data diagnosis (rerun) job for a specific instance within a specified time frame. To ensure the job runs correctly, provide accurate values for the `DataDiagnosisId`, `InstanceId`, `StartDate`, and `EndDate` parameters.
      *
      * @param request - CreateDataDiagnosisJobsRequest
      * @param headers - map
@@ -1924,7 +2013,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建数据诊断（重跑）任务。
+     * Creates a data diagnosis (rerun) job for a specified time period.
+     *
+     * @remarks
+     * ## Description
+     * This operation creates a data diagnosis (rerun) job for a specific instance within a specified time frame. To ensure the job runs correctly, provide accurate values for the `DataDiagnosisId`, `InstanceId`, `StartDate`, and `EndDate` parameters.
      *
      * @param request - CreateDataDiagnosisJobsRequest
      *
@@ -1943,7 +2036,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建引擎配置.
+     * Creates an engine config.
      *
      * @param request - CreateEngineConfigRequest
      * @param headers - map
@@ -2001,7 +2094,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建引擎配置.
+     * Creates an engine config.
      *
      * @param request - CreateEngineConfigRequest
      *
@@ -2020,7 +2113,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建实验。
+     * Creates an experiment in a specified experiment group.
      *
      * @param request - CreateExperimentRequest
      * @param headers - map
@@ -2094,7 +2187,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建实验。
+     * Creates an experiment in a specified experiment group.
      *
      * @param request - CreateExperimentRequest
      *
@@ -2113,7 +2206,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建实验组。
+     * Creates an experiment group in a specified layer. You can use experiment groups to categorize experiments and observe their overall performance.
      *
      * @param request - CreateExperimentGroupRequest
      * @param headers - map
@@ -2211,7 +2304,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建实验组。
+     * Creates an experiment group in a specified layer. You can use experiment groups to categorize experiments and observe their overall performance.
      *
      * @param request - CreateExperimentGroupRequest
      *
@@ -2230,7 +2323,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建特征一致性检查任务。
+     * Creates a feature consistency check job.
      *
      * @param request - CreateFeatureConsistencyCheckJobRequest
      * @param headers - map
@@ -2284,7 +2377,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建特征一致性检查任务。
+     * Creates a feature consistency check job.
      *
      * @param request - CreateFeatureConsistencyCheckJobRequest
      *
@@ -2303,7 +2396,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建特征一致性检查配置。
+     * Configure a feature consistency check task.
      *
      * @param request - CreateFeatureConsistencyCheckJobConfigRequest
      * @param headers - map
@@ -2429,6 +2522,10 @@ class PaiRecService extends OpenApiClient
             @$body['ItemTablePartitionFieldFormat'] = $request->itemTablePartitionFieldFormat;
         }
 
+        if (null !== $request->maxcomputeSchema) {
+            @$body['MaxcomputeSchema'] = $request->maxcomputeSchema;
+        }
+
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
         }
@@ -2525,7 +2622,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建特征一致性检查配置。
+     * Configure a feature consistency check task.
      *
      * @param request - CreateFeatureConsistencyCheckJobConfigRequest
      *
@@ -2544,7 +2641,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 为指定实例配置创建新的配置资源.
+     * Creates a configuration resource for a specified instance.
      *
      * @param request - CreateInstanceResourceRequest
      * @param headers - map
@@ -2599,7 +2696,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 为指定实例配置创建新的配置资源.
+     * Creates a configuration resource for a specified instance.
      *
      * @param request - CreateInstanceResourceRequest
      *
@@ -2619,7 +2716,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建实验室.
+     * Creates a laboratory. A laboratory isolates a segment of traffic for running experiments.
      *
      * @param request - CreateLaboratoryRequest
      * @param headers - map
@@ -2705,7 +2802,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建实验室.
+     * Creates a laboratory. A laboratory isolates a segment of traffic for running experiments.
      *
      * @param request - CreateLaboratoryRequest
      *
@@ -2724,7 +2821,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建层。
+     * Creates a layer in a specified laboratory for layered experiments. Layers are orthogonal to each other, allowing experiments to run independently and preventing traffic starvation.
      *
      * @param request - CreateLayerRequest
      * @param headers - map
@@ -2778,7 +2875,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建层。
+     * Creates a layer in a specified laboratory for layered experiments. Layers are orthogonal to each other, allowing experiments to run independently and preventing traffic starvation.
      *
      * @param request - CreateLayerRequest
      *
@@ -2797,7 +2894,10 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建参数。
+     * Creates an ABTest parameter for a specific scene in a specified environment.
+     *
+     * @remarks
+     * ## Operation description.
      *
      * @param request - CreateParamRequest
      * @param headers - map
@@ -2859,7 +2959,10 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建参数。
+     * Creates an ABTest parameter for a specific scene in a specified environment.
+     *
+     * @remarks
+     * ## Operation description.
      *
      * @param request - CreateParamRequest
      *
@@ -2878,7 +2981,10 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理初始化配置。
+     * Initializes a Recall Management configuration, including the instance ID, user information, and network configurations.
+     *
+     * @remarks
+     * ## Request
      *
      * @param request - CreateRecallManagementConfigRequest
      * @param headers - map
@@ -2932,7 +3038,10 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理初始化配置。
+     * Initializes a Recall Management configuration, including the instance ID, user information, and network configurations.
+     *
+     * @remarks
+     * ## Request
      *
      * @param request - CreateRecallManagementConfigRequest
      *
@@ -2951,7 +3060,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理服务
+     * Creates a new recall management service.
+     *
+     * @remarks
+     * ## Description
+     * To create a recall management service, call this API with a specified instance ID, service name, and service description. Ensure that the `InstanceId` parameter is valid.
      *
      * @param request - CreateRecallManagementServiceRequest
      * @param headers - map
@@ -3001,7 +3114,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理服务
+     * Creates a new recall management service.
+     *
+     * @remarks
+     * ## Description
+     * To create a recall management service, call this API with a specified instance ID, service name, and service description. Ensure that the `InstanceId` parameter is valid.
      *
      * @param request - CreateRecallManagementServiceRequest
      *
@@ -3020,7 +3137,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理版本.
+     * Creates a new recall management service version that supports configuring multiple recall strategies.
+     *
+     * @remarks
+     * ## Request
+     * - Use this API to create a new version of a recall management service.
+     * - To create a new version from an existing one, specify the source recall management service version ID.
+     * - You can configure detailed recall rules, such as the recall name, description, priority, and recall type.
+     * - Configure operators such as filter, trigger, feature extraction, and join.
+     * - The merge configuration specifies how to merge multiple recall results and supports two merge methods: weight-based and alternating.
+     * - All configuration items are optional.
      *
      * @param request - CreateRecallManagementServiceVersionRequest
      * @param headers - map
@@ -3071,7 +3197,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理版本.
+     * Creates a new recall management service version that supports configuring multiple recall strategies.
+     *
+     * @remarks
+     * ## Request
+     * - Use this API to create a new version of a recall management service.
+     * - To create a new version from an existing one, specify the source recall management service version ID.
+     * - You can configure detailed recall rules, such as the recall name, description, priority, and recall type.
+     * - Configure operators such as filter, trigger, feature extraction, and join.
+     * - The merge configuration specifies how to merge multiple recall results and supports two merge methods: weight-based and alternating.
+     * - All configuration items are optional.
      *
      * @param request - CreateRecallManagementServiceVersionRequest
      *
@@ -3091,7 +3226,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理服务版本配置.
+     * Creates a configuration for a specified version of the Recall Manager service, including its recall and merge settings.
+     *
+     * @remarks
+     * ## Request
+     * - This API creates a configuration for a specific version of the Recall Management Service.
+     * - The `ConfigType` parameter specifies the configuration type, which can be either recall or merge.
+     * - Use the `RecallConfig` and `MergeConfig` parameters to provide the recall and merge configurations, respectively.
+     * - Required parameters must be provided in the specified data formats.
+     * - Optional parameter values must be consistent with your business logic.
      *
      * @param request - CreateRecallManagementServiceVersionConfigRequest
      * @param headers - map
@@ -3147,7 +3290,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理服务版本配置.
+     * Creates a configuration for a specified version of the Recall Manager service, including its recall and merge settings.
+     *
+     * @remarks
+     * ## Request
+     * - This API creates a configuration for a specific version of the Recall Management Service.
+     * - The `ConfigType` parameter specifies the configuration type, which can be either recall or merge.
+     * - Use the `RecallConfig` and `MergeConfig` parameters to provide the recall and merge configurations, respectively.
+     * - Required parameters must be provided in the specified data formats.
+     * - Optional parameter values must be consistent with your business logic.
      *
      * @param request - CreateRecallManagementServiceVersionConfigRequest
      *
@@ -3168,7 +3319,17 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理表。
+     * Creates a recall management table that supports multiple data sources and configuration options.
+     *
+     * @remarks
+     * ## Request
+     * - The **InstanceId**, **Name**, **Description**, **Type**, and **DataSource** parameters are required.
+     * - The **RecallType** parameter is optional. If provided, it must be a valid enum value.
+     * - For each field in the **Fields** parameter, you must define its name, type, and attributes. You must mark at least one field as Primary.
+     * - If you use MaxCompute as the data source, you must specify the **MaxcomputeProjectName** and **MaxcomputeTableName** parameters. The **MaxcomputeSchema** parameter is optional.
+     * - For vector fields, the values of the **VectorDimension** and **VectorMetricType** parameters must match the actual data.
+     * - Use the **Config** field to provide additional configuration as a JSON string.
+     * - Use fluctuation threshold parameters, such as **EnableRowCountFluctuationThreshold**, to monitor changes in row count or table size. Enable these parameters and set appropriate thresholds as needed.
      *
      * @param request - CreateRecallManagementTableRequest
      * @param headers - map
@@ -3274,7 +3435,17 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建召回管理表。
+     * Creates a recall management table that supports multiple data sources and configuration options.
+     *
+     * @remarks
+     * ## Request
+     * - The **InstanceId**, **Name**, **Description**, **Type**, and **DataSource** parameters are required.
+     * - The **RecallType** parameter is optional. If provided, it must be a valid enum value.
+     * - For each field in the **Fields** parameter, you must define its name, type, and attributes. You must mark at least one field as Primary.
+     * - If you use MaxCompute as the data source, you must specify the **MaxcomputeProjectName** and **MaxcomputeTableName** parameters. The **MaxcomputeSchema** parameter is optional.
+     * - For vector fields, the values of the **VectorDimension** and **VectorMetricType** parameters must match the actual data.
+     * - Use the **Config** field to provide additional configuration as a JSON string.
+     * - Use fluctuation threshold parameters, such as **EnableRowCountFluctuationThreshold**, to monitor changes in row count or table size. Enable these parameters and set appropriate thresholds as needed.
      *
      * @param request - CreateRecallManagementTableRequest
      *
@@ -3574,7 +3745,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建场景.
+     * Creates a scene for metric and experiment analysis.
      *
      * @param request - CreateSceneRequest
      * @param headers - map
@@ -3628,7 +3799,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建场景.
+     * Creates a scene for metric and experiment analysis.
      *
      * @param request - CreateSceneRequest
      *
@@ -3647,7 +3818,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 在指定人群下创建子人群。
+     * Creates a sub-crowd for a specified crowd.
      *
      * @param request - CreateSubCrowdRequest
      * @param headers - map
@@ -3698,7 +3869,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 在指定人群下创建子人群。
+     * Creates a sub-crowd for a specified crowd.
      *
      * @param request - CreateSubCrowdRequest
      *
@@ -3718,7 +3889,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建数据表。
+     * Creates a data table.
      *
      * @param request - CreateTableMetaRequest
      * @param headers - map
@@ -3784,7 +3955,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建数据表。
+     * Creates a data table.
      *
      * @param request - CreateTableMetaRequest
      *
@@ -3803,7 +3974,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建流量调控目标.
+     * Creates a new traffic control target and sets its parameters, such as the item condition, event, and value.
+     *
+     * @remarks
+     * ## Usage notes
+     * - The `ItemConditionType` parameter supports two formats: array format (Array) and expression format (Expression). Based on the format you select, you must provide either `ItemConditionArray` or `ItemConditionExpress`.
+     * - The `StatisPeriod` parameter defaults to daily. For hourly statistics, you must set this parameter explicitly.
+     * - The `ToleranceValue` and `NewProductRegulation` parameters are optional.
+     * - The `Status` parameter controls whether a new traffic control target takes effect immediately. By default, new targets are inactive.
      *
      * @param request - CreateTrafficControlTargetRequest
      * @param headers - map
@@ -3897,7 +4075,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建流量调控目标.
+     * Creates a new traffic control target and sets its parameters, such as the item condition, event, and value.
+     *
+     * @remarks
+     * ## Usage notes
+     * - The `ItemConditionType` parameter supports two formats: array format (Array) and expression format (Expression). Based on the format you select, you must provide either `ItemConditionArray` or `ItemConditionExpress`.
+     * - The `StatisPeriod` parameter defaults to daily. For hourly statistics, you must set this parameter explicitly.
+     * - The `ToleranceValue` and `NewProductRegulation` parameters are optional.
+     * - The `Status` parameter controls whether a new traffic control target takes effect immediately. By default, new targets are inactive.
      *
      * @param request - CreateTrafficControlTargetRequest
      *
@@ -3916,7 +4101,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建流量调控任务
+     * Creates a new traffic control task with multiple conditions and target configurations.
+     *
+     * @remarks
+     * ## Request
+     * - Use this API to create a new traffic control task. You can define a traffic control policy for different scenarios, time ranges, and conditions for users or items.
+     * - The `ExecutionTime` parameter specifies the execution time mode for the task. If you select the `TimeRange` mode, you must provide both the `StartTime` and `EndTime` parameters.
+     * - The `TrafficControlTargets` parameter is required. For each traffic control target, you must specify its name, time range, event type, and expected value.
+     * - You can use the `UserConditionType` and `ItemConditionType` parameters to define conditions for the target user group and items.
+     * - Set the `ControlLogic` parameter to `Guaranteed` for guaranteed control or to `Approach` for approach control.
+     * - To configure new product regulation, use the `NewProductRegulation` field.
      *
      * @param request - CreateTrafficControlTaskRequest
      * @param headers - map
@@ -4070,7 +4264,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 创建流量调控任务
+     * Creates a new traffic control task with multiple conditions and target configurations.
+     *
+     * @remarks
+     * ## Request
+     * - Use this API to create a new traffic control task. You can define a traffic control policy for different scenarios, time ranges, and conditions for users or items.
+     * - The `ExecutionTime` parameter specifies the execution time mode for the task. If you select the `TimeRange` mode, you must provide both the `StartTime` and `EndTime` parameters.
+     * - The `TrafficControlTargets` parameter is required. For each traffic control target, you must specify its name, time range, event type, and expected value.
+     * - You can use the `UserConditionType` and `ItemConditionType` parameters to define conditions for the target user group and items.
+     * - Set the `ControlLogic` parameter to `Guaranteed` for guaranteed control or to `Approach` for approach control.
+     * - To configure new product regulation, use the `NewProductRegulation` field.
      *
      * @param request - CreateTrafficControlTaskRequest
      *
@@ -4166,7 +4369,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定AB实验指标。
+     * Deletes the specified A/B test metric.
      *
      * @param request - DeleteABMetricRequest
      * @param headers - map
@@ -4209,7 +4412,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定AB实验指标。
+     * Deletes the specified A/B test metric.
      *
      * @param request - DeleteABMetricRequest
      *
@@ -4229,7 +4432,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除AB实验指标组。
+     * Deletes an A/B test metric group.
      *
      * @param request - DeleteABMetricGroupRequest
      * @param headers - map
@@ -4272,7 +4475,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除AB实验指标组。
+     * Deletes an A/B test metric group.
      *
      * @param request - DeleteABMetricGroupRequest
      *
@@ -4292,7 +4495,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定人群。
+     * Delete the specified audience.
      *
      * @param request - DeleteCrowdRequest
      * @param headers - map
@@ -4335,7 +4538,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定人群。
+     * Delete the specified audience.
      *
      * @param request - DeleteCrowdRequest
      *
@@ -4355,7 +4558,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定数据诊断。
+     * Deletes a data diagnosis configuration using the specified DataDiagnosisId and InstanceId.
+     *
+     * @remarks
+     * ## Description
+     * Ensure you provide the correct `DataDiagnosisId` and `InstanceId` to avoid accidental deletion.
      *
      * @param request - DeleteDataDiagnosisRequest
      * @param headers - map
@@ -4398,7 +4605,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定数据诊断。
+     * Deletes a data diagnosis configuration using the specified DataDiagnosisId and InstanceId.
+     *
+     * @remarks
+     * ## Description
+     * Ensure you provide the correct `DataDiagnosisId` and `InstanceId` to avoid accidental deletion.
      *
      * @param request - DeleteDataDiagnosisRequest
      *
@@ -4418,7 +4629,10 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定推荐引擎配置。
+     * Deletes a specified engine configuration.
+     *
+     * @remarks
+     * Deletes a specified engine configuration.
      *
      * @param request - DeleteEngineConfigRequest
      * @param headers - map
@@ -4465,7 +4679,10 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定推荐引擎配置。
+     * Deletes a specified engine configuration.
+     *
+     * @remarks
+     * Deletes a specified engine configuration.
      *
      * @param request - DeleteEngineConfigRequest
      *
@@ -4485,7 +4702,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除实验。
+     * Delete the specified experiment.
      *
      * @param request - DeleteExperimentRequest
      * @param headers - map
@@ -4528,7 +4745,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除实验。
+     * Delete the specified experiment.
      *
      * @param request - DeleteExperimentRequest
      *
@@ -4548,7 +4765,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定实验组。
+     * Delete the specified experiment group.
      *
      * @param request - DeleteExperimentGroupRequest
      * @param headers - map
@@ -4591,7 +4808,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定实验组。
+     * Delete the specified experiment group.
      *
      * @param request - DeleteExperimentGroupRequest
      *
@@ -4611,7 +4828,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定实例下的指定配置资源。
+     * Deletes a configuration resource from an instance.
      *
      * @param request - DeleteInstanceResourceRequest
      * @param headers - map
@@ -4649,7 +4866,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定实例下的指定配置资源。
+     * Deletes a configuration resource from an instance.
      *
      * @param request - DeleteInstanceResourceRequest
      *
@@ -4670,7 +4887,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除实验室。
+     * Delete the specified Lab.
      *
      * @param request - DeleteLaboratoryRequest
      * @param headers - map
@@ -4713,7 +4930,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除实验室。
+     * Delete the specified Lab.
      *
      * @param request - DeleteLaboratoryRequest
      *
@@ -4733,7 +4950,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除层。
+     * Delete the specified layer.
      *
      * @param request - DeleteLayerRequest
      * @param headers - map
@@ -4776,7 +4993,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除层。
+     * Delete the specified layer.
      *
      * @param request - DeleteLayerRequest
      *
@@ -4796,7 +5013,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定参数。
+     * Delete the specified parameter.
      *
      * @param request - DeleteParamRequest
      * @param headers - map
@@ -4839,7 +5056,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定参数。
+     * Delete the specified parameter.
      *
      * @param request - DeleteParamRequest
      *
@@ -4859,7 +5076,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定召回管理服务
+     * Deletes a recall management service.
+     *
+     * @remarks
+     * ## Request description
+     * This operation deletes a recall management service based on the RecallManagementServiceId and InstanceId. Before you call this API, ensure you have the correct information for the service to be deleted.
      *
      * @param request - DeleteRecallManagementServiceRequest
      * @param headers - map
@@ -4902,7 +5123,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定召回管理服务
+     * Deletes a recall management service.
+     *
+     * @remarks
+     * ## Request description
+     * This operation deletes a recall management service based on the RecallManagementServiceId and InstanceId. Before you call this API, ensure you have the correct information for the service to be deleted.
      *
      * @param request - DeleteRecallManagementServiceRequest
      *
@@ -4922,7 +5147,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定召回管理服务版本.
+     * Deletes a specified version of a recall management service.
+     *
+     * @remarks
+     * ## Request
+     * This operation deletes a specific version of a recall management service. You must provide the recall management service ID, the recall management service version ID, and the instance ID. This operation is irreversible, so back up all critical data before proceeding.
      *
      * @param request - DeleteRecallManagementServiceVersionRequest
      * @param headers - map
@@ -4966,7 +5195,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定召回管理服务版本.
+     * Deletes a specified version of a recall management service.
+     *
+     * @remarks
+     * ## Request
+     * This operation deletes a specific version of a recall management service. You must provide the recall management service ID, the recall management service version ID, and the instance ID. This operation is irreversible, so back up all critical data before proceeding.
      *
      * @param request - DeleteRecallManagementServiceVersionRequest
      *
@@ -4987,7 +5220,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除召回管理服务版本配置.
+     * Deletes the specified recall management service version configuration.
+     *
+     * @remarks
+     * ## Usage notes
+     * - Specify the recall management service ID, recall management version ID, and recall management configuration ID.
+     * - `InstanceId` is a required query parameter.
+     * - The request fails if any of the specified IDs are invalid.
      *
      * @param request - DeleteRecallManagementServiceVersionConfigRequest
      * @param headers - map
@@ -5032,7 +5271,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除召回管理服务版本配置.
+     * Deletes the specified recall management service version configuration.
+     *
+     * @remarks
+     * ## Usage notes
+     * - Specify the recall management service ID, recall management version ID, and recall management configuration ID.
+     * - `InstanceId` is a required query parameter.
+     * - The request fails if any of the specified IDs are invalid.
      *
      * @param request - DeleteRecallManagementServiceVersionConfigRequest
      *
@@ -5054,7 +5299,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定召回管理表。
+     * This API deletes a recall management table using the specified recall management table ID and instance ID.
+     *
+     * @remarks
+     * ## Request
+     * - The required **path parameter** `RecallManagementTableId` specifies the ID of the recall management table to delete.
+     * - The required **query parameter** `InstanceId` specifies the ID of the instance.
+     * - A successful operation returns a `RequestId` in the response body for request tracking.
      *
      * @param request - DeleteRecallManagementTableRequest
      * @param headers - map
@@ -5097,7 +5348,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定召回管理表。
+     * This API deletes a recall management table using the specified recall management table ID and instance ID.
+     *
+     * @remarks
+     * ## Request
+     * - The required **path parameter** `RecallManagementTableId` specifies the ID of the recall management table to delete.
+     * - The required **query parameter** `InstanceId` specifies the ID of the instance.
+     * - A successful operation returns a `RequestId` in the response body for request tracking.
      *
      * @param request - DeleteRecallManagementTableRequest
      *
@@ -5308,7 +5565,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Delete the specified scenario.
      *
      * @param request - DeleteSceneRequest
      * @param headers - map
@@ -5351,7 +5608,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除场景.
+     * Delete the specified scenario.
      *
      * @param request - DeleteSceneRequest
      *
@@ -5371,7 +5628,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定人群下的指定子人群。
+     * Deletes the specified subcrowd.
      *
      * @param request - DeleteSubCrowdRequest
      * @param headers - map
@@ -5415,7 +5672,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定人群下的指定子人群。
+     * Deletes the specified subcrowd.
      *
      * @param request - DeleteSubCrowdRequest
      *
@@ -5436,7 +5693,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除数据表。
+     * Deletes a data table.
      *
      * @param request - DeleteTableMetaRequest
      * @param headers - map
@@ -5479,7 +5736,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除数据表。
+     * Deletes a data table.
      *
      * @param request - DeleteTableMetaRequest
      *
@@ -5499,7 +5756,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新流量调控目标.
+     * Deletes the specified traffic control target.
+     *
+     * @remarks
+     * ## Request
+     * - **TrafficControlTargetId** is a required path parameter that specifies the traffic control target to delete.
+     * - **InstanceId** is a required query parameter that specifies the instance ID for this operation.
+     * - A successful response includes a `RequestId` field to track the request.
      *
      * @param request - DeleteTrafficControlTargetRequest
      * @param headers - map
@@ -5542,7 +5805,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新流量调控目标.
+     * Deletes the specified traffic control target.
+     *
+     * @remarks
+     * ## Request
+     * - **TrafficControlTargetId** is a required path parameter that specifies the traffic control target to delete.
+     * - **InstanceId** is a required query parameter that specifies the instance ID for this operation.
+     * - A successful response includes a `RequestId` field to track the request.
      *
      * @param request - DeleteTrafficControlTargetRequest
      *
@@ -5562,7 +5831,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定的流量调控任务
+     * Deletes a specified traffic control task.
+     *
+     * @remarks
+     * ## Description
+     * - This API uses `TrafficControlTaskId` and `InstanceId` to delete a traffic control task.
+     * - Ensure the `TrafficControlTaskId` and `InstanceId` are correct, or the operation may fail.
+     * - This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteTrafficControlTaskRequest
      * @param headers - map
@@ -5605,7 +5880,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 删除指定的流量调控任务
+     * Deletes a specified traffic control task.
+     *
+     * @remarks
+     * ## Description
+     * - This API uses `TrafficControlTaskId` and `InstanceId` to delete a traffic control task.
+     * - Ensure the `TrafficControlTaskId` and `InstanceId` are correct, or the operation may fail.
+     * - This operation is irreversible. Proceed with caution.
      *
      * @param request - DeleteTrafficControlTaskRequest
      *
@@ -5625,7 +5906,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 部署流量调控任务的flink code.
+     * Deploys Flink code for a traffic control task in a specified environment.
+     *
+     * @remarks
+     * ## Overview
+     * - This API deploys Flink code for a specific traffic control task.
+     * - `TrafficControlTaskId` is a path parameter and requires a valid task ID.
+     * - `InstanceId` and `Environment` are required request body parameters that specify the instance ID and the target deployment environment.
+     * - The optional `RetryDeploy` parameter specifies whether to automatically retry the deployment on failure. The default value is `false`.
+     * - The value for `Environment` must be one of the following: Daily, Pre, or Prod.
      *
      * @param request - DeployTrafficControlTaskCodeRequest
      * @param headers - map
@@ -5676,7 +5965,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 部署流量调控任务的flink code.
+     * Deploys Flink code for a traffic control task in a specified environment.
+     *
+     * @remarks
+     * ## Overview
+     * - This API deploys Flink code for a specific traffic control task.
+     * - `TrafficControlTaskId` is a path parameter and requires a valid task ID.
+     * - `InstanceId` and `Environment` are required request body parameters that specify the instance ID and the target deployment environment.
+     * - The optional `RetryDeploy` parameter specifies whether to automatically retry the deployment on failure. The default value is `false`.
+     * - The value for `Environment` must be one of the following: Daily, Pre, or Prod.
      *
      * @param request - DeployTrafficControlTaskCodeRequest
      *
@@ -5696,7 +5993,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 召回管理表导出.
+     * Exports a specified table from the recall engine to a MaxCompute project.
+     *
+     * @remarks
+     * ## Description
+     * Use this API to export a specific table from the recall engine to Alibaba Cloud MaxCompute for further data processing or analysis. Ensure the provided MaxCompute project name, schema, and table name are valid and that you have the required permissions.
+     * ### Usage notes
+     * - The `Partitions` field must be a JSON object that specifies the table partitions to export.
+     * - The request may fail if any required parameters are missing or incorrect.
+     * - The export process is asynchronous and may take some time. You can use the returned job ID to track the status of the job.
      *
      * @param request - ExportRecallManagementTableRequest
      * @param headers - map
@@ -5759,7 +6064,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 召回管理表导出.
+     * Exports a specified table from the recall engine to a MaxCompute project.
+     *
+     * @remarks
+     * ## Description
+     * Use this API to export a specific table from the recall engine to Alibaba Cloud MaxCompute for further data processing or analysis. Ensure the provided MaxCompute project name, schema, and table name are valid and that you have the required permissions.
+     * ### Usage notes
+     * - The `Partitions` field must be a JSON object that specifies the table partitions to export.
+     * - The request may fail if any required parameters are missing or incorrect.
+     * - The export process is asynchronous and may take some time. You can use the returned job ID to track the status of the job.
      *
      * @param request - ExportRecallManagementTableRequest
      *
@@ -5779,7 +6092,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 生成算法定制脚本.
+     * Generates an algorithm customization script.
      *
      * @param request - GenerateAlgorithmCustomizationScriptRequest
      * @param headers - map
@@ -5830,7 +6143,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 生成算法定制脚本.
+     * Generates an algorithm customization script.
      *
      * @param request - GenerateAlgorithmCustomizationScriptRequest
      *
@@ -5850,7 +6163,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 产生流量调控的相关代码
+     * Generates Flink code for a specified traffic control task ID and instance information.
+     *
+     * @remarks
+     * ## Description
+     * - This API generates Flink code for a specified traffic control task ID, instance ID, and environment type.
+     * - The `Environment` parameter accepts three values: `Daily` for the daily environment, `Pre` for the pre-release environment, and `Prod` for the production environment.
+     * - Check the `PreNeedConfig` field in the response. A `true` value indicates that necessary configuration information might be missing in the pre-release environment. If this occurs, add or adjust the required settings.
      *
      * @param request - GenerateTrafficControlTaskCodeRequest
      * @param headers - map
@@ -5897,7 +6216,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 产生流量调控的相关代码
+     * Generates Flink code for a specified traffic control task ID and instance information.
+     *
+     * @remarks
+     * ## Description
+     * - This API generates Flink code for a specified traffic control task ID, instance ID, and environment type.
+     * - The `Environment` parameter accepts three values: `Daily` for the daily environment, `Pre` for the pre-release environment, and `Prod` for the production environment.
+     * - Check the `PreNeedConfig` field in the response. A `true` value indicates that necessary configuration information might be missing in the pre-release environment. If this occurs, add or adjust the required settings.
      *
      * @param request - GenerateTrafficControlTaskCodeRequest
      *
@@ -5980,7 +6305,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取AB Test实验指标详细信息。
+     * Gets the details of an A/B metric.
      *
      * @param request - GetABMetricRequest
      * @param headers - map
@@ -6023,7 +6348,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取AB Test实验指标详细信息。
+     * Gets the details of an A/B metric.
      *
      * @param request - GetABMetricRequest
      *
@@ -6043,7 +6368,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取AB实验指标组详细信息。
+     * Retrieves the details of an A/B testing metric group.
      *
      * @param request - GetABMetricGroupRequest
      * @param headers - map
@@ -6086,7 +6411,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取AB实验指标组详细信息。
+     * Retrieves the details of an A/B testing metric group.
      *
      * @param request - GetABMetricGroupRequest
      *
@@ -6106,7 +6431,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定计算任务详细信息。
+     * Gets the details of a specified calculation job.
      *
      * @param request - GetCalculationJobRequest
      * @param headers - map
@@ -6149,7 +6474,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定计算任务详细信息。
+     * Gets the details of a specified calculation job.
      *
      * @param request - GetCalculationJobRequest
      *
@@ -6169,7 +6494,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据诊断详细信息。
+     * Retrieves details of a data diagnosis task using its data diagnosis task ID and instance ID.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves the details of a specific data diagnosis task using the provided `DataDiagnosisId` (data diagnosis task configuration ID) and `InstanceId` (instance ID).
+     * - The `CycleTime` field specifies the time for periodic execution. If this field is empty, the task does not execute periodically.
+     * - The value of `Type` determines the content of the `Config` field. For details about the required configuration for each type, see the relevant documentation.
+     * - `GmtCreateTime` and `GmtModifiedTime` are timestamps for the record\\"s creation and modification times, respectively.
      *
      * @param request - GetDataDiagnosisRequest
      * @param headers - map
@@ -6212,7 +6544,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据诊断详细信息。
+     * Retrieves details of a data diagnosis task using its data diagnosis task ID and instance ID.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves the details of a specific data diagnosis task using the provided `DataDiagnosisId` (data diagnosis task configuration ID) and `InstanceId` (instance ID).
+     * - The `CycleTime` field specifies the time for periodic execution. If this field is empty, the task does not execute periodically.
+     * - The value of `Type` determines the content of the `Config` field. For details about the required configuration for each type, see the relevant documentation.
+     * - `GmtCreateTime` and `GmtModifiedTime` are timestamps for the record\\"s creation and modification times, respectively.
      *
      * @param request - GetDataDiagnosisRequest
      *
@@ -6232,7 +6571,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取引擎配置详细信息。
+     * Gets the details of an engine configuration.
      *
      * @param request - GetEngineConfigRequest
      * @param headers - map
@@ -6275,7 +6614,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取引擎配置详细信息。
+     * Gets the details of an engine configuration.
      *
      * @param request - GetEngineConfigRequest
      *
@@ -6295,7 +6634,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验详细信息。
+     * Retrieves the details of a specified experiment.
      *
      * @param request - GetExperimentRequest
      * @param headers - map
@@ -6338,7 +6677,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验详细信息。
+     * Retrieves the details of a specified experiment.
      *
      * @param request - GetExperimentRequest
      *
@@ -6358,7 +6697,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定实验组详细信息。
+     * Retrieves details for a specified experiment group.
      *
      * @param request - GetExperimentGroupRequest
      * @param headers - map
@@ -6401,7 +6740,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定实验组详细信息。
+     * Retrieves details for a specified experiment group.
      *
      * @param request - GetExperimentGroupRequest
      *
@@ -6421,7 +6760,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查任务详细信息。
+     * Gets the details of a feature consistency check job.
      *
      * @param request - GetFeatureConsistencyCheckJobRequest
      * @param headers - map
@@ -6464,7 +6803,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查任务详细信息。
+     * Gets the details of a feature consistency check job.
      *
      * @param request - GetFeatureConsistencyCheckJobRequest
      *
@@ -6484,7 +6823,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检测配置详情。
+     * Retrieves the configuration details of a feature consistency check task.
      *
      * @param request - GetFeatureConsistencyCheckJobConfigRequest
      * @param headers - map
@@ -6527,7 +6866,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检测配置详情。
+     * Retrieves the configuration details of a feature consistency check task.
      *
      * @param request - GetFeatureConsistencyCheckJobConfigRequest
      *
@@ -6547,7 +6886,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定推荐全链路深度定制开发平台实例信息。
+     * Gets the details of a specified PAI-REC instance.
      *
      * @param request - GetInstanceRequest
      * @param headers - map
@@ -6584,7 +6923,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定推荐全链路深度定制开发平台实例信息。
+     * Gets the details of a specified PAI-REC instance.
      *
      * @param request - GetInstanceRequest
      *
@@ -6604,7 +6943,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定实例下指定资源的详细信息。
+     * Retrieves the details of a specific resource in a specified instance.
      *
      * @param request - GetInstanceResourceRequest
      * @param headers - map
@@ -6642,7 +6981,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定实例下指定资源的详细信息。
+     * Retrieves the details of a specific resource in a specified instance.
      *
      * @param request - GetInstanceResourceRequest
      *
@@ -6663,7 +7002,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据源下指定表的详细信息。
+     * Retrieves the schema of a specified data table within a resource.
      *
      * @param request - GetInstanceResourceTableRequest
      * @param headers - map
@@ -6702,7 +7041,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据源下指定表的详细信息。
+     * Retrieves the schema of a specified data table within a resource.
      *
      * @param request - GetInstanceResourceTableRequest
      *
@@ -6724,7 +7063,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验室详细信息。
+     * Retrieves the details of a specified laboratory.
      *
      * @param request - GetLaboratoryRequest
      * @param headers - map
@@ -6767,7 +7106,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验室详细信息。
+     * Retrieves the details of a specified laboratory.
      *
      * @param request - GetLaboratoryRequest
      *
@@ -6787,7 +7126,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取层详细信息。
+     * Retrieves the details of a specified layer.
      *
      * @param request - GetLayerRequest
      * @param headers - map
@@ -6830,7 +7169,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取层详细信息。
+     * Retrieves the details of a specified layer.
      *
      * @param request - GetLayerRequest
      *
@@ -6850,7 +7189,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理初始化配置。
+     * Retrieves the recall management configuration.
      *
      * @param request - GetRecallManagementConfigRequest
      * @param headers - map
@@ -6892,7 +7231,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理初始化配置。
+     * Retrieves the recall management configuration.
      *
      * @param request - GetRecallManagementConfigRequest
      *
@@ -6911,7 +7250,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理任务详情。
+     * Retrieves the details of a specific recall management job, including its status and log.
+     *
+     * @remarks
+     * ## Description
+     * Retrieves the details of a specific recall management job using its `RecallManagementJobId` and `InstanceId`. The response includes the job\\"s status (such as Init, Running, Success, or Failed), start and end times, related table information, and operation log. To make a request, specify the `RecallManagementJobId` as a path parameter and the `InstanceId` as a query parameter.
      *
      * @param request - GetRecallManagementJobRequest
      * @param headers - map
@@ -6954,7 +7297,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理任务详情。
+     * Retrieves the details of a specific recall management job, including its status and log.
+     *
+     * @remarks
+     * ## Description
+     * Retrieves the details of a specific recall management job using its `RecallManagementJobId` and `InstanceId`. The response includes the job\\"s status (such as Init, Running, Success, or Failed), start and end times, related table information, and operation log. To make a request, specify the `RecallManagementJobId` as a path parameter and the `InstanceId` as a query parameter.
      *
      * @param request - GetRecallManagementJobRequest
      *
@@ -6974,7 +7321,10 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定召回管理服务详细信息.
+     * Retrieves the details of a specified recall management service, including its status and version.
+     *
+     * @remarks
+     * ## Request
      *
      * @param request - GetRecallManagementServiceRequest
      * @param headers - map
@@ -7017,7 +7367,10 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定召回管理服务详细信息.
+     * Retrieves the details of a specified recall management service, including its status and version.
+     *
+     * @remarks
+     * ## Request
      *
      * @param request - GetRecallManagementServiceRequest
      *
@@ -7037,7 +7390,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定召回管理版本详细信息.
+     * Retrieves the version details of the recall management service.
      *
      * @param request - GetRecallManagementServiceVersionRequest
      * @param headers - map
@@ -7081,7 +7434,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定召回管理版本详细信息.
+     * Retrieves the version details of the recall management service.
      *
      * @param request - GetRecallManagementServiceVersionRequest
      *
@@ -7102,7 +7455,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理服务版本配置详细信息.
+     * This API retrieves the configuration details of a specific recall management service version.
+     *
+     * @remarks
+     * ## Request
+     * Retrieves the configuration details for a specific version of a Recall Management Service by specifying its service, version, and configuration IDs. Ensure the parameter values are correct. The `InstanceId` is crucial for locating the correct instance.
+     * - **Note**: All path parameters (`RecallManagementServiceId`, `RecallManagementServiceVersionId`, and `RecallManagementServiceVersionConfigId`) are required and must reference an existing resource.
+     * - **Extended configuration**: The response includes the `ExtendedConfig` field, which is used for future extensions and custom settings. Parse this field as needed.
      *
      * @param request - GetRecallManagementServiceVersionConfigRequest
      * @param headers - map
@@ -7147,7 +7506,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理服务版本配置详细信息.
+     * This API retrieves the configuration details of a specific recall management service version.
+     *
+     * @remarks
+     * ## Request
+     * Retrieves the configuration details for a specific version of a Recall Management Service by specifying its service, version, and configuration IDs. Ensure the parameter values are correct. The `InstanceId` is crucial for locating the correct instance.
+     * - **Note**: All path parameters (`RecallManagementServiceId`, `RecallManagementServiceVersionId`, and `RecallManagementServiceVersionConfigId`) are required and must reference an existing resource.
+     * - **Extended configuration**: The response includes the `ExtendedConfig` field, which is used for future extensions and custom settings. Parse this field as needed.
      *
      * @param request - GetRecallManagementServiceVersionConfigRequest
      *
@@ -7169,7 +7534,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定召回管理表详细信息。
+     * Retrieves the details of a specified recall management table, including its table structure and configuration.
+     *
+     * @remarks
+     * ## Request
+     * This API retrieves details of a specific recall management table using the provided `RecallManagementTableId` and `InstanceId`. Ensure you provide the correct values for these parameters.
+     * - **Note**: The `CanDelete` field indicates whether the data table supports delete operations. Use this value to control delete functionality in your application.
+     * - The `Fields` list contains the definitions for each field in the data table, including their name, type, and properties.
+     * - To monitor data changes, you can configure or query the fluctuation thresholds for row count and size using the corresponding fields.
      *
      * @param request - GetRecallManagementTableRequest
      * @param headers - map
@@ -7212,7 +7584,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定召回管理表详细信息。
+     * Retrieves the details of a specified recall management table, including its table structure and configuration.
+     *
+     * @remarks
+     * ## Request
+     * This API retrieves details of a specific recall management table using the provided `RecallManagementTableId` and `InstanceId`. Ensure you provide the correct values for these parameters.
+     * - **Note**: The `CanDelete` field indicates whether the data table supports delete operations. Use this value to control delete functionality in your application.
+     * - The `Fields` list contains the definitions for each field in the data table, including their name, type, and properties.
+     * - To monitor data changes, you can configure or query the fluctuation thresholds for row count and size using the corresponding fields.
      *
      * @param request - GetRecallManagementTableRequest
      *
@@ -7358,7 +7737,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取场景详细信息.
+     * Retrieves the details of a specified scene.
      *
      * @param request - GetSceneRequest
      * @param headers - map
@@ -7401,7 +7780,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取场景详细信息.
+     * Retrieves the details of a specified scene.
      *
      * @param request - GetSceneRequest
      *
@@ -7421,7 +7800,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取服务详细信息。
+     * Retrieves the details of a service.
      *
      * @param request - GetServiceRequest
      * @param headers - map
@@ -7464,7 +7843,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取服务详细信息。
+     * Retrieves the details of a service.
      *
      * @param request - GetServiceRequest
      *
@@ -7484,7 +7863,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定人群下的指定子人群的详细信息。
+     * Retrieves the details of a sub-crowd.
      *
      * @param request - GetSubCrowdRequest
      * @param headers - map
@@ -7528,7 +7907,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取指定人群下的指定子人群的详细信息。
+     * Retrieves the details of a sub-crowd.
      *
      * @param request - GetSubCrowdRequest
      *
@@ -7549,7 +7928,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据表详细信息。
+     * Returns the details of a table.
      *
      * @param request - GetTableMetaRequest
      * @param headers - map
@@ -7592,7 +7971,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据表详细信息。
+     * Returns the details of a table.
      *
      * @param request - GetTableMetaRequest
      *
@@ -7612,7 +7991,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控目标详情.
+     * Gets the details of a traffic throttling objective by its ID.
+     *
+     * @remarks
+     * ## Request
+     * Retrieves the detailed configuration of a traffic control target. The configuration includes the target name, time range, and condition settings. This operation requires the `TrafficControlTargetId` and `InstanceId` parameters.
      *
      * @param request - GetTrafficControlTargetRequest
      * @param headers - map
@@ -7655,7 +8038,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控目标详情.
+     * Gets the details of a traffic throttling objective by its ID.
+     *
+     * @remarks
+     * ## Request
+     * Retrieves the detailed configuration of a traffic control target. The configuration includes the target name, time range, and condition settings. This operation requires the `TrafficControlTargetId` and `InstanceId` parameters.
      *
      * @param request - GetTrafficControlTargetRequest
      *
@@ -7675,7 +8062,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控任务详情.
+     * Queries the details of a traffic control task with a specified ID.
+     *
+     * @remarks
+     * ## Description
+     * - This operation retrieves the details of a specific traffic control task, including but not limited to the task name, description, and status.
+     * - TrafficControlTaskId and InstanceId are required parameters that specify the task ID and instance ID to query.
+     * - Optional parameters such as Environment, Version, and ControlTargetFilter help refine the request to retrieve more specific task data or version information.
+     * - Check the returned data structure, especially the TrafficControlTargets section, which contains multiple control targets and their related properties.
      *
      * @param request - GetTrafficControlTaskRequest
      * @param headers - map
@@ -7734,7 +8128,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控任务详情.
+     * Queries the details of a traffic control task with a specified ID.
+     *
+     * @remarks
+     * ## Description
+     * - This operation retrieves the details of a specific traffic control task, including but not limited to the task name, description, and status.
+     * - TrafficControlTaskId and InstanceId are required parameters that specify the task ID and instance ID to query.
+     * - Optional parameters such as Environment, Version, and ControlTargetFilter help refine the request to retrieve more specific task data or version information.
+     * - Check the returned data structure, especially the TrafficControlTargets section, which contains multiple control targets and their related properties.
      *
      * @param request - GetTrafficControlTaskRequest
      *
@@ -7754,7 +8155,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控任务的流量详情.
+     * Retrieves traffic allocation details for a specific traffic control task.
+     *
+     * @remarks
+     * ## Description
+     * This API retrieves the traffic details for a specific traffic control task. The request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment`.
+     * - `TrafficControlTaskId`: The unique identifier for the traffic control task.
+     * - `InstanceId`: The instance ID.
+     * - `Environment`: The environment type, such as the production environment (Prod).
+     * The response includes the traffic allocation for each experiment and traffic control target. This data allows you to analyze and manage your traffic control strategies.
      *
      * @param request - GetTrafficControlTaskTrafficRequest
      * @param headers - map
@@ -7801,7 +8210,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控任务的流量详情.
+     * Retrieves traffic allocation details for a specific traffic control task.
+     *
+     * @remarks
+     * ## Description
+     * This API retrieves the traffic details for a specific traffic control task. The request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment`.
+     * - `TrafficControlTaskId`: The unique identifier for the traffic control task.
+     * - `InstanceId`: The instance ID.
+     * - `Environment`: The environment type, such as the production environment (Prod).
+     * The response includes the traffic allocation for each experiment and traffic control target. This data allows you to analyze and manage your traffic control strategies.
      *
      * @param request - GetTrafficControlTaskTrafficRequest
      *
@@ -7821,7 +8238,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取AB Test实验指标组列表。
+     * Retrieves a list of A/B metric groups.
      *
      * @param request - ListABMetricGroupsRequest
      * @param headers - map
@@ -7887,7 +8304,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取AB Test实验指标组列表。
+     * Retrieves a list of A/B metric groups.
      *
      * @param request - ListABMetricGroupsRequest
      *
@@ -7906,7 +8323,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取AB Test实验指标列表。
+     * Lists A/B testing metrics.
      *
      * @param request - ListABMetricsRequest
      * @param headers - map
@@ -7976,7 +8393,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取AB Test实验指标列表。
+     * Lists A/B testing metrics.
      *
      * @param request - ListABMetricsRequest
      *
@@ -7995,7 +8412,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取计算任务列表。
+     * Lists calculation jobs.
      *
      * @param request - ListCalculationJobsRequest
      * @param headers - map
@@ -8053,7 +8470,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取计算任务列表。
+     * Lists calculation jobs.
      *
      * @param request - ListCalculationJobsRequest
      *
@@ -8072,7 +8489,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取人群下的所有用户。
+     * Retrieves all users within a specified crowd, including those in its sub-crowds.
      *
      * @param request - ListCrowdUsersRequest
      * @param headers - map
@@ -8115,7 +8532,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取人群下的所有用户。
+     * Retrieves all users within a specified crowd, including those in its sub-crowds.
      *
      * @param request - ListCrowdUsersRequest
      *
@@ -8135,7 +8552,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取人群列表。
+     * Lists the Crowds in a specified instance.
      *
      * @param request - ListCrowdsRequest
      * @param headers - map
@@ -8177,7 +8594,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取人群列表。
+     * Lists the Crowds in a specified instance.
      *
      * @param request - ListCrowdsRequest
      *
@@ -8196,7 +8613,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据诊断列表。
+     * Lists the data diagnostic tasks for the specified instance.
+     *
+     * @remarks
+     * ## Request
+     * This API retrieves a list of data diagnosis tasks. It requires the `InstanceId` parameter and accepts optional parameters—such as data diagnosis type, page number, and page size—for filtering and pagination.
+     * - The **Types** parameter accepts multiple data diagnosis types, allowing you to view reports for all selected types at once.
+     * - To paginate results, use the `PageNumber` and `PageSize` parameters.
      *
      * @param tmpReq - ListDataDiagnosesRequest
      * @param headers - map
@@ -8256,7 +8679,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据诊断列表。
+     * Lists the data diagnostic tasks for the specified instance.
+     *
+     * @remarks
+     * ## Request
+     * This API retrieves a list of data diagnosis tasks. It requires the `InstanceId` parameter and accepts optional parameters—such as data diagnosis type, page number, and page size—for filtering and pagination.
+     * - The **Types** parameter accepts multiple data diagnosis types, allowing you to view reports for all selected types at once.
+     * - To paginate results, use the `PageNumber` and `PageSize` parameters.
      *
      * @param request - ListDataDiagnosesRequest
      *
@@ -8275,7 +8704,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据诊断任务列表。
+     * Queries data diagnosis jobs for a specified instance.
+     *
+     * @remarks
+     * ## Description
+     * This API retrieves data diagnosis jobs for a specific instance. You can filter the jobs by parameters such as `InstanceId` and `Status`, and use the `PageNumber` and `PageSize` parameters to control pagination.
+     * - The **InstanceId** parameter is required and specifies the instance to query.
+     * - Optional parameters include **Status**, **Types**, **PageNumber**, and **PageSize**.
+     * - Note: If you omit filter conditions, the operation returns all matching data diagnosis jobs.
      *
      * @param tmpReq - ListDataDiagnosisJobsRequest
      * @param headers - map
@@ -8339,7 +8775,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据诊断任务列表。
+     * Queries data diagnosis jobs for a specified instance.
+     *
+     * @remarks
+     * ## Description
+     * This API retrieves data diagnosis jobs for a specific instance. You can filter the jobs by parameters such as `InstanceId` and `Status`, and use the `PageNumber` and `PageSize` parameters to control pagination.
+     * - The **InstanceId** parameter is required and specifies the instance to query.
+     * - Optional parameters include **Status**, **Types**, **PageNumber**, and **PageSize**.
+     * - Note: If you omit filter conditions, the operation returns all matching data diagnosis jobs.
      *
      * @param request - ListDataDiagnosisJobsRequest
      *
@@ -8358,7 +8801,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据诊断报告。
+     * Specify parameters to retrieve data diagnosis reports for a specific time range.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves data diagnosis reports based on parameters such as the data diagnosis ID, instance ID, and a date range.
+     * - The `FeatureName` parameter filters reports by a specific feature, and the `TopN` parameter limits the number of results.
+     * - The `RemainRateType` parameter specifies the type of retention rate report, such as a periodic report.
+     * - Report content includes item and user change rate analysis, periodic user preference analysis, correlation analysis, basic statistical analysis, and anomaly detection.
+     * - Important: All date values must use the `YYYY-MM-DD` format.
      *
      * @param request - ListDataDiagnosisReportsRequest
      * @param headers - map
@@ -8421,7 +8872,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据诊断报告。
+     * Specify parameters to retrieve data diagnosis reports for a specific time range.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves data diagnosis reports based on parameters such as the data diagnosis ID, instance ID, and a date range.
+     * - The `FeatureName` parameter filters reports by a specific feature, and the `TopN` parameter limits the number of results.
+     * - The `RemainRateType` parameter specifies the type of retention rate report, such as a periodic report.
+     * - Report content includes item and user change rate analysis, periodic user preference analysis, correlation analysis, basic statistical analysis, and anomaly detection.
+     * - Important: All date values must use the `YYYY-MM-DD` format.
      *
      * @param request - ListDataDiagnosisReportsRequest
      *
@@ -8441,7 +8900,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取引擎配置列表。
+     * Retrieves a list of engine configurations.
      *
      * @param request - ListEngineConfigsRequest
      * @param headers - map
@@ -8507,7 +8966,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取引擎配置列表。
+     * Retrieves a list of engine configurations.
      *
      * @param request - ListEngineConfigsRequest
      *
@@ -8526,7 +8985,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验组列表。
+     * Returns a list of experiment groups.
      *
      * @param request - ListExperimentGroupsRequest
      * @param headers - map
@@ -8584,7 +9043,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验组列表。
+     * Returns a list of experiment groups.
      *
      * @param request - ListExperimentGroupsRequest
      *
@@ -8603,7 +9062,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验列表。
+     * Lists the experiments in the specified experiment group.
      *
      * @param request - ListExperimentsRequest
      * @param headers - map
@@ -8657,7 +9116,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验列表。
+     * Lists the experiments in the specified experiment group.
      *
      * @param request - ListExperimentsRequest
      *
@@ -8676,7 +9135,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查配置列表。
+     * Retrieves a list of feature consistency check task configurations.
      *
      * @param request - ListFeatureConsistencyCheckJobConfigsRequest
      * @param headers - map
@@ -8734,7 +9193,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查配置列表。
+     * Retrieves a list of feature consistency check task configurations.
      *
      * @param request - ListFeatureConsistencyCheckJobConfigsRequest
      *
@@ -8753,7 +9212,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查任务的特征报表/比对结果。
+     * Lists feature reports for a feature consistency check job.
      *
      * @param request - ListFeatureConsistencyCheckJobFeatureReportsRequest
      * @param headers - map
@@ -8808,7 +9267,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查任务的特征报表/比对结果。
+     * Lists feature reports for a feature consistency check job.
      *
      * @param request - ListFeatureConsistencyCheckJobFeatureReportsRequest
      *
@@ -8828,7 +9287,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查任务分数报表/比对结果。
+     * Retrieves the score difference reports for a feature consistency check job.
      *
      * @param tmpReq - ListFeatureConsistencyCheckJobScoreReportsRequest
      * @param headers - map
@@ -8881,7 +9340,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查任务分数报表/比对结果。
+     * Retrieves the score difference reports for a feature consistency check job.
      *
      * @param request - ListFeatureConsistencyCheckJobScoreReportsRequest
      *
@@ -8901,7 +9360,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查任务列表。
+     * Retrieves a list of feature consistency check jobs.
      *
      * @param request - ListFeatureConsistencyCheckJobsRequest
      * @param headers - map
@@ -8963,7 +9422,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取特征一致性检查任务列表。
+     * Retrieves a list of feature consistency check jobs.
      *
      * @param request - ListFeatureConsistencyCheckJobsRequest
      *
@@ -8982,7 +9441,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据资源下的Schema列表。
+     * Lists all schemas for a specified resource in an instance.
+     *
+     * @remarks
+     * ## Description
+     * To retrieve a list of all schemas for a specified resource, provide the instance ID (InstanceId) and resource ID (ResourceId). Use the optional SchemaName parameter to filter the schemas by a name prefix.
      *
      * @param request - ListInstanceResourceSchemasRequest
      * @param headers - map
@@ -9026,7 +9489,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据资源下的Schema列表。
+     * Lists all schemas for a specified resource in an instance.
+     *
+     * @remarks
+     * ## Description
+     * To retrieve a list of all schemas for a specified resource, provide the instance ID (InstanceId) and resource ID (ResourceId). Use the optional SchemaName parameter to filter the schemas by a name prefix.
      *
      * @param request - ListInstanceResourceSchemasRequest
      *
@@ -9047,7 +9514,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据源下数据表的列表。
+     * Retrieves a list of data tables for a specified instance and data source.
+     *
+     * @remarks
+     * ## Description
+     * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of data tables from the specified data source. Use the optional `MaxcomputeSchema` parameter to filter the results by a MaxCompute schema.
      *
      * @param request - ListInstanceResourceTablesRequest
      * @param headers - map
@@ -9091,7 +9562,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据源下数据表的列表。
+     * Retrieves a list of data tables for a specified instance and data source.
+     *
+     * @remarks
+     * ## Description
+     * Provide the instance ID (InstanceId) and data source ID (ResourceId) to retrieve a list of data tables from the specified data source. Use the optional `MaxcomputeSchema` parameter to filter the results by a MaxCompute schema.
      *
      * @param request - ListInstanceResourceTablesRequest
      *
@@ -9112,7 +9587,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实例下配置的资源列表。
+     * Lists the resources configured for an instance.
      *
      * @param request - ListInstanceResourcesRequest
      * @param headers - map
@@ -9163,7 +9638,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实例下配置的资源列表。
+     * Lists the resources configured for an instance.
      *
      * @param request - ListInstanceResourcesRequest
      *
@@ -9183,7 +9658,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取推荐全链路深度定制开发平台实例信息列表。
+     * Gets a list of PAIRec instances.
      *
      * @param request - ListInstancesRequest
      * @param headers - map
@@ -9245,7 +9720,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取推荐全链路深度定制开发平台实例信息列表。
+     * Gets a list of PAIRec instances.
      *
      * @param request - ListInstancesRequest
      *
@@ -9264,7 +9739,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验室列表。
+     * Retrieves the laboratories in a specified scene.
      *
      * @param request - ListLaboratoriesRequest
      * @param headers - map
@@ -9318,7 +9793,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取实验室列表。
+     * Retrieves the laboratories in a specified scene.
      *
      * @param request - ListLaboratoriesRequest
      *
@@ -9337,7 +9812,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取层列表。
+     * Retrieves a list of layers in a specified laboratory.
      *
      * @param request - ListLayersRequest
      * @param headers - map
@@ -9383,7 +9858,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取层列表。
+     * Retrieves a list of layers in a specified laboratory.
      *
      * @param request - ListLayersRequest
      *
@@ -9402,7 +9877,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取参数列表。
+     * Lists parameters.
      *
      * @param request - ListParamsRequest
      * @param headers - map
@@ -9468,7 +9943,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取参数列表。
+     * Lists parameters.
      *
      * @param request - ListParamsRequest
      *
@@ -9487,7 +9962,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理任务列表。
+     * Retrieves a list of recall management tasks that match specified conditions.
+     *
+     * @remarks
+     * ## Request
+     * - Use this API operation to retrieve a list of recall management tasks.
+     * - The `InstanceId` and `Type` parameters are required. All other parameters are optional.
+     * - Use the `Condition` parameter to set filter conditions on specific table types, such as filtering by `RecallManagementTableId`.
+     * - Use the `SortBy` and `Order` parameters to control the sort order of the results. The default sort order is ascending by creation time.
+     * - Use the `PageNumber` and `PageSize` parameters for pagination. The `PageNumber` parameter defaults to 1, and the `PageSize` parameter defaults to 10.
+     * - The response includes details about each recall management task, such as its basic information and status.
      *
      * @param request - ListRecallManagementJobsRequest
      * @param headers - map
@@ -9561,7 +10045,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理任务列表。
+     * Retrieves a list of recall management tasks that match specified conditions.
+     *
+     * @remarks
+     * ## Request
+     * - Use this API operation to retrieve a list of recall management tasks.
+     * - The `InstanceId` and `Type` parameters are required. All other parameters are optional.
+     * - Use the `Condition` parameter to set filter conditions on specific table types, such as filtering by `RecallManagementTableId`.
+     * - Use the `SortBy` and `Order` parameters to control the sort order of the results. The default sort order is ascending by creation time.
+     * - Use the `PageNumber` and `PageSize` parameters for pagination. The `PageNumber` parameter defaults to 1, and the `PageSize` parameter defaults to 10.
+     * - The response includes details about each recall management task, such as its basic information and status.
      *
      * @param request - ListRecallManagementJobsRequest
      *
@@ -9580,7 +10073,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理服务下的版本列表.
+     * Retrieves a list of all versions for a specified Recall Management Service.
+     *
+     * @remarks
+     * ## Description
+     * This operation queries the details of all versions for a specific Recall Management Service, including the version ID, name, effective status, creation time, and modification time. For accurate results, provide the correct `RecallManagementServiceId` and `InstanceId`.
+     * - Use the `PageNumber` and `PageSize` parameters for pagination. By default, the query starts from the first page and returns 50 entries per page.
+     * - Use the `SortBy` parameter to sort the results by creation time or modification time. By default, the results are sorted by creation time in ascending order.
+     * - The `Order` parameter specifies the sort order. Valid values are `ASC` for ascending order and `DESC` for descending order.
      *
      * @param request - ListRecallManagementServiceVersionsRequest
      * @param headers - map
@@ -9639,7 +10139,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理服务下的版本列表.
+     * Retrieves a list of all versions for a specified Recall Management Service.
+     *
+     * @remarks
+     * ## Description
+     * This operation queries the details of all versions for a specific Recall Management Service, including the version ID, name, effective status, creation time, and modification time. For accurate results, provide the correct `RecallManagementServiceId` and `InstanceId`.
+     * - Use the `PageNumber` and `PageSize` parameters for pagination. By default, the query starts from the first page and returns 50 entries per page.
+     * - Use the `SortBy` parameter to sort the results by creation time or modification time. By default, the results are sorted by creation time in ascending order.
+     * - The `Order` parameter specifies the sort order. Valid values are `ASC` for ascending order and `DESC` for descending order.
      *
      * @param request - ListRecallManagementServiceVersionsRequest
      *
@@ -9659,7 +10166,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理服务列表.
+     * This API returns a list of recall management services for a specified instance.
+     *
+     * @remarks
+     * ## Description
+     * Call `ListRecallManagementServices` to retrieve a list of recall management services for a specified instance based on parameters such as `InstanceId`, `PageNumber`, and `PageSize`. You can sort the results by creation time or modification time in ascending or descending order.
+     * - **InstanceId** is required. It specifies the target instance.
+     * - The pagination parameters **PageNumber** and **PageSize** control the number of returned items and the page from which to start. This operation returns the first page of results by default.
+     * - Use the **SortBy** and **Order** parameters to customize the sort order of the list.
      *
      * @param request - ListRecallManagementServicesRequest
      * @param headers - map
@@ -9725,7 +10239,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理服务列表.
+     * This API returns a list of recall management services for a specified instance.
+     *
+     * @remarks
+     * ## Description
+     * Call `ListRecallManagementServices` to retrieve a list of recall management services for a specified instance based on parameters such as `InstanceId`, `PageNumber`, and `PageSize`. You can sort the results by creation time or modification time in ascending or descending order.
+     * - **InstanceId** is required. It specifies the target instance.
+     * - The pagination parameters **PageNumber** and **PageSize** control the number of returned items and the page from which to start. This operation returns the first page of results by default.
+     * - Use the **SortBy** and **Order** parameters to customize the sort order of the list.
      *
      * @param request - ListRecallManagementServicesRequest
      *
@@ -9744,7 +10265,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理表版本列表。
+     * Lists all versions of a specified RecallManagementTable.
+     *
+     * @remarks
+     * ## Usage
+     * - To retrieve the version history of a specific RecallManagementTable, provide the `RecallManagementTableId` and `InstanceId`.
+     * - Use the `SortBy` parameter to sort the results by creation time or update time. By default, the results are sorted by creation time in ascending order.
+     * - The `PageNumber` and `PageSize` parameters enable pagination, which allows you to control the number of items to return and the page to display.
+     * - If the `Order` parameter is not specified, the results are sorted in ascending order by default.
      *
      * @param request - ListRecallManagementTableVersionsRequest
      * @param headers - map
@@ -9803,7 +10331,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理表版本列表。
+     * Lists all versions of a specified RecallManagementTable.
+     *
+     * @remarks
+     * ## Usage
+     * - To retrieve the version history of a specific RecallManagementTable, provide the `RecallManagementTableId` and `InstanceId`.
+     * - Use the `SortBy` parameter to sort the results by creation time or update time. By default, the results are sorted by creation time in ascending order.
+     * - The `PageNumber` and `PageSize` parameters enable pagination, which allows you to control the number of items to return and the page to display.
+     * - If the `Order` parameter is not specified, the results are sorted in ascending order by default.
      *
      * @param request - ListRecallManagementTableVersionsRequest
      *
@@ -9823,7 +10358,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理表列表。
+     * Retrieves the recall management tables for a specified instance. Pagination and sorting are supported.
+     *
+     * @remarks
+     * ## Request
+     * - **InstanceId** is a required parameter specifying the instance to query.
+     * - The **Name** and **Type** parameters filter recall management tables by name or type.
+     * - The **PageNumber** and **PageSize** parameters control pagination. By default, the query returns the first 50 records.
+     * - You can sort results by creation time (GmtCreateTime) or modification time (GmtModifiedTime) in ascending (ASC) or descending (DESC) order.
      *
      * @param request - ListRecallManagementTablesRequest
      * @param headers - map
@@ -9897,7 +10439,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取召回管理表列表。
+     * Retrieves the recall management tables for a specified instance. Pagination and sorting are supported.
+     *
+     * @remarks
+     * ## Request
+     * - **InstanceId** is a required parameter specifying the instance to query.
+     * - The **Name** and **Type** parameters filter recall management tables by name or type.
+     * - The **PageNumber** and **PageSize** parameters control pagination. By default, the query returns the first 50 records.
+     * - You can sort results by creation time (GmtCreateTime) or modification time (GmtModifiedTime) in ascending (ASC) or descending (DESC) order.
      *
      * @param request - ListRecallManagementTablesRequest
      *
@@ -10082,7 +10631,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取场景列表.
+     * Retrieves a list of scenes.
      *
      * @param request - ListScenesRequest
      * @param headers - map
@@ -10128,7 +10677,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取场景列表.
+     * Retrieves a list of scenes.
      *
      * @param request - ListScenesRequest
      *
@@ -10147,7 +10696,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取人群下的所有子人群。
+     * Lists the subcrowds for a specified crowd.
      *
      * @param request - ListSubCrowdsRequest
      * @param headers - map
@@ -10190,7 +10739,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取人群下的所有子人群。
+     * Lists the subcrowds for a specified crowd.
      *
      * @param request - ListSubCrowdsRequest
      *
@@ -10210,7 +10759,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据表列表。
+     * Retrieves a list of data tables.
      *
      * @param request - ListTableMetasRequest
      * @param headers - map
@@ -10272,7 +10821,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据表列表。
+     * Retrieves a list of data tables.
      *
      * @param request - ListTableMetasRequest
      *
@@ -10291,7 +10840,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控任务流量变更的历史列表.
+     * Retrieves the historical traffic records for a specific traffic control target.
+     *
+     * @remarks
+     * ## Usage notes
+     * - The `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are required.
+     * - You can use `StartTime` and `EndTime` to specify the time range.
+     * - The `Threshold` parameter is optional.
+     * - Use `ExperimentId` and `ExperimentGroupId` to filter data for a specific experiment or experiment group.
+     * - Use `ItemId` to filter traffic data for a specific item.
+     * - The supported environments are the Daily environment, pre-production environment (Pre), and production environment (Prod).
      *
      * @param request - ListTrafficControlTargetTrafficHistoryRequest
      * @param headers - map
@@ -10362,7 +10920,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控任务流量变更的历史列表.
+     * Retrieves the historical traffic records for a specific traffic control target.
+     *
+     * @remarks
+     * ## Usage notes
+     * - The `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are required.
+     * - You can use `StartTime` and `EndTime` to specify the time range.
+     * - The `Threshold` parameter is optional.
+     * - Use `ExperimentId` and `ExperimentGroupId` to filter data for a specific experiment or experiment group.
+     * - Use `ItemId` to filter traffic data for a specific item.
+     * - The supported environments are the Daily environment, pre-production environment (Pre), and production environment (Prod).
      *
      * @param request - ListTrafficControlTargetTrafficHistoryRequest
      *
@@ -10382,7 +10949,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控列表.
+     * Lists traffic control tasks that meet specified conditions.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves a list of traffic control tasks.
+     * - Use query parameters to filter and sort the results.
+     * - This operation supports pagination. You can also retrieve all results in a single response.
+     * - Note: The `InstanceId` is a required parameter. All other parameters are optional.
      *
      * @param request - ListTrafficControlTasksRequest
      * @param headers - map
@@ -10472,7 +11046,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控列表.
+     * Lists traffic control tasks that meet specified conditions.
+     *
+     * @remarks
+     * ## Request
+     * - This API retrieves a list of traffic control tasks.
+     * - Use query parameters to filter and sort the results.
+     * - This operation supports pagination. You can also retrieve all results in a single response.
+     * - Note: The `InstanceId` is a required parameter. All other parameters are optional.
      *
      * @param request - ListTrafficControlTasksRequest
      *
@@ -10491,7 +11072,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线实验。
+     * Takes an experiment offline.
      *
      * @param request - OfflineExperimentRequest
      * @param headers - map
@@ -10534,7 +11115,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线实验。
+     * Takes an experiment offline.
      *
      * @param request - OfflineExperimentRequest
      *
@@ -10554,7 +11135,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 下线实验组。
+     * Takes a specified experiment group offline.
      *
      * @param request - OfflineExperimentGroupRequest
      * @param headers - map
@@ -10597,7 +11178,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 下线实验组。
+     * Takes a specified experiment group offline.
      *
      * @param request - OfflineExperimentGroupRequest
      *
@@ -10617,7 +11198,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 下线实验室。
+     * Takes the specified laboratory offline.
      *
      * @param request - OfflineLaboratoryRequest
      * @param headers - map
@@ -10660,7 +11241,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 下线实验室。
+     * Takes the specified laboratory offline.
      *
      * @param request - OfflineLaboratoryRequest
      *
@@ -10680,7 +11261,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 下线召回管理服务
+     * Takes a specified recall management service offline.
+     *
+     * @remarks
+     * ## Description
+     * Use this API to take a specific recall management service offline. Ensure that the provided `RecallManagementServiceId` and `InstanceId` are accurate to prevent unintended operations.
+     * - **Important**: Once a recall management service is taken offline, it stops processing new requests until you reactivate it.
+     * - Back up any required data or configurations before you perform this operation in case you need to restore the current state.
      *
      * @param request - OfflineRecallManagementServiceRequest
      * @param headers - map
@@ -10723,7 +11310,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 下线召回管理服务
+     * Takes a specified recall management service offline.
+     *
+     * @remarks
+     * ## Description
+     * Use this API to take a specific recall management service offline. Ensure that the provided `RecallManagementServiceId` and `InstanceId` are accurate to prevent unintended operations.
+     * - **Important**: Once a recall management service is taken offline, it stops processing new requests until you reactivate it.
+     * - Back up any required data or configurations before you perform this operation in case you need to restore the current state.
      *
      * @param request - OfflineRecallManagementServiceRequest
      *
@@ -10743,7 +11336,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线实验.
+     * Brings a specified experiment online.
      *
      * @param request - OnlineExperimentRequest
      * @param headers - map
@@ -10786,7 +11379,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线实验.
+     * Brings a specified experiment online.
      *
      * @param request - OnlineExperimentRequest
      *
@@ -10806,7 +11399,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线实验组。
+     * Brings a specified experiment group online.
      *
      * @param request - OnlineExperimentGroupRequest
      * @param headers - map
@@ -10849,7 +11442,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线实验组。
+     * Brings a specified experiment group online.
      *
      * @param request - OnlineExperimentGroupRequest
      *
@@ -10869,7 +11462,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线实验室。
+     * Publishes a specified laboratory for experimental analysis.
      *
      * @param request - OnlineLaboratoryRequest
      * @param headers - map
@@ -10912,7 +11505,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线实验室。
+     * Publishes a specified laboratory for experimental analysis.
      *
      * @param request - OnlineLaboratoryRequest
      *
@@ -10932,7 +11525,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线召回管理服务
+     * This operation brings a specified Recall Management Service online.
+     *
+     * @remarks
+     * ## Request
+     * You can use this operation to bring a Recall Management Service online by specifying the Recall Management Service ID and the instance ID. Ensure that the `RecallManagementServiceId` and `InstanceId` are correct and that you have the required permissions.
      *
      * @param request - OnlineRecallManagementServiceRequest
      * @param headers - map
@@ -10975,7 +11572,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 上线召回管理服务
+     * This operation brings a specified Recall Management Service online.
+     *
+     * @remarks
+     * ## Request
+     * You can use this operation to bring a Recall Management Service online by specifying the Recall Management Service ID and the instance ID. Ensure that the `RecallManagementServiceId` and `InstanceId` are correct and that you have the required permissions.
      *
      * @param request - OnlineRecallManagementServiceRequest
      *
@@ -10995,7 +11596,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 将maxcompute的表同步到召回引擎中。
+     * Synchronizes a MaxCompute table with the recall engine. This operation allows you to publish specific partitions and select a synchronization mode.
+     *
+     * @remarks
+     * ## Request details
+     * This API synchronizes a specified MaxCompute table with the recall engine. You must provide the correct `RecallManagementTableId` in the path parameter and the instance ID in the request body. You can also specify the table partitions to publish, whether to skip the threshold check, and the synchronization mode. To publish specific partitions, provide them as key-value pairs in the `Partitions` field.
      *
      * @param request - PublishRecallManagementTableRequest
      * @param headers - map
@@ -11054,7 +11659,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 将maxcompute的表同步到召回引擎中。
+     * Synchronizes a MaxCompute table with the recall engine. This operation allows you to publish specific partitions and select a synchronization mode.
+     *
+     * @remarks
+     * ## Request details
+     * This API synchronizes a specified MaxCompute table with the recall engine. You must provide the correct `RecallManagementTableId` in the path parameter and the instance ID in the request body. You can also specify the table partitions to publish, whether to skip the threshold check, and the synchronization mode. To publish specific partitions, provide them as key-value pairs in the `Partitions` field.
      *
      * @param request - PublishRecallManagementTableRequest
      *
@@ -11074,7 +11683,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 推全。
+     * If an experiment is stable and performs well, you can push all traffic to it. This action retires the original experiment group and creates a new one that contains only this experiment. The new group receives 100% of the traffic.
      *
      * @param request - PushAllExperimentRequest
      * @param headers - map
@@ -11117,7 +11726,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 推全。
+     * If an experiment is stable and performs well, you can push all traffic to it. This action retires the original experiment group and creates a new one that contains only this experiment. The new group receives 100% of the traffic.
      *
      * @param request - PushAllExperimentRequest
      *
@@ -11210,7 +11819,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * QueryDataDiagnosisStatistics.
+     * Retrieves statistics for a specified data diagnosis task within a time range.
+     *
+     * @remarks
+     * ## Request description
+     * - The `DataDiagnosisId` parameter is required and specifies the data diagnosis task.
+     * - The `InstanceId` parameter is also required and specifies the instance.
+     * - The `StartDate` and `EndDate` parameters specify the start and end dates of the time range. The format is YYYY-MM-DD.
+     * - The `RemainRateType` parameter is optional. It specifies the retention rate report type. The default value is \\"Period\\", which indicates a periodic report.
+     * - The response includes the request ID (`RequestId`) and a `Statistics` object. This object contains the dates of task failures (`FailedDates`) and dates with missing task data (`NoDataDates`).
      *
      * @param request - QueryDataDiagnosisStatisticsRequest
      * @param headers - map
@@ -11265,7 +11882,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * QueryDataDiagnosisStatistics.
+     * Retrieves statistics for a specified data diagnosis task within a time range.
+     *
+     * @remarks
+     * ## Request description
+     * - The `DataDiagnosisId` parameter is required and specifies the data diagnosis task.
+     * - The `InstanceId` parameter is also required and specifies the instance.
+     * - The `StartDate` and `EndDate` parameters specify the start and end dates of the time range. The format is YYYY-MM-DD.
+     * - The `RemainRateType` parameter is optional. It specifies the retention rate report type. The default value is \\"Period\\", which indicates a periodic report.
+     * - The response includes the request ID (`RequestId`) and a `Statistics` object. This object contains the dates of task failures (`FailedDates`) and dates with missing task data (`NoDataDates`).
      *
      * @param request - QueryDataDiagnosisStatisticsRequest
      *
@@ -11285,7 +11910,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 查询召回管理表数据.
+     * Retrieves records from a specified recall management table.
+     *
+     * @remarks
+     * ## Request
+     * This API retrieves records from a specific recall management table using the provided primary keys. You must provide a valid `InstanceId` and `RecallManagementTableId`, and a non-empty `PrimaryKeys` list. If you specify `RecallManagementTableVersionId`, the API returns records from that version; otherwise, it uses the currently published version.
      *
      * @param request - QueryRecallManagementTableRecordsRequest
      * @param headers - map
@@ -11336,7 +11965,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 查询召回管理表数据.
+     * Retrieves records from a specified recall management table.
+     *
+     * @remarks
+     * ## Request
+     * This API retrieves records from a specific recall management table using the provided primary keys. You must provide a valid `InstanceId` and `RecallManagementTableId`, and a non-empty `PrimaryKeys` list. If you specify `RecallManagementTableVersionId`, the API returns records from that version; otherwise, it uses the currently published version.
      *
      * @param request - QueryRecallManagementTableRecordsRequest
      *
@@ -11427,7 +12060,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 查询流量调控目标的单品调控报表详情。
+     * Retrieves the traffic control details of a target item for a given environment and date range.
+     *
+     * @remarks
+     * ## Request
+     * Use this API to query the details of single-item control for a given traffic control target on a specified date and for a specific instance ID and environment. The details include traffic data and feature information for the top 100 items before and after the control is applied. Ensure that the `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are accurate, and that the `Date` is in YYYY-MM-DD format. Although the `Date` parameter is optional, we recommend specifying a date for meaningful results.
      *
      * @param request - QueryTrafficControlTargetItemReportDetailRequest
      * @param headers - map
@@ -11478,7 +12115,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 查询流量调控目标的单品调控报表详情。
+     * Retrieves the traffic control details of a target item for a given environment and date range.
+     *
+     * @remarks
+     * ## Request
+     * Use this API to query the details of single-item control for a given traffic control target on a specified date and for a specific instance ID and environment. The details include traffic data and feature information for the top 100 items before and after the control is applied. Ensure that the `TrafficControlTargetId`, `InstanceId`, and `Environment` parameters are accurate, and that the `Date` is in YYYY-MM-DD format. Although the `Date` parameter is optional, we recommend specifying a date for meaningful results.
      *
      * @param request - QueryTrafficControlTargetItemReportDetailRequest
      *
@@ -11498,7 +12139,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控任务部署的结果。
+     * Retrieves the deployment status and related information of a specified traffic control task in a specific environment.
+     *
+     * @remarks
+     * ## Operation description
+     * You can call this operation to query the deployment result of a traffic control task specified by TrafficControlTaskId for a given instance ID and environment. Make sure that the specified InstanceId is associated with your account and that the Environment parameter value is valid (Daily for daily environment, Pre for staging environment, Prod for production environment). All request parameters are required.
      *
      * @param request - QueryTrafficControlTaskDeployResultRequest
      * @param headers - map
@@ -11545,7 +12190,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取流量调控任务部署的结果。
+     * Retrieves the deployment status and related information of a specified traffic control task in a specific environment.
+     *
+     * @remarks
+     * ## Operation description
+     * You can call this operation to query the deployment result of a traffic control task specified by TrafficControlTaskId for a given instance ID and environment. Make sure that the specified InstanceId is associated with your account and that the Environment parameter value is valid (Daily for daily environment, Pre for staging environment, Prod for production environment). All request parameters are required.
      *
      * @param request - QueryTrafficControlTaskDeployResultRequest
      *
@@ -11565,7 +12214,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 查询流量调控任务单品调控报表。
+     * Retrieves a detailed report on item control for a specified traffic control task.
+     *
+     * @remarks
+     * ## Description
+     * - This API retrieves the item control results for a specific traffic control task within a given time range.
+     * - `TrafficControlTaskId` is the unique identifier for a traffic control task.
+     * - `InstanceId` specifies the instance that runs the task.
+     * - The `Environment` parameter specifies the task\\"s execution environment. Valid values are Daily (development environment), Pre (staging environment), and Prod (production environment).
+     * - `StartTime` and `EndTime` specify the start and end of the time range for the report, respectively. The format is "YYYY-MM-DD HH:MM:SS".
+     * - The specified start and end times must be valid and span no more than two consecutive calendar days.
      *
      * @param request - QueryTrafficControlTaskItemReportRequest
      * @param headers - map
@@ -11620,7 +12278,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 查询流量调控任务单品调控报表。
+     * Retrieves a detailed report on item control for a specified traffic control task.
+     *
+     * @remarks
+     * ## Description
+     * - This API retrieves the item control results for a specific traffic control task within a given time range.
+     * - `TrafficControlTaskId` is the unique identifier for a traffic control task.
+     * - `InstanceId` specifies the instance that runs the task.
+     * - The `Environment` parameter specifies the task\\"s execution environment. Valid values are Daily (development environment), Pre (staging environment), and Prod (production environment).
+     * - `StartTime` and `EndTime` specify the start and end of the time range for the report, respectively. The format is "YYYY-MM-DD HH:MM:SS".
+     * - The specified start and end times must be valid and span no more than two consecutive calendar days.
      *
      * @param request - QueryTrafficControlTaskItemReportRequest
      *
@@ -11640,7 +12307,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 发布流量调控任务
+     * Releases a traffic control task for the specified instance and environment.
+     *
+     * @remarks
+     * ## Request
+     * Use this API to release a traffic control task for a specific instance and environment (Daily, Pre, or Prod). Your request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters.
+     * - `TrafficControlTaskId`: The unique ID of the traffic control task.
+     * - `InstanceId`: The ID of the target instance.
+     * - `Environment`: The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
+     * The request succeeds only if all required parameters are provided correctly. A successful response includes a `RequestId`.
      *
      * @param request - ReleaseTrafficControlTaskRequest
      * @param headers - map
@@ -11687,7 +12362,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 发布流量调控任务
+     * Releases a traffic control task for the specified instance and environment.
+     *
+     * @remarks
+     * ## Request
+     * Use this API to release a traffic control task for a specific instance and environment (Daily, Pre, or Prod). Your request must include the `TrafficControlTaskId`, `InstanceId`, and `Environment` parameters.
+     * - `TrafficControlTaskId`: The unique ID of the traffic control task.
+     * - `InstanceId`: The ID of the target instance.
+     * - `Environment`: The execution environment for the traffic control task. Valid values: `Daily`, `Pre`, and `Prod`.
+     * The request succeeds only if all required parameters are provided correctly. A successful response includes a `RequestId`.
      *
      * @param request - ReleaseTrafficControlTaskRequest
      *
@@ -11707,7 +12390,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 对指标组进行报表。
+     * Retrieve a metric group\\"s report.
      *
      * @param request - ReportABMetricGroupRequest
      * @param headers - map
@@ -11786,7 +12469,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 对指标组进行报表。
+     * Retrieve a metric group\\"s report.
      *
      * @param request - ReportABMetricGroupRequest
      *
@@ -11869,7 +12552,230 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 拆分流量调控目标.
+     * Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
+     * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
+     * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+     * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
+     * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
+     *
+     * @param request - ShoppingAssistantRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ShoppingAssistantResponse
+     *
+     * @param ShoppingAssistantRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ShoppingAssistantResponse
+     */
+    public function shoppingAssistantWithSSE($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->contents) {
+            @$body['Contents'] = $request->contents;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->environment) {
+            @$body['Environment'] = $request->environment;
+        }
+
+        if (null !== $request->inputMessage) {
+            @$body['InputMessage'] = $request->inputMessage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->language) {
+            @$body['Language'] = $request->language;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$body['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->uid) {
+            @$body['Uid'] = $request->uid;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ShoppingAssistant',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/shopping_assistant/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        $sseResp = $this->callSSEApi($params, $req, $runtime);
+
+        foreach ($sseResp as $resp) {
+            if (null !== $resp->event && null !== $resp->event->data) {
+                $data = json_decode($resp->event->data, true);
+
+                yield ShoppingAssistantResponse::fromMap([
+                    'statusCode' => $resp->statusCode,
+                    'headers' => $resp->headers,
+                    'id' => $resp->event->id,
+                    'event' => $resp->event->event,
+                    'body' => $data,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
+     * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
+     * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+     * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
+     * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
+     *
+     * @param request - ShoppingAssistantRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ShoppingAssistantResponse
+     *
+     * @param ShoppingAssistantRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ShoppingAssistantResponse
+     */
+    public function shoppingAssistantWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->config) {
+            @$body['Config'] = $request->config;
+        }
+
+        if (null !== $request->contents) {
+            @$body['Contents'] = $request->contents;
+        }
+
+        if (null !== $request->conversationId) {
+            @$body['ConversationId'] = $request->conversationId;
+        }
+
+        if (null !== $request->environment) {
+            @$body['Environment'] = $request->environment;
+        }
+
+        if (null !== $request->inputMessage) {
+            @$body['InputMessage'] = $request->inputMessage;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->language) {
+            @$body['Language'] = $request->language;
+        }
+
+        if (null !== $request->sceneId) {
+            @$body['SceneId'] = $request->sceneId;
+        }
+
+        if (null !== $request->serviceId) {
+            @$body['ServiceId'] = $request->serviceId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->uid) {
+            @$body['Uid'] = $request->uid;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ShoppingAssistant',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/conversations/shopping_assistant/chat',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ShoppingAssistantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+     *
+     * @remarks
+     * ## Operation description
+     * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
+     * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
+     * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+     * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
+     * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
+     *
+     * @param request - ShoppingAssistantRequest
+     *
+     * @returns ShoppingAssistantResponse
+     *
+     * @param ShoppingAssistantRequest $request
+     *
+     * @return ShoppingAssistantResponse
+     */
+    public function shoppingAssistant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->shoppingAssistantWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Splits the target values for a traffic control target into time intervals.
+     *
+     * @remarks
+     * Splits the target values for a traffic control target into time intervals.
      *
      * @param request - SplitTrafficControlTargetRequest
      * @param headers - map
@@ -11928,7 +12834,10 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 拆分流量调控目标.
+     * Splits the target values for a traffic control target into time intervals.
+     *
+     * @remarks
+     * Splits the target values for a traffic control target into time intervals.
      *
      * @param request - SplitTrafficControlTargetRequest
      *
@@ -11948,7 +12857,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 开启流量调控目标.
+     * Starts a traffic control task for a specific traffic control target.
+     *
+     * @remarks
+     * ## Request
+     * Call this operation to start a traffic control task by providing the `TrafficControlTargetId` and `InstanceId`.
      *
      * @param request - StartTrafficControlTargetRequest
      * @param headers - map
@@ -11991,7 +12904,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 开启流量调控目标.
+     * Starts a traffic control task for a specific traffic control target.
+     *
+     * @remarks
+     * ## Request
+     * Call this operation to start a traffic control task by providing the `TrafficControlTargetId` and `InstanceId`.
      *
      * @param request - StartTrafficControlTargetRequest
      *
@@ -12011,7 +12928,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 开启流量调控任务
+     * Starts a traffic control task with a specified ID for instances in different environments.
+     *
+     * @remarks
+     * ## Request details
+     * - This operation starts the traffic control task identified by `TrafficControlTaskId`.
+     * - `InstanceId` specifies the target instance.
+     * - `Environment` specifies the target environment. Valid values: Daily, Pre, and Prod.
+     * - Ensure that all required parameters are set correctly before you call this operation. The specified `TrafficControlTaskId` must exist in the system.
      *
      * @param request - StartTrafficControlTaskRequest
      * @param headers - map
@@ -12058,7 +12982,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 开启流量调控任务
+     * Starts a traffic control task with a specified ID for instances in different environments.
+     *
+     * @remarks
+     * ## Request details
+     * - This operation starts the traffic control task identified by `TrafficControlTaskId`.
+     * - `InstanceId` specifies the target instance.
+     * - `Environment` specifies the target environment. Valid values: Daily, Pre, and Prod.
+     * - Ensure that all required parameters are set correctly before you call this operation. The specified `TrafficControlTaskId` must exist in the system.
      *
      * @param request - StartTrafficControlTaskRequest
      *
@@ -12141,7 +13072,86 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 停止流量调控目标.
+     * Stops a traffic control Flink task with the specified ID.
+     *
+     * @remarks
+     * ## Request description
+     * You can call this operation to stop a specific traffic control Flink task based on the specified TrafficControlTaskId. Make sure that you have prepared the correct InstanceId and the environment to which the instance belongs (Daily for daily environment, Pre for staging environment, Prod for production environment). Include this information in the request body to ensure that the operation is correctly performed.
+     *
+     * @param request - StopTrafficControlFlinkTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopTrafficControlFlinkTaskResponse
+     *
+     * @param string                             $TrafficControlTaskId
+     * @param StopTrafficControlFlinkTaskRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return StopTrafficControlFlinkTaskResponse
+     */
+    public function stopTrafficControlFlinkTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->environment) {
+            @$body['Environment'] = $request->environment;
+        }
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'StopTrafficControlFlinkTask',
+            'version' => '2022-12-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/trafficcontroltasks/' . Url::percentEncode($TrafficControlTaskId) . '/action/stopflink',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopTrafficControlFlinkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Stops a traffic control Flink task with the specified ID.
+     *
+     * @remarks
+     * ## Request description
+     * You can call this operation to stop a specific traffic control Flink task based on the specified TrafficControlTaskId. Make sure that you have prepared the correct InstanceId and the environment to which the instance belongs (Daily for daily environment, Pre for staging environment, Prod for production environment). Include this information in the request body to ensure that the operation is correctly performed.
+     *
+     * @param request - StopTrafficControlFlinkTaskRequest
+     *
+     * @returns StopTrafficControlFlinkTaskResponse
+     *
+     * @param string                             $TrafficControlTaskId
+     * @param StopTrafficControlFlinkTaskRequest $request
+     *
+     * @return StopTrafficControlFlinkTaskResponse
+     */
+    public function stopTrafficControlFlinkTask($TrafficControlTaskId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopTrafficControlFlinkTaskWithOptions($TrafficControlTaskId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Stops a specific traffic control target.
+     *
+     * @remarks
+     * ## Request
+     * This operation stops a traffic control task using the provided `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid stopping the wrong target or instance.
      *
      * @param request - StopTrafficControlTargetRequest
      * @param headers - map
@@ -12184,7 +13194,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 停止流量调控目标.
+     * Stops a specific traffic control target.
+     *
+     * @remarks
+     * ## Request
+     * This operation stops a traffic control task using the provided `TrafficControlTargetId` and `InstanceId`. Ensure that the parameter values are accurate to avoid stopping the wrong target or instance.
      *
      * @param request - StopTrafficControlTargetRequest
      *
@@ -12204,7 +13218,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 停止流量调控任务
+     * Stops a traffic control task for a specific instance and environment.
+     *
+     * @remarks
+     * ## Usage notes
+     * - This API stops a traffic control task identified by a specific `TrafficControlTaskId`.
+     * - The `InstanceId` and `Environment` parameters are required to identify the target instance and its environment.
+     * - Ensure that you provide the correct `TrafficControlTaskId` to prevent the request from failing.
      *
      * @param request - StopTrafficControlTaskRequest
      * @param headers - map
@@ -12257,7 +13277,13 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 停止流量调控任务
+     * Stops a traffic control task for a specific instance and environment.
+     *
+     * @remarks
+     * ## Usage notes
+     * - This API stops a traffic control task identified by a specific `TrafficControlTaskId`.
+     * - The `InstanceId` and `Environment` parameters are required to identify the target instance and its environment.
+     * - Ensure that you provide the correct `TrafficControlTaskId` to prevent the request from failing.
      *
      * @param request - StopTrafficControlTaskRequest
      *
@@ -12277,7 +13303,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 同步特征一致性检测任务重放日志。
+     * Syncs the replay log for a feature consistency check job.
      *
      * @param request - SyncFeatureConsistencyCheckJobReplayLogRequest
      * @param headers - map
@@ -12355,7 +13381,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 同步特征一致性检测任务重放日志。
+     * Syncs the replay log for a feature consistency check job.
      *
      * @param request - SyncFeatureConsistencyCheckJobReplayLogRequest
      *
@@ -12374,7 +13400,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 取消指定特征一致性检查正在运行中的任务。
+     * Terminates a feature consistency check job.
      *
      * @param request - TerminateFeatureConsistencyCheckJobRequest
      * @param headers - map
@@ -12417,7 +13443,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 取消指定特征一致性检查正在运行中的任务。
+     * Terminates a feature consistency check job.
      *
      * @param request - TerminateFeatureConsistencyCheckJobRequest
      *
@@ -12437,7 +13463,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新AB Test实验指标。
+     * Modifies the metric configuration of an existing ABTest experiment.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation allows you to update the attributes of a specified ABTest metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
+     * - `NeedSignificance`: Specifies whether to perform significance analysis on the current metric. Default value: `false`.
+     * - `AggregationByUser`: When significance calculation is enabled, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
+     * - `Numerator` and `Denominator`: The specific definitions of the numerator and denominator used in significance calculation.
+     * - `IsBinomialDistribution`: Valid only for derived metrics. Specifies whether the metric follows a binomial distribution, which affects subsequent data processing logic.
+     * Note: You do not need to provide all fields at the same time. Include only the parameters whose values you want to change in the request body.
      *
      * @param request - UpdateABMetricRequest
      * @param headers - map
@@ -12548,7 +13583,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新AB Test实验指标。
+     * Modifies the metric configuration of an existing ABTest experiment.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation allows you to update the attributes of a specified ABTest metric, including whether to calculate significance and the aggregation method. Make sure that you have obtained the correct `ABMetricId` before calling this operation.
+     * - `NeedSignificance`: Specifies whether to perform significance analysis on the current metric. Default value: `false`.
+     * - `AggregationByUser`: When significance calculation is enabled, specifies whether to aggregate data by user or by sample. Default value: `false` (by sample).
+     * - `Numerator` and `Denominator`: The specific definitions of the numerator and denominator used in significance calculation.
+     * - `IsBinomialDistribution`: Valid only for derived metrics. Specifies whether the metric follows a binomial distribution, which affects subsequent data processing logic.
+     * Note: You do not need to provide all fields at the same time. Include only the parameters whose values you want to change in the request body.
      *
      * @param request - UpdateABMetricRequest
      *
@@ -12568,7 +13612,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新AB test实验指标组。
+     * Updates an A/B test metric group.
      *
      * @param request - UpdateABMetricGroupRequest
      * @param headers - map
@@ -12631,7 +13675,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新AB test实验指标组。
+     * Updates an A/B test metric group.
      *
      * @param request - UpdateABMetricGroupRequest
      *
@@ -12651,7 +13695,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新指定人群。
+     * Updates a crowd\\"s information, such as its name and description.
      *
      * @param request - UpdateCrowdRequest
      * @param headers - map
@@ -12702,7 +13746,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新指定人群。
+     * Updates a crowd\\"s information, such as its name and description.
      *
      * @param request - UpdateCrowdRequest
      *
@@ -12722,7 +13766,17 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新数据诊断。
+     * Updates the configuration of a specified data diagnosis task.
+     *
+     * @remarks
+     * ## Request
+     * This API updates the configuration of an existing data diagnosis task, including the instance ID, task name, task type, and specific configuration content. Provide the `DataDiagnosisId` in the request path to identify the task to update. You must also specify the `Config` parameter based on the task `Type`. For periodic runs, set the execution time in the `CycleTime` field. If a periodic run is not required, omit this field.
+     * ## Usage notes
+     * - `DataDiagnosisId` is a required path parameter that uniquely identifies a data diagnosis task.
+     * - The structure of the `Config` field varies depending on the value of `Type`. Refer to the examples in this document for configuration details.
+     * - To disable periodic runs, omit the `CycleTime` field.
+     * - When updating a task for two-table join analysis (`JoinTables`), provide the information for the left and right tables, including `LeftTableMetaId` and `RightTableMetaId`.
+     * - The `InstanceId`, `Name`, and `Type` parameters are required for all types of data diagnosis tasks.
      *
      * @param request - UpdateDataDiagnosisRequest
      * @param headers - map
@@ -12809,7 +13863,17 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新数据诊断。
+     * Updates the configuration of a specified data diagnosis task.
+     *
+     * @remarks
+     * ## Request
+     * This API updates the configuration of an existing data diagnosis task, including the instance ID, task name, task type, and specific configuration content. Provide the `DataDiagnosisId` in the request path to identify the task to update. You must also specify the `Config` parameter based on the task `Type`. For periodic runs, set the execution time in the `CycleTime` field. If a periodic run is not required, omit this field.
+     * ## Usage notes
+     * - `DataDiagnosisId` is a required path parameter that uniquely identifies a data diagnosis task.
+     * - The structure of the `Config` field varies depending on the value of `Type`. Refer to the examples in this document for configuration details.
+     * - To disable periodic runs, omit the `CycleTime` field.
+     * - When updating a task for two-table join analysis (`JoinTables`), provide the information for the left and right tables, including `LeftTableMetaId` and `RightTableMetaId`.
+     * - The `InstanceId`, `Name`, and `Type` parameters are required for all types of data diagnosis tasks.
      *
      * @param request - UpdateDataDiagnosisRequest
      *
@@ -12829,7 +13893,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新引擎配置。
+     * Updates an engine configuration.
      *
      * @param request - UpdateEngineConfigRequest
      * @param headers - map
@@ -12888,7 +13952,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新引擎配置。
+     * Updates an engine configuration.
      *
      * @param request - UpdateEngineConfigRequest
      *
@@ -12908,7 +13972,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新实验。
+     * Updates the properties of a specified experiment, such as its name.
      *
      * @param request - UpdateExperimentRequest
      * @param headers - map
@@ -12979,7 +14043,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新实验。
+     * Updates the properties of a specified experiment, such as its name.
      *
      * @param request - UpdateExperimentRequest
      *
@@ -12999,7 +14063,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新指定实验组。
+     * Updates information for a specified experiment group, such as its name and description.
      *
      * @param request - UpdateExperimentGroupRequest
      * @param headers - map
@@ -13098,7 +14162,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新指定实验组。
+     * Updates information for a specified experiment group, such as its name and description.
      *
      * @param request - UpdateExperimentGroupRequest
      *
@@ -13118,7 +14182,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新特征一致性检查配置信息。
+     * Updates the configuration details of a feature consistency check task, such as the name.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation allows you to update the configuration of an existing feature consistency check task. By providing new configuration parameters, you can modify multiple properties including the instance ID, name, and scene ID. Ensure that all required parameters are included in the request, and provide optional parameters as needed.
+     * - **FeatureConsistencyCheckJobConfigId** is a path parameter that specifies the feature consistency check task to update.
+     * - All other parameters are in the request body. Some are required (such as InstanceId and Name), and the rest are optional.
+     * - The SampleRate value must be a floating-point number between 0 and 1, which indicates the sampling ratio.
+     * - If you use FeatureStore-related features, make sure that you correctly set the IsUseFeatureStore flag and the related FeatureStore* fields.
+     * - For network configuration parameters (such as VpcId and SwitchId), make sure that the values match your Alibaba Cloud environment.
      *
      * @param request - UpdateFeatureConsistencyCheckJobConfigRequest
      * @param headers - map
@@ -13249,6 +14322,10 @@ class PaiRecService extends OpenApiClient
             @$body['ItemTablePartitionFieldFormat'] = $request->itemTablePartitionFieldFormat;
         }
 
+        if (null !== $request->maxcomputeSchema) {
+            @$body['MaxcomputeSchema'] = $request->maxcomputeSchema;
+        }
+
         if (null !== $request->name) {
             @$body['Name'] = $request->name;
         }
@@ -13341,7 +14418,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新特征一致性检查配置信息。
+     * Updates the configuration details of a feature consistency check task, such as the name.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation allows you to update the configuration of an existing feature consistency check task. By providing new configuration parameters, you can modify multiple properties including the instance ID, name, and scene ID. Ensure that all required parameters are included in the request, and provide optional parameters as needed.
+     * - **FeatureConsistencyCheckJobConfigId** is a path parameter that specifies the feature consistency check task to update.
+     * - All other parameters are in the request body. Some are required (such as InstanceId and Name), and the rest are optional.
+     * - The SampleRate value must be a floating-point number between 0 and 1, which indicates the sampling ratio.
+     * - If you use FeatureStore-related features, make sure that you correctly set the IsUseFeatureStore flag and the related FeatureStore* fields.
+     * - For network configuration parameters (such as VpcId and SwitchId), make sure that the values match your Alibaba Cloud environment.
      *
      * @param request - UpdateFeatureConsistencyCheckJobConfigRequest
      *
@@ -13361,7 +14447,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新指定实例下指定资源的信息。
+     * Updates a specified resource for a specified instance.
      *
      * @param request - UpdateInstanceResourceRequest
      * @param headers - map
@@ -13409,7 +14495,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新指定实例下指定资源的信息。
+     * Updates a specified resource for a specified instance.
      *
      * @param request - UpdateInstanceResourceRequest
      *
@@ -13430,7 +14516,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新实验室。
+     * Updates a laboratory\\"s information, such as its name.
      *
      * @param request - UpdateLaboratoryRequest
      * @param headers - map
@@ -13513,7 +14599,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新实验室。
+     * Updates a laboratory\\"s information, such as its name.
      *
      * @param request - UpdateLaboratoryRequest
      *
@@ -13533,7 +14619,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新层。
+     * Updates the name and description of a specified layer.
      *
      * @param request - UpdateLayerRequest
      * @param headers - map
@@ -13584,7 +14670,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新层。
+     * Updates the name and description of a specified layer.
      *
      * @param request - UpdateLayerRequest
      *
@@ -13604,7 +14690,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新参数。
+     * Updates information for a specified parameter, such as its value.
      *
      * @param request - UpdateParamRequest
      * @param headers - map
@@ -13651,7 +14737,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新参数。
+     * Updates information for a specified parameter, such as its value.
      *
      * @param request - UpdateParamRequest
      *
@@ -13671,7 +14757,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新召回管理初始化配置。
+     * Updates the recall management configuration, including the instance ID, password, and network configuration.
+     *
+     * @remarks
+     * ## Request
+     * - `InstanceId` is required. It specifies the instance to update.
+     * - `Password` and `NetworkConfigs` are optional.
+     * - Use `NetworkConfigs` to define the network by specifying the Virtual Private Cloud (VPC) ID (`VpcId`) and mapping availability zones to VSwitch IDs (`VswitchIds`).
+     * - Note: Ensure that sensitive information, such as the password, is transmitted securely.
      *
      * @param request - UpdateRecallManagementConfigRequest
      * @param headers - map
@@ -13721,7 +14814,14 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新召回管理初始化配置。
+     * Updates the recall management configuration, including the instance ID, password, and network configuration.
+     *
+     * @remarks
+     * ## Request
+     * - `InstanceId` is required. It specifies the instance to update.
+     * - `Password` and `NetworkConfigs` are optional.
+     * - Use `NetworkConfigs` to define the network by specifying the Virtual Private Cloud (VPC) ID (`VpcId`) and mapping availability zones to VSwitch IDs (`VswitchIds`).
+     * - Note: Ensure that sensitive information, such as the password, is transmitted securely.
      *
      * @param request - UpdateRecallManagementConfigRequest
      *
@@ -13740,7 +14840,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新召回管理服务信息.
+     * Updates the instance ID and description of a specified recall management service.
+     *
+     * @remarks
+     * ## Request description
+     * This operation updates the instance ID and description of a specific recall management service. Make sure to specify the `InstanceId` and `Description` fields in the request body.
+     * - **RecallManagementServiceId**: The unique identifier of the recall management service.
+     * - **InstanceId**: The instance ID to associate with this recall management service.
+     * - **Description**: A new description for the recall management service.
+     * Note: You must provide all required parameters, or the update may fail.
      *
      * @param request - UpdateRecallManagementServiceRequest
      * @param headers - map
@@ -13787,7 +14895,15 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新召回管理服务信息.
+     * Updates the instance ID and description of a specified recall management service.
+     *
+     * @remarks
+     * ## Request description
+     * This operation updates the instance ID and description of a specific recall management service. Make sure to specify the `InstanceId` and `Description` fields in the request body.
+     * - **RecallManagementServiceId**: The unique identifier of the recall management service.
+     * - **InstanceId**: The instance ID to associate with this recall management service.
+     * - **Description**: A new description for the recall management service.
+     * Note: You must provide all required parameters, or the update may fail.
      *
      * @param request - UpdateRecallManagementServiceRequest
      *
@@ -13807,7 +14923,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新召回管理服务版本配置.
+     * Updates the configuration of a specific Recall Management Service version.
+     *
+     * @remarks
+     * ## Request
+     * This API updates the recall and merge configurations for a specific recall management service version. Your request must include the correct `InstanceId` and the configurations to update. Refer to the parameter descriptions for details on required parameters.
      *
      * @param request - UpdateRecallManagementServiceVersionConfigRequest
      * @param headers - map
@@ -13864,7 +14984,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新召回管理服务版本配置.
+     * Updates the configuration of a specific Recall Management Service version.
+     *
+     * @remarks
+     * ## Request
+     * This API updates the recall and merge configurations for a specific recall management service version. Your request must include the correct `InstanceId` and the configurations to update. Refer to the parameter descriptions for details on required parameters.
      *
      * @param request - UpdateRecallManagementServiceVersionConfigRequest
      *
@@ -13886,7 +15010,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新召回管理表。
+     * Updates the configuration of a recall management table specified by its ID.
+     *
+     * @remarks
+     * ## Request details
+     * - Updates the recall management table specified by `RecallManagementTableId`.
+     * - You can enable fluctuation thresholds for the row count or data size and define the specific ranges for these thresholds.
+     * - You can add or modify fields in the table, including their names, types, and attributes.
+     * - The `InstanceId` parameter is required and identifies the specific instance.
+     * - For vector-related fields, you can also specify the vector dimension and metric type.
+     * - Note: Optional parameters in the request body selectively update the target table.
      *
      * @param request - UpdateRecallManagementTableRequest
      * @param headers - map
@@ -13961,7 +15094,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新召回管理表。
+     * Updates the configuration of a recall management table specified by its ID.
+     *
+     * @remarks
+     * ## Request details
+     * - Updates the recall management table specified by `RecallManagementTableId`.
+     * - You can enable fluctuation thresholds for the row count or data size and define the specific ranges for these thresholds.
+     * - You can add or modify fields in the table, including their names, types, and attributes.
+     * - The `InstanceId` parameter is required and identifies the specific instance.
+     * - For vector-related fields, you can also specify the vector dimension and metric type.
+     * - Note: Optional parameters in the request body selectively update the target table.
      *
      * @param request - UpdateRecallManagementTableRequest
      *
@@ -14153,7 +15295,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新场景.
+     * Updates information for a scene, such as its name and description.
      *
      * @param request - UpdateSceneRequest
      * @param headers - map
@@ -14208,7 +15350,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新场景.
+     * Updates information for a scene, such as its name and description.
      *
      * @param request - UpdateSceneRequest
      *
@@ -14228,7 +15370,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据表详细信息。
+     * Updates a data table.
      *
      * @param request - UpdateTableMetaRequest
      * @param headers - map
@@ -14295,7 +15437,7 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 获取数据表详细信息。
+     * Updates a data table.
      *
      * @param request - UpdateTableMetaRequest
      *
@@ -14315,7 +15457,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新流量调控目标.
+     * Updates the configuration of a traffic control target, including its control period, conditions, and value.
+     *
+     * @remarks
+     * ## Description
+     * - Updates a traffic control target specified by its ID.
+     * - `TrafficControlTargetId` is a path parameter that specifies the ID of the traffic control target to update.
+     * - The `ItemConditionType` parameter specifies the format of the item condition, which can be either `Array` or `Expression`. Based on your selection, you must provide a value for either the `ItemConditionArray` or `ItemConditionExpress` parameter.
+     * - If `NewProductRegulation` is set to `true`, the control rule applies to a new product.
+     * - The `StatisPeriod` parameter specifies the statistics period. Valid values are `Daily` and `hourly`.
+     * - Ensure that the time interval between `StartTime` and `EndTime` is reasonable and meets your business requirements.
      *
      * @param request - UpdateTrafficControlTargetRequest
      * @param headers - map
@@ -14412,7 +15563,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新流量调控目标.
+     * Updates the configuration of a traffic control target, including its control period, conditions, and value.
+     *
+     * @remarks
+     * ## Description
+     * - Updates a traffic control target specified by its ID.
+     * - `TrafficControlTargetId` is a path parameter that specifies the ID of the traffic control target to update.
+     * - The `ItemConditionType` parameter specifies the format of the item condition, which can be either `Array` or `Expression`. Based on your selection, you must provide a value for either the `ItemConditionArray` or `ItemConditionExpress` parameter.
+     * - If `NewProductRegulation` is set to `true`, the control rule applies to a new product.
+     * - The `StatisPeriod` parameter specifies the statistics period. Valid values are `Daily` and `hourly`.
+     * - Ensure that the time interval between `StartTime` and `EndTime` is reasonable and meets your business requirements.
      *
      * @param request - UpdateTrafficControlTargetRequest
      *
@@ -14432,7 +15592,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新流量调控任务
+     * Updates the configuration and target of a specified traffic control task.
+     *
+     * @remarks
+     * ## Usage notes
+     * - Use this API to update an existing traffic control task.
+     * - When `ExecutionTime` is set to `TimeRange`, you must also provide `StartTime` and `EndTime`.
+     * - Each element in the `TrafficControlTargets` array is a traffic control target. Ensure each target\\"s time range, condition type, and other information are complete and valid.
+     * - If you set `UserConditionType` or `ItemConditionType` to `Expression`, you must specify the corresponding expression field (for example, `UserConditionExpress`).
+     * - `ServiceIds` and `EffectiveSceneIds` are optional parameters. If you include them, ensure the ID lists are correctly formatted.
+     * - Ensure you complete all required fields to avoid a failed request.
      *
      * @param request - UpdateTrafficControlTaskRequest
      * @param headers - map
@@ -14591,7 +15760,16 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新流量调控任务
+     * Updates the configuration and target of a specified traffic control task.
+     *
+     * @remarks
+     * ## Usage notes
+     * - Use this API to update an existing traffic control task.
+     * - When `ExecutionTime` is set to `TimeRange`, you must also provide `StartTime` and `EndTime`.
+     * - Each element in the `TrafficControlTargets` array is a traffic control target. Ensure each target\\"s time range, condition type, and other information are complete and valid.
+     * - If you set `UserConditionType` or `ItemConditionType` to `Expression`, you must specify the corresponding expression field (for example, `UserConditionExpress`).
+     * - `ServiceIds` and `EffectiveSceneIds` are optional parameters. If you include them, ensure the ID lists are correctly formatted.
+     * - Ensure you complete all required fields to avoid a failed request.
      *
      * @param request - UpdateTrafficControlTaskRequest
      *
@@ -14611,7 +15789,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新流量调控任务的流量参数.
+     * Updates the traffic parameters for a specified traffic control task, including target traffic and actual traffic.
+     *
+     * @remarks
+     * ## Request
+     * This API updates the traffic configuration for a specific traffic control task. The configuration includes the traffic control target ID, record time, target traffic, and overall traffic. Ensure that the provided`TrafficControlTaskId` is valid and within your permission scope. Additionally, each object in the`Traffics` array must contain the required fields.
      *
      * @param request - UpdateTrafficControlTaskTrafficRequest
      * @param headers - map
@@ -14668,7 +15850,11 @@ class PaiRecService extends OpenApiClient
     }
 
     /**
-     * 更新流量调控任务的流量参数.
+     * Updates the traffic parameters for a specified traffic control task, including target traffic and actual traffic.
+     *
+     * @remarks
+     * ## Request
+     * This API updates the traffic configuration for a specific traffic control task. The configuration includes the traffic control target ID, record time, target traffic, and overall traffic. Ensure that the provided`TrafficControlTaskId` is valid and within your permission scope. Additionally, each object in the`Traffics` array must contain the required fields.
      *
      * @param request - UpdateTrafficControlTaskTrafficRequest
      *

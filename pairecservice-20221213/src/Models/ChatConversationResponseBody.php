@@ -16,6 +16,11 @@ class ChatConversationResponseBody extends Model
     /**
      * @var string
      */
+    public $callId;
+
+    /**
+     * @var string
+     */
     public $conversationId;
 
     /**
@@ -36,6 +41,11 @@ class ChatConversationResponseBody extends Model
     /**
      * @var string
      */
+    public $func;
+
+    /**
+     * @var string
+     */
     public $gmtCreateTime;
 
     /**
@@ -47,15 +57,23 @@ class ChatConversationResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $skillName;
     protected $_name = [
         'answer' => 'Answer',
+        'callId' => 'CallId',
         'conversationId' => 'ConversationId',
         'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'event' => 'Event',
+        'func' => 'Func',
         'gmtCreateTime' => 'GmtCreateTime',
         'messageId' => 'MessageId',
         'requestId' => 'RequestId',
+        'skillName' => 'SkillName',
     ];
 
     public function validate()
@@ -68,6 +86,10 @@ class ChatConversationResponseBody extends Model
         $res = [];
         if (null !== $this->answer) {
             $res['Answer'] = $this->answer;
+        }
+
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
         }
 
         if (null !== $this->conversationId) {
@@ -86,6 +108,10 @@ class ChatConversationResponseBody extends Model
             $res['Event'] = $this->event;
         }
 
+        if (null !== $this->func) {
+            $res['Func'] = $this->func;
+        }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
@@ -96,6 +122,10 @@ class ChatConversationResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->skillName) {
+            $res['SkillName'] = $this->skillName;
         }
 
         return $res;
@@ -111,6 +141,10 @@ class ChatConversationResponseBody extends Model
         $model = new self();
         if (isset($map['Answer'])) {
             $model->answer = $map['Answer'];
+        }
+
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
         }
 
         if (isset($map['ConversationId'])) {
@@ -129,6 +163,10 @@ class ChatConversationResponseBody extends Model
             $model->event = $map['Event'];
         }
 
+        if (isset($map['Func'])) {
+            $model->func = $map['Func'];
+        }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
@@ -139,6 +177,10 @@ class ChatConversationResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SkillName'])) {
+            $model->skillName = $map['SkillName'];
         }
 
         return $model;

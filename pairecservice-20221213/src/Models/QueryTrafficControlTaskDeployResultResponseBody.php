@@ -56,6 +56,16 @@ class QueryTrafficControlTaskDeployResultResponseBody extends Model
     /**
      * @var string
      */
+    public $stopMessage;
+
+    /**
+     * @var string
+     */
+    public $stopStatus;
+
+    /**
+     * @var string
+     */
     public $trafficControlTaskId;
     protected $_name = [
         'deployMessage' => 'DeployMessage',
@@ -67,6 +77,8 @@ class QueryTrafficControlTaskDeployResultResponseBody extends Model
         'requestId' => 'RequestId',
         'startMessage' => 'StartMessage',
         'startStatus' => 'StartStatus',
+        'stopMessage' => 'StopMessage',
+        'stopStatus' => 'StopStatus',
         'trafficControlTaskId' => 'TrafficControlTaskId',
     ];
 
@@ -112,6 +124,14 @@ class QueryTrafficControlTaskDeployResultResponseBody extends Model
 
         if (null !== $this->startStatus) {
             $res['StartStatus'] = $this->startStatus;
+        }
+
+        if (null !== $this->stopMessage) {
+            $res['StopMessage'] = $this->stopMessage;
+        }
+
+        if (null !== $this->stopStatus) {
+            $res['StopStatus'] = $this->stopStatus;
         }
 
         if (null !== $this->trafficControlTaskId) {
@@ -163,6 +183,14 @@ class QueryTrafficControlTaskDeployResultResponseBody extends Model
 
         if (isset($map['StartStatus'])) {
             $model->startStatus = $map['StartStatus'];
+        }
+
+        if (isset($map['StopMessage'])) {
+            $model->stopMessage = $map['StopMessage'];
+        }
+
+        if (isset($map['StopStatus'])) {
+            $model->stopStatus = $map['StopStatus'];
         }
 
         if (isset($map['TrafficControlTaskId'])) {

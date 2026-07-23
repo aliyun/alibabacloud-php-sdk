@@ -12,6 +12,11 @@ class GetServiceResponseBody extends Model
     /**
      * @var string
      */
+    public $crInstanceId;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -52,6 +57,11 @@ class GetServiceResponseBody extends Model
     /**
      * @var string
      */
+    public $repositoryId;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -64,6 +74,7 @@ class GetServiceResponseBody extends Model
      */
     public $serviceResourceUri;
     protected $_name = [
+        'crInstanceId' => 'CrInstanceId',
         'description' => 'Description',
         'engineConfigId' => 'EngineConfigId',
         'gmtReleasedTime' => 'GmtReleasedTime',
@@ -72,6 +83,7 @@ class GetServiceResponseBody extends Model
         'latestProdReleaseOrder' => 'LatestProdReleaseOrder',
         'name' => 'Name',
         'region' => 'Region',
+        'repositoryId' => 'RepositoryId',
         'requestId' => 'RequestId',
         'serviceConfig' => 'ServiceConfig',
         'serviceResourceUri' => 'ServiceResourceUri',
@@ -88,6 +100,10 @@ class GetServiceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->crInstanceId) {
+            $res['CrInstanceId'] = $this->crInstanceId;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -120,6 +136,10 @@ class GetServiceResponseBody extends Model
             $res['Region'] = $this->region;
         }
 
+        if (null !== $this->repositoryId) {
+            $res['RepositoryId'] = $this->repositoryId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -143,6 +163,10 @@ class GetServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CrInstanceId'])) {
+            $model->crInstanceId = $map['CrInstanceId'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -173,6 +197,10 @@ class GetServiceResponseBody extends Model
 
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+
+        if (isset($map['RepositoryId'])) {
+            $model->repositoryId = $map['RepositoryId'];
         }
 
         if (isset($map['RequestId'])) {
