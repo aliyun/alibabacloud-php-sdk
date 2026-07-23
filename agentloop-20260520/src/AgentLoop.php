@@ -24,6 +24,10 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorSkillRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateEvaluatorSkillResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentPlanRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentPlanResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreateExperimentRunResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteAgentSpaceRequest;
@@ -42,6 +46,10 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluatorRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluatorResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluatorSkillRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteEvaluatorSkillResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteExperimentPlanRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteExperimentPlanResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteExperimentRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeleteExperimentRunResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeletePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DeletePipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\DescribeRegionsRequest;
@@ -64,6 +72,10 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorSkillRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetEvaluatorSkillResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetExperimentPlanRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetExperimentPlanResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetExperimentRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetExperimentRunResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\GetPipelineRunRequest;
@@ -86,6 +98,10 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluatorSkillsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluatorSkillsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluatorsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListEvaluatorsResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListExperimentPlansRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListExperimentPlansResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListExperimentRunsRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListExperimentRunsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelineRunsRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelineRunsResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\ListPipelinesRequest;
@@ -116,6 +132,10 @@ use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorSkillRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateEvaluatorSkillResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentPlanRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentPlanResponse;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentRunRequest;
+use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdateExperimentRunResponse;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\AgentLoop\V20260520\Models\UpdatePipelineResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -916,6 +936,214 @@ class AgentLoop extends OpenApiClient
     }
 
     /**
+     * Creates an experiment plan.
+     *
+     * @remarks
+     * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+     *
+     * @param request - CreateExperimentPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExperimentPlanResponse
+     *
+     * @param string                      $agentSpace
+     * @param CreateExperimentPlanRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateExperimentPlanResponse
+     */
+    public function createExperimentPlanWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->datasetId) {
+            @$body['datasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->evaluators) {
+            @$body['evaluators'] = $request->evaluators;
+        }
+
+        if (null !== $request->experimentType) {
+            @$body['experimentType'] = $request->experimentType;
+        }
+
+        if (null !== $request->experiments) {
+            @$body['experiments'] = $request->experiments;
+        }
+
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
+        }
+
+        if (null !== $request->planName) {
+            @$body['planName'] = $request->planName;
+        }
+
+        if (null !== $request->querySql) {
+            @$body['querySql'] = $request->querySql;
+        }
+
+        if (null !== $request->selectedItemIds) {
+            @$body['selectedItemIds'] = $request->selectedItemIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateExperimentPlan',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($agentSpace) . '/plans',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateExperimentPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an experiment plan.
+     *
+     * @remarks
+     * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration of an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start execution.
+     *
+     * @param request - CreateExperimentPlanRequest
+     *
+     * @returns CreateExperimentPlanResponse
+     *
+     * @param string                      $agentSpace
+     * @param CreateExperimentPlanRequest $request
+     *
+     * @return CreateExperimentPlanResponse
+     */
+    public function createExperimentPlan($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createExperimentPlanWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Executes an experiment.
+     *
+     * @remarks
+     * Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+     *
+     * @param request - CreateExperimentRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateExperimentRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param CreateExperimentRunRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateExperimentRunResponse
+     */
+    public function createExperimentRunWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->completedAt) {
+            @$body['completedAt'] = $request->completedAt;
+        }
+
+        if (null !== $request->completedTasks) {
+            @$body['completedTasks'] = $request->completedTasks;
+        }
+
+        if (null !== $request->executedAt) {
+            @$body['executedAt'] = $request->executedAt;
+        }
+
+        if (null !== $request->experimentPlanId) {
+            @$body['experimentPlanId'] = $request->experimentPlanId;
+        }
+
+        if (null !== $request->failedTasks) {
+            @$body['failedTasks'] = $request->failedTasks;
+        }
+
+        if (null !== $request->offlineExperiments) {
+            @$body['offlineExperiments'] = $request->offlineExperiments;
+        }
+
+        if (null !== $request->recordName) {
+            @$body['recordName'] = $request->recordName;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->totalTasks) {
+            @$body['totalTasks'] = $request->totalTasks;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateExperimentRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experimentruns/' . Url::percentEncode($agentSpace) . '/execute',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateExperimentRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes an experiment.
+     *
+     * @remarks
+     * Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+     *
+     * @param request - CreateExperimentRunRequest
+     *
+     * @returns CreateExperimentRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param CreateExperimentRunRequest $request
+     *
+     * @return CreateExperimentRunResponse
+     */
+    public function createExperimentRun($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createExperimentRunWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
      * Creates a pipeline.
      *
      * @param request - CreatePipelineRequest
@@ -1502,6 +1730,136 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->deleteEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an experiment plan.
+     *
+     * @remarks
+     * Calls DeleteExperimentPlan to delete a specified experiment plan. After deletion, no new executions can be initiated based on this plan. Existing experiment records can still be queried.
+     *
+     * @param request - DeleteExperimentPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExperimentPlanResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $planId
+     * @param DeleteExperimentPlanRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteExperimentPlanResponse
+     */
+    public function deleteExperimentPlanWithOptions($agentSpace, $planId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteExperimentPlan',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($agentSpace) . '/plans/' . Url::percentEncode($planId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteExperimentPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an experiment plan.
+     *
+     * @remarks
+     * Calls DeleteExperimentPlan to delete a specified experiment plan. After deletion, no new executions can be initiated based on this plan. Existing experiment records can still be queried.
+     *
+     * @param request - DeleteExperimentPlanRequest
+     *
+     * @returns DeleteExperimentPlanResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $planId
+     * @param DeleteExperimentPlanRequest $request
+     *
+     * @return DeleteExperimentPlanResponse
+     */
+    public function deleteExperimentPlan($agentSpace, $planId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteExperimentPlanWithOptions($agentSpace, $planId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Deletes an experiment record.
+     *
+     * @remarks
+     * Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+     *
+     * @param request - DeleteExperimentRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExperimentRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $recordId
+     * @param DeleteExperimentRunRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteExperimentRunResponse
+     */
+    public function deleteExperimentRunWithOptions($agentSpace, $recordId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteExperimentRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experimentruns/' . Url::percentEncode($agentSpace) . '/records/' . Url::percentEncode($recordId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteExperimentRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an experiment record.
+     *
+     * @remarks
+     * Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+     *
+     * @param request - DeleteExperimentRunRequest
+     *
+     * @returns DeleteExperimentRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $recordId
+     * @param DeleteExperimentRunRequest $request
+     *
+     * @return DeleteExperimentRunResponse
+     */
+    public function deleteExperimentRun($agentSpace, $recordId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteExperimentRunWithOptions($agentSpace, $recordId, $request, $headers, $runtime);
     }
 
     /**
@@ -2213,6 +2571,136 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->getEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Query an experiment plan.
+     *
+     * @remarks
+     * Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+     *
+     * @param request - GetExperimentPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentPlanResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $planId
+     * @param GetExperimentPlanRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetExperimentPlanResponse
+     */
+    public function getExperimentPlanWithOptions($agentSpace, $planId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetExperimentPlan',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($agentSpace) . '/plans/' . Url::percentEncode($planId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetExperimentPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Query an experiment plan.
+     *
+     * @remarks
+     * Calls the GetExperimentPlan operation to query the complete configuration of a specified experiment plan, including experiment groups, data sources, evaluators, and timestamps.
+     *
+     * @param request - GetExperimentPlanRequest
+     *
+     * @returns GetExperimentPlanResponse
+     *
+     * @param string                   $agentSpace
+     * @param string                   $planId
+     * @param GetExperimentPlanRequest $request
+     *
+     * @return GetExperimentPlanResponse
+     */
+    public function getExperimentPlan($agentSpace, $planId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getExperimentPlanWithOptions($agentSpace, $planId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the details of an experiment run record.
+     *
+     * @remarks
+     * Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+     *
+     * @param request - GetExperimentRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetExperimentRunResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $recordId
+     * @param GetExperimentRunRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetExperimentRunResponse
+     */
+    public function getExperimentRunWithOptions($agentSpace, $recordId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetExperimentRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experimentruns/' . Url::percentEncode($agentSpace) . '/records/' . Url::percentEncode($recordId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetExperimentRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an experiment run record.
+     *
+     * @remarks
+     * Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+     *
+     * @param request - GetExperimentRunRequest
+     *
+     * @returns GetExperimentRunResponse
+     *
+     * @param string                  $agentSpace
+     * @param string                  $recordId
+     * @param GetExperimentRunRequest $request
+     *
+     * @return GetExperimentRunResponse
+     */
+    public function getExperimentRun($agentSpace, $recordId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getExperimentRunWithOptions($agentSpace, $recordId, $request, $headers, $runtime);
     }
 
     /**
@@ -3012,6 +3500,192 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->listEvaluatorsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of experiment plans.
+     *
+     * @remarks
+     * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+     *
+     * @param request - ListExperimentPlansRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExperimentPlansResponse
+     *
+     * @param string                     $agentSpace
+     * @param ListExperimentPlansRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListExperimentPlansResponse
+     */
+    public function listExperimentPlansWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->limit) {
+            @$query['limit'] = $request->limit;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->offset) {
+            @$query['offset'] = $request->offset;
+        }
+
+        if (null !== $request->planName) {
+            @$query['planName'] = $request->planName;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListExperimentPlans',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($agentSpace) . '/plans',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListExperimentPlansResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of experiment plans.
+     *
+     * @remarks
+     * Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+     *
+     * @param request - ListExperimentPlansRequest
+     *
+     * @returns ListExperimentPlansResponse
+     *
+     * @param string                     $agentSpace
+     * @param ListExperimentPlansRequest $request
+     *
+     * @return ListExperimentPlansResponse
+     */
+    public function listExperimentPlans($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listExperimentPlansWithOptions($agentSpace, $request, $headers, $runtime);
+    }
+
+    /**
+     * Queries the list of experiment run records.
+     *
+     * @remarks
+     * Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+     *
+     * @param request - ListExperimentRunsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListExperimentRunsResponse
+     *
+     * @param string                    $agentSpace
+     * @param ListExperimentRunsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListExperimentRunsResponse
+     */
+    public function listExperimentRunsWithOptions($agentSpace, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->datasetId) {
+            @$query['datasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->experimentName) {
+            @$query['experimentName'] = $request->experimentName;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->planName) {
+            @$query['planName'] = $request->planName;
+        }
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListExperimentRuns',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experimentruns/' . Url::percentEncode($agentSpace) . '/records',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListExperimentRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of experiment run records.
+     *
+     * @remarks
+     * Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+     *
+     * @param request - ListExperimentRunsRequest
+     *
+     * @returns ListExperimentRunsResponse
+     *
+     * @param string                    $agentSpace
+     * @param ListExperimentRunsRequest $request
+     *
+     * @return ListExperimentRunsResponse
+     */
+    public function listExperimentRuns($agentSpace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listExperimentRunsWithOptions($agentSpace, $request, $headers, $runtime);
     }
 
     /**
@@ -4189,6 +4863,214 @@ class AgentLoop extends OpenApiClient
         $headers = [];
 
         return $this->updateEvaluatorSkillWithOptions($name, $skillName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates an experiment plan.
+     *
+     * @remarks
+     * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+     *
+     * @param request - UpdateExperimentPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateExperimentPlanResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $planId
+     * @param UpdateExperimentPlanRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateExperimentPlanResponse
+     */
+    public function updateExperimentPlanWithOptions($agentSpace, $planId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->datasetId) {
+            @$body['datasetId'] = $request->datasetId;
+        }
+
+        if (null !== $request->datasetProject) {
+            @$body['datasetProject'] = $request->datasetProject;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->evaluators) {
+            @$body['evaluators'] = $request->evaluators;
+        }
+
+        if (null !== $request->experimentType) {
+            @$body['experimentType'] = $request->experimentType;
+        }
+
+        if (null !== $request->experiments) {
+            @$body['experiments'] = $request->experiments;
+        }
+
+        if (null !== $request->input) {
+            @$body['input'] = $request->input;
+        }
+
+        if (null !== $request->planName) {
+            @$body['planName'] = $request->planName;
+        }
+
+        if (null !== $request->querySql) {
+            @$body['querySql'] = $request->querySql;
+        }
+
+        if (null !== $request->selectedItemIds) {
+            @$body['selectedItemIds'] = $request->selectedItemIds;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateExperimentPlan',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($agentSpace) . '/plans/' . Url::percentEncode($planId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateExperimentPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an experiment plan.
+     *
+     * @remarks
+     * Calls UpdateExperimentPlan to update a specified experiment plan. Fields that are not passed remain unchanged. Only plans created by the current account can be updated.
+     *
+     * @param request - UpdateExperimentPlanRequest
+     *
+     * @returns UpdateExperimentPlanResponse
+     *
+     * @param string                      $agentSpace
+     * @param string                      $planId
+     * @param UpdateExperimentPlanRequest $request
+     *
+     * @return UpdateExperimentPlanResponse
+     */
+    public function updateExperimentPlan($agentSpace, $planId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateExperimentPlanWithOptions($agentSpace, $planId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates an experiment run.
+     *
+     * @remarks
+     * Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+     *
+     * @param request - UpdateExperimentRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateExperimentRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $recordId
+     * @param UpdateExperimentRunRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateExperimentRunResponse
+     */
+    public function updateExperimentRunWithOptions($agentSpace, $recordId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['clientToken'] = $request->clientToken;
+        }
+
+        $body = [];
+        if (null !== $request->completedAt) {
+            @$body['completedAt'] = $request->completedAt;
+        }
+
+        if (null !== $request->completedTasks) {
+            @$body['completedTasks'] = $request->completedTasks;
+        }
+
+        if (null !== $request->executedAt) {
+            @$body['executedAt'] = $request->executedAt;
+        }
+
+        if (null !== $request->failedTasks) {
+            @$body['failedTasks'] = $request->failedTasks;
+        }
+
+        if (null !== $request->recordName) {
+            @$body['recordName'] = $request->recordName;
+        }
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
+        }
+
+        if (null !== $request->totalTasks) {
+            @$body['totalTasks'] = $request->totalTasks;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateExperimentRun',
+            'version' => '2026-05-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experimentruns/' . Url::percentEncode($agentSpace) . '/records/' . Url::percentEncode($recordId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateExperimentRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an experiment run.
+     *
+     * @remarks
+     * Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+     *
+     * @param request - UpdateExperimentRunRequest
+     *
+     * @returns UpdateExperimentRunResponse
+     *
+     * @param string                     $agentSpace
+     * @param string                     $recordId
+     * @param UpdateExperimentRunRequest $request
+     *
+     * @return UpdateExperimentRunResponse
+     */
+    public function updateExperimentRun($agentSpace, $recordId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateExperimentRunWithOptions($agentSpace, $recordId, $request, $headers, $runtime);
     }
 
     /**
