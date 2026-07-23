@@ -33,6 +33,9 @@ use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DevicePageRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DevicePageResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeviceUpdateRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\DeviceUpdateResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\InterruptForArbitrationRequest;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\InterruptForArbitrationResponse;
+use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\InterruptForArbitrationShrinkRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListCommandRequest;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListCommandResponse;
 use AlibabaCloud\SDK\SfmMultiModalApp\V20250909\Models\ListMmAppRequest;
@@ -1023,6 +1026,85 @@ class SfmMultiModalApp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deviceUpdateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 并行仲裁的仲裁结果上传.
+     *
+     * @param tmpReq - InterruptForArbitrationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InterruptForArbitrationResponse
+     *
+     * @param InterruptForArbitrationRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return InterruptForArbitrationResponse
+     */
+    public function interruptForArbitrationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new InterruptForArbitrationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->interrupt) {
+            $request->interruptShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->interrupt, 'Interrupt', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->chatId) {
+            @$query['ChatId'] = $request->chatId;
+        }
+
+        if (null !== $request->hubRequestId) {
+            @$query['HubRequestId'] = $request->hubRequestId;
+        }
+
+        if (null !== $request->interruptShrink) {
+            @$query['Interrupt'] = $request->interruptShrink;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InterruptForArbitration',
+            'version' => '2025-09-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InterruptForArbitrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 并行仲裁的仲裁结果上传.
+     *
+     * @param request - InterruptForArbitrationRequest
+     *
+     * @returns InterruptForArbitrationResponse
+     *
+     * @param InterruptForArbitrationRequest $request
+     *
+     * @return InterruptForArbitrationResponse
+     */
+    public function interruptForArbitration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->interruptForArbitrationWithOptions($request, $runtime);
     }
 
     /**
