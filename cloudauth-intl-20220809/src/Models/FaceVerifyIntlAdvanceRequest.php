@@ -17,6 +17,11 @@ class FaceVerifyIntlAdvanceRequest extends Model
     /**
      * @var string
      */
+    public $faceAttributeCheck;
+
+    /**
+     * @var string
+     */
     public $faceGroupCodes;
 
     /**
@@ -85,6 +90,7 @@ class FaceVerifyIntlAdvanceRequest extends Model
     public $verifyModel;
     protected $_name = [
         'autoRegistration' => 'AutoRegistration',
+        'faceAttributeCheck' => 'FaceAttributeCheck',
         'faceGroupCodes' => 'FaceGroupCodes',
         'faceQualityCheck' => 'FaceQualityCheck',
         'faceRegisterGroupCode' => 'FaceRegisterGroupCode',
@@ -111,6 +117,10 @@ class FaceVerifyIntlAdvanceRequest extends Model
         $res = [];
         if (null !== $this->autoRegistration) {
             $res['AutoRegistration'] = $this->autoRegistration;
+        }
+
+        if (null !== $this->faceAttributeCheck) {
+            $res['FaceAttributeCheck'] = $this->faceAttributeCheck;
         }
 
         if (null !== $this->faceGroupCodes) {
@@ -182,6 +192,10 @@ class FaceVerifyIntlAdvanceRequest extends Model
         $model = new self();
         if (isset($map['AutoRegistration'])) {
             $model->autoRegistration = $map['AutoRegistration'];
+        }
+
+        if (isset($map['FaceAttributeCheck'])) {
+            $model->faceAttributeCheck = $map['FaceAttributeCheck'];
         }
 
         if (isset($map['FaceGroupCodes'])) {

@@ -3361,7 +3361,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+     * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
      *
      * @param Request - FaceDuplicationCheckIntlRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3384,6 +3384,10 @@ class Cloudauthintl extends OpenApiClient
         $body = [];
         if (null !== $request->autoRegistration) {
             @$body['AutoRegistration'] = $request->autoRegistration;
+        }
+
+        if (null !== $request->faceAttributeCheck) {
+            @$body['FaceAttributeCheck'] = $request->faceAttributeCheck;
         }
 
         if (null !== $request->faceGroupCodes) {
@@ -3466,7 +3470,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a retained face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
+     * Performs face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether a user is a real person, compare the face against a stored face image for identity verification, search a face library to determine whether the face already exists, and automatically register the face in a specified face library after successful verification.
      *
      * @param Request - FaceDuplicationCheckIntlRequest
      *
@@ -3557,7 +3561,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Provides the server-side passive liveness detection API.
+     * Provides the server-side API for passive liveness detection.
      *
      * @param Request - FaceLivenessRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3575,6 +3579,10 @@ class Cloudauthintl extends OpenApiClient
         $query = [];
         if (null !== $request->crop) {
             @$query['Crop'] = $request->crop;
+        }
+
+        if (null !== $request->faceAttributeCheck) {
+            @$query['FaceAttributeCheck'] = $request->faceAttributeCheck;
         }
 
         if (null !== $request->facePictureUrl) {
@@ -3630,7 +3638,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Provides the server-side passive liveness detection API.
+     * Provides the server-side API for passive liveness detection.
      *
      * @param Request - FaceLivenessRequest
      *
@@ -3648,7 +3656,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+     * Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
      *
      * @remarks
      * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
@@ -3667,6 +3675,10 @@ class Cloudauthintl extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->faceAttributeCheck) {
+            @$query['FaceAttributeCheck'] = $request->faceAttributeCheck;
+        }
+
         if (null !== $request->facePictureFile) {
             @$query['FacePictureFile'] = $request->facePictureFile;
         }
@@ -3716,7 +3728,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Detects whether a face in an image is from a real person by using an API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+     * Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
      *
      * @remarks
      * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
@@ -3829,7 +3841,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
+     * Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
      *
      * @remarks
      * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
@@ -3850,6 +3862,10 @@ class Cloudauthintl extends OpenApiClient
         $query = [];
         if (null !== $request->autoRegistration) {
             @$query['AutoRegistration'] = $request->autoRegistration;
+        }
+
+        if (null !== $request->faceAttributeCheck) {
+            @$query['FaceAttributeCheck'] = $request->faceAttributeCheck;
         }
 
         if (null !== $request->faceGroupCodes) {
@@ -3929,7 +3945,7 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * Performs real face detection by using face images obtained in advance through the API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render fake faces, and supports comparison with another face image to authenticate whether they belong to the same person.
+     * Performs real face detection by using face images obtained in advance through an API operation. The algorithm identifies whether a face is a screen recapture or printed photo to detect basic presentation liveness attacks that render such attack types, and supports comparison with another face image to authenticate whether they belong to the same person.
      *
      * @remarks
      * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
@@ -4526,6 +4542,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['Authorize'] = $request->authorize;
         }
 
+        if (null !== $request->autoDocPageConfig) {
+            @$query['AutoDocPageConfig'] = $request->autoDocPageConfig;
+        }
+
         if (null !== $request->autoRegistration) {
             @$query['AutoRegistration'] = $request->autoRegistration;
         }
@@ -4592,6 +4612,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->experienceCode) {
             @$query['ExperienceCode'] = $request->experienceCode;
+        }
+
+        if (null !== $request->faceAttributeCheck) {
+            @$query['FaceAttributeCheck'] = $request->faceAttributeCheck;
         }
 
         if (null !== $request->faceGroupCodes) {
@@ -4811,6 +4835,10 @@ class Cloudauthintl extends OpenApiClient
             @$query['Authorize'] = $request->authorize;
         }
 
+        if (null !== $request->autoDocPageConfig) {
+            @$query['AutoDocPageConfig'] = $request->autoDocPageConfig;
+        }
+
         if (null !== $request->autoRegistration) {
             @$query['AutoRegistration'] = $request->autoRegistration;
         }
@@ -4877,6 +4905,10 @@ class Cloudauthintl extends OpenApiClient
 
         if (null !== $request->experienceCode) {
             @$query['ExperienceCode'] = $request->experienceCode;
+        }
+
+        if (null !== $request->faceAttributeCheck) {
+            @$query['FaceAttributeCheck'] = $request->faceAttributeCheck;
         }
 
         if (null !== $request->faceGroupCodes) {

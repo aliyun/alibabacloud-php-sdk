@@ -21,6 +21,11 @@ class InitializeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $autoDocPageConfig;
+
+    /**
+     * @var string
+     */
     public $autoRegistration;
 
     /**
@@ -102,6 +107,11 @@ class InitializeShrinkRequest extends Model
      * @var string
      */
     public $experienceCode;
+
+    /**
+     * @var string
+     */
+    public $faceAttributeCheck;
 
     /**
      * @var string
@@ -290,6 +300,7 @@ class InitializeShrinkRequest extends Model
     protected $_name = [
         'appQualityCheck' => 'AppQualityCheck',
         'authorize' => 'Authorize',
+        'autoDocPageConfig' => 'AutoDocPageConfig',
         'autoRegistration' => 'AutoRegistration',
         'callbackToken' => 'CallbackToken',
         'callbackUrl' => 'CallbackUrl',
@@ -307,6 +318,7 @@ class InitializeShrinkRequest extends Model
         'editOcrResult' => 'EditOcrResult',
         'email' => 'Email',
         'experienceCode' => 'ExperienceCode',
+        'faceAttributeCheck' => 'FaceAttributeCheck',
         'faceGroupCodes' => 'FaceGroupCodes',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl' => 'FacePictureUrl',
@@ -360,6 +372,10 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->authorize) {
             $res['Authorize'] = $this->authorize;
+        }
+
+        if (null !== $this->autoDocPageConfig) {
+            $res['AutoDocPageConfig'] = $this->autoDocPageConfig;
         }
 
         if (null !== $this->autoRegistration) {
@@ -428,6 +444,10 @@ class InitializeShrinkRequest extends Model
 
         if (null !== $this->experienceCode) {
             $res['ExperienceCode'] = $this->experienceCode;
+        }
+
+        if (null !== $this->faceAttributeCheck) {
+            $res['FaceAttributeCheck'] = $this->faceAttributeCheck;
         }
 
         if (null !== $this->faceGroupCodes) {
@@ -597,6 +617,10 @@ class InitializeShrinkRequest extends Model
             $model->authorize = $map['Authorize'];
         }
 
+        if (isset($map['AutoDocPageConfig'])) {
+            $model->autoDocPageConfig = $map['AutoDocPageConfig'];
+        }
+
         if (isset($map['AutoRegistration'])) {
             $model->autoRegistration = $map['AutoRegistration'];
         }
@@ -663,6 +687,10 @@ class InitializeShrinkRequest extends Model
 
         if (isset($map['ExperienceCode'])) {
             $model->experienceCode = $map['ExperienceCode'];
+        }
+
+        if (isset($map['FaceAttributeCheck'])) {
+            $model->faceAttributeCheck = $map['FaceAttributeCheck'];
         }
 
         if (isset($map['FaceGroupCodes'])) {

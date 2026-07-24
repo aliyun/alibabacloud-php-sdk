@@ -12,6 +12,11 @@ class FaceLivenessV2AdvanceRequest extends Model
     /**
      * @var string
      */
+    public $faceAttributeCheck;
+
+    /**
+     * @var string
+     */
     public $facePictureBase64;
 
     /**
@@ -44,6 +49,7 @@ class FaceLivenessV2AdvanceRequest extends Model
      */
     public $productCode;
     protected $_name = [
+        'faceAttributeCheck' => 'FaceAttributeCheck',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureFileObject' => 'FacePictureFile',
         'facePictureUrl' => 'FacePictureUrl',
@@ -61,6 +67,10 @@ class FaceLivenessV2AdvanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->faceAttributeCheck) {
+            $res['FaceAttributeCheck'] = $this->faceAttributeCheck;
+        }
+
         if (null !== $this->facePictureBase64) {
             $res['FacePictureBase64'] = $this->facePictureBase64;
         }
@@ -100,6 +110,10 @@ class FaceLivenessV2AdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FaceAttributeCheck'])) {
+            $model->faceAttributeCheck = $map['FaceAttributeCheck'];
+        }
+
         if (isset($map['FacePictureBase64'])) {
             $model->facePictureBase64 = $map['FacePictureBase64'];
         }

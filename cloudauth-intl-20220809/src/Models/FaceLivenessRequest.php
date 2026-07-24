@@ -16,6 +16,11 @@ class FaceLivenessRequest extends Model
     /**
      * @var string
      */
+    public $faceAttributeCheck;
+
+    /**
+     * @var string
+     */
     public $facePictureBase64;
 
     /**
@@ -54,6 +59,7 @@ class FaceLivenessRequest extends Model
     public $productCode;
     protected $_name = [
         'crop' => 'Crop',
+        'faceAttributeCheck' => 'FaceAttributeCheck',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl' => 'FacePictureUrl',
         'faceQuality' => 'FaceQuality',
@@ -74,6 +80,10 @@ class FaceLivenessRequest extends Model
         $res = [];
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
+        }
+
+        if (null !== $this->faceAttributeCheck) {
+            $res['FaceAttributeCheck'] = $this->faceAttributeCheck;
         }
 
         if (null !== $this->facePictureBase64) {
@@ -121,6 +131,10 @@ class FaceLivenessRequest extends Model
         $model = new self();
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];
+        }
+
+        if (isset($map['FaceAttributeCheck'])) {
+            $model->faceAttributeCheck = $map['FaceAttributeCheck'];
         }
 
         if (isset($map['FacePictureBase64'])) {
