@@ -41,11 +41,6 @@ class texts extends Model
     public $lineCount;
 
     /**
-     * @var string
-     */
-    public $ovisErrMsg;
-
-    /**
      * @var textRect
      */
     public $textRect;
@@ -71,7 +66,6 @@ class texts extends Model
         'imageRect' => 'ImageRect',
         'language' => 'Language',
         'lineCount' => 'LineCount',
-        'ovisErrMsg' => 'OvisErrMsg',
         'textRect' => 'TextRect',
         'valid' => 'Valid',
         'value' => 'Value',
@@ -114,10 +108,6 @@ class texts extends Model
 
         if (null !== $this->lineCount) {
             $res['LineCount'] = $this->lineCount;
-        }
-
-        if (null !== $this->ovisErrMsg) {
-            $res['OvisErrMsg'] = $this->ovisErrMsg;
         }
 
         if (null !== $this->textRect) {
@@ -169,10 +159,6 @@ class texts extends Model
 
         if (isset($map['LineCount'])) {
             $model->lineCount = $map['LineCount'];
-        }
-
-        if (isset($map['OvisErrMsg'])) {
-            $model->ovisErrMsg = $map['OvisErrMsg'];
         }
 
         if (isset($map['TextRect'])) {
