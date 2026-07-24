@@ -5,10 +5,21 @@
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\dialogues;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response;
 
 class data extends Model
 {
+    /**
+     * @var dialogues[]
+     */
+    public $dialogues;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
     /**
      * @var string
      */
@@ -59,6 +70,8 @@ class data extends Model
      */
     public $vid;
     protected $_name = [
+        'dialogues' => 'Dialogues',
+        'errorMessage' => 'ErrorMessage',
         'inputTokens' => 'InputTokens',
         'llmRequestId' => 'LlmRequestId',
         'outputTokens' => 'OutputTokens',
@@ -73,6 +86,9 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->dialogues)) {
+            Model::validateArray($this->dialogues);
+        }
         if (null !== $this->response) {
             $this->response->validate();
         }
@@ -82,6 +98,21 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dialogues) {
+            if (\is_array($this->dialogues)) {
+                $res['Dialogues'] = [];
+                $n1 = 0;
+                foreach ($this->dialogues as $item1) {
+                    $res['Dialogues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+
         if (null !== $this->inputTokens) {
             $res['InputTokens'] = $this->inputTokens;
         }
@@ -133,6 +164,21 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Dialogues'])) {
+            if (!empty($map['Dialogues'])) {
+                $model->dialogues = [];
+                $n1 = 0;
+                foreach ($map['Dialogues'] as $item1) {
+                    $model->dialogues[$n1] = dialogues::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+
         if (isset($map['InputTokens'])) {
             $model->inputTokens = $map['InputTokens'];
         }

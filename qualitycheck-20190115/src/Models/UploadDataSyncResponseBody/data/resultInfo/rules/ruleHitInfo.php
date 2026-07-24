@@ -28,6 +28,11 @@ class ruleHitInfo extends Model
     /**
      * @var string
      */
+    public $name;
+
+    /**
+     * @var string
+     */
     public $rid;
 
     /**
@@ -38,6 +43,7 @@ class ruleHitInfo extends Model
         'conditionInfo' => 'ConditionInfo',
         'hit' => 'Hit',
         'llmResponse' => 'LlmResponse',
+        'name' => 'Name',
         'rid' => 'Rid',
         'tid' => 'Tid',
     ];
@@ -66,6 +72,10 @@ class ruleHitInfo extends Model
 
         if (null !== $this->llmResponse) {
             $res['LlmResponse'] = $this->llmResponse;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->rid) {
@@ -97,6 +107,10 @@ class ruleHitInfo extends Model
 
         if (isset($map['LlmResponse'])) {
             $model->llmResponse = $map['LlmResponse'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['Rid'])) {
