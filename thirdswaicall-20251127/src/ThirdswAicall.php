@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\ThirdswAicall\V20251127;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\CreateCallOutboundInstantRequest;
+use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\CreateCallOutboundInstantResponse;
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\QueryTaskConcurrencyRequest;
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\QueryTaskConcurrencyResponse;
 use AlibabaCloud\SDK\ThirdswAicall\V20251127\Models\ReadOutboundTaskCallListRequest;
@@ -47,6 +49,79 @@ class ThirdswAicall extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 发起实时外呼
+     *
+     * @param request - CreateCallOutboundInstantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCallOutboundInstantResponse
+     *
+     * @param CreateCallOutboundInstantRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateCallOutboundInstantResponse
+     */
+    public function createCallOutboundInstantWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->calledNumber) {
+            @$body['CalledNumber'] = $request->calledNumber;
+        }
+
+        if (null !== $request->customerName) {
+            @$body['CustomerName'] = $request->customerName;
+        }
+
+        if (null !== $request->encryptCall) {
+            @$body['EncryptCall'] = $request->encryptCall;
+        }
+
+        if (null !== $request->promptVariables) {
+            @$body['PromptVariables'] = $request->promptVariables;
+        }
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateCallOutboundInstant',
+            'version' => '2025-11-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateCallOutboundInstantResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发起实时外呼
+     *
+     * @param request - CreateCallOutboundInstantRequest
+     *
+     * @returns CreateCallOutboundInstantResponse
+     *
+     * @param CreateCallOutboundInstantRequest $request
+     *
+     * @return CreateCallOutboundInstantResponse
+     */
+    public function createCallOutboundInstant($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCallOutboundInstantWithOptions($request, $runtime);
     }
 
     /**
