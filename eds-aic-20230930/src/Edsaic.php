@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAICloudPhoneRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAICloudPhoneResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupShrinkRequest;
@@ -1091,6 +1093,103 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkResourceStockWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an AI cloud phone.
+     *
+     * @param request - CreateAICloudPhoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAICloudPhoneResponse
+     *
+     * @param CreateAICloudPhoneRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateAICloudPhoneResponse
+     */
+    public function createAICloudPhoneWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
+        }
+
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->bandwidthPackageId) {
+            @$query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        }
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
+        }
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
+        }
+
+        if (null !== $request->instanceGroupName) {
+            @$query['InstanceGroupName'] = $request->instanceGroupName;
+        }
+
+        if (null !== $request->instanceGroupSpec) {
+            @$query['InstanceGroupSpec'] = $request->instanceGroupSpec;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->policyGroupId) {
+            @$query['PolicyGroupId'] = $request->policyGroupId;
+        }
+
+        if (null !== $request->promotionId) {
+            @$query['PromotionId'] = $request->promotionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAICloudPhone',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAICloudPhoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an AI cloud phone.
+     *
+     * @param request - CreateAICloudPhoneRequest
+     *
+     * @returns CreateAICloudPhoneResponse
+     *
+     * @param CreateAICloudPhoneRequest $request
+     *
+     * @return CreateAICloudPhoneResponse
+     */
+    public function createAICloudPhone($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAICloudPhoneWithOptions($request, $runtime);
     }
 
     /**
@@ -3709,6 +3808,14 @@ class Edsaic extends OpenApiClient
             @$query['InstanceIds'] = $request->instanceIds;
         }
 
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
         if (null !== $request->packageIds) {
             @$query['PackageIds'] = $request->packageIds;
         }
@@ -4514,7 +4621,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of one or more node packages.
+     * Queries the details of node packages.
      *
      * @param request - DescribeMobileAgentPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4573,7 +4680,7 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * Retrieves the details of one or more node packages.
+     * Queries the details of node packages.
      *
      * @param request - DescribeMobileAgentPackageRequest
      *
@@ -6904,6 +7011,10 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->creditConfig) {
             @$query['CreditConfig'] = $request->creditConfig;
+        }
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
 
         if (null !== $request->instanceIds) {

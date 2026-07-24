@@ -46,6 +46,16 @@ class packageList extends Model
     /**
      * @var string
      */
+    public $periodEndTime;
+
+    /**
+     * @var string
+     */
+    public $periodStartTime;
+
+    /**
+     * @var string
+     */
     public $usedCredit;
     protected $_name = [
         'expiredAt' => 'ExpiredAt',
@@ -55,6 +65,8 @@ class packageList extends Model
         'packageSpec' => 'PackageSpec',
         'packageSpecName' => 'PackageSpecName',
         'packageStatus' => 'PackageStatus',
+        'periodEndTime' => 'PeriodEndTime',
+        'periodStartTime' => 'PeriodStartTime',
         'usedCredit' => 'UsedCredit',
     ];
 
@@ -102,6 +114,14 @@ class packageList extends Model
 
         if (null !== $this->packageStatus) {
             $res['PackageStatus'] = $this->packageStatus;
+        }
+
+        if (null !== $this->periodEndTime) {
+            $res['PeriodEndTime'] = $this->periodEndTime;
+        }
+
+        if (null !== $this->periodStartTime) {
+            $res['PeriodStartTime'] = $this->periodStartTime;
         }
 
         if (null !== $this->usedCredit) {
@@ -152,6 +172,14 @@ class packageList extends Model
 
         if (isset($map['PackageStatus'])) {
             $model->packageStatus = $map['PackageStatus'];
+        }
+
+        if (isset($map['PeriodEndTime'])) {
+            $model->periodEndTime = $map['PeriodEndTime'];
+        }
+
+        if (isset($map['PeriodStartTime'])) {
+            $model->periodStartTime = $map['PeriodStartTime'];
         }
 
         if (isset($map['UsedCredit'])) {

@@ -20,6 +20,11 @@ class ModifyJVSInstanceRequest extends Model
     public $creditConfig;
 
     /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
      * @var string[]
      */
     public $instanceIds;
@@ -31,6 +36,7 @@ class ModifyJVSInstanceRequest extends Model
     protected $_name = [
         'applyToAll' => 'ApplyToAll',
         'creditConfig' => 'CreditConfig',
+        'imageId' => 'ImageId',
         'instanceIds' => 'InstanceIds',
         'instanceName' => 'InstanceName',
     ];
@@ -62,6 +68,10 @@ class ModifyJVSInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
 
         if (null !== $this->instanceIds) {
@@ -103,6 +113,10 @@ class ModifyJVSInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
 
         if (isset($map['InstanceIds'])) {

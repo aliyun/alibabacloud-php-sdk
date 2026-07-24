@@ -19,6 +19,16 @@ class DescribeCreditDetailRequest extends Model
     public $instanceIds;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var string[]
      */
     public $packageIds;
@@ -40,6 +50,8 @@ class DescribeCreditDetailRequest extends Model
     protected $_name = [
         'endTime' => 'EndTime',
         'instanceIds' => 'InstanceIds',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'packageIds' => 'PackageIds',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
@@ -73,6 +85,14 @@ class DescribeCreditDetailRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->packageIds) {
@@ -122,6 +142,14 @@ class DescribeCreditDetailRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PackageIds'])) {

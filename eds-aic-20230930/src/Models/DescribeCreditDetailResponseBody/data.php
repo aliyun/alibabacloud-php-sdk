@@ -15,6 +15,11 @@ class data extends Model
     public $details;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @var int
      */
     public $pageNum;
@@ -35,6 +40,7 @@ class data extends Model
     public $totalCreditChange;
     protected $_name = [
         'details' => 'Details',
+        'nextToken' => 'NextToken',
         'pageNum' => 'PageNum',
         'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
@@ -61,6 +67,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
 
         if (null !== $this->pageNum) {
@@ -99,6 +109,10 @@ class data extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
 
         if (isset($map['PageNum'])) {
