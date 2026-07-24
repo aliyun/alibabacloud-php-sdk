@@ -16,6 +16,11 @@ class changeFee extends Model
     /**
      * @var float
      */
+    public $suezServiceFee;
+
+    /**
+     * @var float
+     */
     public $taxFee;
 
     /**
@@ -24,6 +29,7 @@ class changeFee extends Model
     public $upgradeFee;
     protected $_name = [
         'serviceFee' => 'service_fee',
+        'suezServiceFee' => 'suez_service_fee',
         'taxFee' => 'tax_fee',
         'upgradeFee' => 'upgrade_fee',
     ];
@@ -38,6 +44,10 @@ class changeFee extends Model
         $res = [];
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
+        }
+
+        if (null !== $this->suezServiceFee) {
+            $res['suez_service_fee'] = $this->suezServiceFee;
         }
 
         if (null !== $this->taxFee) {
@@ -61,6 +71,10 @@ class changeFee extends Model
         $model = new self();
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];
+        }
+
+        if (isset($map['suez_service_fee'])) {
+            $model->suezServiceFee = $map['suez_service_fee'];
         }
 
         if (isset($map['tax_fee'])) {

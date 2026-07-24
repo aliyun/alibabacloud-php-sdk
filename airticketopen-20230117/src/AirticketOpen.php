@@ -104,7 +104,7 @@ class AirticketOpen extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('airticketopen', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -134,7 +134,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 账号资金流水.
+     * Queries the account fund flow list.
      *
      * @param request - AccountFlowListRequest
      * @param headers - AccountFlowListHeaders
@@ -201,7 +201,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 账号资金流水.
+     * Queries the account fund flow list.
      *
      * @param request - AccountFlowListRequest
      *
@@ -220,10 +220,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Ancillary - Suggestion.
-     *
-     * @remarks
-     * search ancillary for selected solution, you should enter the solution_id returned by enrich.
+     * Recommends ancillary products.
      *
      * @param request - AncillarySuggestRequest
      * @param headers - AncillarySuggestHeaders
@@ -278,10 +275,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Ancillary - Suggestion.
-     *
-     * @remarks
-     * search ancillary for selected solution, you should enter the solution_id returned by enrich.
+     * Recommends ancillary products.
      *
      * @param request - AncillarySuggestRequest
      *
@@ -300,13 +294,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction-Reservation.
-     *
-     * @remarks
-     * Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
-     * There are two issues should be noticed:
-     * 1. the solution_id must be processed by pricing.
-     * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
+     * Creates a booking order.
      *
      * @param tmpReq - BookRequest
      * @param headers - BookHeaders
@@ -391,13 +379,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction-Reservation.
-     *
-     * @remarks
-     * Enter solution_id returned by enrich, ancillary_id returned by ancillarySuggest(optional), passengers information and contact information, the book interface will create an order wait for pay.
-     * There are two issues should be noticed:
-     * 1. the solution_id must be processed by pricing.
-     * 2. the order created by book interface should be pay within 30 minutes, otherwise the order will be closed.
+     * Creates a booking order.
      *
      * @param request - BookRequest
      *
@@ -416,10 +398,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction - Unpaid Cancellation.
-     *
-     * @remarks
-     * close an unpaid order
+     * Cancels an unpaid order.
      *
      * @param request - CancelRequest
      * @param headers - CancelHeaders
@@ -474,10 +453,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction - Unpaid Cancellation.
-     *
-     * @remarks
-     * close an unpaid order
+     * Cancels an unpaid order.
      *
      * @param request - CancelRequest
      *
@@ -496,7 +472,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签-Apply.
+     * Submits a change application.
      *
      * @param tmpReq - ChangeApplyRequest
      * @param headers - ChangeApplyHeaders
@@ -585,7 +561,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签-Apply.
+     * Submits a change application.
      *
      * @param request - ChangeApplyRequest
      *
@@ -604,7 +580,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签-取消.
+     * Cancel the change order.
      *
      * @param request - ChangeCancelRequest
      * @param headers - ChangeCancelHeaders
@@ -659,7 +635,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签-取消.
+     * Cancel the change order.
      *
      * @param request - ChangeCancelRequest
      *
@@ -678,7 +654,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签-确认.
+     * Confirms a flight change order.
      *
      * @param request - ChangeConfirmRequest
      * @param headers - ChangeConfirmHeaders
@@ -733,7 +709,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签-确认.
+     * Confirms a flight change order.
      *
      * @param request - ChangeConfirmRequest
      *
@@ -752,7 +728,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Change-Detail.
+     * Retrieves the details of a flight change order.
      *
      * @param request - ChangeDetailRequest
      * @param headers - ChangeDetailHeaders
@@ -807,7 +783,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Change-Detail.
+     * Retrieves the details of a flight change order.
      *
      * @param request - ChangeDetailRequest
      *
@@ -826,7 +802,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签单列表-关于买家账号.
+     * Queries a paging list of change order summaries by buyer account.
      *
      * @param request - ChangeDetailListOfBuyerRequest
      * @param headers - ChangeDetailListOfBuyerHeaders
@@ -893,7 +869,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签单列表-关于买家账号.
+     * Queries a paging list of change order summaries by buyer account.
      *
      * @param request - ChangeDetailListOfBuyerRequest
      *
@@ -912,7 +888,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签单列表-关于正向订单.
+     * Queries the list of change orders by the original order number.
      *
      * @param request - ChangeDetailListOfOrderNumRequest
      * @param headers - ChangeDetailListOfOrderNumHeaders
@@ -975,7 +951,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 改签单列表-关于正向订单.
+     * Queries the list of change orders by the original order number.
      *
      * @param request - ChangeDetailListOfOrderNumRequest
      *
@@ -994,7 +970,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 数据收集-低价航班信息.
+     * Collects lowest-price flight information.
+     *
+     * @remarks
+     * Collects lowest-price flight information.
      *
      * @param tmpReq - CollectFlightLowestPriceRequest
      * @param headers - CollectFlightLowestPriceHeaders
@@ -1055,7 +1034,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 数据收集-低价航班信息.
+     * Collects lowest-price flight information.
+     *
+     * @remarks
+     * Collects lowest-price flight information.
      *
      * @param request - CollectFlightLowestPriceRequest
      *
@@ -1074,10 +1056,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Search-Enrich.
+     * Find richer quote information for the itinerary, including free baggage allowance, refund and change rules, and baggage through-check rules.
      *
      * @remarks
-     * Choose either `solution_id` or `journey_param_list` in the parameters, and `solution_id` needs to be obtained from the Search interface.
+     * In the input parameters, choose either solution_id or journey_param_list. solution_id must be obtained from the Search API.
      *
      * @param tmpReq - EnrichRequest
      * @param headers - EnrichHeaders
@@ -1158,10 +1140,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Search-Enrich.
+     * Find richer quote information for the itinerary, including free baggage allowance, refund and change rules, and baggage through-check rules.
      *
      * @remarks
-     * Choose either `solution_id` or `journey_param_list` in the parameters, and `solution_id` needs to be obtained from the Search interface.
+     * In the input parameters, choose either solution_id or journey_param_list. solution_id must be obtained from the Search API.
      *
      * @param request - EnrichRequest
      *
@@ -1180,7 +1162,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 附件上传.
+     * Uploads a file as an attachment image. The file size is limited to 300 KB or less.
      *
      * @param request - FileUploadRequest
      * @param headers - FileUploadHeaders
@@ -1239,7 +1221,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 附件上传.
+     * Uploads a file as an attachment image. The file size is limited to 300 KB or less.
      *
      * @param request - FileUploadRequest
      *
@@ -1258,7 +1240,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 航变信息-关于订单.
+     * Queries flight change information by order number.
      *
      * @param request - FlightChangeOfOrderRequest
      * @param headers - FlightChangeOfOrderHeaders
@@ -1313,7 +1295,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 航变信息-关于订单.
+     * Queries flight change information by order number.
      *
      * @param request - FlightChangeOfOrderRequest
      *
@@ -1332,7 +1314,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Get Token.
+     * Obtains a token for API calls. The token is valid for 2 hours.
      *
      * @param request - GetTokenRequest
      * @param headers - map
@@ -1378,7 +1360,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Get Token.
+     * Obtains a token for API calls. The token is valid for 2 hours.
      *
      * @param request - GetTokenRequest
      *
@@ -1397,7 +1379,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 航程行李直挂
+     * Queries luggage through-check information for an itinerary.
+     *
+     * @remarks
+     * Queries luggage through-check information for an itinerary. Provide itinerary information as input, and the API returns whether luggage through-check is supported for the itinerary. Luggage through-check applies to transfer and stopover scenarios.
      *
      * @param tmpReq - LuggageDirectRequest
      * @param headers - LuggageDirectHeaders
@@ -1458,7 +1443,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 航程行李直挂
+     * Queries luggage through-check information for an itinerary.
+     *
+     * @remarks
+     * Queries luggage through-check information for an itinerary. Provide itinerary information as input, and the API returns whether luggage through-check is supported for the itinerary. Luggage through-check applies to transfer and stopover scenarios.
      *
      * @param request - LuggageDirectRequest
      *
@@ -1477,10 +1465,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Trade-Order Details.
-     *
-     * @remarks
-     * query order detail
+     * Queries order details.
      *
      * @param request - OrderDetailRequest
      * @param headers - OrderDetailHeaders
@@ -1539,10 +1524,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Trade-Order Details.
-     *
-     * @remarks
-     * query order detail
+     * Queries order details.
      *
      * @param request - OrderDetailRequest
      *
@@ -1561,10 +1543,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Trade - Order List.
-     *
-     * @remarks
-     * query order list
+     * Queries the order list.
      *
      * @param request - OrderListRequest
      * @param headers - OrderListHeaders
@@ -1635,10 +1614,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Trade - Order List.
-     *
-     * @remarks
-     * query order list
+     * Queries the order list.
      *
      * @param request - OrderListRequest
      *
@@ -1657,10 +1633,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction - Seat and Price Verification.
-     *
-     * @remarks
-     * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
+     * Verifies seat availability and pricing. If the price has changed, the developer can proceed with Book at the updated price. If the price has not changed, the order is placed at the original price.
      *
      * @param request - PricingRequest
      * @param headers - PricingHeaders
@@ -1715,10 +1688,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction - Seat and Price Verification.
-     *
-     * @remarks
-     * Check is price and remaining seats of solution you selected has changed. You should enter the solution_id returned by enrich.
+     * Verifies seat availability and pricing. If the price has changed, the developer can proceed with Book at the updated price. If the price has not changed, the order is placed at the original price.
      *
      * @param request - PricingRequest
      *
@@ -1737,7 +1707,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Ticket Refund - Application.
+     * Submits a refund application for an air ticket.
      *
      * @param tmpReq - RefundApplyRequest
      * @param headers - RefundApplyHeaders
@@ -1818,7 +1788,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Ticket Refund - Application.
+     * Submits a refund application for an air ticket.
      *
      * @param request - RefundApplyRequest
      *
@@ -1837,7 +1807,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Refund - Detail.
+     * Retrieves the details of a refund order.
      *
      * @param request - RefundDetailRequest
      * @param headers - RefundDetailHeaders
@@ -1892,7 +1862,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Refund - Detail.
+     * Retrieves the details of a refund order.
      *
      * @param request - RefundDetailRequest
      *
@@ -1911,7 +1881,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Refund - Detail List.
+     * Queries the details of refund orders.
      *
      * @param request - RefundDetailListRequest
      * @param headers - RefundDetailListHeaders
@@ -1982,7 +1952,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Refund - Detail List.
+     * Queries the details of refund orders.
      *
      * @param request - RefundDetailListRequest
      *
@@ -2001,10 +1971,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Search.
-     *
-     * @remarks
-     * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
+     * Searches for flight quotes and returns the lowest price across multiple flights. Note that the response of this operation does not include refund and change rules, free baggage allowance, or baggage through-check rules.
      *
      * @param tmpReq - SearchRequest
      * @param headers - SearchHeaders
@@ -2089,10 +2056,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Search.
-     *
-     * @remarks
-     * Enter the information of departure, arrival, departure date, passenger number and cabin, return the lowest price for each flight.
+     * Searches for flight quotes and returns the lowest price across multiple flights. Note that the response of this operation does not include refund and change rules, free baggage allowance, or baggage through-check rules.
      *
      * @param request - SearchRequest
      *
@@ -2111,7 +2075,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 标准搜索.
+     * Search and quote prices, currently providing the lowest price across multiple flights. Note that this API response includes refund/change rules, free baggage allowance, and baggage through-check rules.
      *
      * @param tmpReq - StandardSearchRequest
      * @param headers - StandardSearchHeaders
@@ -2196,7 +2160,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 标准搜索.
+     * Search and quote prices, currently providing the lowest price across multiple flights. Note that this API response includes refund/change rules, free baggage allowance, and baggage through-check rules.
      *
      * @param request - StandardSearchRequest
      *
@@ -2215,7 +2179,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction - Payment and Ticket Issuance.
+     * Pays for and issues a ticket.
      *
      * @param request - TicketingRequest
      * @param headers - TicketingHeaders
@@ -2270,7 +2234,7 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction - Payment and Ticket Issuance.
+     * Pays for and issues a ticket.
      *
      * @param request - TicketingRequest
      *
@@ -2289,10 +2253,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction - Pre-payment verification.
+     * Performs a pre-ticketing check. This operation is optional.
      *
      * @remarks
-     * Pre-check for Ticketing, this interface is optional to use.
+     * Performs a pre-ticketing check. This operation is optional.
      *
      * @param request - TicketingCheckRequest
      * @param headers - TicketingCheckHeaders
@@ -2347,10 +2311,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * Transaction - Pre-payment verification.
+     * Performs a pre-ticketing check. This operation is optional.
      *
      * @remarks
-     * Pre-check for Ticketing, this interface is optional to use.
+     * Performs a pre-ticketing check. This operation is optional.
      *
      * @param request - TicketingCheckRequest
      *
@@ -2369,7 +2333,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 航程过境签.
+     * Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
+     *
+     * @remarks
+     * Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
      *
      * @param tmpReq - TransitVisaRequest
      * @param headers - TransitVisaHeaders
@@ -2430,7 +2397,10 @@ class AirticketOpen extends OpenApiClient
     }
 
     /**
-     * 航程过境签.
+     * Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
+     *
+     * @remarks
+     * Queries transit visa requirements for a flight itinerary. You provide flight information, and the API returns whether a transit visa is required for the itinerary. Only transfer or stopover segments are valid input parameters (transfers or stopovers passing through a third country). The supported passenger type defaults to Chinese mainland travelers.
      *
      * @param request - TransitVisaRequest
      *

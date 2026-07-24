@@ -16,6 +16,11 @@ class refundFee extends Model
     /**
      * @var float
      */
+    public $ancillaryRefundToBuyerMoney;
+
+    /**
+     * @var float
+     */
     public $modifyRefundToBuyerMoney;
 
     /**
@@ -42,14 +47,21 @@ class refundFee extends Model
      * @var float
      */
     public $refundToBuyerMoney;
+
+    /**
+     * @var float
+     */
+    public $suezServiceFee;
     protected $_name = [
         'alreadyUsedTotalFee' => 'already_used_total_fee',
+        'ancillaryRefundToBuyerMoney' => 'ancillary_refund_to_buyer_money',
         'modifyRefundToBuyerMoney' => 'modify_refund_to_buyer_money',
         'nonRefundableChangeServiceFee' => 'non_refundable_change_service_fee',
         'nonRefundableChangeUpgradeFee' => 'non_refundable_change_upgrade_fee',
         'nonRefundableTaxFee' => 'non_refundable_tax_fee',
         'nonRefundableTicketFee' => 'non_refundable_ticket_fee',
         'refundToBuyerMoney' => 'refund_to_buyer_money',
+        'suezServiceFee' => 'suez_service_fee',
     ];
 
     public function validate()
@@ -62,6 +74,10 @@ class refundFee extends Model
         $res = [];
         if (null !== $this->alreadyUsedTotalFee) {
             $res['already_used_total_fee'] = $this->alreadyUsedTotalFee;
+        }
+
+        if (null !== $this->ancillaryRefundToBuyerMoney) {
+            $res['ancillary_refund_to_buyer_money'] = $this->ancillaryRefundToBuyerMoney;
         }
 
         if (null !== $this->modifyRefundToBuyerMoney) {
@@ -88,6 +104,10 @@ class refundFee extends Model
             $res['refund_to_buyer_money'] = $this->refundToBuyerMoney;
         }
 
+        if (null !== $this->suezServiceFee) {
+            $res['suez_service_fee'] = $this->suezServiceFee;
+        }
+
         return $res;
     }
 
@@ -101,6 +121,10 @@ class refundFee extends Model
         $model = new self();
         if (isset($map['already_used_total_fee'])) {
             $model->alreadyUsedTotalFee = $map['already_used_total_fee'];
+        }
+
+        if (isset($map['ancillary_refund_to_buyer_money'])) {
+            $model->ancillaryRefundToBuyerMoney = $map['ancillary_refund_to_buyer_money'];
         }
 
         if (isset($map['modify_refund_to_buyer_money'])) {
@@ -125,6 +149,10 @@ class refundFee extends Model
 
         if (isset($map['refund_to_buyer_money'])) {
             $model->refundToBuyerMoney = $map['refund_to_buyer_money'];
+        }
+
+        if (isset($map['suez_service_fee'])) {
+            $model->suezServiceFee = $map['suez_service_fee'];
         }
 
         return $model;
