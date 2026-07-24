@@ -38,6 +38,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateScheduledPlanResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSessionClusterHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSessionClusterRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSessionClusterResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSqlFileHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSqlFileRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateSqlFileResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateUdfArtifactHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateUdfArtifactRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateUdfArtifactResponse;
@@ -46,6 +49,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateVariableRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\CreateVariableResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteCustomConnectorHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteCustomConnectorResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentByNameHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentByNameRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentByNameResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentDraftHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentDraftResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteDeploymentHeaders;
@@ -64,6 +70,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteScheduledPlanHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteScheduledPlanResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSessionClusterHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSessionClusterResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSqlFileHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSqlFileRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteSqlFileResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteUdfArtifactHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteUdfArtifactResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\DeleteUdfFunctionHeaders;
@@ -77,6 +86,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\DeployDeploymentDraftAsyncRespon
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ExecuteSqlStatementHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ExecuteSqlStatementRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\ExecuteSqlStatementResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\FetchSqlExecutionResultHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\FetchSqlExecutionResultRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\FetchSqlExecutionResultResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\FetchSqlPreviewResultsHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\FetchSqlPreviewResultsRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\FetchSqlPreviewResultsResponse;
@@ -141,6 +153,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSavepointHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSavepointResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSessionClusterHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSessionClusterResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSqlFileHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSqlFileRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\GetSqlFileResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetTablesHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetTablesRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\GetTablesResponse;
@@ -210,9 +225,15 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopJobResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSessionClusterHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSessionClusterResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSqlExecutionHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSqlExecutionRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\StopSqlExecutionResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\SubmitSqlPreviewResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentByNameHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentByNameRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentByNameResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentDraftHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentDraftRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateDeploymentDraftResponse;
@@ -237,6 +258,9 @@ use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateScheduledPlanResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSessionClusterHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSessionClusterRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSessionClusterResponse;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSqlFileHeaders;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSqlFileRequest;
+use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateSqlFileResponse;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactHeaders;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactRequest;
 use AlibabaCloud\SDK\Ververica\V20220718\Models\UpdateUdfArtifactResponse;
@@ -1085,6 +1109,79 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * Creates a SQL query script job file.
+     *
+     * @remarks
+     * The original interface for creating deployment targets only supports creating deployment targets with fixed resources or elastic resources. The new interface supports creating deployment targets with fixed resources, elastic resources, or mixed pattern.
+     *
+     * @param request - CreateSqlFileRequest
+     * @param headers - CreateSqlFileHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSqlFileResponse
+     *
+     * @param string               $namespace_
+     * @param CreateSqlFileRequest $request
+     * @param CreateSqlFileHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSqlFileResponse
+     */
+    public function createSqlFileWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateSqlFile',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-file',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateSqlFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a SQL query script job file.
+     *
+     * @remarks
+     * The original interface for creating deployment targets only supports creating deployment targets with fixed resources or elastic resources. The new interface supports creating deployment targets with fixed resources, elastic resources, or mixed pattern.
+     *
+     * @param request - CreateSqlFileRequest
+     *
+     * @returns CreateSqlFileResponse
+     *
+     * @param string               $namespace_
+     * @param CreateSqlFileRequest $request
+     *
+     * @return CreateSqlFileResponse
+     */
+    public function createSqlFile($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateSqlFileHeaders([]);
+
+        return $this->createSqlFileWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
      * Parses all user-defined function (UDF) methods in your JAR or Python file and creates an artifact configuration for a UDF.
      *
      * @param request - CreateUdfArtifactRequest
@@ -1340,6 +1437,84 @@ class Ververica extends OpenApiClient
         $headers = new DeleteDeploymentHeaders([]);
 
         return $this->deleteDeploymentWithOptions($namespace_, $deploymentId, $headers, $runtime);
+    }
+
+    /**
+     * Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name.
+     *
+     * @remarks
+     * Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name. This operation is applicable to scenarios where you want to quickly locate job details by deployment identifier.
+     *
+     * @param request - DeleteDeploymentByNameRequest
+     * @param headers - DeleteDeploymentByNameHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDeploymentByNameResponse
+     *
+     * @param string                        $namespace_
+     * @param DeleteDeploymentByNameRequest $request
+     * @param DeleteDeploymentByNameHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDeploymentByNameResponse
+     */
+    public function deleteDeploymentByNameWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deploymentName) {
+            @$query['deploymentName'] = $request->deploymentName;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDeploymentByName',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/deleteDeployment/byName',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDeploymentByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name.
+     *
+     * @remarks
+     * Deletes the deployment instance information of a job in a specified workspace and namespace based on the deployed job name. This operation is applicable to scenarios where you want to quickly locate job details by deployment identifier.
+     *
+     * @param request - DeleteDeploymentByNameRequest
+     *
+     * @returns DeleteDeploymentByNameResponse
+     *
+     * @param string                        $namespace_
+     * @param DeleteDeploymentByNameRequest $request
+     *
+     * @return DeleteDeploymentByNameResponse
+     */
+    public function deleteDeploymentByName($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteDeploymentByNameHeaders([]);
+
+        return $this->deleteDeploymentByNameWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
@@ -1839,6 +2014,80 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * Deletes a created SQL query script file.
+     *
+     * @remarks
+     * Queries the list of deployed jobs that are associated with a specified job label and their details. Exact matching by labelKey and labelValue is supported.
+     *
+     * @param request - DeleteSqlFileRequest
+     * @param headers - DeleteSqlFileHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSqlFileResponse
+     *
+     * @param string               $namespace_
+     * @param string               $sqlFileId
+     * @param DeleteSqlFileRequest $request
+     * @param DeleteSqlFileHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteSqlFileResponse
+     */
+    public function deleteSqlFileWithOptions($namespace_, $sqlFileId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteSqlFile',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-file/' . Url::percentEncode($sqlFileId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteSqlFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a created SQL query script file.
+     *
+     * @remarks
+     * Queries the list of deployed jobs that are associated with a specified job label and their details. Exact matching by labelKey and labelValue is supported.
+     *
+     * @param request - DeleteSqlFileRequest
+     *
+     * @returns DeleteSqlFileResponse
+     *
+     * @param string               $namespace_
+     * @param string               $sqlFileId
+     * @param DeleteSqlFileRequest $request
+     *
+     * @return DeleteSqlFileResponse
+     */
+    public function deleteSqlFile($namespace_, $sqlFileId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteSqlFileHeaders([]);
+
+        return $this->deleteSqlFileWithOptions($namespace_, $sqlFileId, $request, $headers, $runtime);
+    }
+
+    /**
      * Deletes a user-defined function (UDF) resource. You must delete all UDFs registered with the resource before you can delete the resource.
      *
      * @param headers - DeleteUdfArtifactHeaders
@@ -2172,6 +2421,74 @@ class Ververica extends OpenApiClient
         $headers = new ExecuteSqlStatementHeaders([]);
 
         return $this->executeSqlStatementWithOptions($namespace_, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the execution result of an SQL data query submitted through the platform.
+     *
+     * @param request - FetchSqlExecutionResultRequest
+     * @param headers - FetchSqlExecutionResultHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchSqlExecutionResultResponse
+     *
+     * @param string                         $namespace_
+     * @param string                         $sqlExecutionId
+     * @param FetchSqlExecutionResultRequest $request
+     * @param FetchSqlExecutionResultHeaders $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return FetchSqlExecutionResultResponse
+     */
+    public function fetchSqlExecutionResultWithOptions($namespace_, $sqlExecutionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'FetchSqlExecutionResult',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-execution/' . Url::percentEncode($sqlExecutionId) . '%3AfetchSqlExecutionResult',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return FetchSqlExecutionResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the execution result of an SQL data query submitted through the platform.
+     *
+     * @param request - FetchSqlExecutionResultRequest
+     *
+     * @returns FetchSqlExecutionResultResponse
+     *
+     * @param string                         $namespace_
+     * @param string                         $sqlExecutionId
+     * @param FetchSqlExecutionResultRequest $request
+     *
+     * @return FetchSqlExecutionResultResponse
+     */
+    public function fetchSqlExecutionResult($namespace_, $sqlExecutionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FetchSqlExecutionResultHeaders([]);
+
+        return $this->fetchSqlExecutionResultWithOptions($namespace_, $sqlExecutionId, $request, $headers, $runtime);
     }
 
     /**
@@ -3940,6 +4257,74 @@ class Ververica extends OpenApiClient
         $headers = new GetSessionClusterHeaders([]);
 
         return $this->getSessionClusterWithOptions($namespace_, $sessionClusterName, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves the details of a created SQL query script.
+     *
+     * @param request - GetSqlFileRequest
+     * @param headers - GetSqlFileHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSqlFileResponse
+     *
+     * @param string            $namespace_
+     * @param string            $sqlFileId
+     * @param GetSqlFileRequest $request
+     * @param GetSqlFileHeaders $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetSqlFileResponse
+     */
+    public function getSqlFileWithOptions($namespace_, $sqlFileId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'GetSqlFile',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-file/' . Url::percentEncode($sqlFileId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetSqlFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the details of a created SQL query script.
+     *
+     * @param request - GetSqlFileRequest
+     *
+     * @returns GetSqlFileResponse
+     *
+     * @param string            $namespace_
+     * @param string            $sqlFileId
+     * @param GetSqlFileRequest $request
+     *
+     * @return GetSqlFileResponse
+     */
+    public function getSqlFile($namespace_, $sqlFileId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetSqlFileHeaders([]);
+
+        return $this->getSqlFileWithOptions($namespace_, $sqlFileId, $request, $headers, $runtime);
     }
 
     /**
@@ -5822,6 +6207,74 @@ class Ververica extends OpenApiClient
     }
 
     /**
+     * Executes an SQL query script task.
+     *
+     * @param request - StopSqlExecutionRequest
+     * @param headers - StopSqlExecutionHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopSqlExecutionResponse
+     *
+     * @param string                  $namespace_
+     * @param string                  $sqlExecutionId
+     * @param StopSqlExecutionRequest $request
+     * @param StopSqlExecutionHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return StopSqlExecutionResponse
+     */
+    public function stopSqlExecutionWithOptions($namespace_, $sqlExecutionId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+        ]);
+        $params = new Params([
+            'action' => 'StopSqlExecution',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-execution/' . Url::percentEncode($sqlExecutionId) . '%3Astop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return StopSqlExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes an SQL query script task.
+     *
+     * @param request - StopSqlExecutionRequest
+     *
+     * @returns StopSqlExecutionResponse
+     *
+     * @param string                  $namespace_
+     * @param string                  $sqlExecutionId
+     * @param StopSqlExecutionRequest $request
+     *
+     * @return StopSqlExecutionResponse
+     */
+    public function stopSqlExecution($namespace_, $sqlExecutionId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new StopSqlExecutionHeaders([]);
+
+        return $this->stopSqlExecutionWithOptions($namespace_, $sqlExecutionId, $request, $headers, $runtime);
+    }
+
+    /**
      * 提交sql调试.
      *
      * @param request - SubmitSqlPreviewRequest
@@ -5961,6 +6414,79 @@ class Ververica extends OpenApiClient
         $headers = new UpdateDeploymentHeaders([]);
 
         return $this->updateDeploymentWithOptions($namespace_, $deploymentId, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates the details and configuration parameters of a deployment job by its name.
+     *
+     * @param request - UpdateDeploymentByNameRequest
+     * @param headers - UpdateDeploymentByNameHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDeploymentByNameResponse
+     *
+     * @param string                        $namespace_
+     * @param UpdateDeploymentByNameRequest $request
+     * @param UpdateDeploymentByNameHeaders $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateDeploymentByNameResponse
+     */
+    public function updateDeploymentByNameWithOptions($namespace_, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->deploymentName) {
+            @$query['deploymentName'] = $request->deploymentName;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDeploymentByName',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/deployments/updateDeployment/byName',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDeploymentByNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the details and configuration parameters of a deployment job by its name.
+     *
+     * @param request - UpdateDeploymentByNameRequest
+     *
+     * @returns UpdateDeploymentByNameResponse
+     *
+     * @param string                        $namespace_
+     * @param UpdateDeploymentByNameRequest $request
+     *
+     * @return UpdateDeploymentByNameResponse
+     */
+    public function updateDeploymentByName($namespace_, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateDeploymentByNameHeaders([]);
+
+        return $this->updateDeploymentByNameWithOptions($namespace_, $request, $headers, $runtime);
     }
 
     /**
@@ -6448,6 +6974,75 @@ class Ververica extends OpenApiClient
         $headers = new UpdateSessionClusterHeaders([]);
 
         return $this->updateSessionClusterWithOptions($namespace_, $sessionClusterName, $request, $headers, $runtime);
+    }
+
+    /**
+     * Updates a created SQL query script.
+     *
+     * @param request - UpdateSqlFileRequest
+     * @param headers - UpdateSqlFileHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSqlFileResponse
+     *
+     * @param string               $namespace_
+     * @param string               $sqlFileId
+     * @param UpdateSqlFileRequest $request
+     * @param UpdateSqlFileHeaders $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateSqlFileResponse
+     */
+    public function updateSqlFileWithOptions($namespace_, $sqlFileId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->workspace) {
+            @$realHeaders['workspace'] = '' . $headers->workspace;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateSqlFile',
+            'version' => '2022-07-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/namespaces/' . Url::percentEncode($namespace_) . '/sql-file/' . Url::percentEncode($sqlFileId) . '',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateSqlFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates a created SQL query script.
+     *
+     * @param request - UpdateSqlFileRequest
+     *
+     * @returns UpdateSqlFileResponse
+     *
+     * @param string               $namespace_
+     * @param string               $sqlFileId
+     * @param UpdateSqlFileRequest $request
+     *
+     * @return UpdateSqlFileResponse
+     */
+    public function updateSqlFile($namespace_, $sqlFileId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateSqlFileHeaders([]);
+
+        return $this->updateSqlFileWithOptions($namespace_, $sqlFileId, $request, $headers, $runtime);
     }
 
     /**
