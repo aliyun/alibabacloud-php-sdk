@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Green\V20220926\Models\ListOssCheckResultResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListOssCheckResultResponseBody\items\labelDetails;
+use AlibabaCloud\SDK\Green\V20220926\Models\ListOssCheckResultResponseBody\items\labelDetails2;
 
 class items extends Model
 {
@@ -52,6 +54,16 @@ class items extends Model
      * @var string
      */
     public $jobName;
+
+    /**
+     * @var labelDetails[]
+     */
+    public $labelDetails;
+
+    /**
+     * @var labelDetails2[]
+     */
+    public $labelDetails2;
 
     /**
      * @var string[]
@@ -127,6 +139,8 @@ class items extends Model
         'imageUrl' => 'ImageUrl',
         'isCopy' => 'IsCopy',
         'jobName' => 'JobName',
+        'labelDetails' => 'LabelDetails',
+        'labelDetails2' => 'LabelDetails2',
         'labels' => 'Labels',
         'labels2' => 'Labels2',
         'md5' => 'Md5',
@@ -144,6 +158,12 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->labelDetails)) {
+            Model::validateArray($this->labelDetails);
+        }
+        if (\is_array($this->labelDetails2)) {
+            Model::validateArray($this->labelDetails2);
+        }
         if (\is_array($this->labels)) {
             Model::validateArray($this->labels);
         }
@@ -190,6 +210,28 @@ class items extends Model
 
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
+        }
+
+        if (null !== $this->labelDetails) {
+            if (\is_array($this->labelDetails)) {
+                $res['LabelDetails'] = [];
+                $n1 = 0;
+                foreach ($this->labelDetails as $item1) {
+                    $res['LabelDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->labelDetails2) {
+            if (\is_array($this->labelDetails2)) {
+                $res['LabelDetails2'] = [];
+                $n1 = 0;
+                foreach ($this->labelDetails2 as $item1) {
+                    $res['LabelDetails2'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->labels) {
@@ -303,6 +345,28 @@ class items extends Model
 
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
+        }
+
+        if (isset($map['LabelDetails'])) {
+            if (!empty($map['LabelDetails'])) {
+                $model->labelDetails = [];
+                $n1 = 0;
+                foreach ($map['LabelDetails'] as $item1) {
+                    $model->labelDetails[$n1] = labelDetails::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['LabelDetails2'])) {
+            if (!empty($map['LabelDetails2'])) {
+                $model->labelDetails2 = [];
+                $n1 = 0;
+                foreach ($map['LabelDetails2'] as $item1) {
+                    $model->labelDetails2[$n1] = labelDetails2::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['Labels'])) {

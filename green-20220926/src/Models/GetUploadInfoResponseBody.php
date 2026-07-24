@@ -66,6 +66,11 @@ class GetUploadInfoResponseBody extends Model
     /**
      * @var string
      */
+    public $securityToken;
+
+    /**
+     * @var string
+     */
     public $signature;
 
     /**
@@ -84,6 +89,7 @@ class GetUploadInfoResponseBody extends Model
         'name' => 'Name',
         'policy' => 'Policy',
         'requestId' => 'RequestId',
+        'securityToken' => 'SecurityToken',
         'signature' => 'Signature',
         'success' => 'Success',
     ];
@@ -138,6 +144,10 @@ class GetUploadInfoResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         if (null !== $this->signature) {
@@ -201,6 +211,10 @@ class GetUploadInfoResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         if (isset($map['Signature'])) {

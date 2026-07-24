@@ -52,6 +52,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $bailianRequestId;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
@@ -63,6 +68,11 @@ class items extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $ext;
 
     /**
      * @var string
@@ -297,9 +307,11 @@ class items extends Model
         'apiTaskId' => 'ApiTaskId',
         'appId' => 'AppId',
         'attackLevel' => 'AttackLevel',
+        'bailianRequestId' => 'BailianRequestId',
         'content' => 'Content',
         'dataId' => 'DataId',
         'endTime' => 'EndTime',
+        'ext' => 'Ext',
         'extFeedback' => 'ExtFeedback',
         'extra' => 'Extra',
         'frameCount' => 'FrameCount',
@@ -414,6 +426,10 @@ class items extends Model
             $res['AttackLevel'] = $this->attackLevel;
         }
 
+        if (null !== $this->bailianRequestId) {
+            $res['BailianRequestId'] = $this->bailianRequestId;
+        }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
@@ -424,6 +440,10 @@ class items extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->ext) {
+            $res['Ext'] = $this->ext;
         }
 
         if (null !== $this->extFeedback) {
@@ -725,6 +745,10 @@ class items extends Model
             $model->attackLevel = $map['AttackLevel'];
         }
 
+        if (isset($map['BailianRequestId'])) {
+            $model->bailianRequestId = $map['BailianRequestId'];
+        }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
@@ -735,6 +759,10 @@ class items extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['Ext'])) {
+            $model->ext = $map['Ext'];
         }
 
         if (isset($map['ExtFeedback'])) {
