@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBod
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\fieldResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\serviceInspectionResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\tagCategoryResponse;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response\voiceprintResponse;
 
 class response extends Model
 {
@@ -31,11 +32,17 @@ class response extends Model
      * @var tagCategoryResponse
      */
     public $tagCategoryResponse;
+
+    /**
+     * @var voiceprintResponse
+     */
+    public $voiceprintResponse;
     protected $_name = [
         'customerPromptResponse' => 'CustomerPromptResponse',
         'fieldResponse' => 'FieldResponse',
         'serviceInspectionResponse' => 'ServiceInspectionResponse',
         'tagCategoryResponse' => 'TagCategoryResponse',
+        'voiceprintResponse' => 'VoiceprintResponse',
     ];
 
     public function validate()
@@ -51,6 +58,9 @@ class response extends Model
         }
         if (null !== $this->tagCategoryResponse) {
             $this->tagCategoryResponse->validate();
+        }
+        if (null !== $this->voiceprintResponse) {
+            $this->voiceprintResponse->validate();
         }
         parent::validate();
     }
@@ -72,6 +82,10 @@ class response extends Model
 
         if (null !== $this->tagCategoryResponse) {
             $res['TagCategoryResponse'] = null !== $this->tagCategoryResponse ? $this->tagCategoryResponse->toArray($noStream) : $this->tagCategoryResponse;
+        }
+
+        if (null !== $this->voiceprintResponse) {
+            $res['VoiceprintResponse'] = null !== $this->voiceprintResponse ? $this->voiceprintResponse->toArray($noStream) : $this->voiceprintResponse;
         }
 
         return $res;
@@ -99,6 +113,10 @@ class response extends Model
 
         if (isset($map['TagCategoryResponse'])) {
             $model->tagCategoryResponse = tagCategoryResponse::fromMap($map['TagCategoryResponse']);
+        }
+
+        if (isset($map['VoiceprintResponse'])) {
+            $model->voiceprintResponse = voiceprintResponse::fromMap($map['VoiceprintResponse']);
         }
 
         return $model;
