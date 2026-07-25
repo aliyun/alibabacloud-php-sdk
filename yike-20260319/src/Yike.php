@@ -31,12 +31,16 @@ use AlibabaCloud\SDK\Yike\V20260319\Models\GetVideoGenerationJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetVideoGenerationJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAccountCreditRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAccountCreditResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAgentJobEstimatedCreditRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAgentJobEstimatedCreditResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAgentJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAgentJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAIAppJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAIAppJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAssetMediaInfoRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeAssetMediaInfoResponse;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeJobCreditRequest;
+use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeJobCreditResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeProjectExportJobRequest;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikeProjectExportJobResponse;
 use AlibabaCloud\SDK\Yike\V20260319\Models\GetYikePromptExpansionVoiceFixJobRequest;
@@ -430,7 +434,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建一刻云剪辑工程.
+     * Creates a cloud editing project.
      *
      * @param request - CreateYikeEditingProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -483,7 +487,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * 创建一刻云剪辑工程.
+     * Creates a cloud editing project.
      *
      * @param request - CreateYikeEditingProjectRequest
      *
@@ -760,8 +764,7 @@ class Yike extends OpenApiClient
      * Queries an image generation task.
      *
      * @remarks
-     * ## Request description
-     * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
      *
      * @param request - GetImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -803,8 +806,7 @@ class Yike extends OpenApiClient
      * Queries an image generation task.
      *
      * @remarks
-     * ## Request description
-     * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters such as digital human information and common scenario type. You must specify key configuration items including the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * The AI generation-related operations in the 2026-03-19 version of the API will be discontinued soon. Upgrade to the 2026-07-07 version.
      *
      * @param request - GetImageGenerationJobRequest
      *
@@ -822,7 +824,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a video generation task.
+     * Queries an AI video generation task.
+     *
+     * @remarks
+     * The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
      *
      * @param request - GetVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -861,7 +866,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Queries a video generation task.
+     * Queries an AI video generation task.
+     *
+     * @remarks
+     * The AI generation-related operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 version.
      *
      * @param request - GetVideoGenerationJobRequest
      *
@@ -1043,6 +1051,67 @@ class Yike extends OpenApiClient
     }
 
     /**
+     * 查询一刻口播任务预估积分.
+     *
+     * @param request - GetYikeAgentJobEstimatedCreditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeAgentJobEstimatedCreditResponse
+     *
+     * @param GetYikeAgentJobEstimatedCreditRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetYikeAgentJobEstimatedCreditResponse
+     */
+    public function getYikeAgentJobEstimatedCreditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobAction) {
+            @$body['JobAction'] = $request->jobAction;
+        }
+
+        if (null !== $request->jobParams) {
+            @$body['JobParams'] = $request->jobParams;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeAgentJobEstimatedCredit',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeAgentJobEstimatedCreditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询一刻口播任务预估积分.
+     *
+     * @param request - GetYikeAgentJobEstimatedCreditRequest
+     *
+     * @returns GetYikeAgentJobEstimatedCreditResponse
+     *
+     * @param GetYikeAgentJobEstimatedCreditRequest $request
+     *
+     * @return GetYikeAgentJobEstimatedCreditResponse
+     */
+    public function getYikeAgentJobEstimatedCredit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeAgentJobEstimatedCreditWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the content information of a media asset.
      *
      * @param request - GetYikeAssetMediaInfoRequest
@@ -1097,6 +1166,63 @@ class Yike extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getYikeAssetMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询一刻任务实际消耗积分.
+     *
+     * @param request - GetYikeJobCreditRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetYikeJobCreditResponse
+     *
+     * @param GetYikeJobCreditRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetYikeJobCreditResponse
+     */
+    public function getYikeJobCreditWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetYikeJobCredit',
+            'version' => '2026-03-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetYikeJobCreditResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询一刻任务实际消耗积分.
+     *
+     * @param request - GetYikeJobCreditRequest
+     *
+     * @returns GetYikeJobCreditResponse
+     *
+     * @param GetYikeJobCreditRequest $request
+     *
+     * @return GetYikeJobCreditResponse
+     */
+    public function getYikeJobCredit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getYikeJobCreditWithOptions($request, $runtime);
     }
 
     /**
@@ -1771,7 +1897,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Resumes the execution of a storyboard task.
+     * Resumes the execution of a storyboard job.
      *
      * @param request - ResumeYikeStoryboardJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1810,7 +1936,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Resumes the execution of a storyboard task.
+     * Resumes the execution of a storyboard job.
      *
      * @param request - ResumeYikeStoryboardJobRequest
      *
@@ -2014,8 +2140,7 @@ class Yike extends OpenApiClient
      * Submits an image generation task.
      *
      * @remarks
-     * ## Request description
-     * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
      *
      * @param request - SubmitImageGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2093,8 +2218,7 @@ class Yike extends OpenApiClient
      * Submits an image generation task.
      *
      * @remarks
-     * ## Request description
-     * This API is used to generate a video narrated by a virtual human based on the provided text content and other parameters (such as digital human information and application scenario type). You must specify key configuration items such as the text type (original script or narration script), output dimensions, and resolution. You can also choose whether to add subtitles or specify the output language. In addition, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * The AI generation API operations in the 2026-03-19 version will be deprecated soon. Upgrade to the 2026-07-07 version.
      *
      * @param request - SubmitImageGenerationJobRequest
      *
@@ -2112,11 +2236,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits a video generation task.
+     * Submits an AI video generation task.
      *
      * @remarks
-     * ## Request description
-     * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
      *
      * @param request - SubmitVideoGenerationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2195,11 +2318,10 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Submits a video generation task.
+     * Submits an AI video generation task.
      *
      * @remarks
-     * ## Request description
-     * This API generates a video featuring a virtual human speaking based on the provided text content and other parameters (such as digital human information and common scenarios type). You must specify the text type (original script or spoken script), output dimensions, resolution, and other key configuration items. You can also choose whether to add subtitles or specify the output language. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+     * The current version will be deprecated soon. Use the latest version by visiting this [link](https://api.aliyun.com/document/Yike/2026-07-07/SubmitVideoGenerationJob).
      *
      * @param request - SubmitVideoGenerationJobRequest
      *
@@ -2734,7 +2856,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Update a Yike project.
+     * Updates a China Short Video (Yike) project.
      *
      * @param request - UpdateYikeProductionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2777,7 +2899,7 @@ class Yike extends OpenApiClient
     }
 
     /**
-     * Update a Yike project.
+     * Updates a China Short Video (Yike) project.
      *
      * @param request - UpdateYikeProductionRequest
      *
