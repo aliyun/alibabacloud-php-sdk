@@ -14,6 +14,11 @@ class OrderPageQuery extends Model
     public $orderIdList;
 
     /**
+     * @var string
+     */
+    public $outPurchaseOrderId;
+
+    /**
      * @var int
      */
     public $pageNumber;
@@ -29,6 +34,7 @@ class OrderPageQuery extends Model
     public $purchaseOrderId;
     protected $_name = [
         'orderIdList' => 'orderIdList',
+        'outPurchaseOrderId' => 'outPurchaseOrderId',
         'pageNumber' => 'pageNumber',
         'pageSize' => 'pageSize',
         'purchaseOrderId' => 'purchaseOrderId',
@@ -54,6 +60,10 @@ class OrderPageQuery extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->outPurchaseOrderId) {
+            $res['outPurchaseOrderId'] = $this->outPurchaseOrderId;
         }
 
         if (null !== $this->pageNumber) {
@@ -88,6 +98,10 @@ class OrderPageQuery extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['outPurchaseOrderId'])) {
+            $model->outPurchaseOrderId = $map['outPurchaseOrderId'];
         }
 
         if (isset($map['pageNumber'])) {

@@ -1270,10 +1270,10 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * Queries a list of orders.
+     * Lists orders.
      *
      * @remarks
-     * Queries a list of orders.
+     * Lists orders.
      *
      * @param request - QueryOrdersRequest
      * @param headers - map
@@ -1310,10 +1310,10 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * Queries a list of orders.
+     * Lists orders.
      *
      * @remarks
-     * Queries a list of orders.
+     * Lists orders.
      *
      * @param request - QueryOrdersRequest
      *

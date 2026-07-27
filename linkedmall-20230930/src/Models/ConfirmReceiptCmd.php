@@ -6,20 +6,14 @@ namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ConfirmDisburseCmd extends Model
+class ConfirmReceiptCmd extends Model
 {
     /**
      * @var string
      */
-    public $orderId;
-
-    /**
-     * @var string
-     */
-    public $purchaseOrderId;
+    public $disputeId;
     protected $_name = [
-        'orderId' => 'orderId',
-        'purchaseOrderId' => 'purchaseOrderId',
+        'disputeId' => 'disputeId',
     ];
 
     public function validate()
@@ -30,12 +24,8 @@ class ConfirmDisburseCmd extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['orderId'] = $this->orderId;
-        }
-
-        if (null !== $this->purchaseOrderId) {
-            $res['purchaseOrderId'] = $this->purchaseOrderId;
+        if (null !== $this->disputeId) {
+            $res['disputeId'] = $this->disputeId;
         }
 
         return $res;
@@ -49,12 +39,8 @@ class ConfirmDisburseCmd extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['orderId'])) {
-            $model->orderId = $map['orderId'];
-        }
-
-        if (isset($map['purchaseOrderId'])) {
-            $model->purchaseOrderId = $map['purchaseOrderId'];
+        if (isset($map['disputeId'])) {
+            $model->disputeId = $map['disputeId'];
         }
 
         return $model;
