@@ -133,6 +133,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDataNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalDataNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGwConsumerOrderResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelApiRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelApiResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateModelServiceRequest;
@@ -949,9 +951,7 @@ class Polardb extends OpenApiClient
             'ap-southeast-6' => 'polardb.ap-southeast-6.aliyuncs.com',
             'ap-southeast-5' => 'polardb.ap-southeast-5.aliyuncs.com',
             'ap-southeast-3' => 'polardb.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-2' => 'polardb.ap-southeast-2.aliyuncs.com',
             'ap-southeast-1' => 'polardb.ap-southeast-1.aliyuncs.com',
-            'ap-south-1' => 'polardb.ap-south-1.aliyuncs.com',
             'ap-northeast-2' => 'polardb.ap-northeast-2.aliyuncs.com',
             'ap-northeast-1' => 'polardb.ap-northeast-1.aliyuncs.com',
         ];
@@ -4585,6 +4585,11 @@ class Polardb extends OpenApiClient
     /**
      * Creates API keys in batches.
      *
+     * @remarks
+     * > * Each cluster can have a maximum of three manually created backups at the same time.
+     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before calling this operation.
+     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
+     *
      * @param request - CreateBatchConsumerRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -4609,6 +4614,14 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->count) {
             @$query['Count'] = $request->count;
+        }
+
+        if (null !== $request->creditToken) {
+            @$query['CreditToken'] = $request->creditToken;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
 
         if (null !== $request->gwClusterId) {
@@ -4639,6 +4652,11 @@ class Polardb extends OpenApiClient
 
     /**
      * Creates API keys in batches.
+     *
+     * @remarks
+     * > * Each cluster can have a maximum of three manually created backups at the same time.
+     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, three manually created backups already exist in your cluster. [Delete backups](https://help.aliyun.com/document_detail/98101.html) before calling this operation.
+     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the backup may take a long time. Wait until the backup is complete.
      *
      * @param request - CreateBatchConsumerRequest
      *
@@ -5271,6 +5289,9 @@ class Polardb extends OpenApiClient
     /**
      * Creates a PolarDB cluster.
      *
+     * @remarks
+     * DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster to a self-managed PostgreSQL database on an ECS instance. You can use DBLink to query data across clusters.
+     *
      * @param request - CreateDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -5569,6 +5590,9 @@ class Polardb extends OpenApiClient
 
     /**
      * Creates a PolarDB cluster.
+     *
+     * @remarks
+     * DBLink can connect two PolarDB for PostgreSQL (Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL (Compatible with Oracle) cluster to a self-managed PostgreSQL database on an ECS instance. You can use DBLink to query data across clusters.
      *
      * @param request - CreateDBClusterRequest
      *
@@ -6887,6 +6911,83 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createGlobalSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Places an order to purchase a token resource plan and activates a redemption code.
+     *
+     * @param request - CreateGwConsumerOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGwConsumerOrderResponse
+     *
+     * @param CreateGwConsumerOrderRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateGwConsumerOrderResponse
+     */
+    public function createGwConsumerOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
+        }
+
+        if (null !== $request->gatewayId) {
+            @$query['GatewayId'] = $request->gatewayId;
+        }
+
+        if (null !== $request->keyCount) {
+            @$query['KeyCount'] = $request->keyCount;
+        }
+
+        if (null !== $request->packageSpec) {
+            @$query['PackageSpec'] = $request->packageSpec;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateGwConsumerOrder',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateGwConsumerOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Places an order to purchase a token resource plan and activates a redemption code.
+     *
+     * @param request - CreateGwConsumerOrderRequest
+     *
+     * @returns CreateGwConsumerOrderResponse
+     *
+     * @param CreateGwConsumerOrderRequest $request
+     *
+     * @return CreateGwConsumerOrderResponse
+     */
+    public function createGwConsumerOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGwConsumerOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -13596,7 +13697,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the log details of an AI application.
+     * Queries the details of AI application logs.
      *
      * @param request - DescribeApplicationLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13687,7 +13788,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Queries the log details of an AI application.
+     * Queries the details of AI application logs.
      *
      * @param request - DescribeApplicationLogsRequest
      *
@@ -13772,7 +13873,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Querying PolarDB AI application performance.
+     * Queries the performance of a PolarDB AI application.
      *
      * @param request - DescribeApplicationPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13855,7 +13956,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Querying PolarDB AI application performance.
+     * Queries the performance of a PolarDB AI application.
      *
      * @param request - DescribeApplicationPerformanceRequest
      *
@@ -30343,7 +30444,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+     * Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30359,6 +30460,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->certValidDays) {
+            @$query['CertValidDays'] = $request->certValidDays;
+        }
+
         if (null !== $request->connectionString) {
             @$query['ConnectionString'] = $request->connectionString;
         }
@@ -30422,7 +30527,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+     * Enables or performs shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      *

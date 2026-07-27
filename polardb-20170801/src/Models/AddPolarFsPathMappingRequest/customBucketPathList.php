@@ -16,9 +16,21 @@ class customBucketPathList extends Model
     /**
      * @var string
      */
+    public $bucketAccessKeyId;
+
+    /**
+     * @var string
+     */
+    public $bucketAccessKeySecret;
+
+    /**
+     * @var string
+     */
     public $path;
     protected $_name = [
         'bucket' => 'Bucket',
+        'bucketAccessKeyId' => 'BucketAccessKeyId',
+        'bucketAccessKeySecret' => 'BucketAccessKeySecret',
         'path' => 'Path',
     ];
 
@@ -32,6 +44,14 @@ class customBucketPathList extends Model
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
+        }
+
+        if (null !== $this->bucketAccessKeyId) {
+            $res['BucketAccessKeyId'] = $this->bucketAccessKeyId;
+        }
+
+        if (null !== $this->bucketAccessKeySecret) {
+            $res['BucketAccessKeySecret'] = $this->bucketAccessKeySecret;
         }
 
         if (null !== $this->path) {
@@ -51,6 +71,14 @@ class customBucketPathList extends Model
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
+        }
+
+        if (isset($map['BucketAccessKeyId'])) {
+            $model->bucketAccessKeyId = $map['BucketAccessKeyId'];
+        }
+
+        if (isset($map['BucketAccessKeySecret'])) {
+            $model->bucketAccessKeySecret = $map['BucketAccessKeySecret'];
         }
 
         if (isset($map['Path'])) {

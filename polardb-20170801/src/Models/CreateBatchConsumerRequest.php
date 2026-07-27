@@ -26,6 +26,16 @@ class CreateBatchConsumerRequest extends Model
     /**
      * @var string
      */
+    public $creditToken;
+
+    /**
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @var string
+     */
     public $gwClusterId;
 
     /**
@@ -36,6 +46,8 @@ class CreateBatchConsumerRequest extends Model
         'clientToken' => 'ClientToken',
         'consumerGroupId' => 'ConsumerGroupId',
         'count' => 'Count',
+        'creditToken' => 'CreditToken',
+        'description' => 'Description',
         'gwClusterId' => 'GwClusterId',
         'regionId' => 'RegionId',
     ];
@@ -58,6 +70,14 @@ class CreateBatchConsumerRequest extends Model
 
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+
+        if (null !== $this->creditToken) {
+            $res['CreditToken'] = $this->creditToken;
+        }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
 
         if (null !== $this->gwClusterId) {
@@ -89,6 +109,14 @@ class CreateBatchConsumerRequest extends Model
 
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+
+        if (isset($map['CreditToken'])) {
+            $model->creditToken = $map['CreditToken'];
+        }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
 
         if (isset($map['GwClusterId'])) {

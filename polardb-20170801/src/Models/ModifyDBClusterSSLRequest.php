@@ -11,6 +11,11 @@ class ModifyDBClusterSSLRequest extends Model
     /**
      * @var string
      */
+    public $certValidDays;
+
+    /**
+     * @var string
+     */
     public $connectionString;
 
     /**
@@ -63,6 +68,7 @@ class ModifyDBClusterSSLRequest extends Model
      */
     public $SSLEnabled;
     protected $_name = [
+        'certValidDays' => 'CertValidDays',
         'connectionString' => 'ConnectionString',
         'DBClusterId' => 'DBClusterId',
         'DBEndpointId' => 'DBEndpointId',
@@ -84,6 +90,10 @@ class ModifyDBClusterSSLRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->certValidDays) {
+            $res['CertValidDays'] = $this->certValidDays;
+        }
+
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
@@ -139,6 +149,10 @@ class ModifyDBClusterSSLRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertValidDays'])) {
+            $model->certValidDays = $map['CertValidDays'];
+        }
+
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
