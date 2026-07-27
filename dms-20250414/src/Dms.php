@@ -896,7 +896,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Create a custom agent in your personal space or a workspace.
+     * Creates a custom agent in a personal space or workspace.
      *
      * @param tmpReq - CreateCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -982,6 +982,10 @@ class Dms extends OpenApiClient
             @$query['WebReportConfig'] = $request->webReportConfig;
         }
 
+        if (null !== $request->webReportTheme) {
+            @$query['WebReportTheme'] = $request->webReportTheme;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -1005,7 +1009,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Create a custom agent in your personal space or a workspace.
+     * Creates a custom agent in a personal space or workspace.
      *
      * @param request - CreateCustomAgentRequest
      *
@@ -2653,7 +2657,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
+     * Retrieves the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2696,7 +2700,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
+     * Retrieves the details of a custom agent by custom agent ID.
      *
      * @param request - DescribeCustomAgentRequest
      *
@@ -6484,7 +6488,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Modify a custom agent in a personal space or workspace.
+     * Modifies a custom agent in a personal space or workspace.
      *
      * @param tmpReq - ModifyCustomAgentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6574,6 +6578,10 @@ class Dms extends OpenApiClient
             @$query['WebReportConfig'] = $request->webReportConfig;
         }
 
+        if (null !== $request->webReportTheme) {
+            @$query['WebReportTheme'] = $request->webReportTheme;
+        }
+
         if (null !== $request->workspaceId) {
             @$query['WorkspaceId'] = $request->workspaceId;
         }
@@ -6597,7 +6605,7 @@ class Dms extends OpenApiClient
     }
 
     /**
-     * Modify a custom agent in a personal space or workspace.
+     * Modifies a custom agent in a personal space or workspace.
      *
      * @param request - ModifyCustomAgentRequest
      *
@@ -7009,13 +7017,7 @@ class Dms extends OpenApiClient
      * Sends a user message to a specified session or cancels a session.
      *
      * @remarks
-     * ## Request description
-     * - `agent_id` and `session_id` are required fields.
-     * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-     * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
-     * - When `message_type` is `additional`, the `question` field is required.
-     * - `quoted_message` can be used to quote the content of a previous user message.
-     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+     * ## Request description.
      *
      * @param tmpReq - SendChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7131,13 +7133,7 @@ class Dms extends OpenApiClient
      * Sends a user message to a specified session or cancels a session.
      *
      * @remarks
-     * ## Request description
-     * - `agent_id` and `session_id` are required fields.
-     * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
-     * - The `reply_to` field indicates which agent message this message is responding to. The default value is `0`.
-     * - When `message_type` is `additional`, the `question` field is required.
-     * - `quoted_message` can be used to quote the content of a previous user message.
-     * - Fields such as `data_source`, `dms_user`, `db_metadata`, and `session_config` are optional but provide more detailed context information.
+     * ## Request description.
      *
      * @param request - SendChatMessageRequest
      *

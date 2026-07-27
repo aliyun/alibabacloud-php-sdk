@@ -16,6 +16,11 @@ class AgenticTableBaseInfo extends Model
     /**
      * @var string
      */
+    public $databaseQualifiedName;
+
+    /**
+     * @var string
+     */
     public $databaseUuid;
 
     /**
@@ -44,6 +49,7 @@ class AgenticTableBaseInfo extends Model
     public $tableType;
     protected $_name = [
         'catalogType' => 'CatalogType',
+        'databaseQualifiedName' => 'DatabaseQualifiedName',
         'databaseUuid' => 'DatabaseUuid',
         'description' => 'Description',
         'engineMeta' => 'EngineMeta',
@@ -65,6 +71,10 @@ class AgenticTableBaseInfo extends Model
         $res = [];
         if (null !== $this->catalogType) {
             $res['CatalogType'] = $this->catalogType;
+        }
+
+        if (null !== $this->databaseQualifiedName) {
+            $res['DatabaseQualifiedName'] = $this->databaseQualifiedName;
         }
 
         if (null !== $this->databaseUuid) {
@@ -104,6 +114,10 @@ class AgenticTableBaseInfo extends Model
         $model = new self();
         if (isset($map['CatalogType'])) {
             $model->catalogType = $map['CatalogType'];
+        }
+
+        if (isset($map['DatabaseQualifiedName'])) {
+            $model->databaseQualifiedName = $map['DatabaseQualifiedName'];
         }
 
         if (isset($map['DatabaseUuid'])) {

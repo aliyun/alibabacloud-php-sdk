@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dms\V20250414\Models\SendChatMessageRequest\dataSource\permission;
 
 class dataSource extends Model
 {
@@ -54,6 +55,11 @@ class dataSource extends Model
     public $location;
 
     /**
+     * @var permission
+     */
+    public $permission;
+
+    /**
      * @var string
      */
     public $regionId;
@@ -72,12 +78,16 @@ class dataSource extends Model
         'engine' => 'Engine',
         'fileId' => 'FileId',
         'location' => 'Location',
+        'permission' => 'Permission',
         'regionId' => 'RegionId',
         'tables' => 'Tables',
     ];
 
     public function validate()
     {
+        if (null !== $this->permission) {
+            $this->permission->validate();
+        }
         if (\is_array($this->tables)) {
             Model::validateArray($this->tables);
         }
@@ -121,6 +131,10 @@ class dataSource extends Model
 
         if (null !== $this->location) {
             $res['Location'] = $this->location;
+        }
+
+        if (null !== $this->permission) {
+            $res['Permission'] = null !== $this->permission ? $this->permission->toArray($noStream) : $this->permission;
         }
 
         if (null !== $this->regionId) {
@@ -183,6 +197,10 @@ class dataSource extends Model
 
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
+        }
+
+        if (isset($map['Permission'])) {
+            $model->permission = permission::fromMap($map['Permission']);
         }
 
         if (isset($map['RegionId'])) {

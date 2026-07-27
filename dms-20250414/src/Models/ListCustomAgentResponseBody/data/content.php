@@ -160,6 +160,11 @@ class content extends Model
     /**
      * @var string
      */
+    public $webReportTheme;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'aliyunParentId' => 'AliyunParentId',
@@ -191,6 +196,7 @@ class content extends Model
         'status' => 'Status',
         'textReportConfig' => 'TextReportConfig',
         'webReportConfig' => 'WebReportConfig',
+        'webReportTheme' => 'WebReportTheme',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -337,6 +343,10 @@ class content extends Model
             $res['WebReportConfig'] = $this->webReportConfig;
         }
 
+        if (null !== $this->webReportTheme) {
+            $res['WebReportTheme'] = $this->webReportTheme;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -473,6 +483,10 @@ class content extends Model
 
         if (isset($map['WebReportConfig'])) {
             $model->webReportConfig = $map['WebReportConfig'];
+        }
+
+        if (isset($map['WebReportTheme'])) {
+            $model->webReportTheme = $map['WebReportTheme'];
         }
 
         if (isset($map['WorkspaceId'])) {

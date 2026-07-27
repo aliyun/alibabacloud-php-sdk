@@ -80,6 +80,11 @@ class CreateCustomAgentRequest extends Model
     /**
      * @var string
      */
+    public $webReportTheme;
+
+    /**
+     * @var string
+     */
     public $workspaceId;
     protected $_name = [
         'callbackConfig' => 'CallbackConfig',
@@ -95,6 +100,7 @@ class CreateCustomAgentRequest extends Model
         'scheduleTaskConfig' => 'ScheduleTaskConfig',
         'textReportConfig' => 'TextReportConfig',
         'webReportConfig' => 'WebReportConfig',
+        'webReportTheme' => 'WebReportTheme',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -177,6 +183,10 @@ class CreateCustomAgentRequest extends Model
             $res['WebReportConfig'] = $this->webReportConfig;
         }
 
+        if (null !== $this->webReportTheme) {
+            $res['WebReportTheme'] = $this->webReportTheme;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -249,6 +259,10 @@ class CreateCustomAgentRequest extends Model
 
         if (isset($map['WebReportConfig'])) {
             $model->webReportConfig = $map['WebReportConfig'];
+        }
+
+        if (isset($map['WebReportTheme'])) {
+            $model->webReportTheme = $map['WebReportTheme'];
         }
 
         if (isset($map['WorkspaceId'])) {
