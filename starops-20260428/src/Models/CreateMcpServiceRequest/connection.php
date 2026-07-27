@@ -20,6 +20,11 @@ class connection extends Model
     public $endpoint;
 
     /**
+     * @var string[]
+     */
+    public $headers;
+
+    /**
      * @var string
      */
     public $platform;
@@ -36,6 +41,7 @@ class connection extends Model
     protected $_name = [
         'auth' => 'auth',
         'endpoint' => 'endpoint',
+        'headers' => 'headers',
         'platform' => 'platform',
         'timeout' => 'timeout',
         'transport' => 'transport',
@@ -45,6 +51,9 @@ class connection extends Model
     {
         if (null !== $this->auth) {
             $this->auth->validate();
+        }
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
         }
         parent::validate();
     }
@@ -58,6 +67,15 @@ class connection extends Model
 
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
+        }
+
+        if (null !== $this->headers) {
+            if (\is_array($this->headers)) {
+                $res['headers'] = [];
+                foreach ($this->headers as $key1 => $value1) {
+                    $res['headers'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->platform) {
@@ -89,6 +107,15 @@ class connection extends Model
 
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
+        }
+
+        if (isset($map['headers'])) {
+            if (!empty($map['headers'])) {
+                $model->headers = [];
+                foreach ($map['headers'] as $key1 => $value1) {
+                    $model->headers[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['platform'])) {

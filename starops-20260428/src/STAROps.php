@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\STAROps\V20260428;
 use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateArtifactUploadTokenRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateArtifactUploadTokenResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateChatRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateChatResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\CreateDigitalEmployeeRequest;
@@ -29,6 +31,8 @@ use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteThreadRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\DeleteThreadResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\FetchRemoteMcpToolsRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\FetchRemoteMcpToolsResponse;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactDownloadUrlRequest;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactDownloadUrlResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactRequest;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetArtifactResponse;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeRequest;
@@ -73,7 +77,11 @@ class STAROps extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-beijing' => 'starops.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'starops.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('starops', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -103,7 +111,79 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建对话.
+     * 创建产物上传凭证
+     *
+     * @remarks
+     * 获取上传内容所需链接，适用于大文件。
+     *
+     * @param request - CreateArtifactUploadTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateArtifactUploadTokenResponse
+     *
+     * @param string                           $name
+     * @param CreateArtifactUploadTokenRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateArtifactUploadTokenResponse
+     */
+    public function createArtifactUploadTokenWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->artifactPath) {
+            @$query['artifactPath'] = $request->artifactPath;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateArtifactUploadToken',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/artifacts/uploadToken',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateArtifactUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 创建产物上传凭证
+     *
+     * @remarks
+     * 获取上传内容所需链接，适用于大文件。
+     *
+     * @param request - CreateArtifactUploadTokenRequest
+     *
+     * @returns CreateArtifactUploadTokenResponse
+     *
+     * @param string                           $name
+     * @param CreateArtifactUploadTokenRequest $request
+     *
+     * @return CreateArtifactUploadTokenResponse
+     */
+    public function createArtifactUploadToken($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createArtifactUploadTokenWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * New conversation.
+     *
+     * @remarks
+     * Starts a session.
      *
      * @param request - CreateChatRequest
      * @param headers - map
@@ -174,7 +254,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建对话.
+     * New conversation.
+     *
+     * @remarks
+     * Starts a session.
      *
      * @param request - CreateChatRequest
      * @param headers - map
@@ -232,7 +315,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建对话.
+     * New conversation.
+     *
+     * @remarks
+     * Starts a session.
      *
      * @param request - CreateChatRequest
      *
@@ -251,7 +337,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建DigitalEmployee.
+     * Creates a digital employee.
+     *
+     * @remarks
+     * Creates a digital employee.
      *
      * @param request - CreateDigitalEmployeeRequest
      * @param headers - map
@@ -301,6 +390,10 @@ class STAROps extends OpenApiClient
             @$body['roleArn'] = $request->roleArn;
         }
 
+        if (null !== $request->sandboxNetworkPolicy) {
+            @$body['sandboxNetworkPolicy'] = $request->sandboxNetworkPolicy;
+        }
+
         if (null !== $request->tags) {
             @$body['tags'] = $request->tags;
         }
@@ -329,7 +422,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建DigitalEmployee.
+     * Creates a digital employee.
+     *
+     * @remarks
+     * Creates a digital employee.
      *
      * @param request - CreateDigitalEmployeeRequest
      *
@@ -348,7 +444,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建技能.
+     * Creates a skill for a digital employee.
+     *
+     * @remarks
+     * Creates a new skill for a specified digital employee.
      *
      * @param request - CreateDigitalEmployeeSkillRequest
      * @param headers - map
@@ -411,7 +510,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建技能.
+     * Creates a skill for a digital employee.
+     *
+     * @remarks
+     * Creates a new skill for a specified digital employee.
      *
      * @param request - CreateDigitalEmployeeSkillRequest
      *
@@ -431,7 +533,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建 MCP 服务
+     * Creates an MCP service.
+     *
+     * @remarks
+     * Creates an MCP service.
      *
      * @param request - CreateMcpServiceRequest
      * @param headers - map
@@ -498,7 +603,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建 MCP 服务
+     * Creates an MCP service.
+     *
+     * @remarks
+     * Creates an MCP service.
      *
      * @param request - CreateMcpServiceRequest
      *
@@ -518,7 +626,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建会话.
+     * Creates a thread.
+     *
+     * @remarks
+     * Creates a thread for a specified digital employee.
      *
      * @param request - CreateThreadRequest
      * @param headers - map
@@ -569,7 +680,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建会话.
+     * Creates a thread.
+     *
+     * @remarks
+     * Creates a thread for a specified digital employee.
      *
      * @param request - CreateThreadRequest
      *
@@ -589,7 +703,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建票据.
+     * Creates a ticket.
      *
      * @param request - CreateTicketRequest
      * @param headers - map
@@ -635,7 +749,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 创建票据.
+     * Creates a ticket.
      *
      * @param request - CreateTicketRequest
      *
@@ -654,7 +768,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 删除DigitalEmployee.
+     * Deletes a digital employee.
+     *
+     * @remarks
+     * Deletes a digital employee.
      *
      * @param request - DeleteDigitalEmployeeRequest
      * @param headers - map
@@ -691,7 +808,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 删除DigitalEmployee.
+     * Deletes a digital employee.
+     *
+     * @remarks
+     * Deletes a digital employee.
      *
      * @param request - DeleteDigitalEmployeeRequest
      *
@@ -711,7 +831,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 删除技能.
+     * Deletes a skill from a digital employee.
+     *
+     * @remarks
+     * Deletes a skill from the specified digital employee.
      *
      * @param request - DeleteDigitalEmployeeSkillRequest
      * @param headers - map
@@ -749,7 +872,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 删除技能.
+     * Deletes a skill from a digital employee.
+     *
+     * @remarks
+     * Deletes a skill from the specified digital employee.
      *
      * @param request - DeleteDigitalEmployeeSkillRequest
      *
@@ -770,7 +896,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 删除 MCP 服务
+     * Deletes an MCP service.
      *
      * @param request - DeleteMcpServiceRequest
      * @param headers - map
@@ -808,7 +934,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 删除 MCP 服务
+     * Deletes an MCP service.
      *
      * @param request - DeleteMcpServiceRequest
      *
@@ -829,7 +955,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 删除会话.
+     * This operation deletes a thread.
+     *
+     * @remarks
+     * This operation deletes a specified thread.
      *
      * @param request - DeleteThreadRequest
      * @param headers - map
@@ -867,7 +996,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 删除会话.
+     * This operation deletes a thread.
+     *
+     * @remarks
+     * This operation deletes a specified thread.
      *
      * @param request - DeleteThreadRequest
      *
@@ -888,7 +1020,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 预览远端 MCP 工具列表.
+     * Retrieves the tool list from a remote MCP server.
      *
      * @param request - FetchRemoteMcpToolsRequest
      * @param headers - map
@@ -934,7 +1066,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 预览远端 MCP 工具列表.
+     * Retrieves the tool list from a remote MCP server.
      *
      * @param request - FetchRemoteMcpToolsRequest
      *
@@ -953,7 +1085,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 下载小型产物文件.
+     * Retrieves the content of an artifact.
+     *
+     * @remarks
+     * Retrieves the content of an artifact.
      *
      * @param request - GetArtifactRequest
      * @param headers - map
@@ -1012,7 +1147,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 下载小型产物文件.
+     * Retrieves the content of an artifact.
+     *
+     * @remarks
+     * Retrieves the content of an artifact.
      *
      * @param request - GetArtifactRequest
      *
@@ -1032,7 +1170,73 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 查询 DigitalEmployee.
+     * 获取产物下载链接.
+     *
+     * @param request - GetArtifactDownloadUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetArtifactDownloadUrlResponse
+     *
+     * @param string                        $name
+     * @param GetArtifactDownloadUrlRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetArtifactDownloadUrlResponse
+     */
+    public function getArtifactDownloadUrlWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->artifactPath) {
+            @$query['artifactPath'] = $request->artifactPath;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetArtifactDownloadUrl',
+            'version' => '2026-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/digitalEmployee/' . Url::percentEncode($name) . '/artifacts/downloadUrl',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetArtifactDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取产物下载链接.
+     *
+     * @param request - GetArtifactDownloadUrlRequest
+     *
+     * @returns GetArtifactDownloadUrlResponse
+     *
+     * @param string                        $name
+     * @param GetArtifactDownloadUrlRequest $request
+     *
+     * @return GetArtifactDownloadUrlResponse
+     */
+    public function getArtifactDownloadUrl($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getArtifactDownloadUrlWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * Retrieves a digital employee.
+     *
+     * @remarks
+     * Retrieves a digital employee.
      *
      * @param request - GetDigitalEmployeeRequest
      * @param headers - map
@@ -1069,7 +1273,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 查询 DigitalEmployee.
+     * Retrieves a digital employee.
+     *
+     * @remarks
+     * Retrieves a digital employee.
      *
      * @param request - GetDigitalEmployeeRequest
      *
@@ -1089,7 +1296,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 获取技能详情.
+     * Retrieves the details of a specific skill.
+     *
+     * @remarks
+     * Retrieves the details of a specified skill for a digital employee.
      *
      * @param request - GetDigitalEmployeeSkillRequest
      * @param headers - map
@@ -1133,7 +1343,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 获取技能详情.
+     * Retrieves the details of a specific skill.
+     *
+     * @remarks
+     * Retrieves the details of a specified skill for a digital employee.
      *
      * @param request - GetDigitalEmployeeSkillRequest
      *
@@ -1154,7 +1367,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 查询 MCP 服务
+     * Queries an MCP service.
      *
      * @param request - GetMcpServiceRequest
      * @param headers - map
@@ -1192,7 +1405,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 查询 MCP 服务
+     * Queries an MCP service.
      *
      * @param request - GetMcpServiceRequest
      *
@@ -1213,7 +1426,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 获取会话.
+     * Retrieves a thread.
+     *
+     * @remarks
+     * Retrieves the details of a thread.
      *
      * @param request - GetThreadRequest
      * @param headers - map
@@ -1251,7 +1467,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 获取会话.
+     * Retrieves a thread.
+     *
+     * @remarks
+     * Retrieves the details of a thread.
      *
      * @param request - GetThreadRequest
      *
@@ -1272,7 +1491,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 获取会话数据.
+     * Get session data.
+     *
+     * @remarks
+     * Gets session data.
      *
      * @param request - GetThreadDataRequest
      * @param headers - map
@@ -1320,7 +1542,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 获取会话数据.
+     * Get session data.
+     *
+     * @remarks
+     * Gets session data.
      *
      * @param request - GetThreadDataRequest
      *
@@ -1341,7 +1566,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出产物文件.
+     * Lists artifacts.
+     *
+     * @remarks
+     * Lists the artifacts for a specified digital employee.
      *
      * @param request - ListArtifactsRequest
      * @param headers - map
@@ -1392,7 +1620,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出产物文件.
+     * Lists artifacts.
+     *
+     * @remarks
+     * Lists the artifacts for a specified digital employee.
      *
      * @param request - ListArtifactsRequest
      *
@@ -1412,7 +1643,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出技能版本.
+     * Lists the versions of a skill.
+     *
+     * @remarks
+     * Lists the previous versions of a skill.
      *
      * @param request - ListDigitalEmployeeSkillVersionsRequest
      * @param headers - map
@@ -1450,7 +1684,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出技能版本.
+     * Lists the versions of a skill.
+     *
+     * @remarks
+     * Lists the previous versions of a skill.
      *
      * @param request - ListDigitalEmployeeSkillVersionsRequest
      *
@@ -1471,7 +1708,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出技能.
+     * Lists the skills of a digital employee.
+     *
+     * @remarks
+     * Lists the skills of a specified digital employee.
      *
      * @param request - ListDigitalEmployeeSkillsRequest
      * @param headers - map
@@ -1522,7 +1762,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出技能.
+     * Lists the skills of a digital employee.
+     *
+     * @remarks
+     * Lists the skills of a specified digital employee.
      *
      * @param request - ListDigitalEmployeeSkillsRequest
      *
@@ -1542,7 +1785,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出资源DigitalEmployee.
+     * Returns a list of digital employees.
+     *
+     * @remarks
+     * Lists digital employees.
      *
      * @param tmpReq - ListDigitalEmployeesRequest
      * @param headers - map
@@ -1614,7 +1860,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出资源DigitalEmployee.
+     * Returns a list of digital employees.
+     *
+     * @remarks
+     * Lists digital employees.
      *
      * @param request - ListDigitalEmployeesRequest
      *
@@ -1633,7 +1882,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 查询数字员工下的 MCP 服务列表.
+     * Queries the list of MCP services.
      *
      * @param request - ListMcpServicesRequest
      * @param headers - map
@@ -1680,7 +1929,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 查询数字员工下的 MCP 服务列表.
+     * Queries the list of MCP services.
      *
      * @param request - ListMcpServicesRequest
      *
@@ -1700,7 +1949,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出会话.
+     * List sessions.
+     *
+     * @remarks
+     * List sessions
      *
      * @param tmpReq - ListThreadsRequest
      * @param headers - map
@@ -1769,7 +2021,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 列出会话.
+     * List sessions.
+     *
+     * @remarks
+     * List sessions
      *
      * @param request - ListThreadsRequest
      *
@@ -1789,7 +2044,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 更新UpdateDigitalEmployee.
+     * Updates a digital employee.
+     *
+     * @remarks
+     * Updates a digital employee.
      *
      * @param request - UpdateDigitalEmployeeRequest
      * @param headers - map
@@ -1832,6 +2090,10 @@ class STAROps extends OpenApiClient
             @$body['roleArn'] = $request->roleArn;
         }
 
+        if (null !== $request->sandboxNetworkPolicy) {
+            @$body['sandboxNetworkPolicy'] = $request->sandboxNetworkPolicy;
+        }
+
         if (null !== $request->toolPolicy) {
             @$body['toolPolicy'] = $request->toolPolicy;
         }
@@ -1856,7 +2118,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 更新UpdateDigitalEmployee.
+     * Updates a digital employee.
+     *
+     * @remarks
+     * Updates a digital employee.
      *
      * @param request - UpdateDigitalEmployeeRequest
      *
@@ -1876,7 +2141,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 更新技能.
+     * Updates a skill for a digital employee.
+     *
+     * @remarks
+     * This operation updates a skill for a specified digital employee.
      *
      * @param request - UpdateDigitalEmployeeSkillRequest
      * @param headers - map
@@ -1936,7 +2204,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 更新技能.
+     * Updates a skill for a digital employee.
+     *
+     * @remarks
+     * This operation updates a skill for a specified digital employee.
      *
      * @param request - UpdateDigitalEmployeeSkillRequest
      *
@@ -1957,7 +2228,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 更新 MCP 服务
+     * Updates an MCP service.
      *
      * @param request - UpdateMcpServiceRequest
      * @param headers - map
@@ -2021,7 +2292,7 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 更新 MCP 服务
+     * Updates an MCP service.
      *
      * @param request - UpdateMcpServiceRequest
      *
@@ -2042,7 +2313,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 更新会话.
+     * Updates a thread.
+     *
+     * @remarks
+     * Updates a thread.
      *
      * @param request - UpdateThreadRequest
      * @param headers - map
@@ -2094,7 +2368,10 @@ class STAROps extends OpenApiClient
     }
 
     /**
-     * 更新会话.
+     * Updates a thread.
+     *
+     * @remarks
+     * Updates a thread.
      *
      * @param request - UpdateThreadRequest
      *

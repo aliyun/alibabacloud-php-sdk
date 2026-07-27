@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\STAROps\V20260428\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeResponseBody\knowledges;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeResponseBody\sandboxNetworkPolicy;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\GetDigitalEmployeeResponseBody\toolPolicy;
 
 class GetDigitalEmployeeResponseBody extends Model
@@ -71,6 +72,11 @@ class GetDigitalEmployeeResponseBody extends Model
     public $roleArn;
 
     /**
+     * @var sandboxNetworkPolicy
+     */
+    public $sandboxNetworkPolicy;
+
+    /**
      * @var Tag[]
      */
     public $tags;
@@ -97,6 +103,7 @@ class GetDigitalEmployeeResponseBody extends Model
         'requestId' => 'requestId',
         'resourceGroupId' => 'resourceGroupId',
         'roleArn' => 'roleArn',
+        'sandboxNetworkPolicy' => 'sandboxNetworkPolicy',
         'tags' => 'tags',
         'toolPolicy' => 'toolPolicy',
         'updateTime' => 'updateTime',
@@ -109,6 +116,9 @@ class GetDigitalEmployeeResponseBody extends Model
         }
         if (null !== $this->knowledges) {
             $this->knowledges->validate();
+        }
+        if (null !== $this->sandboxNetworkPolicy) {
+            $this->sandboxNetworkPolicy->validate();
         }
         if (\is_array($this->tags)) {
             Model::validateArray($this->tags);
@@ -173,6 +183,10 @@ class GetDigitalEmployeeResponseBody extends Model
 
         if (null !== $this->roleArn) {
             $res['roleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->sandboxNetworkPolicy) {
+            $res['sandboxNetworkPolicy'] = null !== $this->sandboxNetworkPolicy ? $this->sandboxNetworkPolicy->toArray($noStream) : $this->sandboxNetworkPolicy;
         }
 
         if (null !== $this->tags) {
@@ -256,6 +270,10 @@ class GetDigitalEmployeeResponseBody extends Model
 
         if (isset($map['roleArn'])) {
             $model->roleArn = $map['roleArn'];
+        }
+
+        if (isset($map['sandboxNetworkPolicy'])) {
+            $model->sandboxNetworkPolicy = sandboxNetworkPolicy::fromMap($map['sandboxNetworkPolicy']);
         }
 
         if (isset($map['tags'])) {

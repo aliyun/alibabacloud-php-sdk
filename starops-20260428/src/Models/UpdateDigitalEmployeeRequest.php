@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\STAROps\V20260428\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeRequest\knowledges;
+use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeRequest\sandboxNetworkPolicy;
 use AlibabaCloud\SDK\STAROps\V20260428\Models\UpdateDigitalEmployeeRequest\toolPolicy;
 
 class UpdateDigitalEmployeeRequest extends Model
@@ -41,6 +42,11 @@ class UpdateDigitalEmployeeRequest extends Model
     public $roleArn;
 
     /**
+     * @var sandboxNetworkPolicy
+     */
+    public $sandboxNetworkPolicy;
+
+    /**
      * @var toolPolicy
      */
     public $toolPolicy;
@@ -51,6 +57,7 @@ class UpdateDigitalEmployeeRequest extends Model
         'displayName' => 'displayName',
         'knowledges' => 'knowledges',
         'roleArn' => 'roleArn',
+        'sandboxNetworkPolicy' => 'sandboxNetworkPolicy',
         'toolPolicy' => 'toolPolicy',
     ];
 
@@ -61,6 +68,9 @@ class UpdateDigitalEmployeeRequest extends Model
         }
         if (null !== $this->knowledges) {
             $this->knowledges->validate();
+        }
+        if (null !== $this->sandboxNetworkPolicy) {
+            $this->sandboxNetworkPolicy->validate();
         }
         if (null !== $this->toolPolicy) {
             $this->toolPolicy->validate();
@@ -98,6 +108,10 @@ class UpdateDigitalEmployeeRequest extends Model
 
         if (null !== $this->roleArn) {
             $res['roleArn'] = $this->roleArn;
+        }
+
+        if (null !== $this->sandboxNetworkPolicy) {
+            $res['sandboxNetworkPolicy'] = null !== $this->sandboxNetworkPolicy ? $this->sandboxNetworkPolicy->toArray($noStream) : $this->sandboxNetworkPolicy;
         }
 
         if (null !== $this->toolPolicy) {
@@ -142,6 +156,10 @@ class UpdateDigitalEmployeeRequest extends Model
 
         if (isset($map['roleArn'])) {
             $model->roleArn = $map['roleArn'];
+        }
+
+        if (isset($map['sandboxNetworkPolicy'])) {
+            $model->sandboxNetworkPolicy = sandboxNetworkPolicy::fromMap($map['sandboxNetworkPolicy']);
         }
 
         if (isset($map['toolPolicy'])) {
