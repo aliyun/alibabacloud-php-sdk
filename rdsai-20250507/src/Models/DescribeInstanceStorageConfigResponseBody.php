@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceStorageConfigRespons
 class DescribeInstanceStorageConfigResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $branchName;
+
+    /**
      * @var configList[]
      */
     public $configList;
@@ -24,6 +29,7 @@ class DescribeInstanceStorageConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'configList' => 'ConfigList',
         'instanceName' => 'InstanceName',
         'requestId' => 'RequestId',
@@ -40,6 +46,10 @@ class DescribeInstanceStorageConfigResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->configList) {
             if (\is_array($this->configList)) {
                 $res['ConfigList'] = [];
@@ -70,6 +80,10 @@ class DescribeInstanceStorageConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];

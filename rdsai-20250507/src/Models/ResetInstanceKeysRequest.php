@@ -6,13 +6,8 @@ namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DescribeInstanceEndpointsRequest extends Model
+class ResetInstanceKeysRequest extends Model
 {
-    /**
-     * @var string
-     */
-    public $branchName;
-
     /**
      * @var string
      */
@@ -23,7 +18,6 @@ class DescribeInstanceEndpointsRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'branchName' => 'BranchName',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
     ];
@@ -36,10 +30,6 @@ class DescribeInstanceEndpointsRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->branchName) {
-            $res['BranchName'] = $this->branchName;
-        }
-
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -59,10 +49,6 @@ class DescribeInstanceEndpointsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BranchName'])) {
-            $model->branchName = $map['BranchName'];
-        }
-
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }

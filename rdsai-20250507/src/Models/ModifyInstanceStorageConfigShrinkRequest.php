@@ -11,6 +11,11 @@ class ModifyInstanceStorageConfigShrinkRequest extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -28,6 +33,7 @@ class ModifyInstanceStorageConfigShrinkRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'clientToken' => 'ClientToken',
         'configListShrink' => 'ConfigList',
         'instanceName' => 'InstanceName',
@@ -42,6 +48,10 @@ class ModifyInstanceStorageConfigShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -69,6 +79,10 @@ class ModifyInstanceStorageConfigShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

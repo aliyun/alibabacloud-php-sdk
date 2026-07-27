@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class records extends Model
 {
     /**
+     * @var float
+     */
+    public $cacheTokens;
+
+    /**
      * @var string
      */
     public $consumerName;
@@ -53,6 +58,7 @@ class records extends Model
      */
     public $totalTokens;
     protected $_name = [
+        'cacheTokens' => 'CacheTokens',
         'consumerName' => 'ConsumerName',
         'extraInfo' => 'ExtraInfo',
         'inputTokens' => 'InputTokens',
@@ -72,6 +78,10 @@ class records extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->cacheTokens) {
+            $res['CacheTokens'] = $this->cacheTokens;
+        }
+
         if (null !== $this->consumerName) {
             $res['ConsumerName'] = $this->consumerName;
         }
@@ -119,6 +129,10 @@ class records extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CacheTokens'])) {
+            $model->cacheTokens = $map['CacheTokens'];
+        }
+
         if (isset($map['ConsumerName'])) {
             $model->consumerName = $map['ConsumerName'];
         }

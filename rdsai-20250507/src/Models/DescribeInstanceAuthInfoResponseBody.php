@@ -16,6 +16,11 @@ class DescribeInstanceAuthInfoResponseBody extends Model
     public $apiKeys;
 
     /**
+     * @var string
+     */
+    public $branchName;
+
+    /**
      * @var configList[]
      */
     public $configList;
@@ -36,6 +41,7 @@ class DescribeInstanceAuthInfoResponseBody extends Model
     public $requestId;
     protected $_name = [
         'apiKeys' => 'ApiKeys',
+        'branchName' => 'BranchName',
         'configList' => 'ConfigList',
         'instanceName' => 'InstanceName',
         'jwtSecret' => 'JwtSecret',
@@ -58,6 +64,10 @@ class DescribeInstanceAuthInfoResponseBody extends Model
         $res = [];
         if (null !== $this->apiKeys) {
             $res['ApiKeys'] = null !== $this->apiKeys ? $this->apiKeys->toArray($noStream) : $this->apiKeys;
+        }
+
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
         }
 
         if (null !== $this->configList) {
@@ -96,6 +106,10 @@ class DescribeInstanceAuthInfoResponseBody extends Model
         $model = new self();
         if (isset($map['ApiKeys'])) {
             $model->apiKeys = apiKeys::fromMap($map['ApiKeys']);
+        }
+
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
         }
 
         if (isset($map['ConfigList'])) {

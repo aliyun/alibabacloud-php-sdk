@@ -11,6 +11,11 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceEndpointsResponseBod
 class DescribeInstanceEndpointsResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $branchName;
+
+    /**
      * @var DBInstanceEndpoints[]
      */
     public $DBInstanceEndpoints;
@@ -30,6 +35,7 @@ class DescribeInstanceEndpointsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'DBInstanceEndpoints' => 'DBInstanceEndpoints',
         'instanceEndpoints' => 'InstanceEndpoints',
         'instanceName' => 'InstanceName',
@@ -50,6 +56,10 @@ class DescribeInstanceEndpointsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->DBInstanceEndpoints) {
             if (\is_array($this->DBInstanceEndpoints)) {
                 $res['DBInstanceEndpoints'] = [];
@@ -91,6 +101,10 @@ class DescribeInstanceEndpointsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['DBInstanceEndpoints'])) {
             if (!empty($map['DBInstanceEndpoints'])) {
                 $model->DBInstanceEndpoints = [];

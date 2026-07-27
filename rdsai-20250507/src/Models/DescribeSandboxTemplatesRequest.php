@@ -11,6 +11,11 @@ class DescribeSandboxTemplatesRequest extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $instanceName;
 
     /**
@@ -43,6 +48,7 @@ class DescribeSandboxTemplatesRequest extends Model
      */
     public $templateName;
     protected $_name = [
+        'branchName' => 'BranchName',
         'instanceName' => 'InstanceName',
         'maxResults' => 'MaxResults',
         'nextToken' => 'NextToken',
@@ -60,6 +66,10 @@ class DescribeSandboxTemplatesRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -99,6 +109,10 @@ class DescribeSandboxTemplatesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }

@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateCustomAgentShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateInspectionTaskResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateMOUsageDetailExportRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateMOUsageDetailExportResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSandboxTemplateRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateSandboxTemplateResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\CreateScheduledTaskRequest;
@@ -66,6 +68,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMonitorDataResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMonitorDataShrinkRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOTokenUsageDetailRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOTokenUsageDetailResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOUsageDetailExportRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeMOUsageDetailExportResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeSandboxTemplatesResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeWhitelistIpsRequest;
@@ -138,6 +142,8 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\RenameApiKeyRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RenameApiKeyResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetApiKeyRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetApiKeyResponse;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstanceKeysRequest;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstanceKeysResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordRequest;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\ResetInstancePasswordResponse;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\RestartInstanceRequest;
@@ -214,7 +220,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Sends chat messages.
+     * Sends a conversation message.
      *
      * @param tmpReq - ChatMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -288,7 +294,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Sends chat messages.
+     * Sends a conversation message.
      *
      * @param tmpReq - ChatMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -349,7 +355,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Sends chat messages.
+     * Sends a conversation message.
      *
      * @param request - ChatMessagesRequest
      *
@@ -424,11 +430,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Create a custom API key.
+     * Creates a custom API key.
      *
      * @remarks
-     * ### Supported engines
-     * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -491,11 +497,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Create a custom API key.
+     * Creates a custom API key.
      *
      * @remarks
-     * ### Supported engines
-     * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - CreateApiKeyRequest
      *
@@ -821,6 +827,91 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createInspectionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 触发 MO 用量明细 CSV 异步导出任务
+     *
+     * @remarks
+     * ### 适用引擎
+     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     *
+     * @param request - CreateMOUsageDetailExportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMOUsageDetailExportResponse
+     *
+     * @param CreateMOUsageDetailExportRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateMOUsageDetailExportResponse
+     */
+    public function createMOUsageDetailExportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->apiKey) {
+            @$query['ApiKey'] = $request->apiKey;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        if (null !== $request->usageType) {
+            @$query['UsageType'] = $request->usageType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateMOUsageDetailExport',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateMOUsageDetailExportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 触发 MO 用量明细 CSV 异步导出任务
+     *
+     * @remarks
+     * ### 适用引擎
+     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     *
+     * @param request - CreateMOUsageDetailExportRequest
+     *
+     * @returns CreateMOUsageDetailExportResponse
+     *
+     * @param CreateMOUsageDetailExportRequest $request
+     *
+     * @return CreateMOUsageDetailExportResponse
+     */
+    public function createMOUsageDetailExport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMOUsageDetailExportWithOptions($request, $runtime);
     }
 
     /**
@@ -1176,15 +1267,15 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Deletes an RDS Supabase instance.
+     * Deletes an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable DPI engine
      * RDS PostgreSQL
-     * ### 相关功能文档
-     * >Warning: 该API操作涉及费用，请仔细阅读相关功能文档后再进行操作。
+     * ### Related feature documentation
+     * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * >Notice: 删除RDS Supabase项目并不会自动删除在创建该项目时所生成的RDS PostgreSQL实例及开通的NAT网关，您需要[手动释放该实例](https://help.aliyun.com/document_detail/96749.html)，并删除[公网NAT网关](https://help.aliyun.com/document_detail/121139.html)和[EIP](https://help.aliyun.com/document_detail/121527.html)。
+     * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
      *
      * @param request - DeleteAppInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1202,6 +1293,10 @@ class RdsAi extends OpenApiClient
         $query = [];
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->deleteDBInstance) {
+            @$query['DeleteDBInstance'] = $request->deleteDBInstance;
         }
 
         if (null !== $request->instanceName) {
@@ -1231,15 +1326,15 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Deletes an RDS Supabase instance.
+     * Deletes an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable DPI engine
      * RDS PostgreSQL
-     * ### 相关功能文档
-     * >Warning: 该API操作涉及费用，请仔细阅读相关功能文档后再进行操作。
+     * ### Related feature documentation
+     * >Warning: This API operation incurs fees. Read the related feature documentation carefully before you perform this operation.
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * >Notice: 删除RDS Supabase项目并不会自动删除在创建该项目时所生成的RDS PostgreSQL实例及开通的NAT网关，您需要[手动释放该实例](https://help.aliyun.com/document_detail/96749.html)，并删除[公网NAT网关](https://help.aliyun.com/document_detail/121139.html)和[EIP](https://help.aliyun.com/document_detail/121527.html)。
+     * >Notice: Deleting an RDS Supabase project does not automatically delete the ApsaraDB RDS for PostgreSQL instance or the Internet NAT gateway that were created with the project. You must [manual release the instance](https://help.aliyun.com/document_detail/96749.html) and delete the [Internet NAT gateway](https://help.aliyun.com/document_detail/121139.html) and [EIP](https://help.aliyun.com/document_detail/121527.html).
      *
      * @param request - DeleteAppInstanceRequest
      *
@@ -1527,6 +1622,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -1839,6 +1938,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -1890,12 +1993,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the endpoint of an RDS Supabase instance.
+     * Queries the endpoint information of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceEndpointsRequest
@@ -1912,6 +2015,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -1939,12 +2046,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the endpoint of an RDS Supabase instance.
+     * Queries the endpoint information of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceEndpointsRequest
@@ -1963,12 +2070,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelists of an RDS Supabase instance.
+     * Queries the IP whitelist of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceIpWhitelistRequest
@@ -1985,6 +2092,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->groupName) {
             @$query['GroupName'] = $request->groupName;
         }
@@ -2016,12 +2127,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the IP address whitelists of an RDS Supabase instance.
+     * Queries the IP whitelist of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceIpWhitelistRequest
@@ -2040,7 +2151,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the RAG agent configurations of an RDS Supabase instance.
+     * Queries the RAG Agent configuration of an RDS AI application instance.
      *
      * @param request - DescribeInstanceRAGConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2056,6 +2167,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -2083,7 +2198,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the RAG agent configurations of an RDS Supabase instance.
+     * Queries the RAG Agent configuration of an RDS AI application instance.
      *
      * @param request - DescribeInstanceRAGConfigRequest
      *
@@ -2101,12 +2216,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the SSL settings of an RDS Supabase instance.
+     * Queries the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceSSLRequest
@@ -2123,6 +2238,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -2150,12 +2269,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the SSL settings of an RDS Supabase instance.
+     * Queries the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeInstanceSSLRequest
@@ -2174,14 +2293,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the storage configurations of an RDS Supabase instance.
+     * Queries the storage configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > 当前仅支持对象存储OSS。
+     * > Currently, only Object Storage Service (OSS) is supported.
      *
      * @param request - DescribeInstanceStorageConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2197,6 +2316,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -2224,14 +2347,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the storage configurations of an RDS Supabase instance.
+     * Queries the storage configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > 当前仅支持对象存储OSS。
+     * > Currently, only Object Storage Service (OSS) is supported.
      *
      * @param request - DescribeInstanceStorageConfigRequest
      *
@@ -2253,7 +2376,7 @@ class RdsAi extends OpenApiClient
      *
      * @remarks
      * ### Applicable engine
-     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra).
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DescribeMOTokenUsageDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2336,7 +2459,7 @@ class RdsAi extends OpenApiClient
      *
      * @remarks
      * ### Applicable engine
-     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra).
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DescribeMOTokenUsageDetailRequest
      *
@@ -2351,6 +2474,71 @@ class RdsAi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeMOTokenUsageDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接.
+     *
+     * @remarks
+     * ### 适用引擎
+     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     *
+     * @param request - DescribeMOUsageDetailExportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMOUsageDetailExportResponse
+     *
+     * @param DescribeMOUsageDetailExportRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeMOUsageDetailExportResponse
+     */
+    public function describeMOUsageDetailExportWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeMOUsageDetailExport',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeMOUsageDetailExportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询 MO 用量明细 CSV 异步导出任务的状态/下载链接.
+     *
+     * @remarks
+     * ### 适用引擎
+     * [RDS AI 助手旗舰版](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     *
+     * @param request - DescribeMOUsageDetailExportRequest
+     *
+     * @returns DescribeMOUsageDetailExportResponse
+     *
+     * @param DescribeMOUsageDetailExportRequest $request
+     *
+     * @return DescribeMOUsageDetailExportResponse
+     */
+    public function describeMOUsageDetailExport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMOUsageDetailExportWithOptions($request, $runtime);
     }
 
     /**
@@ -2419,11 +2607,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves monitoring data for an RDS AI Assistant Ultimate Edition instance.
+     * Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
-     * ### Supported engines
-     * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param tmpReq - DescribeMonitorDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2488,11 +2676,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Retrieves monitoring data for an RDS AI Assistant Ultimate Edition instance.
+     * Queries instance monitoring data of an ApsaraDB RDS AI Assistant Ultimate Edition instance.
      *
      * @remarks
-     * ### Supported engines
-     * [RDS AI Assistant Ultimate Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - DescribeMonitorDataRequest
      *
@@ -2510,12 +2698,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists the sandbox templates you can use to create Supabase sandboxes.
+     * Queries the list of sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
      * ### Applicable engine
      * RDS Supabase
-     * ### Related documents
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -2532,6 +2720,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -2579,12 +2771,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Lists the sandbox templates you can use to create Supabase sandboxes.
+     * Queries the list of sandbox templates used to create Supabase sandboxes.
      *
      * @remarks
      * ### Applicable engine
      * RDS Supabase
-     * ### Related documents
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - DescribeSandboxTemplatesRequest
@@ -2668,11 +2860,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Disables the sandbox and edge function capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess the business risks before you proceed.
+     * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
      *
      * @remarks
-     * Disables the sandbox and edge function capabilities for a Supabase instance.
-     * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess the business risks before you proceed.
+     * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
+     * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
      *
      * @param request - DisableAgentRuntimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2688,6 +2880,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -2719,11 +2915,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Disables the sandbox and edge function capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess the business risks before you proceed.
+     * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance. Note: This operation deletes all sandboxes and edge functions of the instance. Fully assess business risks before performing this operation.
      *
      * @remarks
-     * Disables the sandbox and edge function capabilities for a Supabase instance.
-     * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess the business risks before you proceed.
+     * Disables the sandbox feature and Edge Routine capabilities for a Supabase instance.
+     * >Notice: This operation deletes all sandboxes and edge functions of the Supabase instance. Fully assess business risks before performing this operation.
      *
      * @param request - DisableAgentRuntimeRequest
      *
@@ -2762,6 +2958,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -2897,7 +3097,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the history conversations of a user.
+     * Queries the historical conversations of a user.
      *
      * @param request - GetConversationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2948,7 +3148,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Queries the history conversations of a user.
+     * Queries the historical conversations of a user.
      *
      * @param request - GetConversationsRequest
      *
@@ -3485,11 +3685,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * View Custom API Key.
+     * Queries custom API keys.
      *
      * @remarks
-     * ### Supported engines
-     * [DAS Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ListApiKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3536,11 +3736,11 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * View Custom API Key.
+     * Queries custom API keys.
      *
      * @remarks
-     * ### Supported engines
-     * [DAS Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+     * ### Applicable engine
+     * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
      *
      * @param request - ListApiKeysRequest
      *
@@ -3901,12 +4101,24 @@ class RdsAi extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
 
         if (null !== $request->componentsShrink) {
             @$query['Components'] = $request->componentsShrink;
+        }
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->instanceClass) {
+            @$query['InstanceClass'] = $request->instanceClass;
         }
 
         if (null !== $request->instanceName) {
@@ -3960,12 +4172,13 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the authentication configurations of an RDS Supabase instance.
+     * Modifies the authentication configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable Engine
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related Function Documentation
+     * ### Related documentation
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - ModifyInstanceAuthConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3987,6 +4200,10 @@ class RdsAi extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->configListShrink) {
             @$query['ConfigList'] = $request->configListShrink;
         }
@@ -4018,12 +4235,13 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the authentication configurations of an RDS Supabase instance.
+     * Modifies the authentication configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable Engine
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related Function Documentation
+     * ### Related documentation
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyInstanceAuthConfigRequest
      *
@@ -4041,7 +4259,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the general configurations of an instance, such as the EIP and NAT settings.
+     * Modifies the general configurations of an instance, such as network EIP and NAT configurations.
      *
      * @param request - ModifyInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4057,6 +4275,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -4096,7 +4318,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the general configurations of an instance, such as the EIP and NAT settings.
+     * Modifies the general configurations of an instance, such as network EIP and NAT configurations.
      *
      * @param request - ModifyInstanceConfigRequest
      *
@@ -4114,12 +4336,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist of an RDS Supabase instance.
+     * Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyInstanceIpWhitelistRequest
@@ -4136,6 +4358,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -4179,12 +4405,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist of an RDS Supabase instance.
+     * Modifies the IP whitelist of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyInstanceIpWhitelistRequest
@@ -4203,7 +4429,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the RAG agent configurations of an RDS Supabase instance.
+     * Modifies the RAG Agent configuration of an RDS AI application instance.
      *
      * @param tmpReq - ModifyInstanceRAGConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4225,6 +4451,10 @@ class RdsAi extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -4264,7 +4494,7 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the RAG agent configurations of an RDS Supabase instance.
+     * Modifies the RAG Agent configuration of an RDS AI application instance.
      *
      * @param request - ModifyInstanceRAGConfigRequest
      *
@@ -4282,12 +4512,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the SSL settings of an RDS Supabase instance.
+     * Modifies the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyInstanceSSLRequest
@@ -4304,6 +4534,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->CAType) {
             @$query['CAType'] = $request->CAType;
         }
@@ -4347,12 +4581,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the SSL settings of an RDS Supabase instance.
+     * Modifies the SSL configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyInstanceSSLRequest
@@ -4371,12 +4605,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the storage configurations of an RDS Supabase instance.
+     * Modifies the storage configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Supported Engine
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related Function Documentation
+     * ### Related documentation
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * > Currently, only Object Storage Service (OSS) is supported.
      *
      * @param tmpReq - ModifyInstanceStorageConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4398,6 +4634,10 @@ class RdsAi extends OpenApiClient
         }
 
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->clientToken) {
             @$query['ClientToken'] = $request->clientToken;
         }
@@ -4433,12 +4673,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Modifies the storage configurations of an RDS Supabase instance.
+     * Modifies the storage configuration of an RDS AI application instance.
      *
      * @remarks
-     * ### Supported Engine
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### Related Function Documentation
+     * ### Related documentation
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * > Currently, only Object Storage Service (OSS) is supported.
      *
      * @param request - ModifyInstanceStorageConfigRequest
      *
@@ -5005,14 +5247,87 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Resets the logon password of the RDS Supabase instance and the access password of the database.
+     * 重置RDS AI实例的Keys.
      *
      * @remarks
      * ### 适用引擎
      * RDS PostgreSQL
      * ### 相关功能文档
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > 当前仅支持修改RDS Supabase Dashboard用户的密码。
+     *
+     * @param request - ResetInstanceKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetInstanceKeysResponse
+     *
+     * @param ResetInstanceKeysRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ResetInstanceKeysResponse
+     */
+    public function resetInstanceKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ResetInstanceKeys',
+            'version' => '2025-05-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ResetInstanceKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 重置RDS AI实例的Keys.
+     *
+     * @remarks
+     * ### 适用引擎
+     * RDS PostgreSQL
+     * ### 相关功能文档
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     *
+     * @param request - ResetInstanceKeysRequest
+     *
+     * @returns ResetInstanceKeysResponse
+     *
+     * @param ResetInstanceKeysRequest $request
+     *
+     * @return ResetInstanceKeysResponse
+     */
+    public function resetInstanceKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetInstanceKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
+     *
+     * @remarks
+     * ### Applicable engine
+     * RDS PostgreSQL
+     * ### Related documentation
+     * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
+     * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
      *
      * @param request - ResetInstancePasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5028,6 +5343,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->dashboardPassword) {
             @$query['DashboardPassword'] = $request->dashboardPassword;
         }
@@ -5063,14 +5382,14 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Resets the logon password of the RDS Supabase instance and the access password of the database.
+     * Resets the logon password and database access password of an ApsaraDB RDS AI application instance.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
-     * > 当前仅支持修改RDS Supabase Dashboard用户的密码。
+     * > Currently, only the password of the RDS Supabase Dashboard user can be reset.
      *
      * @param request - ResetInstancePasswordRequest
      *
@@ -5088,12 +5407,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Restarts an RDS Supabase instance that is in the Running state.
+     * Restarts an ApsaraDB RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - RestartInstanceRequest
@@ -5110,6 +5429,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -5137,12 +5460,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Restarts an RDS Supabase instance that is in the Running state.
+     * Restarts an ApsaraDB RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - RestartInstanceRequest
@@ -5161,12 +5484,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Starts a stopped RDS Supabase instance.
+     * Starts an RDS AI application instance that is in the Stopped state.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StartInstanceRequest
@@ -5183,6 +5506,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->instanceName) {
             @$query['InstanceName'] = $request->instanceName;
         }
@@ -5210,12 +5537,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Starts a stopped RDS Supabase instance.
+     * Starts an RDS AI application instance that is in the Stopped state.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StartInstanceRequest
@@ -5234,12 +5561,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Stops a running RDS Supabase instance.
+     * Pauses an RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StopInstanceRequest
@@ -5256,6 +5583,10 @@ class RdsAi extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->branchName) {
+            @$query['BranchName'] = $request->branchName;
+        }
+
         if (null !== $request->force) {
             @$query['Force'] = $request->force;
         }
@@ -5287,12 +5618,12 @@ class RdsAi extends OpenApiClient
     }
 
     /**
-     * Stops a running RDS Supabase instance.
+     * Pauses an RDS AI application instance that is in the Running state.
      *
      * @remarks
-     * ### 适用引擎
+     * ### Applicable engine
      * RDS PostgreSQL
-     * ### 相关功能文档
+     * ### Related documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - StopInstanceRequest

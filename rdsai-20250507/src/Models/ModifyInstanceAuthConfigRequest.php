@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyInstanceAuthConfigRequest\conf
 class ModifyInstanceAuthConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $branchName;
+
+    /**
      * @var configList[]
      */
     public $configList;
@@ -24,6 +29,7 @@ class ModifyInstanceAuthConfigRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'configList' => 'ConfigList',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
@@ -40,6 +46,10 @@ class ModifyInstanceAuthConfigRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->configList) {
             if (\is_array($this->configList)) {
                 $res['ConfigList'] = [];
@@ -70,6 +80,10 @@ class ModifyInstanceAuthConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];

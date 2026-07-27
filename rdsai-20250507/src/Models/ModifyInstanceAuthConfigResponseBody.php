@@ -11,6 +11,11 @@ class ModifyInstanceAuthConfigResponseBody extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $instanceName;
 
     /**
@@ -18,6 +23,7 @@ class ModifyInstanceAuthConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'instanceName' => 'InstanceName',
         'requestId' => 'RequestId',
     ];
@@ -30,6 +36,10 @@ class ModifyInstanceAuthConfigResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -49,6 +59,10 @@ class ModifyInstanceAuthConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }

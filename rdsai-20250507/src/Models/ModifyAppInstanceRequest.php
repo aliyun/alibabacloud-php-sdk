@@ -12,12 +12,27 @@ class ModifyAppInstanceRequest extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
      * @var components[]
      */
     public $components;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceName;
+
+    /**
+     * @var string
+     */
+    public $instanceClass;
 
     /**
      * @var string
@@ -29,8 +44,11 @@ class ModifyAppInstanceRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'clientToken' => 'ClientToken',
         'components' => 'Components',
+        'DBInstanceName' => 'DBInstanceName',
+        'instanceClass' => 'InstanceClass',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
     ];
@@ -46,6 +64,10 @@ class ModifyAppInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -59,6 +81,14 @@ class ModifyAppInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->DBInstanceName) {
+            $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+
+        if (null !== $this->instanceClass) {
+            $res['InstanceClass'] = $this->instanceClass;
         }
 
         if (null !== $this->instanceName) {
@@ -80,6 +110,10 @@ class ModifyAppInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -93,6 +127,14 @@ class ModifyAppInstanceRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['DBInstanceName'])) {
+            $model->DBInstanceName = $map['DBInstanceName'];
+        }
+
+        if (isset($map['InstanceClass'])) {
+            $model->instanceClass = $map['InstanceClass'];
         }
 
         if (isset($map['InstanceName'])) {

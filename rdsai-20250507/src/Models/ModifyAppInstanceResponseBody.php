@@ -10,6 +10,11 @@ use AlibabaCloud\SDK\RdsAi\V20250507\Models\ModifyAppInstanceResponseBody\compon
 class ModifyAppInstanceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $branchName;
+
+    /**
      * @var components[]
      */
     public $components;
@@ -24,6 +29,7 @@ class ModifyAppInstanceResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'components' => 'Components',
         'instanceName' => 'InstanceName',
         'requestId' => 'RequestId',
@@ -40,6 +46,10 @@ class ModifyAppInstanceResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->components) {
             if (\is_array($this->components)) {
                 $res['Components'] = [];
@@ -70,6 +80,10 @@ class ModifyAppInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['Components'])) {
             if (!empty($map['Components'])) {
                 $model->components = [];

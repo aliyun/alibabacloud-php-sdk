@@ -11,6 +11,11 @@ class ModifyInstanceAuthConfigShrinkRequest extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $configListShrink;
 
     /**
@@ -23,6 +28,7 @@ class ModifyInstanceAuthConfigShrinkRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'configListShrink' => 'ConfigList',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
@@ -36,6 +42,10 @@ class ModifyInstanceAuthConfigShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->configListShrink) {
             $res['ConfigList'] = $this->configListShrink;
         }
@@ -59,6 +69,10 @@ class ModifyInstanceAuthConfigShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['ConfigList'])) {
             $model->configListShrink = $map['ConfigList'];
         }

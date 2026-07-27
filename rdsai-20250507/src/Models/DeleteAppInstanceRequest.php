@@ -14,6 +14,11 @@ class DeleteAppInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $deleteDBInstance;
+
+    /**
      * @var string
      */
     public $instanceName;
@@ -24,6 +29,7 @@ class DeleteAppInstanceRequest extends Model
     public $regionId;
     protected $_name = [
         'clientToken' => 'ClientToken',
+        'deleteDBInstance' => 'DeleteDBInstance',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
     ];
@@ -38,6 +44,10 @@ class DeleteAppInstanceRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+
+        if (null !== $this->deleteDBInstance) {
+            $res['DeleteDBInstance'] = $this->deleteDBInstance;
         }
 
         if (null !== $this->instanceName) {
@@ -61,6 +71,10 @@ class DeleteAppInstanceRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+
+        if (isset($map['DeleteDBInstance'])) {
+            $model->deleteDBInstance = $map['DeleteDBInstance'];
         }
 
         if (isset($map['InstanceName'])) {

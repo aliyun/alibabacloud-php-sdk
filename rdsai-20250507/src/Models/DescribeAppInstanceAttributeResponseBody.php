@@ -21,6 +21,16 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     public $appType;
 
     /**
+     * @var string
+     */
+    public $branchName;
+
+    /**
+     * @var string
+     */
+    public $branchingEnabled;
+
+    /**
      * @var components[]
      */
     public $components;
@@ -132,6 +142,8 @@ class DescribeAppInstanceAttributeResponseBody extends Model
     protected $_name = [
         'appName' => 'AppName',
         'appType' => 'AppType',
+        'branchName' => 'BranchName',
+        'branchingEnabled' => 'BranchingEnabled',
         'components' => 'Components',
         'DBInstanceName' => 'DBInstanceName',
         'eipId' => 'EipId',
@@ -176,6 +188,14 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
+        }
+
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
+        if (null !== $this->branchingEnabled) {
+            $res['BranchingEnabled'] = $this->branchingEnabled;
         }
 
         if (null !== $this->components) {
@@ -297,6 +317,14 @@ class DescribeAppInstanceAttributeResponseBody extends Model
 
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
+        }
+
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
+        if (isset($map['BranchingEnabled'])) {
+            $model->branchingEnabled = $map['BranchingEnabled'];
         }
 
         if (isset($map['Components'])) {

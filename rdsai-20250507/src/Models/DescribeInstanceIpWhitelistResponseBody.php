@@ -5,10 +5,21 @@
 namespace AlibabaCloud\SDK\RdsAi\V20250507\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceIpWhitelistResponseBody\dbIpWhiteListGroups;
 use AlibabaCloud\SDK\RdsAi\V20250507\Models\DescribeInstanceIpWhitelistResponseBody\ipWhiteListGroups;
 
 class DescribeInstanceIpWhitelistResponseBody extends Model
 {
+    /**
+     * @var string
+     */
+    public $branchName;
+
+    /**
+     * @var dbIpWhiteListGroups[]
+     */
+    public $dbIpWhiteListGroups;
+
     /**
      * @var string
      */
@@ -24,6 +35,8 @@ class DescribeInstanceIpWhitelistResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'branchName' => 'BranchName',
+        'dbIpWhiteListGroups' => 'DbIpWhiteListGroups',
         'instanceName' => 'InstanceName',
         'ipWhiteListGroups' => 'IpWhiteListGroups',
         'requestId' => 'RequestId',
@@ -31,6 +44,9 @@ class DescribeInstanceIpWhitelistResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->dbIpWhiteListGroups)) {
+            Model::validateArray($this->dbIpWhiteListGroups);
+        }
         if (\is_array($this->ipWhiteListGroups)) {
             Model::validateArray($this->ipWhiteListGroups);
         }
@@ -40,6 +56,21 @@ class DescribeInstanceIpWhitelistResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
+        if (null !== $this->dbIpWhiteListGroups) {
+            if (\is_array($this->dbIpWhiteListGroups)) {
+                $res['DbIpWhiteListGroups'] = [];
+                $n1 = 0;
+                foreach ($this->dbIpWhiteListGroups as $item1) {
+                    $res['DbIpWhiteListGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
@@ -70,6 +101,21 @@ class DescribeInstanceIpWhitelistResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
+        if (isset($map['DbIpWhiteListGroups'])) {
+            if (!empty($map['DbIpWhiteListGroups'])) {
+                $model->dbIpWhiteListGroups = [];
+                $n1 = 0;
+                foreach ($map['DbIpWhiteListGroups'] as $item1) {
+                    $model->dbIpWhiteListGroups[$n1] = dbIpWhiteListGroups::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }

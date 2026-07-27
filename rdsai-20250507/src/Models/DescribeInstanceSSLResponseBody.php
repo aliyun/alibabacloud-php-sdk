@@ -11,6 +11,11 @@ class DescribeInstanceSSLResponseBody extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $CAType;
 
     /**
@@ -38,6 +43,7 @@ class DescribeInstanceSSLResponseBody extends Model
      */
     public $serverKey;
     protected $_name = [
+        'branchName' => 'BranchName',
         'CAType' => 'CAType',
         'instanceName' => 'InstanceName',
         'requestId' => 'RequestId',
@@ -54,6 +60,10 @@ class DescribeInstanceSSLResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->CAType) {
             $res['CAType'] = $this->CAType;
         }
@@ -89,6 +99,10 @@ class DescribeInstanceSSLResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['CAType'])) {
             $model->CAType = $map['CAType'];
         }

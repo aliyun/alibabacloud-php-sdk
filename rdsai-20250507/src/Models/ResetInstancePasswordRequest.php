@@ -11,6 +11,11 @@ class ResetInstancePasswordRequest extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $dashboardPassword;
 
     /**
@@ -28,6 +33,7 @@ class ResetInstancePasswordRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'dashboardPassword' => 'DashboardPassword',
         'databasePassword' => 'DatabasePassword',
         'instanceName' => 'InstanceName',
@@ -42,6 +48,10 @@ class ResetInstancePasswordRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->dashboardPassword) {
             $res['DashboardPassword'] = $this->dashboardPassword;
         }
@@ -69,6 +79,10 @@ class ResetInstancePasswordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['DashboardPassword'])) {
             $model->dashboardPassword = $map['DashboardPassword'];
         }

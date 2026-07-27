@@ -11,6 +11,11 @@ class ModifyInstanceRAGConfigShrinkRequest extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -33,6 +38,7 @@ class ModifyInstanceRAGConfigShrinkRequest extends Model
      */
     public $status;
     protected $_name = [
+        'branchName' => 'BranchName',
         'clientToken' => 'ClientToken',
         'configListShrink' => 'ConfigList',
         'instanceName' => 'InstanceName',
@@ -48,6 +54,10 @@ class ModifyInstanceRAGConfigShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -79,6 +89,10 @@ class ModifyInstanceRAGConfigShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

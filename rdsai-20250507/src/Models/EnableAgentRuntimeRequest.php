@@ -11,6 +11,11 @@ class EnableAgentRuntimeRequest extends Model
     /**
      * @var string
      */
+    public $branchName;
+
+    /**
+     * @var string
+     */
     public $clientToken;
 
     /**
@@ -33,6 +38,7 @@ class EnableAgentRuntimeRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
+        'branchName' => 'BranchName',
         'clientToken' => 'ClientToken',
         'instanceName' => 'InstanceName',
         'regionId' => 'RegionId',
@@ -48,6 +54,10 @@ class EnableAgentRuntimeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->branchName) {
+            $res['BranchName'] = $this->branchName;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -79,6 +89,10 @@ class EnableAgentRuntimeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BranchName'])) {
+            $model->branchName = $map['BranchName'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

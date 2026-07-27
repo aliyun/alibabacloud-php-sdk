@@ -24,14 +24,26 @@ class data extends Model
     public $introduction;
 
     /**
+     * @var bool
+     */
+    public $isRunning;
+
+    /**
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $updatedAt;
     protected $_name = [
         'createdAt' => 'CreatedAt',
         'id' => 'Id',
         'introduction' => 'Introduction',
+        'isRunning' => 'IsRunning',
         'name' => 'Name',
+        'updatedAt' => 'UpdatedAt',
     ];
 
     public function validate()
@@ -54,8 +66,16 @@ class data extends Model
             $res['Introduction'] = $this->introduction;
         }
 
+        if (null !== $this->isRunning) {
+            $res['IsRunning'] = $this->isRunning;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->updatedAt) {
+            $res['UpdatedAt'] = $this->updatedAt;
         }
 
         return $res;
@@ -81,8 +101,16 @@ class data extends Model
             $model->introduction = $map['Introduction'];
         }
 
+        if (isset($map['IsRunning'])) {
+            $model->isRunning = $map['IsRunning'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+
+        if (isset($map['UpdatedAt'])) {
+            $model->updatedAt = $map['UpdatedAt'];
         }
 
         return $model;
