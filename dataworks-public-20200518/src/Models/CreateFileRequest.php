@@ -116,6 +116,11 @@ class CreateFileRequest extends Model
     /**
      * @var string
      */
+    public $outputList;
+
+    /**
+     * @var string
+     */
     public $outputParameters;
 
     /**
@@ -199,6 +204,7 @@ class CreateFileRequest extends Model
         'imageId' => 'ImageId',
         'inputList' => 'InputList',
         'inputParameters' => 'InputParameters',
+        'outputList' => 'OutputList',
         'outputParameters' => 'OutputParameters',
         'owner' => 'Owner',
         'paraValue' => 'ParaValue',
@@ -304,6 +310,10 @@ class CreateFileRequest extends Model
 
         if (null !== $this->inputParameters) {
             $res['InputParameters'] = $this->inputParameters;
+        }
+
+        if (null !== $this->outputList) {
+            $res['OutputList'] = $this->outputList;
         }
 
         if (null !== $this->outputParameters) {
@@ -451,6 +461,10 @@ class CreateFileRequest extends Model
 
         if (isset($map['InputParameters'])) {
             $model->inputParameters = $map['InputParameters'];
+        }
+
+        if (isset($map['OutputList'])) {
+            $model->outputList = $map['OutputList'];
         }
 
         if (isset($map['OutputParameters'])) {
