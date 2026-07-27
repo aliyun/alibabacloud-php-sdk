@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterTaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAIDBClusterTaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateAINodesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationAgentRelationRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationAgentRelationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationEndpointAddressResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateApplicationPromptRequest;
@@ -609,6 +611,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\FailoverDBClusterZonalRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\FailoverDBClusterZonalResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GenerateUpgradeReportForSyncCloneRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GenerateUpgradeReportForSyncCloneResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GetLakebaseTenantTokenRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\GetLakebaseTenantTokenResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarAgentRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarAgentResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GetPolarClawConfigRequest;
@@ -813,6 +817,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetConsumerApiKeyResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartAIDBClusterRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartAIDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBLinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBLinkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeRequest;
@@ -4355,6 +4361,71 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Binds an Agent to a Squad.
+     *
+     * @param request - CreateApplicationAgentRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApplicationAgentRelationResponse
+     *
+     * @param CreateApplicationAgentRelationRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateApplicationAgentRelationResponse
+     */
+    public function createApplicationAgentRelationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentId) {
+            @$query['AgentId'] = $request->agentId;
+        }
+
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateApplicationAgentRelation',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateApplicationAgentRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Binds an Agent to a Squad.
+     *
+     * @param request - CreateApplicationAgentRelationRequest
+     *
+     * @returns CreateApplicationAgentRelationResponse
+     *
+     * @param CreateApplicationAgentRelationRequest $request
+     *
+     * @return CreateApplicationAgentRelationResponse
+     */
+    public function createApplicationAgentRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationAgentRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -26054,6 +26125,75 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Retrieves the Lakebase tenant token (SPG tenant mount URL).
+     *
+     * @param request - GetLakebaseTenantTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetLakebaseTenantTokenResponse
+     *
+     * @param GetLakebaseTenantTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetLakebaseTenantTokenResponse
+     */
+    public function getLakebaseTenantTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->polarFsInstanceId) {
+            @$query['PolarFsInstanceId'] = $request->polarFsInstanceId;
+        }
+
+        if (null !== $request->subdir) {
+            @$query['Subdir'] = $request->subdir;
+        }
+
+        if (null !== $request->tenant) {
+            @$query['Tenant'] = $request->tenant;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetLakebaseTenantToken',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetLakebaseTenantTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves the Lakebase tenant token (SPG tenant mount URL).
+     *
+     * @param request - GetLakebaseTenantTokenRequest
+     *
+     * @returns GetLakebaseTenantTokenResponse
+     *
+     * @param GetLakebaseTenantTokenRequest $request
+     *
+     * @return GetLakebaseTenantTokenResponse
+     */
+    public function getLakebaseTenantToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLakebaseTenantTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a chat record.
      *
      * @param request - GetPolarAgentRequest
@@ -34600,6 +34740,63 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetGlobalDatabaseNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * Restarts an AI cluster.
+     *
+     * @param request - RestartAIDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartAIDBClusterResponse
+     *
+     * @param RestartAIDBClusterRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return RestartAIDBClusterResponse
+     */
+    public function restartAIDBClusterWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RestartAIDBCluster',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RestartAIDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Restarts an AI cluster.
+     *
+     * @param request - RestartAIDBClusterRequest
+     *
+     * @returns RestartAIDBClusterResponse
+     *
+     * @param RestartAIDBClusterRequest $request
+     *
+     * @return RestartAIDBClusterResponse
+     */
+    public function restartAIDBCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartAIDBClusterWithOptions($request, $runtime);
     }
 
     /**
