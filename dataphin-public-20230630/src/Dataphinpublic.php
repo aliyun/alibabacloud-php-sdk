@@ -35,6 +35,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ApplyDataServiceAppShrinkRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AssignQualityRuleOfAllRuleScopeSchedulesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AssignQualityRuleOfAllRuleScopeSchedulesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AssignQualityRuleOfAllRuleScopeSchedulesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgRelationRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgRelationResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\BatchCreateKgRelationShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityByIdRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityByIdResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckComputeSourceConnectivityRequest;
@@ -53,6 +59,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckResourcePermissionShri
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateAdHocFileResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateAdHocFileShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBasicProjectRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBasicProjectResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBasicProjectShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskShrinkRequest;
@@ -85,9 +94,18 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDatasetShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDevProdProjectRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDevProdProjectResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDevProdProjectShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDirectoryRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDirectoryResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDirectoryShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateKgEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateKgEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateKgEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateKgRelationRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateKgRelationResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateKgRelationShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementShrinkRequest;
@@ -178,6 +196,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteKgEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteKgEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteKgRelationRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteKgRelationResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteProjectRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityRulesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityRulesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteQualityRulesShrinkRequest;
@@ -232,6 +256,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUdfRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUdfResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUserGroupRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUserGroupResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgCypherRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgCypherResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecKgCypherShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskShrinkRequest;
@@ -240,6 +267,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteTriggerNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteTriggerNodeResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExportKgSchemaRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExportKgSchemaResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataShrinkRequest;
@@ -334,6 +363,15 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamShrink
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgNeighborRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgNeighborResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgNeighborShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgRelationRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgRelationResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgSchemaPublishResultRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetKgSchemaPublishResultResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailShrinkRequest;
@@ -477,6 +515,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantDataServiceApiShrinkRe
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantResourcePermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantResourcePermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantResourcePermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ImportKgSchemaRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ImportKgSchemaResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ImportKgSchemaShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAddableRolesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAddableRolesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAddableUsersRequest;
@@ -547,6 +588,12 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListFilesShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListKgEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListKgEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListKgEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListKgRelationRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListKgRelationResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListKgRelationShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodeDownStreamRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodeDownStreamResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodeDownStreamShrinkRequest;
@@ -644,6 +691,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PausePhysicalNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PausePhysicalNodeShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishDataServiceApiRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishDataServiceApiResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishKgSchemaRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishKgSchemaResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishKgSchemaShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListShrinkRequest;
@@ -706,6 +756,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\TransferOwnershipForAllObje
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBasicProjectRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBasicProjectResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBasicProjectShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskShrinkRequest;
@@ -745,10 +798,19 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoSh
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceConfigRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceConfigResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceConfigShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDevProdProjectRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDevProdProjectResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDevProdProjectShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileDirectoryRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileDirectoryResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileNameRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateFileNameResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgRelationRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgRelationResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateKgRelationShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineByAsyncRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineByAsyncResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdatePipelineByAsyncShrinkRequest;
@@ -1586,6 +1648,152 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Creates knowledge graph entity records in batches. Online version: v6.1.1.
+     *
+     * @param tmpReq - BatchCreateKgEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCreateKgEntityResponse
+     *
+     * @param BatchCreateKgEntityRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchCreateKgEntityResponse
+     */
+    public function batchCreateKgEntityWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchCreateKgEntityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCreateKgEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCreateKgEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates knowledge graph entity records in batches. Online version: v6.1.1.
+     *
+     * @param request - BatchCreateKgEntityRequest
+     *
+     * @returns BatchCreateKgEntityResponse
+     *
+     * @param BatchCreateKgEntityRequest $request
+     *
+     * @return BatchCreateKgEntityResponse
+     */
+    public function batchCreateKgEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateKgEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+     *
+     * @param tmpReq - BatchCreateKgRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCreateKgRelationResponse
+     *
+     * @param BatchCreateKgRelationRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchCreateKgRelationResponse
+     */
+    public function batchCreateKgRelationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchCreateKgRelationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'BatchCreateKgRelation',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BatchCreateKgRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates knowledge graph relationship records in batches. Online version: v6.1.1.
+     *
+     * @param request - BatchCreateKgRelationRequest
+     *
+     * @returns BatchCreateKgRelationResponse
+     *
+     * @param BatchCreateKgRelationRequest $request
+     *
+     * @return BatchCreateKgRelationResponse
+     */
+    public function batchCreateKgRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateKgRelationWithOptions($request, $runtime);
+    }
+
+    /**
      * Checks the connectivity of a compute source.
      *
      * @param tmpReq - CheckComputeSourceConnectivityRequest
@@ -2042,6 +2250,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAdHocFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a Basic (single-environment) project.
+     *
+     * @param tmpReq - CreateBasicProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBasicProjectResponse
+     *
+     * @param CreateBasicProjectRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateBasicProjectResponse
+     */
+    public function createBasicProjectWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateBasicProjectShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateBasicProject',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateBasicProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a Basic (single-environment) project.
+     *
+     * @param request - CreateBasicProjectRequest
+     *
+     * @returns CreateBasicProjectResponse
+     *
+     * @param CreateBasicProjectRequest $request
+     *
+     * @return CreateBasicProjectResponse
+     */
+    public function createBasicProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBasicProjectWithOptions($request, $runtime);
     }
 
     /**
@@ -2826,6 +3103,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Creates a Dev-Prod (dual-environment) project.
+     *
+     * @param tmpReq - CreateDevProdProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDevProdProjectResponse
+     *
+     * @param CreateDevProdProjectRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDevProdProjectResponse
+     */
+    public function createDevProdProjectWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDevProdProjectShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDevProdProject',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDevProdProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a Dev-Prod (dual-environment) project.
+     *
+     * @param request - CreateDevProdProjectRequest
+     *
+     * @returns CreateDevProdProjectResponse
+     *
+     * @param CreateDevProdProjectRequest $request
+     *
+     * @return CreateDevProdProjectResponse
+     */
+    public function createDevProdProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDevProdProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a menu tree directory. This operation supports features such as compute nodes, data integration, and synchronization tasks.
      *
      * @param tmpReq - CreateDirectoryRequest
@@ -2892,6 +3238,152 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDirectoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a knowledge graph entity record. Online version: v6.1.1.
+     *
+     * @param tmpReq - CreateKgEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKgEntityResponse
+     *
+     * @param CreateKgEntityRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateKgEntityResponse
+     */
+    public function createKgEntityWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateKgEntityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKgEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKgEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a knowledge graph entity record. Online version: v6.1.1.
+     *
+     * @param request - CreateKgEntityRequest
+     *
+     * @returns CreateKgEntityResponse
+     *
+     * @param CreateKgEntityRequest $request
+     *
+     * @return CreateKgEntityResponse
+     */
+    public function createKgEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKgEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates a knowledge graph relationship record. Online version: v6.1.1.
+     *
+     * @param tmpReq - CreateKgRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKgRelationResponse
+     *
+     * @param CreateKgRelationRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateKgRelationResponse
+     */
+    public function createKgRelationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateKgRelationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->createCommand) {
+            $request->createCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->createCommandShrink) {
+            @$body['CreateCommand'] = $request->createCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateKgRelation',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateKgRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a knowledge graph relationship record. Online version: v6.1.1.
+     *
+     * @param request - CreateKgRelationRequest
+     *
+     * @returns CreateKgRelationResponse
+     *
+     * @param CreateKgRelationRequest $request
+     *
+     * @return CreateKgRelationResponse
+     */
+    public function createKgRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createKgRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -3267,7 +3759,7 @@ class Dataphinpublic extends OpenApiClient
      * Creates a row-level permission.
      *
      * @remarks
-     * You can query detailed information about published APIs based on the appKey.
+     * Queries the details of published APIs by appKey.
      *
      * @param tmpReq - CreateRowPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3321,7 +3813,7 @@ class Dataphinpublic extends OpenApiClient
      * Creates a row-level permission.
      *
      * @remarks
-     * You can query detailed information about published APIs based on the appKey.
+     * Queries the details of published APIs by appKey.
      *
      * @param request - CreateRowPermissionRequest
      *
@@ -5182,6 +5674,205 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Deletes an entity record. Online version: v6.1.1.
+     *
+     * @param request - DeleteKgEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKgEntityResponse
+     *
+     * @param DeleteKgEntityRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteKgEntityResponse
+     */
+    public function deleteKgEntityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKgEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKgEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an entity record. Online version: v6.1.1.
+     *
+     * @param request - DeleteKgEntityRequest
+     *
+     * @returns DeleteKgEntityResponse
+     *
+     * @param DeleteKgEntityRequest $request
+     *
+     * @return DeleteKgEntityResponse
+     */
+    public function deleteKgEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKgEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a relationship record. Online version: v6.1.1.
+     *
+     * @param request - DeleteKgRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKgRelationResponse
+     *
+     * @param DeleteKgRelationRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteKgRelationResponse
+     */
+    public function deleteKgRelationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->relationId) {
+            @$query['RelationId'] = $request->relationId;
+        }
+
+        if (null !== $request->relationType) {
+            @$query['RelationType'] = $request->relationType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteKgRelation',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteKgRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a relationship record. Online version: v6.1.1.
+     *
+     * @param request - DeleteKgRelationRequest
+     *
+     * @returns DeleteKgRelationResponse
+     *
+     * @param DeleteKgRelationRequest $request
+     *
+     * @return DeleteKgRelationResponse
+     */
+    public function deleteKgRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteKgRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a project (applicable to both Basic and Dev-Prod projects).
+     *
+     * @param request - DeleteProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProjectWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteProject',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a project (applicable to both Basic and Dev-Prod projects).
+     *
+     * @param request - DeleteProjectRequest
+     *
+     * @returns DeleteProjectResponse
+     *
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
+     */
+    public function deleteProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes quality rule objects in batches.
      * Release version: v5.4.2.
      *
@@ -6550,6 +7241,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Executes a custom Cypher query. Online version: v6.2.0.
+     *
+     * @param tmpReq - ExecKgCypherRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecKgCypherResponse
+     *
+     * @param ExecKgCypherRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ExecKgCypherResponse
+     */
+    public function execKgCypherWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ExecKgCypherShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->execCommand) {
+            $request->execCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->execCommand, 'ExecCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->execCommandShrink) {
+            @$body['ExecCommand'] = $request->execCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecKgCypher',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExecKgCypherResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Executes a custom Cypher query. Online version: v6.2.0.
+     *
+     * @param request - ExecKgCypherRequest
+     *
+     * @returns ExecKgCypherResponse
+     *
+     * @param ExecKgCypherRequest $request
+     *
+     * @return ExecKgCypherResponse
+     */
+    public function execKgCypher($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->execKgCypherWithOptions($request, $runtime);
+    }
+
+    /**
      * Executes an ad hoc query task.
      *
      * @param tmpReq - ExecuteAdHocTaskRequest
@@ -6766,6 +7530,75 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeTriggerNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 导出知识图谱定义。
+     *
+     * @param request - ExportKgSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportKgSchemaResponse
+     *
+     * @param ExportKgSchemaRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ExportKgSchemaResponse
+     */
+    public function exportKgSchemaWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->outputFormat) {
+            @$query['OutputFormat'] = $request->outputFormat;
+        }
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ExportKgSchema',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ExportKgSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导出知识图谱定义。
+     *
+     * @param request - ExportKgSchemaRequest
+     *
+     * @returns ExportKgSchemaResponse
+     *
+     * @param ExportKgSchemaRequest $request
+     *
+     * @return ExportKgSchemaResponse
+     */
+    public function exportKgSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportKgSchemaWithOptions($request, $runtime);
     }
 
     /**
@@ -7522,7 +8355,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取指定离线模板ID版本列表。
+     * Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
      *
      * @param request - GetBatchTemplateVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7573,7 +8406,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 获取指定离线模板ID版本列表。
+     * Retrieves the version list of a specified offline template ID. Online version: v6.2.0.
      *
      * @param request - GetBatchTemplateVersionsRequest
      *
@@ -9652,6 +10485,290 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 获取知识图谱实体记录。
+     *
+     * @param request - GetKgEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKgEntityResponse
+     *
+     * @param GetKgEntityRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetKgEntityResponse
+     */
+    public function getKgEntityWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->entityId) {
+            @$query['EntityId'] = $request->entityId;
+        }
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKgEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKgEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取知识图谱实体记录。
+     *
+     * @param request - GetKgEntityRequest
+     *
+     * @returns GetKgEntityResponse
+     *
+     * @param GetKgEntityRequest $request
+     *
+     * @return GetKgEntityResponse
+     */
+    public function getKgEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKgEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取图谱模型邻居节点。
+     *
+     * @param tmpReq - GetKgNeighborRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKgNeighborResponse
+     *
+     * @param GetKgNeighborRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetKgNeighborResponse
+     */
+    public function getKgNeighborWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetKgNeighborShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->neighborsQuery) {
+            $request->neighborsQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->neighborsQuery, 'NeighborsQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->entityDataId) {
+            @$query['EntityDataId'] = $request->entityDataId;
+        }
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->neighborsQueryShrink) {
+            @$body['NeighborsQuery'] = $request->neighborsQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetKgNeighbor',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKgNeighborResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取图谱模型邻居节点。
+     *
+     * @param request - GetKgNeighborRequest
+     *
+     * @returns GetKgNeighborResponse
+     *
+     * @param GetKgNeighborRequest $request
+     *
+     * @return GetKgNeighborResponse
+     */
+    public function getKgNeighbor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKgNeighborWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取知识图谱关系记录。
+     *
+     * @param request - GetKgRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKgRelationResponse
+     *
+     * @param GetKgRelationRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetKgRelationResponse
+     */
+    public function getKgRelationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->relationId) {
+            @$query['RelationId'] = $request->relationId;
+        }
+
+        if (null !== $request->relationType) {
+            @$query['RelationType'] = $request->relationType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKgRelation',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKgRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取知识图谱关系记录。
+     *
+     * @param request - GetKgRelationRequest
+     *
+     * @returns GetKgRelationResponse
+     *
+     * @param GetKgRelationRequest $request
+     *
+     * @return GetKgRelationResponse
+     */
+    public function getKgRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKgRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取图谱模型发布结果。
+     *
+     * @param request - GetKgSchemaPublishResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKgSchemaPublishResultResponse
+     *
+     * @param GetKgSchemaPublishResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetKgSchemaPublishResultResponse
+     */
+    public function getKgSchemaPublishResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetKgSchemaPublishResult',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetKgSchemaPublishResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取图谱模型发布结果。
+     *
+     * @param request - GetKgSchemaPublishResultRequest
+     *
+     * @returns GetKgSchemaPublishResultResponse
+     *
+     * @param GetKgSchemaPublishResultRequest $request
+     *
+     * @return GetKgSchemaPublishResultResponse
+     */
+    public function getKgSchemaPublishResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKgSchemaPublishResultWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the details of the latest pending submit record.
      *
      * @param tmpReq - GetLatestSubmitDetailRequest
@@ -9932,7 +11049,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据Id查询运行记录.
+     * Queries an operation log by ID. Available since v6.2.0.
      *
      * @param tmpReq - GetOperationRecordByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9983,7 +11100,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * 根据Id查询运行记录.
+     * Queries an operation log by ID. Available since v6.2.0.
      *
      * @param request - GetOperationRecordByIdRequest
      *
@@ -11904,7 +13021,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Release version: v5.4.2.
+     * Retrieves row permissions by table GUIDs. Online version: v5.4.2.
      *
      * @param tmpReq - GetRowPermissionByTableGuidsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11955,7 +13072,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Release version: v5.4.2.
+     * Retrieves row permissions by table GUIDs. Online version: v5.4.2.
      *
      * @param request - GetRowPermissionByTableGuidsRequest
      *
@@ -13784,6 +14901,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * 导入知识图谱定义。
+     *
+     * @param tmpReq - ImportKgSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportKgSchemaResponse
+     *
+     * @param ImportKgSchemaRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ImportKgSchemaResponse
+     */
+    public function importKgSchemaWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ImportKgSchemaShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->importCommand) {
+            $request->importCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->importCommand, 'ImportCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->importCommandShrink) {
+            @$body['ImportCommand'] = $request->importCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ImportKgSchema',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ImportKgSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 导入知识图谱定义。
+     *
+     * @param request - ImportKgSchemaRequest
+     *
+     * @returns ImportKgSchemaResponse
+     *
+     * @param ImportKgSchemaRequest $request
+     *
+     * @return ImportKgSchemaResponse
+     */
+    public function importKgSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->importKgSchemaWithOptions($request, $runtime);
+    }
+
+    /**
      * Retrieves the global roles that can be assigned to tenant members. Only built-in global roles are supported. Custom global roles are not supported.
      *
      * @param request - ListAddableRolesRequest
@@ -14123,7 +15313,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of specific fields for APIs that an application has requested.
+     * Queries the specific field list of APIs that an application has requested.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
      *
      * @param tmpReq - ListAuthorizedDataServiceApiDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14174,7 +15368,11 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Queries the list of specific fields for APIs that an application has requested.
+     * Queries the specific field list of APIs that an application has requested.
+     *
+     * @remarks
+     * ## 请求说明
+     * 该 API 允许用户通过提供租户 ID、数据服务应用的AppKey 或应用名称的关键词来已授权给应用的API。支持分页查询，返回的数据包括API的ID、名称、所属项目、已授权的有效期（开发及生产环境）、权限类型、生产及开发环境字段列表（字段/参数名称、参数类型、描述、示例值、是否已授权等）。请注意，分页参数是必填值。
      *
      * @param request - ListAuthorizedDataServiceApiDetailsRequest
      *
@@ -15469,6 +16667,160 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries knowledge graph entity records with paging. Online version: v6.1.1.
+     *
+     * @param tmpReq - ListKgEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKgEntityResponse
+     *
+     * @param ListKgEntityRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListKgEntityResponse
+     */
+    public function listKgEntityWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListKgEntityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
+        }
+
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKgEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKgEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries knowledge graph entity records with paging. Online version: v6.1.1.
+     *
+     * @param request - ListKgEntityRequest
+     *
+     * @returns ListKgEntityResponse
+     *
+     * @param ListKgEntityRequest $request
+     *
+     * @return ListKgEntityResponse
+     */
+    public function listKgEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKgEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * 分页查询知识图谱关系记录。
+     *
+     * @param tmpReq - ListKgRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKgRelationResponse
+     *
+     * @param ListKgRelationRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListKgRelationResponse
+     */
+    public function listKgRelationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListKgRelationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listQuery) {
+            $request->listQueryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->relationType) {
+            @$query['RelationType'] = $request->relationType;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->listQueryShrink) {
+            @$body['ListQuery'] = $request->listQueryShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListKgRelation',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListKgRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 分页查询知识图谱关系记录。
+     *
+     * @param request - ListKgRelationRequest
+     *
+     * @returns ListKgRelationResponse
+     *
+     * @param ListKgRelationRequest $request
+     *
+     * @return ListKgRelationResponse
+     */
+    public function listKgRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKgRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -17805,6 +19157,79 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Publishes a knowledge graph model. Online version: v6.2.0.
+     *
+     * @param tmpReq - PublishKgSchemaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PublishKgSchemaResponse
+     *
+     * @param PublishKgSchemaRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PublishKgSchemaResponse
+     */
+    public function publishKgSchemaWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new PublishKgSchemaShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->publishCommand) {
+            $request->publishCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->publishCommand, 'PublishCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->publishCommandShrink) {
+            @$body['PublishCommand'] = $request->publishCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PublishKgSchema',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return PublishKgSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Publishes a knowledge graph model. Online version: v6.2.0.
+     *
+     * @param request - PublishKgSchemaRequest
+     *
+     * @returns PublishKgSchemaResponse
+     *
+     * @param PublishKgSchemaRequest $request
+     *
+     * @return PublishKgSchemaResponse
+     */
+    public function publishKgSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishKgSchemaWithOptions($request, $runtime);
+    }
+
+    /**
      * Publishes objects in batches.
      *
      * @param tmpReq - PublishObjectListRequest
@@ -19284,6 +20709,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+     *
+     * @param tmpReq - UpdateBasicProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateBasicProjectResponse
+     *
+     * @param UpdateBasicProjectRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateBasicProjectResponse
+     */
+    public function updateBasicProjectWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateBasicProjectShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateBasicProject',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateBasicProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Edits a Basic (single-environment) project. The project name cannot be modified. You must pass in the current project name.
+     *
+     * @param request - UpdateBasicProjectRequest
+     *
+     * @returns UpdateBasicProjectResponse
+     *
+     * @param UpdateBasicProjectRequest $request
+     *
+     * @return UpdateBasicProjectResponse
+     */
+    public function updateBasicProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBasicProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates an offline compute node.
      *
      * @param tmpReq - UpdateBatchTaskRequest
@@ -20211,6 +21705,75 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * Edits a Dev-Prod (dual-environment) project.
+     *
+     * @param tmpReq - UpdateDevProdProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDevProdProjectResponse
+     *
+     * @param UpdateDevProdProjectRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateDevProdProjectResponse
+     */
+    public function updateDevProdProjectWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateDevProdProjectShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDevProdProject',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDevProdProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Edits a Dev-Prod (dual-environment) project.
+     *
+     * @param request - UpdateDevProdProjectRequest
+     *
+     * @returns UpdateDevProdProjectResponse
+     *
+     * @param UpdateDevProdProjectRequest $request
+     *
+     * @return UpdateDevProdProjectResponse
+     */
+    public function updateDevProdProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDevProdProjectWithOptions($request, $runtime);
+    }
+
+    /**
      * Moves the file position in the menu tree.
      *
      * @param request - UpdateFileDirectoryRequest
@@ -20346,6 +21909,152 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateFileNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * Edits a knowledge graph entity record. Online version: v6.1.1.
+     *
+     * @param tmpReq - UpdateKgEntityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKgEntityResponse
+     *
+     * @param UpdateKgEntityRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateKgEntityResponse
+     */
+    public function updateKgEntityWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateKgEntityShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKgEntity',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKgEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Edits a knowledge graph entity record. Online version: v6.1.1.
+     *
+     * @param request - UpdateKgEntityRequest
+     *
+     * @returns UpdateKgEntityResponse
+     *
+     * @param UpdateKgEntityRequest $request
+     *
+     * @return UpdateKgEntityResponse
+     */
+    public function updateKgEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKgEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * Edits a knowledge graph relationship record. Online version: v6.1.1.
+     *
+     * @param tmpReq - UpdateKgRelationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateKgRelationResponse
+     *
+     * @param UpdateKgRelationRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateKgRelationResponse
+     */
+    public function updateKgRelationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateKgRelationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->updateCommand) {
+            $request->updateCommandShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->opTenantId) {
+            @$query['OpTenantId'] = $request->opTenantId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->updateCommandShrink) {
+            @$body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateKgRelation',
+            'version' => '2023-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateKgRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Edits a knowledge graph relationship record. Online version: v6.1.1.
+     *
+     * @param request - UpdateKgRelationRequest
+     *
+     * @returns UpdateKgRelationResponse
+     *
+     * @param UpdateKgRelationRequest $request
+     *
+     * @return UpdateKgRelationResponse
+     */
+    public function updateKgRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKgRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -20787,7 +22496,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a row-level permission.
+     * Updates row-level permissions.
      *
      * @param tmpReq - UpdateRowPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20838,7 +22547,7 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
-     * Updates a row-level permission.
+     * Updates row-level permissions.
      *
      * @param request - UpdateRowPermissionRequest
      *
