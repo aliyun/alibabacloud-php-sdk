@@ -29,6 +29,11 @@ class ManageAlertRulesUnifiedActionInput extends Model
     public $armsIntegrationConfig;
 
     /**
+     * @var string
+     */
+    public $bizSource;
+
+    /**
      * @var ConditionConfigUnified
      */
     public $conditionConfig;
@@ -64,6 +69,11 @@ class ManageAlertRulesUnifiedActionInput extends Model
     public $notifyConfig;
 
     /**
+     * @var ObserveResourceConfig
+     */
+    public $observeResourceConfig;
+
+    /**
      * @var string
      */
     public $observeResourceInstanceId;
@@ -77,6 +87,16 @@ class ManageAlertRulesUnifiedActionInput extends Model
      * @var QueryConfigUnified
      */
     public $queryConfig;
+
+    /**
+     * @var AlertRuleRcaConfig
+     */
+    public $rcaConfig;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var ScheduleConfigUnified
@@ -102,6 +122,7 @@ class ManageAlertRulesUnifiedActionInput extends Model
         'actionIntegrationConfig' => 'actionIntegrationConfig',
         'annotations' => 'annotations',
         'armsIntegrationConfig' => 'armsIntegrationConfig',
+        'bizSource' => 'bizSource',
         'conditionConfig' => 'conditionConfig',
         'contentTemplate' => 'contentTemplate',
         'datasourceConfig' => 'datasourceConfig',
@@ -109,9 +130,12 @@ class ManageAlertRulesUnifiedActionInput extends Model
         'enabled' => 'enabled',
         'labels' => 'labels',
         'notifyConfig' => 'notifyConfig',
+        'observeResourceConfig' => 'observeResourceConfig',
         'observeResourceInstanceId' => 'observeResourceInstanceId',
         'observeResourceType' => 'observeResourceType',
         'queryConfig' => 'queryConfig',
+        'rcaConfig' => 'rcaConfig',
+        'regionId' => 'regionId',
         'scheduleConfig' => 'scheduleConfig',
         'uuid' => 'uuid',
         'uuidList' => 'uuidList',
@@ -141,8 +165,14 @@ class ManageAlertRulesUnifiedActionInput extends Model
         if (null !== $this->notifyConfig) {
             $this->notifyConfig->validate();
         }
+        if (null !== $this->observeResourceConfig) {
+            $this->observeResourceConfig->validate();
+        }
         if (null !== $this->queryConfig) {
             $this->queryConfig->validate();
+        }
+        if (null !== $this->rcaConfig) {
+            $this->rcaConfig->validate();
         }
         if (null !== $this->scheduleConfig) {
             $this->scheduleConfig->validate();
@@ -175,6 +205,10 @@ class ManageAlertRulesUnifiedActionInput extends Model
 
         if (null !== $this->armsIntegrationConfig) {
             $res['armsIntegrationConfig'] = null !== $this->armsIntegrationConfig ? $this->armsIntegrationConfig->toArray($noStream) : $this->armsIntegrationConfig;
+        }
+
+        if (null !== $this->bizSource) {
+            $res['bizSource'] = $this->bizSource;
         }
 
         if (null !== $this->conditionConfig) {
@@ -210,6 +244,10 @@ class ManageAlertRulesUnifiedActionInput extends Model
             $res['notifyConfig'] = null !== $this->notifyConfig ? $this->notifyConfig->toArray($noStream) : $this->notifyConfig;
         }
 
+        if (null !== $this->observeResourceConfig) {
+            $res['observeResourceConfig'] = null !== $this->observeResourceConfig ? $this->observeResourceConfig->toArray($noStream) : $this->observeResourceConfig;
+        }
+
         if (null !== $this->observeResourceInstanceId) {
             $res['observeResourceInstanceId'] = $this->observeResourceInstanceId;
         }
@@ -220,6 +258,14 @@ class ManageAlertRulesUnifiedActionInput extends Model
 
         if (null !== $this->queryConfig) {
             $res['queryConfig'] = null !== $this->queryConfig ? $this->queryConfig->toArray($noStream) : $this->queryConfig;
+        }
+
+        if (null !== $this->rcaConfig) {
+            $res['rcaConfig'] = null !== $this->rcaConfig ? $this->rcaConfig->toArray($noStream) : $this->rcaConfig;
+        }
+
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
         }
 
         if (null !== $this->scheduleConfig) {
@@ -277,6 +323,10 @@ class ManageAlertRulesUnifiedActionInput extends Model
             $model->armsIntegrationConfig = ArmsIntegrationConfig::fromMap($map['armsIntegrationConfig']);
         }
 
+        if (isset($map['bizSource'])) {
+            $model->bizSource = $map['bizSource'];
+        }
+
         if (isset($map['conditionConfig'])) {
             $model->conditionConfig = ConditionConfigUnified::fromMap($map['conditionConfig']);
         }
@@ -310,6 +360,10 @@ class ManageAlertRulesUnifiedActionInput extends Model
             $model->notifyConfig = NotifyConfigUnified::fromMap($map['notifyConfig']);
         }
 
+        if (isset($map['observeResourceConfig'])) {
+            $model->observeResourceConfig = ObserveResourceConfig::fromMap($map['observeResourceConfig']);
+        }
+
         if (isset($map['observeResourceInstanceId'])) {
             $model->observeResourceInstanceId = $map['observeResourceInstanceId'];
         }
@@ -320,6 +374,14 @@ class ManageAlertRulesUnifiedActionInput extends Model
 
         if (isset($map['queryConfig'])) {
             $model->queryConfig = QueryConfigUnified::fromMap($map['queryConfig']);
+        }
+
+        if (isset($map['rcaConfig'])) {
+            $model->rcaConfig = AlertRuleRcaConfig::fromMap($map['rcaConfig']);
+        }
+
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
         }
 
         if (isset($map['scheduleConfig'])) {

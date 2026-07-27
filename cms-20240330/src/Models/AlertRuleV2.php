@@ -24,6 +24,11 @@ class AlertRuleV2 extends Model
     public $armsIntegrationConfig;
 
     /**
+     * @var string
+     */
+    public $bizSource;
+
+    /**
      * @var ConditionConfigUnified
      */
     public $conditionConfig;
@@ -74,6 +79,11 @@ class AlertRuleV2 extends Model
     public $notifyStrategyId;
 
     /**
+     * @var ObserveResourceConfig
+     */
+    public $observeResourceConfig;
+
+    /**
      * @var bool
      */
     public $observeResourceGlobalScope;
@@ -97,6 +107,16 @@ class AlertRuleV2 extends Model
      * @var QueryConfigUnified
      */
     public $queryConfig;
+
+    /**
+     * @var AlertRuleRcaConfig
+     */
+    public $rcaConfig;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var ScheduleConfigUnified
@@ -131,6 +151,7 @@ class AlertRuleV2 extends Model
         'actionIntegrationConfig' => 'actionIntegrationConfig',
         'annotations' => 'annotations',
         'armsIntegrationConfig' => 'armsIntegrationConfig',
+        'bizSource' => 'bizSource',
         'conditionConfig' => 'conditionConfig',
         'contentTemplate' => 'contentTemplate',
         'createdAt' => 'createdAt',
@@ -141,11 +162,14 @@ class AlertRuleV2 extends Model
         'labels' => 'labels',
         'notifyConfig' => 'notifyConfig',
         'notifyStrategyId' => 'notifyStrategyId',
+        'observeResourceConfig' => 'observeResourceConfig',
         'observeResourceGlobalScope' => 'observeResourceGlobalScope',
         'observeResourceList' => 'observeResourceList',
         'observeResourceType' => 'observeResourceType',
         'partitionKey' => 'partitionKey',
         'queryConfig' => 'queryConfig',
+        'rcaConfig' => 'rcaConfig',
+        'regionId' => 'regionId',
         'scheduleConfig' => 'scheduleConfig',
         'severityLevels' => 'severityLevels',
         'status' => 'status',
@@ -177,11 +201,17 @@ class AlertRuleV2 extends Model
         if (null !== $this->notifyConfig) {
             $this->notifyConfig->validate();
         }
+        if (null !== $this->observeResourceConfig) {
+            $this->observeResourceConfig->validate();
+        }
         if (\is_array($this->observeResourceList)) {
             Model::validateArray($this->observeResourceList);
         }
         if (null !== $this->queryConfig) {
             $this->queryConfig->validate();
+        }
+        if (null !== $this->rcaConfig) {
+            $this->rcaConfig->validate();
         }
         if (null !== $this->scheduleConfig) {
             $this->scheduleConfig->validate();
@@ -207,6 +237,10 @@ class AlertRuleV2 extends Model
 
         if (null !== $this->armsIntegrationConfig) {
             $res['armsIntegrationConfig'] = null !== $this->armsIntegrationConfig ? $this->armsIntegrationConfig->toArray($noStream) : $this->armsIntegrationConfig;
+        }
+
+        if (null !== $this->bizSource) {
+            $res['bizSource'] = $this->bizSource;
         }
 
         if (null !== $this->conditionConfig) {
@@ -254,6 +288,10 @@ class AlertRuleV2 extends Model
             $res['notifyStrategyId'] = $this->notifyStrategyId;
         }
 
+        if (null !== $this->observeResourceConfig) {
+            $res['observeResourceConfig'] = null !== $this->observeResourceConfig ? $this->observeResourceConfig->toArray($noStream) : $this->observeResourceConfig;
+        }
+
         if (null !== $this->observeResourceGlobalScope) {
             $res['observeResourceGlobalScope'] = $this->observeResourceGlobalScope;
         }
@@ -279,6 +317,14 @@ class AlertRuleV2 extends Model
 
         if (null !== $this->queryConfig) {
             $res['queryConfig'] = null !== $this->queryConfig ? $this->queryConfig->toArray($noStream) : $this->queryConfig;
+        }
+
+        if (null !== $this->rcaConfig) {
+            $res['rcaConfig'] = null !== $this->rcaConfig ? $this->rcaConfig->toArray($noStream) : $this->rcaConfig;
+        }
+
+        if (null !== $this->regionId) {
+            $res['regionId'] = $this->regionId;
         }
 
         if (null !== $this->scheduleConfig) {
@@ -333,6 +379,10 @@ class AlertRuleV2 extends Model
             $model->armsIntegrationConfig = ArmsIntegrationConfig::fromMap($map['armsIntegrationConfig']);
         }
 
+        if (isset($map['bizSource'])) {
+            $model->bizSource = $map['bizSource'];
+        }
+
         if (isset($map['conditionConfig'])) {
             $model->conditionConfig = ConditionConfigUnified::fromMap($map['conditionConfig']);
         }
@@ -378,6 +428,10 @@ class AlertRuleV2 extends Model
             $model->notifyStrategyId = $map['notifyStrategyId'];
         }
 
+        if (isset($map['observeResourceConfig'])) {
+            $model->observeResourceConfig = ObserveResourceConfig::fromMap($map['observeResourceConfig']);
+        }
+
         if (isset($map['observeResourceGlobalScope'])) {
             $model->observeResourceGlobalScope = $map['observeResourceGlobalScope'];
         }
@@ -403,6 +457,14 @@ class AlertRuleV2 extends Model
 
         if (isset($map['queryConfig'])) {
             $model->queryConfig = QueryConfigUnified::fromMap($map['queryConfig']);
+        }
+
+        if (isset($map['rcaConfig'])) {
+            $model->rcaConfig = AlertRuleRcaConfig::fromMap($map['rcaConfig']);
+        }
+
+        if (isset($map['regionId'])) {
+            $model->regionId = $map['regionId'];
         }
 
         if (isset($map['scheduleConfig'])) {

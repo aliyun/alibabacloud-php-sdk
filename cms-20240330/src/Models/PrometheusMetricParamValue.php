@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ManageAlertRulesShrinkRequest extends Model
+class PrometheusMetricParamValue extends Model
 {
     /**
      * @var string
      */
-    public $bodyShrink;
+    public $name;
 
     /**
      * @var string
      */
-    public $callSource;
+    public $value;
     protected $_name = [
-        'bodyShrink' => 'body',
-        'callSource' => 'callSource',
+        'name' => 'name',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class ManageAlertRulesShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->bodyShrink) {
-            $res['body'] = $this->bodyShrink;
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
 
-        if (null !== $this->callSource) {
-            $res['callSource'] = $this->callSource;
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class ManageAlertRulesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->bodyShrink = $map['body'];
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
 
-        if (isset($map['callSource'])) {
-            $model->callSource = $map['callSource'];
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

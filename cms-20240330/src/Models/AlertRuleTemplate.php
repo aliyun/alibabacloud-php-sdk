@@ -61,6 +61,16 @@ class AlertRuleTemplate extends Model
     /**
      * @var string
      */
+    public $namespace;
+
+    /**
+     * @var string
+     */
+    public $productCategory;
+
+    /**
+     * @var string
+     */
     public $ruleConfigs;
 
     /**
@@ -113,6 +123,8 @@ class AlertRuleTemplate extends Model
         'id' => 'id',
         'isSystem' => 'isSystem',
         'labels' => 'labels',
+        'namespace' => 'namespace',
+        'productCategory' => 'productCategory',
         'ruleConfigs' => 'ruleConfigs',
         'scenes' => 'scenes',
         'schemaVersion' => 'schemaVersion',
@@ -170,6 +182,14 @@ class AlertRuleTemplate extends Model
 
         if (null !== $this->labels) {
             $res['labels'] = $this->labels;
+        }
+
+        if (null !== $this->namespace) {
+            $res['namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->productCategory) {
+            $res['productCategory'] = $this->productCategory;
         }
 
         if (null !== $this->ruleConfigs) {
@@ -257,6 +277,14 @@ class AlertRuleTemplate extends Model
 
         if (isset($map['labels'])) {
             $model->labels = $map['labels'];
+        }
+
+        if (isset($map['namespace'])) {
+            $model->namespace = $map['namespace'];
+        }
+
+        if (isset($map['productCategory'])) {
+            $model->productCategory = $map['productCategory'];
         }
 
         if (isset($map['ruleConfigs'])) {

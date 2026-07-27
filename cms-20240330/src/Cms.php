@@ -380,7 +380,6 @@ class Cms extends OpenApiClient
             'ap-southeast-6' => 'metrics.ap-southeast-6.aliyuncs.com',
             'ap-southeast-5' => 'metrics.ap-southeast-5.aliyuncs.com',
             'ap-southeast-3' => 'metrics.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-2' => 'metrics.ap-southeast-2.aliyuncs.com',
             'ap-southeast-1' => 'metrics.ap-southeast-1.aliyuncs.com',
             'ap-south-1' => 'metrics.ap-south-1.aliyuncs.com',
             'ap-northeast-2' => 'metrics.ap-northeast-2.aliyuncs.com',
@@ -7654,9 +7653,6 @@ class Cms extends OpenApiClient
     /**
      * Retrieves the list of data delivery tasks.
      *
-     * @remarks
-     * Deletes a specified site monitoring task.
-     *
      * @param tmpReq - ListDeliveryTasksRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7720,9 +7716,6 @@ class Cms extends OpenApiClient
 
     /**
      * Retrieves the list of data delivery tasks.
-     *
-     * @remarks
-     * Deletes a specified site monitoring task.
      *
      * @param request - ListDeliveryTasksRequest
      *
@@ -9331,6 +9324,11 @@ class Cms extends OpenApiClient
             $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
         }
 
+        $query = [];
+        if (null !== $request->callSource) {
+            @$query['callSource'] = $request->callSource;
+        }
+
         $body = [];
         if (null !== $request->bodyShrink) {
             @$body['body'] = $request->bodyShrink;
@@ -9338,6 +9336,7 @@ class Cms extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query' => Utils::query($query),
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
@@ -9504,7 +9503,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param tmpReq - QueryAlertRulesRequest
      * @param headers - map
@@ -9540,6 +9539,10 @@ class Cms extends OpenApiClient
             @$query['nextToken'] = $request->nextToken;
         }
 
+        if (null !== $request->queryJson) {
+            @$query['queryJson'] = $request->queryJson;
+        }
+
         $body = [];
         if (null !== $request->bodyShrink) {
             @$body['body'] = $request->bodyShrink;
@@ -9569,7 +9572,7 @@ class Cms extends OpenApiClient
      * Queries alert rules.
      *
      * @remarks
-     * This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+     * This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
      *
      * @param request - QueryAlertRulesRequest
      *
@@ -10596,10 +10599,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
-     *
-     * @remarks
-     * Deletes a specified site monitoring task.
+     * Updates a data delivery task.
      *
      * @param request - UpdateDeliveryTaskRequest
      * @param headers - map
@@ -10674,10 +10674,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * Updates a data delivery task. The update uses patch semantics: fields that are not specified remain unchanged.
-     *
-     * @remarks
-     * Deletes a specified site monitoring task.
+     * Updates a data delivery task.
      *
      * @param request - UpdateDeliveryTaskRequest
      *

@@ -14,7 +14,12 @@ class ConditionConfigUnified extends Model
     public $aggregate;
 
     /**
-     * @var ApmCompositeCompareConfig[]
+     * @var int
+     */
+    public $alertCount;
+
+    /**
+     * @var CompareList[]
      */
     public $compareList;
 
@@ -91,6 +96,21 @@ class ConditionConfigUnified extends Model
     /**
      * @var string
      */
+    public $noDataAlertLevel;
+
+    /**
+     * @var string
+     */
+    public $noDataAlertSeverity;
+
+    /**
+     * @var float
+     */
+    public $noDataAppendValue;
+
+    /**
+     * @var string
+     */
     public $noDataPolicy;
 
     /**
@@ -124,12 +144,12 @@ class ConditionConfigUnified extends Model
     public $threshold;
 
     /**
-     * @var ApmThresholdConfig[]
+     * @var ThresholdList[]
      */
     public $thresholdList;
 
     /**
-     * @var MetricSetMultiTrigger[]
+     * @var Triggers[]
      */
     public $triggers;
 
@@ -149,6 +169,7 @@ class ConditionConfigUnified extends Model
     public $yoyTimeValue;
     protected $_name = [
         'aggregate' => 'aggregate',
+        'alertCount' => 'alertCount',
         'compareList' => 'compareList',
         'compositeEscalation' => 'compositeEscalation',
         'countOperator' => 'countOperator',
@@ -164,6 +185,9 @@ class ConditionConfigUnified extends Model
         'matchValue' => 'matchValue',
         'max' => 'max',
         'min' => 'min',
+        'noDataAlertLevel' => 'noDataAlertLevel',
+        'noDataAlertSeverity' => 'noDataAlertSeverity',
+        'noDataAppendValue' => 'noDataAppendValue',
         'noDataPolicy' => 'noDataPolicy',
         'operator' => 'operator',
         'prometheus' => 'prometheus',
@@ -209,6 +233,10 @@ class ConditionConfigUnified extends Model
         $res = [];
         if (null !== $this->aggregate) {
             $res['aggregate'] = $this->aggregate;
+        }
+
+        if (null !== $this->alertCount) {
+            $res['alertCount'] = $this->alertCount;
         }
 
         if (null !== $this->compareList) {
@@ -276,6 +304,18 @@ class ConditionConfigUnified extends Model
 
         if (null !== $this->min) {
             $res['min'] = $this->min;
+        }
+
+        if (null !== $this->noDataAlertLevel) {
+            $res['noDataAlertLevel'] = $this->noDataAlertLevel;
+        }
+
+        if (null !== $this->noDataAlertSeverity) {
+            $res['noDataAlertSeverity'] = $this->noDataAlertSeverity;
+        }
+
+        if (null !== $this->noDataAppendValue) {
+            $res['noDataAppendValue'] = $this->noDataAppendValue;
         }
 
         if (null !== $this->noDataPolicy) {
@@ -355,12 +395,16 @@ class ConditionConfigUnified extends Model
             $model->aggregate = $map['aggregate'];
         }
 
+        if (isset($map['alertCount'])) {
+            $model->alertCount = $map['alertCount'];
+        }
+
         if (isset($map['compareList'])) {
             if (!empty($map['compareList'])) {
                 $model->compareList = [];
                 $n1 = 0;
                 foreach ($map['compareList'] as $item1) {
-                    $model->compareList[$n1] = ApmCompositeCompareConfig::fromMap($item1);
+                    $model->compareList[$n1] = CompareList::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -422,6 +466,18 @@ class ConditionConfigUnified extends Model
             $model->min = $map['min'];
         }
 
+        if (isset($map['noDataAlertLevel'])) {
+            $model->noDataAlertLevel = $map['noDataAlertLevel'];
+        }
+
+        if (isset($map['noDataAlertSeverity'])) {
+            $model->noDataAlertSeverity = $map['noDataAlertSeverity'];
+        }
+
+        if (isset($map['noDataAppendValue'])) {
+            $model->noDataAppendValue = $map['noDataAppendValue'];
+        }
+
         if (isset($map['noDataPolicy'])) {
             $model->noDataPolicy = $map['noDataPolicy'];
         }
@@ -455,7 +511,7 @@ class ConditionConfigUnified extends Model
                 $model->thresholdList = [];
                 $n1 = 0;
                 foreach ($map['thresholdList'] as $item1) {
-                    $model->thresholdList[$n1] = ApmThresholdConfig::fromMap($item1);
+                    $model->thresholdList[$n1] = ThresholdList::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -466,7 +522,7 @@ class ConditionConfigUnified extends Model
                 $model->triggers = [];
                 $n1 = 0;
                 foreach ($map['triggers'] as $item1) {
-                    $model->triggers[$n1] = MetricSetMultiTrigger::fromMap($item1);
+                    $model->triggers[$n1] = Triggers::fromMap($item1);
                     ++$n1;
                 }
             }

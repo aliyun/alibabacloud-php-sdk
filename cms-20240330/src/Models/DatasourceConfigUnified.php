@@ -31,7 +31,17 @@ class DatasourceConfigUnified extends Model
     /**
      * @var string
      */
+    public $project;
+
+    /**
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var Stores[]
+     */
+    public $stores;
 
     /**
      * @var string
@@ -42,12 +52,17 @@ class DatasourceConfigUnified extends Model
         'legacyRaw' => 'legacyRaw',
         'legacyType' => 'legacyType',
         'productCategory' => 'productCategory',
+        'project' => 'project',
         'regionId' => 'regionId',
+        'stores' => 'stores',
         'type' => 'type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->stores)) {
+            Model::validateArray($this->stores);
+        }
         parent::validate();
     }
 
@@ -70,8 +85,23 @@ class DatasourceConfigUnified extends Model
             $res['productCategory'] = $this->productCategory;
         }
 
+        if (null !== $this->project) {
+            $res['project'] = $this->project;
+        }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
+        }
+
+        if (null !== $this->stores) {
+            if (\is_array($this->stores)) {
+                $res['stores'] = [];
+                $n1 = 0;
+                foreach ($this->stores as $item1) {
+                    $res['stores'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->type) {
@@ -105,8 +135,23 @@ class DatasourceConfigUnified extends Model
             $model->productCategory = $map['productCategory'];
         }
 
+        if (isset($map['project'])) {
+            $model->project = $map['project'];
+        }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
+        }
+
+        if (isset($map['stores'])) {
+            if (!empty($map['stores'])) {
+                $model->stores = [];
+                $n1 = 0;
+                foreach ($map['stores'] as $item1) {
+                    $model->stores[$n1] = Stores::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['type'])) {

@@ -12,8 +12,14 @@ class ManageAlertRulesRequest extends Model
      * @var ManageAlertRulesUnifiedActionInput
      */
     public $body;
+
+    /**
+     * @var string
+     */
+    public $callSource;
     protected $_name = [
         'body' => 'body',
+        'callSource' => 'callSource',
     ];
 
     public function validate()
@@ -31,6 +37,10 @@ class ManageAlertRulesRequest extends Model
             $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
+        if (null !== $this->callSource) {
+            $res['callSource'] = $this->callSource;
+        }
+
         return $res;
     }
 
@@ -44,6 +54,10 @@ class ManageAlertRulesRequest extends Model
         $model = new self();
         if (isset($map['body'])) {
             $model->body = ManageAlertRulesUnifiedActionInput::fromMap($map['body']);
+        }
+
+        if (isset($map['callSource'])) {
+            $model->callSource = $map['callSource'];
         }
 
         return $model;

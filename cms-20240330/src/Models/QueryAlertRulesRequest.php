@@ -27,11 +27,17 @@ class QueryAlertRulesRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $queryJson;
     protected $_name = [
         'body' => 'body',
         'clientToken' => 'clientToken',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'queryJson' => 'queryJson',
     ];
 
     public function validate()
@@ -61,6 +67,10 @@ class QueryAlertRulesRequest extends Model
             $res['nextToken'] = $this->nextToken;
         }
 
+        if (null !== $this->queryJson) {
+            $res['queryJson'] = $this->queryJson;
+        }
+
         return $res;
     }
 
@@ -86,6 +96,10 @@ class QueryAlertRulesRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['queryJson'])) {
+            $model->queryJson = $map['queryJson'];
         }
 
         return $model;

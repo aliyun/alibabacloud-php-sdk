@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class QueryAlertRulesFilter extends Model
 {
     /**
+     * @var BizSourceFilter
+     */
+    public $bizSource;
+
+    /**
      * @var DatasourceTypeFilter
      */
     public $datasourceType;
@@ -29,9 +34,19 @@ class QueryAlertRulesFilter extends Model
     public $labels;
 
     /**
+     * @var NotificationChannelsFilter
+     */
+    public $notificationChannels;
+
+    /**
      * @var NotifyStrategyIdFilter
      */
     public $notifyStrategyId;
+
+    /**
+     * @var ObserveResourceConfigFilter
+     */
+    public $observeResourceConfig;
 
     /**
      * @var ObserveResourceGlobalScopeFilter
@@ -73,11 +88,14 @@ class QueryAlertRulesFilter extends Model
      */
     public $uuid;
     protected $_name = [
+        'bizSource' => 'bizSource',
         'datasourceType' => 'datasourceType',
         'displayName' => 'displayName',
         'enabled' => 'enabled',
         'labels' => 'labels',
+        'notificationChannels' => 'notificationChannels',
         'notifyStrategyId' => 'notifyStrategyId',
+        'observeResourceConfig' => 'observeResourceConfig',
         'observeResourceGlobalScope' => 'observeResourceGlobalScope',
         'observeResourceInstanceId' => 'observeResourceInstanceId',
         'observeResourceList' => 'observeResourceList',
@@ -90,6 +108,9 @@ class QueryAlertRulesFilter extends Model
 
     public function validate()
     {
+        if (null !== $this->bizSource) {
+            $this->bizSource->validate();
+        }
         if (null !== $this->datasourceType) {
             $this->datasourceType->validate();
         }
@@ -102,8 +123,14 @@ class QueryAlertRulesFilter extends Model
         if (null !== $this->labels) {
             $this->labels->validate();
         }
+        if (null !== $this->notificationChannels) {
+            $this->notificationChannels->validate();
+        }
         if (null !== $this->notifyStrategyId) {
             $this->notifyStrategyId->validate();
+        }
+        if (null !== $this->observeResourceConfig) {
+            $this->observeResourceConfig->validate();
         }
         if (null !== $this->observeResourceGlobalScope) {
             $this->observeResourceGlobalScope->validate();
@@ -132,6 +159,10 @@ class QueryAlertRulesFilter extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->bizSource) {
+            $res['bizSource'] = null !== $this->bizSource ? $this->bizSource->toArray($noStream) : $this->bizSource;
+        }
+
         if (null !== $this->datasourceType) {
             $res['datasourceType'] = null !== $this->datasourceType ? $this->datasourceType->toArray($noStream) : $this->datasourceType;
         }
@@ -148,8 +179,16 @@ class QueryAlertRulesFilter extends Model
             $res['labels'] = null !== $this->labels ? $this->labels->toArray($noStream) : $this->labels;
         }
 
+        if (null !== $this->notificationChannels) {
+            $res['notificationChannels'] = null !== $this->notificationChannels ? $this->notificationChannels->toArray($noStream) : $this->notificationChannels;
+        }
+
         if (null !== $this->notifyStrategyId) {
             $res['notifyStrategyId'] = null !== $this->notifyStrategyId ? $this->notifyStrategyId->toArray($noStream) : $this->notifyStrategyId;
+        }
+
+        if (null !== $this->observeResourceConfig) {
+            $res['observeResourceConfig'] = null !== $this->observeResourceConfig ? $this->observeResourceConfig->toArray($noStream) : $this->observeResourceConfig;
         }
 
         if (null !== $this->observeResourceGlobalScope) {
@@ -195,6 +234,10 @@ class QueryAlertRulesFilter extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bizSource'])) {
+            $model->bizSource = BizSourceFilter::fromMap($map['bizSource']);
+        }
+
         if (isset($map['datasourceType'])) {
             $model->datasourceType = DatasourceTypeFilter::fromMap($map['datasourceType']);
         }
@@ -211,8 +254,16 @@ class QueryAlertRulesFilter extends Model
             $model->labels = LabelsFilter::fromMap($map['labels']);
         }
 
+        if (isset($map['notificationChannels'])) {
+            $model->notificationChannels = NotificationChannelsFilter::fromMap($map['notificationChannels']);
+        }
+
         if (isset($map['notifyStrategyId'])) {
             $model->notifyStrategyId = NotifyStrategyIdFilter::fromMap($map['notifyStrategyId']);
+        }
+
+        if (isset($map['observeResourceConfig'])) {
+            $model->observeResourceConfig = ObserveResourceConfigFilter::fromMap($map['observeResourceConfig']);
         }
 
         if (isset($map['observeResourceGlobalScope'])) {

@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ManageAlertRulesShrinkRequest extends Model
+class EntityFields extends Model
 {
     /**
      * @var string
      */
-    public $bodyShrink;
+    public $field;
 
     /**
      * @var string
      */
-    public $callSource;
+    public $value;
     protected $_name = [
-        'bodyShrink' => 'body',
-        'callSource' => 'callSource',
+        'field' => 'field',
+        'value' => 'value',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class ManageAlertRulesShrinkRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->bodyShrink) {
-            $res['body'] = $this->bodyShrink;
+        if (null !== $this->field) {
+            $res['field'] = $this->field;
         }
 
-        if (null !== $this->callSource) {
-            $res['callSource'] = $this->callSource;
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class ManageAlertRulesShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->bodyShrink = $map['body'];
+        if (isset($map['field'])) {
+            $model->field = $map['field'];
         }
 
-        if (isset($map['callSource'])) {
-            $model->callSource = $map['callSource'];
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

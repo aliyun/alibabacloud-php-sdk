@@ -27,11 +27,17 @@ class QueryAlertRulesShrinkRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $queryJson;
     protected $_name = [
         'bodyShrink' => 'body',
         'clientToken' => 'clientToken',
         'maxResults' => 'maxResults',
         'nextToken' => 'nextToken',
+        'queryJson' => 'queryJson',
     ];
 
     public function validate()
@@ -56,6 +62,10 @@ class QueryAlertRulesShrinkRequest extends Model
 
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
+        }
+
+        if (null !== $this->queryJson) {
+            $res['queryJson'] = $this->queryJson;
         }
 
         return $res;
@@ -83,6 +93,10 @@ class QueryAlertRulesShrinkRequest extends Model
 
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
+        }
+
+        if (isset($map['queryJson'])) {
+            $model->queryJson = $map['queryJson'];
         }
 
         return $model;
