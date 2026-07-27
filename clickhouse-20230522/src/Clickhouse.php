@@ -206,7 +206,7 @@ class Clickhouse extends OpenApiClient
             'eu-west-1' => 'clickhouse.eu-west-1.aliyuncs.com',
             'eu-central-1' => 'clickhouse.eu-central-1.aliyuncs.com',
             'cn-zhangjiakou' => 'clickhouse.cn-zhangjiakou.aliyuncs.com',
-            'cn-wulanchabu' => 'clickhouse.aliyuncs.com',
+            'cn-wulanchabu' => 'clickhouse.cn-wulanchabu.aliyuncs.com',
             'cn-huhehaote' => 'clickhouse.cn-huhehaote.aliyuncs.com',
             'cn-guangzhou' => 'clickhouse.cn-guangzhou.aliyuncs.com',
             'cn-chengdu' => 'clickhouse.cn-chengdu.aliyuncs.com',
@@ -1982,7 +1982,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries database accounts for an ApsaraDB for ClickHouse cluster.
+     * Queries the list of database accounts for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2037,7 +2037,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries database accounts for an ApsaraDB for ClickHouse cluster.
+     * Queries the list of database accounts for a specified ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeAccountsRequest
      *
@@ -2197,7 +2197,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
+     * Queries the details of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2240,7 +2240,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Call DescribeDBInstanceAttribute to query the details of an ApsaraDB for ClickHouse enterprise edition cluster.
+     * Queries the details of an ApsaraDB for ClickHouse cluster.
      *
      * @param request - DescribeDBInstanceAttributeRequest
      *
@@ -2522,7 +2522,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * To retrieve the cluster endpoints, call DescribeEndpoints.
+     * Calls the DescribeEndpoints operation to query the endpoints of a cluster.
      *
      * @param request - DescribeEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2569,7 +2569,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * To retrieve the cluster endpoints, call DescribeEndpoints.
+     * Calls the DescribeEndpoints operation to query the endpoints of a cluster.
      *
      * @param request - DescribeEndpointsRequest
      *
@@ -3135,7 +3135,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Describes currently running queries.
+     * Calls the DescribeProcessList operation to view queries that are currently running.
      *
      * @param request - DescribeProcessListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3210,7 +3210,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Describes currently running queries.
+     * Calls the DescribeProcessList operation to view queries that are currently running.
      *
      * @param request - DescribeProcessListRequest
      *
@@ -3271,7 +3271,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries a whitelist.
+     * Queries the IP address whitelist of a cluster by calling the DescribeSecurityIPList operation.
      *
      * @param request - DescribeSecurityIPListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3314,7 +3314,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * Queries a whitelist.
+     * Queries the IP address whitelist of a cluster by calling the DescribeSecurityIPList operation.
      *
      * @param request - DescribeSecurityIPListRequest
      *

@@ -14,12 +14,12 @@ class DescribeAccountsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @var string
+     * @var int
      */
     public $pageNumber;
 
     /**
-     * @var string
+     * @var int
      */
     public $pageSize;
 
