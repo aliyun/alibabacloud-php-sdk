@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppLlmApiKeyForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppLlmApiKeyForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppNotificationSceneRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppNotificationSceneResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppPluginRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppPluginResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateAppTokenServiceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\CreateInspirationRequest;
@@ -68,6 +70,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppInstanceFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppInstanceFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppNotificationSceneRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppNotificationSceneResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppPluginRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppPluginResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppSupabaseSecretsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteAppSupabaseSecretsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\DeleteMaterialDirectoryRequest;
@@ -116,6 +120,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceTempShortUrlReq
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppInstanceTempShortUrlResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginConfigResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPluginResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPublishStatusRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppPublishStatusResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetAppRecommendedCommoditiesRequest;
@@ -166,6 +172,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GetUserTmpIdentityForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GrantPromotionOfferForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\GrantPromotionOfferForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\InstallAppPluginRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\InstallAppPluginResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\IntrospectAppInstanceTicketForPreviewResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAIStaffChatEventsRequest;
@@ -192,8 +200,12 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppInstancesShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginConfigsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginConfigsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginFilesRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginFilesResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginVersionsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPluginVersionsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPublishHistoryRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppPublishHistoryResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppTemplateDictsRequest;
@@ -202,6 +214,12 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppTemplatesRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListAppTemplatesResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListIsvPaymentPluginConfigsRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListIsvPaymentPluginConfigsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListMarketplaceAppPluginsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListMarketplaceAppPluginsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListMyAppPluginsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListMyAppPluginsResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListMyInstalledAppPluginsRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListMyInstalledAppPluginsResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListPromotionActivitiesForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListPromotionActivitiesForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\ListPromotionOfferRecordsForPartnerRequest;
@@ -296,6 +314,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppCodeSnapshotReques
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppCodeSnapshotResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppInstancePublishRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppInstancePublishResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppPluginVersionRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\RollbackAppPluginVersionResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppRequirementRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppRequirementResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SaveAppSupabaseSecretsRequest;
@@ -318,6 +338,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResp
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UnbindAppDomainRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UnbindAppDomainResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UninstallAppPluginRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UninstallAppPluginResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppChatMessageRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppChatMessageResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppCodeRequest;
@@ -327,6 +349,8 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppFileResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppInstanceRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppInstanceResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppInstanceShrinkRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppPluginRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppPluginResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSeoStatusRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSeoStatusResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateAppSupabaseAuthConfigRequest;
@@ -339,8 +363,12 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateRbacOrgUnitRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateRbacOrgUnitResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateRbacRoleRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UpdateRbacRoleResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadAppPluginVersionRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadAppPluginVersionResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadAppSiteValidationFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadAppSiteValidationFileResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileForAdminRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileForAdminResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\UploadMaterialFileResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -355,8 +383,8 @@ class WebsiteBuild extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap = [
-            'public' => 'websitebuild.aliyuncs.com',
             'cn-zhangjiakou' => 'websitebuild.aliyuncs.com',
+            'ap-southeast-1' => 'websitebuild-intl.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('websitebuild', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -474,7 +502,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 授予用户角色.
+     * Grants a role to a user.
+     *
+     * @remarks
+     * Queries application instance information.
      *
      * @param request - AssignRbacUserRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -517,7 +548,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 授予用户角色.
+     * Grants a role to a user.
+     *
+     * @remarks
+     * Queries application instance information.
      *
      * @param request - AssignRbacUserRoleRequest
      *
@@ -1967,6 +2001,109 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Creates an application plug-in.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - CreateAppPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppPluginResponse
+     *
+     * @param CreateAppPluginRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAppPluginResponse
+     */
+    public function createAppPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->downloadUrl) {
+            @$query['DownloadUrl'] = $request->downloadUrl;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->icon) {
+            @$query['Icon'] = $request->icon;
+        }
+
+        if (null !== $request->ossKey) {
+            @$query['OssKey'] = $request->ossKey;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->pluginName) {
+            @$query['PluginName'] = $request->pluginName;
+        }
+
+        if (null !== $request->pluginVersion) {
+            @$query['PluginVersion'] = $request->pluginVersion;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->visibility) {
+            @$query['Visibility'] = $request->visibility;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateAppPlugin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateAppPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an application plug-in.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - CreateAppPluginRequest
+     *
+     * @returns CreateAppPluginResponse
+     *
+     * @param CreateAppPluginRequest $request
+     *
+     * @return CreateAppPluginResponse
+     */
+    public function createAppPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAppPluginWithOptions($request, $runtime);
+    }
+
+    /**
      * Activates the Wanxiaozhi inspiration value service.
      *
      * @remarks
@@ -2245,7 +2382,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 创建组织单元.
+     * Creates an organizational unit.
+     *
+     * @remarks
+     * Wanxiaozhi 2.0 AI conversation.
      *
      * @param request - CreateRbacOrgUnitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2288,7 +2428,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 创建组织单元.
+     * Creates an organizational unit.
+     *
+     * @remarks
+     * Wanxiaozhi 2.0 AI conversation.
      *
      * @param request - CreateRbacOrgUnitRequest
      *
@@ -2306,7 +2449,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 创建RBAC权限.
+     * Creates an RBAC permission.
+     *
+     * @remarks
+     * Creates an AI conversation session through Wanxiaozhi 2.0.
      *
      * @param request - CreateRbacPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2349,7 +2495,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 创建RBAC权限.
+     * Creates an RBAC permission.
+     *
+     * @remarks
+     * Creates an AI conversation session through Wanxiaozhi 2.0.
      *
      * @param request - CreateRbacPermissionRequest
      *
@@ -2757,6 +2906,63 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Deletes an application plug-in.
+     *
+     * @param request - DeleteAppPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppPluginResponse
+     *
+     * @param DeleteAppPluginRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAppPluginResponse
+     */
+    public function deleteAppPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAppPlugin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAppPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an application plug-in.
+     *
+     * @param request - DeleteAppPluginRequest
+     *
+     * @returns DeleteAppPluginResponse
+     *
+     * @param DeleteAppPluginRequest $request
+     *
+     * @return DeleteAppPluginResponse
+     */
+    public function deleteAppPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAppPluginWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes a Supabase key.
      *
      * @remarks
@@ -2948,7 +3154,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除组织单元.
+     * Deletes an organizational unit.
+     *
+     * @remarks
+     * Queries application instance information.
      *
      * @param request - DeleteRbacOrgUnitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2991,7 +3200,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除组织单元.
+     * Deletes an organizational unit.
+     *
+     * @remarks
+     * Queries application instance information.
      *
      * @param request - DeleteRbacOrgUnitRequest
      *
@@ -3009,7 +3221,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除RBAC权限.
+     * Deletes an RBAC permission.
+     *
+     * @remarks
+     * Creates an AI conversation session for WanXiaoZhi 2.0.
      *
      * @param request - DeleteRbacPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3052,7 +3267,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 删除RBAC权限.
+     * Deletes an RBAC permission.
+     *
+     * @remarks
+     * Creates an AI conversation session for WanXiaoZhi 2.0.
      *
      * @param request - DeleteRbacPermissionRequest
      *
@@ -4182,6 +4400,69 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppInstanceTempShortUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of an application plug-in.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - GetAppPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAppPluginResponse
+     *
+     * @param GetAppPluginRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAppPluginResponse
+     */
+    public function getAppPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAppPlugin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAppPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an application plug-in.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - GetAppPluginRequest
+     *
+     * @returns GetAppPluginResponse
+     *
+     * @param GetAppPluginRequest $request
+     *
+     * @return GetAppPluginResponse
+     */
+    public function getAppPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppPluginWithOptions($request, $runtime);
     }
 
     /**
@@ -5921,6 +6202,73 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Installs an application plug-in to the current user account.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - InstallAppPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallAppPluginResponse
+     *
+     * @param InstallAppPluginRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return InstallAppPluginResponse
+     */
+    public function installAppPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->pluginVersion) {
+            @$query['PluginVersion'] = $request->pluginVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'InstallAppPlugin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallAppPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Installs an application plug-in to the current user account.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - InstallAppPluginRequest
+     *
+     * @returns InstallAppPluginResponse
+     *
+     * @param InstallAppPluginRequest $request
+     *
+     * @return InstallAppPluginResponse
+     */
+    public function installAppPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installAppPluginWithOptions($request, $runtime);
+    }
+
+    /**
      * Introspection analysis of免登 accessToken.
      *
      * @param request - IntrospectAppInstanceTicketForPreviewRequest
@@ -6914,6 +7262,144 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Queries the list of application plug-in files.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - ListAppPluginFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppPluginFilesResponse
+     *
+     * @param ListAppPluginFilesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAppPluginFilesResponse
+     */
+    public function listAppPluginFilesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->pluginVersion) {
+            @$query['PluginVersion'] = $request->pluginVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppPluginFiles',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppPluginFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of application plug-in files.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - ListAppPluginFilesRequest
+     *
+     * @returns ListAppPluginFilesResponse
+     *
+     * @param ListAppPluginFilesRequest $request
+     *
+     * @return ListAppPluginFilesResponse
+     */
+    public function listAppPluginFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppPluginFilesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of application plug-in versions.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - ListAppPluginVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAppPluginVersionsResponse
+     *
+     * @param ListAppPluginVersionsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAppPluginVersionsResponse
+     */
+    public function listAppPluginVersionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAppPluginVersions',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAppPluginVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of application plug-in versions.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - ListAppPluginVersionsRequest
+     *
+     * @returns ListAppPluginVersionsResponse
+     *
+     * @param ListAppPluginVersionsRequest $request
+     *
+     * @return ListAppPluginVersionsResponse
+     */
+    public function listAppPluginVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppPluginVersionsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the list of code generation plug-ins.
      *
      * @remarks
@@ -7338,6 +7824,239 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listIsvPaymentPluginConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of application plugins in the marketplace.
+     *
+     * @remarks
+     * Retrieves the configuration information of code generation plugins.
+     *
+     * @param request - ListMarketplaceAppPluginsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMarketplaceAppPluginsResponse
+     *
+     * @param ListMarketplaceAppPluginsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListMarketplaceAppPluginsResponse
+     */
+    public function listMarketplaceAppPluginsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMarketplaceAppPlugins',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMarketplaceAppPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of application plugins in the marketplace.
+     *
+     * @remarks
+     * Retrieves the configuration information of code generation plugins.
+     *
+     * @param request - ListMarketplaceAppPluginsRequest
+     *
+     * @returns ListMarketplaceAppPluginsResponse
+     *
+     * @param ListMarketplaceAppPluginsRequest $request
+     *
+     * @return ListMarketplaceAppPluginsResponse
+     */
+    public function listMarketplaceAppPlugins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMarketplaceAppPluginsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of my application plug-ins.
+     *
+     * @remarks
+     * Retrieves the configuration information of code generation plug-ins.
+     *
+     * @param request - ListMyAppPluginsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMyAppPluginsResponse
+     *
+     * @param ListMyAppPluginsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListMyAppPluginsResponse
+     */
+    public function listMyAppPluginsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMyAppPlugins',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMyAppPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of my application plug-ins.
+     *
+     * @remarks
+     * Retrieves the configuration information of code generation plug-ins.
+     *
+     * @param request - ListMyAppPluginsRequest
+     *
+     * @returns ListMyAppPluginsResponse
+     *
+     * @param ListMyAppPluginsRequest $request
+     *
+     * @return ListMyAppPluginsResponse
+     */
+    public function listMyAppPlugins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMyAppPluginsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the list of application plug-ins that you have installed.
+     *
+     * @remarks
+     * Retrieves the configuration information of code generation plug-ins.
+     *
+     * @param request - ListMyInstalledAppPluginsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMyInstalledAppPluginsResponse
+     *
+     * @param ListMyInstalledAppPluginsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListMyInstalledAppPluginsResponse
+     */
+    public function listMyInstalledAppPluginsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMyInstalledAppPlugins',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListMyInstalledAppPluginsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the list of application plug-ins that you have installed.
+     *
+     * @remarks
+     * Retrieves the configuration information of code generation plug-ins.
+     *
+     * @param request - ListMyInstalledAppPluginsRequest
+     *
+     * @returns ListMyInstalledAppPluginsResponse
+     *
+     * @param ListMyInstalledAppPluginsRequest $request
+     *
+     * @return ListMyInstalledAppPluginsResponse
+     */
+    public function listMyInstalledAppPlugins($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMyInstalledAppPluginsWithOptions($request, $runtime);
     }
 
     /**
@@ -9671,7 +10390,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询单个RBAC角色.
+     * Queries a single RBAC role.
+     *
+     * @remarks
+     * Queries application instance information.
      *
      * @param request - QueryRbacRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9714,7 +10436,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询单个RBAC角色.
+     * Queries a single RBAC role.
+     *
+     * @remarks
+     * Queries application instance information.
      *
      * @param request - QueryRbacRoleRequest
      *
@@ -9732,7 +10457,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询角色权限列表.
+     * Queries the list of role permissions.
+     *
+     * @remarks
+     * Creates an AI conversation session for Wan Xiaozhi 2.0.
      *
      * @param request - QueryRbacRolePermissionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9791,7 +10519,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询角色权限列表.
+     * Queries the list of role permissions.
+     *
+     * @remarks
+     * Creates an AI conversation session for Wan Xiaozhi 2.0.
      *
      * @param request - QueryRbacRolePermissionsRequest
      *
@@ -9809,7 +10540,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询用户角色绑定.
+     * Queries user role bindings.
+     *
+     * @remarks
+     * Queries application instance information.
      *
      * @param request - QueryRbacUserRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9868,7 +10602,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 查询用户角色绑定.
+     * Queries user role bindings.
+     *
+     * @remarks
+     * Queries application instance information.
      *
      * @param request - QueryRbacUserRolesRequest
      *
@@ -10630,7 +11367,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 撤销用户角色.
+     * Revokes a user role.
+     *
+     * @remarks
+     * Wanxiaozhi 2.0 AI conversation.
      *
      * @param request - RevokeRbacUserRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10673,7 +11413,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 撤销用户角色.
+     * Revokes a user role.
+     *
+     * @remarks
+     * Wanxiaozhi 2.0 AI conversation.
      *
      * @param request - RevokeRbacUserRoleRequest
      *
@@ -10830,6 +11573,73 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rollbackAppInstancePublishWithOptions($request, $runtime);
+    }
+
+    /**
+     * Rolls back the version of an application plug-in.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - RollbackAppPluginVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RollbackAppPluginVersionResponse
+     *
+     * @param RollbackAppPluginVersionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RollbackAppPluginVersionResponse
+     */
+    public function rollbackAppPluginVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->pluginVersion) {
+            @$query['PluginVersion'] = $request->pluginVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'RollbackAppPluginVersion',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return RollbackAppPluginVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Rolls back the version of an application plug-in.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - RollbackAppPluginVersionRequest
+     *
+     * @returns RollbackAppPluginVersionResponse
+     *
+     * @param RollbackAppPluginVersionRequest $request
+     *
+     * @return RollbackAppPluginVersionResponse
+     */
+    public function rollbackAppPluginVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackAppPluginVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -11583,6 +12393,69 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Uninstalls an application plugin from the current user account.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plugin.
+     *
+     * @param request - UninstallAppPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallAppPluginResponse
+     *
+     * @param UninstallAppPluginRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UninstallAppPluginResponse
+     */
+    public function uninstallAppPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UninstallAppPlugin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UninstallAppPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Uninstalls an application plugin from the current user account.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plugin.
+     *
+     * @param request - UninstallAppPluginRequest
+     *
+     * @returns UninstallAppPluginResponse
+     *
+     * @param UninstallAppPluginRequest $request
+     *
+     * @return UninstallAppPluginResponse
+     */
+    public function uninstallAppPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallAppPluginWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates message content.
      *
      * @remarks
@@ -11915,6 +12788,113 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
+     * Updates an application plug-in.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - UpdateAppPluginRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAppPluginResponse
+     *
+     * @param UpdateAppPluginRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAppPluginResponse
+     */
+    public function updateAppPluginWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
+        }
+
+        if (null !== $request->configItems) {
+            @$query['ConfigItems'] = $request->configItems;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->hooks) {
+            @$query['Hooks'] = $request->hooks;
+        }
+
+        if (null !== $request->icon) {
+            @$query['Icon'] = $request->icon;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->pluginName) {
+            @$query['PluginName'] = $request->pluginName;
+        }
+
+        if (null !== $request->pluginVersion) {
+            @$query['PluginVersion'] = $request->pluginVersion;
+        }
+
+        if (null !== $request->skillHeader) {
+            @$query['SkillHeader'] = $request->skillHeader;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
+        if (null !== $request->visibility) {
+            @$query['Visibility'] = $request->visibility;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAppPlugin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAppPluginResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an application plug-in.
+     *
+     * @remarks
+     * Retrieves the configuration information of a code generation plug-in.
+     *
+     * @param request - UpdateAppPluginRequest
+     *
+     * @returns UpdateAppPluginResponse
+     *
+     * @param UpdateAppPluginRequest $request
+     *
+     * @return UpdateAppPluginResponse
+     */
+    public function updateAppPlugin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAppPluginWithOptions($request, $runtime);
+    }
+
+    /**
      * Updates the SEO index status.
      *
      * @remarks
@@ -12209,7 +13189,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 更新组织单元.
+     * Updates an organizational unit.
+     *
+     * @remarks
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - UpdateRbacOrgUnitRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12256,7 +13239,10 @@ class WebsiteBuild extends OpenApiClient
     }
 
     /**
-     * 更新组织单元.
+     * Updates an organizational unit.
+     *
+     * @remarks
+     * Retrieves the configuration information of the code generation plug-in.
      *
      * @param request - UpdateRbacOrgUnitRequest
      *
@@ -12342,6 +13328,93 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRbacRoleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Uploads a new version of an application plug-in.
+     *
+     * @remarks
+     * Retrieves the code generation plug-in configuration information.
+     *
+     * @param request - UploadAppPluginVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadAppPluginVersionResponse
+     *
+     * @param UploadAppPluginVersionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UploadAppPluginVersionResponse
+     */
+    public function uploadAppPluginVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->changelog) {
+            @$query['Changelog'] = $request->changelog;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->downloadUrl) {
+            @$query['DownloadUrl'] = $request->downloadUrl;
+        }
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
+        }
+
+        if (null !== $request->ossKey) {
+            @$query['OssKey'] = $request->ossKey;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['PluginId'] = $request->pluginId;
+        }
+
+        if (null !== $request->pluginVersion) {
+            @$query['PluginVersion'] = $request->pluginVersion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UploadAppPluginVersion',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadAppPluginVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Uploads a new version of an application plug-in.
+     *
+     * @remarks
+     * Retrieves the code generation plug-in configuration information.
+     *
+     * @param request - UploadAppPluginVersionRequest
+     *
+     * @returns UploadAppPluginVersionResponse
+     *
+     * @param UploadAppPluginVersionRequest $request
+     *
+     * @return UploadAppPluginVersionResponse
+     */
+    public function uploadAppPluginVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadAppPluginVersionWithOptions($request, $runtime);
     }
 
     /**
@@ -12494,5 +13567,80 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadMaterialFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * Uploads a material file as an administrator (AI-generated).
+     *
+     * @remarks
+     * The Supabase instance information corresponding to the operation resource.
+     *
+     * @param request - UploadMaterialFileForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadMaterialFileForAdminResponse
+     *
+     * @param UploadMaterialFileForAdminRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UploadMaterialFileForAdminResponse
+     */
+    public function uploadMaterialFileForAdminWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->belongId) {
+            @$query['BelongId'] = $request->belongId;
+        }
+
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UploadMaterialFileForAdmin',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UploadMaterialFileForAdminResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Uploads a material file as an administrator (AI-generated).
+     *
+     * @remarks
+     * The Supabase instance information corresponding to the operation resource.
+     *
+     * @param request - UploadMaterialFileForAdminRequest
+     *
+     * @returns UploadMaterialFileForAdminResponse
+     *
+     * @param UploadMaterialFileForAdminRequest $request
+     *
+     * @return UploadMaterialFileForAdminResponse
+     */
+    public function uploadMaterialFileForAdmin($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadMaterialFileForAdminWithOptions($request, $runtime);
     }
 }
