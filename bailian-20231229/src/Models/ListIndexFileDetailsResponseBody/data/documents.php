@@ -51,6 +51,11 @@ class documents extends Model
     /**
      * @var string
      */
+    public $metaExtractInfo;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -86,6 +91,7 @@ class documents extends Model
         'gmtModified' => 'GmtModified',
         'id' => 'Id',
         'message' => 'Message',
+        'metaExtractInfo' => 'MetaExtractInfo',
         'name' => 'Name',
         'overlapSize' => 'OverlapSize',
         'size' => 'Size',
@@ -132,6 +138,10 @@ class documents extends Model
 
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+
+        if (null !== $this->metaExtractInfo) {
+            $res['MetaExtractInfo'] = $this->metaExtractInfo;
         }
 
         if (null !== $this->name) {
@@ -199,6 +209,10 @@ class documents extends Model
 
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+
+        if (isset($map['MetaExtractInfo'])) {
+            $model->metaExtractInfo = $map['MetaExtractInfo'];
         }
 
         if (isset($map['Name'])) {
