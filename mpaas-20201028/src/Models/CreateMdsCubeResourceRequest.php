@@ -36,6 +36,16 @@ class CreateMdsCubeResourceRequest extends Model
     /**
      * @var string
      */
+    public $harmonyMaxVersion;
+
+    /**
+     * @var string
+     */
+    public $harmonyMinVersion;
+
+    /**
+     * @var string
+     */
     public $iosMaxVersion;
 
     /**
@@ -93,6 +103,8 @@ class CreateMdsCubeResourceRequest extends Model
         'appId' => 'AppId',
         'extendInfo' => 'ExtendInfo',
         'fileUrl' => 'FileUrl',
+        'harmonyMaxVersion' => 'HarmonyMaxVersion',
+        'harmonyMinVersion' => 'HarmonyMinVersion',
         'iosMaxVersion' => 'IosMaxVersion',
         'iosMinVersion' => 'IosMinVersion',
         'mockDataUrl' => 'MockDataUrl',
@@ -132,6 +144,14 @@ class CreateMdsCubeResourceRequest extends Model
 
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+
+        if (null !== $this->harmonyMaxVersion) {
+            $res['HarmonyMaxVersion'] = $this->harmonyMaxVersion;
+        }
+
+        if (null !== $this->harmonyMinVersion) {
+            $res['HarmonyMinVersion'] = $this->harmonyMinVersion;
         }
 
         if (null !== $this->iosMaxVersion) {
@@ -207,6 +227,14 @@ class CreateMdsCubeResourceRequest extends Model
 
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+
+        if (isset($map['HarmonyMaxVersion'])) {
+            $model->harmonyMaxVersion = $map['HarmonyMaxVersion'];
+        }
+
+        if (isset($map['HarmonyMinVersion'])) {
+            $model->harmonyMinVersion = $map['HarmonyMinVersion'];
         }
 
         if (isset($map['IosMaxVersion'])) {

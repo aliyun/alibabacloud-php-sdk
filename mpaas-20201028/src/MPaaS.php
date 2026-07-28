@@ -2511,6 +2511,14 @@ class MPaaS extends OpenApiClient
             @$body['FileUrl'] = $request->fileUrl;
         }
 
+        if (null !== $request->harmonyMaxVersion) {
+            @$body['HarmonyMaxVersion'] = $request->harmonyMaxVersion;
+        }
+
+        if (null !== $request->harmonyMinVersion) {
+            @$body['HarmonyMinVersion'] = $request->harmonyMinVersion;
+        }
+
         if (null !== $request->iosMaxVersion) {
             @$body['IosMaxVersion'] = $request->iosMaxVersion;
         }
