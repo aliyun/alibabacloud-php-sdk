@@ -26,11 +26,17 @@ class DescribeChatMessageRequest extends Model
     /**
      * @var string
      */
+    public $skill;
+
+    /**
+     * @var string
+     */
     public $timezone;
     protected $_name = [
         'query' => 'Query',
         'regionId' => 'RegionId',
         'sessionId' => 'SessionId',
+        'skill' => 'Skill',
         'timezone' => 'Timezone',
     ];
 
@@ -52,6 +58,10 @@ class DescribeChatMessageRequest extends Model
 
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->skill) {
+            $res['Skill'] = $this->skill;
         }
 
         if (null !== $this->timezone) {
@@ -79,6 +89,10 @@ class DescribeChatMessageRequest extends Model
 
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+
+        if (isset($map['Skill'])) {
+            $model->skill = $map['Skill'];
         }
 
         if (isset($map['Timezone'])) {

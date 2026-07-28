@@ -45,7 +45,15 @@ class ADBAI extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'cn-shenzhen' => 'adbai.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'adbai.cn-shanghai.aliyuncs.com',
+            'cn-hangzhou' => 'adbai.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'adbai.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'adbai.ap-southeast-1.aliyuncs.com',
+            'ap-northeast-1' => 'adbai.ap-northeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('adbai', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -75,7 +83,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 创建指标平台.
+     * Creates a metric analysis platform.
      *
      * @param tmpReq - CreateAgentPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -132,7 +140,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 创建指标平台.
+     * Creates a metric analysis platform.
      *
      * @param request - CreateAgentPlatformRequest
      *
@@ -150,7 +158,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 创建具身智能平台.
+     * Creates an embodied intelligence multimodal data platform.
+     *
+     * @remarks
+     * Queries the actual resource amount corresponding to the backend of the instance ontology count.
      *
      * @param tmpReq - CreateEmbodiedAIPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -223,7 +234,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 创建具身智能平台.
+     * Creates an embodied intelligence multimodal data platform.
+     *
+     * @remarks
+     * Queries the actual resource amount corresponding to the backend of the instance ontology count.
      *
      * @param request - CreateEmbodiedAIPlatformRequest
      *
@@ -241,7 +255,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 删除指标平台.
+     * Deletes a metrics platform.
      *
      * @param request - DeleteAgentPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -288,7 +302,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 删除指标平台.
+     * Deletes a metrics platform.
      *
      * @param request - DeleteAgentPlatformRequest
      *
@@ -306,7 +320,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 删除具身智能平台.
+     * Deletes an embodied intelligence platform.
      *
      * @param request - DeleteEmbodiedAIPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -353,7 +367,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 删除具身智能平台.
+     * Deletes an embodied intelligence platform.
      *
      * @param request - DeleteEmbodiedAIPlatformRequest
      *
@@ -371,7 +385,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断.
+     * Queries multi-turn conversations for instance kernel diagnostics.
+     *
+     * @remarks
+     * Queries multi-turn conversations for instance kernel diagnostics.
      *
      * @param request - DescribeChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -397,6 +414,10 @@ class ADBAI extends OpenApiClient
 
         if (null !== $request->sessionId) {
             @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->skill) {
+            @$query['Skill'] = $request->skill;
         }
 
         if (null !== $request->timezone) {
@@ -435,7 +456,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断.
+     * Queries multi-turn conversations for instance kernel diagnostics.
+     *
+     * @remarks
+     * Queries multi-turn conversations for instance kernel diagnostics.
      *
      * @param request - DescribeChatMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -463,6 +487,10 @@ class ADBAI extends OpenApiClient
             @$query['SessionId'] = $request->sessionId;
         }
 
+        if (null !== $request->skill) {
+            @$query['Skill'] = $request->skill;
+        }
+
         if (null !== $request->timezone) {
             @$query['Timezone'] = $request->timezone;
         }
@@ -486,7 +514,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断.
+     * Queries multi-turn conversations for instance kernel diagnostics.
+     *
+     * @remarks
+     * Queries multi-turn conversations for instance kernel diagnostics.
      *
      * @param request - DescribeChatMessageRequest
      *
@@ -504,7 +535,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 查询具身智能平台设备资源分配方案.
+     * Query the resource allocation plan for Embodied Intelligence platform devices.
+     *
+     * @remarks
+     * Used to view the actual resource amount corresponding to the backend of the instance ontology count
      *
      * @param request - DescribeEapDeviceResourceAllocationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -551,7 +585,10 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 查询具身智能平台设备资源分配方案.
+     * Query the resource allocation plan for Embodied Intelligence platform devices.
+     *
+     * @remarks
+     * Used to view the actual resource amount corresponding to the backend of the instance ontology count
      *
      * @param request - DescribeEapDeviceResourceAllocationRequest
      *
@@ -569,7 +606,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 查询具身智能平台.
+     * Queries embodied intelligence multimodal data platforms.
      *
      * @param request - DescribeEmbodiedAIPlatformsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -644,7 +681,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 查询具身智能平台.
+     * Queries embodied intelligence multimodal data platforms.
      *
      * @param request - DescribeEmbodiedAIPlatformsRequest
      *
@@ -662,7 +699,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 查询具身智能平台资源用量.
+     * Queries the resource usage information of an embodied intelligence platform.
      *
      * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -717,7 +754,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 查询具身智能平台资源用量.
+     * Queries the resource usage information of an embodied intelligence platform.
      *
      * @param request - GetEmbodiedAIPlatformResourceUsageInfoRequest
      *
@@ -735,7 +772,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 解锁具身智能平台.
+     * Locks an embodied intelligence platform.
      *
      * @param request - LockEmbodiedAIPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -782,7 +819,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 解锁具身智能平台.
+     * Locks an embodied intelligence platform.
      *
      * @param request - LockEmbodiedAIPlatformRequest
      *
@@ -800,7 +837,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 修改变配指标平台.
+     * Upgrades or downgrades the specifications of a metric platform.
      *
      * @param tmpReq - ModifyAgentPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -857,7 +894,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 修改变配指标平台.
+     * Upgrades or downgrades the specifications of a metric platform.
      *
      * @param request - ModifyAgentPlatformRequest
      *
@@ -875,7 +912,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 变配具身智能平台.
+     * Modifies the specifications of an embodied intelligence platform.
      *
      * @param tmpReq - ModifyEmbodiedAIPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -948,7 +985,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 变配具身智能平台.
+     * Modifies the specifications of an embodied intelligence platform.
      *
      * @param request - ModifyEmbodiedAIPlatformRequest
      *
@@ -966,7 +1003,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 重置具身智能平台密码
+     * Resets the admin password for the embodied intelligence platform.
      *
      * @param request - ResetEmbodiedAIPlatformPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1017,7 +1054,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 重置具身智能平台密码
+     * Resets the admin password for the embodied intelligence platform.
      *
      * @param request - ResetEmbodiedAIPlatformPasswordRequest
      *
@@ -1035,7 +1072,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 解锁具身智能平台.
+     * Unlocks an embodied intelligence platform.
      *
      * @param request - UnlockEmbodiedAIPlatformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1082,7 +1119,7 @@ class ADBAI extends OpenApiClient
     }
 
     /**
-     * 解锁具身智能平台.
+     * Unlocks an embodied intelligence platform.
      *
      * @param request - UnlockEmbodiedAIPlatformRequest
      *
