@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\CreateInstanceRequest\components\dataDisk;
 
 class components extends Model
 {
@@ -17,6 +18,11 @@ class components extends Model
      * @var string
      */
     public $cuType;
+
+    /**
+     * @var dataDisk
+     */
+    public $dataDisk;
 
     /**
      * @var string
@@ -35,6 +41,7 @@ class components extends Model
     protected $_name = [
         'cuNum' => 'cuNum',
         'cuType' => 'cuType',
+        'dataDisk' => 'dataDisk',
         'diskSizeType' => 'diskSizeType',
         'replica' => 'replica',
         'type' => 'type',
@@ -42,6 +49,9 @@ class components extends Model
 
     public function validate()
     {
+        if (null !== $this->dataDisk) {
+            $this->dataDisk->validate();
+        }
         parent::validate();
     }
 
@@ -54,6 +64,10 @@ class components extends Model
 
         if (null !== $this->cuType) {
             $res['cuType'] = $this->cuType;
+        }
+
+        if (null !== $this->dataDisk) {
+            $res['dataDisk'] = null !== $this->dataDisk ? $this->dataDisk->toArray($noStream) : $this->dataDisk;
         }
 
         if (null !== $this->diskSizeType) {
@@ -85,6 +99,10 @@ class components extends Model
 
         if (isset($map['cuType'])) {
             $model->cuType = $map['cuType'];
+        }
+
+        if (isset($map['dataDisk'])) {
+            $model->dataDisk = dataDisk::fromMap($map['dataDisk']);
         }
 
         if (isset($map['diskSizeType'])) {

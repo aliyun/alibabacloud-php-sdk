@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models\InstanceDetail;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\InstanceDetail\components\dataDisk;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\InstanceDetail\components\podsList;
 
 class components extends Model
 {
@@ -19,6 +21,11 @@ class components extends Model
     public $cuType;
 
     /**
+     * @var dataDisk
+     */
+    public $dataDisk;
+
+    /**
      * @var string
      */
     public $diskSizeType;
@@ -27,6 +34,11 @@ class components extends Model
      * @var string
      */
     public $payType;
+
+    /**
+     * @var podsList[]
+     */
+    public $podsList;
 
     /**
      * @var int
@@ -40,14 +52,22 @@ class components extends Model
     protected $_name = [
         'cuNum' => 'cuNum',
         'cuType' => 'cuType',
+        'dataDisk' => 'dataDisk',
         'diskSizeType' => 'diskSizeType',
         'payType' => 'payType',
+        'podsList' => 'podsList',
         'replica' => 'replica',
         'type' => 'type',
     ];
 
     public function validate()
     {
+        if (null !== $this->dataDisk) {
+            $this->dataDisk->validate();
+        }
+        if (\is_array($this->podsList)) {
+            Model::validateArray($this->podsList);
+        }
         parent::validate();
     }
 
@@ -62,12 +82,27 @@ class components extends Model
             $res['cuType'] = $this->cuType;
         }
 
+        if (null !== $this->dataDisk) {
+            $res['dataDisk'] = null !== $this->dataDisk ? $this->dataDisk->toArray($noStream) : $this->dataDisk;
+        }
+
         if (null !== $this->diskSizeType) {
             $res['diskSizeType'] = $this->diskSizeType;
         }
 
         if (null !== $this->payType) {
             $res['payType'] = $this->payType;
+        }
+
+        if (null !== $this->podsList) {
+            if (\is_array($this->podsList)) {
+                $res['podsList'] = [];
+                $n1 = 0;
+                foreach ($this->podsList as $item1) {
+                    $res['podsList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         if (null !== $this->replica) {
@@ -97,12 +132,27 @@ class components extends Model
             $model->cuType = $map['cuType'];
         }
 
+        if (isset($map['dataDisk'])) {
+            $model->dataDisk = dataDisk::fromMap($map['dataDisk']);
+        }
+
         if (isset($map['diskSizeType'])) {
             $model->diskSizeType = $map['diskSizeType'];
         }
 
         if (isset($map['payType'])) {
             $model->payType = $map['payType'];
+        }
+
+        if (isset($map['podsList'])) {
+            if (!empty($map['podsList'])) {
+                $model->podsList = [];
+                $n1 = 0;
+                foreach ($map['podsList'] as $item1) {
+                    $model->podsList[$n1] = podsList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         if (isset($map['replica'])) {

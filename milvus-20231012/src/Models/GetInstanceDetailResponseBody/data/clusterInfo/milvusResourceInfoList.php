@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\clusterInfo;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Milvus\V20231012\Models\GetInstanceDetailResponseBody\data\clusterInfo\milvusResourceInfoList\podsList;
 
 class milvusResourceInfoList extends Model
 {
@@ -47,6 +48,26 @@ class milvusResourceInfoList extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var bool
+     */
+    public $dataDiskEnabled;
+
+    /**
+     * @var int
+     */
+    public $dataDiskSize;
+
+    /**
+     * @var string
+     */
+    public $dataDiskStorageClass;
+
+    /**
+     * @var podsList[]
+     */
+    public $podsList;
     protected $_name = [
         'componentType' => 'ComponentType',
         'cuNum' => 'CuNum',
@@ -56,10 +77,17 @@ class milvusResourceInfoList extends Model
         'payType' => 'PayType',
         'replica' => 'Replica',
         'zoneId' => 'ZoneId',
+        'dataDiskEnabled' => 'dataDiskEnabled',
+        'dataDiskSize' => 'dataDiskSize',
+        'dataDiskStorageClass' => 'dataDiskStorageClass',
+        'podsList' => 'podsList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->podsList)) {
+            Model::validateArray($this->podsList);
+        }
         parent::validate();
     }
 
@@ -96,6 +124,29 @@ class milvusResourceInfoList extends Model
 
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
+        }
+
+        if (null !== $this->dataDiskEnabled) {
+            $res['dataDiskEnabled'] = $this->dataDiskEnabled;
+        }
+
+        if (null !== $this->dataDiskSize) {
+            $res['dataDiskSize'] = $this->dataDiskSize;
+        }
+
+        if (null !== $this->dataDiskStorageClass) {
+            $res['dataDiskStorageClass'] = $this->dataDiskStorageClass;
+        }
+
+        if (null !== $this->podsList) {
+            if (\is_array($this->podsList)) {
+                $res['podsList'] = [];
+                $n1 = 0;
+                foreach ($this->podsList as $item1) {
+                    $res['podsList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
@@ -139,6 +190,29 @@ class milvusResourceInfoList extends Model
 
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+
+        if (isset($map['dataDiskEnabled'])) {
+            $model->dataDiskEnabled = $map['dataDiskEnabled'];
+        }
+
+        if (isset($map['dataDiskSize'])) {
+            $model->dataDiskSize = $map['dataDiskSize'];
+        }
+
+        if (isset($map['dataDiskStorageClass'])) {
+            $model->dataDiskStorageClass = $map['dataDiskStorageClass'];
+        }
+
+        if (isset($map['podsList'])) {
+            if (!empty($map['podsList'])) {
+                $model->podsList = [];
+                $n1 = 0;
+                foreach ($map['podsList'] as $item1) {
+                    $model->podsList[$n1] = podsList::fromMap($item1);
+                    ++$n1;
+                }
+            }
         }
 
         return $model;

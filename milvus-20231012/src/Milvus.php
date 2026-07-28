@@ -57,7 +57,18 @@ class Milvus extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = '';
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap = [
+            'eu-central-1' => 'milvus.eu-central-1.aliyuncs.com',
+            'cn-zhangjiakou' => 'milvus.cn-zhangjiakou.aliyuncs.com',
+            'cn-wulanchabu' => 'milvus.cn-wulanchabu.aliyuncs.com',
+            'cn-shenzhen' => 'milvus.cn-shenzhen.aliyuncs.com',
+            'cn-shanghai' => 'milvus.cn-shanghai.aliyuncs.com',
+            'cn-hongkong' => 'milvus.cn-hongkong.aliyuncs.com',
+            'cn-hangzhou' => 'milvus.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'milvus.cn-beijing.aliyuncs.com',
+            'ap-southeast-1' => 'milvus.ap-southeast-1.aliyuncs.com',
+        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('milvus', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -87,7 +98,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * Changes the resource group of a resource.
      *
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
@@ -145,7 +156,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 资源转组.
+     * Changes the resource group of a resource.
      *
      * @param request - ChangeResourceGroupRequest
      *
@@ -164,7 +175,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 创建白名单分组.
+     * Creates an ACL group.
      *
      * @param request - CreateAclGroupRequest
      * @param headers - map
@@ -218,7 +229,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 创建白名单分组.
+     * Creates an ACL group.
      *
      * @param request - CreateAclGroupRequest
      *
@@ -237,7 +248,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Create a service role for Milvus to access other cloud products.
+     * Creates the server role required by Milvus to access other cloud products.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -270,7 +281,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Create a service role for Milvus to access other cloud products.
+     * Creates the server role required by Milvus to access other cloud products.
      *
      * @returns CreateDefaultRoleResponse
      *
@@ -285,7 +296,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates a cluster instance.
      *
      * @param request - CreateInstanceRequest
      * @param headers - map
@@ -433,7 +444,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 创建实例.
+     * Creates a cluster instance.
      *
      * @param request - CreateInstanceRequest
      *
@@ -452,7 +463,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 删除实例.
+     * Deletes an instance.
      *
      * @param request - DeleteInstanceRequest
      * @param headers - map
@@ -498,7 +509,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 删除实例.
+     * Deletes an instance.
      *
      * @param request - DeleteInstanceRequest
      *
@@ -639,7 +650,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param request - GetInstanceRequest
      * @param headers - map
@@ -685,7 +696,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 获取实例详情.
+     * Retrieves the details of an instance.
      *
      * @param request - GetInstanceRequest
      *
@@ -704,7 +715,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Get the details of an instance.
+     * Retrieves the details of a single instance.
      *
      * @param request - GetInstanceDetailRequest
      * @param headers - map
@@ -746,7 +757,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Get the details of an instance.
+     * Retrieves the details of a single instance.
      *
      * @param request - GetInstanceDetailRequest
      *
@@ -765,7 +776,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 获取当前用户下的分组信息和内容.
+     * Retrieves one or more access control list (ACL) groups.
      *
      * @param request - ListAclGroupsRequest
      * @param headers - map
@@ -811,7 +822,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 获取当前用户下的分组信息和内容.
+     * Retrieves one or more access control list (ACL) groups.
      *
      * @param request - ListAclGroupsRequest
      *
@@ -830,7 +841,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Get the list of Milvus instances under the current account.
+     * Retrieves a list of Milvus instances in the current account.
      *
      * @param tmpReq - ListInstancesRequest
      * @param headers - map
@@ -902,7 +913,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Get the list of Milvus instances under the current account.
+     * Retrieves a list of Milvus instances in the current account.
      *
      * @param request - ListInstancesRequest
      *
@@ -921,7 +932,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 根据集群ID或者名称搜索集群.
+     * Searches for clusters by cluster ID or name.
      *
      * @param tmpReq - ListInstancesV2Request
      * @param headers - map
@@ -1001,7 +1012,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 根据集群ID或者名称搜索集群.
+     * Searches for clusters by cluster ID or name.
      *
      * @param request - ListInstancesV2Request
      *
@@ -1020,7 +1031,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Update the configuration parameters of each component of Milvus.
+     * Modifies the configuration parameters for Milvus components.
      *
      * @param request - ModifyInstanceConfigRequest
      * @param headers - map
@@ -1070,7 +1081,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Update the configuration parameters of each component of Milvus.
+     * Modifies the configuration parameters for Milvus components.
      *
      * @param request - ModifyInstanceConfigRequest
      *
@@ -1089,7 +1100,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 打标.
+     * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
      * @param headers - map
@@ -1143,7 +1154,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 打标.
+     * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
      *
@@ -1162,7 +1173,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 删除标签.
+     * Remove resource tags.
      *
      * @param tmpReq - UnTagResourcesRequest
      * @param headers - map
@@ -1230,7 +1241,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 删除标签.
+     * Remove resource tags.
      *
      * @param request - UnTagResourcesRequest
      *
@@ -1249,7 +1260,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Configure Public IP Address Whitelist.
+     * Sets the IP address whitelist for public access to a Milvus instance.
      *
      * @param request - UpdateAccessControlListRequest
      * @param headers - map
@@ -1299,7 +1310,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Configure Public IP Address Whitelist.
+     * Sets the IP address whitelist for public access to a Milvus instance.
      *
      * @param request - UpdateAccessControlListRequest
      *
@@ -1318,7 +1329,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 修改分组内的白名单.
+     * Modifies the CIDR blocks in a specified allow list group.
      *
      * @param request - UpdateAclGroupCidrsRequest
      * @param headers - map
@@ -1368,7 +1379,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 修改分组内的白名单.
+     * Modifies the CIDR blocks in a specified allow list group.
      *
      * @param request - UpdateAclGroupCidrsRequest
      *
@@ -1387,7 +1398,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - UpdateInstanceRequest
      * @param headers - map
@@ -1463,7 +1474,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * 更新实例.
+     * Updates an instance.
      *
      * @param request - UpdateInstanceRequest
      *
@@ -1482,7 +1493,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Modifies the name of an instance.
+     * Changes the name of an instance.
      *
      * @param request - UpdateInstanceNameRequest
      * @param headers - map
@@ -1528,7 +1539,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Modifies the name of an instance.
+     * Changes the name of an instance.
      *
      * @param request - UpdateInstanceNameRequest
      *
@@ -1547,7 +1558,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Enable or disable Internet access for Milvus.
+     * Enables or disables public network access for a Milvus instance.
      *
      * @param request - UpdatePublicNetworkStatusRequest
      * @param headers - map
@@ -1601,7 +1612,7 @@ class Milvus extends OpenApiClient
     }
 
     /**
-     * Enable or disable Internet access for Milvus.
+     * Enables or disables public network access for a Milvus instance.
      *
      * @param request - UpdatePublicNetworkStatusRequest
      *

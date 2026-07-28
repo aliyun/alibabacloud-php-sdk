@@ -177,6 +177,11 @@ class data extends Model
      * @var string
      */
     public $zoneId;
+
+    /**
+     * @var string
+     */
+    public $maintainablePeriodTimeZone;
     protected $_name = [
         'aclId' => 'AclId',
         'beginTime' => 'BeginTime',
@@ -211,6 +216,7 @@ class data extends Model
         'vpcId' => 'VpcId',
         'vswId' => 'VswId',
         'zoneId' => 'ZoneId',
+        'maintainablePeriodTimeZone' => 'maintainablePeriodTimeZone',
     ];
 
     public function validate()
@@ -382,6 +388,10 @@ class data extends Model
             $res['ZoneId'] = $this->zoneId;
         }
 
+        if (null !== $this->maintainablePeriodTimeZone) {
+            $res['maintainablePeriodTimeZone'] = $this->maintainablePeriodTimeZone;
+        }
+
         return $res;
     }
 
@@ -537,6 +547,10 @@ class data extends Model
 
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
+        }
+
+        if (isset($map['maintainablePeriodTimeZone'])) {
+            $model->maintainablePeriodTimeZone = $map['maintainablePeriodTimeZone'];
         }
 
         return $model;
