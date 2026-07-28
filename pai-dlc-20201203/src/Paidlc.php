@@ -190,11 +190,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node on which the job runs.
+     * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-     * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+     * Make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+     * >Notice: The total length of CreateJob request parameters (including system-generated parameters) cannot exceed 65,536 bytes.
      *
      * @param request - CreateJobRequest
      * @param headers - map
@@ -336,11 +336,11 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node on which the job runs.
+     * Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
      *
      * @remarks
-     * Before you call this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-     * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+     * Make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before you call this operation.
+     * >Notice: The total length of CreateJob request parameters (including system-generated parameters) cannot exceed 65,536 bytes.
      *
      * @param request - CreateJobRequest
      *
@@ -1056,7 +1056,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed configuration and runtime information of a DLC job.
+     * Retrieves the detailed configuration and runtime information of a job.
      *
      * @param request - GetJobRequest
      * @param headers - map
@@ -1099,7 +1099,7 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * Retrieves the detailed configuration and runtime information of a DLC job.
+     * Retrieves the detailed configuration and runtime information of a job.
      *
      * @param request - GetJobRequest
      *
@@ -2512,6 +2512,10 @@ class Paidlc extends OpenApiClient
 
         if (null !== $request->resourceId) {
             @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
 
         if (null !== $request->resourceQuotaName) {

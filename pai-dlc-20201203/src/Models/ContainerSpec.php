@@ -39,6 +39,11 @@ class ContainerSpec extends Model
     public $resources;
 
     /**
+     * @var SecurityContext
+     */
+    public $securityContext;
+
+    /**
      * @var string
      */
     public $workingDir;
@@ -49,6 +54,7 @@ class ContainerSpec extends Model
         'image' => 'Image',
         'name' => 'Name',
         'resources' => 'Resources',
+        'securityContext' => 'SecurityContext',
         'workingDir' => 'WorkingDir',
     ];
 
@@ -65,6 +71,9 @@ class ContainerSpec extends Model
         }
         if (null !== $this->resources) {
             $this->resources->validate();
+        }
+        if (null !== $this->securityContext) {
+            $this->securityContext->validate();
         }
         parent::validate();
     }
@@ -115,6 +124,10 @@ class ContainerSpec extends Model
 
         if (null !== $this->resources) {
             $res['Resources'] = null !== $this->resources ? $this->resources->toArray($noStream) : $this->resources;
+        }
+
+        if (null !== $this->securityContext) {
+            $res['SecurityContext'] = null !== $this->securityContext ? $this->securityContext->toArray($noStream) : $this->securityContext;
         }
 
         if (null !== $this->workingDir) {
@@ -175,6 +188,10 @@ class ContainerSpec extends Model
 
         if (isset($map['Resources'])) {
             $model->resources = ResourceRequirements::fromMap($map['Resources']);
+        }
+
+        if (isset($map['SecurityContext'])) {
+            $model->securityContext = SecurityContext::fromMap($map['SecurityContext']);
         }
 
         if (isset($map['WorkingDir'])) {

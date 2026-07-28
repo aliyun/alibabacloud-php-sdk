@@ -26,6 +26,11 @@ class JobSpec extends Model
     /**
      * @var string
      */
+    public $driver;
+
+    /**
+     * @var string
+     */
     public $ecsSpec;
 
     /**
@@ -126,6 +131,7 @@ class JobSpec extends Model
         'assignNodeSpec' => 'AssignNodeSpec',
         'autoScalingSpec' => 'AutoScalingSpec',
         'considerInSuccessPolicy' => 'ConsiderInSuccessPolicy',
+        'driver' => 'Driver',
         'ecsSpec' => 'EcsSpec',
         'elasticSpotSpecs' => 'ElasticSpotSpecs',
         'extraPodSpec' => 'ExtraPodSpec',
@@ -202,6 +208,10 @@ class JobSpec extends Model
 
         if (null !== $this->considerInSuccessPolicy) {
             $res['ConsiderInSuccessPolicy'] = $this->considerInSuccessPolicy;
+        }
+
+        if (null !== $this->driver) {
+            $res['Driver'] = $this->driver;
         }
 
         if (null !== $this->ecsSpec) {
@@ -326,6 +336,10 @@ class JobSpec extends Model
 
         if (isset($map['ConsiderInSuccessPolicy'])) {
             $model->considerInSuccessPolicy = $map['ConsiderInSuccessPolicy'];
+        }
+
+        if (isset($map['Driver'])) {
+            $model->driver = $map['Driver'];
         }
 
         if (isset($map['EcsSpec'])) {

@@ -131,6 +131,11 @@ class ListJobsRequest extends Model
     /**
      * @var string
      */
+    public $resourceIds;
+
+    /**
+     * @var string
+     */
     public $resourceQuotaName;
 
     /**
@@ -212,6 +217,7 @@ class ListJobsRequest extends Model
         'pipelineId' => 'PipelineId',
         'reasonSearch' => 'ReasonSearch',
         'resourceId' => 'ResourceId',
+        'resourceIds' => 'ResourceIds',
         'resourceQuotaName' => 'ResourceQuotaName',
         'showOwn' => 'ShowOwn',
         'sortBy' => 'SortBy',
@@ -331,6 +337,10 @@ class ListJobsRequest extends Model
 
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
         }
 
         if (null !== $this->resourceQuotaName) {
@@ -491,6 +501,10 @@ class ListJobsRequest extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['ResourceIds'])) {
+            $model->resourceIds = $map['ResourceIds'];
         }
 
         if (isset($map['ResourceQuotaName'])) {

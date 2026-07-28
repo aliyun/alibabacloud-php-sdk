@@ -315,6 +315,11 @@ class JobItem extends Model
      * @var string
      */
     public $workspaceName;
+
+    /**
+     * @var string
+     */
+    public $supportedProfilingTypes;
     protected $_name = [
         'accessibility' => 'Accessibility',
         'clusterId' => 'ClusterId',
@@ -377,6 +382,7 @@ class JobItem extends Model
         'workingDir' => 'WorkingDir',
         'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
+        'supportedProfilingTypes' => 'supportedProfilingTypes',
     ];
 
     public function validate()
@@ -732,6 +738,10 @@ class JobItem extends Model
             $res['WorkspaceName'] = $this->workspaceName;
         }
 
+        if (null !== $this->supportedProfilingTypes) {
+            $res['supportedProfilingTypes'] = $this->supportedProfilingTypes;
+        }
+
         return $res;
     }
 
@@ -1044,6 +1054,10 @@ class JobItem extends Model
 
         if (isset($map['WorkspaceName'])) {
             $model->workspaceName = $map['WorkspaceName'];
+        }
+
+        if (isset($map['supportedProfilingTypes'])) {
+            $model->supportedProfilingTypes = $map['supportedProfilingTypes'];
         }
 
         return $model;

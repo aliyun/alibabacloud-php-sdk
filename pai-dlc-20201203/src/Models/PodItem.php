@@ -72,6 +72,11 @@ class PodItem extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $supportedProfilingTypes;
     protected $_name = [
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtFinishTime' => 'GmtFinishTime',
@@ -86,6 +91,7 @@ class PodItem extends Model
         'status' => 'Status',
         'subStatus' => 'SubStatus',
         'type' => 'Type',
+        'supportedProfilingTypes' => 'supportedProfilingTypes',
     ];
 
     public function validate()
@@ -168,6 +174,10 @@ class PodItem extends Model
             $res['Type'] = $this->type;
         }
 
+        if (null !== $this->supportedProfilingTypes) {
+            $res['supportedProfilingTypes'] = $this->supportedProfilingTypes;
+        }
+
         return $res;
     }
 
@@ -243,6 +253,10 @@ class PodItem extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['supportedProfilingTypes'])) {
+            $model->supportedProfilingTypes = $map['supportedProfilingTypes'];
         }
 
         return $model;

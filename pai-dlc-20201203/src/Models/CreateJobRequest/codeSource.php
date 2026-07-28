@@ -24,6 +24,11 @@ class codeSource extends Model
     public $commit;
 
     /**
+     * @var bool
+     */
+    public $isSharedMountPath;
+
+    /**
      * @var string
      */
     public $mountPath;
@@ -31,6 +36,7 @@ class codeSource extends Model
         'branch' => 'Branch',
         'codeSourceId' => 'CodeSourceId',
         'commit' => 'Commit',
+        'isSharedMountPath' => 'IsSharedMountPath',
         'mountPath' => 'MountPath',
     ];
 
@@ -52,6 +58,10 @@ class codeSource extends Model
 
         if (null !== $this->commit) {
             $res['Commit'] = $this->commit;
+        }
+
+        if (null !== $this->isSharedMountPath) {
+            $res['IsSharedMountPath'] = $this->isSharedMountPath;
         }
 
         if (null !== $this->mountPath) {
@@ -79,6 +89,10 @@ class codeSource extends Model
 
         if (isset($map['Commit'])) {
             $model->commit = $map['Commit'];
+        }
+
+        if (isset($map['IsSharedMountPath'])) {
+            $model->isSharedMountPath = $map['IsSharedMountPath'];
         }
 
         if (isset($map['MountPath'])) {

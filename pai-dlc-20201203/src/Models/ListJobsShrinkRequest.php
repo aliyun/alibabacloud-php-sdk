@@ -131,6 +131,11 @@ class ListJobsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceIds;
+
+    /**
+     * @var string
+     */
     public $resourceQuotaName;
 
     /**
@@ -212,6 +217,7 @@ class ListJobsShrinkRequest extends Model
         'pipelineId' => 'PipelineId',
         'reasonSearch' => 'ReasonSearch',
         'resourceId' => 'ResourceId',
+        'resourceIds' => 'ResourceIds',
         'resourceQuotaName' => 'ResourceQuotaName',
         'showOwn' => 'ShowOwn',
         'sortBy' => 'SortBy',
@@ -328,6 +334,10 @@ class ListJobsShrinkRequest extends Model
 
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+
+        if (null !== $this->resourceIds) {
+            $res['ResourceIds'] = $this->resourceIds;
         }
 
         if (null !== $this->resourceQuotaName) {
@@ -483,6 +493,10 @@ class ListJobsShrinkRequest extends Model
 
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+
+        if (isset($map['ResourceIds'])) {
+            $model->resourceIds = $map['ResourceIds'];
         }
 
         if (isset($map['ResourceQuotaName'])) {

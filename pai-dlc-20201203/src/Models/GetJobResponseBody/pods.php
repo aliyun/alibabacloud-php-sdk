@@ -79,6 +79,11 @@ class pods extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $supportedProfilingTypes;
     protected $_name = [
         'duration' => 'Duration',
         'gmtCreateTime' => 'GmtCreateTime',
@@ -94,6 +99,7 @@ class pods extends Model
         'status' => 'Status',
         'subStatus' => 'SubStatus',
         'type' => 'Type',
+        'supportedProfilingTypes' => 'supportedProfilingTypes',
     ];
 
     public function validate()
@@ -180,6 +186,10 @@ class pods extends Model
             $res['Type'] = $this->type;
         }
 
+        if (null !== $this->supportedProfilingTypes) {
+            $res['supportedProfilingTypes'] = $this->supportedProfilingTypes;
+        }
+
         return $res;
     }
 
@@ -259,6 +269,10 @@ class pods extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+
+        if (isset($map['supportedProfilingTypes'])) {
+            $model->supportedProfilingTypes = $map['supportedProfilingTypes'];
         }
 
         return $model;

@@ -248,6 +248,11 @@ class GetJobResponseBody extends Model
      * @var string
      */
     public $workspaceName;
+
+    /**
+     * @var string
+     */
+    public $supportedProfilingTypes;
     protected $_name = [
         'accessibility' => 'Accessibility',
         'clusterId' => 'ClusterId',
@@ -296,6 +301,7 @@ class GetJobResponseBody extends Model
         'userVpc' => 'UserVpc',
         'workspaceId' => 'WorkspaceId',
         'workspaceName' => 'WorkspaceName',
+        'supportedProfilingTypes' => 'supportedProfilingTypes',
     ];
 
     public function validate()
@@ -605,6 +611,10 @@ class GetJobResponseBody extends Model
             $res['WorkspaceName'] = $this->workspaceName;
         }
 
+        if (null !== $this->supportedProfilingTypes) {
+            $res['supportedProfilingTypes'] = $this->supportedProfilingTypes;
+        }
+
         return $res;
     }
 
@@ -868,6 +878,10 @@ class GetJobResponseBody extends Model
 
         if (isset($map['WorkspaceName'])) {
             $model->workspaceName = $map['WorkspaceName'];
+        }
+
+        if (isset($map['supportedProfilingTypes'])) {
+            $model->supportedProfilingTypes = $map['supportedProfilingTypes'];
         }
 
         return $model;
