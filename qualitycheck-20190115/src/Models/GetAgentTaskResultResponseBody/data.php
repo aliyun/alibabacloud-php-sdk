@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultRespo
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\dialogues;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\response;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetAgentTaskResultResponseBody\data\usage;
 
 class data extends Model
 {
@@ -23,17 +24,7 @@ class data extends Model
     /**
      * @var string
      */
-    public $inputTokens;
-
-    /**
-     * @var string
-     */
     public $llmRequestId;
-
-    /**
-     * @var string
-     */
-    public $outputTokens;
 
     /**
      * @var response
@@ -51,19 +42,9 @@ class data extends Model
     public $taskId;
 
     /**
-     * @var string
+     * @var usage
      */
-    public $totalTokens;
-
-    /**
-     * @var string
-     */
-    public $tyxmPlusCount;
-
-    /**
-     * @var string
-     */
-    public $tyxmTurboCount;
+    public $usage;
 
     /**
      * @var string
@@ -72,15 +53,11 @@ class data extends Model
     protected $_name = [
         'dialogues' => 'Dialogues',
         'errorMessage' => 'ErrorMessage',
-        'inputTokens' => 'InputTokens',
         'llmRequestId' => 'LlmRequestId',
-        'outputTokens' => 'OutputTokens',
         'response' => 'Response',
         'status' => 'Status',
         'taskId' => 'TaskId',
-        'totalTokens' => 'TotalTokens',
-        'tyxmPlusCount' => 'TyxmPlusCount',
-        'tyxmTurboCount' => 'TyxmTurboCount',
+        'usage' => 'Usage',
         'vid' => 'Vid',
     ];
 
@@ -91,6 +68,9 @@ class data extends Model
         }
         if (null !== $this->response) {
             $this->response->validate();
+        }
+        if (null !== $this->usage) {
+            $this->usage->validate();
         }
         parent::validate();
     }
@@ -113,16 +93,8 @@ class data extends Model
             $res['ErrorMessage'] = $this->errorMessage;
         }
 
-        if (null !== $this->inputTokens) {
-            $res['InputTokens'] = $this->inputTokens;
-        }
-
         if (null !== $this->llmRequestId) {
             $res['LlmRequestId'] = $this->llmRequestId;
-        }
-
-        if (null !== $this->outputTokens) {
-            $res['OutputTokens'] = $this->outputTokens;
         }
 
         if (null !== $this->response) {
@@ -137,16 +109,8 @@ class data extends Model
             $res['TaskId'] = $this->taskId;
         }
 
-        if (null !== $this->totalTokens) {
-            $res['TotalTokens'] = $this->totalTokens;
-        }
-
-        if (null !== $this->tyxmPlusCount) {
-            $res['TyxmPlusCount'] = $this->tyxmPlusCount;
-        }
-
-        if (null !== $this->tyxmTurboCount) {
-            $res['TyxmTurboCount'] = $this->tyxmTurboCount;
+        if (null !== $this->usage) {
+            $res['Usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
         }
 
         if (null !== $this->vid) {
@@ -179,16 +143,8 @@ class data extends Model
             $model->errorMessage = $map['ErrorMessage'];
         }
 
-        if (isset($map['InputTokens'])) {
-            $model->inputTokens = $map['InputTokens'];
-        }
-
         if (isset($map['LlmRequestId'])) {
             $model->llmRequestId = $map['LlmRequestId'];
-        }
-
-        if (isset($map['OutputTokens'])) {
-            $model->outputTokens = $map['OutputTokens'];
         }
 
         if (isset($map['Response'])) {
@@ -203,16 +159,8 @@ class data extends Model
             $model->taskId = $map['TaskId'];
         }
 
-        if (isset($map['TotalTokens'])) {
-            $model->totalTokens = $map['TotalTokens'];
-        }
-
-        if (isset($map['TyxmPlusCount'])) {
-            $model->tyxmPlusCount = $map['TyxmPlusCount'];
-        }
-
-        if (isset($map['TyxmTurboCount'])) {
-            $model->tyxmTurboCount = $map['TyxmTurboCount'];
+        if (isset($map['Usage'])) {
+            $model->usage = usage::fromMap($map['Usage']);
         }
 
         if (isset($map['Vid'])) {

@@ -59,8 +59,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteCustomizationConfigRequ
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteCustomizationConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteDataSetRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteDataSetResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeletePrecisionTaskRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeletePrecisionTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteQualityCheckSchemeRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteQualityCheckSchemeResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\DeleteRuleRequest;
@@ -103,8 +101,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetMiningTaskResultRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetMiningTaskResultResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetNextResultToVerifyResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetPrecisionTaskRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetPrecisionTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultRequest;
@@ -125,8 +121,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleV4Response;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSchemeTaskConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSchemeTaskConfigResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetScoreInfoResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSkillGroupConfigResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultRequest;
@@ -143,8 +137,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListDataSetResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListPrecisionTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListQualityCheckSchemeRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListQualityCheckSchemeResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRulesRequest;
@@ -178,8 +170,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SaveConfigDataSetRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SaveConfigDataSetResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitComplaintRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitComplaintResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitPrecisionTaskRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitPrecisionTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitQualityCheckTaskRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitQualityCheckTaskResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\SubmitReviewInfoRequest;
@@ -236,10 +226,6 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataV4Request;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataV4Response;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadRuleRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadRuleResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifyFileRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifyFileResponse;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceRequest;
-use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -2054,67 +2040,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * Delete a speech recognition quality check task.
-     *
-     * @param request - DeletePrecisionTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeletePrecisionTaskResponse
-     *
-     * @param DeletePrecisionTaskRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeletePrecisionTaskResponse
-     */
-    public function deletePrecisionTaskWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->baseMeAgentId) {
-            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-
-        if (null !== $request->jsonStr) {
-            @$query['JsonStr'] = $request->jsonStr;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'DeletePrecisionTask',
-            'version' => '2019-01-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return DeletePrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Delete a speech recognition quality check task.
-     *
-     * @param request - DeletePrecisionTaskRequest
-     *
-     * @returns DeletePrecisionTaskResponse
-     *
-     * @param DeletePrecisionTaskRequest $request
-     *
-     * @return DeletePrecisionTaskResponse
-     */
-    public function deletePrecisionTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deletePrecisionTaskWithOptions($request, $runtime);
-    }
-
-    /**
      * You can delete a quality check plan from the Quality Check Plan Management page by clicking the Delete button on the right side of the plan. The Apsara Stack API endpoint is ip:port/api/qcs/DeleteQualityCheckScheme.json.
      *
      * @param request - DeleteQualityCheckSchemeRequest
@@ -2937,7 +2862,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * Retrieves the task result of an agent node.
+     * Retrieves the task result of an Agent node.
      *
      * @param request - GetAgentTaskResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2980,7 +2905,7 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * Retrieves the task result of an agent node.
+     * Retrieves the task result of an Agent node.
      *
      * @param request - GetAgentTaskResultRequest
      *
@@ -3422,67 +3347,6 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNextResultToVerifyWithOptions($request, $runtime);
-    }
-
-    /**
-     * Retrieves the details of a (speech recognition) detection task.
-     *
-     * @param request - GetPrecisionTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPrecisionTaskResponse
-     *
-     * @param GetPrecisionTaskRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetPrecisionTaskResponse
-     */
-    public function getPrecisionTaskWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->baseMeAgentId) {
-            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-
-        if (null !== $request->jsonStr) {
-            @$query['JsonStr'] = $request->jsonStr;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetPrecisionTask',
-            'version' => '2019-01-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetPrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Retrieves the details of a (speech recognition) detection task.
-     *
-     * @param request - GetPrecisionTaskRequest
-     *
-     * @returns GetPrecisionTaskResponse
-     *
-     * @param GetPrecisionTaskRequest $request
-     *
-     * @return GetPrecisionTaskResponse
-     */
-    public function getPrecisionTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getPrecisionTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -4225,72 +4089,6 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * Retrieves information about all scoring items.
-     *
-     * @deprecated OpenAPI GetScoreInfo is deprecated
-     *
-     * @param request - GetScoreInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetScoreInfoResponse
-     *
-     * @param GetScoreInfoRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return GetScoreInfoResponse
-     */
-    public function getScoreInfoWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->baseMeAgentId) {
-            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-
-        if (null !== $request->jsonStr) {
-            @$query['JsonStr'] = $request->jsonStr;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'GetScoreInfo',
-            'version' => '2019-01-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return GetScoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    // Deprecated
-    /**
-     * Retrieves information about all scoring items.
-     *
-     * @deprecated OpenAPI GetScoreInfo is deprecated
-     *
-     * @param request - GetScoreInfoRequest
-     *
-     * @returns GetScoreInfoResponse
-     *
-     * @param GetScoreInfoRequest $request
-     *
-     * @return GetScoreInfoResponse
-     */
-    public function getScoreInfo($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getScoreInfoWithOptions($request, $runtime);
-    }
-
-    /**
      * Retrieves the configuration that is specified by its ID.
      *
      * @deprecated OpenAPI GetSkillGroupConfig is deprecated
@@ -4802,67 +4600,6 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataSetWithOptions($request, $runtime);
-    }
-
-    /**
-     * Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
-     *
-     * @param request - ListPrecisionTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPrecisionTaskResponse
-     *
-     * @param ListPrecisionTaskRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListPrecisionTaskResponse
-     */
-    public function listPrecisionTaskWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->baseMeAgentId) {
-            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-
-        if (null !== $request->jsonStr) {
-            @$query['JsonStr'] = $request->jsonStr;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'ListPrecisionTask',
-            'version' => '2019-01-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return ListPrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Retrieve the list of speech recognition precision tasks. Set the service endpoint to Hangzhou (cn-hangzhou).
-     *
-     * @param request - ListPrecisionTaskRequest
-     *
-     * @returns ListPrecisionTaskResponse
-     *
-     * @param ListPrecisionTaskRequest $request
-     *
-     * @return ListPrecisionTaskResponse
-     */
-    public function listPrecisionTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listPrecisionTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -6038,67 +5775,6 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitComplaintWithOptions($request, $runtime);
-    }
-
-    /**
-     * Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
-     *
-     * @param request - SubmitPrecisionTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SubmitPrecisionTaskResponse
-     *
-     * @param SubmitPrecisionTaskRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SubmitPrecisionTaskResponse
-     */
-    public function submitPrecisionTaskWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->baseMeAgentId) {
-            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-
-        if (null !== $request->jsonStr) {
-            @$query['JsonStr'] = $request->jsonStr;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'SubmitPrecisionTask',
-            'version' => '2019-01-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return SubmitPrecisionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Creates a speech recognition evaluation task. The service endpoint is China East 1 (Hangzhou) (cn-hangzhou).
-     *
-     * @param request - SubmitPrecisionTaskRequest
-     *
-     * @returns SubmitPrecisionTaskResponse
-     *
-     * @param SubmitPrecisionTaskRequest $request
-     *
-     * @return SubmitPrecisionTaskResponse
-     */
-    public function submitPrecisionTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitPrecisionTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -7997,127 +7673,5 @@ class Qualitycheck extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uploadRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * Saves the verification result of a single file.
-     *
-     * @param request - VerifyFileRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns VerifyFileResponse
-     *
-     * @param VerifyFileRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return VerifyFileResponse
-     */
-    public function verifyFileWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->baseMeAgentId) {
-            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-
-        if (null !== $request->jsonStr) {
-            @$query['JsonStr'] = $request->jsonStr;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'VerifyFile',
-            'version' => '2019-01-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return VerifyFileResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Saves the verification result of a single file.
-     *
-     * @param request - VerifyFileRequest
-     *
-     * @returns VerifyFileResponse
-     *
-     * @param VerifyFileRequest $request
-     *
-     * @return VerifyFileResponse
-     */
-    public function verifyFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->verifyFileWithOptions($request, $runtime);
-    }
-
-    /**
-     * Save the verification result for a single sentence.
-     *
-     * @param request - VerifySentenceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns VerifySentenceResponse
-     *
-     * @param VerifySentenceRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return VerifySentenceResponse
-     */
-    public function verifySentenceWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->baseMeAgentId) {
-            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
-        }
-
-        if (null !== $request->jsonStr) {
-            @$query['JsonStr'] = $request->jsonStr;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action' => 'VerifySentence',
-            'version' => '2019-01-15',
-            'protocol' => 'HTTPS',
-            'pathname' => '/',
-            'method' => 'POST',
-            'authType' => 'AK',
-            'style' => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType' => 'json',
-        ]);
-
-        return VerifySentenceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * Save the verification result for a single sentence.
-     *
-     * @param request - VerifySentenceRequest
-     *
-     * @returns VerifySentenceResponse
-     *
-     * @param VerifySentenceRequest $request
-     *
-     * @return VerifySentenceResponse
-     */
-    public function verifySentence($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->verifySentenceWithOptions($request, $runtime);
     }
 }
