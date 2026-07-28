@@ -29,6 +29,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\AttachApplicationPolarFSResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\BindPolarClawAgentRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\BindPolarClawAgentResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\BindResourceControlRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\BindResourceControlResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelCronJobPolicyServerlessRequest;
@@ -159,6 +161,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreatePolarFsObjectResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateRateLimitPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateRateLimitPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateResourceControlRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateResourceControlResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanRequest;
@@ -254,6 +258,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeletePolarFsQuotaResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteRateLimitPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteRateLimitPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteResourceControlRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteResourceControlResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteSQLRateLimitingRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAccountsRequest;
@@ -323,6 +329,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionIdsReque
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationSessionIdsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationsResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationUsageRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeApplicationUsageResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAvailableCrossRegionsRequest;
@@ -658,6 +666,9 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterDescriptionReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAIDBClusterDescriptionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationDescriptionResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationEndpointAddressRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationEndpointAddressResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationEndpointAddressShrinkRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyApplicationParameterShrinkRequest;
@@ -775,6 +786,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionRequ
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyPendingMaintenanceActionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyRateLimitPolicyRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyRateLimitPolicyResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourceControlRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourceControlResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourcePackageRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyResourcePackageResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyScheduleTaskRequest;
@@ -851,6 +864,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\TransformDBClusterPayTypeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindPolarClawAgentRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindPolarClawAgentResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindResourceControlRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UnbindResourceControlResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UninstallPolarClawPluginRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UninstallPolarClawPluginResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UntagResourcesRequest;
@@ -875,6 +890,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawCronJobShrinkReques
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawSkillRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawSkillResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpdatePolarClawSkillShrinkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeApplicationVersionRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeApplicationVersionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\UpgradeDBClusterVersionZonalRequest;
@@ -1848,6 +1865,87 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->bindPolarClawAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * Associates resource control.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+     *
+     * @param request - BindResourceControlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BindResourceControlResponse
+     *
+     * @param BindResourceControlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BindResourceControlResponse
+     */
+    public function bindResourceControlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceControlName) {
+            @$query['ResourceControlName'] = $request->resourceControlName;
+        }
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
+        }
+
+        if (null !== $request->targetValue) {
+            @$query['TargetValue'] = $request->targetValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'BindResourceControl',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return BindResourceControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Associates resource control.
+     *
+     * @remarks
+     * ## Operation description
+     * This API operation associates an agent (specified by `AgentId`) of PolarClaw (identified by `ApplicationId`) with a specified communication channel (`Channel`). You can also specify an account ID (`ChannelAccountId`) within the channel.
+     *
+     * @param request - BindResourceControlRequest
+     *
+     * @returns BindResourceControlResponse
+     *
+     * @param BindResourceControlRequest $request
+     *
+     * @return BindResourceControlResponse
+     */
+    public function bindResourceControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindResourceControlWithOptions($request, $runtime);
     }
 
     /**
@@ -8006,6 +8104,87 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Creates a resource control.
+     *
+     * @remarks
+     * ## Operation description
+     * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+     *
+     * @param request - CreateResourceControlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateResourceControlResponse
+     *
+     * @param CreateResourceControlRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateResourceControlResponse
+     */
+    public function createResourceControlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cpuCount) {
+            @$query['CpuCount'] = $request->cpuCount;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->maxCpu) {
+            @$query['MaxCpu'] = $request->maxCpu;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceControlName) {
+            @$query['ResourceControlName'] = $request->resourceControlName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateResourceControl',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateResourceControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Creates a resource control.
+     *
+     * @remarks
+     * ## Operation description
+     * You can call this operation to define and create a cron job. The cron job is triggered periodically based on a specified schedule and carries specific messages or instructions. Advanced options such as custom execution frequency, time zone settings, and alert mechanisms for failures are supported. You can also configure the message content, target channel, and recipients.
+     *
+     * @param request - CreateResourceControlRequest
+     *
+     * @returns CreateResourceControlResponse
+     *
+     * @param CreateResourceControlRequest $request
+     *
+     * @return CreateResourceControlResponse
+     */
+    public function createResourceControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createResourceControlWithOptions($request, $runtime);
+    }
+
+    /**
      * Ccreates a service-linked role.
      *
      * @param request - CreateServiceLinkedRoleRequest
@@ -11541,6 +11720,77 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Deletes a resource control.
+     *
+     * @remarks
+     * > The cluster must be in the Running state. Otherwise, the operation fails.
+     *
+     * @param request - DeleteResourceControlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteResourceControlResponse
+     *
+     * @param DeleteResourceControlRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteResourceControlResponse
+     */
+    public function deleteResourceControlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceControlName) {
+            @$query['ResourceControlName'] = $request->resourceControlName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteResourceControl',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteResourceControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes a resource control.
+     *
+     * @remarks
+     * > The cluster must be in the Running state. Otherwise, the operation fails.
+     *
+     * @param request - DeleteResourceControlRequest
+     *
+     * @returns DeleteResourceControlResponse
+     *
+     * @param DeleteResourceControlRequest $request
+     *
+     * @return DeleteResourceControlResponse
+     */
+    public function deleteResourceControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteResourceControlWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes SQL throttling rules.
      *
      * @param request - DeleteSQLRateLimitingRulesRequest
@@ -14253,6 +14503,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApplicationSessionIdsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the usage of an AI application.
+     *
+     * @param request - DescribeApplicationUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeApplicationUsageResponse
+     *
+     * @param DescribeApplicationUsageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeApplicationUsageResponse
+     */
+    public function describeApplicationUsageWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->days) {
+            @$query['Days'] = $request->days;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeApplicationUsage',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeApplicationUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the usage of an AI application.
+     *
+     * @param request - DescribeApplicationUsageRequest
+     *
+     * @returns DescribeApplicationUsageResponse
+     *
+     * @param DescribeApplicationUsageRequest $request
+     *
+     * @return DescribeApplicationUsageResponse
+     */
+    public function describeApplicationUsage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationUsageWithOptions($request, $runtime);
     }
 
     /**
@@ -28012,6 +28323,85 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Modifies the endpoint address of a PolarDB application.
+     *
+     * @param tmpReq - ModifyApplicationEndpointAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyApplicationEndpointAddressResponse
+     *
+     * @param ModifyApplicationEndpointAddressRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyApplicationEndpointAddressResponse
+     */
+    public function modifyApplicationEndpointAddressWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ModifyApplicationEndpointAddressShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->newPorts) {
+            $request->newPortsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->newPorts, 'NewPorts', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->endpointId) {
+            @$query['EndpointId'] = $request->endpointId;
+        }
+
+        if (null !== $request->netType) {
+            @$query['NetType'] = $request->netType;
+        }
+
+        if (null !== $request->newConnectionStringPrefix) {
+            @$query['NewConnectionStringPrefix'] = $request->newConnectionStringPrefix;
+        }
+
+        if (null !== $request->newPortsShrink) {
+            @$query['NewPorts'] = $request->newPortsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyApplicationEndpointAddress',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyApplicationEndpointAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies the endpoint address of a PolarDB application.
+     *
+     * @param request - ModifyApplicationEndpointAddressRequest
+     *
+     * @returns ModifyApplicationEndpointAddressResponse
+     *
+     * @param ModifyApplicationEndpointAddressRequest $request
+     *
+     * @return ModifyApplicationEndpointAddressResponse
+     */
+    public function modifyApplicationEndpointAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApplicationEndpointAddressWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the configuration parameters of a sub-component within a specified PolarDB application.
      *
      * @param tmpReq - ModifyApplicationParameterRequest
@@ -33271,6 +33661,85 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Modifies resource control.
+     *
+     * @remarks
+     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     *
+     * @param request - ModifyResourceControlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyResourceControlResponse
+     *
+     * @param ModifyResourceControlRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyResourceControlResponse
+     */
+    public function modifyResourceControlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cpuCount) {
+            @$query['CpuCount'] = $request->cpuCount;
+        }
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->maxCpu) {
+            @$query['MaxCpu'] = $request->maxCpu;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceControlName) {
+            @$query['ResourceControlName'] = $request->resourceControlName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyResourceControl',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyResourceControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Modifies resource control.
+     *
+     * @remarks
+     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
+     *
+     * @param request - ModifyResourceControlRequest
+     *
+     * @returns ModifyResourceControlResponse
+     *
+     * @param ModifyResourceControlRequest $request
+     *
+     * @return ModifyResourceControlResponse
+     */
+    public function modifyResourceControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyResourceControlWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies a cross-cloud resource plan.
      *
      * @param request - ModifyResourcePackageRequest
@@ -36124,6 +36593,87 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * Unbinds a resource control.
+     *
+     * @remarks
+     * > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
+     * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+     *
+     * @param request - UnbindResourceControlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnbindResourceControlResponse
+     *
+     * @param UnbindResourceControlRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UnbindResourceControlResponse
+     */
+    public function unbindResourceControlWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceControlName) {
+            @$query['ResourceControlName'] = $request->resourceControlName;
+        }
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
+        }
+
+        if (null !== $request->targetValue) {
+            @$query['TargetValue'] = $request->targetValue;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UnbindResourceControl',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UnbindResourceControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Unbinds a resource control.
+     *
+     * @remarks
+     * > * Only the privileged user of a PolarDB for MySQL cluster can be reset.
+     * > * If the privileged user encounters issues, such as permissions being unexpectedly revoked (REVOKE), you can reset the permissions of the privileged user to restore it to normal.
+     *
+     * @param request - UnbindResourceControlRequest
+     *
+     * @returns UnbindResourceControlResponse
+     *
+     * @param UnbindResourceControlRequest $request
+     *
+     * @return UnbindResourceControlResponse
+     */
+    public function unbindResourceControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindResourceControlWithOptions($request, $runtime);
+    }
+
+    /**
      * Uninstalls a PolarClaw plugin.
      *
      * @param request - UninstallPolarClawPluginRequest
@@ -36918,6 +37468,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePolarClawSkillWithOptions($request, $runtime);
+    }
+
+    /**
+     * Upgrades an application to a new version.
+     *
+     * @param request - UpgradeApplicationVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeApplicationVersionResponse
+     *
+     * @param UpgradeApplicationVersionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpgradeApplicationVersionResponse
+     */
+    public function upgradeApplicationVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        if (null !== $request->upgradePolicy) {
+            @$query['UpgradePolicy'] = $request->upgradePolicy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeApplicationVersion',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpgradeApplicationVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Upgrades an application to a new version.
+     *
+     * @param request - UpgradeApplicationVersionRequest
+     *
+     * @returns UpgradeApplicationVersionResponse
+     *
+     * @param UpgradeApplicationVersionRequest $request
+     *
+     * @return UpgradeApplicationVersionResponse
+     */
+    public function upgradeApplicationVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeApplicationVersionWithOptions($request, $runtime);
     }
 
     /**
